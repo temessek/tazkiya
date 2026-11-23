@@ -1069,3 +1069,10 @@ body.film-open { overflow: hidden; }
 .move .h { font-size: calc(26px * var(--k)); line-height: 1.35; margin: 0; padding: 0; }
 .move .move-alt { margin: 4px 0 14px; }
 .move .short { margin: 0 0 18px; line-height: 1.7; }
+/* install button in the top bar (hidden once installed) */
+.top .pill.inst { display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 5px 12px; background: var(--ink); color: var(--paper); border-color: var(--ink); font-weight: 600; }
+.top .pill.inst[hidden] { display: none; }
+/* on phones the share button steps aside while the install button shows (it returns once the app is installed) */
+@media (max-width: 440px) { body.has-inst .top .pill.share { display: none; } }
+@media (max-width: 400px) { .top .pill.inst { padding: 5px 11px; } .top .pill.inst svg { display: none; } }
+@media (max-width: 310px) { .top .pill.inst svg { display: block; } .top .pill.inst span { display: none; } }

@@ -465,8 +465,16 @@
   const INSTKEY = "tazkiya-install-later", BKLATER = "tazkiya-backup-later";
   const ANDROID = /Android/i.test(UAS);
   const MAC_SAFARI = !IOS && /Macintosh/.test(UAS) && /Safari\//.test(UAS) && !/Chrome|Chromium|CriOS|FxiOS|Edg|OPR|Firefox/.test(UAS);
-  window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); installEv = e; if (route().name === "home" && sheet.hidden && !TOUR) render(true); });
-  window.addEventListener("appinstalled", () => { installEv = null; if (route().name === "home") render(true); });
+  window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); installEv = e; instBtn(); if (route().name === "home" && sheet.hidden && !TOUR) render(true); });
+  window.addEventListener("appinstalled", () => { installEv = null; instBtn(); if (route().name === "home") render(true); });
+  // the install button in the top bar: shown while the app can be installed (Chrome's prompt, or Safari's steps on iPhone and iPad)
+  function instBtn() {
+    const b = document.getElementById("instBtn"); if (!b) return;
+    const on = !STANDALONE() && (!!installEv || IOS);
+    b.hidden = !on; document.body.classList.toggle("has-inst", on); if (!on) return;
+    b.dataset.act = installEv ? "install" : "ioshow";
+    const w = u("instNow"); b.querySelector("span").textContent = w; b.setAttribute("aria-label", u("instT")); b.title = u("instT");
+  }
   const STANDALONE = () => { try { return matchMedia("(display-mode: standalone)").matches || navigator.standalone === true; } catch (e) { return false; } };
   S.parent = false; // parent mode is off for now (owner decision, 21 Nov 2026)
   Object.keys(S.tasks || {}).forEach(k => { if (S.tasks[k] === "done") delete S.tasks[k]; });
@@ -2380,6 +2388,7 @@
     document.getElementById("brand").textContent = u("brand");
     langLabel();
     const sb = document.getElementById("setBtn"); if (sb) { sb.setAttribute("aria-label", u("settings")); sb.title = u("settings"); }
+    instBtn();
     const shb = document.getElementById("shareBtn"); if (shb) { shb.setAttribute("aria-label", u("shareT")); shb.title = u("shareT"); }
     document.getElementById("langBtn").setAttribute("lang", L() === "ar" ? "en" : "ar");
     { const ab = document.getElementById("ageBtn"); if (ab) { const w = u(GRPK[GRP(S)]); ab.innerHTML = `<span>${esc(w)}</span><svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`; ab.setAttribute("aria-label", u("agT") + ": " + w); ab.title = u("agT"); } }

@@ -56,13 +56,14 @@
 <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="assets/splash/launch-1536x2048.png">
 <link rel="preload" href="assets/fonts/plex-400-ar.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="assets/hand.webp" fetchpriority="high">
-<link rel="stylesheet" href="styles.css?v=85">
+<link rel="stylesheet" href="styles.css?v=86">
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
 <header class="top">
   <a class="brand" href="#/" id="brand">تزكية</a>
   <div class="topctl">
+    <button class="pill inst" id="instBtn" type="button" data-act="install" hidden><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5"/><path d="M5 19h14"/></svg><span></span></button>
     <button class="pill share" id="shareBtn" type="button" data-act="shareapp"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5"/><path d="M6 11H5v9h14v-9h-1"/></svg></button>
     <button class="pill gear" id="setBtn" type="button" data-act="settings"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/><circle cx="9" cy="7" r="2" fill="#fbe9d6"/><circle cx="15" cy="12" r="2" fill="#fbe9d6"/><circle cx="8" cy="17" r="2" fill="#fbe9d6"/></svg></button>
     <button class="pill age" id="ageBtn" type="button" data-act="agesheet"></button>
@@ -77,6 +78,6 @@
 <script src="fallback.js?v=5" defer></script>
 <script src="content/content.js?v=26" defer></script>
 <script src="fx.js?v=2" defer></script>
-<script src="app.js?v=88" defer></script>
+<script src="app.js?v=89" defer></script>
 </body>
 </html>
