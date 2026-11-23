@@ -13,7 +13,7 @@ const outProfile = p => (p.gone ? { pid: p.pid, gone: true, updated: p.updated }
 
 export async function me(req, env, url, s) {
   const profiles = (await profilesOf(env.DB)(s.account.id)).map(outProfile);
-  return json({ account: { email: s.account.email, google: s.account.google }, profiles, profile_max: PROFILE_MAX });
+  return json({ account: { email: s.account.email, google: s.account.google, adult_at: s.account.adult_at }, profiles, profile_max: PROFILE_MAX });
 }
 
 // Adds or renames profiles. A deleted profile comes back only with fresh: true (a new person in that place).

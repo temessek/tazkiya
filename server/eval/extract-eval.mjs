@@ -17,13 +17,14 @@ if (!A || !TOK) { console.error("CF_ACCOUNT_ID and CF_API_TOKEN are required"); 
 
 
 async function run(model, s) {
-  const body = modelInput(model, s.text, s.lang, s.edition, s.gender);
+  // since 23 Nov 2026 the prompt is adult-only; the children's samples stay as a record of the first comparison
+  const body = modelInput(model, s.text, s.lang, s.gender);
   const t0 = Date.now();
   const r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${A}/ai/run/${model}`, { method: "POST", headers: { authorization: "Bearer " + TOK, "content-type": "application/json" }, body: JSON.stringify(body) });
   const ms = Date.now() - t0, j = await r.json().catch(() => null);
   if (!r.ok || !j || !j.success) return { ms, error: JSON.stringify(j && j.errors || r.status).slice(0, 300) };
   const parsed = parseAnswer(j.result);
-  return { ms, usage: j.result.usage || null, parsed, care: parsed && (parsed.risk || riskWords(s.text)) ? careLine(s.lang, s.edition, s.gender) : undefined,
+  return { ms, usage: j.result.usage || null, parsed, care: parsed && (parsed.risk || riskWords(s.text)) ? careLine(s.lang, s.gender) : undefined,
     raw: typeof j.result.response === "string" ? j.result.response.slice(0, 1500) : undefined };
 }
 

@@ -29,7 +29,7 @@ export async function requireSession(req, env) {
   if (!token || !/^[A-Za-z0-9_-]{43}$/.test(token)) throw new HttpError(401, "signed_out");
   const hash = await sha256(token), now = Date.now();
   const s = await env.DB.prepare(
-    "SELECT s.account_id, s.expires, s.seen, a.email, a.google_sub FROM sessions s JOIN accounts a ON a.id = s.account_id WHERE s.hash = ?")
+    "SELECT s.account_id, s.expires, s.seen, a.email, a.google_sub, a.adult_at FROM sessions s JOIN accounts a ON a.id = s.account_id WHERE s.hash = ?")
     .bind(hash).first();
   if (!s || s.expires < now) {
     if (s) await env.DB.prepare("DELETE FROM sessions WHERE hash = ?").bind(hash).run();
@@ -40,7 +40,7 @@ export async function requireSession(req, env) {
     await env.DB.prepare("UPDATE sessions SET seen = ?, expires = ? WHERE hash = ?").bind(now, now + SESSION_DAYS * DAY, hash).run();
     setCookie = cookie(SESSION_COOKIE, token, SESSION_DAYS * 86400);
   }
-  return { account: { id: s.account_id, email: s.email, google: !!s.google_sub }, hash, setCookie };
+  return { account: { id: s.account_id, email: s.email, google: !!s.google_sub, adult_at: s.adult_at || null }, hash, setCookie };
 }
 
 export async function logout(req, env) {

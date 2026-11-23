@@ -1,9 +1,9 @@
 import { HttpError, json, errorResponse, checkCsrf } from "./http.js";
 import { emailStart, emailVerifyPage, emailVerify, googleStart, googleCallback, logout, requireSession, authInfo } from "./auth.js";
 import { me, profilePut, profileDelete, sync, entryDelete, burn, accountDelete } from "./sync.js";
-import { extract } from "./extract.js";
+import { extract, attestAdult } from "./extract.js";
 
-const health = (req, env) => json({ ok: true, env: env.APP_ENV || "unknown", sign_in: authInfo(env), ai: !!env.AI, ai_kids: !!env.AI && env.AI_KIDS === "on" });
+const health = (req, env) => json({ ok: true, env: env.APP_ENV || "unknown", sign_in: authInfo(env), ai: !!env.AI });
 
 // [method, path, handler, options]. auth: a session is required. csrf: false only where the route checks its own origin.
 const ROUTES = [
@@ -21,6 +21,7 @@ const ROUTES = [
   ["DELETE", /^\/api\/entries\/(p[1-9])\/([a-z]{1,12})\/([a-z0-9-]{1,24})$/, entryDelete, { auth: true }],
   ["POST", /^\/api\/burn$/, burn, { auth: true }],
   ["DELETE", /^\/api\/account$/, accountDelete, { auth: true }],
+  ["POST", /^\/api\/account\/adult$/, attestAdult, { auth: true }],
   ["POST", /^\/api\/extract$/, extract, { auth: true }],
 ];
 

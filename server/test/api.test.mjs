@@ -28,7 +28,7 @@ before(async () => {
   execSync(`mkdir "${stat}"`, { shell: true });
   writeFileSync(join(stat, "index.html"), "<!doctype html><title>t</title>");
   execSync(`${npx} -y wrangler@4 d1 migrations apply tazkiya --local --persist-to "${state}"`, { cwd: ROOT, stdio: "pipe", shell: true, env: { ...process.env, CI: "1" } });
-  const vars = { MAIL_MODE: "test", TEST_KEY, AI_MODE: "stub", APP_ENV: "local", LIMIT_MAIL_IP: "4", LIMIT_MAIL_TO: "3", LIMIT_AI_ACCOUNT: "3", LIMIT_SYNC_ACCOUNT: "500", GOOGLE_CLIENT_SECRET: "local-dummy-secret", AI_KIDS: process.env.AI_KIDS || "on" };
+  const vars = { MAIL_MODE: "test", TEST_KEY, AI_MODE: "stub", APP_ENV: "local", LIMIT_MAIL_IP: "4", LIMIT_MAIL_TO: "3", LIMIT_AI_ACCOUNT: "3", LIMIT_SYNC_ACCOUNT: "500", GOOGLE_CLIENT_SECRET: "local-dummy-secret" };
   const args = ["-y", "wrangler@4", "pages", "dev", stat, "--port", String(PORT), "--ip", "127.0.0.1", "--persist-to", state, "--show-interactive-dev-session=false",
     ...Object.entries(vars).flatMap(([k, v]) => ["--binding", `${k}=${v}`])];
   proc = spawn(npx, args, { cwd: ROOT, shell: true, stdio: ["ignore", "pipe", "pipe"], env: { ...process.env, CI: "1" } });
@@ -342,32 +342,56 @@ test("delete the account: everything goes, the session ends, the same email star
   assert.equal((await b("POST", "/api/sync", { since: "0" })).body.changes.length, 0);
 });
 
-test("AI extract: validation, shape, the care line, the children's switch, rate limit", async () => {
-  const kidsOn = (await client()("GET", "/api/health")).body.ai_kids;
+test("adult attestation: stated once, kept with its time, shown in /me", async () => {
+  const c = client(); await signIn(c, mail("attest"));
+  assert.equal((await c("GET", "/api/me")).body.account.adult_at, null);
+  for (const body of [{}, { confirm: "yes" }, { confirm: true, age: 30 }]) assert.equal((await c("POST", "/api/account/adult", body)).body.error, "confirm_required");
+  const r = await c("POST", "/api/account/adult", { confirm: true });
+  assert.equal(r.status, 200); assert.ok(r.body.adult_at > now() - 60000);
+  const again = await c("POST", "/api/account/adult", { confirm: true });
+  assert.equal(again.body.adult_at, r.body.adult_at, "the first statement's time is kept");
+  assert.equal((await c("GET", "/api/me")).body.account.adult_at, r.body.adult_at);
+});
+
+test("AI extract: adults only, the holder's own profile, validation, the care line, rate limit", async () => {
   const c = client(); await signIn(c, mail("ai"));
-  assert.equal((await c("POST", "/api/extract", { text: "short", lang: "ar", edition: "adult" })).body.error, "bad_text");
-  assert.equal((await c("POST", "/api/extract", { text: "x".repeat(8001), edition: "adult" })).body.error, "bad_text");
-  assert.equal((await c("POST", "/api/extract", { text: "a fine long enough entry", other: 1 })).body.error, "unknown_field");
-  const r = await c("POST", "/api/extract", { text: "Today my colleague covered for me when I was late, then I lost my temper with my son.", lang: "en", edition: "adult" });
+  await c("POST", "/api/sync", { since: "0", profiles: [{ pid: "p1", name: "Parent", edition: "adult" }, { pid: "p2", name: "Child", edition: "kids" }, { pid: "p3", name: "Teen", edition: "adult" }] });
+  const ok = { pid: "p1", text: "Today my colleague covered for me when I was late, then I lost my temper with my son.", lang: "en" };
+  // without the attestation: refused
+  let r = await c("POST", "/api/extract", ok);
+  assert.equal(r.status, 403); assert.equal(r.body.error, "adult_attestation_required");
+  await c("POST", "/api/account/adult", { confirm: true });
+  // a child's profile, another family member's profile, the children's edition: refused
+  r = await c("POST", "/api/extract", { ...ok, pid: "p2" }); assert.equal(r.status, 403); assert.equal(r.body.error, "own_profile_only");
+  r = await c("POST", "/api/extract", { ...ok, pid: "p3" }); assert.equal(r.status, 403); assert.equal(r.body.error, "own_profile_only");
+  r = await c("POST", "/api/extract", { ...ok, edition: "kids" }); assert.equal(r.status, 403); assert.equal(r.body.error, "not_for_children");
+  // the holder's own profile set to the children's edition: refused
+  await c("PUT", "/api/profiles/p1", { name: "Parent", edition: "kids" });
+  r = await c("POST", "/api/extract", ok); assert.equal(r.status, 403); assert.equal(r.body.error, "not_for_children");
+  await c("PUT", "/api/profiles/p1", { name: "Parent", edition: "adult" });
+  // validation
+  assert.equal((await c("POST", "/api/extract", { text: ok.text })).body.error, "bad_pid");
+  assert.equal((await c("POST", "/api/extract", { ...ok, text: "short" })).body.error, "bad_text");
+  assert.equal((await c("POST", "/api/extract", { ...ok, text: "x".repeat(8001) })).body.error, "bad_text");
+  assert.equal((await c("POST", "/api/extract", { ...ok, other: 1 })).body.error, "unknown_field");
+  assert.equal((await c("POST", "/api/extract", { ...ok, source: "child" })).body.error, "bad_source");
+  // the adult's own journal
+  r = await c("POST", "/api/extract", ok);
   assert.equal(r.status, 200, JSON.stringify(r.body));
   assert.ok(Array.isArray(r.body.blessings) && r.body.blessings.length >= 1 && r.body.blessings.length <= 3);
   assert.ok(Array.isArray(r.body.challenges) && r.body.challenges.length <= 3);
   assert.equal(r.body.care, undefined);
-  // the children's edition answers only when AI_KIDS is on
-  const kid = await c("POST", "/api/extract", { text: "My brother hits me when no one is home.", lang: "en", edition: "kids" });
-  if (!kidsOn) { assert.equal(kid.status, 403); assert.equal(kid.body.error, "kids_not_enabled"); }
-  else { assert.equal(kid.status, 200); assert.match(kid.body.care, /grown-up you trust/); }
   if (REMOTE) {
     // the real model on the preview: Arabic in, Arabic out, and the care line for a frightening entry
-    const ar = await c("POST", "/api/extract", { text: "اليوم ساعدت أمي في ترتيب المطبخ وفرحت كثيرًا. لكني تأخرت في صلاة العصر لأني انشغلت بالهاتف.", lang: "ar", edition: "adult", gender: "m" });
+    const ar = await c("POST", "/api/extract", { pid: "p1", text: "اليوم ساعدت أمي في ترتيب المطبخ وفرحت كثيرًا. لكني تأخرت في صلاة العصر لأني انشغلت بالهاتف.", lang: "ar", gender: "m" });
     assert.equal(ar.status, 200, JSON.stringify(ar.body));
     assert.ok(ar.body.blessings.length >= 1 && ar.body.blessings.every(x => /[؀-ۿ]/.test(x)), JSON.stringify(ar.body));
-    const k = await c("POST", "/api/extract", { text: "زوجي يضربني حين يغضب، ولا أعرف ماذا أفعل.", lang: "ar", edition: "adult", gender: "f" });
-    assert.match(k.body.care || "", /تثقين به/);
+    const k = await c("POST", "/api/extract", { pid: "p1", source: "session", text: "جلستُ مع ابني بعد المدرسة، فأخبرني أن ولدًا في الصف يضربه كل يوم ويأخذ مصروفه.", lang: "ar", gender: "f" });
+    assert.equal(k.status, 200, JSON.stringify(k.body)); assert.match(k.body.care || "", /طفلك في خطر/);
   } else {
-    const ar = await c("POST", "/api/extract", { text: "اليوم كان صعبًا لأن أخي يضربني كثيرًا.", lang: "ar", edition: kidsOn ? "kids" : "adult", gender: "f" });
-    assert.match(ar.body.care, /تثقين/);
-    let lim; for (let i = 0; i < 3 && (!lim || lim.status !== 429); i++) lim = await c("POST", "/api/extract", { text: "one more entry for the limit", lang: "en", edition: "adult" });
+    const k = await c("POST", "/api/extract", { pid: "p1", source: "session", text: "My son told me a boy at school hits him every day.", lang: "en" });
+    assert.match(k.body.care, /If your child may be unsafe/);
+    let lim; for (let i = 0; i < 3 && (!lim || lim.status !== 429); i++) lim = await c("POST", "/api/extract", { ...ok, text: "one more entry for the limit" });
     assert.equal(lim.status, 429, "the per-account daily limit (3 in tests) is reached");
   }
 });
