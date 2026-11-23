@@ -14,7 +14,7 @@ adult_page.write()
 
 CANON = "https://tazkiya.family/"
 FILES = ["index.html", "404.html", "boot.js", "styles.css", "app.js", "fx.js", "intro.js", "fallback.js", "sw.js", "manifest.json",
-         "content/content.js", "content/content-adult.js", "content/books.js", "adult/index.html", "parents/index.html", "training/index.html"]
+         "content/content.js", "content/content-adult.js", "content/books.js", "adult/index.html", "parents/index.html", "training/index.html", "privacy/index.html"]
 MINIFY = ["app.js", "fx.js", "intro.js", "styles.css"]  # minified on publish only; the source stays readable with no build step
 
 # QR codes for the two public links, drawn once here (no request to any service) and shown in the share sheet
@@ -94,6 +94,8 @@ HEADERS = f"""/*
 /parents/*
   Cache-Control: no-cache
 /training/*
+  Cache-Control: no-cache
+/privacy/*
   Cache-Control: no-cache
 /assets/*
   Cache-Control: public, max-age=604800
