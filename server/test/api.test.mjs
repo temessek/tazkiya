@@ -7,6 +7,7 @@ import assert from "node:assert/strict";
 import { spawn, execSync } from "node:child_process";
 import { mkdtempSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
+import { createHash } from "node:crypto";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -15,7 +16,7 @@ const REMOTE = !!process.env.BASE;
 const TEST_KEY = process.env.TEST_KEY || "local-test-key-" + Math.random().toString(36).slice(2);
 const PORT = 8790 + Math.floor(Math.random() * 100);
 let BASE = process.env.BASE || `http://127.0.0.1:${PORT}`;
-let proc, tmp;
+let proc, tmp, STATE;
 const RUN = Math.random().toString(36).slice(2, 8);   // keeps addresses unique across runs against a preview
 let ipN = 0; const freshIp = () => `10.0.${RUN.length}.${++ipN}`;
 
@@ -24,12 +25,12 @@ const npx = process.platform === "win32" ? "npx.cmd" : "npx";
 before(async () => {
   if (REMOTE) return;
   tmp = mkdtempSync(join(tmpdir(), "tazkiya-api-"));
-  const stat = join(tmp, "static"), state = join(tmp, "state");
+  const stat = join(tmp, "static"), state = join(tmp, "state"); STATE = state;
   execSync(`mkdir "${stat}"`, { shell: true });
   writeFileSync(join(stat, "index.html"), "<!doctype html><title>t</title>");
-  execSync(`${npx} -y wrangler@4 d1 migrations apply tazkiya --local --persist-to "${state}"`, { cwd: ROOT, stdio: "pipe", shell: true, env: { ...process.env, CI: "1" } });
-  const vars = { MAIL_MODE: "test", TEST_KEY, AI_MODE: "stub", APP_ENV: "local", LIMIT_MAIL_IP: "4", LIMIT_MAIL_TO: "3", LIMIT_AI_ACCOUNT: "3", LIMIT_SYNC_ACCOUNT: "500", GOOGLE_CLIENT_SECRET: "local-dummy-secret" };
-  const args = ["-y", "wrangler@4", "pages", "dev", stat, "--port", String(PORT), "--ip", "127.0.0.1", "--persist-to", state, "--show-interactive-dev-session=false",
+  execSync(`${npx} -y wrangler@4.167.0 d1 migrations apply tazkiya --local --persist-to "${state}"`, { cwd: ROOT, stdio: "pipe", shell: true, env: { ...process.env, CI: "1" } });
+  const vars = { MAIL_MODE: "test", TEST_KEY, AI_MODE: "stub", APP_ENV: "local", LIMIT_MAIL_IP: "4", LIMIT_MAIL_TO: "3", LIMIT_AI_ACCOUNT: "3", LIMIT_SYNC_ACCOUNT: "500", LIMIT_ACCOUNT_BYTES: "1200000", LIMIT_ACCOUNT_ROWS: "1000", GOOGLE_CLIENT_SECRET: "local-dummy-secret" };
+  const args = ["-y", "wrangler@4.167.0", "pages", "dev", stat, "--port", String(PORT), "--ip", "127.0.0.1", "--persist-to", state, "--show-interactive-dev-session=false",
     ...Object.entries(vars).flatMap(([k, v]) => ["--binding", `${k}=${v}`])];
   proc = spawn(npx, args, { cwd: ROOT, shell: true, stdio: ["ignore", "pipe", "pipe"], env: { ...process.env, CI: "1" } });
   let log = ""; proc.stdout.on("data", d => (log += d)); proc.stderr.on("data", d => (log += d));
@@ -436,4 +437,77 @@ test("Google sign-in: inactive without its secret, otherwise a PKCE redirect bou
     assert.equal(cb.status, 302); assert.equal(cb.headers.get("location"), "/#/signin?err=google");
     assert.equal(who.jar["__Host-tz"], undefined);
   }
+});
+
+// ---------- security review, 23 Nov 2026 ----------
+
+test("security headers on every API answer: HSTS, a CSP that runs nothing, no framing, no caching", async () => {
+  for (const r of [await client()("GET", "/api/health"), await client()("GET", "/api/me"), await client()("GET", "/api/nothing")]) {
+    assert.match(r.headers.get("strict-transport-security") || "", /max-age=31536000/);
+    assert.match(r.headers.get("content-security-policy") || "", /default-src 'none'.*frame-ancestors 'none'/);
+    assert.equal(r.headers.get("x-frame-options"), "DENY"); assert.equal(r.headers.get("cache-control"), "no-store");
+    assert.equal(r.headers.get("x-content-type-options"), "nosniff"); assert.equal(r.headers.get("access-control-allow-origin"), null);
+  }
+});
+
+test("bodies are cut off at their limit, with or without Content-Length", async () => {
+  const c = client();
+  const big = JSON.stringify({ email: "x".repeat(10000) + "@example.com" });
+  assert.equal((await c("POST", "/api/auth/email/start", big, { raw: true, headers: { "content-type": "application/json" } })).status, 413);
+  // a streamed (chunked) body has no Content-Length: it is still refused past the limit
+  const stream = new ReadableStream({ start(ctl) { for (let i = 0; i < 20; i++) ctl.enqueue(new TextEncoder().encode("x".repeat(1024))); ctl.close(); } });
+  const r = await fetch(BASE + "/api/auth/email/start", { method: "POST", body: stream, duplex: "half",
+    headers: { origin: new URL(BASE).origin, "x-tazkiya": "1", "x-test-ip": freshIp(), "content-type": "application/json" } });
+  assert.equal(r.status, 413);
+});
+
+test("one account never reaches another's journal, profiles, entries or burn (IDOR)", async () => {
+  const a = client(); await signIn(a, mail("idor-a"));
+  const b = client(); await signIn(b, mail("idor-b"));
+  const T = now() - 5000;
+  await a("POST", "/api/sync", { since: "0", profiles: [{ pid: "p1", name: "A" }, { pid: "p2", name: "A kid" }],
+    changes: [{ pid: "p2", kind: "note", id: "secret1", t: T, u: T, data: { tx: "a's child wrote this" } },
+              { pid: "p1", kind: "challenge", id: "ch1", t: T, u: T, data: { tx: "a's challenge" } }] });
+  // b pulls from the beginning: nothing of a's
+  const pb = await b("POST", "/api/sync", { since: "0" });
+  assert.equal(pb.body.changes.length, 0); assert.deepEqual(pb.body.profiles, []);
+  assert.ok(!JSON.stringify(pb.body).includes("a's"));
+  // b's deletes and burn name the same pids and ids, and act only inside b's own account
+  assert.equal((await b("DELETE", "/api/entries/p2/note/secret1")).status, 404);
+  assert.equal((await b("POST", "/api/burn", { pid: "p1" })).status, 404);
+  assert.equal((await b("DELETE", "/api/profiles/p2")).status, 200);
+  // b writing the same ids into its own p1 does not touch a's rows
+  await b("POST", "/api/sync", { since: "0", profiles: [{ pid: "p1" }, { pid: "p2", fresh: true }], changes: [{ pid: "p2", kind: "note", id: "secret1", t: T, u: T + 99999, data: { tx: "b's text" } }] });
+  const pa = await a("POST", "/api/sync", { since: "0" });
+  assert.equal(pa.body.changes.find(x => x.id === "secret1").data.tx, "a's child wrote this");
+  assert.equal(pa.body.changes.find(x => x.id === "ch1").data.tx, "a's challenge");
+  assert.equal(pa.body.profiles.find(p => p.pid === "p2").name, "A kid");
+});
+
+test("an account's stored journal has a ceiling, in bytes and in rows (deletion markers too)", { skip: REMOTE }, async () => {
+  const c = client(); await signIn(c, mail("full"));
+  const T = now() - 60000;
+  const notes = k => Array.from({ length: 95 }, (_, i) => ({ pid: "p1", kind: "note", id: `n${k}-${i}`, t: T + i, u: T + i, data: { tx: "x".repeat(8000) } }));
+  let r = await c("POST", "/api/sync", { since: "0", profiles: [{ pid: "p1" }], changes: notes(0) });
+  assert.equal(r.status, 200, JSON.stringify(r.body).slice(0, 200));
+  r = await c("POST", "/api/sync", { since: "0", changes: notes(1) });
+  assert.equal(r.status, 413); assert.equal(r.body.error, "account_full");
+  // rows: bare deletion markers carry no text, yet they count
+  const d = client(); await signIn(d, mail("rows"));
+  for (let k = 0; k < 5; k++) {
+    r = await d("POST", "/api/sync", { since: "0", profiles: k ? undefined : [{ pid: "p1" }],
+      changes: Array.from({ length: 200 }, (_, i) => ({ pid: "p1", kind: "blessing", id: `d${k}-${i}`, t: T, u: T, del: true })) });
+    assert.equal(r.status, 200, JSON.stringify(r.body).slice(0, 200));
+  }
+  r = await d("POST", "/api/sync", { since: "0", changes: [{ pid: "p1", kind: "blessing", id: "one-more", t: T, u: T, data: { tx: "x" } }] });
+  assert.equal(r.status, 413); assert.equal(r.body.error, "account_full");
+});
+
+test("a session ends a year after sign-in, however often it is used", { skip: REMOTE }, async () => {
+  const c = client(); await signIn(c, mail("old"));
+  assert.equal((await c("GET", "/api/me")).status, 200);
+  const old = Date.now() - 366 * 86400000, hash = createHash("sha256").update(c.jar["__Host-tz"]).digest("hex");
+  execSync(`${npx} -y wrangler@4.167.0 d1 execute tazkiya --local --persist-to "${STATE}" --command "UPDATE sessions SET created = ${old}, seen = ${Date.now()} WHERE hash = '${hash}'"`,
+    { cwd: ROOT, stdio: "pipe", shell: true, env: { ...process.env, CI: "1" } });
+  assert.equal((await c("GET", "/api/me")).status, 401);
 });

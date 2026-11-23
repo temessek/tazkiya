@@ -93,6 +93,12 @@ export async function sync(req, env, url, s) {
       const k = c.pid + ":" + c.kind; have[k] = (have[k] || 0) + 1;
       if (have[k] > KINDS[c.kind].cap) throw new HttpError(413, "quota", { pid: c.pid, kind: c.kind, max: KINDS[c.kind].cap });
     }
+    // the account's whole footprint, so one account cannot fill the shared database (updates counted as new, on the safe side)
+    const L = limits(env), enc = new TextEncoder();
+    const tot = await env.DB.prepare("SELECT COUNT(*) AS n, COALESCE(SUM(LENGTH(CAST(data AS BLOB))), 0) AS b FROM entries WHERE account_id = ?").bind(aid).first();
+    const add = accepted.reduce((b, c) => b + (c.data ? enc.encode(JSON.stringify(c.data)).byteLength : 0), 0);
+    if (tot.b + add > L.accountBytes || tot.n + accepted.length > L.accountRows)
+      throw new HttpError(413, "account_full", { max_bytes: L.accountBytes, max_rows: L.accountRows });
     // one transaction: take the next seq, then write each change only if it is newer than what the server has
     const stmts = [env.DB.prepare("UPDATE accounts SET seq = seq + 1 WHERE id = ?").bind(aid)];
     for (const c of accepted) stmts.push(env.DB.prepare(
@@ -170,7 +176,7 @@ export async function accountDelete(req, env, url, s) {
     env.DB.prepare("DELETE FROM profiles WHERE account_id = ?").bind(aid),
     env.DB.prepare("DELETE FROM sessions WHERE account_id = ?").bind(aid),
     env.DB.prepare("DELETE FROM login_tokens WHERE email = ?").bind(s.account.email),
-    env.DB.prepare("DELETE FROM rate WHERE k = ?").bind("sync:" + aid),
+    env.DB.prepare("DELETE FROM rate WHERE k = ? OR k = ?").bind("sync:" + aid, "ai:acct:" + aid),
     env.DB.prepare("DELETE FROM accounts WHERE id = ?").bind(aid),
   ]);
   return json({ ok: true }, 200, { "set-cookie": cookie(SESSION_COOKIE, "", 0) });

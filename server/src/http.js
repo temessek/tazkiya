@@ -7,6 +7,9 @@ export const SEC_HEADERS = {
   "x-robots-tag": "noindex, nofollow",
   "x-frame-options": "DENY",
   "cross-origin-resource-policy": "same-origin",
+  // Pages applies _headers to static files only, never to Functions: the API sets its own HSTS and a CSP that runs nothing
+  "strict-transport-security": "max-age=31536000",
+  "content-security-policy": "default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'",
 };
 
 export class HttpError extends Error {
@@ -22,14 +25,29 @@ export function errorResponse(e) {
   return json({ error: e.code, ...e.extra }, e.status, headers);
 }
 
+// Reads a body with a hard size limit, streamed: a body without Content-Length (chunked) is cut off at the limit
+// instead of being held in memory whole.
+export async function readBody(req, max) {
+  const len = Number(req.headers.get("content-length") || 0);
+  if (len > max) throw new HttpError(413, "too_large");
+  if (!req.body) return new Uint8Array(0);
+  const reader = req.body.getReader(), parts = []; let n = 0;
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    n += value.byteLength;
+    if (n > max) { try { await reader.cancel(); } catch {} throw new HttpError(413, "too_large"); }
+    parts.push(value);
+  }
+  const out = new Uint8Array(n); let o = 0; for (const p of parts) { out.set(p, o); o += p.byteLength; }
+  return out;
+}
+
 // Reads a JSON body with a hard size limit. Content-Type must be JSON (also part of the CSRF defence).
 export async function readJson(req, max = 64 * 1024) {
   const ct = (req.headers.get("content-type") || "").toLowerCase();
   if (!ct.startsWith("application/json")) throw new HttpError(415, "json_required");
-  const len = Number(req.headers.get("content-length") || 0);
-  if (len > max) throw new HttpError(413, "too_large");
-  const buf = await req.arrayBuffer();
-  if (buf.byteLength > max) throw new HttpError(413, "too_large");
+  const buf = await readBody(req, max);
   try { return JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(buf)); }
   catch { throw new HttpError(400, "bad_json"); }
 }
@@ -81,6 +99,14 @@ export function safeEqual(a, b) {
 
 // Local development (wrangler pages dev): the only place where test-only switches may act.
 export const isLocal = url => url.hostname === "localhost" || url.hostname === "127.0.0.1";
+
+// Production answers only on its own host. The same deployment is also reachable at tazkiya.pages.dev and at
+// <hash>.tazkiya.pages.dev (with the production database): there the API answers 404. ALLOWED_HOSTS may override.
+export function hostAllowed(url, env) {
+  if (env.APP_ENV !== "production") return true;
+  const hosts = String(env.ALLOWED_HOSTS || "tazkiya.family").split(",").map(h => h.trim().toLowerCase()).filter(Boolean);
+  return hosts.includes(url.hostname.toLowerCase());
+}
 
 // The caller's address, hashed so rate-limit rows never hold an IP. Tests on localhost may set x-test-ip.
 export async function ipKey(req, url) {

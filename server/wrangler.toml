@@ -1,7 +1,7 @@
 # Cloudflare Pages project "tazkiya": the static app (../public-dist, built by publish/build_public.py) plus the
 # Pages Functions in ./functions (the /api/* routes). Run wrangler from THIS folder, so it finds ./functions:
-#   preview:    npx wrangler@4 pages deploy --branch server-preview --commit-dirty=true
-#   production: npx wrangler@4 pages deploy --branch main --commit-dirty=true   (only once the app UI uses the API)
+#   preview:    npm run deploy:preview      (wrangler pinned in package.json)
+#   production: npm run deploy:production
 # Secrets (never in this file): GOOGLE_CLIENT_SECRET (production and preview), TEST_KEY (preview only). See docs/SERVER.md.
 name = "tazkiya"
 pages_build_output_dir = "../public-dist"

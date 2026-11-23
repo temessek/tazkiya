@@ -35,5 +35,7 @@ export function limits(env) {
     aiIp: n("LIMIT_AI_IP", 60),             // AI extractions per address per day
     aiAll: n("LIMIT_AI_ALL", 1000),         // AI extractions for the whole site per day (about 7,300 of the 10,000 free neurons)
     syncAccount: n("LIMIT_SYNC_ACCOUNT", 600), // sync calls per account per hour
+    accountBytes: n("LIMIT_ACCOUNT_BYTES", 20 * 1024 * 1024), // stored journal data per account (a heavy year is about 2 MB)
+    accountRows: n("LIMIT_ACCOUNT_ROWS", 60000),             // stored rows per account, deletion markers included
   };
 }

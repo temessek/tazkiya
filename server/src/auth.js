@@ -5,7 +5,7 @@ import { signInMail, sendMail } from "./mail.js";
 
 export const SESSION_COOKIE = "__Host-tz";
 const OAUTH_COOKIE = "__Host-tz-o";
-const SESSION_DAYS = 60, SESSIONS_PER_ACCOUNT = 20;
+const SESSION_DAYS = 60, SESSION_MAX_DAYS = 365, SESSIONS_PER_ACCOUNT = 20;
 const LINK_MINUTES = 15, OAUTH_MINUTES = 10;
 const DAY = 86400000;
 
@@ -23,22 +23,23 @@ async function createSession(db, accountId) {
   return cookie(SESSION_COOKIE, token, SESSION_DAYS * 86400);
 }
 
-// Returns {account, setCookie?} or throws 401. Sessions slide: used once a day or more, they stay alive.
+// Returns {account, setCookie?} or throws 401. Sessions slide (60 days from the last use), up to a year from sign-in.
 export async function requireSession(req, env) {
   const token = cookies(req)[SESSION_COOKIE];
   if (!token || !/^[A-Za-z0-9_-]{43}$/.test(token)) throw new HttpError(401, "signed_out");
   const hash = await sha256(token), now = Date.now();
   const s = await env.DB.prepare(
-    "SELECT s.account_id, s.expires, s.seen, a.email, a.google_sub, a.adult_at FROM sessions s JOIN accounts a ON a.id = s.account_id WHERE s.hash = ?")
+    "SELECT s.account_id, s.created, s.expires, s.seen, a.email, a.google_sub, a.adult_at FROM sessions s JOIN accounts a ON a.id = s.account_id WHERE s.hash = ?")
     .bind(hash).first();
-  if (!s || s.expires < now) {
+  if (!s || s.expires < now || now - s.created > SESSION_MAX_DAYS * DAY) {
     if (s) await env.DB.prepare("DELETE FROM sessions WHERE hash = ?").bind(hash).run();
     throw new HttpError(401, "signed_out");
   }
   let setCookie;
   if (now - s.seen > DAY) {
-    await env.DB.prepare("UPDATE sessions SET seen = ?, expires = ? WHERE hash = ?").bind(now, now + SESSION_DAYS * DAY, hash).run();
-    setCookie = cookie(SESSION_COOKIE, token, SESSION_DAYS * 86400);
+    const expires = Math.min(now + SESSION_DAYS * DAY, s.created + SESSION_MAX_DAYS * DAY);
+    await env.DB.prepare("UPDATE sessions SET seen = ?, expires = ? WHERE hash = ?").bind(now, expires, hash).run();
+    setCookie = cookie(SESSION_COOKIE, token, Math.max(1, Math.floor((expires - now) / 1000)));
   }
   return { account: { id: s.account_id, email: s.email, google: !!s.google_sub, adult_at: s.adult_at || null }, hash, setCookie };
 }
@@ -52,7 +53,7 @@ export async function logout(req, env) {
 async function accountForEmail(db, email) {
   await db.prepare("INSERT INTO accounts (id, email, created) VALUES (?, ?, ?) ON CONFLICT(email) DO NOTHING")
     .bind(crypto.randomUUID(), email, Date.now()).run();
-  return db.prepare("SELECT id FROM accounts WHERE email = ?").bind(email).first();
+  return db.prepare("SELECT id, google_sub FROM accounts WHERE email = ?").bind(email).first();
 }
 
 // ---------- email link ----------
@@ -130,6 +131,8 @@ const back = (where, extra = {}) => new Response(null, { status: 302, headers: {
 export async function googleStart(req, env, url) {
   if (!googleOn(env)) throw new HttpError(503, "google_not_configured");
   await hit(env.DB, "google:ip:" + await ipKey(req, url), limits(env).googleIp, 600);
+  // expired rows (sessions, sign-ins never finished, rate windows) are cleared now and then; Google is the live way in
+  if (Math.random() < 0.05) await sweep(env.DB);
   const state = randomToken(24), verifier = randomToken(48), nonce = randomToken(24);
   await env.DB.prepare("INSERT INTO oauth_states (hash, verifier, nonce, expires) VALUES (?, ?, ?, ?)")
     .bind(await sha256(state), verifier, nonce, Date.now() + OAUTH_MINUTES * 60000).run();
@@ -169,7 +172,11 @@ export async function googleCallback(req, env, url) {
   let acct = await env.DB.prepare("SELECT id FROM accounts WHERE google_sub = ?").bind(claims.sub).first();
   if (!acct) {
     acct = await accountForEmail(env.DB, e);
-    await env.DB.prepare("UPDATE accounts SET google_sub = ? WHERE id = ? AND google_sub IS NULL").bind(claims.sub, acct.id).run();
+    // an account already tied to another Google identity with this address (a reissued Workspace address, say) is not
+    // handed to the new one: the address alone does not prove it is the same person
+    if (acct.google_sub && acct.google_sub !== claims.sub) return fail();
+    const u = await env.DB.prepare("UPDATE accounts SET google_sub = ? WHERE id = ? AND google_sub IS NULL").bind(claims.sub, acct.id).run();
+    if (!acct.google_sub && !(u.meta && u.meta.changes)) return fail();   // linked by another sign-in in the meantime
   }
   const setCookie = await createSession(env.DB, acct.id);
   const h = new Headers({ location: "/#/signed-in", ...SEC_HEADERS });

@@ -1,4 +1,4 @@
-import { HttpError, json, errorResponse, checkCsrf } from "./http.js";
+import { HttpError, json, errorResponse, checkCsrf, hostAllowed } from "./http.js";
 import { emailStart, emailVerifyPage, emailVerify, googleStart, googleCallback, logout, requireSession, authInfo } from "./auth.js";
 import { me, profilePut, profileDelete, sync, entryDelete, burn, accountDelete } from "./sync.js";
 import { extract, attestAdult } from "./extract.js";
@@ -28,6 +28,7 @@ const ROUTES = [
 export async function handle(req, env) {
   const url = new URL(req.url);
   try {
+    if (!hostAllowed(url, env)) throw new HttpError(404, "not_found");
     let pathMatched = false;
     for (const [method, re, fn, opt = {}] of ROUTES) {
       const m = url.pathname.match(re); if (!m) continue;

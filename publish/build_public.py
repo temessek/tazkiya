@@ -1,7 +1,7 @@
 """Build the public web-app folder (outputs/public-dist) from outputs/app.
 Copies only what the app loads; never docs, tests, sources, screenshots or *.pre-*.js.
-Deploy (wrangler pinned to its major version, so a new release is never fetched unasked):
-  npx wrangler@4 pages deploy outputs/public-dist --project-name tazkiya --branch main --commit-dirty=true
+Deploy from outputs/server, so the /api Functions go with it (wrangler pinned to an exact version, so a new release is never fetched unasked):
+  cd outputs/server && npm run deploy:production     (npx -y wrangler@4.167.0 pages deploy --branch main --commit-dirty=true)
 """
 import os, re, shutil, subprocess, sys
 try: sys.stdout.reconfigure(errors="replace")
@@ -45,7 +45,7 @@ for f in FILES:
     shutil.copy2(os.path.join(APP, f), os.path.join(OUT, f))
 shutil.copytree(os.path.join(APP, "assets"), os.path.join(OUT, "assets"), dirs_exist_ok=True)
 
-# G1.1: minify with a pinned esbuild; if it is not available the plain files stay (the build never fails for this)
+# G1.1: minify with a pinned esbuild (0.28.2: past the dev-server advisory GHSA-67mh-4wv8-2f99, which never applied to minifying); if it is not available the plain files stay (the build never fails for this)
 def minify():
     npx = shutil.which("npx") or shutil.which("npx.cmd")
     if not npx: print("minify: npx not found, plain files kept"); return
@@ -53,7 +53,7 @@ def minify():
     for f in MINIFY:
         src, dst = os.path.join(APP, f), os.path.join(OUT, f)
         try:
-            r = subprocess.run([npx, "-y", "esbuild@0.24.2", src, "--minify", "--legal-comments=none", "--charset=utf8", "--outfile=" + dst],
+            r = subprocess.run([npx, "-y", "esbuild@0.28.2", src, "--minify", "--legal-comments=none", "--charset=utf8", "--outfile=" + dst],
                                capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=180)
             if r.returncode != 0: raise RuntimeError(r.stderr.strip()[:300])
             saved += os.path.getsize(src) - os.path.getsize(dst)
@@ -79,6 +79,7 @@ HEADERS = f"""/*
   Permissions-Policy: {PERM}
   X-Frame-Options: DENY
   Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
   Strict-Transport-Security: max-age=31536000
 /sw.js
   Cache-Control: no-cache

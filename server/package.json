@@ -4,9 +4,10 @@
   "type": "module",
   "description": "Tazkiya stage 2: accounts, journal sync and AI extraction on Cloudflare Pages Functions and D1",
   "scripts": {
-    "test": "node --test --test-concurrency=1 test/api.test.mjs",
-    "deploy:preview": "npx -y wrangler@4 pages deploy --branch server-preview --commit-dirty=true",
-    "migrate:preview": "npx -y wrangler@4 d1 migrations apply tazkiya-preview --remote -e preview",
-    "migrate:production": "npx -y wrangler@4 d1 migrations apply tazkiya --remote"
+    "test": "node --test --test-concurrency=1 test/unit.test.mjs test/api.test.mjs",
+    "deploy:production": "npx -y wrangler@4.167.0 pages deploy --branch main --commit-dirty=true",
+    "deploy:preview": "npx -y wrangler@4.167.0 pages deploy --branch server-preview --commit-dirty=true",
+    "migrate:preview": "npx -y wrangler@4.167.0 d1 migrations apply tazkiya-preview --remote -e preview",
+    "migrate:production": "npx -y wrangler@4.167.0 d1 migrations apply tazkiya --remote"
   }
 }
