@@ -708,6 +708,31 @@ async function ideaFlows(browser, base, content, AV) {
     ok(pg.status() === 200 && /الخصوصية/.test(pt) && /Privacy/.test(pt) && /لا حساب/.test(pt), "review: the parents page answers, in Arabic and English");
     ok(!page.errs.length, "review: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
+  await step("training page", async () => {
+    const WA = "https://wa.me/201283229996?text=", root = base.replace(/index\.html$/, "");
+    let { ctx, page } = await fresh(); await open(page, "&reset=1");
+    // the children's edition reaches nothing new: no training link on the about page or in the share sheet
+    await go(page, "#/about"); ok(!(await has(page, 'a[href*="training"]')) && !/سلّم اليد|Hand Method/.test(await txt(page, "#view")), "training: the children's «عن تزكية» has no training link");
+    await page.click("#setBtn"); await page.waitForTimeout(250); await page.click('#sheet [data-act="sharesheet"]'); await page.waitForTimeout(400);
+    ok(!(await has(page, 'a[href*="training"]')) && !/سلّم اليد|Hand Method/.test(await txt(page, "#sheet")), "training: the children's share sheet has no training link");
+    await ctx.close();
+    ({ ctx, page } = await fresh()); await open(page, "&reset=1&ed=adult", 900); await go(page, "#/about");
+    ok((await page.locator('#view a[href="training/"]').count()) === 1, "training: the adult «عن تزكية» has one quiet training link");
+    await ctx.close();
+    ({ ctx, page } = await fresh()); await open(page, "&reset=1&ed=adult&lang=en", 900); await go(page, "#/about");
+    ok((await page.locator('#view a[href="training/#en"]').count()) === 1, "training: the adult edition in English links the English section");
+    const pr = await page.goto(root + "parents/"); ok(pr.status() === 200 && (await page.locator('a[href="../training/"]').count()) === 1 && (await page.locator('a[href="../training/#en"]').count()) === 1, "training: the parents page links the training page in both languages");
+    const tr = await page.goto(root + "training/"); const tt = await page.evaluate(() => document.body.innerText);
+    ok(tr.status() === 200 && /منهج سلّم اليد/.test(tt) && /Tazkiya Hand Method/.test(tt) && /مؤسسة تمسك للبحوث والنشر والتدريب/.test(tt) && /Temessek Foundation/.test(tt), "training: the page answers in Arabic and English, with the foundation in the footer");
+    const was = await page.$$eval("a.wa", xs => xs.map(a => [a.getAttribute("href"), a.target, a.rel, a.closest("[lang]").getAttribute("lang")]));
+    const msg = { ar: "السلام عليكم، أودّ التسجيل في برنامج اليد للوالدين من تزكية.", en: "Peace be upon you. I would like to join the Tazkiya Hand programme for parents." };
+    ok(was.length === 2 && was.every(([h, tg, rl, lg]) => h.startsWith(WA) && decodeURIComponent(h.slice(WA.length)) === msg[lg] && tg === "_blank" && /noopener/.test(rl)), "training: one WhatsApp button per language, with the prefilled message in that language");
+    ok(!(await has(page, "form, input, select, textarea")) && !/[$€£]|\bEGP\b|جنيه|price|سعر/i.test(tt), "training: no form, booking or price");
+    ok(await page.evaluate(() => [...document.images].every(i => i.complete && i.naturalWidth > 0)), "training: the hand image and icons load");
+    for (const w of [320, 1280]) { await page.setViewportSize({ width: w, height: 800 }); await page.waitForTimeout(150);
+      ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `training: no overflow at ${w} px`); }
+    ok(!page.errs.length, "training: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+    await ctx.close(); });
   await step("review: backups", async () => {
     let { ctx, page } = await fresh(); await open(page, "&reset=1"); await setS(page, old); await open(page);
     ok(await has(page, ".bkcard [data-act=\"bkexport\"]"), "review B1: after 14 days with progress and no backup, the home page offers one");
@@ -978,11 +1003,11 @@ function staticChecks() {
   for (const h of ["Content-Security-Policy", "X-Content-Type-Options", "Referrer-Policy", "Permissions-Policy", "frame-ancestors 'none'", "X-Robots-Tag", "adult/index.html"]) if (!bp.includes(h)) errs.push(`build_public.py: missing ${h}`);
   if (!CSP) errs.push("could not read the CSP from build_public.py");
   // security and compatibility review (22 Nov 2026)
-  for (const h of ["! Access-Control-Allow-Origin", "private-terms.txt", "404.html", "parents/index.html", "wrangler@4", "getexif", "esbuild@"]) if (!bp.includes(h)) errs.push(`build_public.py: missing ${h}`);
-  for (const f of ["404.html", "parents/index.html", "assets/qr-kids.svg", "assets/qr-adult.svg"]) if (!fs.existsSync(path.join(ROOT, f))) errs.push(`missing ${f}`);
-  if (fs.existsSync(path.join(ROOT, "parents/index.html")) && [...rd("parents/index.html").matchAll(/<script[^>]*>/g)].some(m => !/src="\.\.\/boot\.js\?v=\d+" data-page="static"/.test(m[0]))) errs.push("parents page: only boot.js (static) expected");
+  for (const h of ["! Access-Control-Allow-Origin", "private-terms.txt", "404.html", "parents/index.html", "training/index.html", "/training/*", "wrangler@4", "getexif", "esbuild@"]) if (!bp.includes(h)) errs.push(`build_public.py: missing ${h}`);
+  for (const f of ["404.html", "parents/index.html", "training/index.html", "assets/qr-kids.svg", "assets/qr-adult.svg"]) if (!fs.existsSync(path.join(ROOT, f))) errs.push(`missing ${f}`);
+  for (const sp of ["parents/index.html", "training/index.html"]) if (fs.existsSync(path.join(ROOT, sp)) && [...rd(sp).matchAll(/<script[^>]*>/g)].some(m => !/src="\.\.\/boot\.js\?v=\d+" data-page="static"/.test(m[0]))) errs.push(`${sp}: only boot.js (static) expected`);
   if (!/<script src="boot\.js\?v=\d+"><\/script>/.test(html.split("</head>")[0])) errs.push("index.html: boot.js must load in <head>, without defer");
-  for (const f of ["index.html", "adult/index.html", "parents/index.html"]) if (fs.existsSync(path.join(ROOT, f)) && /tazkiya\.pages\.dev/.test(rd(f))) errs.push(`${f}: names the former address`);
+  for (const f of ["index.html", "adult/index.html", "parents/index.html", "training/index.html"]) if (fs.existsSync(path.join(ROOT, f)) && /tazkiya\.pages\.dev/.test(rd(f))) errs.push(`${f}: names the former address`);
   if (ad) { if (!/<base href="\/">/.test(ad)) errs.push("adult page: no <base href=\"/\">");
     const vs = h => [...h.matchAll(/(?:src|href)="([^"]+\?v=[^"]+)"/g)].map(m => m[1]).join();
     if (vs(ad) !== vs(html)) errs.push("adult page: loads other files than index.html (run outputs/publish/adult_page.py)"); }

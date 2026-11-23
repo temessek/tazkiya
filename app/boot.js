@@ -3,7 +3,7 @@
  * tazkiya.pages.dev (the former address, and its per-deploy hosts): every origin has its own storage, so a visitor
  * with no saved progress goes straight to the new address, and a visitor with progress stays: app.js then opens the
  * sheet that carries the progress over inside the URL fragment (#move=…), which is never sent to any server.
- * A static page (data-page="static", the parents page) always goes straight to the new address. */
+ * A static page (data-page="static", the parents and training pages) always goes straight to the new address. */
 (function () {
   var NEW = "https://tazkiya.family", h = location.hostname, rest = location.pathname + location.search + location.hash;
   if (h === "www.tazkiya.family") { location.replace(NEW + rest); return; }

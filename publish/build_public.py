@@ -14,7 +14,7 @@ adult_page.write()
 
 CANON = "https://tazkiya.family/"
 FILES = ["index.html", "404.html", "boot.js", "styles.css", "app.js", "fx.js", "intro.js", "fallback.js", "sw.js", "manifest.json",
-         "content/content.js", "content/content-adult.js", "content/books.js", "adult/index.html", "parents/index.html"]
+         "content/content.js", "content/content-adult.js", "content/books.js", "adult/index.html", "parents/index.html", "training/index.html"]
 MINIFY = ["app.js", "fx.js", "intro.js", "styles.css"]  # minified on publish only; the source stays readable with no build step
 
 # QR codes for the two public links, drawn once here (no request to any service) and shown in the share sheet
@@ -93,6 +93,8 @@ HEADERS = f"""/*
   Cache-Control: no-cache
 /parents/*
   Cache-Control: no-cache
+/training/*
+  Cache-Control: no-cache
 /assets/*
   Cache-Control: public, max-age=604800
 """
@@ -119,12 +121,15 @@ TERMS = os.path.join(PUB, "private-terms.txt")
 extra = [l.strip() for l in open(TERMS, encoding="utf-8") if l.strip() and not l.lstrip().startswith("#")] if os.path.exists(TERMS) else []
 # generic patterns here; owner and family terms live only in the private terms file
 bad = re.compile(r"[A-Z]:\\Users|/Users/|@gmail\.com" +"".join("|" + re.escape(x) for x in extra), re.I)
+# the foundation's public name, shown on the training page (owner decision, 23 Nov 2026): only this exact phrase passes
+PUBLIC_OK = ["Temessek Foundation for Research, Publishing and Training"]
 hits = []
 for d, _, fs in os.walk(OUT):
     for f in fs:
         p = os.path.join(d, f)
         if f.endswith((".js", ".html", ".json", ".css", ".txt", ".svg")) or f == "_headers":
             t = open(p, encoding="utf-8").read()
+            for ok_phrase in PUBLIC_OK: t = t.replace(ok_phrase, "")
             hits += [f"{f}: {m.group(0)}" for m in bad.finditer(t)]
         elif f.lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
             # images: no EXIF or XMP (camera, place, author, software paths)

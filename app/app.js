@@ -578,7 +578,7 @@
   });
   Object.assign(U, {
     shareQr: ["يمسحه هاتف آخر بالكاميرا", "Scan it with another phone's camera"], shareQrAlt: ["رمز QR للرابط {v}", "QR code for {v}"],
-    parT: ["صفحة للوالدين", "A page for parents"], parSub: ["ما التطبيق، والخصوصية، والتثبيت، والنسخة الاحتياطية", "What it is, privacy, installing, and backups"],
+    parT: ["صفحة للوالدين", "A page for parents"], trLink: ["التدريب على منهج سلّم اليد", "Training in the Tazkiya Hand Method"], parSub: ["ما التطبيق، والخصوصية، والتثبيت، والنسخة الاحتياطية", "What it is, privacy, installing, and backups"],
     bkFileT: ["نسخة تزكية الاحتياطية", "Tazkiya backup"],
     itpT: ["ثبّت تزكية حتى يبقى تقدّمك", "Install Tazkiya so your progress stays"],
     itpSub: ["سفاري يمسح بيانات المواقع التي لم تُفتح أسبوعًا. على الشاشة الرئيسية يبقى تقدّمك محفوظًا.", "Safari clears the data of sites not opened for a week. On the Home Screen your progress stays saved."],
@@ -2274,6 +2274,7 @@
       ${sec("abMixT", "abMix")}
       <p style="margin:14px 0 0"><button class="btn ghost block" data-act="filmplay">${esc(u("filmAgain"))}</button></p>
       <div style="margin-top:14px">${parentsLink()}</div>
+      ${ADU() ? `<p class="sub training-link" style="margin:8px 0 0;text-align:center"><a href="training/${L() === "en" ? "#en" : ""}" target="_blank" rel="noopener">${esc(u("trLink"))}</a></p>` : ""}
       <a class="card next" href="#/sources"><span class="tx"><b>${esc(u("srcT"))}</b></span><span class="arrow">→</span></a></div>`;
   }
   function vFaq() {
