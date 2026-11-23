@@ -4,9 +4,9 @@
  * to the saved copy of the same file. A new version installs quietly and waits: the app shows "a new version is
  * ready" and the user chooses when to switch (SKIP_WAITING), so a page never changes under a reader.
  * Release: bump CACHE, and keep the ?v= numbers below equal to those in index.html (the smoke test checks this). */
-const CACHE = "tazkiya-2026-11-23e";
+const CACHE = "tazkiya-2026-11-23f";
 const CORE = [
-  "./", "index.html", "manifest.json", "boot.js?v=1", "styles.css?v=87", "app.js?v=90", "fx.js?v=2", "fallback.js?v=5", "content/content.js?v=26",
+  "./", "index.html", "manifest.json", "boot.js?v=1", "styles.css?v=88", "app.js?v=91", "fx.js?v=2", "fallback.js?v=5", "content/content.js?v=26",
   "content/content-adult.js", "content/books.js",
   "assets/hand.webp", "assets/right-hand-virtues.webp", "intro.js?v=1",
   "assets/intro/s1-fitra.webp", "assets/intro/s2-toddler.webp", "assets/intro/s3-child.webp", "assets/intro/s4-guide.webp",
@@ -42,6 +42,7 @@ function pageFromNetwork(req) {
 self.addEventListener("fetch", e => {
   const req = e.request, url = new URL(req.url);
   if (req.method !== "GET" || url.origin !== self.location.origin) return;
+  if (url.pathname.startsWith(new URL(self.registration.scope).pathname + "api/")) return; // the server's answers are never cached
   if (req.mode === "navigate") {
     // the adult page is the app with the adult edition's preview tags; offline, open the app in that edition
     if (/\/adult\/(index\.html)?$/.test(url.pathname)) {

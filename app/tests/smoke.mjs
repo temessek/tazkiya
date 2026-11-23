@@ -283,8 +283,11 @@ async function main() {
     let cur = "load";
     const consoleErrs = [], bad404 = [];
     page.on("pageerror", e => consoleErrs.push(`${cur}: ${e.message}`));
-    page.on("console", m => { if (m.type() === "error") consoleErrs.push(`${cur}: ${m.text()}`); });
-    page.on("response", r => { if (r.status() >= 400) bad404.push(`${cur}: ${r.status()} ${r.url().replace(/^https?:\/\/[^/]+\//, "")}`); });
+    // expected here: the journal's probe of the server (GET api/health) answers 404, since this static server has no /api.
+    // Only that request and its console line are excused; every other 404 or console error still fails.
+    const probe = u => /^https?:\/\/[^/]+\/api\/health$/.test(u);
+    page.on("console", m => { if (m.type() === "error" && !(/404/.test(m.text()) && probe((m.location() || {}).url || ""))) consoleErrs.push(`${cur}: ${m.text()}`); });
+    page.on("response", r => { if (r.status() >= 400 && !(r.status() === 404 && probe(r.url()))) bad404.push(`${cur}: ${r.status()} ${r.url().replace(/^https?:\/\/[^/]+\//, "")}`); });
     await page.goto(`${base}?intro=0&reset=1&lang=${lang}${ed === "adult" ? "&ed=adult" : ""}#/`, { waitUntil: "load" });
     await page.waitForTimeout(ed === "adult" ? 700 : 400);
     for (const r of list) {
@@ -573,29 +576,30 @@ async function ideaFlows(browser, base, content, AV) {
     ok(/get the better of you/.test(await txt(page, "#view")), "2a: English adult question");
     ok(!page.errs.length, "2a: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
-  // 3. the hidden deed: since Tadwin (23 Nov 2026) a written line in the good scroll, marked 🤲
+  // 3. the hidden deed: since Tadwin v2 (23 Nov 2026) a written line among «نِعَم الله عليّ», marked 🤲
   await step("hidden deed", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
-    ok(!(await has(page, '#view [data-act="khab"]')) && !(await has(page, '#view [data-act="sawopen"]')), "3: the hidden deed and «رأيت خيرًا» left the home page for Tadwin");
+    ok(!(await has(page, '#view [data-act="khab"]')) && !(await has(page, '#view [data-act="sawopen"]')), "3: the hidden deed and «رأيت خيرًا» live in Tadwin, away from the home page");
     await go(page, "#/tasks"); ok(!(await has(page, '#view [data-act="khab"]')), "3: and the tasks section");
     await setS(page, "s.twIntro = true;"); await open(page); await go(page, "#/tadwin");
     const mix0 = JSON.stringify((await getS(page)).mix);
+    ok(await has(page, '#tw-bless [data-act="khab"]'), "3: the hidden deed is offered inside the blessings");
     await page.click('#view [data-act="khab"]'); await page.waitForTimeout(300);
     ok(/تَصَدَّقَ بِصَدَقَةٍ فَأَخْفَاهَا/.test(await txt(page, "#sheet")) && /البخاري 1423/.test(await txt(page, "#sheet")), "3: the sheet quotes the hadith with its reference");
-    ok(await has(page, "#sheet textarea#twTx"), "3: it is written as text now");
+    ok(await has(page, "#sheet textarea#twTx"), "3: it is written as text");
     await page.click('#sheet [data-act="khsave"]'); await page.waitForTimeout(250);
-    ok(await has(page, "#sheet:not([hidden]) #twTx") && !((await getS(page)).good || []).length, "3: an empty line is not saved");
+    ok(await has(page, "#sheet:not([hidden]) #twTx") && !((await getS(page)).khabia || []).length, "3: an empty line is not saved");
     await page.fill("#twTx", `<img src=x onerror="window.__pwn=9">أعطيت صديقي قلمي ` + "س".repeat(260)); await page.click('#sheet [data-act="khsave"]'); await page.waitForTimeout(350);
-    const st = await getS(page), kh = (st.good || []).filter(e => e.k === "kh");
-    ok(kh.length === 1 && kh[0].tx.length <= 200 && !/[<>]/.test(kh[0].tx) && kh[0].t > 0, "3: saved as a cleaned line (200 at most) with its date, in the good scroll");
+    const st = await getS(page), kh = st.khabia || [];
+    ok(kh.length === 1 && kh[0].tx.length <= 200 && !/[<>]/.test(kh[0].tx) && kh[0].t > 0 && !(st.bless || []).length, "3: saved as a cleaned line (200 at most) with its date, as a hidden deed");
     ok(JSON.stringify(st.mix) === mix0 && !(st.ev || []).length, "3: no points, no mix change, no event");
-    ok(/🤲/.test(await txt(page, ".tw-paper.good .tw-list")) && /أعطيت صديقي قلمي/.test(await txt(page, ".tw-paper.good")), "3: marked 🤲 in the good scroll");
+    ok(/🤲/.test(await txt(page, "#tw-bless .tw-list")) && /أعطيت صديقي قلمي/.test(await txt(page, "#tw-bless")), "3: marked 🤲 among the blessings");
     ok(!(await page.evaluate(() => !!window.__pwn || !!document.querySelector("#view img[src='x']"))), "3: the line never runs as markup");
     await go(page, "#/record"); ok(!/خبيئ|أعطيت صديقي/.test(await page.evaluate(() => document.getElementById("view").textContent)), "3: the record never shows it");
-    await setS(page, "delete s.twMig; s.good = []; s.khab = ['2020-01-01','2020-01-01','2020-01-01','2020-01-01','<b>', 5]; s.eve = { '2020-01-05': { f: 'human', g: 'المطر' } };"); await open(page);
-    const s2 = await getS(page), g2 = s2.good || [];
-    ok(g2.filter(e => e.k === "kh").length === 3 && g2.some(e => e.k === "ni" && e.tx === "المطر") && !("khab" in s2) && s2.twMig === true, "3: old date-only hidden deeds (three a day at most) and evening blessings move into the good scroll");
-    await open(page); ok(((await getS(page)).good || []).length === g2.length, "3: that move happens once");
-    await go(page, "#/tadwin"); ok(/خبيئة يعلمها الله/.test(await txt(page, ".tw-paper.good")), "3: an old hidden deed shows without text");
+    await setS(page, "delete s.twV; delete s.twMig; delete s.khabia; delete s.bless; s.good = []; s.khab = ['2020-01-01','2020-01-01','2020-01-01','2020-01-01','<b>', 5]; s.eve = { '2020-01-05': { f: 'human', g: 'المطر' } };"); await open(page);
+    const s2 = await getS(page);
+    ok((s2.khabia || []).length === 3 && (s2.bless || []).some(e => e.src === "eve" && e.tx === "المطر") && !("khab" in s2) && !("good" in s2) && s2.twV === 2, "3: the oldest date-only hidden deeds (three a day at most) and evening blessings move in too");
+    await open(page); const s3 = await getS(page); ok(s3.khabia.length === 3 && s3.bless.length === s2.bless.length, "3: that move happens once");
+    await go(page, "#/tadwin"); ok(/خبيئة يعلمها الله/.test(await txt(page, "#tw-bless")), "3: an old hidden deed shows without text");
     ok(!page.errs.length, "3: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
   await step("hidden deed (adults)", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1&ed=adult&lang=en", 900);
@@ -604,18 +608,28 @@ async function ideaFlows(browser, base, content, AV) {
     ok(/left hand did not know/.test(await txt(page, "#sheet")) && /kept as a secret between you and Allah/.test(await txt(page, "#sheet")), "3a: English adult wording with the meaning of the hadith");
     ok(!page.errs.length, "3a: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
-  // Tadwin «علّم بالقلم» (docs/TADWIN-SPEC.md, 23 Nov 2026)
-  await step("tadwin: tab and intro", async () => {
-    for (const [q, lab] of [["&lang=ar", "التدوين"], ["&lang=en", "Journal"], ["&ed=adult&lang=ar", "التدوين"], ["&ed=adult&lang=en", "Journal"]]) {
+  // Tadwin «علّم بالقلم», version 2 (docs/TADWIN-SPEC.md, approved 23 Nov 2026)
+  const TW_OLD = /حسنات|سيئات|زلّة|زلة|صحيفة/; // the first journal's words, retired by the owner
+  await step("tadwin: tab, intro and page order", async () => {
+    for (const [q, lab, ch] of [["&lang=ar", "التدوين", "تحدّياتي"], ["&lang=en", "Journal", "My challenges"], ["&ed=adult&lang=ar", "التدوين", "مجاهداتي"], ["&ed=adult&lang=en", "Journal", "My challenges"]]) {
       const { ctx, page } = await fresh(); await open(page, "&reset=1" + q, 900);
       const tabs = await page.evaluate(() => [...document.querySelectorAll("#tabs a")].map(a => a.getAttribute("href") + "|" + a.innerText.trim()));
-      ok(tabs.length === 3 && tabs[1] === "#/tadwin|" + lab, `tw: the middle tab is «${lab}» (${q}): ${tabs.join(", ")}`);
+      ok(tabs.length === 3 && tabs[0].startsWith("#/|") && tabs[1].startsWith("#/tasks|") && tabs[2] === "#/tadwin|" + lab, `tw: the tabs are my hand, tasks, «${lab}» (${q}): ${tabs.join(", ")}`);
+      ok(await has(page, '#tabs a[href="#/tadwin"] svg'), `tw: the journal tab has its pen (${q})`);
       await page.click('#tabs a[href="#/tadwin"]'); await page.waitForTimeout(400);
       const t = await txt(page, "#view");
       ok(await has(page, '#view [data-act="twstart"]') && /عَلَّمَ بِالْقَلَمِ/.test(t) && /كَاتِبِينَ/.test(t), `tw: the first visit opens «why we write» with both verses (${q})`);
-      if (q.includes("en")) ok(/taught by the pen/.test(t) && /recording/.test(t), `tw: English meanings of the verses (${q})`);
+      ok(!TW_OLD.test(t), `tw: «why we write» speaks of writing, blessings and challenges (${q})`);
+      if (q.includes("en")) ok(/taught by the pen/.test(t) && /recording/.test(t) && /blessings/.test(t) && /challenges/.test(t), `tw: English meanings of the verses and the new idea (${q})`);
+      else ok(/نعم/.test(t) && /(تحديات|مجاهدات)/.test(t) && /بحرية/.test(t), `tw: the intro names free writing, blessings and challenges (${q})`);
       await page.click('#view [data-act="twstart"]'); await page.waitForTimeout(350);
-      ok(await has(page, ".tw-paper.good") && await has(page, '.tw-head a[href="#/tadwin/why"]') && await has(page, '.tw .evelink[href="#/evening"]') && await has(page, '#view [data-act="sawopen"]'), `tw: then the scrolls, the «why» link, the evening link and «رأيت خيرًا» (${q})`);
+      const ord = await page.evaluate(() => ["#tw-write", "#tw-nb", "#tw-bless", "#tw-chal", ".sawc"].map(s => { const e = document.querySelector("#view " + s); return e ? e.getBoundingClientRect().top + scrollY : -1; }));
+      ok(ord.every(x => x >= 0) && ord.every((x, i) => !i || x > ord[i - 1]), `tw: write, notebook, blessings, challenges, «رأيتُ خيرًا», in that order (${q}): ${ord.join(",")}`);
+      const big = await page.evaluate(() => { const ta = document.getElementById("twNote"); const r = ta.getBoundingClientRect(); return { h: r.height, w: r.width, vw: innerWidth, max: Math.max(...[...document.querySelectorAll("#view .tw-paper > ul > li, #view .card")].map(e => e.getBoundingClientRect().height), 0) }; });
+      ok(big.h >= 240 && big.w >= big.vw * 0.8 && big.h > big.max, `tw: the writing box is the largest element (${q}): ${JSON.stringify(big)}`);
+      ok((await txt(page, "#tw-chal h2")).includes(ch), `tw: the challenges are called «${ch}» (${q})`);
+      ok(!TW_OLD.test(await txt(page, "#view")), `tw: none of the first journal's words on the page (${q})`);
+      ok(await has(page, '.tw-head a[href="#/tadwin/why"]') && await has(page, '#tw-bless .evelink[href="#/evening"]') && await has(page, '#tw-bless [data-act="twadd"][data-k="deed"]') && await has(page, "#tw-bless #tw-seen") && await has(page, '#view [data-act="sawopen"]'), `tw: «why» link, and in the blessings the evening, «اكتب حسنة» and «ما رآه أهلي فيّ» (${q})`);
       ok(await has(page, '#tabs a[href="#/tadwin"].on'), `tw: the tab is marked current (${q})`);
       await open(page, "", 900); await go(page, "#/tadwin"); ok(!(await has(page, '#view [data-act="twstart"]')), `tw: the intro shows once (${q})`);
       await go(page, "#/tadwin/why"); ok(await has(page, '#view a[href="#/tadwin"].btn'), `tw: and stays reachable from its link (${q})`);
@@ -623,110 +637,297 @@ async function ideaFlows(browser, base, content, AV) {
       await ctx.close();
     }
   });
-  await step("tadwin: the two scrolls", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
+  await step("tadwin: free writing and the notebook", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
     await setS(page, "s.twIntro = true;"); await open(page); await go(page, "#/tadwin");
-    await page.click('#view [data-act="twadd"][data-k="good"]'); await page.waitForTimeout(300);
-    await page.fill("#twTx", "ساعدت جدتي في حمل الأكياس"); await page.click('#sheet [data-act="twf"][data-s="human"]'); await page.waitForTimeout(200);
-    ok((await page.inputValue("#twTx")) === "ساعدت جدتي في حمل الأكياس", "tw: picking a finger keeps the text");
-    await page.click('#sheet [data-act="twsave"]'); await page.waitForTimeout(350);
-    await go(page, "#/tadwin/bad"); await page.click('#view [data-act="twadd"][data-k="bad"]'); await page.waitForTimeout(300);
-    await page.fill("#twTx", "رفعت صوتي على أخي"); await page.click('#sheet [data-act="twsave"]'); await page.waitForTimeout(350);
-    await page.click('#view [data-act="twmark"][data-m="st"]'); await page.waitForTimeout(250);
+    const note = "ذهبتُ اليوم إلى المدرسة\nوساعدني صديقي في الرياضيات\n\nثم لعبنا بعد الظهر";
+    await page.fill("#twNote", note); await page.waitForTimeout(600);
     await open(page); await go(page, "#/tadwin");
-    const gt = await txt(page, ".tw-paper.good");
-    ok(/ساعدت جدتي/.test(gt) && await has(page, ".tw-paper.good .tw-f") && !/رفعت صوتي/.test(gt), "tw: a good deed survives a reload, with its finger, in its own scroll");
-    ok(/\d{4}/.test(await txt(page, ".tw-paper.good .tw-d")), "tw: each line is dated automatically");
-    await go(page, "#/tadwin/bad");
-    ok(/رفعت صوتي/.test(await txt(page, ".tw-paper.bad")) && await has(page, '.tw-paper.bad [data-act="twmark"][data-m="st"].on') && !(await has(page, '.tw-paper.bad [data-act="twmark"][data-m="fx"].on')), "tw: a slip survives a reload, with «استغفرتُ» marked");
-    const s = await getS(page); ok(s.good.length === 1 && s.bad.length === 1 && s.good[0].f === "human" && s.bad[0].st === true, "tw: both are stored in the profile");
-    // the evening's blessing is written to the good scroll too
+    ok((await page.inputValue("#twNote")) === note, "tw: an unsaved page survives a reload as a draft");
+    await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(400);
+    let s = await getS(page);
+    ok(s.notes.length === 1 && s.notes[0].tx === note && /^\d{4}-\d{2}-\d{2}$/.test(s.notes[0].d) && s.notes[0].t > 0 && !("twDraft" in s), "tw: saving keeps the text with its line breaks and its date, and clears the draft");
+    ok((await page.inputValue("#twNote")) === "" && /حُفظت في دفترك/.test(await txt(page, ".tw-after")), "tw: the box is ready for a new page, with a quiet «saved»");
+    await open(page); await go(page, "#/tadwin");
+    ok((await txt(page, "#tw-nb summary")).includes("1"), "tw: the notebook counts the entry after a reload");
+    await page.click("#tw-nb summary"); await page.waitForTimeout(200);
+    ok(/وساعدني صديقي/.test(await txt(page, "#tw-nb")) && /\d{4}/.test(await txt(page, "#tw-nb .tw-d")), "tw: the notebook shows it with its date");
+    await page.click('#tw-nb [data-act="nbopen"]'); await page.waitForTimeout(400);
+    ok((await page.inputValue("#twNote")) === note && await has(page, ".tw-write.editing") && await has(page, '#view [data-act="nbcancel"]'), "tw: an entry reopens in the writing box to be edited");
+    ok(await page.evaluate(() => document.getElementById("tw-nb").open), "tw: the notebook stays open across the redraw");
+    await page.fill("#twNote", note + "\nوالحمد لله"); await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(400);
+    s = await getS(page); ok(s.notes.length === 1 && /والحمد لله$/.test(s.notes[0].tx) && s.notes[0].u >= s.notes[0].t, "tw: editing changes the same entry and marks when");
+    ok((await page.inputValue("#twNote")) === "" && !(await has(page, ".tw-write.editing")), "tw: after the edit the box is a new page again");
+    await page.fill("#twNote", "صفحة ثانية للتجربة"); await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(400);
+    ok(/صفحة ثانية للتجربة/.test(await txt(page, "#tw-nb .nb-e .nb-tx")), "tw: the newest entry shows first");
+    await page.click('#tw-nb [data-act="twdel"]'); await page.waitForTimeout(250);
+    ok(/دفترك/.test(await txt(page, "#sheet")), "tw: removing an entry asks once");
+    await page.click('#sheet [data-act="twdelyes"]'); await page.waitForTimeout(300);
+    s = await getS(page); ok(s.notes.length === 1 && /والحمد لله$/.test(s.notes[0].tx), "tw: only the chosen entry is removed");
+    await setS(page, "s.notes = [{ id: '<x>', t: 5, tx: '<b>hi</b>\\u0001' }, { t: 'x', tx: 'a' }, { id: 'a', t: 1700000000000, tx: 'x'.repeat(9000), d: 'bad' }, { id: 'b', t: 1700000000000, tx: '   ' }, 7]; s.twDraft = '<i>draft</i>';"); await open(page);
+    s = await getS(page);
+    ok(s.notes.length === 2 && s.notes.every(e => /^[a-z0-9-]{1,24}$/.test(e.id) && /^\d{4}-\d{2}-\d{2}$/.test(e.d)) && !/[<>]/.test(JSON.stringify(s.notes)) && s.notes[1].tx.length === 8000 && !/[<>]/.test(s.twDraft), "tw: stored entries and the draft are checked (id, date, day, text up to 8000)");
+    ok(!page.errs.length, "tw: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+    await ctx.close(); });
+  await step("tadwin: blessings and challenges", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
+    await setS(page, "s.twIntro = true;"); await open(page); await go(page, "#/tadwin");
+    await page.click('#tw-bless [data-act="twadd"][data-k="bless"]'); await page.waitForTimeout(300);
+    await page.fill("#twTx", "جدتي التي زارتنا اليوم"); await page.click('#sheet [data-act="twf"][data-s="human"]'); await page.waitForTimeout(200);
+    ok((await page.inputValue("#twTx")) === "جدتي التي زارتنا اليوم", "tw: picking a finger keeps the text");
+    await page.click('#sheet [data-act="twsave"]'); await page.waitForTimeout(350);
+    await page.click('#tw-bless [data-act="twadd"][data-k="deed"]'); await page.waitForTimeout(300);
+    ok(/حسنة/.test(await txt(page, "#sheet h2")), "tw: «اكتب حسنة» opens its own sheet");
+    await page.fill("#twTx", "ساعدت جدتي في حمل الأكياس"); await page.click('#sheet [data-act="twsave"]'); await page.waitForTimeout(350);
+    await page.click('#tw-chal [data-act="twadd"][data-k="chal"]'); await page.waitForTimeout(300);
+    await page.fill("#twTx", "أن أهدأ حين يغضبني أخي"); await page.click('#sheet [data-act="twf"][data-s="monkey"]'); await page.waitForTimeout(150); await page.click('#sheet [data-act="twsave"]'); await page.waitForTimeout(350);
+    await page.click('#tw-chal [data-act="twadd"][data-k="chal"]'); await page.waitForTimeout(300);
+    await page.fill("#twTx", "النوم مبكرًا"); await page.click('#sheet [data-act="twsave"]'); await page.waitForTimeout(350);
+    await open(page); await go(page, "#/tadwin");
+    let s = await getS(page);
+    ok(s.bless.length === 2 && s.bless[0].src === "hand" && s.bless[0].f === "human" && s.bless[1].src === "deed", "tw: a blessing by hand and a good deed are both kept among the blessings");
+    ok(s.chal.length === 2 && s.chal[0].f === "monkey" && s.chal[0].src === "hand" && !s.chal[1].f, "tw: challenges are kept, with an optional finger");
+    ok(/جدتي التي زارتنا/.test(await txt(page, "#tw-bless")) && /حسنة/.test(await txt(page, "#tw-bless .tw-tag")) && !/أن أهدأ/.test(await txt(page, "#tw-bless")), "tw: they survive a reload, each in its section");
+    ok(await has(page, '#tw-chal .ch-task a[href="#/tasks/monkey"]') && (await page.locator("#tw-chal .ch-task").count()) === 1, "tw: a challenge linked to a finger suggests one of that finger's tasks");
+    // overcome: a line of thanks among the blessings
+    await page.click('#tw-chal [data-act="chover"] >> nth=0'); await page.waitForTimeout(400);
+    s = await getS(page); const over = s.chal.find(e => e.done), thanks = s.bless.find(e => e.src === "over");
+    ok(over && over.dt > 0 && thanks && thanks.n === over.id && thanks.tx.includes(over.tx) && /بفضل الله/.test(thanks.tx), "tw: «تجاوزته بفضل الله» marks it and writes a thanks line into the blessings");
+    ok(/تجاوزت/.test(await txt(page, "#tw-bless")) && /✓ تجاوزته بفضل الله/.test(await txt(page, "#tw-chal")), "tw: both are shown");
+    // editing a line
+    await page.click('#tw-bless [data-act="twedit"] >> nth=0'); await page.waitForTimeout(300);
+    ok(await has(page, "#sheet #twTx"), "tw: a line opens to be edited");
+    await page.fill("#twTx", "نعمة معدّلة"); await page.click('#sheet [data-act="twsave"]'); await page.waitForTimeout(350);
+    s = await getS(page); ok(s.bless.length === 3 && s.bless.some(e => e.tx === "نعمة معدّلة" && e.u), "tw: editing changes the line in place");
+    // the evening's blessing
     await go(page, "#/evening"); await page.click('#view [data-act="finger"][data-f="ring"]'); await page.waitForTimeout(200); await page.click('[data-act="evenext"]'); await page.waitForTimeout(200);
     await page.fill("#eveG", "نزول المطر"); await page.click('[data-act="evenext"]'); await page.waitForTimeout(200); await page.click('[data-act="evesay"]'); await page.waitForTimeout(200);
     await page.click('[data-act="evefinish"]'); await page.waitForTimeout(300);
-    ok(await has(page, '#view a.eve-tw[href="#/tadwin"]'), "tw: the evening's last screen points to the good scroll");
-    ok((await getS(page)).good.some(e => e.k === "ni" && e.tx === "نزول المطر"), "tw: the blessing is written in the good scroll");
-    await go(page, "#/tadwin"); ok(/نعمة/.test(await txt(page, ".tw-paper.good")) && /نزول المطر/.test(await txt(page, ".tw-paper.good")), "tw: shown there as «نعمة»");
-    // removing a line asks once
-    await page.click('.tw-paper.good [data-act="twdel"]'); await page.waitForTimeout(250); await page.click('#sheet [data-act="twdelyes"]'); await page.waitForTimeout(300);
-    ok((await getS(page)).good.length === 1, "tw: a line can be removed after one confirmation");
-    // owner-only: never in the record, the home page, the tasks, or another profile
-    const secret = /رفعت صوتي|ساعدت جدتي|نزول المطر/;
-    for (const h of ["#/record", "#/", "#/tasks"]) { await go(page, h); ok(!secret.test(await page.evaluate(() => document.getElementById("view").textContent)), `tw: nothing from the scrolls in ${h}`); }
+    ok(await has(page, '#view a.eve-tw[href="#/tadwin"]') && /نِعَم الله عليّ/.test(await txt(page, "#view")), "tw: the evening's last screen points to «نِعَم الله عليّ»");
+    ok((await getS(page)).bless.some(e => e.src === "eve" && e.tx === "نزول المطر"), "tw: the evening's blessing is written there");
+    await go(page, "#/tadwin"); ok(/من المحاسبة/.test(await txt(page, "#tw-bless")) && /نزول المطر/.test(await txt(page, "#tw-bless")), "tw: shown «من المحاسبة»");
+    // a free page too, for the privacy checks
+    await page.fill("#twNote", "سرّ الدفتر الخاص جدًا"); await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(350);
+    const secret = /سرّ الدفتر|جدتي|أن أهدأ|نزول المطر|معدّلة/;
+    for (const h of ["#/record", "#/", "#/tasks"]) { await go(page, h); ok(!secret.test(await page.evaluate(() => document.getElementById("view").textContent)), `tw: nothing from the journal in ${h}`); }
     await page.evaluate(() => { const p = { active: "p2", list: ["p1", "p2"] }; localStorage.setItem("akhlaq-app-v1:profiles", JSON.stringify(p));
       localStorage.setItem("akhlaq-app-v1:p2", JSON.stringify({ v: 1, lang: "ar", fs: 19, mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, intro: true, tour: true, twIntro: true })); });
     await open(page, "", 900);
-    for (const h of ["#/tadwin", "#/tadwin/bad", "#/record", "#/"]) { await go(page, h); ok(!secret.test(await page.evaluate(() => document.body.textContent)), `tw: another profile sees nothing of them in ${h}`); }
-    // stored lines are checked
+    for (const h of ["#/tadwin", "#/tadwin/bad", "#/record", "#/", "#/seen"]) { await go(page, h); ok(!secret.test(await page.evaluate(() => document.body.textContent)), `tw: another profile sees nothing of it in ${h}`); }
     await page.evaluate(() => { const p = { active: "p1", list: ["p1", "p2"] }; localStorage.setItem("akhlaq-app-v1:profiles", JSON.stringify(p)); });
-    await setS(page, "s.good = [{ id: '<x>', t: 5, tx: '<b>hi</b>' }, { t: 'x', tx: 'a' }, { id: 'a', t: 1700000000000, tx: '', k: 'do' }, { id: 'b', t: 1700000000000, k: 'kh', f: 'pig', st: true }, 7]; s.bad = [{ id: 'c', t: 1700000000000, tx: 'y'.repeat(400), st: 1, fx: true, k: 'kh', f: '<i>' }];"); await open(page);
-    const h2 = await getS(page);
-    ok(h2.good.length === 2 && h2.good.every(e => /^[a-z0-9-]{1,24}$/.test(e.id)) && !/[<>]/.test(JSON.stringify(h2.good)) && h2.good[1].k === "kh" && h2.good[1].f === "pig" && !("st" in h2.good[1]), "tw: stored good lines are checked (id, date, text, kind, finger)");
-    ok(h2.bad.length === 1 && h2.bad[0].tx.length === 200 && h2.bad[0].fx === true && !("st" in h2.bad[0]) && !("k" in h2.bad[0]) && !("f" in h2.bad[0]), "tw: stored slips are checked (200 characters, marks, no kind)");
+    // stored lines are checked
+    await setS(page, "s.bless = [{ id: '<x>', t: 5, tx: '<b>hi</b>', src: 'zz', f: 'pig', n: '<n>' }, { t: 'x', tx: 'a' }, { id: 'a', t: 1700000000000, tx: '' }, { id: 'b', t: 1700000000000, tx: 'y'.repeat(400), src: 'over', n: 'c1', done: true }, 7]; s.chal = [{ id: 'c', t: 1700000000000, tx: 'z', done: 1, src: 'deed', f: '<i>' }, { id: 'c', t: 1700000000001, tx: 'w', done: true, dt: 'x' }]; s.khabia = [{ id: 'k', t: 1700000000000, f: 'pig', src: 'hand' }];"); await open(page);
+    s = await getS(page);
+    ok(s.bless.length === 2 && s.bless.every(e => /^[a-z0-9-]{1,24}$/.test(e.id)) && !/[<>]/.test(JSON.stringify(s.bless)) && !("src" in s.bless[0]) && !("n" in s.bless[0]) && s.bless[0].f === "pig" && s.bless[1].tx.length === 200 && s.bless[1].src === "over" && !("done" in s.bless[1]), "tw: stored blessings are checked (id, date, text, source, finger, link)");
+    ok(s.chal.length === 2 && !("done" in s.chal[0]) && !("src" in s.chal[0]) && !("f" in s.chal[0]) && s.chal[1].done === true && !("dt" in s.chal[1]) && s.chal[0].id !== s.chal[1].id, "tw: stored challenges are checked (marks, source, unique ids)");
+    ok(s.khabia.length === 1 && Object.keys(s.khabia[0]).sort().join() === "id,t", "tw: stored hidden deeds keep only their date and text");
     ok(!page.errs.length, "tw: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
+  await step("tadwin: parent mode", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
+    await setS(page, "s.twIntro = true; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'سرّ في الدفتر' }]; s.bless = [{ id: 'b1', t: Date.now(), tx: 'نعمة سرّية' }]; s.chal = [{ id: 'c1', t: Date.now(), tx: 'تحدٍّ سرّي' }]; s.khabia = [{ id: 'k1', t: Date.now(), tx: 'خبيئة سرّية' }];"); await open(page);
+    // parent mode has no button in the interface for now (owner decision, 21 Nov 2026): it is reached here through its PIN sheet
+    await page.evaluate(() => { const b = document.createElement("button"); b.dataset.act = "pinopen"; document.body.appendChild(b); b.click(); b.remove(); }); await page.waitForTimeout(300);
+    for (const k of "1234") { await page.click(`#sheet [data-act="pin"][data-k="${k}"]`); await page.waitForTimeout(120); }
+    const secret = /سرّ في الدفتر|نعمة سرّية|تحدٍّ سرّي|خبيئة سرّية/;
+    for (const h of ["#/tadwin", "#/record", "#/", "#/tasks", "#/seen"]) { await go(page, h); ok(!secret.test(await page.evaluate(() => document.body.textContent)), `tw: parent mode shows nothing of the journal in ${h}`); }
+    await go(page, "#/tadwin"); ok(/لصاحب الملف وحده/.test(await txt(page, "#view")) && !(await has(page, "#twNote")), "tw: in parent mode the journal page names its owner, with nothing to read or write");
+    ok(!page.errs.length, "tw: parent mode, no script errors (" + page.errs.slice(0, 1).join("") + ")");
+    await ctx.close(); });
+  await step("tadwin: migration from the first journal", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
+    await setS(page, "delete s.twV; delete s.notes; delete s.bless; delete s.chal; delete s.khabia; s.twIntro = true; s.twMig = true;"
+      + " s.good = [{ id: 'g1', t: 1763800000000, tx: 'ساعدت جدتي', f: 'human' }, { id: 'g2', t: 1763800001000, k: 'kh', tx: 'خبيئة قديمة', f: 'pig' }, { id: 'g3', t: 1763800002000, tx: 'المطر', k: 'ni' }, { id: 'g4', t: 1763800003000, k: 'kh' }];"
+      + " s.bad = [{ id: 'b1', t: 1763800004000, tx: 'رفعت صوتي على أخي', st: true }, { id: 'b2', t: 1763800005000, tx: 'تأخرت عن الصلاة', fx: true, f: 'pig' }];"); await open(page);
+    const s = await getS(page), byId = (l, id) => (l || []).find(e => e.id === id) || {};
+    ok(!("good" in s) && !("bad" in s) && s.twV === 2, "mig: the first journal's two lists are gone, version 2 recorded");
+    ok(byId(s.bless, "g1").tx === "ساعدت جدتي" && byId(s.bless, "g1").src === "deed" && byId(s.bless, "g1").f === "human" && byId(s.bless, "g3").src === "eve", "mig: good lines go to the blessings (good deeds, the evening's blessings)");
+    ok(byId(s.khabia, "g2").tx === "خبيئة قديمة" && !("f" in byId(s.khabia, "g2")) && byId(s.khabia, "g4").id === "g4", "mig: hidden deeds stay hidden deeds, among the blessings");
+    ok(byId(s.chal, "b1").tx === "رفعت صوتي على أخي" && byId(s.chal, "b1").src === "hand" && !("st" in byId(s.chal, "b1")) && !byId(s.chal, "b1").done, "mig: the other scroll's lines go to the challenges, text unchanged");
+    ok(byId(s.chal, "b2").tx === "تأخرت عن الصلاة" && byId(s.chal, "b2").done === true && byId(s.chal, "b2").f === "pig" && !s.bless.some(e => e.src === "over"), "mig: a line marked «put right» comes over as overcome, with its finger");
+    await go(page, "#/tadwin/bad");
+    ok(await has(page, "#tw-chal") && /رفعت صوتي على أخي/.test(await txt(page, "#tw-chal")) && !TW_OLD.test(await txt(page, "#view")), "mig: the old address of the second scroll opens the journal at the challenges");
+    await open(page); const s2 = await getS(page);
+    ok(s2.bless.length === s.bless.length && s2.chal.length === s.chal.length && s2.khabia.length === s.khabia.length, "mig: it happens once");
+    ok(!page.errs.length, "mig: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+    await ctx.close(); });
+  await step("tadwin: extract", async () => {
+    // without the server (the site today): no button, no setting
+    { const { ctx, page } = await fresh(); await open(page, "&reset=1&ed=adult", 900);
+      await setS(page, "s.twIntro = true;"); await open(page, "", 900); await go(page, "#/tadwin");
+      await page.fill("#twNote", "اليوم كان يومًا طيبًا مع أهلي"); await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(2900);
+      await page.click("#tw-nb summary"); await page.waitForTimeout(200);
+      ok(!(await has(page, '[data-act="exgo"]')), "ext: without a server the extract button stays hidden");
+      ok(!page.errs.length, "ext: no script errors without a server (" + page.errs.slice(0, 1).join("") + ")");
+      await ctx.close(); }
+    // with a server (mocked to the contract of outputs/server/src/extract.js)
+    const freshNoSw = async (vp) => { const ctx = await browser.newContext({ viewport: vp || { width: 375, height: 812 }, serviceWorkers: "block" }); const page = await ctx.newPage(); const errs = []; page.on("pageerror", e => errs.push(e.message)); page.errs = errs; return { ctx, page }; };
+    const mock = async (ctx, reqs, ans, adult18) => {
+      await ctx.route("**/api/health", r => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ ok: true, env: "test", ai: true }) }));
+      await ctx.route("**/api/me", r => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ account: { email: "x@example.com", adult_at: adult18 === false ? null : 1763900000000 }, profiles: [] }) }));
+      await ctx.route("**/api/extract", r => { reqs.push({ m: r.request().method(), h: r.request().headers(), b: r.request().postData() }); return r.fulfill(ans()); }); };
+    { const { ctx, page } = await freshNoSw(), reqs = [];
+      await mock(ctx, reqs, () => ({ status: 200, contentType: "application/json", body: JSON.stringify({ blessings: ["أمي التي ساعدتني في واجبي", "<b>صديق</b> وقف بجانبي", 5], challenges: ["أن أهدأ حين يغضبني أخي"], care: "ما كتبته مهم." }) }));
+      await open(page, "&reset=1&ed=adult", 900); await setS(page, "s.twIntro = true; s.gender = 'm';"); await open(page, "", 900); await go(page, "#/tadwin", 900);
+      await page.fill("#twNote", "ساعدتني أمي في الواجب، وغضبت من أخي"); await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(500);
+      ok(await has(page, '.tw-after [data-act="exgo"]'), "ext: with the server, the button shows after saving");
+      await page.click('.tw-after [data-act="exgo"]'); await page.waitForTimeout(700);
+      const rq = reqs[0] || { h: {} }, body = JSON.parse(rq.b || "{}");
+      ok(rq.m === "POST" && rq.h["x-tazkiya"] === "1" && /application\/json/.test(rq.h["content-type"] || ""), "ext: POST /api/extract as JSON with the x-tazkiya header");
+      ok(Object.keys(body).sort().join() === "edition,gender,lang,pid,text" && body.pid === "p1" && body.edition === "adult" && body.lang === "ar" && body.gender === "m" && /ساعدتني أمي/.test(body.text), `ext: it sends one entry with edition, language and gender: ${JSON.stringify(body)}`);
+      ok((await page.locator("#sheet .ex-list li").count()) === 3 && /ما كتبته مهم/.test(await txt(page, "#sheet .ex-care")) && !/[<>]/.test(await page.inputValue("#ex-bl1")), "ext: the suggestions and the care line are shown, cleaned");
+      ok(!((await getS(page)).bless || []).length && !((await getS(page)).chal || []).length, "ext: nothing is saved before the writer chooses");
+      await page.fill("#ex-bl0", "أمي التي ساعدتني"); await page.click('#sheet [data-act="exon"][data-k="bl"][data-i="1"]'); await page.waitForTimeout(250);
+      ok((await page.inputValue("#ex-bl0")) === "أمي التي ساعدتني" && await has(page, "#sheet .ex-list li.off"), "ext: a line can be edited, another dropped");
+      await page.click('#sheet [data-act="exsave"]'); await page.waitForTimeout(400);
+      const s = await getS(page), nid = s.notes[0].id;
+      ok(s.bless.length === 1 && s.bless[0].tx === "أمي التي ساعدتني" && s.bless[0].src === "ai" && s.bless[0].n === nid, "ext: the chosen blessing is saved as edited, linked to its entry");
+      ok(s.chal.length === 1 && s.chal[0].tx === "أن أهدأ حين يغضبني أخي" && s.chal[0].src === "ai", "ext: the chosen challenge is saved");
+      ok(/من كتابتي/.test(await txt(page, "#tw-bless")), "ext: shown «من كتابتي»");
+      ok(!page.errs.length, "ext: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+      await ctx.close(); }
+    // no AI for children (owner decision, 23 Nov 2026): never in the kids' edition, not even as a setting
+    { const { ctx, page } = await freshNoSw(), reqs = [];
+      await mock(ctx, reqs, () => ({ status: 200, contentType: "application/json", body: '{"blessings":["x"],"challenges":[]}' }));
+      for (const q of ["&lang=ar", "&lang=en"]) {
+        await open(page, "&reset=1" + q, 900); await setS(page, "s.twIntro = true; s.age = '9-14'; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'كان يومًا طيبًا في المدرسة' }];"); await open(page, "", 900); await go(page, "#/tadwin", 1200);
+        await page.fill("#twNote", "كتبت صفحة جديدة طويلة اليوم"); await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(400);
+        await page.click("#tw-nb summary"); await page.waitForTimeout(200);
+        ok(!(await has(page, '[data-act="exgo"]')) && !(await has(page, ".ext-btn")), `ext: kids (${q}): no extract button anywhere, with a working server`);
+        await page.click("#setBtn"); await page.waitForTimeout(500);
+        ok(!/(المساعد|الذكاء|journal helper|\bAI\b)/.test(await txt(page, "#sheet")), `ext: kids (${q}): no setting for it`);
+        await page.keyboard.press("Escape"); await page.waitForTimeout(200);
+        ok(((await getS(page)).bless || []).length === 0 && ((await getS(page)).chal || []).length === 0 && await has(page, '#tw-bless [data-act="twadd"]') && await has(page, '#tw-chal [data-act="twadd"]'), `ext: kids (${q}): writing and adding by hand stay`);
+      }
+      const calls = await page.evaluate(() => performance.getEntriesByType("resource").filter(e => /\/api\//.test(e.name)).length);
+      ok(!reqs.length && !calls, `ext: kids: the app never calls the server's AI or asks for it (${reqs.length}, ${calls})`);
+      ok(!page.errs.length, "ext: kids: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+      await ctx.close(); }
+    // an adult account without the 18+ attestation: hidden; a signed-out answer is said plainly
+    { const { ctx, page } = await freshNoSw(), reqs = [];
+      await mock(ctx, reqs, () => ({ status: 401, contentType: "application/json", body: '{"error":"no_session"}' }), false);
+      await open(page, "&reset=1&ed=adult", 900); await setS(page, "s.twIntro = true; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'كان يومًا طويلًا في العمل' }];"); await open(page, "", 900); await go(page, "#/tadwin", 1200);
+      await page.click("#tw-nb summary"); await page.waitForTimeout(200);
+      ok(!(await has(page, '[data-act="exgo"]')), "ext: adults without the 18+ attestation see no button");
+      await ctx.close(); }
+    { const { ctx, page } = await freshNoSw(), reqs = [];
+      await mock(ctx, reqs, () => ({ status: 401, contentType: "application/json", body: '{"error":"no_session"}' }));
+      await open(page, "&reset=1&ed=adult&lang=en", 900); await setS(page, "s.twIntro = true; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'A long day at work, and a kind word.' }];"); await open(page, "", 900); await go(page, "#/tadwin", 1200);
+      await page.click("#tw-nb summary"); await page.waitForTimeout(200); await page.click('#tw-nb [data-act="exgo"]'); await page.waitForTimeout(600);
+      ok(/signed in/.test(await txt(page, "#sheet")), "ext: a signed-out answer asks to sign in");
+      ok(!page.errs.length, "ext: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+      await ctx.close(); }
+    // another adult profile on the device (a family member, not the account holder): hidden
+    { const { ctx, page } = await freshNoSw(), reqs = [];
+      await mock(ctx, reqs, () => ({ status: 200, contentType: "application/json", body: '{"blessings":["x"],"challenges":[]}' }));
+      await open(page, "&reset=1&ed=adult", 900);
+      await page.evaluate(() => { localStorage.setItem("akhlaq-app-v1:profiles", JSON.stringify({ active: "p2", list: ["p1", "p2"] }));
+        localStorage.setItem("akhlaq-app-v1:p2", JSON.stringify({ v: 1, lang: "ar", fs: 19, mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, edition: "adult", intro: true, tour: true, twIntro: true, notes: [{ id: "n1", t: Date.now(), tx: "كتابة فرد آخر من الأسرة" }] })); });
+      await open(page, "", 900); await go(page, "#/tadwin", 1200); await page.click("#tw-nb summary"); await page.waitForTimeout(200);
+      ok(!(await has(page, '[data-act="exgo"]')) && !reqs.length, "ext: an adult profile other than the account holder's sees no button");
+      await ctx.close(); }
+    // nothing found: say so, and invite adding by hand
+    { const { ctx, page } = await freshNoSw(), reqs = [];
+      await mock(ctx, reqs, () => ({ status: 200, contentType: "application/json", body: '{"blessings":[],"challenges":[]}' }));
+      await open(page, "&reset=1&ed=adult", 900); await setS(page, "s.twIntro = true; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'كان يومًا طويلًا في العمل' }];"); await open(page, "", 900); await go(page, "#/tadwin", 1200);
+      await page.click("#tw-nb summary"); await page.waitForTimeout(200); await page.click('#tw-nb [data-act="exgo"]'); await page.waitForTimeout(600);
+      ok(/لم يجد المساعد سطورًا/.test(await txt(page, "#sheet")) && /بيدك/.test(await txt(page, "#sheet")), "ext: empty lists say nothing was found and invite adding by hand");
+      await ctx.close(); }
+  });
   await step("tadwin: backup", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
-    await setS(page, "s.twIntro = true; s.good = [{ id: 'g1', t: Date.now(), tx: 'حسنة في النسخة', k: 'kh' }]; s.bad = [{ id: 'b1', t: Date.now(), tx: 'زلة في النسخة', fx: true }];"); await open(page);
+    await setS(page, "s.twIntro = true; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'صفحة\\nفي النسخة' }]; s.bless = [{ id: 'b1', t: Date.now(), tx: 'نعمة في النسخة', src: 'ai', n: 'n1' }]; s.chal = [{ id: 'c1', t: Date.now(), tx: 'تحدٍّ في النسخة', done: true, dt: Date.now(), f: 'pig' }]; s.khabia = [{ id: 'k1', t: Date.now(), tx: 'خبيئة في النسخة' }];"); await open(page);
     const [dl] = await Promise.all([page.waitForEvent("download", { timeout: 5000 }), (async () => { await page.click("#setBtn"); await page.waitForTimeout(250); await page.click('#sheet [data-act="bkexport"]'); })()]);
     const out = JSON.parse(fs.readFileSync(await dl.path(), "utf8")), p1 = out.states && out.states.p1;
-    ok(p1 && p1.good[0].tx === "حسنة في النسخة" && p1.good[0].k === "kh" && p1.bad[0].tx === "زلة في النسخة" && p1.bad[0].fx === true, "tw: the backup file carries both scrolls");
-    await page.keyboard.press("Escape"); await setS(page, "s.good = []; s.bad = [];"); await open(page);
-    p1.bad.push({ id: "<x>", t: 1, tx: "<script>x</script>" });
+    ok(p1 && p1.notes[0].tx === "صفحة\nفي النسخة" && p1.bless[0].n === "n1" && p1.chal[0].done === true && p1.chal[0].f === "pig" && p1.khabia[0].tx === "خبيئة في النسخة", "bk: the backup file carries the notebook, the blessings, the challenges and the hidden deeds");
+    await page.keyboard.press("Escape"); await setS(page, "s.notes = []; s.bless = []; s.chal = []; s.khabia = [];"); await open(page);
+    p1.chal.push({ id: "<x>", t: 1, tx: "<script>x</script>" }); p1.notes.push({ id: "n2", t: 2, tx: "<i>" + "q".repeat(9000) });
     await page.click("#setBtn"); await page.waitForTimeout(250);
     await page.setInputFiles("#bkFile", { name: "b.json", mimeType: "application/json", buffer: Buffer.from(JSON.stringify(out)) }); await page.waitForTimeout(400);
     await page.click('#sheet [data-act="bkyes"]'); await page.waitForTimeout(1300);
-    const r = await getS(page);
-    ok(r.good.length === 1 && r.good[0].tx === "حسنة في النسخة" && r.bad.length === 2 && r.bad[0].fx === true && !/[<>]/.test(JSON.stringify(r.bad)), "tw: restoring brings both scrolls back, checked");
-    ok(!page.errs.length, "tw: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+    let r = await getS(page);
+    ok(r.notes.length === 2 && r.notes[0].tx === "صفحة\nفي النسخة" && r.notes[1].tx.length === 8000 && r.bless[0].n === "n1" && r.chal.length === 2 && r.chal[0].done === true && r.khabia.length === 1 && !/[<>]/.test(JSON.stringify(r)), "bk: restoring brings everything back, checked");
+    // a backup made by the first journal (two scrolls) is moved to version 2 on restore
+    const old = JSON.parse(JSON.stringify(out)), o1 = old.states.p1; ["notes", "bless", "chal", "khabia", "twV"].forEach(k => delete o1[k]);
+    o1.twMig = true; o1.good = [{ id: "g1", t: Date.now(), tx: "حسنة قديمة" }]; o1.bad = [{ id: "s1", t: Date.now(), tx: "سطر قديم", st: true }];
+    await page.click("#setBtn"); await page.waitForTimeout(250);
+    await page.setInputFiles("#bkFile", { name: "old.json", mimeType: "application/json", buffer: Buffer.from(JSON.stringify(old)) }); await page.waitForTimeout(400);
+    await page.click('#sheet [data-act="bkyes"]'); await page.waitForTimeout(1300);
+    r = await getS(page);
+    ok(r.twV === 2 && r.bless.length === 1 && r.bless[0].tx === "حسنة قديمة" && r.chal.length === 1 && r.chal[0].tx === "سطر قديم" && !("good" in r) && !("bad" in r), "bk: a backup from the first journal is moved to version 2");
+    ok(!page.errs.length, "bk: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
   await step("tadwin: closing the year", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
-    await setS(page, "s.twIntro = true; s.good = [{ id: 'g1', t: Date.now() - 1000, tx: 'حسنة السنة الأولى' }, { id: 'g2', t: Date.now(), tx: 'نعمة الصحة', k: 'ni' }]; s.bad = [{ id: 'b1', t: Date.now(), tx: 'زلة أولى' }, { id: 'b2', t: Date.now(), tx: 'زلة ثانية', st: true }];"); await open(page);
+    await setS(page, "s.twIntro = true; s.bless = [{ id: 'g1', t: Date.now() - 2000, tx: 'نعمة السنة الأولى', src: 'deed' }, { id: 'g2', t: Date.now() - 1000, tx: 'نعمة الصحة', src: 'eve' }]; s.khabia = [{ id: 'k1', t: Date.now(), tx: 'خبيئة السنة' }];"
+      + " s.chal = [{ id: 'c1', t: Date.now(), tx: 'تحدٍّ أول' }, { id: 'c2', t: Date.now(), tx: 'تحدٍّ ثانٍ', done: true }]; s.notes = [{ id: 'n1', t: Date.now() - 500, d, tx: 'كتابة أولى في السنة' }, { id: 'n2', t: Date.now(), d, tx: 'كتابة ثانية في السنة' }];"); await open(page);
     const inWin = (() => { try { const p = {}; new Intl.DateTimeFormat("en-u-ca-islamic-umalqura-nu-latn", { day: "numeric", month: "numeric", year: "numeric" }).formatToParts(new Date()).forEach(x => { p[x.type] = x.value; }); const m = +p.month, d = +p.day; return (m === 12 && d >= 20) || (m === 1 && d <= 10); } catch (e) { return false; } })();
-    await go(page, "#/tadwin"); ok((await has(page, ".ye-card")) === inWin, `tw: the «ختام السنة» card follows the Hijri dates (in the window today: ${inWin})`);
+    await go(page, "#/tadwin"); ok((await has(page, ".ye-card")) === inWin, `ye: the «ختام السنة» card follows the Hijri dates (in the window today: ${inWin})`);
     await open(page, "&burntest=1"); await go(page, "#/tadwin");
-    ok(await has(page, '.ye-card [data-act="burnask"]') && /ختام السنة/.test(await txt(page, ".ye-card")), "tw: the test hook shows the card outside its days");
+    ok(await has(page, '.ye-card [data-act="burnask"]') && /ختام السنة/.test(await txt(page, ".ye-card")) && /صفحة التحديات/.test(await txt(page, ".ye-card")), "ye: the test hook shows the card outside its days");
     await page.click('.ye-card [data-act="burnask"]'); await page.waitForTimeout(300);
-    ok(/لا رجوع فيها/.test(await txt(page, "#sheet")) && await has(page, '#sheet [data-act="burnyes"]'), "tw: one confirmation first");
-    ok(((await getS(page)).bad || []).length === 2, "tw: nothing is deleted before it");
+    ok(/لا رجوع فيها/.test(await txt(page, "#sheet")) && /يبقى دفترك ونعمك/.test(await txt(page, "#sheet")) && await has(page, '#sheet [data-act="burnyes"]'), "ye: one confirmation first, saying what stays");
+    ok(((await getS(page)).chal || []).length === 2, "ye: nothing is deleted before it");
     await page.click('#sheet [data-act="burnyes"]'); await page.waitForTimeout(500);
-    const s = await getS(page);
-    ok(s.bad.length === 0 && s.good.length === 2 && s.good[0].tx === "حسنة السنة الأولى" && s.burnY > 1400, "tw: the burn empties the bad scroll only, for real");
-    ok(await has(page, ".burn-paper") && /يُذْهِبْنَ السَّيِّئَاتِ/.test(await txt(page, "#view")) && /هود: 114/.test(await txt(page, "#view")), "tw: the grey page burns with ﴿إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ﴾");
+    let s = await getS(page);
+    ok(s.chal.length === 0 && s.bless.length === 2 && s.khabia.length === 1 && s.notes.length === 2 && s.burnY > 1400, "ye: the burn empties the challenges only, for real; the notebook, blessings and hidden deeds stay");
+    ok(await has(page, ".burn-paper") && /فَإِنَّ مَعَ الْعُسْرِ يُسْرًا/.test(await txt(page, "#view")) && /الشرح: 5/.test(await txt(page, "#view")) && !TW_OLD.test(await txt(page, "#view")), "ye: the page burns with ﴿فَإِنَّ مَعَ الْعُسْرِ يُسْرًا﴾");
     await page.click('#view [data-act="burnnext"]'); await page.waitForTimeout(300);
-    ok(/حسنات سنتك/.test(await txt(page, "#view")) && /حسنة السنة الأولى/.test(await txt(page, ".ye-one")) && /1 \/ 2/.test(await txt(page, ".ye-count")), "tw: then the year's good lines, one by one");
+    ok(/نعم الله عليك في سنتك/.test(await txt(page, "#view")) && /نعمة السنة الأولى/.test(await txt(page, ".ye-one")) && /1 \/ 3/.test(await txt(page, ".ye-count")), "ye: then the year's blessings, one by one");
+    await page.click('#view [data-act="burnnext"]'); await page.waitForTimeout(250); await page.click('#view [data-act="burnnext"]'); await page.waitForTimeout(250);
+    ok(/خبيئة السنة/.test(await txt(page, ".ye-one")) && /🤲/.test(await txt(page, ".ye-one")), "ye: hidden deeds among them");
     await page.click('#view [data-act="burnnext"]'); await page.waitForTimeout(250);
-    ok(/نعمة الصحة/.test(await txt(page, ".ye-one")) && /نعمة/.test(await txt(page, ".ye-one")), "tw: blessings among them");
-    await page.click('#view [data-act="burnnext"]'); await page.waitForTimeout(250);
-    ok(/الحمد لله/.test(await txt(page, ".ye-end")), "tw: ending with «الحمد لله»");
-    await page.click('#view [data-act="burnend"]'); await page.waitForTimeout(300);
-    ok(await has(page, ".tw-paper.good") && !(await has(page, ".ye-card")), "tw: back to the good scroll; the card does not return this year");
-    await open(page, "&burntest=1"); await go(page, "#/tadwin/bad"); ok(/الصفحة بيضاء/.test(await txt(page, ".tw-paper.bad")) && !(await has(page, ".ye-card")), "tw: after a reload the bad scroll stays empty");
-    ok(!page.errs.length, "tw: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+    ok(/الحمد لله/.test(await txt(page, ".ye-end")) && await has(page, '#view [data-act="burnend"]') && await has(page, '#view [data-act="burnnb"]'), "ye: ending with «الحمد لله», and an optional step for the notebook");
+    await page.click('#view [data-act="burnnb"]'); await page.waitForTimeout(300);
+    ok((await page.locator("#view .ye-pick").count()) === 2 && await has(page, '#view [data-act="nbburn"][disabled]') && /دفترك باقٍ معك/.test(await txt(page, "#view")), "ye: the notebook's entries of the year to choose from; nothing chosen yet");
+    await page.click('#view .ye-pick >> nth=1'); await page.waitForTimeout(250);
+    ok(/\(1\)/.test(await txt(page, '#view [data-act="nbburn"]')), "ye: the count follows the choice");
+    await page.click('#view [data-act="nbburn"]'); await page.waitForTimeout(400);
+    s = await getS(page); ok(s.notes.length === 1 && s.notes[0].id === "n2", "ye: only the chosen entry is burnt");
+    ok(await has(page, "#tw-write") && !(await has(page, ".ye-card")), "ye: back to the journal; the card does not return this year");
+    await open(page, "&burntest=1"); await go(page, "#/tadwin");
+    ok(/حين يصعب عليك شيء/.test(await txt(page, "#tw-chal")) && !(await has(page, ".ye-card")), "ye: after a reload the challenges page stays empty");
+    ok(!page.errs.length, "ye: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close();
     // reduced motion: no burning animation and no automatic steps
     const ctx2 = await browser.newContext({ viewport: { width: 375, height: 812 }, reducedMotion: "reduce" }); const p2 = await ctx2.newPage();
-    await open(p2, "&reset=1"); await setS(p2, "s.twIntro = true; s.bad = [{ id: 'b1', t: Date.now(), tx: 'زلة' }];"); await open(p2, "&burntest=1"); await go(p2, "#/tadwin");
+    await open(p2, "&reset=1"); await setS(p2, "s.twIntro = true; s.chal = [{ id: 'c1', t: Date.now(), tx: 'تحدٍّ' }];"); await open(p2, "&burntest=1"); await go(p2, "#/tadwin");
     await p2.click('.ye-card [data-act="burnask"]'); await p2.waitForTimeout(250); await p2.click('#sheet [data-act="burnyes"]'); await p2.waitForTimeout(400);
     const rm = await p2.evaluate(() => { const b = document.querySelector(".burn-box"), v = document.querySelector(".burn-v"); return { rm: !!(b && b.classList.contains("rm")), paper: b ? getComputedStyle(b.querySelector(".burn-paper")).display : "", op: v ? getComputedStyle(v).opacity : "" }; });
-    ok(rm.rm && rm.paper === "none" && rm.op === "1", `tw: with reduced motion the page is simply gone and the verse shows at once (${JSON.stringify(rm)})`);
-    await p2.waitForTimeout(7000); ok(await has(p2, ".burn-v"), "tw: with reduced motion the ritual waits for «التالي»");
-    await ctx2.close(); });
+    ok(rm.rm && rm.paper === "none" && rm.op === "1", `ye: with reduced motion the page is simply gone and the verse shows at once (${JSON.stringify(rm)})`);
+    await p2.waitForTimeout(7000); ok(await has(p2, ".burn-v"), "ye: with reduced motion the ritual waits for «التالي»");
+    await ctx2.close();
+    // the adult edition says «المجاهدات»
+    const { ctx: c3, page: p3 } = await fresh(); await open(p3, "&reset=1&ed=adult", 900); await setS(p3, "s.twIntro = true; s.chal = [{ id: 'c1', t: Date.now(), tx: 'مجاهدة' }];"); await open(p3, "&burntest=1", 900); await go(p3, "#/tadwin");
+    ok(/صفحة المجاهدات/.test(await txt(p3, ".ye-card")), "ye: adults burn «صفحة المجاهدات»");
+    await c3.close(); });
   await step("tadwin: 320 px", async () => {
     for (const q of ["&lang=ar", "&lang=en", "&ed=adult&lang=ar", "&ed=adult&lang=en"]) {
       const ctx = await browser.newContext({ viewport: { width: 320, height: 640 } }), page = await ctx.newPage(), errs = []; page.on("pageerror", e => errs.push(e.message));
       await open(page, "&reset=1" + q, 900);
-      await setS(page, "s.twIntro = true; s.gender = 'f'; s.good = [{ id: 'g1', t: Date.now(), tx: 'ك'.repeat(200), f: 'sabiq', k: 'kh' }, { id: 'g2', t: Date.now(), tx: 'a'.repeat(200), k: 'ni' }]; s.bad = [{ id: 'b1', t: Date.now(), tx: 'Supercalifragilistic'.repeat(10), st: true, fx: true, f: 'monkey' }];");
+      await setS(page, "s.twIntro = true; s.gender = 'f'; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'ك'.repeat(900) + '\\n' + 'Supercalifragilistic'.repeat(20) }, { id: 'n2', t: Date.now(), d, tx: 'سطر' }];"
+        + " s.bless = [{ id: 'g1', t: Date.now(), tx: 'ك'.repeat(200), f: 'sabiq', src: 'over' }, { id: 'g2', t: Date.now(), tx: 'a'.repeat(200), src: 'eve' }]; s.khabia = [{ id: 'k1', t: Date.now(), tx: 'خ'.repeat(200) }];"
+        + " s.chal = [{ id: 'c1', t: Date.now(), tx: 'Supercalifragilistic'.repeat(10), f: 'monkey' }, { id: 'c2', t: Date.now(), tx: 'تحدٍّ', done: true, f: 'pig' }];");
       await open(page, "&burntest=1", 900);
-      for (const h of ["#/tadwin", "#/tadwin/bad", "#/tadwin/why", "#/seen"]) { await go(page, h); const x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText && !x.missing, `tw: 320 ${q} ${h}: ${JSON.stringify(x)}`); }
-      await go(page, "#/tadwin"); await page.click('#view [data-act="twadd"][data-k="good"]'); await page.waitForTimeout(300);
-      let x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length, `tw: 320 ${q} the writing sheet: ${JSON.stringify(x)}`);
+      for (const h of ["#/tadwin", "#/tadwin/why", "#/seen"]) { await go(page, h); const x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText && !x.missing, `tw: 320 ${q} ${h}: ${JSON.stringify(x)}`); }
+      await go(page, "#/tadwin"); await page.click("#tw-nb summary"); await page.waitForTimeout(200); await page.click('#tw-nb [data-act="nbopen"] >> nth=0'); await page.waitForTimeout(300);
+      let x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText, `tw: 320 ${q} the notebook open, an entry being edited: ${JSON.stringify(x)}`);
+      await page.click('#tw-bless [data-act="twadd"][data-k="bless"]'); await page.waitForTimeout(300);
+      x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length, `tw: 320 ${q} the writing sheet: ${JSON.stringify(x)}`);
       await page.keyboard.press("Escape"); await page.waitForTimeout(250);
       await page.click('.ye-card [data-act="burnask"]'); await page.waitForTimeout(250); await page.click('#sheet [data-act="burnyes"]'); await page.waitForTimeout(400);
       x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText, `tw: 320 ${q} the burning: ${JSON.stringify(x)}`);
       await page.click('#view [data-act="burnnext"]'); await page.waitForTimeout(250);
-      x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText, `tw: 320 ${q} the year's good lines: ${JSON.stringify(x)}`);
+      x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText, `tw: 320 ${q} the year's blessings: ${JSON.stringify(x)}`);
+      for (let i = 0; i < 3; i++) { await page.click('#view [data-act="burnnext"]'); await page.waitForTimeout(200); }
+      await page.click('#view [data-act="burnnb"]'); await page.waitForTimeout(300); await page.click('#view .ye-pick >> nth=0'); await page.waitForTimeout(200);
+      x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText, `tw: 320 ${q} choosing from the notebook: ${JSON.stringify(x)}`);
       ok(!errs.length, `tw: 320 ${q} no script errors ` + errs.slice(0, 1).join(""));
       await ctx.close();
     }
+    // the extract sheet at 320 px (mocked server)
+    const ctx = await browser.newContext({ viewport: { width: 320, height: 640 }, serviceWorkers: "block" }), page = await ctx.newPage();
+    await ctx.route("**/api/health", r => r.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true,"ai":true}' }));
+    await ctx.route("**/api/me", r => r.fulfill({ status: 200, contentType: "application/json", body: '{"account":{"adult_at":1763900000000}}' }));
+    await ctx.route("**/api/extract", r => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ blessings: ["ك".repeat(140), "صديق"], challenges: ["Supercalifragilistic".repeat(7)], care: "What you wrote matters. It may help to talk it through today with someone you trust." }) }));
+    await open(page, "&reset=1&ed=adult&lang=en", 900); await setS(page, "s.twIntro = true; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'A long day with my family and friends.' }];"); await open(page, "", 900); await go(page, "#/tadwin", 900);
+    await page.click("#tw-nb summary"); await page.waitForTimeout(200); await page.click('#tw-nb [data-act="exgo"]'); await page.waitForTimeout(700);
+    const x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText && (await page.locator("#sheet .ex-list li").count()) === 3, `tw: 320 the extract sheet: ${JSON.stringify(x)}`);
+    await ctx.close();
   });
   // 4. the family pact and "I saw good"
   await step("family pact", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");

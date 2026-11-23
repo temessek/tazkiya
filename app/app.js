@@ -309,7 +309,9 @@
   function cmap(m, val, max, keyRe) { const o = {}; if (!isObj(m)) return o; let k = 0; const keys = Object.keys(m); if (keyRe === DAY_RE) keys.sort().reverse(); /* keep the newest days */ for (const key of keys) { if (k >= max) break; if (!(keyRe || ID_RE).test(key) || BADKEY.has(key)) continue; const v = val(m[key]); if (v !== undefined) { o[key] = v; k++; } } return o; }
   const bool = v => (typeof v === "boolean" ? v : undefined);
   const BADKEY = new Set(["__proto__", "constructor", "prototype"]); // never copied from a backup into a plain object
-  const TW_MAX = 1500, TW_LEN = 200, TWID_RE = /^[a-z0-9-]{1,24}$/;
+  const TW_MAX = 1500, TW_LEN = 200, TWID_RE = /^[a-z0-9-]{1,24}$/, NOTE_MAX = 1000, NOTE_LEN = 8000;
+  // the free writing keeps its line breaks: other control characters and markup signs go, long runs of empty lines shrink
+  const noteTx = v => (typeof v === "string" ? v.replace(/\r\n?/g, "\n").replace(/[\u0000-\u0009\u000b-\u001f<>{}]/g, "").replace(/[ \t]+\n/g, "\n").replace(/\n{4,}/g, "\n\n\n").trim().slice(0, NOTE_LEN) : "");
   function cleanState(o) {
     if (!isObj(o) || !isObj(o.mix)) return null;
     const mix = {}; let sum = 0;
@@ -348,22 +350,43 @@
     if (typeof o.intro === "boolean") s.intro = o.intro; if (typeof o.tour === "boolean") s.tour = o.tour;
     s.chs = cmap(o.chs, v => (isObj(v) && num(v.c, 0, 3) !== undefined ? Object.assign({ c: Math.round(num(v.c, 0, 3)) }, ts(v.t) ? { t: ts(v.t) } : {}) : undefined), 300);
     s.eve = cmap(o.eve, v => (isObj(v) && STAGE_IDS.includes(v.f) ? Object.assign({ f: v.f }, txt(v.g, 120) ? { g: txt(v.g, 120) } : {}, ts(v.t) ? { t: ts(v.t) } : {}) : undefined), 800, DAY_RE);
-    /* Tadwin (docs/TADWIN-SPEC.md): two scrolls, owner-only. good: {id, t, tx, f?, k?: "kh" hidden deed | "ni" blessing}; bad: {id, t, tx, f?, st?, fx?} */
-    const ent = (x, bad) => { if (!isObj(x)) return null; const t0 = ts(x.t), tx = txt(x.tx, TW_LEN), k = bad ? "" : oneOf(x.k, ["kh", "ni"], "");
-      if (!t0 || (!tx && k !== "kh")) return null;
-      const e = { id: typeof x.id === "string" && TWID_RE.test(x.id) ? x.id : t0.toString(36), t: t0 }; if (tx) e.tx = tx; if (STAGE_IDS.includes(x.f)) e.f = x.f; if (k) e.k = k;
-      if (bad) { if (x.st === true) e.st = true; if (x.fx === true) e.fx = true; } return e; };
+    /* Tadwin, version 2 (docs/TADWIN-SPEC.md, approved 23 Nov 2026), owner-only. Field names follow the server's journal kinds
+       (outputs/server/src/validate.js), so the same lines can sync later:
+       notes  [{id, t, u?, d, tx (8000 at most, line breaks kept)}]           the free writing, «دفتري»
+       bless  [{id, t, u?, tx, f?, src?: hand | ai | deed | eve | over, n?}]  «نِعَم الله عليّ» (n: the entry or challenge it came from)
+       chal   [{id, t, u?, tx, f?, src?: hand | ai, n?, done?, dt?}]         «تحدّياتي» / «مجاهداتي»
+       khabia [{id, t, u?, tx?}]                                             the hidden deed, shown among the blessings */
     const uniqIds = l => { const seen = new Set(); return l.filter(e => { while (seen.has(e.id)) e.id = (e.id + "x").slice(-24); seen.add(e.id); return true; }); };
-    let good = (Array.isArray(o.good) ? o.good : []).slice(-TW_MAX).map(x => ent(x, false)).filter(Boolean);
-    s.bad = uniqIds((Array.isArray(o.bad) ? o.bad : []).slice(-TW_MAX).map(x => ent(x, true)).filter(Boolean));
-    if (o.twMig !== true) { // once: date-only hidden deeds and the evening's blessings become lines of the good scroll
-      const per = {}, have = new Set(good.map(e => e.id)), noon = d => { const [y, m, dd] = d.split("-").map(Number); return new Date(y, m - 1, dd, 12).getTime(); };
-      (Array.isArray(o.khab) ? o.khab : []).filter(d => typeof d === "string" && DAY_RE.test(d) && (per[d] = (per[d] || 0) + 1) <= 3)
-        .forEach(d => { const id = "k" + d.replace(/-/g, "") + "-" + per[d]--; if (!have.has(id) && noon(d)) good.push({ id, t: noon(d), k: "kh" }); });
-      Object.keys(s.eve).forEach(d => { const e = s.eve[d], id = "n" + d.replace(/-/g, ""); if (e.g && !have.has(id) && noon(d)) good.push({ id, t: e.t || noon(d), tx: e.g, k: "ni" }); });
-      good.sort((a, b) => a.t - b.t);
+    const base = (x, tx) => { const t0 = ts(x.t); if (!t0) return null; const e = { id: typeof x.id === "string" && TWID_RE.test(x.id) ? x.id : t0.toString(36), t: t0 };
+      const u0 = ts(x.u); if (u0 && u0 > t0) e.u = u0; if (tx) e.tx = tx; return e; };
+    const lineOf = (x, srcs) => { const tx = txt(x.tx, TW_LEN), e = tx ? base(x, tx) : null; if (!e) return null;
+      if (STAGE_IDS.includes(x.f)) e.f = x.f; const sr = oneOf(x.src, srcs, ""); if (sr) e.src = sr; if (typeof x.n === "string" && TWID_RE.test(x.n)) e.n = x.n; return e; };
+    const listOf = (v, f, max) => (Array.isArray(v) ? v : []).slice(-max).map(x => (isObj(x) ? f(x) : null)).filter(Boolean);
+    const notes = listOf(o.notes, x => { const tx = noteTx(x.tx), e = tx ? base(x, tx) : null; if (!e) return null; e.d = typeof x.d === "string" && DAY_RE.test(x.d) ? x.d : ymd(new Date(e.t)); return e; }, NOTE_MAX);
+    const bless = listOf(o.bless, x => lineOf(x, ["hand", "ai", "deed", "eve", "over"]), TW_MAX);
+    const chal = listOf(o.chal, x => { const e = lineOf(x, ["hand", "ai"]); if (e && x.done === true) { e.done = true; const d = ts(x.dt); if (d) e.dt = d; } return e; }, TW_MAX);
+    const khabia = listOf(o.khabia, x => base(x, txt(x.tx, TW_LEN)), TW_MAX);
+    if (o.twV !== 2) { // once: the first journal (commit da2b119, two scrolls) moves to version 2
+      const ent = (x, bad) => { if (!isObj(x)) return null; const t0 = ts(x.t), tx = txt(x.tx, TW_LEN), k = bad ? "" : oneOf(x.k, ["kh", "ni"], "");
+        if (!t0 || (!tx && k !== "kh")) return null;
+        const e = { id: typeof x.id === "string" && TWID_RE.test(x.id) ? x.id : t0.toString(36), t: t0 }; if (tx) e.tx = tx; if (STAGE_IDS.includes(x.f)) e.f = x.f; if (k) e.k = k;
+        if (bad && x.fx === true) e.fx = true; return e; };
+      const good = (Array.isArray(o.good) ? o.good : []).slice(-TW_MAX).map(x => ent(x, false)).filter(Boolean);
+      if (o.twMig !== true) { // before the first journal: date-only hidden deeds and the evening's blessings
+        const per = {}, have = new Set(good.map(e => e.id)), noon = d => { const [y, m, dd] = d.split("-").map(Number); return new Date(y, m - 1, dd, 12).getTime(); };
+        (Array.isArray(o.khab) ? o.khab : []).filter(d => typeof d === "string" && DAY_RE.test(d) && (per[d] = (per[d] || 0) + 1) <= 3)
+          .forEach(d => { const id = "k" + d.replace(/-/g, "") + "-" + per[d]--; if (!have.has(id) && noon(d)) good.push({ id, t: noon(d), k: "kh" }); });
+        Object.keys(s.eve).forEach(d => { const e = s.eve[d], id = "n" + d.replace(/-/g, ""); if (e.g && !have.has(id) && noon(d)) good.push({ id, t: e.t || noon(d), tx: e.g, k: "ni" }); });
+      }
+      // good lines become blessings (hidden deeds stay hidden deeds); the other scroll's lines become challenges, their text unchanged
+      good.forEach(e => { if (e.k === "kh") khabia.push(e.tx ? { id: e.id, t: e.t, tx: e.tx } : { id: e.id, t: e.t });
+        else bless.push(Object.assign({ id: e.id, t: e.t, tx: e.tx, src: e.k === "ni" ? "eve" : "deed" }, e.f ? { f: e.f } : {})); });
+      (Array.isArray(o.bad) ? o.bad : []).slice(-TW_MAX).map(x => ent(x, true)).filter(Boolean)
+        .forEach(e => chal.push(Object.assign({ id: e.id, t: e.t, tx: e.tx, src: "hand" }, e.f ? { f: e.f } : {}, e.fx ? { done: true } : {})));
+      [bless, chal, khabia].forEach(l => l.sort((a, b) => a.t - b.t));
     }
-    s.good = uniqIds(good.slice(-TW_MAX)); s.twMig = true;
+    s.notes = uniqIds(notes); s.bless = uniqIds(bless.slice(-TW_MAX)); s.chal = uniqIds(chal.slice(-TW_MAX)); s.khabia = uniqIds(khabia.slice(-TW_MAX)); s.twV = 2;
+    { const dr = noteTx(o.twDraft); if (dr) s.twDraft = dr; }
     if (typeof o.twIntro === "boolean") s.twIntro = o.twIntro;
     if (num(o.burnY, 1300, 1800) !== undefined) s.burnY = Math.round(num(o.burnY, 1300, 1800));
     Object.keys(s).forEach(k => { if (s[k] === undefined || s[k] === null) delete s[k]; });
@@ -391,7 +414,7 @@
   const today = () => ymd(new Date());
   function fresh() {
     return { v: 1, lang: "ar", fs: 19, mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 },
-      answered: {}, ansT: {}, read: {}, readSecs: {}, tasks: {}, taskT: {}, tr: {}, trPts: {}, seen: {}, self: {}, hist: [], parent: false, last: today(), start: today(), name: "", gender: "", age: "", edition: "", good: [], bad: [], twMig: true };
+      answered: {}, ansT: {}, read: {}, readSecs: {}, tasks: {}, taskT: {}, tr: {}, trPts: {}, seen: {}, self: {}, hist: [], parent: false, last: today(), start: today(), name: "", gender: "", age: "", edition: "", notes: [], bless: [], chal: [], khabia: [], twV: 2 };
   }
   function load() {
     return loadOf(P.active);
@@ -421,7 +444,7 @@
   function switchProfile(id, after) {
     if (!P.list.includes(id) || id === P.active) return;
     save(); const par = S.parent, lang = S.lang; P.active = id; saveProfiles();
-    S = loadOf(id); S.parent = par; S.lang = lang; QZ = null; homeSel = null; homeDeg = -1; TWD = null; clearTimeout(BURN_T); BURN = null; save();
+    S = loadOf(id); S.parent = par; S.lang = lang; QZ = null; homeSel = null; homeDeg = -1; TWD = null; TWE = null; TWX = null; TW_LAST = ""; EXQ = null; clearTimeout(BURN_T); BURN = null; save();
     applyEdition(() => { render(true); if (after) after(); else if (sheetState && sheetState.kind === "settings") settingsSheet(); setTimeout(sawCheck, 450); });
   }
   let S = load();
@@ -438,7 +461,7 @@
   // - if another profile on the device already uses that edition, the link opens it (and says so);
   // - otherwise the app asks: create a profile of that edition beside this one, use this one (only while it has
   //   no progress), or stay. The question is shown after the first render (edLink).
-  const hasProgress = st => !!(Object.keys(st.read || {}).length || Object.keys(st.answered || {}).length || Object.keys(st.tasks || {}).length || Object.keys(st.bookRead || {}).length || (st.my || []).length || Object.keys(st.tr || {}).length || (st.good || []).length || (st.bad || []).length);
+  const hasProgress = st => !!(Object.keys(st.read || {}).length || Object.keys(st.answered || {}).length || Object.keys(st.tasks || {}).length || Object.keys(st.bookRead || {}).length || (st.my || []).length || Object.keys(st.tr || {}).length || (st.notes || []).length || (st.bless || []).length || (st.chal || []).length || (st.khabia || []).length);
   const edOf = st => (st.edition === "adult" ? "adult" : "kids");
   const GRP = st => (st.edition === "adult" ? "adult" : st.age === "15+" ? "teen" : "child");
   const GRPK = { child: "agChild", teen: "agTeen", adult: "agAdult" }, GRPS = ["child", "teen", "adult"];
@@ -560,10 +583,10 @@
     khLead: ["قال النبي صلى الله عليه وآله وسلم في السبعة الذين يظلهم الله في ظله يوم لا ظل إلا ظله:", "Of the seven whom Allah shades on the Day when there is no shade but His, the Prophet, peace and blessings be upon him and his family, named:"],
     khEn: ["", "“a man who gave in charity and hid it, so that his left hand did not know what his right hand spent.” (meaning)"],
     khRef: ["صحيح البخاري 1423", "Sahih al-Bukhari 1423"],
-    khNote: ["اكتبها لنفسك في سطر. تبقى سرًّا بينك وبين الله، في صحيفتك وحدك.", "Write it for yourself in one line. It stays a secret between you and Allah, in your scroll alone."],
-    khSave: ["سجّلتُها", "I've noted it"], khSaved: ["كُتبت في صحيفتك. يعلمها الله.", "Written in your scroll. Allah knows it."]
+    khNote: ["اكتبها لنفسك في سطر، سرًّا بينك وبين الله.", "Write it for yourself in one line, a secret between you and Allah."],
+    khSave: ["سجّلتُها", "I've noted it"], khSaved: ["كُتبت بين نعم الله عليك. يعلمها الله.", "Written among Allah's blessings on you. Allah knows it."]
   });
-  Object.assign(UF, { khNote: "اكتبيها لنفسكِ في سطر. تبقى سرًّا بينكِ وبين الله، في صحيفتكِ وحدكِ.", khSaved: "كُتبت في صحيفتكِ. يعلمها الله." });
+  Object.assign(UF, { khNote: "اكتبيها لنفسكِ في سطر، سرًّا بينكِ وبين الله.", khSaved: "كُتبت بين نعم الله عليكِ. يعلمها الله." });
   Object.assign(UA, {
     khBtn: ["خبيئة: عملتُ خيرًا في السر", "A hidden deed: I did good in secret"]
   });
@@ -594,7 +617,7 @@
   });
   Object.assign(UF, { sawSub: "رأيتِ خيرًا من أحد أهلك اليوم؟ أخبريه، فيصله في ملفه.", sawWho: "من رأيتِ منه خيرًا؟", sawWhat: "ما الخير الذي رأيتِه؟", sawWhatSub: "اختاري سمة، أو اكتبي سطرًا قصيرًا.",
     sawSend: "أرسلي", sawOne: "هذا الملف وحده على الجهاز. أضيفي ملفًا لفرد من الأسرة، فيصله ما ترينه فيه من خير.", sawAdd: "أضيفي ملفًا لفرد من الأسرة", sawPh: "مثل: ساعدتني في حمل الأكياس" });
-  /* Tadwin, «علّم بالقلم» (docs/TADWIN-SPEC.md, 23 Nov 2026) */
+  /* Tadwin «علّم بالقلم», version 2 (docs/TADWIN-SPEC.md, approved by the owner on 23 Nov 2026) */
   Object.assign(U, {
     twTab: ["التدوين", "Journal"], twT: ["التدوين", "Journal"], twRef: ["العلق: 4", "al-ʿAlaq 96:4"], twEn: ["", "“who taught by the pen” (meaning)"],
     twWhyLink: ["لماذا نكتب؟", "Why do we write?"], twWhyT: ["لماذا نكتب؟", "Why do we write?"],
@@ -602,61 +625,112 @@
     twWhy2: ["والله سبحانه علّم الإنسان بالقلم، فالكتابة نعمة منه نحفظ بها ما نتعلّم وما نعمل.", "Allah taught people by the pen, so writing is a gift from Him: with it we keep what we learn and what we do."],
     twWhy3: ["ومع كل واحد منا ملائكة كرام يكتبون ما يعمل:", "Noble angels are with each of us, writing what we do:"],
     twV11En: ["", "“noble, recording” (meaning)"], twV11Ref: ["الانفطار: 11", "al-Infiṭār 82:11"],
-    twWhy4: ["وحين نكتب نحن أيضًا نرى يومنا بأعيننا: نشكر الله على الخير، ونستغفره من الزلّة ونصلحها. وبالكتابة تبدأ المحاسبة.", "When we write too, we see our own day: we thank Allah for the good, ask His forgiveness for a slip and put it right. Reckoning begins with writing."],
-    twWhy5: ["لك صحيفتان: صحيفة الحسنات تبقى معك، وصحيفة السيئات تحترق في ختام السنة، فتبدأ السنة الجديدة بصفحة بيضاء.", "You keep two scrolls: the scroll of good deeds stays with you, and the scroll of bad deeds is burnt at the close of the year, so the new year starts on a clean page."],
-    twWhy6: ["والصحيفتان لك وحدك.", "Both scrolls are yours alone."],
-    twWhyGo: ["لنبدأ التدوين", "Let's start writing"], twWhyBack: ["إلى الصحيفتين", "Back to the scrolls"],
-    twGoodT: ["صحيفة الحسنات", "The scroll of good deeds"], twBadT: ["صحيفة السيئات", "The scroll of bad deeds"],
-    twGoodS: ["الحسنات", "Good deeds"], twBadS: ["السيئات", "Bad deeds"], twSeg: ["الصحيفتان", "The two scrolls"],
-    twGoodSub: ["خير فعلته، وخبيئة، ونعمة شكرت الله عليها. تبقى معك تراجعها وتحمد الله.", "Good you did, hidden deeds, and blessings you thanked Allah for. They stay with you, to look back on and praise Allah."],
-    twBadSub: ["زلّة وقعت فيها؟ اكتبها هنا لنفسك، ثم استغفر الله وأصلحها. تحترق هذه الصحيفة في ختام السنة.", "A slip you made? Write it here for yourself, then ask Allah's forgiveness and put it right. This scroll is burnt at the close of the year."],
-    twAddGood: ["اكتب حسنة", "Write a good deed"], twAddBad: ["اكتب زلّة", "Write a slip"], twKhBtn: ["خبيئة", "Hidden deed"],
-    twGoodNone: ["صحيفتك تنتظر أول سطر: خير فعلته اليوم.", "Your scroll is waiting for its first line: a good thing you did today."], twBadNone: ["الصفحة بيضاء.", "The page is clean."],
-    twNewGood: ["حسنة في صحيفتك", "A good deed for your scroll"], twNewBad: ["زلّة في صحيفتك", "A slip for your scroll"],
-    twPhGood: ["مثل: ساعدتُ أمي في ترتيب المائدة", "e.g. I helped set the table"], twPhBad: ["مثل: رفعتُ صوتي على أخي", "e.g. I raised my voice at my brother"],
-    twFinger: ["الإصبع (إن شئت)", "Finger (if you like)"], twSave: ["اكتبها", "Write it"], twSaved: ["كُتبت في صحيفتك", "Written in your scroll"],
-    twSt: ["استغفرتُ", "I asked forgiveness"], twFx: ["أصلحتُ", "I put it right"], twMarks: ["بعد الزلّة", "After the slip"],
-    twDel: ["احذف", "Remove"], twDelQ: ["يُمحى هذا السطر من صحيفتك.", "This line will be wiped from your scroll."], twDelYes: ["احذفه", "Remove it"], twDelNo: ["إلغاء", "Cancel"], twDeleted: ["حُذف السطر", "Line removed"],
-    twKh: ["خبيئة", "Hidden deed"], twNi: ["نعمة", "Blessing"], twKhOld: ["خبيئة يعلمها الله", "A hidden deed Allah knows"],
+    twWhy4: ["وحين نكتب نحن أيضًا نرى يومنا بأعيننا. اكتب ما في قلبك بحرية: ما فرحت به، وما أتعبك، وما تعلّمته.", "When we write too, we see our own day with our own eyes. Write freely what is in your heart: what made you glad, what was hard, what you learned."],
+    twWhy5: ["ثم انظر فيما كتبت، تجد فيه نعمًا من الله تشكره عليها، وتحديات تعمل عليها خطوة خطوة. دفترك ونعمك تبقى معك، وصفحة التحديات تحترق في ختام السنة، فتبدأ السنة الجديدة بصفحة بيضاء.", "Then look at what you wrote: you will find blessings from Allah to thank Him for, and challenges to work on step by step. Your notebook and your blessings stay with you; the challenges page is burnt at the close of the year, so the new year starts on a clean page."],
+    twWhy6: ["وكل ما تكتبه هنا لك وحدك.", "Everything you write here is yours alone."],
+    twWhyGo: ["لنبدأ الكتابة", "Let's start writing"], twWhyBack: ["إلى التدوين", "Back to the journal"],
+    twWriteT: ["اكتب", "Write"], twWritePh: ["اكتب ما في قلبك اليوم", "Write what is in your heart today"],
+    twWriteSave: ["احفظ في دفتري", "Save to my notebook"], twEditT: ["ما كتبته يوم {d}", "What you wrote on {d}"],
+    twEditSave: ["احفظ التعديل", "Save the change"], twEditCancel: ["إلغاء", "Cancel"],
+    twNoteSaved: ["حُفظت في دفترك", "Saved to your notebook"], twNoteEdited: ["حُفظ التعديل", "Change saved"],
+    twNb: ["دفتري", "My notebook"], twNbNone: ["ما تكتبه يُحفظ هنا بتاريخه.", "What you write is kept here with its date."],
+    twOpen: ["افتح", "Open"], twEdited: ["عُدّلت", "edited"], twMoreN: ["اعرض الكل ({c})", "Show all ({c})"],
+    twExt: ["استخرج النعم والتحديات", "Find the blessings and challenges"], twExtShort: ["استخرج", "Find"],
+    twExtSub: ["يقرأ المساعد ما كتبت، ويقترح عليك سطورًا تختار منها ما تشاء.", "The helper reads what you wrote and suggests a few lines for you to choose from."],
+    twExtT: ["ما في كتابتك", "What is in your writing"], twExtWait: ["يقرأ ما كتبت…", "Reading what you wrote…"],
+    twExtHow: ["عدّل كل سطر كما تحب، أو احذفه، ثم احفظ ما بقي.", "Edit each line as you like, or drop it, then save what is left."],
+    twExtDrop: ["احذف", "Drop"], twExtBack: ["أعده", "Bring back"], twExtKeep: ["احفظ ما اخترت", "Save what I chose"],
+    twExtErr: ["لم يصل الجواب هذه المرة. حاول بعد قليل.", "No answer came this time. Try again in a little while."],
+    twExtSign: ["الاستخراج يعمل بعد الدخول إلى حسابك.", "Finding lines works once you are signed in to your account."],
+    twExtSaved: ["حُفظت السطور التي اخترتها", "The lines you chose are saved"], twOk: ["حسنًا", "OK"],
+    twExtNone: ["لم يجد المساعد سطورًا هذه المرة. أضف ما تراه بيدك.", "The helper found no lines this time. Add what you see by hand."],
+    twBlT: ["نِعَم الله عليّ", "God's blessings on me"],
+    twBlSub: ["كل خير في يومك نعمة من الله: ما وجدته في كتابتك، والخير الذي وفّقك إليه، وما رآه أهلك فيك.", "Every good thing in your day is a blessing from Allah: what you found in your writing, the good He helped you do, and what your family saw in you."],
+    twAddBl: ["أضف نعمة", "Add a blessing"], twAddDeed: ["اكتب حسنة", "Write a good deed"], twKhBtn: ["خبيئة", "Hidden deed"],
+    twBlNone: ["أول نعمة تكتبها تظهر هنا.", "The first blessing you write shows here."],
+    twNewBl: ["نعمة من نعم الله عليك", "A blessing from Allah"], twPhBl: ["مثل: جدتي التي زارتنا اليوم", "e.g. My grandmother, who visited us today"],
+    twNewDeed: ["حسنة وفّقك الله إليها", "A good deed Allah helped you do"], twPhDeed: ["مثل: ساعدتُ أمي في ترتيب المائدة", "e.g. I helped set the table"],
+    twTagDeed: ["حسنة", "Good deed"], twTagEve: ["من المحاسبة", "From the evening"], twTagAi: ["من كتابتي", "From my writing"], twTagOver: ["شكر", "Thanks"],
+    twKh: ["خبيئة", "Hidden deed"], twKhOld: ["خبيئة يعلمها الله", "A hidden deed Allah knows"],
+    twOverLine: ["تجاوزتُ بفضل الله: {v}", "By Allah's grace I overcame: {v}"],
+    twChT: ["تحدّياتي", "My challenges"],
+    twChSub: ["ما صعب عليك تكتبه هنا، وتعمل عليه خطوة خطوة. اربطه بإصبع، فيقترح عليك التطبيق مهمة.", "What was hard goes here, to work on step by step. Link it to a finger and the app suggests a task."],
+    twAddCh: ["أضف تحديًا", "Add a challenge"], twChNone: ["حين يصعب عليك شيء، اكتبه هنا واعمل عليه.", "When something is hard, write it here and work on it."],
+    twNewCh: ["تحدٍّ تعمل عليه", "A challenge to work on"], twPhCh: ["مثل: أن أهدأ حين يغضبني أخي", "e.g. Staying calm when my brother annoys me"],
+    twFingerCh: ["اربطه بإصبع، فنقترح عليك مهمة (إن شئت)", "Link it to a finger for a suggested task (if you like)"],
+    twOver: ["تجاوزته بفضل الله", "I overcame it, by Allah's grace"], twOverDone: ["✓ تجاوزته بفضل الله", "✓ Overcome, by Allah's grace"],
+    twOverToast: ["الحمد لله. كُتب الشكر في نعمك", "Al-hamdu lillah. A thanks is written among your blessings"],
+    twTask: ["مهمة تعينك", "A task to help"], twTaskGo: ["إلى المهمة", "To the task"],
+    twFinger: ["الإصبع (إن شئت)", "Finger (if you like)"], twSave: ["احفظ", "Save"], twSaved: ["حُفظ", "Saved"], twEditLine: ["عدّل السطر", "Edit the line"],
+    twEdit: ["عدّل", "Edit"], twDel: ["احذف", "Remove"], twDelQ: ["يُمحى هذا السطر.", "This line will be wiped."], twDelNoteQ: ["تُمحى هذه الكتابة من دفترك.", "This writing will be wiped from your notebook."],
+    twDelYes: ["احذفه", "Remove it"], twDelNo: ["إلغاء", "Cancel"], twDeleted: ["حُذف", "Removed"],
     twOwner: ["التدوين لصاحب الملف وحده، يفتحه من ملفه.", "The journal belongs to the profile's owner, who opens it from their own profile."],
-    twEveNi: ["كُتبت النعمة في صحيفة حسناتك", "The blessing is written in your scroll of good deeds"],
+    twEveNi: ["كُتبت النعمة في «نِعَم الله عليّ»", "The blessing is written in “God's blessings on me”"],
     khPh: ["ما الخير الذي فعلته في السر؟", "What good did you do in secret?"],
     yeT: ["ختام السنة", "Closing the year"], yeYear: ["{y} هـ", "{y} AH"],
-    yeSub: ["تُختم السنة الهجرية {y}. نحرق صحيفة السيئات، فتبقى صحيفة الحسنات وحدها نراجع فيها نعم الله علينا ونشكره.", "The Hijri year {y} is closing. We burn the scroll of bad deeds, and the scroll of good deeds remains, to look back on Allah's blessings and thank Him."],
-    yeSubClean: ["تُختم السنة الهجرية {y}، وصحيفة السيئات بيضاء. راجع حسنات السنة واحمد الله عليها.", "The Hijri year {y} is closing, and the scroll of bad deeds is clean. Look back on the year's good deeds and praise Allah for them."],
-    yeBurn: ["احرق صحيفة السيئات", "Burn the scroll of bad deeds"], yeReview: ["راجع حسنات السنة", "Look back on the year's good"],
-    yeAsk: ["تُمحى صحيفة السيئات كلها من هذا الجهاز، ولا رجوع فيها، وتبقى صحيفة الحسنات.", "The whole scroll of bad deeds is wiped from this device for good, and the scroll of good deeds remains."],
+    yeSub: ["تُختم السنة الهجرية {y}. نحرق صفحة التحديات، ثم نراجع نعم الله علينا في السنة ونشكره.", "The Hijri year {y} is closing. We burn the challenges page, then look back on Allah's blessings this year and thank Him."],
+    yeSubClean: ["تُختم السنة الهجرية {y}. راجع نعم الله عليك في هذه السنة واحمده عليها.", "The Hijri year {y} is closing. Look back on Allah's blessings on you this year and praise Him for them."],
+    yeBurn: ["احرق صفحة التحديات", "Burn the challenges page"], yeReview: ["راجع نعم السنة", "Look back on the year's blessings"],
+    yeAsk: ["تُمحى صفحة التحديات كلها من هذا الجهاز، ولا رجوع فيها. ويبقى دفترك ونعمك.", "The whole challenges page is wiped from this device for good. Your notebook and your blessings remain."],
     yeYes: ["نعم، احرقها", "Yes, burn it"], yeNo: ["ليس الآن", "Not now"],
-    yeVEn: ["", "“Good deeds take away bad deeds.” (meaning)"], yeVRef: ["هود: 114", "Hūd 11:114"],
-    yeGoodT: ["حسنات سنتك", "Your year's good deeds"], yeNext: ["التالي", "Next"], yeHamd: ["الحمد لله", "Al-hamdu lillah"],
-    yeHamdSub: ["على كل خير وفّق إليه في هذه السنة.", "for every good He granted this year."], yeEnd: ["إلى صحيفة الحسنات", "To the scroll of good deeds"],
-    yeNone: ["صحيفة الحسنات تنتظر سطور السنة الجديدة.", "The scroll of good deeds is waiting for the new year's lines."]
+    yeVEn: ["", "“So truly with hardship comes ease.” (meaning)"], yeVRef: ["الشرح: 5", "al-Sharḥ 94:5"],
+    yeGoodT: ["نعم الله عليك في سنتك", "Allah's blessings on you this year"], yeNext: ["التالي", "Next"], yeHamd: ["الحمد لله", "Al-hamdu lillah"],
+    yeHamdSub: ["على كل نعمة أنعم بها في هذه السنة.", "for every blessing He gave this year."], yeEnd: ["إلى التدوين", "To the journal"],
+    yeNone: ["صفحة النعم تنتظر سطور السنة الجديدة.", "The blessings page is waiting for the new year's lines."],
+    yeNbGo: ["اختر من دفترك ما تحرقه", "Choose what to burn from your notebook"], yeNbT: ["دفترك باقٍ معك", "Your notebook stays with you"],
+    yeNbSub: ["إن شئت، اختر من كتابات السنة ما تحرقه أيضًا. وما تتركه يبقى.", "If you like, choose any of this year's writings to burn too. Whatever you leave stays."],
+    yeNbBurn: ["احرق ما اخترت ({c})", "Burn what I chose ({c})"], yeNbKeep: ["يبقى الدفتر كما هو", "Keep the notebook as it is"],
+    yeNbDone: ["احترق ما اخترته من دفترك", "What you chose from your notebook is burnt"]
   });
   Object.assign(UF, {
-    twWhy5: "لكِ صحيفتان: صحيفة الحسنات تبقى معكِ، وصحيفة السيئات تحترق في ختام السنة، فتبدأ السنة الجديدة بصفحة بيضاء.", twWhy6: "والصحيفتان لكِ وحدكِ.",
-    twGoodSub: "خير فعلتِه، وخبيئة، ونعمة شكرتِ الله عليها. تبقى معكِ تراجعينها وتحمدين الله.",
-    twBadSub: "زلّة وقعتِ فيها؟ اكتبيها هنا لنفسكِ، ثم استغفري الله وأصلحيها. تحترق هذه الصحيفة في ختام السنة.",
-    twAddGood: "اكتبي حسنة", twAddBad: "اكتبي زلّة", twSave: "اكتبيها", twGoodNone: "صحيفتكِ تنتظر أول سطر: خير فعلتِه اليوم.", twPhBad: "مثل: رفعتُ صوتي على أختي",
-    twNewGood: "حسنة في صحيفتكِ", twNewBad: "زلّة في صحيفتكِ", twSaved: "كُتبت في صحيفتكِ", twDelQ: "يُمحى هذا السطر من صحيفتكِ.", twEveNi: "كُتبت النعمة في صحيفة حسناتكِ",
-    khPh: "ما الخير الذي فعلتِه في السر؟", yeSubClean: "تُختم السنة الهجرية {y}، وصحيفة السيئات بيضاء. راجعي حسنات السنة واحمدي الله عليها.",
-    yeBurn: "احرقي صحيفة السيئات", yeReview: "راجعي حسنات السنة", yeGoodT: "حسنات سنتكِ" });
+    twWhy4: "وحين نكتب نحن أيضًا نرى يومنا بأعيننا. اكتبي ما في قلبكِ بحرية: ما فرحتِ به، وما أتعبكِ، وما تعلّمتِه.",
+    twWhy5: "ثم انظري فيما كتبتِ، تجدين فيه نعمًا من الله تشكرينه عليها، وتحديات تعملين عليها خطوة خطوة. دفتركِ ونعمكِ تبقى معكِ، وصفحة التحديات تحترق في ختام السنة، فتبدأ السنة الجديدة بصفحة بيضاء.",
+    twWhy6: "وكل ما تكتبينه هنا لكِ وحدكِ.",
+    twWritePh: "اكتبي ما في قلبكِ اليوم", twWriteSave: "احفظي في دفتري", twEditT: "ما كتبتِه يوم {d}", twEditSave: "احفظي التعديل",
+    twNoteSaved: "حُفظت في دفتركِ", twNbNone: "ما تكتبينه يُحفظ هنا بتاريخه.", twOpen: "افتحي", twMoreN: "اعرضي الكل ({c})",
+    twExt: "استخرجي النعم والتحديات", twExtShort: "استخرجي", twExtSub: "يقرأ المساعد ما كتبتِ، ويقترح عليكِ سطورًا تختارين منها ما تشائين.",
+    twExtT: "ما في كتابتكِ", twExtWait: "يقرأ ما كتبتِ…", twExtHow: "عدّلي كل سطر كما تحبين، أو احذفيه، ثم احفظي ما بقي.",
+    twExtDrop: "احذفي", twExtBack: "أعيديه", twExtKeep: "احفظي ما اخترتِ", twExtErr: "لم يصل الجواب هذه المرة. حاولي بعد قليل.",
+    twExtSign: "الاستخراج يعمل بعد الدخول إلى حسابكِ.", twExtSaved: "حُفظت السطور التي اخترتِها", twExtNone: "لم يجد المساعد سطورًا هذه المرة. أضيفي ما ترينه بيدكِ.",
+    twBlSub: "كل خير في يومكِ نعمة من الله: ما وجدتِه في كتابتكِ، والخير الذي وفّقكِ إليه، وما رآه أهلكِ فيكِ.",
+    twAddBl: "أضيفي نعمة", twAddDeed: "اكتبي حسنة", twBlNone: "أول نعمة تكتبينها تظهر هنا.", twNewBl: "نعمة من نعم الله عليكِ", twNewDeed: "حسنة وفّقكِ الله إليها",
+    twChSub: "ما صعب عليكِ تكتبينه هنا، وتعملين عليه خطوة خطوة. اربطيه بإصبع، فيقترح عليكِ التطبيق مهمة.",
+    twAddCh: "أضيفي تحديًا", twChNone: "حين يصعب عليكِ شيء، اكتبيه هنا واعملي عليه.", twNewCh: "تحدٍّ تعملين عليه", twPhCh: "مثل: أن أهدأ حين تغضبني أختي",
+    twFingerCh: "اربطيه بإصبع، فنقترح عليكِ مهمة (إن شئتِ)", twFinger: "الإصبع (إن شئتِ)", twOverToast: "الحمد لله. كُتب الشكر في نعمكِ",
+    twSave: "احفظي", twEdit: "عدّلي", twEditLine: "عدّلي السطر", twDel: "احذفي", twDelYes: "احذفيه", twDelNoteQ: "تُمحى هذه الكتابة من دفتركِ.",
+    khPh: "ما الخير الذي فعلتِه في السر؟",
+    yeSubClean: "تُختم السنة الهجرية {y}. راجعي نعم الله عليكِ في هذه السنة واحمديه عليها.", yeBurn: "احرقي صفحة التحديات", yeReview: "راجعي نعم السنة",
+    yeAsk: "تُمحى صفحة التحديات كلها من هذا الجهاز، ولا رجوع فيها. ويبقى دفتركِ ونعمكِ.", yeGoodT: "نعم الله عليكِ في سنتكِ",
+    yeNbGo: "اختاري من دفتركِ ما تحرقينه", yeNbT: "دفتركِ باقٍ معكِ", yeNbSub: "إن شئتِ، اختاري من كتابات السنة ما تحرقينه أيضًا. وما تتركينه يبقى.",
+    yeNbBurn: "احرقي ما اخترتِ ({c})", yeNbDone: "احترق ما اخترتِه من دفتركِ" });
   Object.assign(UA, {
-    twWhy1: ["النسيان من طبع الإنسان، والكتابة تحفظ ما ينساه: ما عمل من خير، وما وقع فيه من زلل.", "Forgetting is in human nature, and writing keeps what we forget: the good we did, and the slips we fell into."],
+    twWhy1: ["النسيان من طبع الإنسان، والكتابة تحفظ ما ينساه من يومه وما يمر بقلبه.", "Forgetting is in human nature, and writing keeps what we forget of our days and of what passes through our hearts."],
     twWhy2: ["وفي أول ما نزل من القرآن ذِكرُ القلم، أداةِ العلم والحفظ:", "The pen is named in the very first revelation of the Quran, the tool of knowledge and of keeping:"],
     twWhy3: ["وعلى كل إنسان حافظون يكتبون عمله:", "Over every person are guardians who write down their deeds:"],
-    twWhy4: ["والمحاسبة تبدأ بالتدوين: سطر في المساء يريك يومك كما كان، فتشكر الله على الحسنة، وتستغفره من السيئة وتصلحها.", "Self-reckoning begins with writing: a line in the evening shows you your day as it was, so you thank Allah for the good, and ask His forgiveness for the bad and mend it."],
-    twWhy5: ["صحيفة الحسنات تبقى لك، تراجع فيها نعم الله عليك. وصحيفة السيئات تحترق في ختام السنة الهجرية، فتبدأ سنتك الجديدة بصفحة بيضاء.", "The scroll of good deeds stays with you, a record of Allah's blessings to look back on. The scroll of bad deeds is burnt at the close of the Hijri year, so your new year begins on a clean page."],
-    twWhy6: ["والصحيفتان لك وحدك على هذا الجهاز.", "Both scrolls are yours alone, on this device."],
-    twGoodSub: ["عمل صالح، وخبيئة، ونعمة شكرت الله عليها. تبقى لك تراجعها وتحمد الله.", "Righteous deeds, hidden deeds and blessings you thanked Allah for. They stay with you, to look back on and praise Allah."],
-    twBadSub: ["زلّة وقعت فيها؟ اكتبها لنفسك، ثم استغفر الله وأصلحها. تحترق هذه الصحيفة في ختام السنة الهجرية.", "A slip you fell into? Write it down for yourself, then ask Allah's forgiveness and mend it. This scroll is burnt at the close of the Hijri year."],
-    twPhGood: ["مثل: صبرتُ على زميل أخطأ في حقي", "e.g. I was patient with a colleague who wronged me"], twPhBad: ["مثل: أخّرتُ الصلاة عن وقتها", "e.g. I delayed a prayer past its time"],
+    twWhy4: ["والمحاسبة تبدأ بالتدوين: اكتب ما في قلبك بحرية، كما يجري يومك، فيصير ما في صدرك سطورًا تراها.", "Self-reckoning begins with writing: write freely what is in your heart, as your day unfolds, and what is in your chest becomes lines you can see."],
+    twWhy5: ["ثم تقرأ ما كتبت، فترى نعم الله عليك فتشكره، وترى مجاهداتك فتعمل عليها. الدفتر والنعم تبقى لك، وصفحة المجاهدات تحترق في ختام السنة الهجرية، فتبدأ سنتك الجديدة بصفحة بيضاء.", "Then you read what you wrote: you see Allah's blessings upon you and thank Him, and you see your challenges and work on them. The notebook and the blessings stay with you; the challenges page is burnt at the close of the Hijri year, so your new year begins on a clean page."],
+    twWhy6: ["وكل ذلك لك وحدك.", "All of it is yours alone."],
+    twExt: ["استخرج النعم والمجاهدات", "Find the blessings and challenges"],
+    twPhBl: ["مثل: عافية في البدن، وأهل يحبونني", "e.g. Good health, and a family that loves me"], twPhDeed: ["مثل: صبرتُ على زميل أخطأ في حقي", "e.g. I was patient with a colleague who wronged me"],
+    twChT: ["مجاهداتي", "My challenges"],
+    twChSub: ["ما تجاهد فيه نفسك تكتبه هنا، وتعمل عليه بالمحاسبة والعمل. اربطه بإصبع، فيقترح عليك التطبيق مهمة من مهامه.", "What you strive against in yourself goes here, to work on through reckoning and practice. Link it to a finger and the app suggests one of its tasks."],
+    twAddCh: ["أضف مجاهدة", "Add a challenge"], twChNone: ["ما تجاهد فيه نفسك تكتبه هنا، وتعمل عليه يومًا بعد يوم.", "What you strive against in yourself goes here, to work on day by day."],
+    twNewCh: ["مجاهدة تعمل عليها", "A challenge to work on"], twPhCh: ["مثل: أن أصلي الفجر في وقته", "e.g. Praying Fajr on time"],
+    twFingerCh: ["اربطها بإصبع، فنقترح عليك مهمة (إن شئت)", "Link it to a finger for a suggested task (if you like)"],
+    twOver: ["تجاوزتها بفضل الله", "I overcame it, by Allah's grace"], twOverDone: ["✓ تجاوزتها بفضل الله", "✓ Overcome, by Allah's grace"],
+    yeSub: ["تُختم السنة الهجرية {y}. نحرق صفحة المجاهدات، ثم نراجع نعم الله علينا في السنة ونشكره.", "The Hijri year {y} is closing. We burn the challenges page, then look back on Allah's blessings this year and thank Him."],
+    yeBurn: ["احرق صفحة المجاهدات", "Burn the challenges page"],
+    yeAsk: ["تُمحى صفحة المجاهدات كلها من هذا الجهاز، ولا رجوع فيها. ويبقى دفترك ونعمك.", "The whole challenges page is wiped from this device for good. Your notebook and your blessings remain."],
     khNote: ["سطر لك وحدك، يبقى سرًّا بينك وبين الله.", "A line for you alone, kept as a secret between you and Allah."]
   });
   Object.assign(UAF, {
-    twWhy4: "والمحاسبة تبدأ بالتدوين: سطر في المساء يريكِ يومكِ كما كان، فتشكرين الله على الحسنة، وتستغفرينه من السيئة وتصلحينها.",
-    twWhy5: "صحيفة الحسنات تبقى لكِ، تراجعين فيها نعم الله عليكِ. وصحيفة السيئات تحترق في ختام السنة الهجرية، فتبدأ سنتكِ الجديدة بصفحة بيضاء.",
-    twWhy6: "والصحيفتان لكِ وحدكِ على هذا الجهاز.", twGoodSub: "عمل صالح، وخبيئة، ونعمة شكرتِ الله عليها. تبقى لكِ تراجعينها وتحمدين الله.",
-    twBadSub: "زلّة وقعتِ فيها؟ اكتبيها لنفسكِ، ثم استغفري الله وأصلحيها. تحترق هذه الصحيفة في ختام السنة الهجرية.", khNote: "سطر لكِ وحدكِ، يبقى سرًّا بينكِ وبين الله." });
+    twWhy4: "والمحاسبة تبدأ بالتدوين: اكتبي ما في قلبكِ بحرية، كما يجري يومكِ، فيصير ما في صدركِ سطورًا ترينها.",
+    twWhy5: "ثم تقرئين ما كتبتِ، فترين نعم الله عليكِ فتشكرينه، وترين مجاهداتكِ فتعملين عليها. الدفتر والنعم تبقى لكِ، وصفحة المجاهدات تحترق في ختام السنة الهجرية، فتبدأ سنتكِ الجديدة بصفحة بيضاء.",
+    twWhy6: "وكل ذلك لكِ وحدكِ.", twExt: "استخرجي النعم والمجاهدات",
+    twChSub: "ما تجاهدين فيه نفسكِ تكتبينه هنا، وتعملين عليه بالمحاسبة والعمل. اربطيه بإصبع، فيقترح عليكِ التطبيق مهمة من مهامه.",
+    twAddCh: "أضيفي مجاهدة", twChNone: "ما تجاهدين فيه نفسكِ تكتبينه هنا، وتعملين عليه يومًا بعد يوم.", twNewCh: "مجاهدة تعملين عليها",
+    twFingerCh: "اربطيها بإصبع، فنقترح عليكِ مهمة (إن شئتِ)", yeBurn: "احرقي صفحة المجاهدات",
+    yeAsk: "تُمحى صفحة المجاهدات كلها من هذا الجهاز، ولا رجوع فيها. ويبقى دفتركِ ونعمكِ.", khNote: "سطر لكِ وحدكِ، يبقى سرًّا بينكِ وبين الله." });
   Object.assign(U, {
     chT: ["قصص تختار فيها", "Stories where you choose"], chTag: ["تختار فيها", "You choose"], chOut: ["ما حدث", "What happened"],
     chTry: ["جرّب الاختيار الآخر", "Try the other choice"], chOn: ["تابع إلى الخاتمة", "On to the ending"], chEndT: ["الخاتمة", "The ending"],
@@ -1254,57 +1328,176 @@
     openSheet(`<h2 class="h">${esc(u("sawGotT"))}</h2><ul class="saw-list">${ms.map(m => `<li><b>${esc(sawGot(m))}:</b> <bdi>${esc(sawWhat(m))}</bdi></li>`).join("")}</ul>
       <button class="btn block" data-act="close">${esc(u("sawGotOk"))}</button><a class="linkbtn" href="#/seen" style="display:block;text-align:center">${esc(u("seenT"))}</a>`, { kind: "sawgot", ids });
   }
-  /* ---------- the hidden deed, khabī'a (FIVE-IDEAS 3, rewritten for Tadwin 23 Nov 2026): a written line in the good scroll,
-     marked 🤲; no points, no mix, no presence, seen only by the profile's owner ---------- */
+  /* ---------- the hidden deed, khabī'a: a written line among «نِعَم الله عليّ», marked 🤲; no points, no mix, no presence,
+     seen only by the profile's owner ---------- */
   const KH_AR = "وَرَجُلٌ تَصَدَّقَ بِصَدَقَةٍ فَأَخْفَاهَا حَتَّى لَا تَعْلَمَ شِمَالُهُ مَا تُنْفِقُ يَمِينُهُ";
   function khSheet() { TWD = { k: "kh", f: "" }; twSheet(true); }
 
-  /* ---------- Tadwin «علّم بالقلم» (docs/TADWIN-SPEC.md): #/tadwin, two scrolls kept by the profile's owner alone.
-     Never shown in the record, the parent views or the family features; carried by the backup with the rest of the profile.
-     Verses matched to Tanzil (quran-uthmani and quran-simple) on 23 Nov 2026, shown in the vowelled simple script like the rest of the app. ---------- */
+  /* ---------- Tadwin «علّم بالقلم», version 2 (docs/TADWIN-SPEC.md, approved 23 Nov 2026): #/tadwin, kept by the profile's owner alone.
+     Top to bottom: the free writing, saved to «دفتري»; «استخرج النعم والتحديات» (only when the server answers); «نِعَم الله عليّ»;
+     «تحدّياتي» (adults «مجاهداتي»); «رأيتُ خيرًا». Never shown in the record, the parent views or the family features; carried by the backup.
+     Verses matched to Tanzil (quran-uthmani and quran-simple), shown in the vowelled simple script like the rest of the app. ---------- */
   const PEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.1-4.6L15.6 4.9a2.1 2.1 0 0 1 3 0l.5.5a2.1 2.1 0 0 1 0 3L8.6 18.9z"/><path d="M13.6 6.9l3.5 3.5"/><path d="M13 20h7"/></svg>';
-  const V_QALAM = "الَّذِي عَلَّمَ بِالْقَلَمِ", V_KIRAM = "كِرَامًا كَاتِبِينَ", V_HASANAT = "إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ";
+  const V_QALAM = "الَّذِي عَلَّمَ بِالْقَلَمِ", V_KIRAM = "كِرَامًا كَاتِبِينَ", V_YUSR = "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا";
   const twList = k => (Array.isArray(S[k]) ? S[k] : []);
   const twId = now => (now.toString(36) + Math.random().toString(36).slice(2, 6)).slice(0, 24);
+  const twClean = v => String(v || "").replace(/[\r\n\t]+/g, " ").replace(/[<>{}\u0000-\u001f]/g, "").trim().slice(0, TW_LEN);
   const RMO = () => { try { return matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } };
   const verse = (ar, en, ref, cls) => `<figure class="quote tw-q${cls ? " " + cls : ""}"><p class="qar" lang="ar">﴿${esc(ar)}﴾</p>${L() === "en" ? `<p class="qen" lang="en">${esc(u(en))}</p>` : ""}<figcaption class="ref"><bdi>${esc(u(ref))}</bdi><span class="checked">✓ ${esc(u("checkedQuran"))}</span></figcaption></figure>`;
   // the Hijri date (Umm al-Qura); the closing card shows from 20 Dhu al-Hijja to 10 Muharram
   const HJ = (() => { try { return new Intl.DateTimeFormat("en-u-ca-islamic-umalqura-nu-latn", { day: "numeric", month: "numeric", year: "numeric" }); } catch (e) { return null; } })();
   function hijri(t) { if (!HJ) return null; try { const p = {}; HJ.formatToParts(new Date(t)).forEach(x => { p[x.type] = x.value; }); const y = parseInt(p.year, 10), m = parseInt(p.month, 10), d = parseInt(p.day, 10); return y && m && d ? { y, m, d } : null; } catch (e) { return null; } }
-  const BURN_TEST = params.get("burntest") === "1" && /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname); // testing only: the closing card outside its days, on a local server
+  const LOCAL = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+  const BURN_TEST = params.get("burntest") === "1" && LOCAL; // testing only: the closing card outside its days, on a local server
   function yearEnd() { const h = hijri(Date.now()); if (!h) return 0; if (BURN_TEST) return h.y; return h.m === 12 && h.d >= 20 ? h.y : h.m === 1 && h.d <= 10 ? h.y - 1 : 0; }
   function yeCard() {
     const y = yearEnd(); if (!y || S.burnY === y) return "";
-    const n = twList("bad").length;
+    const n = twList("chal").length;
     return `<section class="sec card ye-card"><p class="pact-k">${esc(u("yeT"))} · <bdi>${esc(fmt(u("yeYear"), { y }))}</bdi></p><p class="sub">${esc(fmt(u(n ? "yeSub" : "yeSubClean"), { y }))}</p>
       <button class="btn block" data-act="${n ? "burnask" : "burnreview"}">${esc(u(n ? "yeBurn" : "yeReview"))}</button></section>`;
   }
-  const twTag = e => e.k === "kh" ? `<span class="tw-tag kh"><span aria-hidden="true">🤲</span> ${esc(u("twKh"))}</span>` : e.k === "ni" ? `<span class="tw-tag ni">${esc(u("twNi"))}</span>` : "";
-  function twEntry(e, bad) {
+
+  /* «استخرج النعم والتحديات»: the client of POST /api/extract (outputs/server/src/extract.js). No AI for children (owner decision,
+     23 Nov 2026): the button exists only on the account holder's own profile (p1) in the adult edition, for a signed-in adult who
+     has attested being 18 or older. It shows only when GET /api/health answers {ok: true, ai: true} and GET /api/me answers 200 with
+     account.adult_at set (POST /api/account/adult), each within 2.5 s, checked at most once a minute. On the static site both answer
+     with a page, so it stays hidden. Kids' profiles and family members' profiles never check. */
+  const EXT = { srv: false, ok: false, at: 0, busy: false };
+  function apiJson(path, opt, ms) {
+    const ac = typeof AbortController === "function" ? new AbortController() : null, tm = setTimeout(() => { if (ac) ac.abort(); }, ms || 2500);
+    return fetch(path, Object.assign({ credentials: "same-origin", cache: "no-store", headers: { accept: "application/json" } }, opt || {}, ac ? { signal: ac.signal } : {}))
+      .then(r => { const ct = (r.headers.get("content-type") || "").toLowerCase();
+        return ct.includes("application/json") ? r.json().then(b => ({ status: r.status, body: b }), () => ({ status: r.status, body: null })) : { status: r.status, body: null }; })
+      .finally(() => clearTimeout(tm));
+  }
+  const extMine = () => ADU() && P.active === "p1"; // the server's OWNER_PID
+  function extCheck() {
+    if (!extMine()) return;
+    if (EXT.busy || Date.now() - EXT.at < 60000 || !/^https?:$/.test(location.protocol) || typeof fetch !== "function") return;
+    EXT.busy = true; EXT.at = Date.now(); let srv = false;
+    apiJson("/api/health").then(h => { srv = h.status === 200 && isObj(h.body) && h.body.ok === true && h.body.ai === true; return srv ? apiJson("/api/me").then(m => m.status === 200 && isObj(m.body) && isObj(m.body.account) && !!m.body.account.adult_at) : false; })
+      .catch(() => false).then(ok => {
+        EXT.busy = false; if (srv === EXT.srv && ok === EXT.ok) return; EXT.srv = srv; EXT.ok = !!ok;
+        if (route().name === "tadwin" && !BURN && sheet.hidden) render(true);
+      });
+  }
+  const extOn = () => EXT.ok && extMine();
+  let EXQ = null; // {n: the entry's id, ph: "wait" | "list" | "err" | "sign", bl: [{tx, on}], ch: [{tx, on}], care}
+  function extStart(id) {
+    const n = twList("notes").find(e => e.id === id); if (!n || !extOn()) return;
+    EXQ = { n: id, ph: "wait", bl: [], ch: [], care: "" }; extSheet();
+    const body = { pid: P.active, text: n.tx, edition: "adult", lang: L() }; if (S.gender) body.gender = S.gender; // only the adult's own writing
+    const done = () => { if (sheetState && sheetState.kind === "ext") extSheet(); };
+    apiJson("/api/extract", { method: "POST", headers: { "content-type": "application/json", accept: "application/json", "x-tazkiya": "1" }, body: JSON.stringify(body) }, 30000).then(r => {
+      if (!EXQ || EXQ.n !== id) return;
+      if (r.status === 200 && isObj(r.body)) {
+        const ls = v => (Array.isArray(v) ? v : []).filter(x => typeof x === "string").map(twClean).filter(Boolean).slice(0, 3).map(tx => ({ tx, on: true }));
+        EXQ.bl = ls(r.body.blessings); EXQ.ch = ls(r.body.challenges); EXQ.care = txt(r.body.care, 300);
+        EXQ.ph = EXQ.bl.length || EXQ.ch.length || EXQ.care ? "list" : "none"; // empty lists: nothing found, add by hand
+      } else EXQ.ph = r.status === 401 ? "sign" : "err";
+      done();
+    }).catch(() => { if (EXQ && EXQ.n === id) { EXQ.ph = "err"; done(); } });
+  }
+  function extSync() { if (EXQ && EXQ.ph === "list") ["bl", "ch"].forEach(k => EXQ[k].forEach((x, i) => { const el = document.getElementById("ex-" + k + i); if (el && x.on) x.tx = twClean(el.value); })); }
+  function extSheet() {
+    if (!EXQ) return; const b = EXQ;
+    let h = `<h2 class="h">${esc(u("twExtT"))}</h2>`;
+    if (b.ph === "wait") h += `<p class="short ex-wait" role="status"><span class="ex-dot" aria-hidden="true"></span> ${esc(u("twExtWait"))}</p>`;
+    else if (b.ph !== "list") h += `<p class="short" role="status">${esc(u(b.ph === "sign" ? "twExtSign" : b.ph === "none" ? "twExtNone" : "twExtErr"))}</p><button class="btn block ghost" data-act="close">${esc(u("twOk"))}</button>`;
+    else {
+      const grp = (k, title) => b[k].length ? `<h3 class="ex-h ${k}">${esc(u(title))}</h3><ul class="ex-list">${b[k].map((x, i) => `<li class="${x.on ? "" : "off"}">
+        <input id="ex-${k}${i}" class="eve-in" type="text" maxlength="${TW_LEN}" dir="auto" autocomplete="off" value="${esc(x.tx)}" aria-label="${esc(u(title))} ${i + 1}"${x.on ? "" : " disabled"}>
+        <button class="tog" data-act="exon" data-k="${k}" data-i="${i}">${esc(u(x.on ? "twExtDrop" : "twExtBack"))}</button></li>`).join("")}</ul>` : "";
+      h += (b.care ? `<p class="ex-care" role="note">${esc(b.care)}</p>` : "") + (b.bl.length || b.ch.length ? `<p class="short">${esc(u("twExtHow"))}</p>` : "") + grp("bl", "twBlT") + grp("ch", "twChT")
+        + (b.bl.length || b.ch.length ? `<button class="btn block" data-act="exsave">${esc(u("twExtKeep"))}</button>` : `<button class="btn block ghost" data-act="close">${esc(u("twOk"))}</button>`);
+    }
+    openSheet(h, { kind: "ext", expanded: true });
+  }
+  function extSave() {
+    if (!EXQ || EXQ.ph !== "list") return; extSync();
+    const now = Date.now(), n = EXQ.n; let c = 0;
+    [["bl", "bless"], ["ch", "chal"]].forEach(([k, key]) => EXQ[k].filter(x => x.on && x.tx).forEach(x => { S[key] = twList(key).concat([{ id: twId(now + c), t: now, tx: x.tx, src: "ai", n }]).slice(-TW_MAX); c++; }));
+    EXQ = null; save(); FX(c ? "ok" : "tick"); sheetState = null; closeSheet(); render(true); if (c) toast(u("twExtSaved"));
+  }
+
+  // the free writing: a new page, or an entry of the notebook reopened (TWE: its id; TWX: its text being edited)
+  let TWE = null, TWX = null, TW_LAST = "", NB_OPEN = false, NB_ALL = false, BL_ALL = false, CH_ALL = false, DR_T = 0;
+  const twAfter = n => `<div class="tw-after" role="status"><p class="tw-ok"><span aria-hidden="true">✓</span> ${esc(u("twNoteSaved"))}</p>${extOn() && n.tx.length >= 10 ? `<button class="btn block ext-btn" data-act="exgo" data-id="${esc(n.id)}"><span aria-hidden="true">✦</span> ${esc(u("twExt"))}</button><p class="sub ext-sub">${esc(u("twExtSub"))}</p>` : ""}</div>`;
+  function twWrite() {
+    const ed = TWE ? twList("notes").find(e => e.id === TWE) : null; if (!ed) { TWE = null; TWX = null; }
+    const val = ed ? (TWX != null ? TWX : ed.tx) : (S.twDraft || ""), last = !ed && TW_LAST ? twList("notes").find(e => e.id === TW_LAST) : null;
+    return `<section class="tw-write${ed ? " editing" : ""}" id="tw-write"><h2 class="h tw-wh" id="twWriteH">${PEN}<span>${esc(ed ? fmt(u("twEditT"), { d: fmtDate(ed.t) }) : u("twWriteT"))}</span></h2>
+      <textarea id="twNote" class="tw-note" rows="9" maxlength="${NOTE_LEN}" dir="auto" autocomplete="off" spellcheck="true" placeholder="${esc(u("twWritePh"))}" aria-labelledby="twWriteH">${esc(val)}</textarea>
+      <div class="tw-wacts"><button class="btn" data-act="nbsave">${esc(u(ed ? "twEditSave" : "twWriteSave"))}</button>${ed ? `<button class="btn ghost" data-act="nbcancel">${esc(u("twEditCancel"))}</button>` : ""}</div>
+      ${last ? twAfter(last) : ""}</section>`;
+  }
+  const more = (n, shown, k) => n > shown ? `<button class="linkbtn tw-more" data-act="twall" data-k="${k}">${esc(fmt(u("twMoreN"), { c: n }))}</button>` : "";
+  function twNotebook() {
+    const all = twList("notes").slice().reverse(), list = NB_ALL ? all : all.slice(0, 5);
+    return `<details class="tw-nb" id="tw-nb"${NB_OPEN ? " open" : ""}><summary><span>${esc(u("twNb"))}</span><b dir="ltr">${all.length}</b></summary>
+      ${all.length ? `<ul class="tw-list nb-list">${list.map(e => `<li class="tw-e nb-e${TWE === e.id ? " on" : ""}"><div class="tw-e-top"><span class="tw-d">${esc(fmtDate(e.t))}</span>${e.u ? `<span>· ${esc(u("twEdited"))}</span>` : ""}</div>
+        <p class="nb-tx" dir="auto">${esc(e.tx)}</p><div class="nb-acts"><button class="linkbtn" data-act="nbopen" data-id="${esc(e.id)}">${esc(u("twOpen"))}</button>${extOn() && e.tx.length >= 10 ? `<button class="linkbtn" data-act="exgo" data-id="${esc(e.id)}">${esc(u("twExtShort"))}</button>` : ""}<button class="linkbtn tw-del" data-act="twdel" data-k="notes" data-id="${esc(e.id)}">${esc(u("twDel"))}</button></div></li>`).join("")}</ul>
+        ${NB_ALL ? "" : more(all.length, list.length, "notes")}` : `<p class="tw-none">${esc(u("twNbNone"))}</p>`}</details>`;
+  }
+  function nbSave() {
+    const el = document.getElementById("twNote"), tx = noteTx(el ? el.value : "");
+    if (!tx) { if (el) el.focus(); return; }
+    const now = Date.now();
+    if (TWE) {
+      const e = twList("notes").find(x => x.id === TWE); if (e && e.tx !== tx) { e.tx = tx; e.u = now; }
+      TWE = null; TWX = null; save(); FX("ok"); render(true); toast(u("twNoteEdited")); return;
+    }
+    const e = { id: twId(now), t: now, d: today(), tx }; S.notes = twList("notes").concat([e]).slice(-NOTE_MAX); delete S.twDraft; TW_LAST = e.id;
+    save(); FX("ok"); render(true); toast(u("twNoteSaved"));
+    { const a = view.querySelector(".tw-after"); if (a) a.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+  }
+
+  // «نِعَم الله عليّ» and «تحدّياتي»: short lines (200 characters), by hand or accepted from the extraction
+  const BL_TAG = { deed: "twTagDeed", eve: "twTagEve", ai: "twTagAi", over: "twTagOver" };
+  function chTask(e) {
+    const st = C.stages[e.f], l = st && Array.isArray(st.tasks) ? st.tasks : []; if (!l.length) return null;
+    const open = l.filter(x => S.tasks[x.id] !== "ok"), pool = open.length ? open : l; let h = 0;
+    for (const c of e.id) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+    return pool[h % pool.length];
+  }
+  function twLine(e, k) {
     const f = e.f && G[e.f] ? `<span class="tw-f"><i class="dotc" style="background:${G[e.f].color}"></i> ${esc(fing(e.f))}</span>` : "";
-    const marks = bad ? `<div class="tw-marks" role="group" aria-label="${esc(u("twMarks"))}">${[["st", "twSt"], ["fx", "twFx"]].map(([m, k]) => `<button class="tog ${e[m] ? "on" : ""}" data-act="twmark" data-id="${esc(e.id)}" data-m="${m}" aria-pressed="${!!e[m]}">${e[m] ? "✓ " : ""}${esc(u(k))}</button>`).join("")}</div>` : "";
-    return `<li class="tw-e"><div class="tw-e-top"><span class="tw-d">${esc(fmtDate(e.t))}</span>${twTag(e)}${f}<button class="linkbtn tw-del" data-act="twdel" data-k="${bad ? "bad" : "good"}" data-id="${esc(e.id)}">${esc(u("twDel"))}</button></div><p dir="auto">${esc(e.tx || u("twKhOld"))}</p>${marks}</li>`;
+    const tag = k === "khabia" ? `<span class="tw-tag kh"><span aria-hidden="true">🤲</span> ${esc(u("twKh"))}</span>` : k === "bless" && BL_TAG[e.src] ? `<span class="tw-tag ${e.src}">${esc(u(BL_TAG[e.src]))}</span>` : "";
+    let extra = "";
+    if (k === "chal") {
+      const tk = !e.done && e.f ? chTask(e) : null;
+      extra = (tk ? `<div class="ch-task"><span class="ttag">${esc(u("twTask"))} · ${esc(fing(e.f))}</span><p>${esc(t(tk))}</p><a class="small-btn dark" href="#/tasks/${e.f}">${esc(u("twTaskGo"))}</a></div>` : "")
+        + (e.done ? `<p class="ch-done">${esc(u("twOverDone"))}</p>` : `<button class="btn ghost ch-over" data-act="chover" data-id="${esc(e.id)}">${esc(u("twOver"))}</button>`);
+    }
+    return `<li class="tw-e${e.done ? " done" : ""}"><div class="tw-e-top"><span class="tw-d">${esc(fmtDate(e.t))}</span>${tag}${f}<span class="tw-ea"><button class="linkbtn" data-act="twedit" data-k="${k}" data-id="${esc(e.id)}">${esc(u("twEdit"))}</button><button class="linkbtn tw-del" data-act="twdel" data-k="${k}" data-id="${esc(e.id)}">${esc(u("twDel"))}</button></span></div><p dir="auto">${esc(e.tx || u("twKhOld"))}</p>${extra}</li>`;
   }
   function twSeen() {
     const ms = sawMine().slice().reverse();
     return `<section class="tw-seen" id="tw-seen"><h3 class="h">${esc(u("seenT"))}</h3>${ms.length ? `<ul class="saw-list big">${ms.map(m => `<li><span class="m">${esc(fmtShort(m.t))}</span><b>${esc(sawGot(m))}</b><p>${esc(sawWhat(m))}</p></li>`).join("")}</ul>` : `<p class="sub">${esc(u("seenNone"))}</p>`}</section>`;
   }
+  const blItems = () => twList("bless").map(e => ({ e, k: "bless" })).concat(twList("khabia").map(e => ({ e, k: "khabia" }))).sort((a, b) => b.e.t - a.e.t);
+  function twBless() {
+    const items = blItems(), shown = BL_ALL ? items : items.slice(0, 12);
+    return `<section class="tw-paper good" id="tw-bless"><h2 class="h">${esc(u("twBlT"))}</h2><p class="sub">${esc(u("twBlSub"))}</p>
+      <div class="tw-acts"><button class="btn tw-add" data-act="twadd" data-k="bless">${PEN}<span>${esc(u("twAddBl"))}</span></button><button class="btn ghost tw-deed" data-act="twadd" data-k="deed">${esc(u("twAddDeed"))}</button><button class="btn ghost khbtn" data-act="khab"><span aria-hidden="true">🤲</span> ${esc(u("twKhBtn"))}</button></div>
+      ${items.length ? `<ul class="tw-list">${shown.map(x => twLine(x.e, x.k)).join("")}</ul>${BL_ALL ? "" : more(items.length, shown.length, "bless")}` : `<p class="tw-none">${esc(u("twBlNone"))}</p>`}
+      ${eveLink()}${twSeen()}</section>`;
+  }
+  function twChal() {
+    const items = twList("chal").slice().sort((a, b) => (a.done ? 1 : 0) - (b.done ? 1 : 0) || b.t - a.t), shown = CH_ALL ? items : items.slice(0, 12);
+    return `<section class="tw-paper chal" id="tw-chal"><h2 class="h">${esc(u("twChT"))}</h2><p class="sub">${esc(u("twChSub"))}</p>
+      <div class="tw-acts"><button class="btn tw-add" data-act="twadd" data-k="chal">${PEN}<span>${esc(u("twAddCh"))}</span></button></div>
+      ${items.length ? `<ul class="tw-list">${shown.map(e => twLine(e, "chal")).join("")}</ul>${CH_ALL ? "" : more(items.length, shown.length, "chal")}` : `<p class="tw-none">${esc(u("twChNone"))}</p>`}</section>`;
+  }
   function vTadwin(r) {
     if (S.parent) return `<div class="wrap tw"><header class="tw-head"><span class="tw-pen" aria-hidden="true">${PEN}</span><h1 class="h tw-h">${esc(u("twT"))}</h1></header><p class="sub center">${esc(u("twOwner"))}</p></div>`;
     if (BURN) return vBurn();
     if (r.sc === "why" || (!S.twIntro && !r.sec)) return vTwWhy(r.sc === "why" && S.twIntro);
-    const bad = r.sc === "bad", g = twList("good"), b = twList("bad"), list = (bad ? b : g).slice().reverse();
-    const seg = `<nav class="tw-seg" aria-label="${esc(u("twSeg"))}"><a class="g${bad ? "" : " on"}" href="#/tadwin"${bad ? "" : ' aria-current="page"'}>${esc(u("twGoodS"))} <b dir="ltr">${g.length}</b></a><a class="b${bad ? " on" : ""}" href="#/tadwin/bad"${bad ? ' aria-current="page"' : ""}>${esc(u("twBadS"))} <b dir="ltr">${b.length}</b></a></nav>`;
-    const acts = bad ? `<div class="tw-acts"><button class="btn tw-add" data-act="twadd" data-k="bad">${PEN}<span>${esc(u("twAddBad"))}</span></button></div>`
-      : `<div class="tw-acts"><button class="btn tw-add" data-act="twadd" data-k="good">${PEN}<span>${esc(u("twAddGood"))}</span></button><button class="btn ghost khbtn" data-act="khab"><span aria-hidden="true">🤲</span> ${esc(u("twKhBtn"))}</button></div>`;
+    extCheck();
     return `<div class="wrap tw"><header class="tw-head"><h1 class="h tw-h">${esc(u("twT"))}</h1>
       <p class="tw-verse" lang="ar">﴿${esc(V_QALAM)}﴾</p>${L() === "en" ? `<p class="tw-ven">${esc(u("twEn"))}</p>` : ""}
       <p class="tw-ref"><bdi>${esc(u("twRef"))}</bdi><span class="checked">✓ ${esc(u("checkedQuran"))}</span><a class="linkbtn tw-whyl" href="#/tadwin/why">${esc(u("twWhyLink"))}</a></p></header>
-      ${eveLink()}${yeCard()}${seg}
-      <section class="tw-paper ${bad ? "bad" : "good"}"><h2 class="h">${esc(u(bad ? "twBadT" : "twGoodT"))}</h2><p class="sub">${esc(u(bad ? "twBadSub" : "twGoodSub"))}</p>${acts}
-        ${list.length ? `<ul class="tw-list">${list.map(e => twEntry(e, bad)).join("")}</ul>` : `<p class="tw-none">${esc(u(bad ? "twBadNone" : "twGoodNone"))}</p>`}
-        ${bad ? "" : twSeen()}</section>
-      ${bad ? "" : sawBlock()}</div>`;
+      ${yeCard()}${twWrite()}${twNotebook()}${twBless()}${twChal()}${sawBlock()}</div>`;
   }
   function vTwWhy(again) {
     return `<div class="wrap tw tw-why">${again ? `<div class="st-back"><a class="back" href="#/tadwin">${BK()} ${esc(u("twWhyBack"))}</a></div>` : ""}
@@ -1314,43 +1507,58 @@
       <p>${esc(u("twWhy4"))}</p><p>${esc(u("twWhy5"))}</p><p class="tw-own">${esc(u("twWhy6"))}</p>
       ${again ? `<a class="btn block" href="#/tadwin">${esc(u("twWhyBack"))}</a>` : `<button class="btn block" data-act="twstart">${esc(u("twWhyGo"))}</button>`}</div>`;
   }
-  // writing a line: a good deed, a slip, or a hidden deed (k: "good" | "bad" | "kh")
+  // writing or editing a line. TWD.k: "bless" | "deed" (a good deed, kept among the blessings) | "chal" | "kh" (a hidden deed); TWD.id when editing
   let TWD = null;
+  const TW_SH = { bless: ["twNewBl", "twPhBl"], deed: ["twNewDeed", "twPhDeed"], chal: ["twNewCh", "twPhCh"], kh: ["khBtn", "khPh"] };
+  const twKey = k => (k === "chal" ? "chal" : k === "kh" ? "khabia" : "bless");
   function twSheet(fresh) {
-    if (!TWD) return;
-    const k = TWD.k, el = !fresh && sheetState && sheetState.kind === "tw" ? document.getElementById("twTx") : null, tx = el ? el.value : "";
-    const head = k === "kh" ? `<h2 class="h kh-h">${esc(u("khBtn"))}</h2><p class="short">${esc(u("khLead"))}</p>
+    if (!TWD || !TW_SH[TWD.k]) return;
+    const k = TWD.k, el = !fresh && sheetState && sheetState.kind === "tw" ? document.getElementById("twTx") : null, tx = el ? el.value : (TWD.tx || "");
+    const head = k === "kh" && !TWD.id ? `<h2 class="h kh-h">${esc(u("khBtn"))}</h2><p class="short">${esc(u("khLead"))}</p>
       <figure class="quote kh-q" style="margin-inline:0"><p class="qar" lang="ar">«${esc(KH_AR)}»</p>${L() === "en" ? `<p class="qen" lang="en">${esc(u("khEn"))}</p>` : ""}
         <figcaption class="ref"><bdi>${esc(u("khRef"))}</bdi><span class="checked">✓ ${esc(u("checkedHadith"))}</span></figcaption></figure><p class="sub">${esc(u("khNote"))}</p>`
-      : `<h2 class="h">${esc(u(k === "bad" ? "twNewBad" : "twNewGood"))}</h2>`;
-    openSheet(`${head}<textarea id="twTx" class="eve-in tw-in" rows="3" maxlength="${TW_LEN}" autocomplete="off" dir="auto" placeholder="${esc(u(k === "kh" ? "khPh" : k === "bad" ? "twPhBad" : "twPhGood"))}">${esc(tx)}</textarea>
-      <p class="tw-fl">${esc(u("twFinger"))}</p><div class="pact-opts tw-fs">${ORDER.map(s => `<button class="tog${TWD.f === s ? " on" : ""}" data-act="twf" data-s="${s}" aria-pressed="${TWD.f === s}"><i class="dotc" style="background:${G[s].color}"></i> ${esc(fing(s))}</button>`).join("")}</div>
-      <button class="btn block" data-act="${k === "kh" ? "khsave" : "twsave"}">${esc(u(k === "kh" ? "khSave" : "twSave"))}</button>`, { kind: "tw", expanded: true });
+      : `<h2 class="h">${esc(u(TWD.id ? "twEditLine" : TW_SH[k][0]))}</h2>`;
+    const fs = k === "kh" ? "" : `<p class="tw-fl">${esc(u(k === "chal" ? "twFingerCh" : "twFinger"))}</p><div class="pact-opts tw-fs">${ORDER.map(s => `<button class="tog${TWD.f === s ? " on" : ""}" data-act="twf" data-s="${s}" aria-pressed="${TWD.f === s}"><i class="dotc" style="background:${G[s].color}"></i> ${esc(fing(s))}</button>`).join("")}</div>`;
+    openSheet(`${head}<textarea id="twTx" class="eve-in tw-in" rows="3" maxlength="${TW_LEN}" autocomplete="off" dir="auto" placeholder="${esc(u(TW_SH[k][1]))}">${esc(tx)}</textarea>
+      ${fs}<button class="btn block" data-act="${k === "kh" ? "khsave" : "twsave"}">${esc(u(k === "kh" && !TWD.id ? "khSave" : "twSave"))}</button>`, { kind: "tw", expanded: true });
   }
   function twSave() {
     if (!TWD) return;
-    const inp = document.getElementById("twTx"), tx = String((inp && inp.value) || "").replace(/[\r\n\t]+/g, " ").replace(/[<>{}\u0000-\u001f]/g, "").trim().slice(0, TW_LEN);
+    const inp = document.getElementById("twTx"), tx = twClean(inp && inp.value);
     if (!tx) { if (inp) inp.focus(); return; }
-    const kind = TWD.k, bad = kind === "bad", key = bad ? "bad" : "good", now = Date.now(), e = { id: twId(now), t: now, tx };
-    if (STAGE_IDS.includes(TWD.f)) e.f = TWD.f; if (kind === "kh") e.k = "kh";
-    S[key] = twList(key).concat([e]).slice(-TW_MAX); TWD = null; save(); FX("ok"); closeSheet();
-    const r = route();
-    if (r.name === "tadwin" && (r.sc === "bad") !== bad) location.hash = bad ? "#/tadwin/bad" : "#/tadwin"; else render(true);
-    toast(u(kind === "kh" ? "khSaved" : "twSaved"));
+    const k = TWD.k, key = twKey(k), now = Date.now();
+    if (TWD.id) {
+      const e = twList(key).find(x => x.id === TWD.id);
+      if (e) { e.tx = tx; e.u = now; if (key !== "khabia") { if (STAGE_IDS.includes(TWD.f)) e.f = TWD.f; else delete e.f; } }
+    } else {
+      const e = { id: twId(now), t: now, tx }; if (key !== "khabia" && STAGE_IDS.includes(TWD.f)) e.f = TWD.f;
+      if (key === "bless") e.src = k === "deed" ? "deed" : "hand"; if (key === "chal") e.src = "hand";
+      S[key] = twList(key).concat([e]).slice(-TW_MAX);
+    }
+    TWD = null; save(); FX("ok"); closeSheet(); render(true);
+    toast(u(k === "kh" ? "khSaved" : "twSaved"));
+  }
+  function twOver(id) {
+    const e = twList("chal").find(x => x.id === id); if (!e || e.done) return;
+    const now = Date.now(); e.done = true; e.dt = now; e.u = now;
+    const b = { id: twId(now), t: now, tx: twClean(fmt(u("twOverLine"), { v: e.tx })), src: "over", n: e.id }; if (e.f) b.f = e.f;
+    S.bless = twList("bless").concat([b]).slice(-TW_MAX); save(); FX("done"); render(true); toast(u("twOverToast"), 3500);
   }
   function twDelSheet(k, id) {
-    openSheet(`<h2 class="h">${esc(u("twDelQ"))}</h2><button class="btn block" data-act="twdelyes">${esc(u("twDelYes"))}</button><button class="btn block ghost" style="margin-top:8px" data-act="close">${esc(u("twDelNo"))}</button>`, { kind: "twdel", k, id });
+    openSheet(`<h2 class="h">${esc(u(k === "notes" ? "twDelNoteQ" : "twDelQ"))}</h2><button class="btn block" data-act="twdelyes">${esc(u("twDelYes"))}</button><button class="btn block ghost" style="margin-top:8px" data-act="close">${esc(u("twDelNo"))}</button>`, { kind: "twdel", k, id });
   }
-  // the close of the year: one confirmation, the grey scroll burns, then the year's good lines one by one, then «الحمد لله»
-  let BURN = null, BURN_T = 0; // {y, ph: 0 burning | 1 the good lines | 2 praise, i, list}
+  // the close of the year: one confirmation, the challenges page burns with ﴿فَإِنَّ مَعَ الْعُسْرِ يُسْرًا﴾, then the year's blessings one by one,
+  // then «الحمد لله»; the notebook stays, and an optional last step lets the writer choose entries of the year to burn too
+  let BURN = null, BURN_T = 0; // {y, ph: 0 burning | 1 the year's blessings | 2 praise | 3 choosing from the notebook, i, list, pick}
   function burnAskSheet() {
     openSheet(`<h2 class="h">${esc(u("yeBurn"))}</h2><p class="short">${esc(u("yeAsk"))}</p><button class="btn block" data-act="burnyes">${esc(u("yeYes"))}</button><button class="btn block ghost" style="margin-top:8px" data-act="close">${esc(u("yeNo"))}</button>`, { kind: "burnask" });
   }
+  const inYear = (e, y) => { const h = hijri(e.t); return !!h && h.y === y; };
   function burnStart(burn) {
     const y = yearEnd(); if (!y || S.burnY === y) return;
-    const list = twList("good").filter(e => { const h = hijri(e.t); return h && h.y === y; }).slice(-40);
-    if (burn) S.bad = []; S.burnY = y; save(); // the deletion is real
-    BURN = { y, ph: burn ? 0 : list.length ? 1 : 2, i: 0, list };
+    const list = blItems().filter(x => inYear(x.e, y)).reverse().slice(-40);
+    if (burn) S.chal = []; S.burnY = y; save(); // the deletion is real
+    BURN = { y, ph: burn ? 0 : list.length ? 1 : 2, i: 0, list, pick: [] };
     sheetState = null; closeSheet(); FX(burn ? "tick" : "ok");
     const r = route(); if (r.name !== "tadwin" || r.sc) location.hash = "#/tadwin"; else { render(); window.scrollTo(0, 0); }
     burnTick();
@@ -1361,16 +1569,23 @@
     else if (BURN.ph === 1) { if (BURN.i < BURN.list.length - 1) BURN.i++; else BURN.ph = 2; }
     FX(BURN.ph === 2 ? "done" : "tick"); render(); window.scrollTo(0, 0); burnTick();
   }
-  function burnTick() { clearTimeout(BURN_T); if (!BURN || BURN.ph === 2 || RMO()) return; BURN_T = setTimeout(() => { if (BURN && route().name === "tadwin") burnNext(); }, BURN.ph === 0 ? 6500 : 3400); }
+  function burnTick() { clearTimeout(BURN_T); if (!BURN || BURN.ph >= 2 || RMO()) return; BURN_T = setTimeout(() => { if (BURN && route().name === "tadwin") burnNext(); }, BURN.ph === 0 ? 6500 : 3400); }
+  function burnEnd() { clearTimeout(BURN_T); BURN = null; if (route().sc) location.hash = "#/tadwin"; else { render(); window.scrollTo(0, 0); } }
   function vBurn() {
-    const b = BURN; let h = "";
-    if (b.ph === 0) h = `<div class="burn-box${RMO() ? " rm" : ""}" aria-hidden="true"><div class="burn-paper">${"<i></i>".repeat(7)}</div><span class="burn-edge"></span>${[1, 2, 3, 4, 5, 6].map(k => `<span class="burn-spark s${k}"></span>`).join("")}</div>${verse(V_HASANAT, "yeVEn", "yeVRef", "burn-v")}`;
-    else if (b.ph === 1) { const e = b.list[b.i];
+    const b = BURN, yn = twList("notes").filter(e => inYear(e, b.y)); let h = "";
+    if (b.ph === 0) h = `<div class="burn-box${RMO() ? " rm" : ""}" aria-hidden="true"><div class="burn-paper">${"<i></i>".repeat(7)}</div><span class="burn-edge"></span>${[1, 2, 3, 4, 5, 6].map(k => `<span class="burn-spark s${k}"></span>`).join("")}</div>${verse(V_YUSR, "yeVEn", "yeVRef", "burn-v")}`;
+    else if (b.ph === 1) { const x = b.list[b.i], e = x.e;
+      const tag = x.k === "khabia" ? `<span class="tw-tag kh"><span aria-hidden="true">🤲</span> ${esc(u("twKh"))}</span>` : BL_TAG[e.src] ? `<span class="tw-tag ${e.src}">${esc(u(BL_TAG[e.src]))}</span>` : "";
       h = `<h1 class="h ye-h">${esc(u("yeGoodT"))}</h1><p class="ye-count" dir="ltr">${b.i + 1} / ${b.list.length}</p>
-        <div class="tw-paper good ye-one" role="status"><div class="tw-e-top"><span class="tw-d">${esc(fmtDate(e.t))}</span>${twTag(e)}</div><p class="ye-tx" dir="auto">${esc(e.tx || u("twKhOld"))}</p></div>`; }
-    else h = `<div class="ye-end"><span class="tw-pen big" aria-hidden="true">${PEN}</span><h1 class="h ye-hamd">${esc(u("yeHamd"))}</h1><p class="sub">${esc(u(b.list.length ? "yeHamdSub" : "yeNone"))}</p></div>`;
-    return `<div class="wrap tw burn ph${b.ph}"><p class="eve-k">${esc(u("yeT"))} · <bdi>${esc(fmt(u("yeYear"), { y: b.y }))}</bdi></p>${h}
-      ${b.ph === 2 ? `<button class="btn block" data-act="burnend">${esc(u("yeEnd"))}</button>` : `<button class="btn block ghost" data-act="burnnext">${esc(u("yeNext"))}</button>`}</div>`;
+        <div class="tw-paper good ye-one" role="status"><div class="tw-e-top"><span class="tw-d">${esc(fmtDate(e.t))}</span>${tag}</div><p class="ye-tx" dir="auto">${esc(e.tx || u("twKhOld"))}</p></div>`; }
+    else if (b.ph === 2) h = `<div class="ye-end"><span class="tw-pen big" aria-hidden="true">${PEN}</span><h1 class="h ye-hamd">${esc(u("yeHamd"))}</h1><p class="sub">${esc(u(b.list.length ? "yeHamdSub" : "yeNone"))}</p></div>`;
+    else h = `<h1 class="h ye-h">${esc(u("yeNbT"))}</h1><p class="sub">${esc(u("yeNbSub"))}</p>
+      <ul class="tw-list ye-nb">${yn.slice().reverse().map(e => { const on = b.pick.includes(e.id); return `<li><button class="tw-e ye-pick${on ? " on" : ""}" data-act="nbpick" data-id="${esc(e.id)}" aria-pressed="${on}"><span class="tw-d">${esc(fmtDate(e.t))}</span><span class="nb-tx" dir="auto">${esc(e.tx)}</span></button></li>`; }).join("")}</ul>
+      <button class="btn block" data-act="nbburn"${b.pick.length ? "" : " disabled"}>${esc(fmt(u("yeNbBurn"), { c: b.pick.length }))}</button>`;
+    const btns = b.ph === 3 ? `<button class="btn block ghost" data-act="burnend">${esc(u("yeNbKeep"))}</button>`
+      : b.ph === 2 ? `<button class="btn block" data-act="burnend">${esc(u("yeEnd"))}</button>${yn.length ? `<button class="btn block ghost" data-act="burnnb">${esc(u("yeNbGo"))}</button>` : ""}`
+      : `<button class="btn block ghost" data-act="burnnext">${esc(u("yeNext"))}</button>`;
+    return `<div class="wrap tw burn ph${b.ph}"><p class="eve-k">${esc(u("yeT"))} · <bdi>${esc(fmt(u("yeYear"), { y: b.y }))}</bdi></p>${h}${btns}</div>`;
   }
 
   /* ---------- evening reckoning (FIVE-IDEAS 2): #/evening, one minute, one step per screen ---------- */
@@ -2501,8 +2716,8 @@
     if (p[0] === "library") return { name: "library" };
     if (p[0] === "record") return { name: "record" };
     if (p[0] === "evening") return { name: "evening" };
-    if (p[0] === "seen") return { name: "tadwin", sc: "", sec: "tw-seen" }; // the former page of what the family saw: now in the good scroll
-    if (p[0] === "tadwin") return { name: "tadwin", sc: ["why", "bad"].includes(p[1]) ? p[1] : "" };
+    if (p[0] === "seen") return { name: "tadwin", sc: "", sec: "tw-seen" }; // the former page of what the family saw: now among the blessings
+    if (p[0] === "tadwin") return p[1] === "bad" ? { name: "tadwin", sc: "", sec: "tw-chal" } : { name: "tadwin", sc: p[1] === "why" ? "why" : "" }; // /bad: the first journal's second scroll, now the challenges
     if (p[0] === "choice") return { name: "choice", id: p[1] };
     if (p[0] === "book") return p[2] ? { name: "chapter", id: p[1], n: p[2] } : { name: "book", id: p[1] };
     if (p[0] === "sources") return { name: "sources" };
@@ -2562,7 +2777,7 @@
     { const ab = document.getElementById("ageBtn"); if (ab) { const w = u(GRPK[GRP(S)]); ab.innerHTML = `<span>${esc(w)}</span><svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`; ab.setAttribute("aria-label", u("agT") + ": " + w); ab.title = u("agT"); } }
     const tab = r.name === "tasks" ? "tasks" : r.name === "tadwin" ? "tadwin" : "hand";
     document.getElementById("tabs").setAttribute("aria-label", u("navMain"));
-    document.getElementById("tabs").innerHTML = [["hand", "#/", "meTab"], ["tadwin", "#/tadwin", "twTab"], ["tasks", "#/tasks", "tasksTab"]]
+    document.getElementById("tabs").innerHTML = [["hand", "#/", "meTab"], ["tasks", "#/tasks", "tasksTab"], ["tadwin", "#/tadwin", "twTab"]]
       .map(([k, h, l]) => `<a href="${h}" class="${tab === k ? "on" : ""}" ${tab === k ? 'aria-current="page"' : ""}>${ICON[k]}<span>${esc(u(l))}</span></a>`).join("");
     let h;
     switch (r.name) {
@@ -2733,7 +2948,7 @@
         if (!EVE || EVE.i !== 3 || !EVE.f || !MAPS.one.L[EVE.f]) break;
         S.eve = S.eve || {}; S.eve[today()] = Object.assign({ f: MAPS.one.L[EVE.f], t: Date.now() }, EVE.g ? { g: EVE.g } : {});
         const ks = Object.keys(S.eve).sort(); ks.slice(0, Math.max(0, ks.length - 800)).forEach(k => delete S.eve[k]);
-        if (EVE.g) { const id = "n" + today().replace(/-/g, ""); if (!twList("good").some(e => e.id === id)) S.good = twList("good").concat([{ id, t: Date.now(), tx: EVE.g, k: "ni" }]).slice(-TW_MAX); }
+        if (EVE.g) { const id = "n" + today().replace(/-/g, ""); if (!twList("bless").some(e => e.id === id)) S.bless = twList("bless").concat([{ id, t: Date.now(), tx: twClean(EVE.g), src: "eve" }]).slice(-TW_MAX); }
         save(); EVE.i = 4; FX("done"); render(); window.scrollTo(0, 0); break;
       }
       case "everemind": FX("tick"); eveRemindSheet(); break;
@@ -2773,18 +2988,33 @@
       }
       case "khsave": case "twsave": twSave(); break;
       case "twstart": S.twIntro = true; save(); FX("ok"); if (route().sc) location.hash = "#/tadwin"; else { render(); window.scrollTo(0, 0); } break;
-      case "twadd": if (["good", "bad"].includes(el.dataset.k)) { FX("tick"); TWD = { k: el.dataset.k, f: "" }; twSheet(true); } break;
+      case "twadd": if (TW_SH[el.dataset.k] && el.dataset.k !== "kh") { FX("tick"); TWD = { k: el.dataset.k, f: "" }; twSheet(true); } break;
+      case "twedit": { const k = el.dataset.k, e = ["bless", "chal", "khabia"].includes(k) && twList(k).find(x => x.id === el.dataset.id); if (!e) break;
+        FX("tick"); TWD = { k: k === "khabia" ? "kh" : k === "chal" ? "chal" : e.src === "deed" ? "deed" : "bless", f: e.f || "", id: e.id, tx: e.tx || "" }; twSheet(true); break; }
       case "twf": if (TWD && STAGE_IDS.includes(el.dataset.s)) { TWD.f = TWD.f === el.dataset.s ? "" : el.dataset.s; FX("tick"); const y = sheet.scrollTop; twSheet(); sheet.scrollTop = y; } break;
-      case "twmark": { const e = twList("bad").find(x => x.id === el.dataset.id), m = el.dataset.m; if (!e || !["st", "fx"].includes(m)) break;
-        if (e[m]) delete e[m]; else e[m] = true; save(); FX(e[m] ? "ok" : "tick"); render(true); break; }
-      case "twdel": if (["good", "bad"].includes(el.dataset.k) && TWID_RE.test(el.dataset.id || "")) { FX("tick"); twDelSheet(el.dataset.k, el.dataset.id); } break;
+      case "twall": if (el.dataset.k === "notes") NB_ALL = true; else if (el.dataset.k === "bless") BL_ALL = true; else if (el.dataset.k === "chal") CH_ALL = true; FX("tick"); render(true); break;
+      case "chover": twOver(el.dataset.id); break;
+      case "twdel": if (["notes", "bless", "chal", "khabia"].includes(el.dataset.k) && TWID_RE.test(el.dataset.id || "")) { FX("tick"); twDelSheet(el.dataset.k, el.dataset.id); } break;
       case "twdelyes": { const st = sheetState; if (!st || st.kind !== "twdel") break;
-        S[st.k] = twList(st.k).filter(e => e.id !== st.id); save(); closeSheet(); render(true); toast(u("twDeleted")); break; }
+        S[st.k] = twList(st.k).filter(e => e.id !== st.id); if (st.k === "notes") { if (TWE === st.id) { TWE = null; TWX = null; } if (TW_LAST === st.id) TW_LAST = ""; }
+        save(); closeSheet(); render(true); toast(u("twDeleted")); break; }
+      case "nbsave": nbSave(); break;
+      case "nbcancel": TWE = null; TWX = null; FX("tick"); render(true); break;
+      case "nbopen": { const e = twList("notes").find(x => x.id === el.dataset.id); if (!e) break;
+        TWE = e.id; TWX = null; TW_LAST = ""; FX("tick"); render(true);
+        { const w = document.getElementById("tw-write"), ta = document.getElementById("twNote"); if (w) w.scrollIntoView({ block: "start", behavior: "smooth" }); if (ta) ta.focus({ preventScroll: true }); } break; }
+      case "exgo": FX("tick"); extStart(el.dataset.id); break;
+      case "exon": { if (!EXQ || EXQ.ph !== "list") break; extSync(); const x = (EXQ[el.dataset.k] || [])[+el.dataset.i]; if (!x) break;
+        x.on = !x.on; FX("tick"); const y = sheet.scrollTop; extSheet(); sheet.scrollTop = y; break; }
+      case "exsave": extSave(); break;
       case "burnask": FX("tick"); burnAskSheet(); break;
       case "burnyes": burnStart(true); break;
       case "burnreview": burnStart(false); break;
       case "burnnext": burnNext(); break;
-      case "burnend": clearTimeout(BURN_T); BURN = null; FX("tick"); if (route().sc) location.hash = "#/tadwin"; else { render(); window.scrollTo(0, 0); } break;
+      case "burnnb": if (BURN) { clearTimeout(BURN_T); BURN.ph = 3; BURN.pick = []; FX("tick"); render(); window.scrollTo(0, 0); } break;
+      case "nbpick": if (BURN && BURN.ph === 3 && TWID_RE.test(el.dataset.id || "")) { const id = el.dataset.id; BURN.pick = BURN.pick.includes(id) ? BURN.pick.filter(x => x !== id) : BURN.pick.concat([id]); FX("tick"); render(true); } break;
+      case "nbburn": if (BURN && BURN.ph === 3 && BURN.pick.length) { const p = new Set(BURN.pick); S.notes = twList("notes").filter(e => !p.has(e.id)); if (p.has(TWE)) { TWE = null; TWX = null; } save(); FX("done"); burnEnd(); toast(u("yeNbDone")); } break;
+      case "burnend": FX("tick"); burnEnd(); break;
       case "eveics": eveSaveIcs(); break;
       case "go": sheetState = null; closeSheet(); homeSel = null; break;
       case "seen": { FX("tick"); const d = today(); S.seen[d] = S.seen[d] || {}; S.seen[d][el.dataset.k] = !S.seen[d][el.dataset.k]; save(); render(true); break; }
@@ -2874,6 +3104,11 @@
     if ((e.key === "Enter" || e.key === " ") && e.target.matches && e.target.matches("[data-act][role=button]")) { e.preventDefault(); act(e.target); }
   });
   scrim.addEventListener("click", closeSheet);
+  // the free writing is kept as a draft while it is typed, so a redraw or a reload never loses it
+  document.addEventListener("input", e => { const el = e.target; if (!el || el.id !== "twNote") return;
+    if (TWE) { TWX = el.value; return; }
+    S.twDraft = el.value.slice(0, NOTE_LEN); if (!S.twDraft.trim()) delete S.twDraft; clearTimeout(DR_T); DR_T = setTimeout(save, 400); });
+  document.addEventListener("toggle", e => { if (e.target && e.target.id === "tw-nb") NB_OPEN = e.target.open; }, true);
   if (window.visualViewport) { const vv = window.visualViewport, kb = () => document.documentElement.style.setProperty("--kb", Math.max(0, Math.round(innerHeight - vv.height - vv.offsetTop)) + "px"); vv.addEventListener("resize", kb); vv.addEventListener("scroll", kb); }
   document.addEventListener("focusin", e => { if (e.target && e.target.matches && e.target.matches(".sheet input:not([type=range]):not([type=file])")) setTimeout(() => { try { e.target.scrollIntoView({ block: "center" }); } catch (x) {} }, 300); });
   let swY = null;
@@ -2910,6 +3145,7 @@
     else if (sheetState && sheetState.kind === "tw") twSheet();
     else if (sheetState && sheetState.kind === "twdel") twDelSheet(sheetState.k, sheetState.id);
     else if (sheetState && sheetState.kind === "burnask") burnAskSheet();
+    else if (sheetState && sheetState.kind === "ext") extSheet();
     else if (sheetState && sheetState.kind === "move") moveSheet(sheetState.big);
     else if (sheetState && sheetState.kind === "pact") pactSheet();
     else if (sheetState && sheetState.kind === "saw") sawSheet();
