@@ -1,0 +1,16 @@
+جميع الحقوق محفوظة
+All rights reserved
+
+© 2026 Tazkiya (Temessek)
+
+العربية
+
+الشيفرة والنصوص والرسوم في هذا المستودع معروضة للاطلاع والمراجعة والمساهمة في تطوير تطبيق تزكية نفسه. لا يجوز نسخها أو إعادة نشرها أو بناء تطبيق أو موقع آخر منها، كلها أو بعضها، إلا بإذن مكتوب من أصحاب المشروع. المساهمات تُقدَّم بفتح مسائل (Issues) وطلبات دمج (Pull Requests) في https://github.com/temessek/tazkiya وفق CONTRIBUTING.md.
+
+الآيات القرآنية والأحاديث منقولة من مصادرها مع توثيقها، وليست ملكًا لهذا المشروع. والخطوط المضمّنة باقية على رخصتها (SIL Open Font License، انظر app/assets/fonts/OFL.txt).
+
+English
+
+The code, texts and illustrations in this repository are made visible for review and for contributions to the Tazkiya app itself. Copying, republishing, or building another app or site from them, in whole or in part, requires written permission from the project owners. Contributions are made through Issues and Pull Requests at https://github.com/temessek/tazkiya, as described in CONTRIBUTING.md.
+
+Quranic verses and hadith are quoted from their sources with their references and are not owned by this project. The bundled fonts keep their own license (SIL Open Font License, see app/assets/fonts/OFL.txt).

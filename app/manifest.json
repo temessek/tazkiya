@@ -1,0 +1,33 @@
+{
+  "id": "./",
+  "name": "تزكية · Tazkiya",
+  "short_name": "تزكية",
+  "description": "تزكية: مسار للارتقاء بالسلوك والأخلاق على اليد، من الغفلة إلى السبق بالخيرات، بطبعتين للصغار وللكبار، بالعربية والإنجليزية. Tazkiya: a path of moral growth on the hand, for children and adults, in Arabic and English.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "background_color": "#fbe9d6",
+  "theme_color": "#fbe9d6",
+  "prefer_related_applications": false,
+  "launch_handler": { "client_mode": ["navigate-existing", "auto"] },
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    { "src": "assets/screens/narrow-hand.jpg", "sizes": "780x1688", "type": "image/jpeg", "form_factor": "narrow", "label": "يدي: كل إصبع مرحلة · My hand: each finger a stage" },
+    { "src": "assets/screens/narrow-stage.jpg", "sizes": "780x1688", "type": "image/jpeg", "form_factor": "narrow", "label": "صفحة المرحلة: افهم واقرأ واختبر واعمل · A stage: understand, read, test, act" },
+    { "src": "assets/screens/narrow-tasks.jpg", "sizes": "780x1688", "type": "image/jpeg", "form_factor": "narrow", "label": "قائمة اليوم والتحديات · Today's list and challenges" },
+    { "src": "assets/screens/wide-hand.jpg", "sizes": "1280x800", "type": "image/jpeg", "form_factor": "wide", "label": "تزكية على الحاسوب · Tazkiya on a computer" }
+  ],
+  "shortcuts": [
+    { "name": "قائمة اليوم · Today", "short_name": "اليوم · Today", "description": "مهام اليوم والتحديات الجارية · Today's tasks and challenges", "url": "./#/tasks", "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "سجلّ التقدم · Progress", "short_name": "السجل · Record", "description": "ما قُرئ وما أُجيب وما أُنجز · What was read, answered and done", "url": "./#/record", "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "المكتبة · Library", "short_name": "المكتبة · Library", "description": "كتب بفصول لكل مرحلة · Books in chapters for each stage", "url": "./#/library", "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" }] }
+  ],
+  "categories": ["education", "kids", "lifestyle"]
+}

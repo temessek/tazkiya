@@ -1,0 +1,32 @@
+# Allowlist: ignore everything, then re-include only what the repository publishes.
+/*
+!/.gitignore
+!/README.md
+!/LICENSE
+!/CONTRIBUTING.md
+!/.github/
+
+!/app/
+!/publish/
+/publish/*
+!/publish/build_public.py
+!/publish/adult_page.py
+!/publish/redirect-old/
+
+# never published
+/app/screenshots/
+/app/tests/out/
+/app/assets-src/**/*.png
+/app/assets-src/**/*.webp
+/app/assets-src/**/*.jpg
+*.log
+.env*
+node_modules/
+__pycache__/
+*.pyc
+.wrangler/
+# internal review notes and stale backups stay local
+/app/USABILITY.md
+/app/content/REVIEW.md
+/app/content/QA-PERSONAS.md
+/app/content/*.pre-style.js

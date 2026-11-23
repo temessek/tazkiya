@@ -1,0 +1,13 @@
+# Codex task: three final frames for the animated intro (built-in image generation)
+
+Use your built-in image generation tool (no paid API, no scripts that call APIs). Make THREE separate square images (1024x1024) and save them in this folder with exactly these names. Append the exact prompt used for each to `RESULT.md`. Do not modify or delete any other file. Do not stop until all three images exist.
+
+Attached: `_style-ref.png` (the approved style and the app's own hand), `f2-shadows.png` (the approved child hand, clean cream with navy contour) and `f3-guidance.png` (the approved first draft of the guidance scene). Match the style exactly: refined ink and watercolour wash, warm cream paper #FBE9D6 / #F9EFE3, hand-inked navy #24364B contours, restrained fine hatching, subtle paper grain, translucent washes, soft blue-teal cast shadow.
+
+Rules for every image: plain cream paper background with nothing else on it; nothing touches the edges; no frame or border. No text, letters, numbers, watermark or UI. No faces, no people beyond hands and forearms, no animals.
+
+1. `f2b-toddler.png` (growth, between the newborn and the child): a toddler's small chubby open hand, about two years old, palm up, in the same pose and orientation as `f2-shadows.png` (fingers pointing to the left, thumb up, wrist entering from the right), drawn in the same clean way: cream inside, navy contour, fine hatching, soft blue-teal shadow below. The hand is centred and fills about 55% of the frame width (smaller than the child hand, because it is younger). A faint warm white-gold glow still around it. Nothing else in the image.
+
+2. `f3-guidance-v2.png` (the parent's hand guides): like `f3-guidance.png`, but the CHILD's hand is much larger and dominant: the child's open hand (fingers left, thumb up, same pose as `f2-shadows.png`) fills about 65% of the frame width, centred. A larger adult hand comes from below-right and gently supports it from underneath, palm up, cradling the child's palm and wrist; the adult hand is softer and lighter in wash, secondary. The child's fingers are still uncoloured cream except a gentle beginning of colour: the little finger soft pale grey and the ring finger warming to light coral; the other fingers stay cream. A soft pale gold light rises from below. No other objects, no lines at the edges.
+
+3. `ov-mist.png` (a symbol layer): a single soft wisp of pale ash-grey watercolour mist or fog, a horizontal drifting cloud shape with a few fine navy hatch strokes in its denser part, centred, filling about 60% of the frame width and 30% of its height, on plain cream paper. Translucent, quiet, a little heavy. Nothing else.
