@@ -23,6 +23,7 @@
 - `app/assets/`: الرسوم والخطوط والأيقونات المستعملة فعلًا. `app/assets-src/` فيها الخطوط المصدرية وتعليمات توليد الرسوم ونصوصها؛ صور المصدر الكبيرة لم تُرفع إلى المستودع.
 - `app/tests/`: اختبار شامل يمر على كل المسارات باللغتين وبثلاثة أعراض للشاشة، ويتحقق من سلامة المحتوى.
 - `publish/`: أداة بناء النسخة العامة ونشرها.
+- `server/`: الحسابات الاختيارية ومزامنة التدوين (Cloudflare Pages Functions وD1 وWorkers AI). قيد التجربة على نسخة معاينة، ولم يُربط بالتطبيق المنشور بعد. اختباراته: `npm test` من داخل `server/`.
 
 ### التشغيل محليًا
 
@@ -89,6 +90,7 @@ There is no server, no account and no analytics. All progress stays on the user'
 - `app/assets/`: the illustrations, fonts and icons the app actually loads. `app/assets-src/` holds source fonts and the briefs and scripts used to make the illustrations; the large source images are not in the repository.
 - `app/tests/`: an end-to-end smoke test over every route in both languages at three screen widths, plus a content contract check.
 - `publish/`: the public build and deploy tooling.
+- `server/`: optional accounts and journal sync (Cloudflare Pages Functions, D1, Workers AI). Being tested on a preview deployment; the published app does not use it yet. Tests: `npm test` from inside `server/`.
 
 ### Run locally
 

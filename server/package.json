@@ -1,0 +1,12 @@
+{
+  "name": "tazkiya-server",
+  "private": true,
+  "type": "module",
+  "description": "Tazkiya stage 2: accounts, journal sync and AI extraction on Cloudflare Pages Functions and D1",
+  "scripts": {
+    "test": "node --test --test-concurrency=1 test/api.test.mjs",
+    "deploy:preview": "npx -y wrangler@4 pages deploy --branch server-preview --commit-dirty=true",
+    "migrate:preview": "npx -y wrangler@4 d1 migrations apply tazkiya-preview --remote -e preview",
+    "migrate:production": "npx -y wrangler@4 d1 migrations apply tazkiya --remote"
+  }
+}

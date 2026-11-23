@@ -1,0 +1,13 @@
+# tazkiya-mailer: reached only through the service binding MAILER of the Pages project "tazkiya".
+# Needs Email Sending on tazkiya.family (Workers Paid plan): see docs/SERVER.md.
+# Deploy from this folder: npx wrangler@4 deploy
+name = "tazkiya-mailer"
+main = "index.js"
+compatibility_date = "2026-11-01"
+workers_dev = false
+preview_urls = false
+
+send_email = [{ name = "EMAIL" }]
+
+[vars]
+FROM_ADDRESS = "signin@tazkiya.family"

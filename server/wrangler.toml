@@ -1,0 +1,48 @@
+# Cloudflare Pages project "tazkiya": the static app (../public-dist, built by publish/build_public.py) plus the
+# Pages Functions in ./functions (the /api/* routes). Run wrangler from THIS folder, so it finds ./functions:
+#   preview:    npx wrangler@4 pages deploy --branch server-preview --commit-dirty=true
+#   production: npx wrangler@4 pages deploy --branch main --commit-dirty=true   (only once the app UI uses the API)
+# Secrets (never in this file): GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, TEST_KEY (preview only). See docs/SERVER.md.
+name = "tazkiya"
+pages_build_output_dir = "../public-dist"
+compatibility_date = "2026-11-01"
+
+# production (tazkiya.family)
+[vars]
+APP_ENV = "production"
+MAIL_MODE = "off"            # becomes "worker" once Email Sending is on for tazkiya.family (needs Workers Paid)
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tazkiya"
+database_id = "fe9b3b28-7890-4f06-a4e1-20169cff3fd5"
+migrations_dir = "migrations"
+
+[ai]
+binding = "AI"
+
+# the sign-in email goes through the tazkiya-mailer Worker (./mailer), which holds the send_email binding
+[[services]]
+binding = "MAILER"
+service = "tazkiya-mailer"
+
+# every preview deployment (server-preview and any other branch): its own database, never production's
+[env.preview.vars]
+APP_ENV = "preview"
+MAIL_MODE = "test"           # sends nothing; the link comes back only to the holder of the TEST_KEY secret
+LIMIT_MAIL_IP = "200"        # the test suite runs from one address against the preview
+LIMIT_MAIL_TO = "20"
+LIMIT_VERIFY_IP = "200"
+
+[[env.preview.d1_databases]]
+binding = "DB"
+database_name = "tazkiya-preview"
+database_id = "94d1a186-7d5e-48d9-b453-0180164188fd"
+migrations_dir = "migrations"
+
+[env.preview.ai]
+binding = "AI"
+
+[[env.preview.services]]
+binding = "MAILER"
+service = "tazkiya-mailer"

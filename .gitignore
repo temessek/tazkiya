@@ -11,6 +11,7 @@
 /publish/*
 !/publish/build_public.py
 !/publish/adult_page.py
+!/server/
 
 # never published
 /app/screenshots/
@@ -20,6 +21,7 @@
 /app/assets-src/**/*.jpg
 *.log
 .env*
+.dev.vars*
 node_modules/
 __pycache__/
 *.pyc
