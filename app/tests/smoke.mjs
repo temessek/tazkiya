@@ -232,7 +232,7 @@ const PAGE_CHECK = () => {
     if (!e.offsetParent || !e.innerText.trim() || e.classList.contains("vh")) return; // .vh: visually hidden on purpose (screen readers)
     const cs = getComputedStyle(e);
     if ((cs.overflowX === "hidden" || cs.overflowX === "clip" || cs.textOverflow === "ellipsis" || cs.whiteSpace === "nowrap") && e.scrollWidth > e.clientWidth + 2) clip.push(e.innerText.trim().slice(0, 40));
-    const r = e.getBoundingClientRect(); if (r.right > innerWidth + 1 || r.left < -1) clip.push("offscreen: " + e.innerText.trim().slice(0, 40));
+    const r = e.getBoundingClientRect(); if ((r.right > innerWidth + 1 || r.left < -1) && !e.closest(".shelf.row")) clip.push("offscreen: " + e.innerText.trim().slice(0, 40)); // a shelf row scrolls sideways on purpose
   });
   out.clipped = clip.slice(0, 5);
   out.missing = !!document.querySelector(".missing");
@@ -372,7 +372,12 @@ async function editionFlows(browser, base, content, AV) {
     const tx = await viewText(page); ok(tx.includes(kidsR1) && !tx.includes(adultR1), "children's content by default");
     await page.click("#setBtn"); await page.waitForTimeout(250);
     ok(await page.locator('#sheet [data-act="setgrp"]').count() === 3, "settings shows the three age groups");
-    ok(await page.locator('#sheet [data-act="fxset"]').count() >= 6, "settings shows the sound and vibration controls");
+    ok(await page.locator('#sheet [data-act="fxset"]').count() >= 5 && await page.locator('#sheet .sw[role="switch"]').count() >= 1, "settings shows the sound and vibration controls, on/off as switches");
+    const has = async (pg, sel) => (await pg.locator(sel).count()) > 0;
+    ok(await has(page, '#sheet .person.on .av svg') && await page.locator('#sheet .segc [data-act="setgender"]').count() === 2 && await page.locator('#sheet .segc [data-act="setage"]').count() === 2, "B8-9: people as drawn faces; gender and age as one-tap segments");
+    { const sw0 = await page.evaluate(() => window.TZFX.prefs().snd); await page.click('#sheet .sw[data-k="snd"]'); await page.waitForTimeout(250);
+      ok(await page.evaluate(() => window.TZFX.prefs().snd) === !sw0 && await has(page, `#sheet .sw[data-k="snd"][aria-checked="${!sw0}"]`), "B8: the sound switch flips with one tap");
+      await page.click('#sheet .sw[data-k="snd"]'); await page.waitForTimeout(250); }
     await page.click('#sheet [data-act="setgrp"][data-g="adult"]'); await page.waitForTimeout(800);
     ok(await page.locator('[data-act="setage"]').count() === 0, "age band hidden in the adult edition");
     ok((await page.locator("#ageBtn").innerText()).trim() === "كبار", "the top bar shows the adult group");
@@ -957,6 +962,12 @@ async function ideaFlows(browser, base, content, AV) {
     await open(page, "&reset=1&ed=adult", 900);
     await setS(page, "s.twIntro = true; s.name = 'Local'; s.notes = [{ id: 'n1', t: Date.now() - 1000, d, tx: 'صفحة كتبتها هنا' }];");
     ok(!syncs.length, "acc: nothing is sent before signing in");
+    ok(await has(page, '#view .acc.home a.gsi[href="api/auth/google/start"] svg') && await has(page, "#setBtn .sdot"), "acc: signed out, the home page and the header offer Google's button");
+    await page.click("#setBtn"); await page.waitForTimeout(400);
+    ok(await page.evaluate(() => { const a = document.querySelector("#sheet .acc"), pp = document.querySelector("#sheet .people"); return !!(a && pp && a.querySelector(".gsi svg") && (a.compareDocumentPosition(pp) & 4)); }), "acc: the account comes first in the settings, with Google's button");
+    await page.keyboard.press("Escape"); await page.waitForTimeout(250);
+    await page.click('#view [data-act="signlater"]'); await page.waitForTimeout(300);
+    ok(!(await has(page, "#view .acc")) && await has(page, "#setBtn .sdot"), "acc: «this device only» puts the home card away; settings keep the button");
     await page.goto(`${base}?intro=0#/signed-in`); await page.waitForTimeout(2500);
     ok(await page.evaluate(() => location.hash) === "#/", "acc: back from Google, the address returns to the home page");
     ok(syncs.length >= 2 && syncs[0].b.since === "0" && !syncs[0].b.changes && syncs.every(x => x.h["x-tazkiya"] === "1" && /application\/json/.test(x.h["content-type"] || "")), "acc: the first sync pulls the account's copy before sending anything, as JSON with the x-tazkiya header");
@@ -977,6 +988,8 @@ async function ideaFlows(browser, base, content, AV) {
     ok(syncs.slice(before).flatMap(x => x.b.changes || []).some(c => c.kind === "note" && c.id === "n1" && c.del === true), "acc: a line deleted on this device goes up as a deletion");
     await page.click('#sheet [data-act="accout"]'); await page.waitForTimeout(800);
     ok(!(await page.evaluate(() => localStorage.getItem("tazkiya-sync"))) && (await getS(page)).bless.length >= 1, "acc: signing out forgets the sync state and keeps everything on the device");
+    await page.goto(`${base}?reset=1&n=first#/`); await page.waitForTimeout(1600);
+    ok(await has(page, '#sheet .acc.first a.gsi[href="api/auth/google/start"]') && await page.locator("#sheet .mapopt").count() === 3, "acc: the first open shows Google's button, then «this device only» and the age groups");
     ok(!errs.length, "acc: no script errors (" + errs.slice(0, 1).join("") + ")");
     await ctx.close();
   });
@@ -1040,9 +1053,22 @@ async function ideaFlows(browser, base, content, AV) {
     const out = JSON.parse(fs.readFileSync(await dl.path(), "utf8"));
     ok(out.family && out.family.pact && out.family.pact.v === "human:0", "4: the backup file carries the family record");
     await ctx.close(); });
+  // the stage page as cards (owner notes after trying it on a phone, 23 Nov 2026)
+  await step("stage page cards", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1"); await go(page, "#/stage/zombie", 700);
+    const st = content.C.stages.zombie, norm = st.readings.filter(r => r.summit !== true && r.companions !== true), withQ = st.readings.filter(r => st.quiz.some(q => q.readingId === r.id));
+    const o = await page.evaluate(() => { const ids = [...document.querySelectorAll("#view section.sec")].map(s => s.id); return { ids, rc: document.querySelectorAll("#sec-read .rcard").length, rl: document.querySelectorAll("#sec-read .reading").length, ch: document.querySelectorAll("#sec-read .chcard .chgo").length, qc: document.querySelectorAll("#sec-quiz .qcard").length, kinds: document.querySelectorAll("#sec-read .kind").length, roles: document.querySelectorAll("#sec-roles .rolecard").length }; });
+    ok(o.ids.indexOf("sec-roles") === o.ids.indexOf("sec-learn") + 1 && o.ids.indexOf("sec-read") === o.ids.indexOf("sec-roles") + 1 && o.roles >= 1, "A4: the role models follow the traits, before the reading (" + o.ids.join(",") + ")");
+    ok(o.rc === norm.length && o.rl === 0, `A2: every short story is a card (${o.rc}/${norm.length}), no plain lines`);
+    ok(o.kinds === 3 && o.ch >= 1, "A3: three named kinds; the choice stories are cards with their own button");
+    ok(o.qc === withQ.length, `A5: one quiz card per story (${o.qc}/${withQ.length})`);
+    const sh = await page.evaluate(() => { const b = [...document.querySelectorAll("#sec-read .shelf.row .book")].map(e => e.getBoundingClientRect()); return { n: b.length, peek: b.length > 1 && b[1].right > 8 && b[1].left < 0 }; });
+    ok(sh.n > 1 && sh.peek, "A1: on a phone the second book peeks beside the first");
+    await page.click("#sec-quiz .qcard"); await page.waitForTimeout(400);
+    ok(await has(page, `#view .qsrc[href="#/read/zombie/${encodeURIComponent(withQ[0].id)}"]`) && (await txt(page, ".qsrc")).includes(withQ[0].title.ar), "A5: the quiz names its story and links back to it");
+    await ctx.close(); });
   // 5. choice stories
   await step("choice stories", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1"); await go(page, "#/stage/zombie");
-    ok(/قصص تختار فيها/.test(await txt(page, "#sec-read")) && await has(page, '#sec-read a[href="#/choice/ch-zombie-1"]'), "5: the stage's Read step lists «قصص تختار فيها»");
+    ok(/ماذا تفعل لو كنت في القصة؟/.test(await txt(page, "#sec-read")) && await has(page, '#sec-read a.chcard[href="#/choice/ch-zombie-1"] .chgo'), "5: the stage's Read step lists «ماذا تفعل لو كنت في القصة؟» as cards");
     await go(page, "#/choice/ch-zombie-1"); ok(/ماذا تفعل؟/.test(await txt(page, ".ch-q")), "5: the story asks «ماذا تفعل؟»");
     await page.click('[data-act="chpick"][data-i="1"]'); await page.waitForTimeout(300);
     ok(await has(page, ".ch-fb.weak") && await has(page, '[data-act="chagain"]') && /جرّب الاختيار الآخر/.test(await txt(page, "#view")), "5: the weaker choice shows its effect and «جرّب الاختيار الآخر»");
@@ -1230,7 +1256,7 @@ async function ideaFlows(browser, base, content, AV) {
     for (const lang of ["ar", "en"]) for (const ed of ["", "&ed=adult"]) {
       ({ ctx, page } = await freshUA(undefined, null, { width: 280, height: 653 })); await open(page, `&reset=1&lang=${lang}${ed}`, 700);
       const r = await page.evaluate(() => ({ w: document.documentElement.scrollWidth, iw: innerWidth, lb: document.getElementById("langBtn").textContent, al: document.getElementById("langBtn").getAttribute("aria-label") }));
-      ok(r.w <= r.iw && r.lb.length <= 2 && r.al.length > 2, `review C5: 280px wide, ${lang}${ed ? " adult" : ""}: no sideways scroll, short language label (${r.w}/${r.iw}, "${r.lb}")`);
+      ok(r.w <= r.iw && (r.lb === (lang === "ar" ? "EN" : "عربي")) && r.al.length > 2, `review C5: 280px wide, ${lang}${ed ? " adult" : ""}: no sideways scroll, short language label (${r.w}/${r.iw}, "${r.lb}")`);
       await ctx.close();
     }
     ({ ctx, page } = await freshUA(undefined, null, { width: 844, height: 390 })); await open(page, "&reset=1", 800);
@@ -1305,8 +1331,10 @@ async function introFlows(browser, base) {
   const ok = (cond, label) => { total++; if (!cond) fails.push(label); };
   const step = async (label, fn) => { try { await fn(); } catch (e) { total++; fails.push(label + ": " + e.message.split("\n")[0]); } };
   const fresh = async (vp, opt) => { const ctx = await browser.newContext(Object.assign({ viewport: vp || { width: 375, height: 812 } }, opt || {})); const page = await ctx.newPage();
-    const errs = [], bad = []; page.on("pageerror", e => errs.push(e.message)); page.on("console", m => { if (m.type() === "error") errs.push(m.text()); });
-    page.on("response", r => { if (r.status() >= 400) bad.push(r.status() + " " + r.url().replace(/^https?:\/\/[^/]+\//, "")); }); page.errs = errs; page.bad = bad; return { ctx, page }; };
+    // the app asks GET api/health at start (whether to offer Google sign-in); this static server answers 404, which is excused
+    const probe = u => /^https?:\/\/[^/]+\/api\/health$/.test(u || "");
+    const errs = [], bad = []; page.on("pageerror", e => errs.push(e.message)); page.on("console", m => { if (m.type() === "error" && !(/404/.test(m.text()) && probe((m.location() || {}).url))) errs.push(m.text()); });
+    page.on("response", r => { if (r.status() >= 400 && !(r.status() === 404 && probe(r.url()))) bad.push(r.status() + " " + r.url().replace(/^https?:\/\/[^/]+\//, "")); }); page.errs = errs; page.bad = bad; return { ctx, page }; };
   const K = "akhlaq-app-v1";
   const getS = page => page.evaluate(k => JSON.parse(localStorage.getItem(k) || "{}"), K);
   const film = page => page.evaluate(() => { const f = document.querySelector(".film"); if (!f) return null;

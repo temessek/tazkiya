@@ -805,6 +805,48 @@
     eveDone: ["تمّت محاسبة الليلة. نومًا هنيئًا.", "Tonight's reckoning is done. Sleep well."]
   });
   Object.assign(UAF, { eveQ1s: "المسي الإصبع الذي غلب على يومك.", eveQ2: "نعمة تشكرين الله عليها اليوم", eveQ3s: "قوليها بحضور قلب، لما كان اليوم من تقصير، ثم المسي.", eveDone: "تمّت محاسبة الليلة. نومًا هنيئًا." });
+  /* the stage page as cards (owner notes after trying it on a phone, 23 Nov 2026) */
+  Object.assign(U, {
+    rolesH: ["قدوتنا", "Our role models"],
+    readKinds: ["ثلاثة ألوان من القراءة، تختار منها ما يناسب وقتك.", "Three kinds of reading: pick the one that suits your time."],
+    kBooks: ["كتب بفصول", "Chapter books"], kBooksD: ["قصة طويلة تُقرأ فصلًا فصلًا على أيام.", "A longer story, read a chapter at a time over several days."],
+    kShort: ["قصص قصيرة", "Short stories"], kShortD: ["كل قصة تُقرأ في دقائق، وفي آخرها أسئلة عنها.", "Each one takes a few minutes and ends with questions about it."],
+    kChoice: ["ماذا تفعل لو كنت في القصة؟", "What would you do in the story?"],
+    kChoiceD: ["تقرأ موقفًا قصيرًا، ثم تختار ما يفعله البطل، وترى ما يحدث بعد اختيارك.", "Read a short situation, choose what the hero does, and see what happens next."],
+    chGo: ["اقرأ واختر", "Read and choose"], chAgainGo: ["اختر من جديد", "Choose again"],
+    quizWhy: ["بعد أن تقرأ قصة، أجب عن أسئلتها لتعرف ما فهمت منها. وكل إجابة صحيحة ترفع نصيبك نحو الأصابع العليا.", "After you read a story, answer its questions to see what you understood. Each right answer lifts your share toward the higher fingers."],
+    quizOn: ["أسئلة عن", "Questions on"], qDone: ["أجبت {a} من {b}", "{a} of {b} answered"], quizAll: ["كل أسئلة المرحلة معًا", "All of this stage's questions together"],
+    qSrc: ["السؤال عن", "This question is about"]
+  });
+  Object.assign(UF, { readKinds: "ثلاثة ألوان من القراءة، تختارين منها ما يناسب وقتك.", kChoice: "ماذا تفعلين لو كنتِ في القصة؟", kChoiceD: "تقرئين موقفًا قصيرًا، ثم تختارين ما يفعله البطل، وترين ما يحدث بعد اختيارك.",
+    chGo: "اقرئي واختاري", chAgainGo: "اختاري من جديد", quizWhy: "بعد أن تقرئي قصة، أجيبي عن أسئلتها لتعرفي ما فهمتِ منها. وكل إجابة صحيحة ترفع نصيبك نحو الأصابع العليا.", qDone: "أجبتِ {a} من {b}" });
+  Object.assign(UA, {
+    kBooksD: ["كتاب يُقرأ فصلًا فصلًا على أيام.", "A book read a chapter at a time over several days."],
+    kShort: ["مقالات وقصص قصيرة", "Short articles and stories"], kShortD: ["كل واحدة تُقرأ في دقائق، وفي آخرها أسئلة عنها.", "Each one takes a few minutes and ends with questions about it."],
+    quizWhy: ["بعد كل قراءة أسئلة قصيرة عنها، تعرف بها ما فهمت منها. وكل إجابة صحيحة ترفع نصيبك نحو الأصابع العليا.", "Each reading has a few questions about it, to see what you took from it. Each right answer lifts your share toward the higher fingers."]
+  });
+  Object.assign(UAF, { quizWhy: "بعد كل قراءة أسئلة قصيرة عنها، تعرفين بها ما فهمتِ منها. وكل إجابة صحيحة ترفع نصيبك نحو الأصابع العليا." });
+  /* sign-in, the language toggle and the settings (same notes) */
+  Object.assign(U, {
+    setT: ["الحساب والإعدادات", "Account and settings"], accHomeT: ["احفظ تقدّم أسرتك", "Keep your family's progress safe"],
+    accWhy1: ["يبقى محفوظًا إن ضاع الجهاز أو تغيّر", "It stays safe if a device is lost or replaced"], accWhy2: ["يصل إلى أجهزة الأسرة كلها", "It reaches every device in the family"],
+    accWhy3: ["حساب واحد للوالد، والأبناء ملفات داخله", "One account for the parent, with the children as profiles inside it"],
+    gSign: ["تسجيل الدخول باستخدام Google", "Sign in with Google"], accLater: ["المتابعة على هذا الجهاز فقط", "Continue on this device only"],
+    accOr: ["أو ابدأ على هذا الجهاز فقط", "Or start on this device only"],
+    peopleT: ["أفراد الأسرة", "Family members"], owner: ["صاحب الحساب", "Account holder"], famAddS: ["إضافة", "Add"], profOf: ["ملف {p}", "{p}'s profile"],
+    sGender: ["ولد أم بنت", "Boy or girl"], fxSndS: ["أصوات اللمس", "Touch sounds"], fxHapS: ["اهتزاز خفيف", "Light vibration"], moreT: ["المزيد", "More"]
+  });
+  Object.assign(UF, { accOr: "أو ابدئي على هذا الجهاز فقط" });
+  Object.assign(UA, { sGender: ["رجل أم امرأة", "Man or woman"] });
+  const qN = n => L() === "ar" ? (n === 1 ? "سؤال واحد" : n === 2 ? "سؤالان" : n <= 10 ? `${n} أسئلة` : `${n} سؤالًا`) : `${n} question${n === 1 ? "" : "s"}`;
+  const svgI = p => `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${p}</svg>`;
+  const IC = {
+    book: svgI('<path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5z"/><path d="M12 6.5V19"/>'),
+    story: svgI('<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h4"/>'),
+    fork: svgI('<path d="M12 21v-6"/><path d="M12 15 7 9V4"/><path d="M12 15l5-6V4"/><path d="M5 6l2-2 2 2M15 6l2-2 2 2"/>'),
+    clock: svgI('<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>'),
+    chev: svgI('<path d="M9 6l6 6-6 6"/>')
+  };
   const ED_KEYS = new Set(["edT", "edKids", "edAdult", "edNote", "edAskT", "edAskB", "edKidsD", "edAdultD", "edSwitched"]); // shared by both editions
   const u = k => {
     const ar = L() === "ar", f = ar && GEN() === "f";
@@ -1114,38 +1156,108 @@
     openSheet(`<h2 class="h" style="color:#a8770f">${esc(u("prophetsT"))}</h2><p class="short">${esc(u("summitB"))}</p>
       <button class="btn block ghost" data-act="close">${esc(u("close"))}</button>`, { kind: "prophets" });
   }
+  // settings (owner notes, 23 Nov 2026): the account first, then the people as drawn faces, this profile's choices as
+  // one-tap segments, sound as switches, and the rest as one short list of rows with the same icons and colours
   function settingsSheet() {
-    const m = MODE();
-    openSheet(`<h2 class="h">${esc(u("famT"))}</h2><p><span class="ph">${esc(u("famPh"))}</span></p>
-      <div class="fam">${P.list.map(id => { const st = id === P.active ? S : loadOf(id); return `<button class="tog ${id === P.active ? "on" : ""}" data-act="prof" data-p="${id}" aria-pressed="${id === P.active}">${esc(nameOf(id, st))}${edOf(st) === "adult" ? ` <small class="edmark">${esc(u("edAdult"))}</small>` : ""}</button>`; }).join("")}
-        ${P.list.length < PMAX ? `<button class="tog add" data-act="profadd">+ ${esc(u("famAdd"))}</button>` : ""}</div>
-      ${P.list.length > 1 && P.active !== "p1" ? `<button class="linkbtn" data-act="profdel">${esc(u("famDel"))}</button>` : ""}
-      <h2 class="h" style="margin-top:20px">${esc(u("profT"))}</h2><p><span class="ph">${esc(u("profPh"))}</span></p>
-      <div class="prof"><p style="margin:0 0 6px;font-weight:600;font-size:14px">${esc(u("agT"))}</p>
-        <div class="seg3 seg-3" role="group">${GRPS.map(g => { const on = GRP(S) === g; return `<button class="tog ${on ? "on" : ""}" data-act="setgrp" data-g="${g}" aria-pressed="${on}">${esc(u(GRPK[g]))}</button>`; }).join("")}</div>
-        <p class="sub" style="margin:6px 0 14px">${esc(u("edNote"))}</p>
-        <label>${esc(u("profName"))} <input id="profName" type="text" maxlength="20" autocomplete="off" value="${esc(S.name || "")}" placeholder="${esc(ADU() ? u("namePhA") : L() === "ar" ? "نور" : "Nour")}"></label>
-        <div class="seg3" role="group">${[["m", "boy"], ["f", "girl"]].map(([g, k]) => `<button class="tog ${S.gender === g ? "on" : ""}" data-act="setgender" data-g="${g}" aria-pressed="${S.gender === g}">${esc(u(k))}</button>`).join("")}</div>
-        <p class="sub" style="margin:6px 0 0">${esc(u("profNote"))}</p>
-        ${GRP(S) !== "child" ? "" : `<p style="margin:14px 0 6px;font-weight:600;font-size:14px">${esc(u("agBand"))}</p>
-        <div class="seg3" role="group">${["4-8", "9-14"].map(a => `<button class="tog ${S.age === a ? "on" : ""}" data-act="setage" data-a="${a}" aria-pressed="${S.age === a}" dir="ltr">${a}</button>`).join("")}</div>
-        <p class="sub" style="margin:6px 0 0">${esc(u("ageNote"))}</p>`}
-        ${fxBlock()}
-        <p style="margin:14px 0 6px;font-weight:600;font-size:14px">${esc(u("pwaT"))}</p>${installBlock()}
-        <p style="margin:14px 0 6px;font-weight:600;font-size:14px">${esc(u("shareT"))}</p><button class="btn block ghost" data-act="sharesheet">${SHARE_SVG} ${esc(u("shareBtn"))}</button>
-        ${accBlock()}${dataBlock()}
-        <p style="margin:14px 0 0"><button class="btn ghost block" data-act="filmplay">${esc(u("filmAgain"))}</button></p>
-        <p style="margin:10px 0 0"><button class="btn ghost block" data-act="tourstart">${esc(u("tourAgain"))}</button></p>
-        <p style="margin:8px 0 0"><button class="btn ghost block" data-act="resetask">${esc(u("reset"))}</button></p>
-        <details class="mapdet"><summary>${esc(u("mapT"))}</summary><p class="sub">${esc(u("mapPh"))}</p>
-      <div class="maps">${[["one", "mapOne", "mapOneD"], ["two", "mapTwo", "mapTwoD"], ["right", "mapRight", "mapRightD"]].map(([k, a, d]) =>
-        `<button class="mapopt ${m === k ? "on" : ""}" data-act="setmap" data-m="${k}" aria-pressed="${m === k}"><b>${esc(u(a))}</b><span>${esc(u(d))}</span></button>`).join("")}</div></details>
-        <a class="card next" href="#/about" data-act="go" style="margin-top:10px"><span class="tx"><b>${esc(u("abT"))}</b><span class="m">${esc(u("abShort"))}</span></span><span class="arrow">→</span></a></div>`, { kind: "settings" });
-    sheet.classList.add("tall");
+    const ord = ["p1"].concat(P.list.filter(x => x !== "p1")).filter(x => P.list.includes(x));
+    const person = id => { const st = id === P.active ? S : loadOf(id), on = id === P.active;
+      return `<button class="person${on ? " on" : ""}" data-act="prof" data-p="${id}" aria-pressed="${on}"><span class="av">${avatarSvg(st, id)}</span><span class="pn">${esc(nameOf(id, st))}</span>${id === "p1" && ACC.me ? `<small>${esc(u("owner"))}</small>` : ""}</button>`; };
+    const seg = (act, key, items, cur, cls, extra) => `<div class="segc${cls ? " " + cls : ""}" role="group">${items.map(([v, l, raw]) => { const on = cur === v; return `<button class="${on ? "on" : ""}" data-act="${act}"${extra || ""} data-${key}="${v}" aria-pressed="${on}"${raw ? ' dir="ltr"' : ""}>${raw ? esc(l) : esc(u(l))}</button>`; }).join("")}</div>`;
+    const X = window.TZFX, fx = X && (X.hasAudio() || X.canHaptic()) ? X.prefs() : null;
+    const sw = (k, label) => `<div class="srow"><span class="sl">${esc(u(label))}</span><button class="sw${fx[k] ? " on" : ""}" role="switch" aria-checked="${!!fx[k]}" aria-label="${esc(u(label))}" data-act="fxset" data-k="${k}" data-v="${fx[k] ? 0 : 1}"><i></i></button></div>`;
+    const row = (act, ic, label) => `<button class="slink" data-act="${act}"><span class="si" aria-hidden="true">${ic}</span><span class="sl">${esc(u(label))}</span><span class="rc-go" aria-hidden="true">${IC.chev}</span></button>`;
+    const link = (href, ic, label) => `<a class="slink" href="${href}" data-act="go"><span class="si" aria-hidden="true">${ic}</span><span class="sl">${esc(u(label))}</span><span class="rc-go" aria-hidden="true">${IC.chev}</span></a>`;
+    let at = 0; try { at = +localStorage.getItem(BKKEY) || 0; } catch (e) {}
+    const inst = STANDALONE() ? "" : installEv ? row("install", SI.inst, "pwaInstall") : row(IOS ? "ioshow" : "pwahow", SI.inst, "pwaT");
+    openSheet(`<h2 class="h">${esc(u("setT"))}</h2>
+      ${accCard("settings")}
+      <h3 class="sg-h">${esc(u("peopleT"))}</h3>
+      <div class="people">${ord.map(person).join("")}${P.list.length < PMAX ? `<button class="person add" data-act="profadd"><span class="av" aria-hidden="true">+</span><span class="pn">${esc(u("famAddS"))}</span></button>` : ""}</div>
+      <h3 class="sg-h">${esc(fmt(u("profOf"), { p: nameOf(P.active, S) }))}</h3>
+      <div class="sgroup">
+        <label class="srow"><span class="sl">${esc(u("profName"))}</span><input id="profName" type="text" maxlength="20" autocomplete="off" value="${esc(S.name || "")}" placeholder="${esc(ADU() ? u("namePhA") : L() === "ar" ? "نور" : "Nour")}"></label>
+        <div class="srow"><span class="sl">${esc(u("sGender"))}</span>${seg("setgender", "g", [["m", "boy"], ["f", "girl"]], S.gender)}</div>
+        <div class="srow col"><span class="sl">${esc(u("agT"))}</span>${seg("setgrp", "g", GRPS.map(g => [g, GRPK[g]]), GRP(S), "wide")}</div>
+        ${GRP(S) !== "child" ? "" : `<div class="srow"><span class="sl">${esc(u("agBand"))}</span>${seg("setage", "a", [["4-8", "4-8", 1], ["9-14", "9-14", 1]], S.age)}</div>`}
+      </div>
+      ${fx ? `<h3 class="sg-h">${esc(u("fxT"))}</h3><div class="sgroup">
+        ${X.hasAudio() ? sw("snd", "fxSndS") : ""}${X.canHaptic() ? sw("hap", "fxHapS") : ""}
+        ${X.hasAudio() ? `<div class="srow col"><span class="sl">${esc(u("fxAmb"))}</span>${seg("fxset", "v", [["off", "fxOff"], ["wind", "fxWind"], ["stream", "fxStream"], ["rain", "fxRain"]], fx.amb, "wide", ' data-k="amb"')}</div>
+        <label class="srow"><span class="sl">${esc(u("fxVol"))}</span><input id="fxVol" type="range" min="0" max="100" step="5" value="${fx.vol}"></label>` : ""}
+        ${IOS && X.hasAudio() ? `<p class="sg-note fxios">${esc(u("fxIos"))}</p>` : ""}</div>` : ""}
+      <h3 class="sg-h">${esc(u("bkT"))}</h3>
+      <div class="sgroup"><p class="sg-note">${esc(at ? fmt(U.bkLast, { d: fmtDate(at) }) : u("bkNever"))}${ACC.me ? "" : " " + esc(u(PERSIST || STANDALONE() ? "bkPersistOk" : "bkPersistNo"))}</p>
+        <div class="bkrow"><button class="btn ghost sm" data-act="bkexport">${esc(u("bkExport"))}</button><button class="btn ghost sm" data-act="bkimport">${esc(u("bkImport"))}</button></div>
+        <input type="file" id="bkFile" accept=".json,application/json" hidden></div>
+      <h3 class="sg-h">${esc(u("moreT"))}</h3>
+      <div class="sgroup list">
+        ${link("#/record", SI.rec, "recT")}${row("sharesheet", SI.share, "shareT")}${inst}
+        ${row("mapsheet", SI.map, "mapT")}${row("filmplay", SI.film, "filmAgain")}${row("tourstart", SI.tour, "tourAgain")}${link("#/about", SI.info, "abT")}
+      </div>
+      <p class="sdanger"><button class="linkbtn" data-act="resetask">${esc(u("reset"))}</button>${P.list.length > 1 && P.active !== "p1" ? `<button class="linkbtn" data-act="profdel">${esc(u("famDel"))}</button>` : ""}</p>`, { kind: "settings" });
+    sheet.classList.add("tall", "setsheet");
   }
+  const subBack = () => `<button class="back sback" data-act="settings">${BK()} ${esc(u("setT"))}</button>`;
+  function mapSheet() {
+    const m = MODE();
+    openSheet(`${subBack()}<h2 class="h">${esc(u("mapT"))}</h2><p class="short">${esc(u("mapPh"))}</p>
+      <div class="maps">${[["one", "mapOne", "mapOneD"], ["two", "mapTwo", "mapTwoD"], ["right", "mapRight", "mapRightD"]].map(([k, a, d]) =>
+        `<button class="mapopt ${m === k ? "on" : ""}" data-act="setmap" data-m="${k}" aria-pressed="${m === k}"><b>${esc(u(a))}</b><span>${esc(u(d))}</span></button>`).join("")}</div>`, { kind: "map" });
+  }
+  function pwaHowSheet() { openSheet(`${subBack()}<h2 class="h">${esc(u("pwaT"))}</h2><p class="short">${esc(u("deskHow"))}</p><button class="btn block ghost" data-act="ioshow">${esc(u("iosT"))}</button>`, { kind: "pwahow" }); }
+  // the "Sign in with Google" button as Google's branding asks: white, the four-colour G, Google's wording
+  const G_LOGO = `<svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true" focusable="false"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>`;
+  const gBtn = () => `<a class="gsi" href="api/auth/google/start"><span class="gsi-logo">${G_LOGO}</span><span class="gsi-t">${esc(u("gSign"))}</span></a>`;
+  const signLater = () => { try { return !!localStorage.getItem("tazkiya-signin-later"); } catch (e) { return false; } };
+  // where: "settings", "home" (with the quieter "this device only"), or "first" (the first open)
+  function accCard(where) {
+    if (!ACC.me && !SYNC && !ACC.google) { if (Date.now() - ACC.chk > 60000) accCheck(false); return ""; }
+    const priv = `<a class="acc-priv" href="privacy/" target="_blank" rel="noopener">${esc(u("accPriv"))}</a>`;
+    if (!ACC.me) {
+      if (!ACC.google) return "";
+      return `<div class="acc out ${where}"><b class="acc-t">${esc(u("accHomeT"))}</b>
+        <ul class="acc-why"><li>${esc(u("accWhy1"))}</li><li>${esc(u("accWhy2"))}</li><li>${esc(u("accWhy3"))}</li></ul>
+        ${gBtn()}${where === "home" ? `<button class="linkbtn acc-later" data-act="signlater">${esc(u("accLater"))}</button>` : ""}${where === "first" ? "" : priv}</div>`;
+    }
+    const st = ACC.run || (SYNC && !SYNC.at) ? u("accNow") : ACC.err ? u("accFail") : SYNC && SYNC.at ? fmt(U.accLast, { d: fmtDate(SYNC.at) + " " + new Date(SYNC.at).toLocaleTimeString(L() === "ar" ? "ar-u-nu-latn" : "en-GB", { hour: "2-digit", minute: "2-digit" }) }) : "";
+    return `<div class="acc in"><div class="acc-id"><span class="acc-g" aria-hidden="true">${G_LOGO}</span><div><b>${esc(u("accT"))}</b><bdi>${esc(ACC.me.email)}</bdi><span class="m" role="status">${esc(st)}</span></div></div>
+      <div class="bkrow"><button class="btn ghost sm" data-act="accsync">${esc(u("accSyncNow"))}</button><button class="btn ghost sm" data-act="accout">${esc(u("accOut"))}</button></div>
+      <p class="acc-links">${priv}<button class="linkbtn" data-act="accdel">${esc(u("accDel"))}</button></p></div>`;
+  }
+  // drawn faces for the profiles: girl, boy, woman, man, or a plain friendly face while none is chosen
+  function avatarSvg(st, id) {
+    const ad = (st && st.edition) === "adult", g = st && st.gender, k = Math.max(0, (parseInt(String(id || "p1").slice(1), 10) || 1) - 1) % 4;
+    const bg = ["#dbeaf0", "#f6e2c6", "#e0efe3", "#ece2f4"][k];
+    const skin = "#f2c6a2", line = "#2b2f3a", hair = "#3b2a22";
+    const eyes = y => `<circle cx="27" cy="${y}" r="1.8" fill="${line}"/><circle cx="37" cy="${y}" r="1.8" fill="${line}"/>`;
+    const cheeks = `<circle cx="23.8" cy="36.5" r="2.4" fill="#ef8f80" opacity=".4"/><circle cx="40.2" cy="36.5" r="2.4" fill="#ef8f80" opacity=".4"/>`;
+    const smile = y => `<path d="M27.6 ${y}c2.5 2.4 6.3 2.4 8.8 0" stroke="${line}" stroke-width="1.8" fill="none" stroke-linecap="round"/>`;
+    const body = c => `<path d="M10 66c1-12 10-18 22-18s21 6 22 18z" fill="${c}"/><rect x="27.5" y="41" width="9" height="9" rx="4" fill="#e3ad88"/>`;
+    let p;
+    if (g === "f") { const hj = ad ? "#4f7a8c" : "#d98aa6", hd = ad ? "#3d6272" : "#c06f8d";
+      p = `<path d="M12 66c0-9 2.5-15 6-19-3-4-4.5-9-4.5-14.5C13.5 21 22 13 32 13s18.5 8 18.5 19.5c0 5.5-1.5 10.5-4.5 14.5 3.5 4 6 10 6 19z" fill="${hj}"/>
+        <ellipse cx="32" cy="33" rx="12.6" ry="13.4" fill="${hd}"/><ellipse cx="32" cy="33" rx="11.4" ry="12.3" fill="${skin}"/>${eyes(32.5)}${cheeks}${smile(38)}`; }
+    else if (g === "m") {
+      p = `${body(ad ? "#3f6f5c" : "#4f8fb0")}<ellipse cx="32" cy="31" rx="13" ry="${ad ? 14.5 : 13.5}" fill="${skin}"/>
+        <path d="M18.8 ${ad ? 28 : 29}c0-9.5 6-15 13.2-15s13.2 5.5 13.2 15c-3-3.8-7.8-5.8-13.2-5.8s-10.2 2-13.2 5.8z" fill="${hair}"/>${eyes(31.5)}${cheeks}
+        ${ad ? `<path d="M19.2 32.5c.3 9.2 5.8 13.6 12.8 13.6s12.5-4.4 12.8-13.6c-1.6 3.9-3.7 6.2-6.1 7.2-1.6-.9-4-1.4-6.7-1.4s-5.1.5-6.7 1.4c-2.4-1-4.5-3.3-6.1-7.2z" fill="${hair}"/>` : ""}${smile(37.2)}`; }
+    else p = `${body(ad ? "#8a7a5c" : "#e0a24b")}<ellipse cx="32" cy="31.5" rx="13" ry="13.5" fill="${skin}"/><path d="M28.5 19.5c1.5-3.5 6.5-3.5 7.5 0" stroke="${hair}" stroke-width="2.2" fill="none" stroke-linecap="round"/>${eyes(31.5)}${cheeks}${smile(37.2)}`;
+    return `<svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" fill="${bg}"/>${p}</svg>`;
+  }
+  const SI = {
+    rec: svgI('<path d="M5 19V9M10 19V5M15 19v-7M20 19v-4"/>'),
+    share: svgI('<path d="M12 3v12M7.5 7.5 12 3l4.5 4.5"/><path d="M6 11H5v9h14v-9h-1"/>'),
+    inst: svgI('<path d="M12 4v11M7.5 10.5 12 15l4.5-4.5"/><path d="M5 19h14"/>'),
+    map: svgI('<path d="M8 21v-9.5a1.5 1.5 0 0 1 3 0V12V5.5a1.5 1.5 0 0 1 3 0V12v-1.5a1.5 1.5 0 0 1 3 0V13v-.5a1.5 1.5 0 0 1 3 0V16a5 5 0 0 1-5 5z"/><path d="M8 14.5 6.2 12.7a1.6 1.6 0 0 0-2.3 2.2L8 19.5"/>'),
+    film: svgI('<circle cx="12" cy="12" r="8.5"/><path d="M10 8.8v6.4l5.2-3.2z"/>'),
+    tour: svgI('<circle cx="12" cy="12" r="8.5"/><path d="m15.5 8.5-2 5-5 2 2-5z"/>'),
+    info: svgI('<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.8v.2"/>')
+  };
   let introIx = 0;
   function edSheet() {
+    const acc = !ACC.me && ACC.google ? accCard("first") : "";
     openSheet(`<div class="onb-art"><img src="assets/hand.webp" alt=""></div>
+      ${acc ? `${acc}<p class="acc-or"><span>${esc(u("accOr"))}</span></p>` : ""}
       <h2 class="h">${esc(u("edAskT"))}</h2><p class="onb-body">${esc(u("edAskB"))}</p>
       <div class="maps edpick">${GRPS.map(g => `<button class="mapopt" data-act="introed" data-g="${g}"><b>${esc(u(GRPK[g]))}</b><span>${esc(u(GRPK[g] + "D"))}</span></button>`).join("")}</div>`, { kind: "intro" });
     document.body.classList.add("intro-open");
@@ -1272,8 +1384,8 @@
   const chTrait = x => traitOf(x.stage + ":" + (x.trait | 0));
   function chRow(x) {
     const tr = chTrait(x);
-    return `<a class="reading chrow" href="#/choice/${encodeURIComponent(x.id)}"><span class="tx"><span class="rtag ch">${esc(u("chTag"))}</span><b>${esc(t(x.title))}</b>${tr ? `<span class="m">${esc(tr.label)}</span>` : ""}</span>
-      ${chIsDone(x) ? `<span class="done-mark">✓ ${esc(u("read"))}</span>` : ""}<span class="arrow">→</span></a>`;
+    return `<a class="chcard" href="#/choice/${encodeURIComponent(x.id)}"><span class="tx"><b>${esc(t(x.title))}</b>${tr ? `<span class="m">${esc(tr.label)}</span>` : ""}</span>
+      <span class="chgo">${esc(u(chIsDone(x) ? "chAgainGo" : "chGo"))} <span aria-hidden="true">${IC.chev}</span></span>${chIsDone(x) ? `<span class="rc-done" aria-label="${esc(u("read"))}">✓</span>` : ""}</a>`;
   }
   function vChoice(id) {
     const x = chOf(id); if (!x) return vMissing();
@@ -1413,7 +1525,7 @@
       .finally(() => clearTimeout(tm));
   }
   const extMine = () => ADU() && P.active === "p1"; // the server's OWNER_PID
-  function extCheck() { if (extMine() && !ACC.busy && Date.now() - ACC.chk > 60000) accCheck(false, true); }
+  function extCheck() { if (extMine() && !ACC.busy && (!ACC.asked || Date.now() - ACC.chk > 60000)) accCheck(false, true); }
   const extOn = () => extMine() && ACC.ai && !!ACC.me; // signed in; the 18+ statement is asked on the first use
   let EXQ = null; // {n: the entry's id, ph: "wait" | "list" | "err" | "sign", bl: [{tx, on}], ch: [{tx, on}], care}
   function extStart(id) {
@@ -1466,7 +1578,7 @@
      the first-open screens) stay per device. ---------- */
   var SYNC = null, SYNC_T = 0, SYNC_QUIET = false; // var: save() can run before this block
   const SKEY = "tazkiya-sync", SYNC_MAX = 250000, MIN_T = Date.UTC(2020, 0, 1), PROF_MAX = 4;
-  const ACC = { srv: false, google: false, ai: false, me: null, chk: 0, busy: false, run: false, again: false, err: false, last: 0 };
+  const ACC = { srv: false, google: false, ai: false, me: null, asked: false, chk: 0, busy: false, run: false, again: false, err: false, last: 0 };
   const JK = { notes: "note", bless: "blessing", chal: "challenge", khabia: "khabia" }, KJ = { note: "notes", blessing: "bless", challenge: "chal", khabia: "khabia" };
   const ST_SKIP = new Set(["notes", "bless", "chal", "khabia", "twV", "twDraft", "parent", "fs", "lang", "intro", "tour", "map"]); // twDraft: a page not yet saved stays here
   const API_H = { "content-type": "application/json", accept: "application/json", "x-tazkiya": "1" };
@@ -1646,7 +1758,9 @@
   }
   // after sync or a sign-in change: the settings sheet and the current page show the new state (never under someone typing)
   function accRefresh() {
+    setBtnFace();
     if (sheetState && sheetState.kind === "settings") { const y = sheet.scrollTop; settingsSheet(); sheet.scrollTop = y; return; }
+    if (sheetState && sheetState.kind === "intro" && !S.edition && !sheet.querySelector(".acc")) { edSheet(); return; }
     const ae = document.activeElement;
     if (!sheet.hidden || (ae && /^(INPUT|TEXTAREA)$/.test(ae.tagName))) return;
     render(true);
@@ -1659,7 +1773,8 @@
     apiJson("/api/health").then(h => {
       const ok = h.status === 200 && isObj(h.body) && h.body.ok === true;
       ACC.srv = ok; ACC.google = ok && isObj(h.body.sign_in) && h.body.sign_in.google === true; ACC.ai = ok && h.body.ai === true;
-      return ok && (signedIn || stored || ask) ? apiJson("/api/me") : null; // never signed in on this device: no account request
+      if (ok && (signedIn || stored || ask)) { ACC.asked = true; return apiJson("/api/me"); }
+      return null; // never signed in on this device: no account request
     }).then(m => {
       if (!m) return;
       if (m.status === 200 && isObj(m.body) && isObj(m.body.account)) {
@@ -1673,21 +1788,11 @@
   function accInit() {
     const h = location.hash, inNow = /^#\/signed-in/.test(h), err = /^#\/signin/.test(h);
     if (inNow || err) { try { history.replaceState(null, "", location.pathname + location.search + "#/"); } catch (e) {} if (err) toast(u("accErr"), 5000); }
-    if (inNow || syncLoad()) accCheck(inNow);
+    accCheck(inNow); // also on a device never signed in: only /api/health, to know whether to offer the Google button
     window.addEventListener("online", () => { if (SYNC) syncSoon(500); else if (syncLoad()) accCheck(false); });
     document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && SYNC && Date.now() - (SYNC.at || 0) > 60000) syncSoon(500); });
   }
   // the account block in settings: shown once the server answers (never on a copy of the site without it)
-  function accBlock() {
-    if (!ACC.me && !SYNC && !ACC.google) { if (Date.now() - ACC.chk > 60000) accCheck(false); return ""; }
-    const priv = `<a class="linkbtn" href="privacy/" target="_blank" rel="noopener">${esc(u("accPriv"))}</a>`;
-    let h = `<p style="margin:16px 0 6px;font-weight:600;font-size:14px">${esc(u("accT"))}</p>`;
-    if (!ACC.me) return h + `<p class="sub" style="margin:0 0 8px">${esc(u("accSub"))}</p>${ACC.google ? `<a class="btn block ghost" href="api/auth/google/start">${esc(u("accGoogle"))}</a>` : ""}<p style="margin:8px 0 0">${priv}</p>`;
-    const st = ACC.run || (SYNC && !SYNC.at) ? u("accNow") : ACC.err ? u("accFail") : SYNC && SYNC.at ? fmt(U.accLast, { d: fmtDate(SYNC.at) + " " + new Date(SYNC.at).toLocaleTimeString(L() === "ar" ? "ar-u-nu-latn" : "en-GB", { hour: "2-digit", minute: "2-digit" }) }) : "";
-    return h + `<p class="sub" style="margin:0 0 4px"><bdi>${esc(ACC.me.email)}</bdi></p><p class="sub" style="margin:0 0 8px" role="status">${esc(st)}</p>
-      <div class="bkrow"><button class="btn ghost" data-act="accsync">${esc(u("accSyncNow"))}</button><button class="btn ghost" data-act="accout">${esc(u("accOut"))}</button></div>
-      <p style="margin:8px 0 0">${priv}</p><p style="margin:4px 0 0"><button class="linkbtn" data-act="accdel">${esc(u("accDel"))}</button></p>`;
-  }
   function accDelSheet() {
     openSheet(`<h2 class="h">${esc(u("accDel"))}</h2><p class="short">${esc(u("accDelQ"))}</p>
       <div class="row"><button class="btn ghost" data-act="close">${esc(u("twDelNo"))}</button><button class="btn" data-act="accdelyes">${esc(u("accDelYes"))}</button></div>`, { kind: "accdel" });
@@ -2113,6 +2218,7 @@
       ${homeHands()}
       <p class="principle">${esc(u("principle"))}</p>
       <div class="wrap">
+        ${!ACC.me && !SYNC && ACC.google && !signLater() ? accCard("home") : ""}
         ${eveCard()}
         <p class="sub center" style="margin:18px 0 6px">${esc(u("meSub"))}</p>
         <div class="mix memix" aria-hidden="true">${ORDER.map(k => `<i style="flex-basis:${S.mix[k]}%;background:${MC(k)}"></i>`).join("")}</div>
@@ -2148,22 +2254,32 @@
       <section class="sec" id="sec-learn"><h2 class="h">${esc(u("secLearn"))}</h2><p class="sub">${esc(u("degNote"))}</p>${degList(id, -1)}
         ${st.climb.length ? `<h3 class="h tr-h">${esc(u("climb"))}</h3><ul class="list">${st.climb.map(c => `<li><span class="bullet" style="background:var(--viridian)"></span><span class="grow">${esc(t(c))}</span></li>`).join("")}</ul>` : ""}</section>`;
     if (S.parent && st.parent) h += `<section class="sec">${parentBlock(id, true)}</section>`;
-    const row = r => `<a class="reading" href="#/read/${id}/${encodeURIComponent(r.id)}">
-        <span class="tx"><b>${esc(t(r.title))}</b><span class="m">${ADU() ? (r.minutes ? r.minutes + " " + esc(u("minutes")) : "") : `${r.minutes ? r.minutes + " " + esc(u("minutes")) + " · " : ""}${esc(u("ages"))}: ${agesHtml(r.ages)}`}</span></span>
-        ${S.read[r.id] ? `<span class="done-mark">✓ ${esc(u("read"))}</span>` : ""}<span class="arrow">→</span></a>`;
+    // the reading kinds as cards (owner notes, 23 Nov 2026): each kind named, explained in one line and drawn differently,
+    // the role models right after the traits, and every quiz tied to the story it asks about
+    const href = r => `#/read/${id}/${encodeURIComponent(r.id)}`;
+    const mins = r => r.minutes ? `<span class="rc-min">${IC.clock}<bdi>${r.minutes}</bdi> ${esc(u("minutes"))}</span>` : "";
+    const doneB = on => on ? `<span class="rc-done" aria-label="${esc(u("read"))}">✓</span>` : "";
+    const card = r => `<a class="rcard" href="${href(r)}"><span class="rc-art" aria-hidden="true">${symImg(id, "rc-sym")}</span>
+        <b class="rc-t">${esc(t(r.title))}</b><span class="rc-m">${mins(r)}${ADU() ? "" : `<span>${agesHtml(r.ages)}</span>`}</span>${doneB(S.read[r.id])}</a>`;
+    const roleCard = (r, k) => `<a class="rolecard" href="${href(r)}"><span class="rtag ${k}">${esc(u(k === "s" ? "tagSummit" : "tagComp"))}</span>
+        <b>${esc(t(r.title))}</b><span class="rc-m">${mins(r)}${ADU() ? "" : `<span>${agesHtml(r.ages)}</span>`}</span><span class="rc-go" aria-hidden="true">${IC.chev}</span>${doneB(S.read[r.id])}</a>`;
+    const kind = (k, ic, title, sub) => `<div class="kind ${k}"><span class="kic" aria-hidden="true">${ic}</span><div><h3 class="h">${esc(u(title))}</h3><p>${esc(u(sub))}</p></div></div>`;
     const summ = st.readings.filter(r => r.summit === true), comp = st.readings.filter(r => r.companions === true && r.summit !== true);
     const norm = st.readings.filter(r => r.summit !== true && r.companions !== true);
-    const tagged = (r, k) => row(r).replace('<span class="tx"><b>', `<span class="tx"><span class="rtag ${k}">${esc(u(k === "s" ? "tagSummit" : "tagComp"))}</span><b>`);
-    const bks = booksFor(id);
-    h += `<section class="sec" id="sec-read"><h2 class="h">${esc(u("secRead"))}</h2><p class="sub">${esc(u("readSub"))}</p>
-      ${bks.length ? `<h3 class="h tr-h">${esc(u("booksH"))}</h3><div class="shelf row">${bks.map(b => bookCover(b)).join("")}</div><a class="linkbtn" href="#/library">${esc(fmt(U.allBooks, { n: BOOKS().length }))} →</a>` : ""}
-      <h3 class="h tr-h">${esc(u("storiesH"))}</h3><div>${byAge(norm).map(row).join("")}</div>
-      ${choicesFor(id).length ? `<h3 class="h tr-h" id="sec-choices">${esc(u("chT"))}</h3><div>${choicesFor(id).map(chRow).join("")}</div>` : ""}
-      ${summ.length || comp.length ? `<div class="summit-sec"><h3 class="h tr-h">${esc(u("rolesSec"))}</h3><p class="sub">${esc(u("summitSecSub"))}</p>
-      <div>${summ.map(r => tagged(r, "s")).join("")}${byAge(comp).map(r => tagged(r, "c")).join("")}</div></div>` : ""}</section>`;
+    if (summ.length || comp.length) h += `<section class="sec summit-sec" id="sec-roles"><h2 class="h">${esc(u("rolesH"))}</h2><p class="sub">${esc(u("summitSecSub"))}</p>
+      <div class="roles">${summ.map(r => roleCard(r, "s")).join("")}${byAge(comp).map(r => roleCard(r, "c")).join("")}</div></section>`;
+    const bks = shelfFor(id), chs = choicesFor(id);
+    h += `<section class="sec" id="sec-read"><h2 class="h">${esc(u("secRead"))}</h2><p class="sub">${esc(u("readKinds"))}</p>
+      ${bks.length ? `${kind("k-book", IC.book, "kBooks", "kBooksD")}<div class="shelf row">${bks.map(b => bookCover(b)).join("")}</div><a class="linkbtn more" href="#/library">${esc(fmt(U.allBooks, { n: BOOKS().length }))} ${BK() === "→" ? "←" : "→"}</a>` : ""}
+      ${norm.length ? `${kind("k-short", IC.story, "kShort", "kShortD")}<div class="rgrid" style="--c:${G[id].color}">${byAge(norm).map(card).join("")}</div>` : ""}
+      ${chs.length ? `<div id="sec-choices">${kind("k-choice", IC.fork, "kChoice", "kChoiceD")}<div class="chgrid">${chs.map(chRow).join("")}</div></div>` : ""}</section>`;
+    const qby = st.readings.map(r => ({ r, qs: st.quiz.filter(q => q.readingId === r.id) })).filter(x => x.qs.length);
     h += `
       <section class="sec" id="sec-quiz"><h2 class="h">${esc(u("stepQuiz"))}</h2>
-        ${st.quiz.length ? `<p class="sub">${esc(u("quizSub"))}</p><a class="btn block" href="#/quiz/${id}">${esc(u("startQuiz"))} · ${st.quiz.length} ${esc(u("questions"))}</a>` : `<p class="sub">${esc(u("noQuiz"))}</p>`}</section>
+        ${st.quiz.length ? `<p class="sub">${esc(u("quizWhy"))}</p><div class="qlist">${qby.map(({ r, qs }) => { const n = qs.filter(q => S.answered[q.id] !== undefined).length;
+          return `<a class="qcard${n === qs.length ? " done" : ""}" href="#/quiz/${id}/${encodeURIComponent(r.id)}"><span class="qic" aria-hidden="true">${n === qs.length ? "✓" : "?"}</span>
+            <span class="tx"><b><span class="vh">${esc(u("quizOn"))} </span>${esc(t(r.title))}</b><span class="m">${esc(qN(qs.length))}${n && n < qs.length ? ` · ${esc(fmt(u("qDone"), { a: n, b: qs.length }))}` : ""}</span></span><span class="rc-go" aria-hidden="true">${IC.chev}</span></a>`; }).join("")}</div>
+          <a class="btn block ghost qall" href="#/quiz/${id}">${esc(u("quizAll"))} · ${esc(qN(st.quiz.length))}</a>` : `<p class="sub">${esc(u("noQuiz"))}</p>`}</section>
       <div class="doors end">${door(id, "work", "learn", true)}</div>`;
     if (id === "sabiq") h += vVirtues();
     const ix = ORDER.indexOf(id), pv = ORDER[ix - 1], nx = ORDER[ix + 1];
@@ -2477,6 +2593,11 @@
   function bandOrder() { const extra = [...new Set(BOOKS().map(b => b.ages || "all"))].filter(a => !BANDS.includes(a)); const all = BANDS.concat(extra); return S.age && all.includes(S.age) ? [S.age].concat(all.filter(a => a !== S.age)) : all; }
   function sortBooks(bs) { const ix = b => { const i = ORDER.indexOf(b.stage); return i < 0 ? 99 : i; }; return bs.slice().sort((a, b) => ix(a) - ix(b)); }
   function booksFor(id) { const bs = BOOKS().filter(b => b.stage === id), ord = bandOrder(); return bs.sort((a, b) => ord.indexOf(a.ages || "all") - ord.indexOf(b.ages || "all")); }
+  // the stage page's shelf: this stage's books first, then the other stages' books of the reader's band, in finger order
+  function shelfFor(id) {
+    const own = booksFor(id), band = ADU() ? "15+" : (S.age || "9-14");
+    return own.concat(sortBooks(BOOKS().filter(b => b.stage !== id && (b.ages || "all") === band)));
+  }
   function vRecord() {
     const sts = ORDER.map(id => C.stages[id]);
     const rTot = sts.reduce((a, st) => a + st.readings.length, 0), rDone = sts.reduce((a, st) => a + st.readings.filter(r => S.read[r.id]).length, 0);
@@ -2593,6 +2714,7 @@
       <h1 class="vh">${esc(u("quiz"))}: ${esc(nm(id))}</h1>
       <div class="qhead"><span class="qtype ${sitType ? "sit" : ""}">${esc(u(sitType ? "sit" : "comp"))}</span><span dir="ltr">${QZ.i + 1} / ${list.length}</span></div>
       <div class="progress"><i style="width:${(QZ.i + (ans ? 1 : 0)) / list.length * 100}%"></i></div>
+      ${(() => { const r = findReading(id, q.readingId); return r ? `<a class="qsrc" href="#/read/${id}/${encodeURIComponent(r.id)}">${IC.story}<span>${esc(u("qSrc"))}:</span> <b>${esc(t(r.title))}</b></a>` : ""; })()}
       <p class="qtext">${esc(t(q.q))}</p>
       <div class="opts">${q.options.map((op, i) => {
         let c = ""; if (ans) c = i === q.correct ? "right" : i === QZ.picked ? "wrong" : "dim";
@@ -3105,7 +3227,7 @@
     document.getElementById("brand").textContent = u("brand");
     { const sf = document.querySelector("#sitefoot a"); if (sf) { sf.textContent = u("privacyL"); sf.setAttribute("href", "/privacy/" + (L() === "en" ? "#en" : "")); } }
     langLabel();
-    const sb = document.getElementById("setBtn"); if (sb) { sb.setAttribute("aria-label", u("settings")); sb.title = u("settings"); }
+    setBtnFace();
     instBtn();
     const shb = document.getElementById("shareBtn"); if (shb) { shb.setAttribute("aria-label", u("shareT")); shb.title = u("shareT"); }
     document.getElementById("langBtn").setAttribute("lang", L() === "ar" ? "en" : "ar");
@@ -3176,6 +3298,9 @@
         homeSel = side + ":" + f; homeDeg = +el.dataset.i; FX("step", Math.max(0, ORDER.indexOf(id))); if (route().name === "home") render(true); stageSheet(id, homeDeg); break;
       }
       case "settings": settingsSheet(); break;
+      case "mapsheet": mapSheet(); break;
+      case "pwahow": pwaHowSheet(); break;
+      case "signlater": try { localStorage.setItem("tazkiya-signin-later", String(Date.now())); } catch (e) {} FX("tick"); render(true); break;
       case "tts": ttsToggle(); break;
       case "seted": {
         const e = el.dataset.e === "adult" ? "adult" : "kids", was = S.edition === "adult" ? "adult" : "kids";
@@ -3460,10 +3585,16 @@
     else if (dy > 60 && sheet.scrollTop <= 0) { if (sheet.classList.contains("expanded")) setExpanded(false); else closeSheet(); }
   }, { passive: true });
   const NARROW = window.matchMedia ? matchMedia("(max-width: 340px)") : null;
+  function setBtnFace() {
+    const sb = document.getElementById("setBtn"); if (!sb) return;
+    const dot = !ACC.me && !SYNC && ACC.google, k = canon([P.active, S.edition, S.gender, dot]);
+    if (sb.dataset.k !== k) { sb.dataset.k = k; sb.innerHTML = `<span class="av">${avatarSvg(S, P.active)}</span>${dot ? '<i class="sdot" aria-hidden="true"></i>' : ""}`; }
+    sb.setAttribute("aria-label", u("setT")); sb.title = u("setT");
+  }
   function langLabel() {
     const b = document.getElementById("langBtn"); if (!b) return;
     const full = L() === "ar" ? "English" : "العربية";
-    b.textContent = NARROW && NARROW.matches ? (L() === "ar" ? "EN" : "ع") : full; b.setAttribute("aria-label", full);
+    b.textContent = L() === "ar" ? "EN" : "عربي"; b.setAttribute("aria-label", full); b.lang = L() === "ar" ? "en" : "ar";
   }
   if (NARROW && NARROW.addEventListener) NARROW.addEventListener("change", langLabel);
   document.getElementById("langBtn").addEventListener("click", () => {
