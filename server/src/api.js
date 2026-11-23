@@ -3,7 +3,7 @@ import { emailStart, emailVerifyPage, emailVerify, googleStart, googleCallback, 
 import { me, profilePut, profileDelete, sync, entryDelete, burn, accountDelete } from "./sync.js";
 import { extract } from "./extract.js";
 
-const health = (req, env) => json({ ok: true, env: env.APP_ENV || "unknown", sign_in: authInfo(env), ai: !!env.AI });
+const health = (req, env) => json({ ok: true, env: env.APP_ENV || "unknown", sign_in: authInfo(env), ai: !!env.AI, ai_kids: !!env.AI && env.AI_KIDS === "on" });
 
 // [method, path, handler, options]. auth: a session is required. csrf: false only where the route checks its own origin.
 const ROUTES = [

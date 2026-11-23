@@ -10,6 +10,7 @@ compatibility_date = "2026-11-01"
 # production (tazkiya.family)
 [vars]
 APP_ENV = "production"
+AI_KIDS = "off"              # AI extraction for the children's edition: off until the owner decides
 MAIL_MODE = "off"            # becomes "worker" once Email Sending is on for tazkiya.family (needs Workers Paid)
 GOOGLE_CLIENT_ID = "892867885846-t2eu4h031m896bplp9ir6mfie07q1lr0.apps.googleusercontent.com"   # public; the secret is GOOGLE_CLIENT_SECRET
 
@@ -30,6 +31,7 @@ service = "tazkiya-mailer"
 # every preview deployment (server-preview and any other branch): its own database, never production's
 [env.preview.vars]
 APP_ENV = "preview"
+AI_KIDS = "off"
 MAIL_MODE = "test"           # sends nothing; the link comes back only to the holder of the TEST_KEY secret
 LIMIT_MAIL_IP = "200"        # the test suite runs from one address against the preview
 LIMIT_MAIL_TO = "20"

@@ -100,6 +100,8 @@ export async function extract(req, env, url, s) {
   for (const k of Object.keys(body)) if (!["text", "edition", "lang", "gender"].includes(k)) throw bad("unknown_field", { field: k });
   const entry = vText(body.text, 8000, 10, "text");
   const lang = vLang(body.lang), edition = vEdition(body.edition), gender = body.gender === "f" ? "f" : body.gender === "m" ? "m" : "";
+  // children's edition: off until the owner turns it on (AI_KIDS = "on"), after the terms review in docs/AI-EXTRACT-EVAL.md
+  if (edition === "kids" && env.AI_KIDS !== "on") throw new HttpError(403, "kids_not_enabled");
   const L = limits(env), day = new Date().toISOString().slice(0, 10);
   await hit(env.DB, "ai:acct:" + s.account.id, L.aiAccount, 86400);
   await hit(env.DB, "ai:ip:" + await ipKey(req, url), L.aiIp, 86400);

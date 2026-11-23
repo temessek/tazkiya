@@ -28,7 +28,7 @@ before(async () => {
   execSync(`mkdir "${stat}"`, { shell: true });
   writeFileSync(join(stat, "index.html"), "<!doctype html><title>t</title>");
   execSync(`${npx} -y wrangler@4 d1 migrations apply tazkiya --local --persist-to "${state}"`, { cwd: ROOT, stdio: "pipe", shell: true, env: { ...process.env, CI: "1" } });
-  const vars = { MAIL_MODE: "test", TEST_KEY, AI_MODE: "stub", APP_ENV: "local", LIMIT_MAIL_IP: "4", LIMIT_MAIL_TO: "3", LIMIT_AI_ACCOUNT: "3", LIMIT_SYNC_ACCOUNT: "500", GOOGLE_CLIENT_SECRET: "local-dummy-secret" };
+  const vars = { MAIL_MODE: "test", TEST_KEY, AI_MODE: "stub", APP_ENV: "local", LIMIT_MAIL_IP: "4", LIMIT_MAIL_TO: "3", LIMIT_AI_ACCOUNT: "3", LIMIT_SYNC_ACCOUNT: "500", GOOGLE_CLIENT_SECRET: "local-dummy-secret", AI_KIDS: process.env.AI_KIDS || "on" };
   const args = ["-y", "wrangler@4", "pages", "dev", stat, "--port", String(PORT), "--ip", "127.0.0.1", "--persist-to", state, "--show-interactive-dev-session=false",
     ...Object.entries(vars).flatMap(([k, v]) => ["--binding", `${k}=${v}`])];
   proc = spawn(npx, args, { cwd: ROOT, shell: true, stdio: ["ignore", "pipe", "pipe"], env: { ...process.env, CI: "1" } });
@@ -342,31 +342,33 @@ test("delete the account: everything goes, the session ends, the same email star
   assert.equal((await b("POST", "/api/sync", { since: "0" })).body.changes.length, 0);
 });
 
-test("AI extract: validation, shape, the care line, rate limit", async () => {
+test("AI extract: validation, shape, the care line, the children's switch, rate limit", async () => {
+  const kidsOn = (await client()("GET", "/api/health")).body.ai_kids;
   const c = client(); await signIn(c, mail("ai"));
-  assert.equal((await c("POST", "/api/extract", { text: "short", lang: "ar" })).body.error, "bad_text");
-  assert.equal((await c("POST", "/api/extract", { text: "x".repeat(8001) })).body.error, "bad_text");
+  assert.equal((await c("POST", "/api/extract", { text: "short", lang: "ar", edition: "adult" })).body.error, "bad_text");
+  assert.equal((await c("POST", "/api/extract", { text: "x".repeat(8001), edition: "adult" })).body.error, "bad_text");
   assert.equal((await c("POST", "/api/extract", { text: "a fine long enough entry", other: 1 })).body.error, "unknown_field");
-  const r = await c("POST", "/api/extract", { text: "Today my mum helped me with homework, then I shouted at my brother.", lang: "en", edition: "kids" });
+  const r = await c("POST", "/api/extract", { text: "Today my colleague covered for me when I was late, then I lost my temper with my son.", lang: "en", edition: "adult" });
   assert.equal(r.status, 200, JSON.stringify(r.body));
   assert.ok(Array.isArray(r.body.blessings) && r.body.blessings.length >= 1 && r.body.blessings.length <= 3);
   assert.ok(Array.isArray(r.body.challenges) && r.body.challenges.length <= 3);
   assert.equal(r.body.care, undefined);
+  // the children's edition answers only when AI_KIDS is on
+  const kid = await c("POST", "/api/extract", { text: "My brother hits me when no one is home.", lang: "en", edition: "kids" });
+  if (!kidsOn) { assert.equal(kid.status, 403); assert.equal(kid.body.error, "kids_not_enabled"); }
+  else { assert.equal(kid.status, 200); assert.match(kid.body.care, /grown-up you trust/); }
   if (REMOTE) {
-    // the real model on the preview: Arabic in, Arabic out, and the risk line for a frightening entry
-    const ar = await c("POST", "/api/extract", { text: "اليوم ساعدت جدتي في ترتيب المطبخ وفرحت كثيرًا. لكني تأخرت في صلاة العصر لأني كنت ألعب.", lang: "ar", edition: "kids", gender: "m" });
+    // the real model on the preview: Arabic in, Arabic out, and the care line for a frightening entry
+    const ar = await c("POST", "/api/extract", { text: "اليوم ساعدت أمي في ترتيب المطبخ وفرحت كثيرًا. لكني تأخرت في صلاة العصر لأني انشغلت بالهاتف.", lang: "ar", edition: "adult", gender: "m" });
     assert.equal(ar.status, 200, JSON.stringify(ar.body));
     assert.ok(ar.body.blessings.length >= 1 && ar.body.blessings.every(x => /[؀-ۿ]/.test(x)), JSON.stringify(ar.body));
-    const k = await c("POST", "/api/extract", { text: "ولد في المدرسة يأخذ مصروفي كل يوم ويقول إنه سيؤذيني إن أخبرت أحدًا.", lang: "ar", edition: "kids", gender: "m" });
-    assert.match(k.body.care || "", /كبيرًا تثق به/);
-  }
-  if (!REMOTE) {
-    const k = await c("POST", "/api/extract", { text: "My brother hits me when no one is home.", lang: "en", edition: "kids" });
-    assert.match(k.body.care, /grown-up you trust/);
-    const ar = await c("POST", "/api/extract", { text: "اليوم كان صعبًا لأن أخي يضربني كثيرًا.", lang: "ar", edition: "kids", gender: "f" });
+    const k = await c("POST", "/api/extract", { text: "زوجي يضربني حين يغضب، ولا أعرف ماذا أفعل.", lang: "ar", edition: "adult", gender: "f" });
+    assert.match(k.body.care || "", /تثقين به/);
+  } else {
+    const ar = await c("POST", "/api/extract", { text: "اليوم كان صعبًا لأن أخي يضربني كثيرًا.", lang: "ar", edition: kidsOn ? "kids" : "adult", gender: "f" });
     assert.match(ar.body.care, /تثقين/);
-    const lim = await c("POST", "/api/extract", { text: "one more entry for the limit", lang: "en" });
-    assert.equal(lim.status, 429);
+    let lim; for (let i = 0; i < 3 && (!lim || lim.status !== 429); i++) lim = await c("POST", "/api/extract", { text: "one more entry for the limit", lang: "en", edition: "adult" });
+    assert.equal(lim.status, 429, "the per-account daily limit (3 in tests) is reached");
   }
 });
 
