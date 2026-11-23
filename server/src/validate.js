@@ -10,6 +10,7 @@ export const STAGES = ["zombie", "pig", "monkey", "human", "sabiq"];
 const VKEY_RE = /^(zombie|pig|monkey|human|sabiq):[0-2]$/;
 const EMAIL_RE = /^[^\s@<>()[\]\\,;:"]{1,64}@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)+$/;
 const MIN_T = Date.UTC(2020, 0, 1);
+export const STATE_MAX = 256 * 1024;      // characters of JSON for one profile's progress
 
 export const bad = (code, extra) => new HttpError(400, code, extra);
 export const isObj = o => o !== null && typeof o === "object" && !Array.isArray(o);
@@ -82,12 +83,19 @@ export const KINDS = {
     const o = clean({ from: pid(d.from), v: d.v === undefined ? undefined : (typeof d.v === "string" && VKEY_RE.test(d.v) ? d.v : (() => { throw bad("bad_v"); })()),
       tx: d.tx === undefined ? undefined : text(d.tx, 120, 0, "tx"), got: optTs(d.got, now, "got") });
     if (!o.v && !o.tx) throw bad("bad_seen"); return o; } },
+  // the rest of a profile's progress (reading, answers, tasks, settings) as one object, id "main", last write wins.
+  // The server checks its shape and size; the app cleans every field again on the way in (cleanState in app.js).
+  state: { cap: 2, keys: ["s"], fn: (d) => {
+    if (!isObj(d.s)) throw bad("bad_s");
+    if (JSON.stringify(d.s).length > STATE_MAX) throw bad("state_too_large", { max: STATE_MAX });
+    return { s: d.s }; } },
 };
 
 // One change from a client: {pid, kind, id, t, u, del?, data?}. A deletion carries no data.
 export function change(o, now) {
   onlyKeys(o, ["pid", "kind", "id", "t", "u", "del", "data"], "change");
   const k = KINDS[o.kind]; if (!k) throw bad("bad_kind");
+  if (o.kind === "state" && o.id !== "main") throw bad("bad_id");
   const c = { pid: pid(o.pid), kind: o.kind, id: id(o.id), t: ts(o.t, now, "t"), u: ts(o.u, now, "u"), del: o.del === true };
   if (o.del !== undefined && typeof o.del !== "boolean") throw bad("bad_del");
   if (c.u < c.t) c.u = c.t;

@@ -60,6 +60,8 @@ async function accountForEmail(db, email) {
 export async function emailStart(req, env, url) {
   const body = await readJson(req, 4096);
   if (!isObj(body)) throw new HttpError(400, "bad_json");
+  // sign-in by email is off until Email Sending is enabled (MAIL_MODE "off"): refused before anything is written
+  if (!authInfo(env).email) throw new HttpError(503, "email_unavailable");
   const to = vEmail(body.email), lang = vLang(body.lang), L = limits(env);
   await hit(env.DB, "mail:ip:" + await ipKey(req, url), L.mailIp, 600);
   await hit(env.DB, "mail:to:" + (await sha256("to:" + to)).slice(0, 24), L.mailTo, 3600);

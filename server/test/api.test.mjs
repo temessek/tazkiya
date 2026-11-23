@@ -205,6 +205,24 @@ test("sync: push every kind, pull on another device, last write wins", async () 
   assert.equal(z.body.changes.length, 0); assert.equal(z.body.cursor, q.body.cursor);
 });
 
+test("sync: a profile's progress as one state object, last write wins, shape and size checked", async () => {
+  const a = client(); await signIn(a, mail("state"));
+  const T = now() - 60000, st = { pid: "p1", kind: "state", id: "main", t: T, u: T, data: { s: { read: { "pig:1": true }, lang: "ar" } } };
+  let r = await a("POST", "/api/sync", { since: "0", profiles: [{ pid: "p1", edition: "kids" }], changes: [st] });
+  assert.equal(r.status, 200, JSON.stringify(r.body)); assert.deepEqual(r.body.changes[0].data, st.data);
+  // an update replaces it (the cap counts it once), an older one loses
+  r = await a("POST", "/api/sync", { since: r.body.cursor, changes: [{ ...st, u: T + 1000, data: { s: { read: { "pig:1": true, "pig:2": true } } } }] });
+  assert.equal(r.status, 200, JSON.stringify(r.body)); assert.equal(Object.keys(r.body.changes[0].data.s.read).length, 2);
+  r = await a("POST", "/api/sync", { since: r.body.cursor, changes: [{ ...st, u: T + 10 }] });
+  assert.equal(r.body.changes.length, 0);
+  const bad = [[{ ...st, id: "other" }, "bad_id"], [{ ...st, data: { s: [1] } }, "bad_s"], [{ ...st, data: { s: "x" } }, "bad_s"],
+    [{ ...st, data: { s: { big: "x".repeat(270000) } } }, "state_too_large"], [{ ...st, data: { s: {}, more: 1 } }, "unknown_field"]];
+  for (const [ch, code] of bad) {
+    const q = await a("POST", "/api/sync", { since: "0", changes: [ch] });
+    assert.equal(q.status, 400, code + " " + JSON.stringify(q.body)); assert.equal(q.body.error, code);
+  }
+});
+
 test("sync: pages of 500 with a cursor", async () => {
   const c = client(); await signIn(c, mail("pages"));
   const T = now() - 60000;
