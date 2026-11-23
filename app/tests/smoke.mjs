@@ -200,7 +200,7 @@ function chromePath() {
 
 /* ---------------- routes ---------------- */
 function routesFrom(C, books) {
-  const S = Object.keys(C.stages), R = ["#/", "#/tasks", "#/me", "#/evening", "#/record", "#/seen", "#/library", "#/about", "#/faq", "#/sources", "#/poster", "#/review", "#/no-such-page"];
+  const S = Object.keys(C.stages), R = ["#/", "#/tasks", "#/me", "#/evening", "#/record", "#/seen", "#/tadwin", "#/tadwin/why", "#/tadwin/bad", "#/library", "#/about", "#/faq", "#/sources", "#/poster", "#/review", "#/no-such-page"];
   for (const s of S) {
     const st = C.stages[s];
     R.push(`#/stage/${s}`, `#/sign/${s}`, `#/card/${s}`, `#/quiz/${s}`);
@@ -336,7 +336,7 @@ async function main() {
     "",
     `Edition flows: ${flows.passed} of ${flows.total} passed (children's content by default, settings switch both ways, ?ed=adult, first-open choice, separate profiles, explicit conversion).`,
     `Intro story (INTRO-ANIMATION.md): ${intro.passed} of ${intro.total} passed (first open, skip, Escape, replay from settings and About, pause, reduced motion, girls' wording, 320/375/landscape x AR/EN x children/adults).`,
-    `Five ideas (FIVE-IDEAS.md): ${ideas.passed} of ${ideas.total} passed (${ideas.names.join(", ")}).`,
+    `Five ideas (FIVE-IDEAS.md) and Tadwin (TADWIN-SPEC.md): ${ideas.passed} of ${ideas.total} passed (${ideas.names.join(", ")}).`,
     `Security, install and share: ${sec.passed} of ${sec.total} passed (escaping, backup validation, storage full, share links, offline). Static checks (manifest, preview tags, service worker, headers): ${stat.length ? stat.length + " problem(s)" : "OK"}. Pages served with the build's CSP: ${CSP ? "yes" : "NO"}.`,
     "",
     ...content.errs.slice(0, 60).map(e => `- ERROR ${e}`),
@@ -573,32 +573,161 @@ async function ideaFlows(browser, base, content, AV) {
     ok(/get the better of you/.test(await txt(page, "#view")), "2a: English adult question");
     ok(!page.errs.length, "2a: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
-  // 3. the hidden deed
+  // 3. the hidden deed: since Tadwin (23 Nov 2026) a written line in the good scroll, marked 🤲
   await step("hidden deed", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
-    ok(await has(page, '#view [data-act="khab"]'), "3: the hidden-deed button is on the home page");
-    await go(page, "#/tasks"); ok(await has(page, '#view [data-act="khab"]'), "3: and in the tasks section");
+    ok(!(await has(page, '#view [data-act="khab"]')) && !(await has(page, '#view [data-act="sawopen"]')), "3: the hidden deed and «رأيت خيرًا» left the home page for Tadwin");
+    await go(page, "#/tasks"); ok(!(await has(page, '#view [data-act="khab"]')), "3: and the tasks section");
+    await setS(page, "s.twIntro = true;"); await open(page); await go(page, "#/tadwin");
     const mix0 = JSON.stringify((await getS(page)).mix);
     await page.click('#view [data-act="khab"]'); await page.waitForTimeout(300);
     ok(/تَصَدَّقَ بِصَدَقَةٍ فَأَخْفَاهَا/.test(await txt(page, "#sheet")) && /البخاري 1423/.test(await txt(page, "#sheet")), "3: the sheet quotes the hadith with its reference");
-    ok(!(await has(page, "#sheet input, #sheet textarea")), "3: no text field at all");
-    await page.click('#sheet [data-act="khsave"]'); await page.waitForTimeout(300);
-    for (let k = 0; k < 3; k++) { await page.click('#view [data-act="khab"]'); await page.waitForTimeout(250); if (await has(page, '#sheet [data-act="khsave"]')) { await page.click('#sheet [data-act="khsave"]'); await page.waitForTimeout(250); } }
-    const st = await getS(page);
-    ok(Array.isArray(st.khab) && st.khab.length === 3 && st.khab.every(d => /^\d{4}-\d{2}-\d{2}$/.test(d)), "3: only dates are kept, three a day at most");
-    ok(/يكفيك أن الله يعلمها/.test(await txt(page, "#sheet")), "3: a gentle note after the third");
+    ok(await has(page, "#sheet textarea#twTx"), "3: it is written as text now");
+    await page.click('#sheet [data-act="khsave"]'); await page.waitForTimeout(250);
+    ok(await has(page, "#sheet:not([hidden]) #twTx") && !((await getS(page)).good || []).length, "3: an empty line is not saved");
+    await page.fill("#twTx", `<img src=x onerror="window.__pwn=9">أعطيت صديقي قلمي ` + "س".repeat(260)); await page.click('#sheet [data-act="khsave"]'); await page.waitForTimeout(350);
+    const st = await getS(page), kh = (st.good || []).filter(e => e.k === "kh");
+    ok(kh.length === 1 && kh[0].tx.length <= 200 && !/[<>]/.test(kh[0].tx) && kh[0].t > 0, "3: saved as a cleaned line (200 at most) with its date, in the good scroll");
     ok(JSON.stringify(st.mix) === mix0 && !(st.ev || []).length, "3: no points, no mix change, no event");
-    await page.keyboard.press("Escape"); await go(page, "#/");
-    ok(/خبيئاتك: 3\. يعلمها الله/.test(await txt(page, "#view")), "3: the owner sees «خبيئاتك: 3. يعلمها الله»");
-    await go(page, "#/record"); ok(!/خبيئ/.test(await txt(page, "#view")), "3: the record never shows them");
-    await setS(page, "s.khab = ['2020-01-01','2020-01-01','2020-01-01','2020-01-01','<b>', 5];"); await open(page);
-    ok(JSON.stringify((await getS(page)).khab) === JSON.stringify(["2020-01-01", "2020-01-01", "2020-01-01"]), "3: stored dates are checked and capped per day");
+    ok(/🤲/.test(await txt(page, ".tw-paper.good .tw-list")) && /أعطيت صديقي قلمي/.test(await txt(page, ".tw-paper.good")), "3: marked 🤲 in the good scroll");
+    ok(!(await page.evaluate(() => !!window.__pwn || !!document.querySelector("#view img[src='x']"))), "3: the line never runs as markup");
+    await go(page, "#/record"); ok(!/خبيئ|أعطيت صديقي/.test(await page.evaluate(() => document.getElementById("view").textContent)), "3: the record never shows it");
+    await setS(page, "delete s.twMig; s.good = []; s.khab = ['2020-01-01','2020-01-01','2020-01-01','2020-01-01','<b>', 5]; s.eve = { '2020-01-05': { f: 'human', g: 'المطر' } };"); await open(page);
+    const s2 = await getS(page), g2 = s2.good || [];
+    ok(g2.filter(e => e.k === "kh").length === 3 && g2.some(e => e.k === "ni" && e.tx === "المطر") && !("khab" in s2) && s2.twMig === true, "3: old date-only hidden deeds (three a day at most) and evening blessings move into the good scroll");
+    await open(page); ok(((await getS(page)).good || []).length === g2.length, "3: that move happens once");
+    await go(page, "#/tadwin"); ok(/خبيئة يعلمها الله/.test(await txt(page, ".tw-paper.good")), "3: an old hidden deed shows without text");
     ok(!page.errs.length, "3: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
   await step("hidden deed (adults)", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1&ed=adult&lang=en", 900);
+    await setS(page, "s.twIntro = true;"); await open(page, "", 900); await go(page, "#/tadwin");
     await page.click('#view [data-act="khab"]'); await page.waitForTimeout(300);
-    ok(/left hand did not know/.test(await txt(page, "#sheet")) && /only the date is kept/.test(await txt(page, "#sheet")), "3a: English adult wording with the meaning of the hadith");
+    ok(/left hand did not know/.test(await txt(page, "#sheet")) && /kept as a secret between you and Allah/.test(await txt(page, "#sheet")), "3a: English adult wording with the meaning of the hadith");
     ok(!page.errs.length, "3a: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
+  // Tadwin «علّم بالقلم» (docs/TADWIN-SPEC.md, 23 Nov 2026)
+  await step("tadwin: tab and intro", async () => {
+    for (const [q, lab] of [["&lang=ar", "التدوين"], ["&lang=en", "Journal"], ["&ed=adult&lang=ar", "التدوين"], ["&ed=adult&lang=en", "Journal"]]) {
+      const { ctx, page } = await fresh(); await open(page, "&reset=1" + q, 900);
+      const tabs = await page.evaluate(() => [...document.querySelectorAll("#tabs a")].map(a => a.getAttribute("href") + "|" + a.innerText.trim()));
+      ok(tabs.length === 3 && tabs[1] === "#/tadwin|" + lab, `tw: the middle tab is «${lab}» (${q}): ${tabs.join(", ")}`);
+      await page.click('#tabs a[href="#/tadwin"]'); await page.waitForTimeout(400);
+      const t = await txt(page, "#view");
+      ok(await has(page, '#view [data-act="twstart"]') && /عَلَّمَ بِالْقَلَمِ/.test(t) && /كَاتِبِينَ/.test(t), `tw: the first visit opens «why we write» with both verses (${q})`);
+      if (q.includes("en")) ok(/taught by the pen/.test(t) && /recording/.test(t), `tw: English meanings of the verses (${q})`);
+      await page.click('#view [data-act="twstart"]'); await page.waitForTimeout(350);
+      ok(await has(page, ".tw-paper.good") && await has(page, '.tw-head a[href="#/tadwin/why"]') && await has(page, '.tw .evelink[href="#/evening"]') && await has(page, '#view [data-act="sawopen"]'), `tw: then the scrolls, the «why» link, the evening link and «رأيت خيرًا» (${q})`);
+      ok(await has(page, '#tabs a[href="#/tadwin"].on'), `tw: the tab is marked current (${q})`);
+      await open(page, "", 900); await go(page, "#/tadwin"); ok(!(await has(page, '#view [data-act="twstart"]')), `tw: the intro shows once (${q})`);
+      await go(page, "#/tadwin/why"); ok(await has(page, '#view a[href="#/tadwin"].btn'), `tw: and stays reachable from its link (${q})`);
+      ok(!page.errs.length, `tw: no script errors (${q}) ` + page.errs.slice(0, 1).join(""));
+      await ctx.close();
+    }
+  });
+  await step("tadwin: the two scrolls", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
+    await setS(page, "s.twIntro = true;"); await open(page); await go(page, "#/tadwin");
+    await page.click('#view [data-act="twadd"][data-k="good"]'); await page.waitForTimeout(300);
+    await page.fill("#twTx", "ساعدت جدتي في حمل الأكياس"); await page.click('#sheet [data-act="twf"][data-s="human"]'); await page.waitForTimeout(200);
+    ok((await page.inputValue("#twTx")) === "ساعدت جدتي في حمل الأكياس", "tw: picking a finger keeps the text");
+    await page.click('#sheet [data-act="twsave"]'); await page.waitForTimeout(350);
+    await go(page, "#/tadwin/bad"); await page.click('#view [data-act="twadd"][data-k="bad"]'); await page.waitForTimeout(300);
+    await page.fill("#twTx", "رفعت صوتي على أخي"); await page.click('#sheet [data-act="twsave"]'); await page.waitForTimeout(350);
+    await page.click('#view [data-act="twmark"][data-m="st"]'); await page.waitForTimeout(250);
+    await open(page); await go(page, "#/tadwin");
+    const gt = await txt(page, ".tw-paper.good");
+    ok(/ساعدت جدتي/.test(gt) && await has(page, ".tw-paper.good .tw-f") && !/رفعت صوتي/.test(gt), "tw: a good deed survives a reload, with its finger, in its own scroll");
+    ok(/\d{4}/.test(await txt(page, ".tw-paper.good .tw-d")), "tw: each line is dated automatically");
+    await go(page, "#/tadwin/bad");
+    ok(/رفعت صوتي/.test(await txt(page, ".tw-paper.bad")) && await has(page, '.tw-paper.bad [data-act="twmark"][data-m="st"].on') && !(await has(page, '.tw-paper.bad [data-act="twmark"][data-m="fx"].on')), "tw: a slip survives a reload, with «استغفرتُ» marked");
+    const s = await getS(page); ok(s.good.length === 1 && s.bad.length === 1 && s.good[0].f === "human" && s.bad[0].st === true, "tw: both are stored in the profile");
+    // the evening's blessing is written to the good scroll too
+    await go(page, "#/evening"); await page.click('#view [data-act="finger"][data-f="ring"]'); await page.waitForTimeout(200); await page.click('[data-act="evenext"]'); await page.waitForTimeout(200);
+    await page.fill("#eveG", "نزول المطر"); await page.click('[data-act="evenext"]'); await page.waitForTimeout(200); await page.click('[data-act="evesay"]'); await page.waitForTimeout(200);
+    await page.click('[data-act="evefinish"]'); await page.waitForTimeout(300);
+    ok(await has(page, '#view a.eve-tw[href="#/tadwin"]'), "tw: the evening's last screen points to the good scroll");
+    ok((await getS(page)).good.some(e => e.k === "ni" && e.tx === "نزول المطر"), "tw: the blessing is written in the good scroll");
+    await go(page, "#/tadwin"); ok(/نعمة/.test(await txt(page, ".tw-paper.good")) && /نزول المطر/.test(await txt(page, ".tw-paper.good")), "tw: shown there as «نعمة»");
+    // removing a line asks once
+    await page.click('.tw-paper.good [data-act="twdel"]'); await page.waitForTimeout(250); await page.click('#sheet [data-act="twdelyes"]'); await page.waitForTimeout(300);
+    ok((await getS(page)).good.length === 1, "tw: a line can be removed after one confirmation");
+    // owner-only: never in the record, the home page, the tasks, or another profile
+    const secret = /رفعت صوتي|ساعدت جدتي|نزول المطر/;
+    for (const h of ["#/record", "#/", "#/tasks"]) { await go(page, h); ok(!secret.test(await page.evaluate(() => document.getElementById("view").textContent)), `tw: nothing from the scrolls in ${h}`); }
+    await page.evaluate(() => { const p = { active: "p2", list: ["p1", "p2"] }; localStorage.setItem("akhlaq-app-v1:profiles", JSON.stringify(p));
+      localStorage.setItem("akhlaq-app-v1:p2", JSON.stringify({ v: 1, lang: "ar", fs: 19, mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, intro: true, tour: true, twIntro: true })); });
+    await open(page, "", 900);
+    for (const h of ["#/tadwin", "#/tadwin/bad", "#/record", "#/"]) { await go(page, h); ok(!secret.test(await page.evaluate(() => document.body.textContent)), `tw: another profile sees nothing of them in ${h}`); }
+    // stored lines are checked
+    await page.evaluate(() => { const p = { active: "p1", list: ["p1", "p2"] }; localStorage.setItem("akhlaq-app-v1:profiles", JSON.stringify(p)); });
+    await setS(page, "s.good = [{ id: '<x>', t: 5, tx: '<b>hi</b>' }, { t: 'x', tx: 'a' }, { id: 'a', t: 1700000000000, tx: '', k: 'do' }, { id: 'b', t: 1700000000000, k: 'kh', f: 'pig', st: true }, 7]; s.bad = [{ id: 'c', t: 1700000000000, tx: 'y'.repeat(400), st: 1, fx: true, k: 'kh', f: '<i>' }];"); await open(page);
+    const h2 = await getS(page);
+    ok(h2.good.length === 2 && h2.good.every(e => /^[a-z0-9-]{1,24}$/.test(e.id)) && !/[<>]/.test(JSON.stringify(h2.good)) && h2.good[1].k === "kh" && h2.good[1].f === "pig" && !("st" in h2.good[1]), "tw: stored good lines are checked (id, date, text, kind, finger)");
+    ok(h2.bad.length === 1 && h2.bad[0].tx.length === 200 && h2.bad[0].fx === true && !("st" in h2.bad[0]) && !("k" in h2.bad[0]) && !("f" in h2.bad[0]), "tw: stored slips are checked (200 characters, marks, no kind)");
+    ok(!page.errs.length, "tw: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+    await ctx.close(); });
+  await step("tadwin: backup", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
+    await setS(page, "s.twIntro = true; s.good = [{ id: 'g1', t: Date.now(), tx: 'حسنة في النسخة', k: 'kh' }]; s.bad = [{ id: 'b1', t: Date.now(), tx: 'زلة في النسخة', fx: true }];"); await open(page);
+    const [dl] = await Promise.all([page.waitForEvent("download", { timeout: 5000 }), (async () => { await page.click("#setBtn"); await page.waitForTimeout(250); await page.click('#sheet [data-act="bkexport"]'); })()]);
+    const out = JSON.parse(fs.readFileSync(await dl.path(), "utf8")), p1 = out.states && out.states.p1;
+    ok(p1 && p1.good[0].tx === "حسنة في النسخة" && p1.good[0].k === "kh" && p1.bad[0].tx === "زلة في النسخة" && p1.bad[0].fx === true, "tw: the backup file carries both scrolls");
+    await page.keyboard.press("Escape"); await setS(page, "s.good = []; s.bad = [];"); await open(page);
+    p1.bad.push({ id: "<x>", t: 1, tx: "<script>x</script>" });
+    await page.click("#setBtn"); await page.waitForTimeout(250);
+    await page.setInputFiles("#bkFile", { name: "b.json", mimeType: "application/json", buffer: Buffer.from(JSON.stringify(out)) }); await page.waitForTimeout(400);
+    await page.click('#sheet [data-act="bkyes"]'); await page.waitForTimeout(1300);
+    const r = await getS(page);
+    ok(r.good.length === 1 && r.good[0].tx === "حسنة في النسخة" && r.bad.length === 2 && r.bad[0].fx === true && !/[<>]/.test(JSON.stringify(r.bad)), "tw: restoring brings both scrolls back, checked");
+    ok(!page.errs.length, "tw: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+    await ctx.close(); });
+  await step("tadwin: closing the year", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
+    await setS(page, "s.twIntro = true; s.good = [{ id: 'g1', t: Date.now() - 1000, tx: 'حسنة السنة الأولى' }, { id: 'g2', t: Date.now(), tx: 'نعمة الصحة', k: 'ni' }]; s.bad = [{ id: 'b1', t: Date.now(), tx: 'زلة أولى' }, { id: 'b2', t: Date.now(), tx: 'زلة ثانية', st: true }];"); await open(page);
+    const inWin = (() => { try { const p = {}; new Intl.DateTimeFormat("en-u-ca-islamic-umalqura-nu-latn", { day: "numeric", month: "numeric", year: "numeric" }).formatToParts(new Date()).forEach(x => { p[x.type] = x.value; }); const m = +p.month, d = +p.day; return (m === 12 && d >= 20) || (m === 1 && d <= 10); } catch (e) { return false; } })();
+    await go(page, "#/tadwin"); ok((await has(page, ".ye-card")) === inWin, `tw: the «ختام السنة» card follows the Hijri dates (in the window today: ${inWin})`);
+    await open(page, "&burntest=1"); await go(page, "#/tadwin");
+    ok(await has(page, '.ye-card [data-act="burnask"]') && /ختام السنة/.test(await txt(page, ".ye-card")), "tw: the test hook shows the card outside its days");
+    await page.click('.ye-card [data-act="burnask"]'); await page.waitForTimeout(300);
+    ok(/لا رجوع فيها/.test(await txt(page, "#sheet")) && await has(page, '#sheet [data-act="burnyes"]'), "tw: one confirmation first");
+    ok(((await getS(page)).bad || []).length === 2, "tw: nothing is deleted before it");
+    await page.click('#sheet [data-act="burnyes"]'); await page.waitForTimeout(500);
+    const s = await getS(page);
+    ok(s.bad.length === 0 && s.good.length === 2 && s.good[0].tx === "حسنة السنة الأولى" && s.burnY > 1400, "tw: the burn empties the bad scroll only, for real");
+    ok(await has(page, ".burn-paper") && /يُذْهِبْنَ السَّيِّئَاتِ/.test(await txt(page, "#view")) && /هود: 114/.test(await txt(page, "#view")), "tw: the grey page burns with ﴿إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ﴾");
+    await page.click('#view [data-act="burnnext"]'); await page.waitForTimeout(300);
+    ok(/حسنات سنتك/.test(await txt(page, "#view")) && /حسنة السنة الأولى/.test(await txt(page, ".ye-one")) && /1 \/ 2/.test(await txt(page, ".ye-count")), "tw: then the year's good lines, one by one");
+    await page.click('#view [data-act="burnnext"]'); await page.waitForTimeout(250);
+    ok(/نعمة الصحة/.test(await txt(page, ".ye-one")) && /نعمة/.test(await txt(page, ".ye-one")), "tw: blessings among them");
+    await page.click('#view [data-act="burnnext"]'); await page.waitForTimeout(250);
+    ok(/الحمد لله/.test(await txt(page, ".ye-end")), "tw: ending with «الحمد لله»");
+    await page.click('#view [data-act="burnend"]'); await page.waitForTimeout(300);
+    ok(await has(page, ".tw-paper.good") && !(await has(page, ".ye-card")), "tw: back to the good scroll; the card does not return this year");
+    await open(page, "&burntest=1"); await go(page, "#/tadwin/bad"); ok(/الصفحة بيضاء/.test(await txt(page, ".tw-paper.bad")) && !(await has(page, ".ye-card")), "tw: after a reload the bad scroll stays empty");
+    ok(!page.errs.length, "tw: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+    await ctx.close();
+    // reduced motion: no burning animation and no automatic steps
+    const ctx2 = await browser.newContext({ viewport: { width: 375, height: 812 }, reducedMotion: "reduce" }); const p2 = await ctx2.newPage();
+    await open(p2, "&reset=1"); await setS(p2, "s.twIntro = true; s.bad = [{ id: 'b1', t: Date.now(), tx: 'زلة' }];"); await open(p2, "&burntest=1"); await go(p2, "#/tadwin");
+    await p2.click('.ye-card [data-act="burnask"]'); await p2.waitForTimeout(250); await p2.click('#sheet [data-act="burnyes"]'); await p2.waitForTimeout(400);
+    const rm = await p2.evaluate(() => { const b = document.querySelector(".burn-box"), v = document.querySelector(".burn-v"); return { rm: !!(b && b.classList.contains("rm")), paper: b ? getComputedStyle(b.querySelector(".burn-paper")).display : "", op: v ? getComputedStyle(v).opacity : "" }; });
+    ok(rm.rm && rm.paper === "none" && rm.op === "1", `tw: with reduced motion the page is simply gone and the verse shows at once (${JSON.stringify(rm)})`);
+    await p2.waitForTimeout(7000); ok(await has(p2, ".burn-v"), "tw: with reduced motion the ritual waits for «التالي»");
+    await ctx2.close(); });
+  await step("tadwin: 320 px", async () => {
+    for (const q of ["&lang=ar", "&lang=en", "&ed=adult&lang=ar", "&ed=adult&lang=en"]) {
+      const ctx = await browser.newContext({ viewport: { width: 320, height: 640 } }), page = await ctx.newPage(), errs = []; page.on("pageerror", e => errs.push(e.message));
+      await open(page, "&reset=1" + q, 900);
+      await setS(page, "s.twIntro = true; s.gender = 'f'; s.good = [{ id: 'g1', t: Date.now(), tx: 'ك'.repeat(200), f: 'sabiq', k: 'kh' }, { id: 'g2', t: Date.now(), tx: 'a'.repeat(200), k: 'ni' }]; s.bad = [{ id: 'b1', t: Date.now(), tx: 'Supercalifragilistic'.repeat(10), st: true, fx: true, f: 'monkey' }];");
+      await open(page, "&burntest=1", 900);
+      for (const h of ["#/tadwin", "#/tadwin/bad", "#/tadwin/why", "#/seen"]) { await go(page, h); const x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText && !x.missing, `tw: 320 ${q} ${h}: ${JSON.stringify(x)}`); }
+      await go(page, "#/tadwin"); await page.click('#view [data-act="twadd"][data-k="good"]'); await page.waitForTimeout(300);
+      let x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length, `tw: 320 ${q} the writing sheet: ${JSON.stringify(x)}`);
+      await page.keyboard.press("Escape"); await page.waitForTimeout(250);
+      await page.click('.ye-card [data-act="burnask"]'); await page.waitForTimeout(250); await page.click('#sheet [data-act="burnyes"]'); await page.waitForTimeout(400);
+      x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText, `tw: 320 ${q} the burning: ${JSON.stringify(x)}`);
+      await page.click('#view [data-act="burnnext"]'); await page.waitForTimeout(250);
+      x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText, `tw: 320 ${q} the year's good lines: ${JSON.stringify(x)}`);
+      ok(!errs.length, `tw: 320 ${q} no script errors ` + errs.slice(0, 1).join(""));
+      await ctx.close();
+    }
+  });
   // 4. the family pact and "I saw good"
   await step("family pact", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
     await page.evaluate(() => localStorage.removeItem("tazkiya-family")); await open(page);
@@ -615,8 +744,8 @@ async function ideaFlows(browser, base, content, AV) {
       localStorage.setItem("akhlaq-app-v1:p2", JSON.stringify({ v: 1, lang: "ar", fs: 19, mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, edition: "adult", intro: true, tour: true })); });
     await open(page, "", 1100);
     ok((await txt(page, ".pact")).includes(at.step.ar) && (await txt(page, ".pact")).includes(at.turnName.ar), "4: an adult profile sees the adult task for the same trait");
-    // "I saw good": from the adult profile to the child's
-    await page.click('#view [data-act="sawopen"]'); await page.waitForTimeout(300);
+    // "I saw good" (in Tadwin since 23 Nov 2026): from the adult profile to the child's
+    await go(page, "#/seen"); await page.click('#view [data-act="sawopen"]'); await page.waitForTimeout(300);
     await page.click('#sheet [data-act="sawto"][data-p="p1"]'); await page.waitForTimeout(300);
     await page.click('#sheet [data-act="sawv"][data-v="pig:2"]'); await page.waitForTimeout(250);
     await page.fill("#sawTx", `<img src=x onerror="window.__pwn=8">حمل الأكياس معي`); await page.click('#sheet [data-act="sawsend"]'); await page.waitForTimeout(400);
@@ -645,7 +774,7 @@ async function ideaFlows(browser, base, content, AV) {
     await ctx.close(); });
   await step("I saw good: one profile", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
     await page.evaluate(() => { localStorage.setItem("akhlaq-app-v1:profiles", JSON.stringify({ active: "p1", list: ["p1"] })); }); await open(page);
-    await page.click('#view [data-act="sawopen"]'); await page.waitForTimeout(300);
+    await go(page, "#/seen"); await page.click('#view [data-act="sawopen"]'); await page.waitForTimeout(300);
     ok(/أضف ملفًا لفرد من الأسرة/.test(await txt(page, "#sheet")) && await has(page, '#sheet [data-act="profadd"]'), "4: alone on the device, it explains and offers to add a profile");
     await ctx.close(); });
   await step("family backup", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
