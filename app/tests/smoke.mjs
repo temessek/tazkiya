@@ -1122,7 +1122,9 @@ async function ideaFlows(browser, base, content, AV) {
     for (const [q, adult] of [["", false], ["&lang=en", false], ["&ed=adult", true], ["&ed=adult&lang=en", true]]) {
       const { ctx, page } = await fresh(); await open(page, "&reset=1" + q, 800);
       const f = await page.evaluate(() => { const e = document.querySelector("#view .homefoot"); return e ? { t: e.innerText, h: [...e.querySelectorAll("a")].map(a => a.getAttribute("href")) } : null; });
-      ok(f && f.h.some(h => /^privacy\//.test(h)) && f.h.includes("#/about") && /تزكية|Tazkiya/.test(f.t), `platform (${q || "kids ar"}): the home footer links About and privacy (${f && f.h.join(", ")})`);
+      const sf = await page.evaluate(() => { const a = document.querySelector("#sitefoot a"), r = a && a.getBoundingClientRect(); return a ? { h: a.getAttribute("href"), vis: !!a.offsetParent && r.width > 0, t: a.textContent } : null; });
+      ok(f && f.h.includes("#/about") && /تزكية|Tazkiya/.test(f.t) && sf && sf.vis && /^\/privacy\//.test(sf.h) && /الخصوصية|Privacy/.test(sf.t), `platform (${q || "kids ar"}): the home footer links About, and the static privacy link shows under it (${f && f.h.join(", ")}; ${sf && sf.h})`);
+      await go(page, "#/tasks", 350); ok(!(await page.evaluate(() => { const a = document.querySelector("#sitefoot a"); return !!(a && a.offsetParent); })), `platform (${q || "kids ar"}): the static privacy link stays on the home screen`); await go(page, "#/", 350);
       ok(f && (adult ? f.h.some(h => /^training\//.test(h)) : !f.h.some(h => /training/.test(h)) && f.h.some(h => /^parents\//.test(h))), `platform (${q || "kids ar"}): training ${adult ? "is linked" : "stays on the parents' page"}`);
       await go(page, "#/about", 450);
       const ab = await page.evaluate(() => [...document.querySelectorAll("#view a")].map(a => a.getAttribute("href")));
@@ -1434,6 +1436,7 @@ function staticChecks() {
     if (!(man.shortcuts || []).length) errs.push("manifest: no shortcuts");
     for (const x of ic.concat(man.screenshots || [])) { const p = path.join(ROOT, x.src); if (!fs.existsSync(p)) errs.push(`manifest: missing file ${x.src}`); else if (x.sizes) { const [w, h] = x.sizes.split("x").map(Number), sz = imgSize(p); if (sz && (sz[0] !== w || sz[1] !== h)) errs.push(`manifest: ${x.src} is ${sz.join("x")}, declared ${x.sizes}`); } }
   }
+  if (!/<footer class="sitefoot" id="sitefoot"><a href="\/privacy\/">/.test(html)) errs.push("index.html: the served markup must link to /privacy/ (Google brand verification)");
   if (/<meta name="robots"[^>]*noindex/.test(html)) errs.push("index.html: noindex (the site is open to search engines since 23 Nov 2026)");
   const need = [/<link rel="canonical" href="https:\/\/tazkiya\.family\/">/, /property="og:title"/, /property="og:description"/, /property="og:image" content="https:\/\//, /name="twitter:card" content="summary_large_image"/,
     /rel="apple-touch-icon"/, /name="apple-mobile-web-app-capable"/, /name="apple-mobile-web-app-title"/, /name="apple-mobile-web-app-status-bar-style"/, /rel="apple-touch-startup-image"/, /rel="manifest"/, /name="theme-color"/];
@@ -1451,6 +1454,11 @@ function staticChecks() {
   if (/\/\*\n  ! Access-Control-Allow-Origin\n  X-Robots-Tag/.test(bp) || /Disallow: \/\n/.test(bp)) errs.push("build_public.py: the site must stay open to search engines");
   for (const sp of ["parents/index.html", "training/index.html", "privacy/index.html"]) if (fs.existsSync(path.join(ROOT, sp)) && /noindex/.test(rd(sp))) errs.push(`${sp}: noindex`);
   if (!CSP) errs.push("could not read the CSP from build_public.py");
+  // 23 Nov 2026: Cloudflare Web Analytics is the one outside script (anonymous counts); the privacy email stays plain text
+  if (CSP && (!CSP.includes("script-src 'self' https://static.cloudflareinsights.com;") || !CSP.includes("connect-src 'self' https://cloudflareinsights.com;"))) errs.push("CSP: Cloudflare Web Analytics must be allowed, and nothing else outside");
+  { const pv = fs.existsSync(path.join(ROOT, "privacy/index.html")) ? rd("privacy/index.html") : ""; const link = '<a href="mailto:privacy@tazkiya.family">privacy@tazkiya.family</a>';
+    const ml = pv.split('<a href="mailto:privacy@tazkiya.family">').length - 1, wr = { length: pv.split("<!--email_off-->" + link + "<!--/email_off-->").length - 1 };
+    if (ml !== 2 || wr.length !== 2) errs.push("privacy page: each privacy@ link must sit inside <!--email_off--> (Cloudflare would rewrite it)"); }
   // security and compatibility review (22 Nov 2026)
   for (const h of ["! Access-Control-Allow-Origin", "private-terms.txt", "404.html", "parents/index.html", "training/index.html", "/training/*", "wrangler@4", "getexif", "esbuild@"]) if (!bp.includes(h)) errs.push(`build_public.py: missing ${h}`);
   for (const f of ["404.html", "parents/index.html", "training/index.html", "assets/qr-kids.svg", "assets/qr-adult.svg"]) if (!fs.existsSync(path.join(ROOT, f))) errs.push(`missing ${f}`);

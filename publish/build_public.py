@@ -62,11 +62,12 @@ def minify():
     print(f"minify: {saved // 1024} KB saved before compression")
 minify()
 
-# security headers for a static site (Cloudflare Pages). The app has no inline scripts and loads everything from
+# security headers for a static site (Cloudflare Pages). Cloudflare Web Analytics (anonymous visit counts, approved by
+# the owner on 23 Nov 2026) is the one outside script, with its beacon endpoint. The app has no inline scripts and loads everything from
 # its own origin; inline style attributes are used by the views, hence 'unsafe-inline' for styles only.
 CSP = "; ".join([
-    "default-src 'self'", "script-src 'self'", "style-src 'self' 'unsafe-inline'", "img-src 'self' data: blob:",
-    "font-src 'self'", "connect-src 'self'", "manifest-src 'self'", "worker-src 'self'", "media-src 'self'",
+    "default-src 'self'", "script-src 'self' https://static.cloudflareinsights.com", "style-src 'self' 'unsafe-inline'", "img-src 'self' data: blob:",
+    "font-src 'self'", "connect-src 'self' https://cloudflareinsights.com", "manifest-src 'self'", "worker-src 'self'", "media-src 'self'",
     "object-src 'none'", "base-uri 'self'", "form-action 'none'", "frame-ancestors 'none'", "upgrade-insecure-requests"])
 PERM = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), serial=(), bluetooth=(), hid=(), midi=(), display-capture=(), magnetometer=(), gyroscope=(), accelerometer=()"
 # "! Access-Control-Allow-Origin" removes Cloudflare's default "*", so other sites cannot read the files from script (A5)

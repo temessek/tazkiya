@@ -2104,7 +2104,7 @@
   function homeFoot() {
     const en = L() === "en" ? "#en" : "", ext = h => `href="${h}${en}" target="_blank" rel="noopener"`;
     return `<footer class="homefoot"><p>${esc(u("platLine"))}</p><nav><a href="#/about">${esc(u("abT"))}</a>
-      ${ADU() ? `<a ${ext("training/")}>${esc(u("trainingL"))}</a>` : `<a ${ext("parents/")}>${esc(u("parentsL"))}</a>`}<a ${ext("privacy/")}>${esc(u("privacyL"))}</a></nav></footer>`;
+      ${ADU() ? `<a ${ext("training/")}>${esc(u("trainingL"))}</a>` : `<a ${ext("parents/")}>${esc(u("parentsL"))}</a>`}</nav></footer>`; // the privacy link is the static #sitefoot under it
   }
   function vHome() {
     if (TOUR) return vTour();
@@ -3103,6 +3103,7 @@
     document.title = r.name === "home" ? u("brand") + ": " + u("docTag") : u("brand"); document.body.dataset.route = r.name;
     document.documentElement.style.setProperty("--k", String(Math.max(.8, Math.min(1.7, S.fs / 19))));
     document.getElementById("brand").textContent = u("brand");
+    { const sf = document.querySelector("#sitefoot a"); if (sf) { sf.textContent = u("privacyL"); sf.setAttribute("href", "/privacy/" + (L() === "en" ? "#en" : "")); } }
     langLabel();
     const sb = document.getElementById("setBtn"); if (sb) { sb.setAttribute("aria-label", u("settings")); sb.title = u("settings"); }
     instBtn();

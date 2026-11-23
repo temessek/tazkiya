@@ -1268,7 +1268,11 @@ html[lang=en] .ye-hamd { font-family: var(--en-h); }
 @media (prefers-reduced-motion: reduce) { .ex-dot { animation: none; } }
 
 /* the platform footer on the home screen (23 Nov 2026): the platform line, About, privacy, and training (adults) or the parents' page (children) */
-.homefoot { margin: 28px 0 4px; padding-top: 14px; border-top: 1px dashed var(--line); text-align: center; }
+.homefoot { margin: 28px 0 0; padding-top: 14px; border-top: 1px dashed var(--line); text-align: center; }
 .homefoot p { margin: 0 0 4px; font-size: 14px; line-height: 1.6; color: var(--muted); }
 .homefoot nav { display: flex; flex-wrap: wrap; justify-content: center; column-gap: 18px; }
 .homefoot a { min-height: 44px; display: inline-flex; align-items: center; color: var(--ink); font-size: 14px; font-weight: 600; text-underline-offset: 3px; }
+/* the static privacy link in index.html, shown under the home screen (and before the app starts) */
+.sitefoot { position: relative; z-index: 2; text-align: center; padding: 0 16px 16px; margin-top: -34px; }
+.sitefoot a { min-height: 44px; display: inline-flex; align-items: center; color: var(--ink); font-size: 14px; font-weight: 600; text-underline-offset: 3px; }
+body[data-route]:not([data-route="home"]) .sitefoot, body.sheet-open .sitefoot { display: none; }
