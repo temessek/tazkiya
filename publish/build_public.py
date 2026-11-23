@@ -72,7 +72,6 @@ PERM = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), serial=(),
 # "! Access-Control-Allow-Origin" removes Cloudflare's default "*", so other sites cannot read the files from script (A5)
 HEADERS = f"""/*
   ! Access-Control-Allow-Origin
-  X-Robots-Tag: noindex, nofollow
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer
   Content-Security-Policy: {CSP}
@@ -99,22 +98,28 @@ HEADERS = f"""/*
   Cache-Control: no-cache
 /assets/*
   Cache-Control: public, max-age=604800
+/robots.txt
+  Cache-Control: no-cache
+/sitemap.xml
+  Cache-Control: no-cache
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow
 """
 open(os.path.join(OUT, "_headers"), "w", encoding="utf-8").write(HEADERS)
-# search engines stay out (with noindex on every page); link-preview fetchers may read the page so a shared link shows its card
-ROBOTS = """User-agent: facebookexternalhit
-User-agent: Facebot
-User-agent: Twitterbot
-User-agent: WhatsApp
-User-agent: TelegramBot
-User-agent: Slackbot-LinkExpanding
-User-agent: LinkedInBot
-User-agent: Discordbot
+# open to search engines since 23 Nov 2026 (owner's decision): the public pages are listed in the sitemap;
+# /api/ stays out (its responses also carry X-Robots-Tag), and the pages.dev copies carry noindex in _headers
+SITE = "https://tazkiya.family"
+ROBOTS = f"""User-agent: *
 Allow: /
+Disallow: /api/
 
-User-agent: *
-Disallow: /
+Sitemap: {SITE}/sitemap.xml
 """
+SITEMAP = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
+    f"  <url><loc>{SITE}{p}</loc></url>\n" for p in ["/", "/adult/", "/training/", "/privacy/", "/parents/"]) + "</urlset>\n"
+open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8").write(SITEMAP)
 open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8").write(ROBOTS)
 
 # privacy gate: no private names, paths or contacts in the public build. Extra private terms (names that must never

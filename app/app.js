@@ -126,8 +126,8 @@
     summitT: ["النور فوق الإبهام", "The light beyond the thumb"],
     summitB: ["النور هو نور الهداية التي أتى بها الأنبياء عليهم السلام، وبنورهم ورسالاتهم يُهتدى.", "The light is the light of guidance the prophets, peace be upon them, brought; by their light and their messages we are guided."],
     close: ["إغلاق", "Close"],
-    verify: ["يُطابَق على المصحف", "to verify against the mushaf"], verifyHadith: ["يُراجَع تخريجه", "source to be reviewed"],
-    checkedQuran: ["مطابق للمصحف الرقمي", "matched to the digital mushaf"], checkedHadith: ["مطابق لمصدر الحديث الرقمي", "matched to a digital hadith source"],
+
+
     textSize: ["حجم الخط", "Text size"],
     toQuiz: ["اختبر فهمك", "Check your understanding"],
     comp: ["فهم", "Understanding"], sit: ["ماذا تفعل؟", "What would you do?"],
@@ -206,8 +206,8 @@
     wkFocus: ["اقتراح للأسبوع القادم", "A focus for next week"], wkFocusWhy: ["من {s}", "from {s}"],
     wkQuiet: ["أسبوع هادئ، لا نشاط مسجّل بعد. خطوة صغيرة تكفي للبداية.", "A quiet week, nothing recorded yet. One small step is enough to begin."], bookProgP: ["قرأت {a} من {b} صفحات", "{a} of {b} pages read"], yourAge: ["عمرك", "your age"], bookPg: ["{c} صفحات", "{c} pages"], pgOf: ["الصفحة {a} من {b}", "Page {a} of {b}"],
     pgQ: ["سؤال عن الصفحة", "A question about this page"], pgNext: ["الصفحة التالية", "Next page"], chQ1: ["سؤال عن الفصل", "A question on this chapter"],
-    abT: ["عن المسار", "About the path"], abShort: ["للوالدين: الإطار والمبادئ", "For parents: the frame and the principles"],
-    abSub: ["صفحة قصيرة للوالدين: من أين جاءت فكرة اليد، وما الذي تقصده وما الذي لا تقصده.", "A short page for parents: where the hand comes from, what it means and what it does not."],
+    abT: ["عن منصة تزكية", "About the Tazkiya platform"], abShort: ["للوالدين: الإطار والمبادئ", "For parents: the frame and the principles"],
+    abSub: ["صفحة قصيرة للوالدين: ما منصة تزكية، ومن أين جاءت فكرة اليد، وكيف تُقرأ.", "A short page for parents: what the Tazkiya platform is, where the hand comes from, and how to read it."],
     abFrameT: ["الإطار: آية فاطر", "The frame: the verse of Fatir"],
     abFrame1: ["في هذه الآية ثلاثة أقسام: ظالم لنفسه، ومقتصد، وسابق بالخيرات بإذن الله. واليد ترسم هذا الطريق: الأصابع الثلاثة الأولى سلوكيات يظلم بها المرء نفسه (الغفلة، والأخذ بلا شبع، والاندفاع)، والإصبع الرابع هو الإنسان المقتصد، والإبهام هو السبق إلى الخير.", "The verse names three groups: those who wrong themselves, the moderate, and those who race ahead in good deeds by Allah's permission. The hand draws this path: the first three fingers are behaviours by which a person wrongs themselves (heedlessness, taking without end, rushing), the fourth finger is the moderate human, and the thumb is racing ahead in good."],
     abFrame2: ["على كل عُقلة من الإصبع سمة. ولكل سمة سيئة علاجها، ثم ما تصير إليه حين تتحول إلى خير. والصعود خطوة بعد خطوة، بسلوك يراه الطفل ويستطيع فعله اليوم.", "Each joint of a finger holds a trait. Each bad trait has its cure, and then what it becomes once it turns to good. The climb is step by step, through behaviour the child can see and do today."],
@@ -226,9 +226,9 @@
     libEmpty: ["الكتب في الطريق.", "The books are on their way."], bookCh: ["{c} فصول", "{c} chapters"], bookProg: ["قرأت {a} من {b} فصول", "{a} of {b} chapters read"],
     bookStart: ["ابدأ القراءة", "Start reading"], bookCont: ["تابع القراءة", "Continue reading"], bookAgain: ["اقرأ من جديد", "Read again"], bookQ: ["{a}/{b} صحيحة", "{a}/{b} right"],
     chOf: ["الفصل {a} من {b}", "Chapter {a} of {b}"], chQ: ["أسئلة عن الفصل", "Questions on this chapter"], chNext: ["الفصل التالي", "Next chapter"], chLocked: ["يُفتح بعد قراءة الفصل الذي قبله", "Opens after the chapter before it is read"], pgLocked: ["تُفتح بعد قراءة الصفحة التي قبلها", "Opens after the page before it is read"], chGate: ["هذا الفصل يُفتح بعد أن تقرأ الفصل {n}. القصة تُقرأ من أولها بالترتيب.", "This chapter opens once you have read chapter {n}. A story is read from its beginning, in order."], pgGate: ["هذه الصفحة تُفتح بعد أن تقرأ الصفحة {n}. القصة تُقرأ من أولها بالترتيب.", "This page opens once you have read page {n}. A story is read from its beginning, in order."], chGo: ["إلى الفصل {n}", "Go to chapter {n}"], pgGo: ["إلى الصفحة {n}", "Go to page {n}"], chDone: ["عودة إلى الكتاب", "Back to the book"], parentGT: ["في وضع الوالدين، خاطبني بصيغة:", "In parent mode, address me as:"], father: ["أب", "Father"], mother: ["أم", "Mother"],
-    parentGNote: ["تُستعمل لمراجعة المساء حين يقرؤها الوالد. بلا اختيار: صيغة المذكر.", "Used for the evening review when a parent reads it (affects Arabic wording)."], revAdults: ["للكبار والوالدين", "for teens 15+ and parents"], more: ["المزيد: خطوة الصعود والسؤال", "More: the step up and the question"], moreS: ["الخطوة والسؤال", "Step and question"], less: ["عودة إلى اليد", "Back to the hand"], srcT: ["المصادر", "Sources"], srcSub: ["كل آية وحديث في التطبيق، مع حال التحقق. النص القرآني يُطابَق على المصحف، والأحاديث يُراجَع تخريجها قبل النشر.", "Every verse and hadith in the app, with its checking status. Quran text is matched to the mushaf; hadith references are reviewed before publication."],
-    srcQuran: ["آية ومرجع قرآني", "Quran references"], srcHadith: ["حديث", "hadith"], srcChecked: ["مطابق آليًّا", "machine-matched"], srcPendingN: ["بانتظار المراجعة البشرية", "awaiting human review"],
-    srcPending: ["بانتظار مراجعة المؤلف", "awaiting the author's review"], srcLink: ["المصادر", "Sources"], posterT: ["اليد في البيت", "The hand at home"], posterSub: ["لوحة للثلاجة: لكل إصبع علامتان وخطوة صعود.", "A poster for the fridge: two signs and one step up for each finger."],
+    parentGNote: ["تُستعمل لمراجعة المساء حين يقرؤها الوالد. بلا اختيار: صيغة المذكر.", "Used for the evening review when a parent reads it (affects Arabic wording)."], revAdults: ["للكبار والوالدين", "for teens 15+ and parents"], more: ["المزيد: خطوة الصعود والسؤال", "More: the step up and the question"], moreS: ["الخطوة والسؤال", "Step and question"], less: ["عودة إلى اليد", "Back to the hand"], srcT: ["المصادر", "Sources"], srcSub: ["كل آية وحديث في التطبيق بمرجعه، ومعه القصة التي ورد فيها.", "Every verse and hadith in the app with its reference, and the story it appears in."],
+    srcQuran: ["آية ومرجع قرآني", "Quran references"], srcHadith: ["حديث", "hadith"],
+    srcLink: ["المصادر", "Sources"], posterT: ["اليد في البيت", "The hand at home"], posterSub: ["لوحة للثلاجة: لكل إصبع علامتان وخطوة صعود.", "A poster for the fridge: two signs and one step up for each finger."],
     posterPhrase: ["جملة البيت: «هذه من سمات الإصبع...»، لا «أنت...».", "The family phrase: \u201cThat's a ...-finger trait\u201d, never \u201cYou are...\u201d."], posterLink: ["لوحة البيت للطباعة", "Printable home poster"], degree: ["السمة", "Trait"], rolesSec: ["قدوات: النبي صلى الله عليه وآله وسلم وآل البيت عليهم السلام والصحابة", "Role models: the Prophet (peace and blessings be upon him and his family), his family (peace be upon them) and the Companions"],
     tagSummit: ["النبي صلى الله عليه وآله وسلم", "The Prophet (peace and blessings be upon him and his family)"], tagComp: ["آل البيت والصحابة", "Family and Companions"],
     dgLooks: ["كيف تبدو", "What it looks like"], dgStory: ["القصة", "The story"], dgStep: ["خطوة الصعود", "The step up"], dgQ: ["سؤال واحد", "One question"],
@@ -274,8 +274,8 @@
     addT: ["ملف جديد", "New profile"], addB: ["لمن هذا الملف؟ لكل ملف طبعته وسجلّه.", "Who is this profile for? Each profile has its own edition and record."],
     shareT: ["مشاركة تزكية", "Share Tazkiya"], shareBtn: ["مشاركة", "Share"], shareSub: ["رابطان: واحد للصغار وآخر للكبار. التطبيق يعمل في المتصفح ويُثبَّت على الهاتف والحاسوب.", "Two links, one for children and one for adults. The app runs in the browser and installs on phones and computers."],
     shareKids: ["رابط طبعة الصغار", "Children's edition link"], shareAdult: ["رابط طبعة الكبار", "Adults' edition link"], shareCopy: ["نسخ الرابط", "Copy link"], shareSend: ["مشاركة الرابط", "Share the link"],
-    shareCopied: ["نُسخ الرابط", "Link copied"], shareText: ["تزكية: مسار للأطفال للارتقاء بالأخلاق على اليد، بالعربية والإنجليزية.", "Tazkiya: a path of moral growth for children, on the hand, in Arabic and English."],
-    shareTextA: ["تزكية للكبار: مسار للارتقاء بالسلوك والأخلاق، من الغفلة إلى السبق بالخيرات.", "Tazkiya for adults: a path of growth in behaviour and character, from heedlessness to racing ahead in good."],
+    shareCopied: ["نُسخ الرابط", "Link copied"], shareText: ["تزكية: منصة عون شخصي في الأخلاق والقيم للأطفال وأهلهم، يرتقون فيها على أصابع اليد بالقصة والمهمة اليومية، بالعربية والإنجليزية.", "Tazkiya: a platform of personal help in character and values for children and their families, rising finger by finger through stories and daily tasks, in Arabic and English."],
+    shareTextA: ["تزكية للكبار: منصة عون شخصي في الأخلاق والقيم، بالتعلّم والعمل اليومي والتدريب، من الغفلة إلى السبق بالخيرات.", "Tazkiya for adults: a platform of personal help in character and values, through learning, daily practice and training, from heedlessness to racing ahead in good."],
     instT: ["ثبّت تزكية على شاشتك", "Install Tazkiya on your screen"], instSub: ["يفتح من أيقونته كأي تطبيق، ويعمل دون اتصال.", "It opens from its icon like any app, and works offline."],
     instNow: ["تثبيت", "Install"], instHow: ["كيف أثبّته؟", "How do I install it?"], instLater: ["لاحقًا", "Later"],
     iosT: ["التثبيت على آيفون وآيباد", "Installing on iPhone and iPad"],
@@ -291,7 +291,21 @@
     storeOff: ["المتصفح يمنع الحفظ على هذا الجهاز (ربما التصفح الخاص)، فالتقدّم يبقى حتى إغلاق الصفحة فقط.", "This browser blocks saving on this device (private browsing, perhaps), so progress lasts only until the page closes."],
     bkBig: ["الملف أكبر من أن يكون نسخة احتياطية من تزكية.", "This file is too large to be a Tazkiya backup."],
     bkProf: ["الملفات ({n})", "Profiles ({n})"], bkFail: ["تعذّر حفظ النسخة على هذا الجهاز، فبقيت بياناتك كما كانت.", "The backup could not be stored on this device, so your data stays as it was."],
-    navMain: ["التنقل الرئيسي", "Main navigation"], navSteps: ["خطوات المرحلة", "Stage steps"]
+    navMain: ["التنقل الرئيسي", "Main navigation"], navSteps: ["خطوات المرحلة", "Stage steps"],
+    // the two doors of every stage (23 Nov 2026): the same words and colours wherever a stage appears
+    doorLearn: ["افهم وتعلّم", "Understand and learn"], doorLearnSub: ["كيف تزكّي نفسك في هذه المرحلة", "Purifying yourself at this stage"],
+    doorWork: ["إلى العمل", "To work"], doorWorkSub: ["أنجز مهام هذه المرحلة", "Do this stage's tasks"], navDoors: ["بابا المرحلة: افهم وتعلّم، وإلى العمل", "The stage's two doors: learn, and work"],
+    startHere: ["ابدأ هنا", "Start here"], wReview: ["راجع نفسك اليوم", "Look at yourself today"],
+    tasksSub: ["ابدأ بقائمة اليوم، ثم ادخل مرحلة من بابيها.", "Start with today's list, then enter a stage through one of its two doors."],
+    tStagesT: ["مراحلك", "Your stages"], tStagesSub: ["لكل مرحلة بابان: افهم وتعلّم، ثم إلى العمل.", "Each stage has two doors: understand and learn, then to work."],
+    tSuggest: ["مقترحة لك الآن", "Suggested for you now"], todayAll: ["✓ أتممت قائمة اليوم. تابع في المرحلة المقترحة لك.", "✓ Today's list is done. Carry on in the stage suggested for you."],
+    docTag: ["عون شخصي في الأخلاق والقيم والتربية", "personal help in character, values and upbringing"], privacyL: ["الخصوصية", "Privacy"], trainingL: ["التدريب", "Training"], parentsL: ["صفحة الوالدين", "For parents"],
+    // the platform as it presents itself (23 Nov 2026): personal help in character and values, through learning, practice and training
+    platLine: ["منصة تزكية: عون شخصي في الأخلاق والقيم، للتربية والتعليم والتدريب والتطوير.", "The Tazkiya platform: personal help in character and values, for upbringing, learning, training and growth."],
+    abPlatT: ["منصة تزكية", "The Tazkiya platform"],
+    abPlat1: ["تزكية منصة عون شخصي في الأخلاق والقيم. يتعلّم فيها المرء خُلقًا من القصة والآية والحديث، ويعمل به في مهمة يومية، ويرى أثره على يده وهو يرتقي من مرحلة إلى مرحلة.", "Tazkiya is a platform of personal help in character and values. You learn a trait through a story, a verse or a hadith, practise it in a daily task, and see it on your hand as you rise from stage to stage."],
+    abPlat2: ["وللوالدين والمعلّمين تدريب على منهج سلّم اليد، تقدّمه مؤسسة تمسك للبحوث والنشر والتدريب، وتفاصيله في صفحة الوالدين.", "Parents and teachers can train in the Hand Method with the Temessek Foundation for Research, Publishing and Training; the parents' page has the details."],
+    abPlat2A: ["ومن أراد أن يتعمّق في المنهج، أو يحمله إلى بيته ومدرسته، فله تدريب تقدّمه مؤسسة تمسك للبحوث والنشر والتدريب.", "To go deeper into the method, or to carry it into your home or school, the Temessek Foundation for Research, Publishing and Training offers training."]
   };
 
   /* ---------- state ---------- */
@@ -527,7 +541,7 @@
 
   /* ---------- helpers ---------- */
   const L = () => S.lang;
-  const UF = { "agNote": "اختاري الفئة، فيتغير المحتوى لهذا الملف ويبقى سجلّه محفوظًا.", "chGate": "هذا الفصل يُفتح بعد أن تقرئي الفصل {n}. القصة تُقرأ من أولها بالترتيب.", "pgGate": "هذه الصفحة تُفتح بعد أن تقرئي الصفحة {n}. القصة تُقرأ من أولها بالترتيب.", "readWait": "تُسجَّل القراءة حين تصلين إلى آخرها وتقرئينها على مهل.", "recSub": "ما قرأتِه وما أجبتِ عنه وما أنجزتِه، بتاريخه، محفوظًا على هذا الجهاز.", "bkPersistNo": "محفوظة على هذا الجهاز، لكن المتصفح قد يحذفها إن امتلأت ذاكرته أو مُسحت بيانات المواقع. ثبّتي التطبيق، واحفظي نسخة احتياطية من حين لآخر.", "bkExport": "احفظي نسخة احتياطية", "bkImport": "استعيدي من نسخة", "bkYes": "نعم، استعيدي النسخة", "presOk": "✓ حضرتِ اليوم", "presNo": "لم تحضري بعد اليوم: علّمي تحدياتك، أو اقرئي قصة، أو أجيبي سؤالًا.", "presStart": "ابدئي تحديًا من مهام المراحل", "trWeekDone": "أتممتِ سبعة أيام، وفُتحت العادة الثابتة", "trActiveSub": "تحدي الأيام السبعة والعادات الثابتة. علّمي ما فعلتِه اليوم.", "trNone": "حين تنجزين «الخطوة الأولى» لسمة في مهام المراحل، يظهر تحديها هنا كل يوم.", "quizSub": "أسئلة من قصص هذه المرحلة وسماتها، تراجعين بها ما فهمتِ.", "signsSub": "علامات تظهر في اليوم. اضغطي «لاحظتها اليوم» على ما رأيتِه في نفسك.", "badgesSub": "النموّ نفسه هو المكافأة، وهذه الأختام تذكير بخطواتكِ في طريق التزكية.", "stageTasksSub": "مهام لكل إصبع، وكل مهمة تنجزينها ترفع المزيج.", "wkBook": "أنهت كتاب «{b}»", "storyQ": "إلى الخطوة والسؤال على يدكِ", "readFirst": "اقرئي", "tourTouch": "المسي {f}", "tourTry": "جرّبي: {f}", "tourLight": "وفوق الإبهام نور. المسيه", "tourSkip": "تخطَّي الجولة", "tourAgain": "أعيدي الجولة الأولى", "bookProgP": "قرأتِ {a} من {b} صفحات", "bookProg": "قرأتِ {a} من {b} فصول", "bookStart": "ابدئي القراءة", "bookCont": "تابعي القراءة", "bookAgain": "اقرئي من جديد", "climbDeg": "صعدتِ في {f}", "climbStep": "خطوة إلى أعلى، نحو {s}", "hint": "اضغطي على كل إصبع لتعرفي رمزيته وأين أنتِ منه", "yourShare": "نصيبكِ منها الآن", "startQuiz": "ابدئي الاختبار", "continue": "تابعي من هنا", "toQuiz": "اختبري فهمكِ", "sit": "ماذا تفعلين؟", "right": "أحسنتِ", "again": "أعيدي الاختبار", "already": "أجبتِ عنه من قبل، فلا يتغير المزيج.", "selfQ": "أي إصبع ظهر فيكِ أكثر اليوم؟", "selfSaved": "سُجّل تقييمكِ لليوم", "meSub": "سلوكياتكِ الآن. ترتقين بالفهم والعمل والتطبيق.", "toWork": "إلى العمل: أنجزي مهام هذه المرحلة", "learnStage": "افهمي وتعلّمي: كيف تزكّين نفسك في هذه المرحلة", "tQuiz": "اختبري فهمكِ", "pwaHow": "للتثبيت: افتحي قائمة المتصفح واختاري «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».", "confirmed": "أنجزتِها", "welcomeBack": "أهلًا بعودتكِ يا {n}", "scSub": "أجيبي بصدق، فهذا لكِ وحدكِ ولا يغيّر المزيج.", "pickFinger": "اختاري إصبعًا", "aloud": "اقرئيها بصوت عالٍ", "rightSub": "اضغطي على إصبع لتقرئي عن درجته.", "readVirtue": "اقرئي عنها", "sabiqShare": "نصيبكِ من السبق بالخيرات", "introT": "يدكِ سلّم", "intro3": "تصعدين بالقراءة والاختبار والمهام.", "ttsPlay": "استمعي", "instT": "ثبّتي تزكية على شاشتك", "ios1": "اضغطي زر المشاركة {i} في سفاري: أسفل الشاشة على آيفون، وأعلاها على آيباد.", "ios2": "مرّري القائمة واختاري «إضافة إلى الشاشة الرئيسية». إن لم تجديه فاضغطي «عرض المزيد».", "ios3": "اضغطي «إضافة»، ثم افتحي تزكية من أيقونتها.", "iosNote": "على آيفون للتطبيق المثبّت تخزين منفصل عن سفاري. إن كان لكِ تقدّم في سفاري فاحفظي نسخة احتياطية هنا، ثم استعيديها داخل التطبيق المثبّت.", "iosOther": "إن لم يظهر الخيار في متصفح آخر، فافتحي الرابط في سفاري.", "storeFull": "ذاكرة المتصفح ممتلئة، فلم يُحفظ آخر تغيير. احفظي نسخة احتياطية الآن، ثم أفرغي مساحة على الجهاز.", "linkFull": "على هذا الجهاز أربعة ملفات، وهي الحد. احذفي ملفًا من الإعدادات، ثم افتحي الرابط من جديد.", "helloA": "أهلًا بكِ", "welcomeBackA": "أهلًا بعودتكِ" };
+  const UF = { "agNote": "اختاري الفئة، فيتغير المحتوى لهذا الملف ويبقى سجلّه محفوظًا.", "chGate": "هذا الفصل يُفتح بعد أن تقرئي الفصل {n}. القصة تُقرأ من أولها بالترتيب.", "pgGate": "هذه الصفحة تُفتح بعد أن تقرئي الصفحة {n}. القصة تُقرأ من أولها بالترتيب.", "readWait": "تُسجَّل القراءة حين تصلين إلى آخرها وتقرئينها على مهل.", "recSub": "ما قرأتِه وما أجبتِ عنه وما أنجزتِه، بتاريخه، محفوظًا على هذا الجهاز.", "bkPersistNo": "محفوظة على هذا الجهاز، لكن المتصفح قد يحذفها إن امتلأت ذاكرته أو مُسحت بيانات المواقع. ثبّتي التطبيق، واحفظي نسخة احتياطية من حين لآخر.", "bkExport": "احفظي نسخة احتياطية", "bkImport": "استعيدي من نسخة", "bkYes": "نعم، استعيدي النسخة", "presOk": "✓ حضرتِ اليوم", "presNo": "لم تحضري بعد اليوم: علّمي تحدياتك، أو اقرئي قصة، أو أجيبي سؤالًا.", "presStart": "ابدئي تحديًا من مهام المراحل", "trWeekDone": "أتممتِ سبعة أيام، وفُتحت العادة الثابتة", "trActiveSub": "تحدي الأيام السبعة والعادات الثابتة. علّمي ما فعلتِه اليوم.", "trNone": "حين تنجزين «الخطوة الأولى» لسمة في مهام المراحل، يظهر تحديها هنا كل يوم.", "quizSub": "أسئلة من قصص هذه المرحلة وسماتها، تراجعين بها ما فهمتِ.", "signsSub": "علامات تظهر في اليوم. اضغطي «لاحظتها اليوم» على ما رأيتِه في نفسك.", "badgesSub": "النموّ نفسه هو المكافأة، وهذه الأختام تذكير بخطواتكِ في طريق التزكية.", "stageTasksSub": "مهام لكل إصبع، وكل مهمة تنجزينها ترفع المزيج.", "wkBook": "أنهت كتاب «{b}»", "storyQ": "إلى الخطوة والسؤال على يدكِ", "readFirst": "اقرئي", "tourTouch": "المسي {f}", "tourTry": "جرّبي: {f}", "tourLight": "وفوق الإبهام نور. المسيه", "tourSkip": "تخطَّي الجولة", "tourAgain": "أعيدي الجولة الأولى", "bookProgP": "قرأتِ {a} من {b} صفحات", "bookProg": "قرأتِ {a} من {b} فصول", "bookStart": "ابدئي القراءة", "bookCont": "تابعي القراءة", "bookAgain": "اقرئي من جديد", "climbDeg": "صعدتِ في {f}", "climbStep": "خطوة إلى أعلى، نحو {s}", "hint": "اضغطي على كل إصبع لتعرفي رمزيته وأين أنتِ منه", "yourShare": "نصيبكِ منها الآن", "startQuiz": "ابدئي الاختبار", "continue": "تابعي من هنا", "toQuiz": "اختبري فهمكِ", "sit": "ماذا تفعلين؟", "right": "أحسنتِ", "again": "أعيدي الاختبار", "already": "أجبتِ عنه من قبل، فلا يتغير المزيج.", "selfQ": "أي إصبع ظهر فيكِ أكثر اليوم؟", "selfSaved": "سُجّل تقييمكِ لليوم", "meSub": "سلوكياتكِ الآن. ترتقين بالفهم والعمل والتطبيق.", "toWork": "إلى العمل: أنجزي مهام هذه المرحلة", "learnStage": "افهمي وتعلّمي: كيف تزكّين نفسك في هذه المرحلة", "tQuiz": "اختبري فهمكِ", "pwaHow": "للتثبيت: افتحي قائمة المتصفح واختاري «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».", "confirmed": "أنجزتِها", "welcomeBack": "أهلًا بعودتكِ يا {n}", "scSub": "أجيبي بصدق، فهذا لكِ وحدكِ ولا يغيّر المزيج.", "pickFinger": "اختاري إصبعًا", "aloud": "اقرئيها بصوت عالٍ", "rightSub": "اضغطي على إصبع لتقرئي عن درجته.", "readVirtue": "اقرئي عنها", "sabiqShare": "نصيبكِ من السبق بالخيرات", "introT": "يدكِ سلّم", "intro3": "تصعدين بالقراءة والاختبار والمهام.", "ttsPlay": "استمعي", "instT": "ثبّتي تزكية على شاشتك", "ios1": "اضغطي زر المشاركة {i} في سفاري: أسفل الشاشة على آيفون، وأعلاها على آيباد.", "ios2": "مرّري القائمة واختاري «إضافة إلى الشاشة الرئيسية». إن لم تجديه فاضغطي «عرض المزيد».", "ios3": "اضغطي «إضافة»، ثم افتحي تزكية من أيقونتها.", "iosNote": "على آيفون للتطبيق المثبّت تخزين منفصل عن سفاري. إن كان لكِ تقدّم في سفاري فاحفظي نسخة احتياطية هنا، ثم استعيديها داخل التطبيق المثبّت.", "iosOther": "إن لم يظهر الخيار في متصفح آخر، فافتحي الرابط في سفاري.", "storeFull": "ذاكرة المتصفح ممتلئة، فلم يُحفظ آخر تغيير. احفظي نسخة احتياطية الآن، ثم أفرغي مساحة على الجهاز.", "linkFull": "على هذا الجهاز أربعة ملفات، وهي الحد. احذفي ملفًا من الإعدادات، ثم افتحي الرابط من جديد.", "helloA": "أهلًا بكِ", "welcomeBackA": "أهلًا بعودتكِ", "doorLearn": "افهمي وتعلّمي", "doorLearnSub": "كيف تزكّين نفسك في هذه المرحلة", "doorWorkSub": "أنجزي مهام هذه المرحلة", "startHere": "ابدئي هنا", "wReview": "راجعي نفسك اليوم", "tasksSub": "ابدئي بقائمة اليوم، ثم ادخلي مرحلة من بابيها.", "todayAll": "✓ أتممتِ قائمة اليوم. تابعي في المرحلة المقترحة لكِ." };
   const GEN = () => (S.parent && route().name === "review" ? (S.parentG === "f" ? "f" : "") : S.gender);
   // adult edition: the same interface in an adult register (UA), with feminine Arabic where it differs (UAF)
   const UA = {
@@ -542,7 +556,7 @@
     secRead: ["اقرأ: قصص هذه المرحلة ومقالاتها", "Read: this stage's stories and articles"], storiesH: ["قصص ومقالات قصيرة", "Short stories and articles"],
     readSub: ["كتب بفصول تُقرأ على أيام، وقصص ومقالات قصيرة تُقرأ في دقائق. في آخر كل واحدة أسئلة عنها.", "Chapter books to read over several days, and short stories and articles that take a few minutes. Each one ends with questions about it."],
     libSub: ["كتب للكبار بفصول تُقرأ على أيام. بعد كل فصل سؤال أو سؤالان.", "Chapter books for adults, read over several days. One or two questions after each chapter."],
-    abShort: ["الإطار والمبادئ", "The frame and the principles"], abSub: ["صفحة قصيرة: من أين جاءت فكرة اليد، وكيف تُقرأ.", "A short page: where the hand comes from, and how to read it."],
+    abShort: ["الإطار والمبادئ", "The frame and the principles"], abSub: ["صفحة قصيرة: ما منصة تزكية، ومن أين جاءت فكرة اليد، وكيف تُقرأ.", "A short page: what the Tazkiya platform is, where the hand comes from, and how to read it."],
     abFrame2: ["على كل عُقلة من الإصبع سمة. ولكل سمة سيئة علاجها، ثم ما تصير إليه حين تتحول إلى خير. والصعود خطوة بعد خطوة، بسلوك تراه في يومك وتستطيع فعله اليوم.", "Each joint of a finger holds a trait. Each bad trait has its cure, and then what it becomes once it turns to good. The climb is step by step, through behaviour you can see in your own day and do today."],
     abMix: ["مزيج اليد يتغيّر بما تفعله أنت: الإجابة الصحيحة والمهمة المنجزة ترفعانه، والغياب لا ينقص منه شيئًا.", "The hand's mix changes only through what you do: a right answer or a completed task lifts it, and absence never takes anything away."],
     wkSub: ["الأيام السبعة الأخيرة، لك وحدك.", "The last seven days, for you alone."],
@@ -987,6 +1001,20 @@
   function degList(id, sel) {
     return `<ol class="degs">${C.stages[id].degrees.map((d, i) => `<li class="${i === sel ? "sel" : ""}"><span class="num">${i + 1}</span><div><b>${esc(t(d.name))}</b><span>${esc(t(d.desc))}</span>${d.turnName ? `<span class="turn">${esc(fmt(U.turnTo, { x: t(d.turnName) }))}</span>` : ""}</div></li>`).join("")}</ol>`;
   }
+  /* the two doors of a stage (23 Nov 2026): blue «افهم وتعلّم» → #/stage/<id>, green «إلى العمل» → #/stage/<id>/work.
+     The same component, words and colours in the finger sheet, the Tasks list and at the top of both stage pages;
+     on a stage page the open door is marked (aria-current) and the other one switches. */
+  function workUrl(id, i) { return "#/stage/" + id + "/work" + (i != null ? "/t" + i : ""); }
+  const DOOR_IC = {
+    learn: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5z"/><path d="M12 6.5v13"/></svg>',
+    work: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="m8 12.3 2.7 2.7L16.2 9.4"/></svg>'
+  };
+  function door(id, k, cur, full) {
+    const on = cur === k, L1 = k === "learn" ? "doorLearn" : "doorWork";
+    return `<a class="door ${k}${on ? " on" : ""}${full ? " full" : ""}" href="${k === "learn" ? "#/stage/" + id : workUrl(id)}" data-act="go"${on ? ' aria-current="page"' : ""}>
+      <span class="dic">${DOOR_IC[k]}</span><span class="dtx"><b>${esc(u(L1))}</b><span>${esc(u(L1 + "Sub"))}</span></span></a>`;
+  }
+  function doors(id, cur) { return `<nav class="doors${cur ? " here" : ""}" aria-label="${esc(u("navDoors"))}">${door(id, "learn", cur)}${door(id, "work", cur)}</nav>`; }
   function stageSheet(id, i) {
     const st = C.stages[id];
     openSheet(`<div class="meta"><span>${esc(fing(id))}</span><span>·</span><span>${esc(u("yourShare"))}: <b dir="ltr">${S.mix[id]}%</b></span></div>
@@ -994,7 +1022,7 @@
       <p class="short${i >= 0 && st.degrees[i] && st.degrees[i].looks ? " degmode" : ""}">${esc(t(st.short))}</p>
       <ul class="dchips">${st.degrees.map((d, k) => `<li class="${k === i ? "sel" : ""}"><span class="num">${k + 1}</span>${esc(t(d.name))}</li>`).join("")}</ul>
       ${i >= 0 && st.degrees[i] ? `<p class="desc">${esc(t(st.degrees[i].desc))}</p>${degDetail(id, i)}` : ""}
-      ${i >= 0 && st.degrees[i] && st.degrees[i].looks ? "" : `<div class="two-go"><a class="btn block learn" href="#/stage/${id}" data-act="go">${esc(u("learnStage"))}</a><a class="btn block work" href="#/tasks/${id}" data-act="go">${esc(u("toWork"))}</a></div>`}`, { kind: "stage", s: id, i, expanded: sheetExpandNext });
+      ${i >= 0 && st.degrees[i] && st.degrees[i].looks ? "" : doors(id)}`, { kind: "stage", s: id, i, expanded: sheetExpandNext });
     sheetExpandNext = false; sheet.classList.toggle("degsheet", i >= 0 && !!(st.degrees[i] && st.degrees[i].looks));
   }
   let DQ = null; // degree question state {id, sq, picked}
@@ -1036,7 +1064,7 @@
     }
     const last = i === st.degrees.length - 1, nx = ORDER[ORDER.indexOf(id) + 1];
     if (last && nx) more += `<a class="btn ghost block" href="#/stage/${nx}" data-act="go">${esc(fmt(U.dgDoor, { f: fing(nx) }))} →</a>`;
-    h += looks + `<div class="dg-actions">${storyBtn}${more ? `<button class="more-btn" data-act="sheetmore" aria-expanded="${exp}" aria-controls="sheetMore">${esc(u(exp ? "less" : "moreS"))} <span aria-hidden="true">${exp ? "▴" : "▾"}</span></button>` : ""}<a class="btn dark-mini" href="#/tasks/${id}/t${i}" data-act="go" aria-label="${esc(u("toWork"))}">${esc(u("tasksTab"))}</a></div>
+    h += looks + `<div class="dg-actions">${storyBtn}${more ? `<button class="more-btn" data-act="sheetmore" aria-expanded="${exp}" aria-controls="sheetMore">${esc(u(exp ? "less" : "moreS"))} <span aria-hidden="true">${exp ? "▴" : "▾"}</span></button>` : ""}<a class="btn dark-mini" href="${workUrl(id, i)}" data-act="go" aria-label="${esc(u("toWork"))}">${esc(u("tasksTab"))}</a></div>
       ${more ? `<div class="sheet-more" id="sheetMore">${more}</div>` : ""}`;
     return h;
   }
@@ -1062,7 +1090,7 @@
       ${pager(body.length)}
       ${lastP && d.step ? `<div class="card ask"><b>${esc(u(d.turn ? "dgCure" : "dgStep"))}</b><p>${esc(t(d.step))}</p></div>` : ""}
       ${lastP && d.turn ? `<div class="card ask turnc"><b>${esc(u("dgTurn"))}: ${esc(t(d.turnName))}</b><p>${esc(t(d.turn))}</p></div>` : ""}
-      ${lastP ? `<a class="btn block work" style="margin-top:18px" href="#/tasks/${id}/t${+i}">${esc(u("toTrait"))} →</a>
+      ${lastP ? `<a class="btn block work" style="margin-top:18px" href="${workUrl(id, +i)}">${esc(u("toTrait"))} →</a>
         <a class="btn ghost block" style="margin-top:10px" href="#/stage/${id}">${esc(u("dgBack"))}</a>` : ""}</div>`;
   }
   function summitSheet() {
@@ -1075,7 +1103,7 @@
     openSheet(`<div class="meta"><span>${esc(t(FINGER[f]))} · ${esc(u("rightHandWord"))}</span></div>
       <h2 class="h" style="color:${VCOL[f] === "#e6af3f" || VCOL[f] === "#d9a21b" ? "#a8770f" : VCOL[f]}">${esc(t(v.name))}</h2>
       <p class="short">${esc(t(v.desc))}</p>
-      ${v.ref ? `<p class="meta"><bdi>${esc(v.ref)}</bdi><span class="verify">${esc(u("verify"))}</span></p>` : ""}
+      ${v.ref ? `<p class="meta"><bdi>${esc(refFmt(v.ref))}</bdi></p>` : ""}
       ${v.reading ? `<a class="btn block" href="#/virtue/${encodeURIComponent(v.id)}" data-act="go">${esc(u("readVirtue"))}</a>` : ""}`, { kind: "virtue", v: vid, f });
   }
   function slotSheet() {
@@ -1257,7 +1285,7 @@
       return `<div class="wrap article choice" style="--fs:${S.fs}px">${back}<h1 class="h">${esc(t(x.title))}</h1>
         <p class="ch-k">${esc(u("chEndT"))}</p><div class="body ch-end"><p>${esc(t(x.end))}</p></div>
         <div class="read-end"></div>${first ? `<p class="sub ch-first">${esc(u("chFirst"))}: ${esc(t(first.t))}</p>` : ""}
-        ${tr ? `<a class="btn block work" href="#/tasks/${x.stage}/t${tr.i}">${esc(fmt(u("chToTasks"), { v: tr.label }))}</a>` : ""}
+        ${tr ? `<a class="btn block work" href="${workUrl(x.stage, tr.i)}">${esc(fmt(u("chToTasks"), { v: tr.label }))}</a>` : ""}
         <button class="btn block ghost" style="margin-top:10px" data-act="chrestart">${esc(u("chAgain"))}</button></div>`;
     }
     const pk = CHQ.pick, o = pk != null ? x.opts[pk] : null;
@@ -1305,7 +1333,7 @@
       <div class="seg3 pact-how">${PACT_HOW.map(h => `<button class="tog" data-act="pacthow" data-h="${h}">${esc(u("pactHow_" + h))}</button>`).join("")}</div>${pactPast()}</section>`;
     const x = pactTask(tr), on = x && (x.k === "tierStep" ? S.tasks[x.id] === "ok" : trHas(x.id));
     return `<section class="sec card pact"><p class="pact-k">${esc(u("pactT"))}</p><h2 class="h pact-v"><i class="dotc" style="background:${G[tr.s].color}"></i> ${esc(fmt(u("pactNow"), { v: tr.label }))}</h2><p class="m pact-left">${esc(leftText(left))}</p>
-      ${x ? `<div class="pact-task"><span class="ttag">${esc(u("pactToday"))} · ${esc(u(x.k))}</span><p>${on ? "✓ " : ""}${esc(t(x.tx))}</p><a class="small-btn dark" href="#/tasks/${tr.s}/t${tr.i}">${esc(u("pactGo"))}</a></div>` : ""}${pactPast()}</section>`;
+      ${x ? `<div class="pact-task"><span class="ttag">${esc(u("pactToday"))} · ${esc(u(x.k))}</span><p>${on ? "✓ " : ""}${esc(t(x.tx))}</p><a class="small-btn dark" href="${workUrl(tr.s, tr.i)}">${esc(u("pactGo"))}</a></div>` : ""}${pactPast()}</section>`;
   }
   function pactSheet() {
     openSheet(`<h2 class="h">${esc(u("pactPickT"))}</h2><p class="short">${esc(u("pactPickSub"))}</p>
@@ -1358,7 +1386,7 @@
   const twId = now => (now.toString(36) + Math.random().toString(36).slice(2, 6)).slice(0, 24);
   const twClean = v => String(v || "").replace(/[\r\n\t]+/g, " ").replace(/[<>{}\u0000-\u001f]/g, "").trim().slice(0, TW_LEN);
   const RMO = () => { try { return matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } };
-  const verse = (ar, en, ref, cls) => `<figure class="quote tw-q${cls ? " " + cls : ""}"><p class="qar" lang="ar">﴿${esc(ar)}﴾</p>${L() === "en" ? `<p class="qen" lang="en">${esc(u(en))}</p>` : ""}<figcaption class="ref"><bdi>${esc(u(ref))}</bdi><span class="checked">✓ ${esc(u("checkedQuran"))}</span></figcaption></figure>`;
+  const verse = (ar, en, ref, cls) => `<figure class="quote tw-q${cls ? " " + cls : ""}"><p class="qar" lang="ar">﴿${esc(ar)}﴾</p>${L() === "en" ? `<p class="qen" lang="en">${esc(u(en))}</p>` : ""}<figcaption class="ref"><bdi>${esc(refFmt(u(ref)))}</bdi></figcaption></figure>`;
   // the Hijri date (Umm al-Qura); the closing card shows from 20 Dhu al-Hijja to 10 Muharram
   const HJ = (() => { try { return new Intl.DateTimeFormat("en-u-ca-islamic-umalqura-nu-latn", { day: "numeric", month: "numeric", year: "numeric" }); } catch (e) { return null; } })();
   function hijri(t) { if (!HJ) return null; try { const p = {}; HJ.formatToParts(new Date(t)).forEach(x => { p[x.type] = x.value; }); const y = parseInt(p.year, 10), m = parseInt(p.month, 10), d = parseInt(p.day, 10); return y && m && d ? { y, m, d } : null; } catch (e) { return null; } }
@@ -1741,7 +1769,7 @@
     let extra = "";
     if (k === "chal") {
       const tk = !e.done && e.f ? chTask(e) : null;
-      extra = (tk ? `<div class="ch-task"><span class="ttag">${esc(u("twTask"))} · ${esc(fing(e.f))}</span><p>${esc(t(tk))}</p><a class="small-btn dark" href="#/tasks/${e.f}">${esc(u("twTaskGo"))}</a></div>` : "")
+      extra = (tk ? `<div class="ch-task"><span class="ttag">${esc(u("twTask"))} · ${esc(fing(e.f))}</span><p>${esc(t(tk))}</p><a class="small-btn dark" href="${workUrl(e.f)}">${esc(u("twTaskGo"))}</a></div>` : "")
         + (e.done ? `<p class="ch-done">${esc(u("twOverDone"))}</p>` : `<button class="btn ghost ch-over" data-act="chover" data-id="${esc(e.id)}">${esc(u("twOver"))}</button>`);
     }
     return `<li class="tw-e${e.done ? " done" : ""}"><div class="tw-e-top"><span class="tw-d">${esc(fmtDate(e.t))}</span>${tag}${f}<span class="tw-ea"><button class="linkbtn" data-act="twedit" data-k="${k}" data-id="${esc(e.id)}">${esc(u("twEdit"))}</button><button class="linkbtn tw-del" data-act="twdel" data-k="${k}" data-id="${esc(e.id)}">${esc(u("twDel"))}</button></span></div><p dir="auto">${esc(e.tx || u("twKhOld"))}</p>${extra}</li>`;
@@ -1771,7 +1799,7 @@
     extCheck();
     return `<div class="wrap tw"><header class="tw-head"><h1 class="h tw-h">${esc(u("twT"))}</h1>
       <p class="tw-verse" lang="ar">﴿${esc(V_QALAM)}﴾</p>${L() === "en" ? `<p class="tw-ven">${esc(u("twEn"))}</p>` : ""}
-      <p class="tw-ref"><bdi>${esc(u("twRef"))}</bdi><span class="checked">✓ ${esc(u("checkedQuran"))}</span><a class="linkbtn tw-whyl" href="#/tadwin/why">${esc(u("twWhyLink"))}</a></p></header>
+      <p class="tw-ref"><bdi>${esc(refFmt(u("twRef")))}</bdi><a class="linkbtn tw-whyl" href="#/tadwin/why">${esc(u("twWhyLink"))}</a></p></header>
       ${yeCard()}${twWrite()}${twNotebook()}${twBless()}${twChal()}${sawBlock()}</div>`;
   }
   function vTwWhy(again) {
@@ -1791,7 +1819,7 @@
     const k = TWD.k, el = !fresh && sheetState && sheetState.kind === "tw" ? document.getElementById("twTx") : null, tx = el ? el.value : (TWD.tx || "");
     const head = k === "kh" && !TWD.id ? `<h2 class="h kh-h">${esc(u("khBtn"))}</h2><p class="short">${esc(u("khLead"))}</p>
       <figure class="quote kh-q" style="margin-inline:0"><p class="qar" lang="ar">«${esc(KH_AR)}»</p>${L() === "en" ? `<p class="qen" lang="en">${esc(u("khEn"))}</p>` : ""}
-        <figcaption class="ref"><bdi>${esc(u("khRef"))}</bdi><span class="checked">✓ ${esc(u("checkedHadith"))}</span></figcaption></figure><p class="sub">${esc(u("khNote"))}</p>`
+        <figcaption class="ref"><bdi>${esc(u("khRef"))}</bdi></figcaption></figure><p class="sub">${esc(u("khNote"))}</p>`
       : `<h2 class="h">${esc(u(TWD.id ? "twEditLine" : TW_SH[k][0]))}</h2>`;
     const fs = k === "kh" ? "" : `<p class="tw-fl">${esc(u(k === "chal" ? "twFingerCh" : "twFinger"))}</p><div class="pact-opts tw-fs">${ORDER.map(s => `<button class="tog${TWD.f === s ? " on" : ""}" data-act="twf" data-s="${s}" aria-pressed="${TWD.f === s}"><i class="dotc" style="background:${G[s].color}"></i> ${esc(fing(s))}</button>`).join("")}</div>`;
     openSheet(`${head}<textarea id="twTx" class="eve-in tw-in" rows="3" maxlength="${TW_LEN}" autocomplete="off" dir="auto" placeholder="${esc(u(TW_SH[k][1]))}">${esc(tx)}</textarea>
@@ -1897,7 +1925,7 @@
     } else if (i === 3) {
       b = `<h1 class="h eve-q">${esc(u("eveQ4"))}</h1>
         <figure class="quote eve-dua"><p class="qar" lang="ar">«${esc(DUA_AR)}»</p>${ar ? "" : `<p class="qen" lang="en">${esc(u("eveDuaEn"))}</p>`}
-          <figcaption class="ref"><bdi>${esc(u("eveDuaRef"))}</bdi><span class="checked">✓ ${esc(u("checkedHadith"))}</span></figcaption></figure>
+          <figcaption class="ref"><bdi>${esc(u("eveDuaRef"))}</bdi></figcaption></figure>
         <button class="btn block" data-act="evefinish">${esc(u("eveAmen"))}</button>`;
     } else {
       const e = (S.eve || {})[d0] || {};
@@ -2073,6 +2101,11 @@
     introIx = 0; sheetState = null; closeSheet();
     switchProfile(id, () => introSheet());
   }
+  function homeFoot() {
+    const en = L() === "en" ? "#en" : "", ext = h => `href="${h}${en}" target="_blank" rel="noopener"`;
+    return `<footer class="homefoot"><p>${esc(u("platLine"))}</p><nav><a href="#/about">${esc(u("abT"))}</a>
+      ${ADU() ? `<a ${ext("training/")}>${esc(u("trainingL"))}</a>` : `<a ${ext("parents/")}>${esc(u("parentsL"))}</a>`}<a ${ext("privacy/")}>${esc(u("privacyL"))}</a></nav></footer>`;
+  }
   function vHome() {
     if (TOUR) return vTour();
     const anon = ADU() && !(S.name || "").trim();
@@ -2083,7 +2116,7 @@
         ${eveCard()}
         <p class="sub center" style="margin:18px 0 6px">${esc(u("meSub"))}</p>
         <div class="mix memix" aria-hidden="true">${ORDER.map(k => `<i style="flex-basis:${S.mix[k]}%;background:${MC(k)}"></i>`).join("")}</div>
-        <div class="legend melegend">${ORDER.map(k => `<a href="#/tasks/${k}"><i style="background:${MC(k)}"></i><em>${esc(nm(k))}</em><b>${S.mix[k]}%</b></a>`).join("")}</div>
+        <div class="legend melegend">${ORDER.map(k => `<a href="${workUrl(k)}"><i style="background:${MC(k)}"></i><em>${esc(nm(k))}</em><b>${S.mix[k]}%</b></a>`).join("")}</div>
         ${presenceBlock()}
         ${pactCard()}
         ${installCard()}
@@ -2093,12 +2126,13 @@
         <section class="sec"><h2 class="h">${esc(u("perFinger"))}</h2><div class="pf">${ORDER.slice().reverse().map(id => { const st = C.stages[id];
           const r = st.readings.filter(x => S.read[x.id]).length, q = st.quiz.filter(x => S.answered[x.id] !== undefined).length, tk = st.tasks.filter(x => S.tasks[x.id] === "ok").length;
           const tot = st.readings.length + st.quiz.length + st.tasks.length, done = r + q + tk;
-          return `<a class="pfrow" href="#/tasks/${id}"><span class="pfn"><b style="color:${darker(id)}">${esc(nm(id))}</b></span>
+          return `<a class="pfrow" href="${workUrl(id)}"><span class="pfn"><b style="color:${darker(id)}">${esc(nm(id))}</b></span>
             <span class="pfbar"><i style="width:${tot ? done / tot * 100 : 0}%;background:${MC(id)}"></i></span>
             <span class="m pfc"><bdi>${r}/${st.readings.length}</bdi> ${esc(u("rShort"))} · <bdi>${q}/${st.quiz.length}</bdi> ${esc(u("qShort"))} · <bdi>${tk}/${st.tasks.length}</bdi> ${esc(u("tShort"))}</span></a>`; }).join("")}</div></section>
         ${eveLink()}
         <a class="card next" href="#/record" style="margin-top:14px"><span class="tx"><b>${esc(u("recOpen"))}</b><span class="m">${esc(u("recSubShort"))}</span></span><span class="arrow">→</span></a>
         ${USING_FALLBACK ? `<p class="center meta" style="margin-top:14px"><span class="ph">${esc(u("fallbackNote"))}</span></p>` : ""}
+        ${homeFoot()}
         ${P.list.length > 1 ? `<p class="center profline">${esc(profPhrase(P.active, S))} · <button class="linkbtn" type="button" data-act="settings">${esc(u("famOpen"))}</button></p>` : ""}
       </div>`;
   }
@@ -2106,21 +2140,16 @@
   function agesLabel(a) { return a === "all" || !a ? u("agesAll") : a; }
   function vStage(id) {
     const st = C.stages[id]; if (!st) return vMissing();
-    const f = fing(id);
-    let h = `<div class="stage-top"><div class="st-back"><a class="back" href="#/">${BK()} ${esc(u("back"))}</a></div>
+    let h = `<div class="stage-top"><div class="st-back"><a class="back" href="#/">${BK()} ${esc(u("meTab"))}</a></div>
       <div class="stage-hero">${hand({ chips: false, focus: id, interactive: false })}</div>
-      <div class="stage-title">${symImg(id, "st-sym")}<div class="finger">${esc(f)}</div>
-        <h1 class="h" style="color:${darker(id)}">${esc(nm(id))}</h1>
-        <p style="margin:4px 0 0">${esc(t(st.short))}</p>
-        <div class="mix" aria-hidden="true">${ORDER.map(k => `<i style="flex-basis:${S.mix[k]}%;background:${G[k].color};opacity:${k === id ? 1 : .28}"></i>`).join("")}</div>
-        <div class="meta" style="color:var(--muted);font-size:13px">${esc(u("yourShare"))}: <b dir="ltr">${S.mix[id]}%</b></div>
-        ${stepStrip(id, true)}</div></div>
+      <div class="stage-title">${stageHead(id)}${doors(id, "learn")}
+        ${stepStrip(id)}</div></div>
       <div class="wrap">
       <section class="sec" id="sec-learn"><h2 class="h">${esc(u("secLearn"))}</h2><p class="sub">${esc(u("degNote"))}</p>${degList(id, -1)}
         ${st.climb.length ? `<h3 class="h tr-h">${esc(u("climb"))}</h3><ul class="list">${st.climb.map(c => `<li><span class="bullet" style="background:var(--viridian)"></span><span class="grow">${esc(t(c))}</span></li>`).join("")}</ul>` : ""}</section>`;
     if (S.parent && st.parent) h += `<section class="sec">${parentBlock(id, true)}</section>`;
     const row = r => `<a class="reading" href="#/read/${id}/${encodeURIComponent(r.id)}">
-        <span class="tx"><b>${esc(t(r.title))}</b><span class="m">${ADU() ? (r.minutes ? r.minutes + " " + esc(u("minutes")) : "") : `${r.minutes ? r.minutes + " " + esc(u("minutes")) + " · " : ""}${esc(u("ages"))}: ${agesHtml(r.ages)}`}${r.quote ? `${ADU() ? "" : " · "}<span class="verify">${esc(u(isHadith(r.quote) ? "verifyHadith" : "verify"))}</span>` : ""}</span></span>
+        <span class="tx"><b>${esc(t(r.title))}</b><span class="m">${ADU() ? (r.minutes ? r.minutes + " " + esc(u("minutes")) : "") : `${r.minutes ? r.minutes + " " + esc(u("minutes")) + " · " : ""}${esc(u("ages"))}: ${agesHtml(r.ages)}`}</span></span>
         ${S.read[r.id] ? `<span class="done-mark">✓ ${esc(u("read"))}</span>` : ""}<span class="arrow">→</span></a>`;
     const summ = st.readings.filter(r => r.summit === true), comp = st.readings.filter(r => r.companions === true && r.summit !== true);
     const norm = st.readings.filter(r => r.summit !== true && r.companions !== true);
@@ -2135,12 +2164,26 @@
     h += `
       <section class="sec" id="sec-quiz"><h2 class="h">${esc(u("stepQuiz"))}</h2>
         ${st.quiz.length ? `<p class="sub">${esc(u("quizSub"))}</p><a class="btn block" href="#/quiz/${id}">${esc(u("startQuiz"))} · ${st.quiz.length} ${esc(u("questions"))}</a>` : `<p class="sub">${esc(u("noQuiz"))}</p>`}</section>
-      <a class="btn block towork work" href="#/tasks/${id}">${esc(u("toWork"))} →</a>`;
+      <div class="doors end">${door(id, "work", "learn", true)}</div>`;
     if (id === "sabiq") h += vVirtues();
     const ix = ORDER.indexOf(id), pv = ORDER[ix - 1], nx = ORDER[ix + 1];
     h += `<nav class="snav">${pv ? `<a href="#/stage/${pv}"><span class="m">${esc(u("lower"))}</span><b>${esc(nm(pv))}</b></a>` : "<span></span>"}
       ${nx ? `<a href="#/stage/${nx}" class="up"><span class="m">${esc(u("higher"))}</span><b>${esc(nm(nx))}</b></a>` : `<a href="#/" class="up" data-act="summitgo"><span class="m">${esc(u("higher"))}</span><b>${esc(u("summitT"))}</b></a>`}</nav>`;
     return h + `</div>`;
+  }
+  function stageHead(id) {
+    return `${symImg(id, "st-sym")}<div class="finger">${esc(fing(id))}</div>
+        <h1 class="h" style="color:${darker(id)}">${esc(nm(id))}</h1>
+        <p style="margin:4px 0 0">${esc(t(C.stages[id].short))}</p>
+        <div class="mix" aria-hidden="true">${ORDER.map(k => `<i style="flex-basis:${S.mix[k]}%;background:${G[k].color};opacity:${k === id ? 1 : .28}"></i>`).join("")}</div>
+        <div class="meta" style="color:var(--muted);font-size:13px">${esc(u("yourShare"))}: <b dir="ltr">${S.mix[id]}%</b></div>`;
+  }
+  // the work door: the same head and the same two doors, then the stage's tasks in order
+  function vWork(id) {
+    if (!C.stages[id]) return vMissing();
+    return `<div class="stage-top work-top"><div class="st-back"><a class="back" href="#/tasks">${BK()} ${esc(u("tasksTab"))}</a></div>
+      <div class="stage-title">${stageHead(id)}${doors(id, "work")}</div></div>
+      <div class="wrap">${stageWork(id)}</div>`;
   }
   function darker(id) { return { zombie: "#5f5f5a", pig: "#a34a22", monkey: "#82590a", human: "#17687a", sabiq: "#82590a" }[id]; }
   function vVirtues() {
@@ -2149,7 +2192,7 @@
       <div class="vhand"><img src="assets/right-hand-virtues.webp" alt="" loading="lazy" decoding="async"><ul class="list">${C.virtues.map((v, i) => `<li><span class="grow">
         ${C.virtues.length <= 5 ? `<span class="meta" style="color:var(--muted);font-size:12.5px">${esc(t(FINGER[fingers[i]]))}</span>` : ""}
         <a href="#/virtue/${encodeURIComponent(v.id)}" style="display:block;font-weight:600">${esc(t(v.name))}${v.reading ? " ←".replace("←", L() === "ar" ? "←" : "→") : ""}</a><span style="font-size:13.5px">${esc(t(v.desc))}</span>
-        ${v.ref ? `<span class="meta" style="display:flex;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px"><bdi>${esc(v.ref)}</bdi>${v.verify ? `<span class="verify">${esc(u("verify"))}</span>` : ""}</span>` : ""}
+        ${v.ref ? `<span class="meta" style="display:flex;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:2px"><bdi>${esc(refFmt(v.ref))}</bdi></span>` : ""}
       </span></li>`).join("")}</ul></div></section>`;
   }
   function taskRow(id, tk) {
@@ -2169,19 +2212,19 @@
   }
   function findReading(id, rid) { const st = C.stages[id]; return st && st.readings.find(r => String(r.id) === rid); }
   function isHadith(q) { return /hadith|حديث/i.test(String(q.checked || "") + " " + String(q.ref || "")) && !/tanzil/i.test(String(q.checked || "")); }
-  function quoteBadges(q) {
-    const had = isHadith(q);
-    let b = `<span class="verify">${esc(u(had ? "verifyHadith" : "verify"))}</span>`;
-    if (q.checked) b += `<span class="checked">✓ ${esc(u(/tanzil/i.test(q.checked) ? "checkedQuran" : "checkedHadith"))}</span>`;
-    return b;
+  /* a reference as the reader sees it, «(العلق: 4)»: a Quran reference written «سورة س:آ» shows the surah and the verse;
+     every other reference shows as written. The checking record stays internal (content/REVIEW.md). */
+  function refFmt(r) {
+    const m = String(r || "").trim().match(/^([؀-ۿ][؀-ۿ ]*?)\s+\d{1,3}:(\d{1,3}(?:\s*[–-]\s*\d{1,3})?)$/);
+    return m ? `(${m[1]}: ${m[2].replace(/\s+/g, "")})` : String(r || "");
   }
   function vSources() {
-    let nQ = 0, nH = 0, nC = 0, nV = 0;
+    let nQ = 0, nH = 0;
     const item = (q, title, href, src) => {
-      const had = isHadith(q); had ? nH++ : nQ++; if (q.checked) nC++; if (q.verify) nV++;
+      const had = isHadith(q); had ? nH++ : nQ++;
       return `<li class="src"><div class="src-q ${had ? "had" : "quran"}" lang="ar" dir="rtl">${esc(q.ar || "")}</div>
         ${L() === "en" && q.en ? `<p class="src-en">${esc(q.en)}</p>` : ""}
-        <div class="src-meta"><bdi class="src-ref">${esc(q.ref || "")}</bdi>${quoteBadges(q)}${q.verify ? `<span class="pend">${esc(u("srcPending"))}</span>` : ""}</div>
+        <div class="src-meta"><bdi class="src-ref">${esc(refFmt(q.ref))}</bdi></div>
         ${src ? `<p class="src-note">${esc(src)}</p>` : ""}
         <a class="src-link" href="${href}">${esc(title)} ${L() === "ar" ? "←" : "→"}</a></li>`;
     };
@@ -2192,12 +2235,12 @@
     }).join("");
     const vs = C.virtues.filter(v => v.ref);
     if (vs.length) body += `<section class="sec"><h2 class="h" style="color:#a8770f">${esc(u("rightT"))}</h2><ul class="srcs">${vs.map(v => {
-      nQ++; if (v.verify) nV++;
-      return `<li class="src"><div class="src-meta"><b>${esc(t(v.name))}</b> · <bdi class="src-ref">${esc(v.ref)}</bdi><span class="verify">${esc(u("verify"))}</span>${v.verify ? `<span class="pend">${esc(u("srcPending"))}</span>` : ""}</div>
+      nQ++;
+      return `<li class="src"><div class="src-meta"><b>${esc(t(v.name))}</b> · <bdi class="src-ref">${esc(refFmt(v.ref))}</bdi></div>
         ${v.reading ? `<a class="src-link" href="#/virtue/${encodeURIComponent(v.id)}">${esc(u("readVirtue"))} ${L() === "ar" ? "←" : "→"}</a>` : ""}</li>`; }).join("")}</ul></section>`;
     return `<div class="wrap"><h1 class="h" style="font-size:30px;margin:6px 0 2px">${esc(u("srcT"))}</h1>
       <p class="sub">${esc(u("srcSub"))}</p>
-      <div class="src-sum"><span><b>${nQ}</b> ${esc(u("srcQuran"))}</span><span><b>${nH}</b> ${esc(u("srcHadith"))}</span><span><b>${nC}</b> ${esc(u("srcChecked"))}</span><span><b>${nV}</b> ${esc(u("srcPendingN"))}</span></div>
+      <div class="src-sum"><span><b>${nQ}</b> ${esc(u("srcQuran"))}</span><span><b>${nH}</b> ${esc(u("srcHadith"))}</span></div>
       ${body}</div>`;
   }
   function askQ(id, r) { const q = C.stages[id].quiz.find(x => x.readingId === r.id); return q ? q.q : null; }
@@ -2401,7 +2444,7 @@
       <div class="meta"><span>${r.minutes ? r.minutes + " " + esc(u("minutes")) : ""}</span>${ADU() ? "" : `<span>${esc(u("ages"))}: ${agesHtml(r.ages)}</span>`}${young ? `<button class="small-btn" data-act="aloud">${esc(u("aloud"))}</button>` : ""}</div>
       <div class="body">${body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
       ${q ? `<figure class="quote" style="margin-inline:0">${q.ar ? `<p class="qar" lang="ar">${esc(q.ar)}</p>` : ""}${L() === "en" && q.en ? `<p class="qen" lang="en">${esc(q.en)}</p>` : ""}
-        <figcaption class="ref">${q.ref ? `<bdi>${esc(q.ref)}</bdi>` : ""}${quoteBadges(q)}<a class="src-mini" href="#/sources">${esc(u("srcLink"))}</a></figcaption></figure>` : ""}
+        <figcaption class="ref">${q.ref ? `<bdi>${esc(refFmt(q.ref))}</bdi>` : ""}<a class="src-mini" href="#/sources">${esc(u("srcLink"))}</a></figcaption></figure>` : ""}
       ${r.source ? `<p class="source">${esc(t(r.source))}</p>` : ""}
       <div class="read-end"></div>${readStat(rs)}
       ${hasQ ? `<a class="btn block" style="margin-top:12px" href="#/quiz/${id}/${encodeURIComponent(r.id)}">${esc(u("toQuiz"))}</a>` : ""}
@@ -2591,21 +2634,21 @@
   function todayList() {
     const l = myList(), dn = myDoneOn(today()), m = todaysMission(), used = new Set(l.map(x => x.tx));
     const sugs = SUGS().filter(x => !used.has(t(x))).slice(0, 6);
-    const rows = [];
-    if (m && C.stages[m.stage]) rows.push(chkRow({ act: "dailydid", data: `data-s="${m.stage}" data-t="${esc(m.id)}"`, on: S.tasks[m.id] === "ok", lock: S.tasks[m.id] === "ok", tx: t(m), tag: u("tMission"), s: m.stage, cls: "mis" }));
-    l.forEach(x => rows.push(chkRow({ act: "mytog", data: `data-i="${esc(x.id)}"`, on: dn[x.id], tx: x.tx, s: x.s || "", del: x.id })));
+    const rows = [], here = u("startHere"); let nextSet = false;
+    const nx = pending => { if (!pending || nextSet) return false; nextSet = true; return true; }; // the first thing not done yet is marked «ابدأ هنا»
+    if (m && C.stages[m.stage]) { const nm1 = nx(!S.tasks[m.id]); rows.push(chkRow({ act: "dailydid", data: `data-s="${m.stage}" data-t="${esc(m.id)}"`, on: S.tasks[m.id] === "ok", lock: S.tasks[m.id] === "ok", tx: t(m), tag: (nm1 ? here + " · " : "") + u("tMission"), s: m.stage, cls: "mis" + (nm1 ? " next" : "") })); }
+    l.forEach(x => { const n1 = nx(!dn[x.id]); rows.push(chkRow({ act: "mytog", data: `data-i="${esc(x.id)}"`, on: dn[x.id], tx: x.tx, s: x.s || "", del: x.id, tag: n1 ? here : "", cls: n1 ? "next" : "" })); });
     const act = activeTiers(), c = myCounts(today()), mOk = m && S.tasks[m.id] === "ok" ? 1 : 0, tot = c.b + (m ? 1 : 0) + act.length, done = c.a + mOk + act.filter(a => trHas(a.x.id)).length;
-    return `<section class="sec card my"><div class="dash-h"><h2 class="h" style="font-size:21px;margin:0">${esc(u("tTodayT"))}</h2><b class="m" dir="ltr">${done}/${tot}</b></div>
+    const actNext = nextSet ? null : (act.find(a => !trHas(a.x.id)) || null);
+    return `<section class="sec card my"><div class="dash-h">${wnH(1, "tTodayT")}<b class="m" dir="ltr">${done}/${tot}</b></div>
       <ul class="mylist">${rows.join("")}</ul>
-      ${activeBlock(act)}
+      ${activeBlock(act, actNext)}
+      ${tot && done >= tot ? `<p class="alldone">${esc(u("todayAll"))}</p>` : ""}
       <div class="myadd"><input id="myNew" type="text" maxlength="60" autocomplete="off" placeholder="${esc(u("myPh"))}"><button class="small-btn dark" data-act="myadd">${esc(u("myAdd"))}</button></div>
       <details class="myopts"><summary>${esc(u("tMore"))}</summary>
         <div class="fpick mylink"><span class="m">${esc(u("myLink"))}</span><button class="tog ${!myStage ? "on" : ""}" data-act="mystage" data-s="" aria-pressed="${!myStage}">${esc(u("myNone"))}</button>${ORDER.map(k => `<button class="tog ${myStage === k ? "on" : ""}" data-act="mystage" data-s="${k}" aria-pressed="${myStage === k}"><i class="dotc" style="background:${G[k].color}"></i>${esc(sNm(k))}</button>`).join("")}</div>
         ${sugs.length ? `<div class="mysug">${sugs.map(x => `<button class="tog" data-act="mysug" data-i="${SUGS().indexOf(x)}">+ ${esc(t(x))}</button>`).join("")}</div>` : ""}
       </details></section>`;
-  }
-  function tSeg(id) {
-    return `<nav class="tseg" aria-label="${esc(u("tStages"))}"><a class="${!id ? "on" : ""}" href="#/tasks">${esc(u("tToday"))}</a>${ORDER.map(k => `<a class="${id === k ? "on" : ""}" href="#/tasks/${k}"><i class="dotc" style="background:${G[k].color}"></i>${esc(sNm(k))}</a>`).join("")}</nav>`;
   }
   const tiersOf = (id, d) => { const b = (C.stages[id].adult ? "a-" : "") + id + "-d" + (C.stages[id].degrees.indexOf(d) + 1); return [["s", d.step, "tierStep"], ["w", d.week, "tierWeek"], ["h", d.habit, "tierHabit"]].filter(x => x[1]).map(x => ({ id: b + x[0], tx: x[1], k: x[2] })); };
   const trDays = id => (S.tr && S.tr[id]) || [];
@@ -2616,15 +2659,15 @@
     while (set.has(new Date(d).toISOString().slice(0, 10))) { n++; d -= 864e5; }
     return n;
   }
-  function tierRow(id, x, open, tag) {
+  function tierRow(id, x, open, tag, next) {
     const on = S.tasks[x.id] === "ok";
     if (x.k === "tierStep" || !open || (on && x.k === "tierWeek"))
-      return chkRow({ act: "tdid", data: `data-s="${id}" data-t="${esc(x.id)}"`, on, lock: on || !open, tx: t(x.tx), tag, cls: !on && !open ? "locked" : "" });
+      return chkRow({ act: "tdid", data: `data-s="${id}" data-t="${esc(x.id)}"`, on, lock: on || !open, tx: t(x.tx), tag, cls: !on && !open ? "locked" : next ? "next" : "" });
     const td = trHas(x.id), btn = `<button class="trbtn ${td ? "on" : ""}" data-act="trday" data-s="${id}" data-t="${esc(x.id)}" data-k="${x.k === "tierWeek" ? "w" : "h"}" aria-pressed="${td}">${esc(u(td ? "trDoneToday" : "trToday"))}</button>`;
     let meta;
     if (x.k === "tierWeek") { const n = Math.min(7, trDays(x.id).length); meta = `<span class="dots7" aria-label="${esc(fmt(U.trOf, { n }))}">${[...Array(7)].map((_, i) => `<i class="${i < n ? "f" : ""}"></i>`).join("")}<em>${esc(fmt(U.trOf, { n }))}</em></span>`; }
     else meta = `<span class="trmeta">${esc(fmt(U.trHabitMeta, { s: trStreak(x.id), a: trDays(x.id).length }))}</span>`;
-    return `<li class="tr ${td ? "on" : ""}"><div class="grow"><span class="ttag">${esc(tag)}</span><span class="trtx">${esc(t(x.tx))}</span>${meta}</div>${btn}</li>`;
+    return `<li class="tr ${td ? "on" : ""}${next ? " next" : ""}"><div class="grow"><span class="ttag">${esc(tag)}</span><span class="trtx">${esc(t(x.tx))}</span>${meta}</div>${btn}</li>`;
   }
   function activeTiers() {
     const out = [];
@@ -2635,47 +2678,56 @@
     }));
     return out;
   }
-  function activeBlock(act) {
-    return `<h3 class="h tr-h">${esc(u("trActive"))}</h3>${act.length ? `<p class="sub tiers-sub">${esc(u("trActiveSub"))}</p><ul class="mylist">${act.map(a => tierRow(a.s, a.x, true, u(a.x.k) + " · " + t(a.d.name))).join("")}</ul>` : `<p class="sub tiers-sub">${esc(u("trNone"))}</p>`}`;
+  function activeBlock(act, nx) {
+    return `<h3 class="h tr-h">${esc(u("trActive"))}</h3>${act.length ? `<p class="sub tiers-sub">${esc(u("trActiveSub"))}</p><ul class="mylist">${act.map(a => tierRow(a.s, a.x, true, (a === nx ? u("startHere") + " · " : "") + u(a.x.k) + " · " + t(a.d.name), a === nx)).join("")}</ul>` : `<p class="sub tiers-sub">${esc(u("trNone"))}</p>`}`;
   }
-  function stepStrip(id, withWork) {
+  function stepStrip(id) {
     const st = C.stages[id], ar = L() === "ar", num = n => ar ? "٠١٢٣٤٥٦٧٨٩"[n] : String(n);
     const nd = st.degrees.length, rd = st.readings.filter(r => S.read[r.id]).length, qa = st.quiz.filter(q => S.answered[q.id] !== undefined).length, nb = booksFor(id).length;
-    const tk = st.tasks.length + [].concat(...st.degrees.filter(d => d.step).map(d => tiersOf(id, d))).length;
-    const tok = st.tasks.filter(x => S.tasks[x.id] === "ok").length + [].concat(...st.degrees.filter(d => d.step).map(d => tiersOf(id, d))).filter(x => S.tasks[x.id] === "ok").length;
     const it = [[`#/stage/${id}/learn`, "stepLearn", nd === 2 ? u("nTraits2") : fmt(U.nTraits, { n: nd }), ""],
       [`#/stage/${id}/read`, "stepRead", (nb ? (nb === 1 ? u("oneBook") : fmt(U.nBooks, { n: nb })) + " · " : "") + `${rd}/${st.readings.length}`, ""],
       [`#/stage/${id}/quiz`, "stepQuiz", `${qa}/${st.quiz.length}`, ""]];
-    if (withWork) it.push([`#/tasks/${id}`, "stepWork", `${tok}/${tk}`, "work"]);
-    return `<nav class="steps4 ${withWork ? "" : "three"}" aria-label="${esc(u("navSteps"))}">${it.map(([h, k, m, c], i) => `<a class="${c}" href="${h}"><i>${num(i + 1)}</i><b>${esc(u(k))}</b><span dir="auto">${esc(m)}</span></a>`).join("")}</nav>`;
+    return `<nav class="steps4 three" aria-label="${esc(u("navSteps"))}">${it.map(([h, k, m, c], i) => `<a class="${c}" href="${h}"><i>${num(i + 1)}</i><b>${esc(u(k))}</b><span dir="auto">${esc(m)}</span></a>`).join("")}</nav>`;
+  }
+  const numL = n => (L() === "ar" ? String(n).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]) : String(n));
+  const wnH = (n, key, tag) => `<${tag || "h2"} class="h wn"><i aria-hidden="true">${numL(n)}</i>${esc(u(key))}</${tag || "h2"}>`;
+  function stageCount(id) {
+    const st = C.stages[id], ids = st.tasks.map(x => x.id).concat(...st.degrees.filter(d => d.step).map(d => tiersOf(id, d).map(x => x.id)));
+    return { ok: ids.filter(x => S.tasks[x] === "ok").length, all: ids.length };
+  }
+  // what to do now in a stage: the first general task not done, then each trait's first open level
+  function nextTask(id) {
+    const st = C.stages[id], g = st.tasks.find(x => S.tasks[x.id] !== "ok"); if (g) return g.id;
+    for (const d of st.degrees.filter(d => d.step)) { const ts = tiersOf(id, d); for (let j = 0; j < ts.length; j++) if ((j === 0 || S.tasks[ts[j - 1].id] === "ok") && S.tasks[ts[j].id] !== "ok") return ts[j].id; }
+    return null;
   }
   function stageWork(id) {
     const st = C.stages[id], tk = st.tasks, ok = tk.filter(x => S.tasks[x.id] === "ok").length;
-    const ix = ORDER.indexOf(id), pv = ORDER[ix - 1], nx = ORDER[ix + 1];
+    const ix = ORDER.indexOf(id), pv = ORDER[ix - 1], nx = ORDER[ix + 1], nt = nextTask(id), here = u("startHere");
     const steps = st.degrees.filter(d => d.step);
     const tierAll = [].concat(...steps.map(d => tiersOf(id, d).map(x => x.id)));
-    return `<section class="sec work-h"><h2 class="h" style="color:${darker(id)};margin:0">${esc(nm(id))}</h2><p class="sub" style="margin:4px 0 0">${esc(t(st.short))}</p></section>
-      <section class="sec card learnbox"><h3 class="h" style="font-size:19px;margin:0 0 10px">${esc(u("tLearn"))}</h3>
-        <a class="btn block learn" href="#/stage/${id}">${esc(u("learnStage"))}</a>
-        ${stepStrip(id, false)}</section>
-      <section class="sec card">${selfcheckBlock(id, true)}${signsBlock(id)}</section>
-      <section class="sec card"><div class="dash-h"><h3 class="h" style="font-size:19px;margin:0">${esc(u("tStageTasks"))}</h3><b class="m" dir="ltr">${ok}/${tk.length}</b></div>
-        <ul class="mylist">${tk.map(x => chkRow({ act: "tdid", data: `data-s="${id}" data-t="${esc(x.id)}"`, on: S.tasks[x.id] === "ok", lock: S.tasks[x.id] === "ok", tx: t(x) })).join("")}</ul></section>
-      ${steps.length ? `<section class="sec card tiers"><div class="dash-h"><h3 class="h" style="font-size:19px;margin:0">${esc(u("tSteps"))}</h3><b class="m" dir="ltr">${tierAll.filter(x => S.tasks[x] === "ok").length}/${tierAll.length}</b></div>
+    const review = selfcheckBlock(id, false) + signsBlock(id);
+    let n = 0;
+    return `<section class="sec card"><div class="dash-h">${wnH(++n, "tStageTasks")}<b class="m" dir="ltr">${ok}/${tk.length}</b></div>
+        <ul class="mylist">${tk.map(x => chkRow({ act: "tdid", data: `data-s="${id}" data-t="${esc(x.id)}"`, on: S.tasks[x.id] === "ok", lock: S.tasks[x.id] === "ok", tx: t(x), tag: x.id === nt ? here : "", cls: x.id === nt ? "next" : "" })).join("")}</ul></section>
+      ${steps.length ? `<section class="sec card tiers"><div class="dash-h">${wnH(++n, "tSteps")}<b class="m" dir="ltr">${tierAll.filter(x => S.tasks[x] === "ok").length}/${tierAll.length}</b></div>
         <p class="sub tiers-sub">${esc(u("tiersSub"))}</p>
         ${steps.map(d => `<div class="trait-t" id="tr-t${st.degrees.indexOf(d)}"><b>${esc(t(d.name))}</b>${d.turnName ? `<span class="turn">${esc(fmt(U.turnTo, { x: t(d.turnName) }))}</span>` : ""}</div>
-        <ul class="mylist">${tiersOf(id, d).map((x, j, a) => tierRow(id, x, j === 0 || S.tasks[a[j - 1].id] === "ok", u(x.k))).join("")}</ul>`).join("")}</section>` : ""}
-      <nav class="snav">${pv ? `<a href="#/tasks/${pv}"><span class="m">${esc(u("lower"))}</span><b>${esc(sNm(pv))}</b></a>` : "<span></span>"}${nx ? `<a href="#/tasks/${nx}" class="up"><span class="m">${esc(u("higher"))}</span><b>${esc(sNm(nx))}</b></a>` : "<span></span>"}</nav>`;
+        <ul class="mylist">${tiersOf(id, d).map((x, j, a) => tierRow(id, x, j === 0 || S.tasks[a[j - 1].id] === "ok", (x.id === nt ? here + " · " : "") + u(x.k), x.id === nt)).join("")}</ul>`).join("")}</section>` : ""}
+      ${review ? `<section class="sec card">${wnH(++n, "wReview")}${review}</section>` : ""}
+      <nav class="snav">${pv ? `<a href="${workUrl(pv)}"><span class="m">${esc(u("lower"))}</span><b>${esc(nm(pv))}</b></a>` : "<span></span>"}${nx ? `<a href="${workUrl(nx)}" class="up"><span class="m">${esc(u("higher"))}</span><b>${esc(nm(nx))}</b></a>` : "<span></span>"}</nav>`;
   }
   function stageList() {
-    return `<section class="sec"><h3 class="h" style="font-size:19px">${esc(u("tStages"))}</h3><div class="pf">${ORDER.map(k => { const tk = C.stages[k].tasks, ok = tk.filter(x => S.tasks[x.id] === "ok").length;
-      return `<a class="pfrow" href="#/tasks/${k}"><span class="pfn"><b style="color:${darker(k)}">${esc(nm(k))}</b></span><span class="pfbar"><i style="width:${tk.length ? ok / tk.length * 100 : 0}%;background:${MC(k)}"></i></span><span class="m pfc"><bdi>${ok}/${tk.length}</bdi></span></a>`; }).join("")}</div></section>`;
+    const sg = suggest().id;
+    return `<section class="sec">${wnH(2, "tStagesT")}<p class="sub">${esc(u("tStagesSub"))}</p>
+      <div class="stcards">${ORDER.map(k => { const c = stageCount(k);
+        return `<div class="stcard${k === sg ? " sug" : ""}" style="--c:${G[k].color}"><div class="stc-h">${symImg(k, "stc-sym")}<div class="grow"><b style="color:${darker(k)}">${esc(nm(k))}</b>${k === sg ? `<span class="ttag">${esc(u("tSuggest"))}</span>` : ""}
+          <span class="pfbar"><i style="width:${c.all ? c.ok / c.all * 100 : 0}%;background:${MC(k)}"></i></span></div><span class="m pfc" dir="ltr">${c.ok}/${c.all}</span></div>
+          ${doors(k)}</div>`; }).join("")}</div></section>`;
   }
-  function vTasks(id) {
-    return `<div class="wrap"><h1 class="h" style="font-size:30px;margin:6px 0 8px">${esc(u("tasksTab"))}</h1>
-      ${tSeg(id)}
-      ${id ? stageWork(id) : todayList() + stageList()}
-</div>`;
+  function vTasks() {
+    return `<div class="wrap"><h1 class="h" style="font-size:30px;margin:6px 0 2px">${esc(u("tasksTab"))}</h1><p class="sub" style="margin-top:0">${esc(u("tasksSub"))}</p>
+      ${todayList()}${stageList()}</div>`;
   }
   function awaitBlock() {
     if (!S.parent) return "";
@@ -2919,7 +2971,7 @@
       <p style="color:var(--muted)">${esc(t(v.desc))}</p>
       <div class="body">${body.map(x => `<p>${esc(x)}</p>`).join("")}</div>
       ${v.practice ? `<div class="card"><b>${esc(u("practice"))}</b><p style="margin:4px 0 0">${esc(t(v.practice))}</p></div>` : ""}
-      ${v.ref ? `<p class="source"><bdi>${esc(v.ref)}</bdi> <span class="verify">${esc(u("verify"))}</span></p>` : ""}
+      ${v.ref ? `<p class="source"><bdi>${esc(refFmt(v.ref))}</bdi></p>` : ""}
     </div>`;
   }
   function fatirQuote() {
@@ -2932,14 +2984,16 @@
     const sec = (h, p) => `<section class="sec about-s"><h2 class="h">${esc(u(h))}</h2>${[].concat(p).map(k => `<p>${esc(u(k))}</p>`).join("")}</section>`;
     return `<div class="wrap article about"><h1 class="h" style="font-size:30px;margin:6px 0 4px">${esc(u("abT"))}</h1>
       <p class="sub">${esc(u("abSub"))}</p>
-      ${q ? `<figure class="quote"><p class="qar" lang="ar" dir="rtl">${esc(q.ar)}</p>${L() === "en" && q.en ? `<p class="qen">${esc(q.en)}</p>` : ""}<figcaption class="ref"><bdi>${esc(q.ref)}</bdi>${quoteBadges(q)}<a class="src-mini" href="#/sources">${esc(u("srcLink"))}</a></figcaption></figure>` : ""}
+      ${q ? `<figure class="quote"><p class="qar" lang="ar" dir="rtl">${esc(q.ar)}</p>${L() === "en" && q.en ? `<p class="qen">${esc(q.en)}</p>` : ""}<figcaption class="ref"><bdi>${esc(refFmt(q.ref))}</bdi><a class="src-mini" href="#/sources">${esc(u("srcLink"))}</a></figcaption></figure>` : ""}
+      <section class="sec about-s"><h2 class="h">${esc(u("abPlatT"))}</h2><p>${esc(u("abPlat1"))}</p><p>${esc(u(ADU() ? "abPlat2A" : "abPlat2"))}</p>
+        ${ADU() ? `<p class="training-link"><a class="btn ghost block" href="training/${L() === "en" ? "#en" : ""}" target="_blank" rel="noopener">${esc(u("trLink"))}</a></p>` : parentsLink()}</section>
       ${sec("abFrameT", ["abFrame1", "abFrame2"])}
       ${sec("abSummitT", "abSummit")}
       <section class="sec about-s"><h2 class="h">${esc(u("abRuleT"))}</h2><p class="about-rule">${esc(u("abRule"))}</p><p>${esc(u("abRule2"))}</p></section>
       ${sec("abMixT", "abMix")}
       <p style="margin:14px 0 0"><button class="btn ghost block" data-act="filmplay">${esc(u("filmAgain"))}</button></p>
-      <div style="margin-top:14px">${parentsLink()}</div>
-      ${ADU() ? `<p class="sub training-link" style="margin:8px 0 0;text-align:center"><a href="training/${L() === "en" ? "#en" : ""}" target="_blank" rel="noopener">${esc(u("trLink"))}</a></p>` : ""}
+      ${ADU() ? `<div style="margin-top:14px">${parentsLink()}</div>` : ""}
+      <p class="sub center" style="margin:12px 0 0"><a href="privacy/${L() === "en" ? "#en" : ""}" target="_blank" rel="noopener">${esc(u("privacyL"))}</a></p>
       <a class="card next" href="#/sources"><span class="tx"><b>${esc(u("srcT"))}</b></span><span class="arrow">→</span></a></div>`;
   }
   function vFaq() {
@@ -2979,10 +3033,14 @@
   function route() {
     const p = (location.hash.replace(/^#\/?/, "") || "").split("/").map(decodeURIComponent);
     if (!p[0]) return { name: "home" };
-    if (p[0] === "stage") return { name: "stage", id: p[1], sec: p[2] ? "sec-" + p[2] : null };
+    if (p[0] === "stage") return p[2] === "work" ? { name: "stage", id: p[1], door: "work", sec: p[3] ? "tr-" + p[3] : null } : { name: "stage", id: p[1], door: "learn", sec: p[2] ? "sec-" + p[2] : null };
     if (p[0] === "read") return { name: "read", id: p[1], rid: p[2] };
     if (p[0] === "quiz") return { name: "quiz", id: p[1], rid: p[2] || null };
-    if (p[0] === "tasks") return { name: "tasks", id: C.stages[p[1]] ? p[1] : null, sec: p[2] ? "tr-" + p[2] : null };
+    if (p[0] === "tasks" && C.stages[p[1]]) { // the former stage-tasks page (until 23 Nov 2026) is now the stage's work door
+      try { history.replaceState(history.state, "", workUrl(p[1]) + (p[2] ? "/" + p[2] : "")); } catch (e) {}
+      return { name: "stage", id: p[1], door: "work", sec: p[2] ? "tr-" + p[2] : null };
+    }
+    if (p[0] === "tasks") return { name: "tasks" };
     if (p[0] === "sign") return { name: "sign", id: p[1] };
     if (p[0] === "card") return { name: "card", id: p[1] };
     if (p[0] === "virtue") return { name: "virtue", id: p[1] };
@@ -3042,7 +3100,7 @@
     const r = route();
     if (["library", "book", "chapter", "stage", "me", "record"].includes(r.name) || (r.name === "home" && Object.keys(S.bookRead || {}).length)) ensureBooks();
     document.documentElement.lang = L(); document.documentElement.dir = L() === "ar" ? "rtl" : "ltr";
-    document.title = u("brand"); document.body.dataset.route = r.name;
+    document.title = r.name === "home" ? u("brand") + ": " + u("docTag") : u("brand"); document.body.dataset.route = r.name;
     document.documentElement.style.setProperty("--k", String(Math.max(.8, Math.min(1.7, S.fs / 19))));
     document.getElementById("brand").textContent = u("brand");
     langLabel();
@@ -3051,17 +3109,17 @@
     const shb = document.getElementById("shareBtn"); if (shb) { shb.setAttribute("aria-label", u("shareT")); shb.title = u("shareT"); }
     document.getElementById("langBtn").setAttribute("lang", L() === "ar" ? "en" : "ar");
     { const ab = document.getElementById("ageBtn"); if (ab) { const w = u(GRPK[GRP(S)]); ab.innerHTML = `<span>${esc(w)}</span><svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`; ab.setAttribute("aria-label", u("agT") + ": " + w); ab.title = u("agT"); } }
-    const tab = r.name === "tasks" ? "tasks" : r.name === "tadwin" ? "tadwin" : "hand";
+    const tab = r.name === "tasks" || (r.name === "stage" && r.door === "work") ? "tasks" : r.name === "tadwin" ? "tadwin" : "hand";
     document.getElementById("tabs").setAttribute("aria-label", u("navMain"));
     document.getElementById("tabs").innerHTML = [["hand", "#/", "meTab"], ["tasks", "#/tasks", "tasksTab"], ["tadwin", "#/tadwin", "twTab"]]
       .map(([k, h, l]) => `<a href="${h}" class="${tab === k ? "on" : ""}" ${tab === k ? 'aria-current="page"' : ""}>${ICON[k]}<span>${esc(u(l))}</span></a>`).join("");
     let h;
     switch (r.name) {
       case "home": h = vHome(); break;
-      case "stage": h = vStage(r.id); break;
+      case "stage": h = r.door === "work" ? vWork(r.id) : vStage(r.id); break;
       case "read": h = vReader(r.id, r.rid); break;
       case "quiz": h = vQuiz(r.id, r.rid); break;
-      case "tasks": h = vTasks(r.id); break;
+      case "tasks": h = vTasks(); break;
       case "sign": h = vSign(r.id); break;
       case "card": h = vCard(r.id); break;
       case "virtue": h = vVirtue(r.id); break;
@@ -3082,7 +3140,6 @@
     }
     const y = window.scrollY;
     view.innerHTML = h;
-    { const tg = view.querySelector(".tseg"), so = tg && tg.querySelector("a.on"); if (so) { const d = so.getBoundingClientRect().left - tg.getBoundingClientRect().left - (tg.clientWidth - so.offsetWidth) / 2; tg.scrollLeft += d; } }
     if (S.parent && hasTTS() && !ttsVoice() && L() === "ar") { const rb = view.querySelector(".reader-bar"); if (rb) rb.insertAdjacentHTML("afterend", `<p class="tts-hint">${esc(u("ttsHint"))}</p>`); }
     if (!keepScroll) { view.classList.remove("fade"); void view.offsetWidth; view.classList.add("fade"); }
     if (keepScroll) window.scrollTo(0, y);
@@ -3102,7 +3159,7 @@
         break;
       } else {
         const side = el.dataset.side || "L", f = el.dataset.f, tg = ((MAPS[MODE()][side]) || MAPS.one.L)[f];
-        if (route().name === "me" && G[tg]) { location.hash = "#/tasks/" + tg; return; }
+        if (route().name === "me" && G[tg]) { location.hash = workUrl(tg); return; }
         homeSel = side + ":" + f; homeDeg = -1; FX("step", G[tg] ? ORDER.indexOf(tg) : 4);
         if (route().name === "home") render(true);
         if (G[tg]) stageSheet(tg, -1); else if (tg === "slot") slotSheet(); else if (tg === "prophets") prophetsSheet(); else virtueSheet(String(tg).slice(2), f);

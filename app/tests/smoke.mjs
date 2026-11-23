@@ -203,7 +203,7 @@ function routesFrom(C, books) {
   const S = Object.keys(C.stages), R = ["#/", "#/tasks", "#/me", "#/evening", "#/record", "#/seen", "#/tadwin", "#/tadwin/why", "#/tadwin/bad", "#/library", "#/about", "#/faq", "#/sources", "#/poster", "#/review", "#/no-such-page"];
   for (const s of S) {
     const st = C.stages[s];
-    R.push(`#/stage/${s}`, `#/sign/${s}`, `#/card/${s}`, `#/quiz/${s}`);
+    R.push(`#/stage/${s}`, `#/stage/${s}/work`, `#/sign/${s}`, `#/card/${s}`, `#/quiz/${s}`);
     if (st.readings && st.readings[0]) R.push(`#/read/${s}/${encodeURIComponent(st.readings[0].id)}`);
     const di = (st.degrees || []).findIndex(d => d.story); if (di >= 0) R.push(`#/deg/${s}/${di}`);
   }
@@ -686,7 +686,7 @@ async function ideaFlows(browser, base, content, AV) {
     ok(s.bless.length === 2 && s.bless[0].src === "hand" && s.bless[0].f === "human" && s.bless[1].src === "deed", "tw: a blessing by hand and a good deed are both kept among the blessings");
     ok(s.chal.length === 2 && s.chal[0].f === "monkey" && s.chal[0].src === "hand" && !s.chal[1].f, "tw: challenges are kept, with an optional finger");
     ok(/جدتي التي زارتنا/.test(await txt(page, "#tw-bless")) && /حسنة/.test(await txt(page, "#tw-bless .tw-tag")) && !/أن أهدأ/.test(await txt(page, "#tw-bless")), "tw: they survive a reload, each in its section");
-    ok(await has(page, '#tw-chal .ch-task a[href="#/tasks/monkey"]') && (await page.locator("#tw-chal .ch-task").count()) === 1, "tw: a challenge linked to a finger suggests one of that finger's tasks");
+    ok(await has(page, '#tw-chal .ch-task a[href="#/stage/monkey/work"]') && (await page.locator("#tw-chal .ch-task").count()) === 1, "tw: a challenge linked to a finger suggests one of that finger's tasks");
     // overcome: a line of thanks among the blessings
     await page.click('#tw-chal [data-act="chover"] >> nth=0'); await page.waitForTimeout(400);
     s = await getS(page); const over = s.chal.find(e => e.done), thanks = s.bless.find(e => e.src === "over");
@@ -1052,7 +1052,7 @@ async function ideaFlows(browser, base, content, AV) {
     ok(await has(page, ".ch-fb.ok") && (await txt(page, ".ch-why")).length > 10, "5: each choice has its outcome and a line of reflection");
     await page.click('[data-act="chend"]'); await page.waitForTimeout(400);
     st = await getS(page); ok(st.chs["ch-zombie-1"].c === 1 && st.chs["ch-zombie-1"].t > 0 && (st.ev || []).some(e => e.k === "read"), "5: reaching the ending records the reading; the first choice stays");
-    ok(await has(page, '#view a[href="#/tasks/zombie/t0"]'), "5: the ending leads to the tasks of the story's trait");
+    ok(await has(page, '#view a[href="#/stage/zombie/work/t0"]'), "5: the ending leads to the tasks of the story's trait (the work door)");
     await go(page, "#/record"); ok(/الأذان والحلقة الأخيرة/.test(await page.evaluate(() => document.getElementById("view").textContent)), "5: the record lists it");
     await setS(page, "s.gender = 'f'; s.chs = { 'ch-pig-1': { c: '<b>' }, '<x>': { c: 1 }, 'ch-monkey-1': { c: 9, t: 'x' } };"); await open(page); await go(page, "#/choice/ch-pig-1");
     ok(/ماذا تفعلين؟/.test(await txt(page, ".ch-q")), "5: feminine question");
@@ -1065,6 +1065,72 @@ async function ideaFlows(browser, base, content, AV) {
     await go(page, `#/choice/${a1.id}`); ok((await txt(page, "#view")).includes(a1.title.en) && /what would you do\?/.test(await txt(page, ".ch-q")), "5a: English adult story");
     ok(!page.errs.length, "5a: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
+  // the two doors of every stage (23 Nov 2026): the same doors, words and colours in the finger sheet, the Tasks list and atop both stage pages
+  await step("two doors", async () => {
+    for (const [q, learnW, workW] of [["", "افهم وتعلّم", "إلى العمل"], ["&lang=en", "Understand and learn", "To work"], ["&ed=adult", "افهم وتعلّم", "إلى العمل"], ["&ed=adult&lang=en", "Understand and learn", "To work"]]) {
+      const tag = q || "kids ar"; const { ctx, page } = await fresh(); await open(page, "&reset=1" + q, 800);
+      const doorsAt = sel => page.evaluate(sl => [...document.querySelectorAll(sl + " .door")].map(a => [a.classList.contains("learn") ? "L" : a.classList.contains("work") ? "W" : "?", a.getAttribute("href"), a.querySelector("b").innerText.trim(), getComputedStyle(a).backgroundColor, a.getAttribute("aria-current")]), sel);
+      await page.click('#view [data-act="finger"][data-f="ring"]'); await page.waitForTimeout(300);
+      const sh = await doorsAt("#sheet .doors");
+      ok(sh.length === 2 && sh[0][0] === "L" && sh[0][1] === "#/stage/pig" && sh[1][0] === "W" && sh[1][1] === "#/stage/pig/work" && sh[0][2] === learnW && sh[1][2] === workW, `doors (${tag}): the finger sheet has the blue «${learnW}» and the green «${workW}» doors (${JSON.stringify(sh)})`);
+      await page.keyboard.press("Escape"); await go(page, "#/tasks", 450);
+      const cards = await page.locator("#view .stcard").count(), td = await doorsAt("#view .stcard .doors");
+      const pigT = td.filter(d => /pig/.test(d[1]));
+      ok(cards === 5 && td.length === 10 && pigT.length === 2 && pigT[0][1] === sh[0][1] && pigT[1][1] === sh[1][1] && pigT[0][2] === sh[0][2] && pigT[1][2] === sh[1][2] && pigT[0][3] === sh[0][3] && pigT[1][3] === sh[1][3], `doors (${tag}): the Tasks tab lists the five stages, each with the same two doors, words and colours as the sheet`);
+      ok(!(await has(page, "#view .tseg")) && (await page.locator("#view .h.wn").count()) === 2 && await has(page, "#view .stcard.sug"), `doors (${tag}): Tasks is in order (1 today, 2 your stages, one stage suggested), without the former chips`);
+      ok((await page.locator("#view .mylist li.next").count()) === 1 && /ابدأ هنا|Start here/.test(await txt(page, "#view .mylist li.next")), `doors (${tag}): one «start here» mark in today's list`);
+      await page.click('#view .stcard .door.learn[href="#/stage/pig"]'); await page.waitForTimeout(450);
+      const ln = await doorsAt("#view .stage-title .doors");
+      ok(await page.evaluate(() => location.hash) === "#/stage/pig" && ln.length === 2 && ln[0][4] === "page" && ln[1][4] === null && ln[1][1] === "#/stage/pig/work", `doors (${tag}): the learn door marks itself as the open one and offers the work door`);
+      ok((await page.locator("#view .steps4 a").count()) === 3 && !(await has(page, '#view a[href^="#/tasks/"]')) && await has(page, '#view .doors.end .door.work[href="#/stage/pig/work"]'), `doors (${tag}): learning shows its three steps and ends at the work door`);
+      await page.click('#view .stage-title .door.work'); await page.waitForTimeout(450);
+      const wk = await doorsAt("#view .stage-title .doors");
+      const tabOn = await page.evaluate(() => { const a = document.querySelector("#tabs a.on"); return a ? a.getAttribute("href") : ""; });
+      ok(await page.evaluate(() => location.hash) === "#/stage/pig/work" && wk[1][4] === "page" && wk[0][4] === null && wk[0][1] === "#/stage/pig" && tabOn === "#/tasks", `doors (${tag}): the work door marks itself, offers the learn door, and lights the Tasks tab (${tabOn})`);
+      ok(!(await has(page, "#view .learnbox")) && (await page.locator("#view .mylist li.next").count()) === 1 && (await page.locator("#view .h.wn").count()) >= 2, `doors (${tag}): the work door has numbered sections and one «start here» task, with no second learn box`);
+      ok(!page.errs.length, `doors (${tag}): no script errors (${page.errs.slice(0, 1).join("")})`);
+      await ctx.close();
+    }
+    // the former addresses still work
+    const { ctx, page } = await fresh(); await open(page, "&reset=1");
+    for (const [from, to] of [["#/tasks/pig", "#/stage/pig/work"], ["#/tasks/zombie/t0", "#/stage/zombie/work/t0"]]) {
+      await go(page, from, 500); const h = await page.evaluate(() => location.hash);
+      ok(h === to && await has(page, "#view .doors.here .door.work.on"), `doors: ${from} opens ${to} (${h})`);
+    }
+    ok(await page.evaluate(() => { const e = document.getElementById("tr-t0"); return !!e && e.getBoundingClientRect().top < 200; }), "doors: a trait address scrolls to that trait's tasks");
+    await go(page, "#/tasks/no-such", 400); ok(await page.evaluate(() => location.hash) === "#/tasks/no-such" && await has(page, "#view .stcard"), "doors: an unknown stage under #/tasks shows the Tasks tab");
+    await ctx.close();
+  });
+  // references only (23 Nov 2026): a verse or hadith shows its reference, never a checking label
+  await step("references only", async () => {
+    const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+    ok(!/مطابق|يُطابَق|يُراجَع تخريج|checkedQuran|checkedHadith|srcChecked|machine-matched/.test(src), "refs: app.js has no checking labels");
+    const BAD = /مطابق|يُطابَق|يُراجَع تخريج|بانتظار مراجعة|matched to|machine-matched|awaiting (human|the author)/;
+    for (const q of ["", "&lang=en", "&ed=adult", "&ed=adult&lang=en"]) {
+      const { ctx, page } = await fresh(); await open(page, "&reset=1" + q, 800);
+      const seen = [];
+      for (const h of ["#/sources", "#/about", "#/tadwin", "#/evening", "#/stage/sabiq", "#/stage/human"]) { await go(page, h, 450); if (BAD.test(await page.evaluate(() => document.body.innerText))) seen.push(h); }
+      ok(!seen.length, `refs (${q || "kids ar"}): no checking label on ${seen.join(", ") || "any page"}`);
+      await go(page, "#/sources", 450);
+      const refs = await page.evaluate(() => [...document.querySelectorAll(".src-ref")].map(e => e.textContent));
+      ok(refs.length > 3 && refs.filter(r => /^\(.+: \d/.test(r)).length >= 3 && !refs.some(r => /^[\u0600-\u06FF ]+ \d+:\d+$/.test(r)), `refs (${q || "kids ar"}): Quran references read «(السورة: الآية)» (${refs.slice(0, 3).join(" | ")})`);
+      await ctx.close();
+    }
+  });
+  // the platform (23 Nov 2026): a footer on the home screen with the platform line, About and privacy; training for adults, the parents' page for children
+  await step("platform footer", async () => {
+    for (const [q, adult] of [["", false], ["&lang=en", false], ["&ed=adult", true], ["&ed=adult&lang=en", true]]) {
+      const { ctx, page } = await fresh(); await open(page, "&reset=1" + q, 800);
+      const f = await page.evaluate(() => { const e = document.querySelector("#view .homefoot"); return e ? { t: e.innerText, h: [...e.querySelectorAll("a")].map(a => a.getAttribute("href")) } : null; });
+      ok(f && f.h.some(h => /^privacy\//.test(h)) && f.h.includes("#/about") && /تزكية|Tazkiya/.test(f.t), `platform (${q || "kids ar"}): the home footer links About and privacy (${f && f.h.join(", ")})`);
+      ok(f && (adult ? f.h.some(h => /^training\//.test(h)) : !f.h.some(h => /training/.test(h)) && f.h.some(h => /^parents\//.test(h))), `platform (${q || "kids ar"}): training ${adult ? "is linked" : "stays on the parents' page"}`);
+      await go(page, "#/about", 450);
+      const ab = await page.evaluate(() => [...document.querySelectorAll("#view a")].map(a => a.getAttribute("href")));
+      ok(ab.some(h => /^privacy\//.test(h)) && (adult ? ab.some(h => /^training\//.test(h)) : ab.some(h => /parents\//.test(h)) && !ab.some(h => /^training\//.test(h))), `platform (${q || "kids ar"}): About links privacy and ${adult ? "training" : "the parents' page"}`);
+      ok(!page.errs.length, `platform (${q || "kids ar"}): no script errors`);
+      await ctx.close();
+    }
+  });
   // security and compatibility review (22 Nov 2026)
   const IPHONE = "Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1 Mobile/15E148 Safari/604.1";
   const ANDR = "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36";
@@ -1092,7 +1158,7 @@ async function ideaFlows(browser, base, content, AV) {
     const WA = "https://wa.me/201283229996?text=", root = base.replace(/index\.html$/, "");
     let { ctx, page } = await fresh(); await open(page, "&reset=1");
     // the children's edition reaches nothing new: no training link on the about page or in the share sheet
-    await go(page, "#/about"); ok(!(await has(page, 'a[href*="training"]')) && !/سلّم اليد|Hand Method/.test(await txt(page, "#view")), "training: the children's «عن تزكية» has no training link");
+    await go(page, "#/about"); ok(!(await has(page, 'a[href*="training"]')) && await has(page, '#view a[href*="parents/"]'), "training: the children's «عن تزكية» names the training and leads to it through the parents' page, with no direct link (23 Nov 2026)");
     await page.click("#setBtn"); await page.waitForTimeout(250); await page.click('#sheet [data-act="sharesheet"]'); await page.waitForTimeout(400);
     ok(!(await has(page, 'a[href*="training"]')) && !/سلّم اليد|Hand Method/.test(await txt(page, "#sheet")), "training: the children's share sheet has no training link");
     await ctx.close();
@@ -1368,19 +1434,22 @@ function staticChecks() {
     if (!(man.shortcuts || []).length) errs.push("manifest: no shortcuts");
     for (const x of ic.concat(man.screenshots || [])) { const p = path.join(ROOT, x.src); if (!fs.existsSync(p)) errs.push(`manifest: missing file ${x.src}`); else if (x.sizes) { const [w, h] = x.sizes.split("x").map(Number), sz = imgSize(p); if (sz && (sz[0] !== w || sz[1] !== h)) errs.push(`manifest: ${x.src} is ${sz.join("x")}, declared ${x.sizes}`); } }
   }
-  const need = [/<meta name="robots" content="noindex/, /property="og:title"/, /property="og:description"/, /property="og:image" content="https:\/\//, /name="twitter:card" content="summary_large_image"/,
+  if (/<meta name="robots"[^>]*noindex/.test(html)) errs.push("index.html: noindex (the site is open to search engines since 23 Nov 2026)");
+  const need = [/<link rel="canonical" href="https:\/\/tazkiya\.family\/">/, /property="og:title"/, /property="og:description"/, /property="og:image" content="https:\/\//, /name="twitter:card" content="summary_large_image"/,
     /rel="apple-touch-icon"/, /name="apple-mobile-web-app-capable"/, /name="apple-mobile-web-app-title"/, /name="apple-mobile-web-app-status-bar-style"/, /rel="apple-touch-startup-image"/, /rel="manifest"/, /name="theme-color"/];
   need.forEach(r => { if (!r.test(html)) errs.push(`index.html: missing ${r.source.slice(0, 50)}`); });
   for (const m of html.matchAll(/href="(assets\/[^"]+)"/g)) if (!fs.existsSync(path.join(ROOT, m[1]))) errs.push(`index.html: missing ${m[1]}`);
   for (const m of html.matchAll(/content="https:\/\/tazkiya\.family\/(assets\/[^"]+)"/g)) if (!fs.existsSync(path.join(ROOT, m[1]))) errs.push(`index.html: preview image missing ${m[1]}`);
   const ad = fs.existsSync(path.join(ROOT, "adult/index.html")) ? rd("adult/index.html") : "";
-  if (!ad) errs.push("adult/index.html missing"); else { if (!/og:image" content="https:\/\/tazkiya\.family\/assets\/og-image-adult/.test(ad)) errs.push("adult page: no adult preview image"); if (!/noindex/.test(ad)) errs.push("adult page: no noindex"); if (/<script>/.test(ad)) errs.push("adult page: inline script (blocked by the CSP)"); }
+  if (!ad) errs.push("adult/index.html missing"); else { if (!/og:image" content="https:\/\/tazkiya\.family\/assets\/og-image-adult/.test(ad)) errs.push("adult page: no adult preview image"); if (/noindex/.test(ad)) errs.push("adult page: noindex"); if (!/<link rel="canonical" href="https:\/\/tazkiya\.family\/adult\/">/.test(ad)) errs.push("adult page: canonical is not /adult/"); if (/<script>/.test(ad)) errs.push("adult page: inline script (blocked by the CSP)"); }
   // every versioned file index.html asks for is precached under the same URL
   for (const m of html.matchAll(/(?:src|href)="([^"]+\?v=[^"]+)"/g)) if (!sw.includes(`"${m[1]}"`)) errs.push(`sw.js: CORE lacks ${m[1]} (bump it with index.html)`);
   if (!/SKIP_WAITING/.test(sw) || /addEventListener\("install"[\s\S]{0,300}skipWaiting\(\)/.test(sw)) errs.push("sw.js: a new version must wait for the user (SKIP_WAITING message only)");
   if (!/caches\.delete/.test(sw)) errs.push("sw.js: old caches are not deleted");
   const bp = fs.existsSync(BUILD_PY) ? fs.readFileSync(BUILD_PY, "utf8") : "";
-  for (const h of ["Content-Security-Policy", "X-Content-Type-Options", "Referrer-Policy", "Permissions-Policy", "frame-ancestors 'none'", "X-Robots-Tag", "adult/index.html"]) if (!bp.includes(h)) errs.push(`build_public.py: missing ${h}`);
+  for (const h of ["Content-Security-Policy", "X-Content-Type-Options", "Referrer-Policy", "Permissions-Policy", "frame-ancestors 'none'", "X-Robots-Tag", "adult/index.html", "Disallow: /api/", "sitemap.xml", "pages.dev/*"]) if (!bp.includes(h)) errs.push(`build_public.py: missing ${h}`);
+  if (/\/\*\n  ! Access-Control-Allow-Origin\n  X-Robots-Tag/.test(bp) || /Disallow: \/\n/.test(bp)) errs.push("build_public.py: the site must stay open to search engines");
+  for (const sp of ["parents/index.html", "training/index.html", "privacy/index.html"]) if (fs.existsSync(path.join(ROOT, sp)) && /noindex/.test(rd(sp))) errs.push(`${sp}: noindex`);
   if (!CSP) errs.push("could not read the CSP from build_public.py");
   // security and compatibility review (22 Nov 2026)
   for (const h of ["! Access-Control-Allow-Origin", "private-terms.txt", "404.html", "parents/index.html", "training/index.html", "/training/*", "wrangler@4", "getexif", "esbuild@"]) if (!bp.includes(h)) errs.push(`build_public.py: missing ${h}`);

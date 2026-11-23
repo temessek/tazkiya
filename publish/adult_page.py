@@ -7,12 +7,12 @@ import os, re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APP = os.path.join(ROOT, "app")
 
-ADULT_META = """<title>تزكية للكبار</title>
-<meta name="description" content="تزكية للكبار: مسار للارتقاء بالسلوك والأخلاق، من الغفلة إلى السبق بالخيرات، بأمثلة من العمل والبيت والعبادة. Tazkiya for adults: a path of growth in behaviour and character.">
+ADULT_META = """<title>تزكية للكبار: عون شخصي في الأخلاق والقيم والتربية · Tazkiya for adults</title>
+<meta name="description" content="تزكية للكبار: منصة عون شخصي في الأخلاق والقيم، للتربية والتعليم والتدريب والتطوير، من الغفلة إلى السبق بالخيرات، بأمثلة من العمل والبيت والعبادة. Tazkiya for adults: a platform of personal help in character and values, for upbringing, learning, training and growth, from heedlessness to racing ahead in good.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="تزكية · Tazkiya">
 <meta property="og:title" content="تزكية للكبار · Tazkiya for adults">
-<meta property="og:description" content="من الغفلة إلى السبق بالخيرات، بأمثلة من العمل والبيت والعبادة. From heedlessness to racing ahead in good.">
+<meta property="og:description" content="منصة عون شخصي في الأخلاق والقيم والتربية والتعليم والتدريب والتطوير. Personal help in character, values, upbringing, learning, training and growth.">
 <meta property="og:url" content="https://tazkiya.family/adult/">
 <meta property="og:image" content="https://tazkiya.family/assets/og-image-adult.jpg">
 <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@ ADULT_META = """<title>تزكية للكبار</title>
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="تزكية للكبار · Tazkiya for adults">
-<meta name="twitter:description" content="من الغفلة إلى السبق بالخيرات، بأمثلة من العمل والبيت والعبادة. From heedlessness to racing ahead in good.">
+<meta name="twitter:description" content="منصة عون شخصي في الأخلاق والقيم والتربية والتعليم والتدريب والتطوير. Personal help in character, values, upbringing, learning, training and growth.">
 <meta name="twitter:image" content="https://tazkiya.family/assets/og-image-adult.jpg">
 """
 
@@ -34,6 +34,8 @@ def adult_html(index_html):
     h = h[:m.start()] + ADULT_META + h[m.end():]
     if "<base " in h: raise SystemExit("adult_page: index.html already has a <base>")
     h = h.replace('<meta charset="utf-8">\n', '<meta charset="utf-8">\n<base href="/">\n', 1)
+    if '<link rel="canonical" href="https://tazkiya.family/">' not in h: raise SystemExit("adult_page: canonical link not found in index.html")
+    h = h.replace('<link rel="canonical" href="https://tazkiya.family/">', '<link rel="canonical" href="https://tazkiya.family/adult/">', 1)
     return h
 
 def write():
