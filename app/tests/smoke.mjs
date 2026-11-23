@@ -795,16 +795,26 @@ async function ideaFlows(browser, base, content, AV) {
         await page.keyboard.press("Escape"); await page.waitForTimeout(200);
         ok(((await getS(page)).bless || []).length === 0 && ((await getS(page)).chal || []).length === 0 && await has(page, '#tw-bless [data-act="twadd"]') && await has(page, '#tw-chal [data-act="twadd"]'), `ext: kids (${q}): writing and adding by hand stay`);
       }
-      const calls = await page.evaluate(() => performance.getEntriesByType("resource").filter(e => /\/api\//.test(e.name)).length);
+      // settings may ask the server whether family sign-in is on (api/health); the AI and the adult statement are never called
+      const calls = await page.evaluate(() => performance.getEntriesByType("resource").filter(e => /\/api\/(extract|account\/adult)/.test(e.name)).length);
       ok(!reqs.length && !calls, `ext: kids: the app never calls the server's AI or asks for it (${reqs.length}, ${calls})`);
       ok(!page.errs.length, "ext: kids: no script errors (" + page.errs.slice(0, 1).join("") + ")");
       await ctx.close(); }
-    // an adult account without the 18+ attestation: hidden; a signed-out answer is said plainly
-    { const { ctx, page } = await freshNoSw(), reqs = [];
-      await mock(ctx, reqs, () => ({ status: 401, contentType: "application/json", body: '{"error":"no_session"}' }), false);
+    // an adult account without the 18+ statement: the first use asks for it, and nothing is read before it is given
+    { const { ctx, page } = await freshNoSw(), reqs = [], adultReqs = [];
+      await mock(ctx, reqs, () => ({ status: 200, contentType: "application/json", body: '{"blessings":["صحة أمي"],"challenges":[]}' }), false);
+      await ctx.route("**/api/account/adult", r => { adultReqs.push({ h: r.request().headers(), b: r.request().postData() }); return r.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true,"adult_at":1763900000000}' }); });
+      await ctx.route("**/api/sync", r => r.fulfill({ status: 200, contentType: "application/json", body: '{"cursor":"1.1","more":false,"profiles":[],"changes":[],"rejected":[]}' }));
       await open(page, "&reset=1&ed=adult", 900); await setS(page, "s.twIntro = true; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'كان يومًا طويلًا في العمل' }];"); await open(page, "", 900); await go(page, "#/tadwin", 1200);
       await page.click("#tw-nb summary"); await page.waitForTimeout(200);
-      ok(!(await has(page, '[data-act="exgo"]')), "ext: adults without the 18+ attestation see no button");
+      ok(await has(page, '#tw-nb [data-act="exgo"]'), "ext: a signed-in adult sees the button before the 18+ statement");
+      await page.click('#tw-nb [data-act="exgo"]'); await page.waitForTimeout(400);
+      ok(/ثماني عشرة/.test(await txt(page, "#sheet")) && !reqs.length, "ext: the first use asks for the 18+ statement and sends nothing yet");
+      await page.click('#sheet [data-act="adultyes"]'); await page.waitForTimeout(800);
+      const ab = JSON.parse((adultReqs[0] || {}).b || "{}");
+      ok(adultReqs.length === 1 && ab.confirm === true && Object.keys(ab).length === 1 && (adultReqs[0].h || {})["x-tazkiya"] === "1", "ext: the statement is POSTed as {confirm: true} with the x-tazkiya header");
+      ok(reqs.length === 1 && (await page.locator("#sheet .ex-list li").count()) === 1, "ext: after the statement the extraction runs");
+      ok(!page.errs.length, "ext: no script errors (" + page.errs.slice(0, 1).join("") + ")");
       await ctx.close(); }
     { const { ctx, page } = await freshNoSw(), reqs = [];
       await mock(ctx, reqs, () => ({ status: 401, contentType: "application/json", body: '{"error":"no_session"}' }));
@@ -930,6 +940,46 @@ async function ideaFlows(browser, base, content, AV) {
     await ctx.close();
   });
   // 4. the family pact and "I saw good"
+  // the family account (Google sign-in, owner decision 23 Nov 2026), mocked to the contract of outputs/server/src/sync.js
+  await step("account: sign-in and sync", async () => {
+    const ctx = await browser.newContext({ viewport: { width: 375, height: 812 }, serviceWorkers: "block" }), page = await ctx.newPage(), errs = [], syncs = [];
+    page.on("pageerror", e => errs.push(e.message));
+    const T = Date.now() - 3600000, prof = [{ pid: "p1", name: "Remote", edition: "adult", burn_at: 0, updated: T }];
+    await ctx.route("**/api/health", r => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ ok: true, env: "test", sign_in: { email: false, google: true }, ai: true }) }));
+    await ctx.route("**/api/me", r => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ account: { email: "family@example.com", google: true, adult_at: null }, profiles: prof, profile_max: 4 }) }));
+    await ctx.route("**/api/auth/logout", r => r.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true}' }));
+    await ctx.route("**/api/sync", r => { const b = JSON.parse(r.request().postData() || "{}"); syncs.push({ b, h: r.request().headers() });
+      const first = syncs.length === 1;
+      const changes = first ? [{ pid: "p1", kind: "blessing", id: "rb1", t: T, u: T, data: { tx: "نعمة من جهاز آخر", src: "hand" } },
+        { pid: "p1", kind: "state", id: "main", t: T, u: T, data: { s: { v: 1, mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, name: "Remote", edition: "adult", twIntro: true, read: { "x": true } } } }]
+        : (b.changes || []).map(c => Object.assign({}, c));
+      return r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ cursor: first ? "1.999" : "2.999", more: false, profiles: prof, changes, rejected: [] }) }); });
+    await open(page, "&reset=1&ed=adult", 900);
+    await setS(page, "s.twIntro = true; s.name = 'Local'; s.notes = [{ id: 'n1', t: Date.now() - 1000, d, tx: 'صفحة كتبتها هنا' }];");
+    ok(!syncs.length, "acc: nothing is sent before signing in");
+    await page.goto(`${base}?intro=0#/signed-in`); await page.waitForTimeout(2500);
+    ok(await page.evaluate(() => location.hash) === "#/", "acc: back from Google, the address returns to the home page");
+    ok(syncs.length >= 2 && syncs[0].b.since === "0" && !syncs[0].b.changes && syncs.every(x => x.h["x-tazkiya"] === "1" && /application\/json/.test(x.h["content-type"] || "")), "acc: the first sync pulls the account's copy before sending anything, as JSON with the x-tazkiya header");
+    const sent = syncs.slice(1).flatMap(x => x.b.changes || []);
+    ok(sent.some(c => c.kind === "note" && c.id === "n1" && c.data.tx === "صفحة كتبتها هنا") && !sent.some(c => c.kind === "state"), "acc: this device's page goes up; the account's progress is kept, not overwritten");
+    ok((syncs[1].b.profiles || []).some(p => p.pid === "p1" && p.edition === "adult"), "acc: the profile goes up with its edition");
+    const s = await getS(page);
+    ok((s.bless || []).some(e => e.id === "rb1" && e.tx === "نعمة من جهاز آخر") && s.name === "Remote" && s.notes.length === 1, "acc: the account's blessing and progress arrive, this device's page stays");
+    const base0 = await page.evaluate(() => JSON.parse(localStorage.getItem("tazkiya-sync") || "{}"));
+    ok(base0.email === "family@example.com" && base0.linked === true && base0.cursor === "2.999", "acc: the sync state is kept on the device");
+    // a deleted line goes up as a deletion
+    const before = syncs.length;
+    await setS(page, "s.notes = [];"); await page.evaluate(() => location.reload()); await page.waitForTimeout(1500);
+    await page.evaluate(() => { location.hash = "#/tadwin"; }); await page.waitForTimeout(300);
+    await page.click("#setBtn"); await page.waitForTimeout(600);
+    ok(/حساب الأسرة/.test(await txt(page, "#sheet")) && /family@example\.com/.test(await txt(page, "#sheet")), "acc: settings show the account");
+    await page.click('#sheet [data-act="accsync"]'); await page.waitForTimeout(1200);
+    ok(syncs.slice(before).flatMap(x => x.b.changes || []).some(c => c.kind === "note" && c.id === "n1" && c.del === true), "acc: a line deleted on this device goes up as a deletion");
+    await page.click('#sheet [data-act="accout"]'); await page.waitForTimeout(800);
+    ok(!(await page.evaluate(() => localStorage.getItem("tazkiya-sync"))) && (await getS(page)).bless.length >= 1, "acc: signing out forgets the sync state and keeps everything on the device");
+    ok(!errs.length, "acc: no script errors (" + errs.slice(0, 1).join("") + ")");
+    await ctx.close();
+  });
   await step("family pact", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
     await page.evaluate(() => localStorage.removeItem("tazkiya-family")); await open(page);
     ok(await has(page, '#view .pact [data-act="pactpick"]'), "4: the pact card invites a choice");
@@ -1035,7 +1085,7 @@ async function ideaFlows(browser, base, content, AV) {
     ok(await has(page, '#sheet a.parents-link[href^="parents/"]'), "review: the share sheet links the parents page");
     await go(page, "#/about"); ok(await has(page, '#view a.parents-link'), "review: «عن تزكية» links the parents page");
     const pg = await page.goto(base.replace(/index\.html$/, "") + "parents/"); const pt = await page.evaluate(() => document.body.innerText);
-    ok(pg.status() === 200 && /الخصوصية/.test(pt) && /Privacy/.test(pt) && /لا حساب/.test(pt), "review: the parents page answers, in Arabic and English");
+    ok(pg.status() === 200 && /الخصوصية/.test(pt) && /Privacy/.test(pt) && /دون حساب/.test(pt), "review: the parents page answers, in Arabic and English");
     ok(!page.errs.length, "review: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
   await step("training page", async () => {

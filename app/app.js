@@ -424,7 +424,7 @@
     if (MEM[id]) return Object.assign(fresh(), MEM[id]);
     return fresh();
   }
-  function save() { MEM[P.active] = JSON.parse(JSON.stringify(S)); try { localStorage.setItem(keyOf(P.active), JSON.stringify(S)); } catch (e) { storeFail(e); } askPersist(); }
+  function save() { MEM[P.active] = JSON.parse(JSON.stringify(S)); try { localStorage.setItem(keyOf(P.active), JSON.stringify(S)); } catch (e) { storeFail(e); } askPersist(); syncSoon(); }
   // ask the browser to keep this site's storage (installed apps usually get it silently)
   let PERSIST = false, persistAsked = false;
   try { if (navigator.storage && navigator.storage.persisted) navigator.storage.persisted().then(v => { PERSIST = !!v; }); } catch (e) {}
@@ -644,6 +644,21 @@
     twExtSign: ["الاستخراج يعمل بعد الدخول إلى حسابك.", "Finding lines works once you are signed in to your account."],
     twExtSaved: ["حُفظت السطور التي اخترتها", "The lines you chose are saved"], twOk: ["حسنًا", "OK"],
     twExtNone: ["لم يجد المساعد سطورًا هذه المرة. أضف ما تراه بيدك.", "The helper found no lines this time. Add what you see by hand."],
+    // the family account (Google sign-in, sync) and the adult statement before the first extraction
+    accT: ["حساب الأسرة", "Family account"],
+    accSub: ["اختياري، ويُنشئه الوالد أو الكبير لنفسه. يحفظ تدوين كل ملف وتقدّمه على الإنترنت، فيبقى إن ضاع الجهاز، ويصل إليه أهل البيت من أجهزتهم.", "Optional, set up by a parent or by an adult for themself. It keeps each profile's journal and progress online, safe if the device is lost, and the family can reach it from their own devices."],
+    accGoogle: ["الدخول بحساب جوجل", "Sign in with Google"], accPriv: ["الخصوصية: ما يُحفظ وكيف يُمحى", "Privacy: what is kept and how it is erased"],
+    accNow: ["تجري المزامنة…", "Syncing…"], accLast: ["آخر مزامنة: {d}", "Last synced: {d}"],
+    accFail: ["تعذّرت المزامنة الآن، وتُعاد وحدها حين يعود الاتصال.", "Sync could not run just now. It tries again on its own once the connection is back."],
+    accSyncNow: ["مزامنة الآن", "Sync now"], accOut: ["الخروج من الحساب", "Sign out"], accDel: ["حذف الحساب", "Delete the account"],
+    accDelQ: ["يُمحى الحساب وكل ما فيه من الخادم في الحال، ولا يمكن استرجاعه. ويبقى ما على هذا الجهاز كما هو.", "The account and everything in it are erased from the server at once, with no way back. What is on this device stays as it is."],
+    accDelYes: ["حذف الحساب نهائيًا", "Delete it for good"], accDeleted: ["حُذف الحساب، وبقي كل شيء على هذا الجهاز.", "The account is deleted. Everything stays on this device."],
+    accIn: ["تم الدخول. تُحفظ ملفات هذا الجهاز الآن على الإنترنت.", "Signed in. This device's profiles are now kept online."],
+    accOutDone: ["تم الخروج من الحساب، وبقي كل شيء على هذا الجهاز.", "Signed out. Everything stays on this device."],
+    accErr: ["لم يكتمل الدخول هذه المرة. تمكن المحاولة بعد قليل.", "Sign-in did not finish this time. You can try again shortly."],
+    adT: ["الاستخراج للكبار", "Finding lines is for adults"],
+    adB: ["يقرأ المساعد ما يكتبه الكبير وحده، في ملفه هو: تدوينه، أو ما يكتبه عن وقته مع ولده.", "The helper reads only what an adult writes, in their own profile: their journal, or their notes about time spent with their child."],
+    adYes: ["أقرّ بأنني فوق ثماني عشرة سنة", "I confirm I am over eighteen"], adFail: ["لم يُحفظ الإقرار هذه المرة. تمكن المحاولة بعد قليل.", "The statement was not saved this time. You can try again shortly."],
     twBlT: ["نِعَم الله عليّ", "God's blessings on me"],
     twBlSub: ["كل خير في يومك نعمة من الله: ما وجدته في كتابتك، والخير الذي وفّقك إليه، وما رآه أهلك فيك.", "Every good thing in your day is a blessing from Allah: what you found in your writing, the good He helped you do, and what your family saw in you."],
     twAddBl: ["أضف نعمة", "Add a blessing"], twAddDeed: ["اكتب حسنة", "Write a good deed"], twKhBtn: ["خبيئة", "Hidden deed"],
@@ -1090,7 +1105,7 @@
         ${fxBlock()}
         <p style="margin:14px 0 6px;font-weight:600;font-size:14px">${esc(u("pwaT"))}</p>${installBlock()}
         <p style="margin:14px 0 6px;font-weight:600;font-size:14px">${esc(u("shareT"))}</p><button class="btn block ghost" data-act="sharesheet">${SHARE_SVG} ${esc(u("shareBtn"))}</button>
-        ${dataBlock()}
+        ${accBlock()}${dataBlock()}
         <p style="margin:14px 0 0"><button class="btn ghost block" data-act="filmplay">${esc(u("filmAgain"))}</button></p>
         <p style="margin:10px 0 0"><button class="btn ghost block" data-act="tourstart">${esc(u("tourAgain"))}</button></p>
         <p style="margin:8px 0 0"><button class="btn ghost block" data-act="resetask">${esc(u("reset"))}</button></p>
@@ -1362,7 +1377,6 @@
      has attested being 18 or older. It shows only when GET /api/health answers {ok: true, ai: true} and GET /api/me answers 200 with
      account.adult_at set (POST /api/account/adult), each within 2.5 s, checked at most once a minute. On the static site both answer
      with a page, so it stays hidden. Kids' profiles and family members' profiles never check. */
-  const EXT = { srv: false, ok: false, at: 0, busy: false };
   function apiJson(path, opt, ms) {
     const ac = typeof AbortController === "function" ? new AbortController() : null, tm = setTimeout(() => { if (ac) ac.abort(); }, ms || 2500);
     return fetch(path, Object.assign({ credentials: "same-origin", cache: "no-store", headers: { accept: "application/json" } }, opt || {}, ac ? { signal: ac.signal } : {}))
@@ -1371,20 +1385,12 @@
       .finally(() => clearTimeout(tm));
   }
   const extMine = () => ADU() && P.active === "p1"; // the server's OWNER_PID
-  function extCheck() {
-    if (!extMine()) return;
-    if (EXT.busy || Date.now() - EXT.at < 60000 || !/^https?:$/.test(location.protocol) || typeof fetch !== "function") return;
-    EXT.busy = true; EXT.at = Date.now(); let srv = false;
-    apiJson("/api/health").then(h => { srv = h.status === 200 && isObj(h.body) && h.body.ok === true && h.body.ai === true; return srv ? apiJson("/api/me").then(m => m.status === 200 && isObj(m.body) && isObj(m.body.account) && !!m.body.account.adult_at) : false; })
-      .catch(() => false).then(ok => {
-        EXT.busy = false; if (srv === EXT.srv && ok === EXT.ok) return; EXT.srv = srv; EXT.ok = !!ok;
-        if (route().name === "tadwin" && !BURN && sheet.hidden) render(true);
-      });
-  }
-  const extOn = () => EXT.ok && extMine();
+  function extCheck() { if (extMine() && !ACC.busy && Date.now() - ACC.chk > 60000) accCheck(false, true); }
+  const extOn = () => extMine() && ACC.ai && !!ACC.me; // signed in; the 18+ statement is asked on the first use
   let EXQ = null; // {n: the entry's id, ph: "wait" | "list" | "err" | "sign", bl: [{tx, on}], ch: [{tx, on}], care}
   function extStart(id) {
     const n = twList("notes").find(e => e.id === id); if (!n || !extOn()) return;
+    if (!ACC.me.adult_at) { adultSheet(id); return; }
     EXQ = { n: id, ph: "wait", bl: [], ch: [], care: "" }; extSheet();
     const body = { pid: P.active, text: n.tx, edition: "adult", lang: L() }; if (S.gender) body.gender = S.gender; // only the adult's own writing
     const done = () => { if (sheetState && sheetState.kind === "ext") extSheet(); };
@@ -1394,7 +1400,8 @@
         const ls = v => (Array.isArray(v) ? v : []).filter(x => typeof x === "string").map(twClean).filter(Boolean).slice(0, 3).map(tx => ({ tx, on: true }));
         EXQ.bl = ls(r.body.blessings); EXQ.ch = ls(r.body.challenges); EXQ.care = txt(r.body.care, 300);
         EXQ.ph = EXQ.bl.length || EXQ.ch.length || EXQ.care ? "list" : "none"; // empty lists: nothing found, add by hand
-      } else EXQ.ph = r.status === 401 ? "sign" : "err";
+      } else if (r.status === 403 && isObj(r.body) && r.body.error === "adult_attestation_required") { ACC.me.adult_at = 0; EXQ = null; sheetState = null; closeSheet(); adultSheet(id); return; }
+      else { if (r.status === 401) { ACC.me = null; SYNC = null; } EXQ.ph = r.status === 401 ? "sign" : "err"; }
       done();
     }).catch(() => { if (EXQ && EXQ.n === id) { EXQ.ph = "err"; done(); } });
   }
@@ -1418,6 +1425,274 @@
     const now = Date.now(), n = EXQ.n; let c = 0;
     [["bl", "bless"], ["ch", "chal"]].forEach(([k, key]) => EXQ[k].filter(x => x.on && x.tx).forEach(x => { S[key] = twList(key).concat([{ id: twId(now + c), t: now, tx: x.tx, src: "ai", n }]).slice(-TW_MAX); c++; }));
     EXQ = null; save(); FX(c ? "ok" : "tick"); sheetState = null; closeSheet(); render(true); if (c) toast(u("twExtSaved"));
+  }
+
+
+  /* ---------- the family account and sync (owner decision, 23 Nov 2026: accounts launch; sign-in with Google only).
+     Optional: the app stays complete signed out and offline, and nothing here runs until someone signs in on this device.
+     Signed in, every profile's journal (notes, blessings, challenges, hidden deeds) and the rest of its progress (one
+     "state" object) go to POST /api/sync (outputs/server/src/sync.js). A line goes up when its content differs from what was
+     last synced (a hash per line in SKEY), a line gone from the device goes up as a deletion, and the server's last-write-wins
+     answer comes back and is cleaned by cleanState like any stored data. The first sync of a device pulls the account's copy
+     before pushing, so a new device never overwrites the family's progress. Display settings (language, font size, map,
+     the first-open screens) stay per device. ---------- */
+  var SYNC = null, SYNC_T = 0, SYNC_QUIET = false; // var: save() can run before this block
+  const SKEY = "tazkiya-sync", SYNC_MAX = 250000, MIN_T = Date.UTC(2020, 0, 1), PROF_MAX = 4;
+  const ACC = { srv: false, google: false, ai: false, me: null, chk: 0, busy: false, run: false, again: false, err: false, last: 0 };
+  const JK = { notes: "note", bless: "blessing", chal: "challenge", khabia: "khabia" }, KJ = { note: "notes", blessing: "bless", challenge: "chal", khabia: "khabia" };
+  const ST_SKIP = new Set(["notes", "bless", "chal", "khabia", "twV", "twDraft", "parent", "fs", "lang", "intro", "tour", "map"]); // twDraft: a page not yet saved stays here
+  const API_H = { "content-type": "application/json", accept: "application/json", "x-tazkiya": "1" };
+  const canon = v => (Array.isArray(v) ? "[" + v.map(canon).join(",") + "]"
+    : isObj(v) ? "{" + Object.keys(v).filter(k => v[k] !== undefined).sort().map(k => JSON.stringify(k) + ":" + canon(v[k])).join(",") + "}"
+    : JSON.stringify(v === undefined ? null : v));
+  const hsh = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193); } return (h >>> 0).toString(36) + "." + s.length.toString(36); };
+  const entHash = e => { const o = Object.assign({}, e); delete o.u; return hsh(canon(o)); };
+  const stOf = s => { const o = {}; Object.keys(s).forEach(k => { if (!ST_SKIP.has(k)) o[k] = s[k]; }); return o; };
+  const stHash = s => hsh(canon(stOf(s)));
+  function syncLoad() {
+    try { const o = JSON.parse(localStorage.getItem(SKEY) || "null");
+      if (isObj(o) && typeof o.email === "string" && o.email) return { email: o.email, cursor: typeof o.cursor === "string" ? o.cursor : "0", base: isObj(o.base) ? o.base : {},
+        gone: Array.isArray(o.gone) ? o.gone.filter(p => PID_RE.test(p)) : [], fresh: Array.isArray(o.fresh) ? o.fresh.filter(p => PID_RE.test(p)) : [],
+        prof: isObj(o.prof) ? o.prof : {}, linked: o.linked === true, at: num(o.at, 0, 4102444800000) || 0 }; } catch (e) {}
+    return null;
+  }
+  function syncStore() { if (SYNC) try { localStorage.setItem(SKEY, JSON.stringify(SYNC)); } catch (e) {} }
+  function syncForget() { SYNC = null; clearTimeout(SYNC_T); try { localStorage.removeItem(SKEY); } catch (e) {} }
+  // after a change: within a few seconds, and at most every 20 seconds (typing saves often; the server allows 600 syncs an hour)
+  function syncSoon(ms) { if (!SYNC || SYNC_QUIET) return; clearTimeout(SYNC_T); SYNC_T = setTimeout(syncNow, ms != null ? ms : Math.max(4000, 20000 - (Date.now() - ACC.last))); }
+  const stateOf = id => (id === P.active ? S : loadOf(id));
+  // writes a profile's state after changes from the account, cleaned like stored data, without starting another sync
+  function putState(id, st) {
+    const c = cleanState(JSON.parse(JSON.stringify(st)));
+    if (!c) return stateOf(id); // a copy the app would not load is never applied
+    const s = Object.assign(fresh(), c);
+    if (id === P.active) { s.parent = S.parent; S = s; SYNC_QUIET = true; try { save(); } finally { SYNC_QUIET = false; } }
+    else { MEM[id] = s; try { localStorage.setItem(keyOf(id), JSON.stringify(s)); } catch (e) { storeFail(e); } }
+    return s;
+  }
+  function dropProfile(id) { // deleted on another device of the account
+    if (id === "p1" || !P.list.includes(id)) return;
+    try { localStorage.removeItem(keyOf(id)); } catch (e) {} delete MEM[id];
+    P.list = P.list.filter(x => x !== id); if (SYNC) delete SYNC.base[id];
+    if (P.active === id) { const lang = S.lang; P.active = "p1"; S = loadOf("p1"); S.lang = lang; }
+    saveProfiles(); F.seen = F.seen.filter(m => m.to !== id && m.from !== id); saveFamily();
+  }
+  // the account's profiles: new ones join this device (up to four), deleted ones leave it (except on the first sync, where this
+  // device's profile in that place is a new person and goes up as fresh)
+  function adoptProfiles(list, first) {
+    if (!Array.isArray(list)) return false;
+    let changed = false; SYNC.prof = {};
+    list.forEach(p => {
+      if (!isObj(p) || typeof p.pid !== "string" || !PID_RE.test(p.pid)) return;
+      SYNC.prof[p.pid] = p.gone ? 1 : 0;
+      if (p.gone) {
+        if (P.list.includes(p.pid) && p.pid !== "p1" && !SYNC.fresh.includes(p.pid)) { if (first) SYNC.fresh.push(p.pid); else { dropProfile(p.pid); changed = true; } }
+        return;
+      }
+      if (!P.list.includes(p.pid) && P.list.length < PMAX && !SYNC.gone.includes(p.pid)) {
+        P.list.push(p.pid);
+        const s = Object.assign(fresh(), { name: txt(p.name, 20), edition: p.edition === "adult" ? "adult" : "kids", intro: true, tour: true });
+        MEM[p.pid] = s; try { localStorage.setItem(keyOf(p.pid), JSON.stringify(s)); } catch (e) { storeFail(e); }
+        changed = true;
+      }
+    });
+    if (changed) saveProfiles();
+    return changed;
+  }
+  // which profiles of this device go up: the account holds four at most
+  function syncPids() {
+    const live = Object.keys(SYNC.prof).filter(p => SYNC.prof[p] === 0), out = [];
+    let n = live.length;
+    P.list.forEach(p => { if (live.includes(p)) out.push(p); else if (n < PROF_MAX) { n++; out.push(p); } });
+    return out;
+  }
+  // this device's changes since the last sync, and the hash of every line as it was sent (snap)
+  function localChanges(pids) {
+    const out = [], snap = {}, now = Date.now();
+    pids.forEach(pid => {
+      const st = stateOf(pid), b = SYNC.base[pid] || {}, here = new Set();
+      Object.keys(JK).forEach(k => (Array.isArray(st[k]) ? st[k] : []).forEach(e => {
+        const key = JK[k] + ":" + e.id; here.add(key);
+        const h = entHash(e); snap[pid + "|" + key] = h;
+        if (b[key] === h) return;
+        // the server would refuse these (it checks the same rules): they stay on this device
+        if (!TWID_RE.test(e.id) || !Number.isInteger(e.t) || e.t < MIN_T || e.t > now + 86400000 || (k !== "khabia" && !e.tx)) return;
+        const data = {}; Object.keys(e).forEach(f => { if (f !== "id" && f !== "t" && f !== "u") data[f] = e[f]; });
+        out.push({ pid, kind: JK[k], id: e.id, t: e.t, u: now, data });
+      }));
+      Object.keys(b).forEach(key => {
+        if (key === "state:main" || here.has(key)) return;
+        const i = key.indexOf(":"), kind = key.slice(0, i), id = key.slice(i + 1);
+        if (!KJ[kind] || !TWID_RE.test(id)) { delete b[key]; return; }
+        snap[pid + "|" + key] = null; out.push({ pid, kind, id, t: now, u: now, del: true });
+      });
+      const so = stOf(st), sj = JSON.stringify(so), sh = hsh(canon(so)); snap[pid + "|state:main"] = sh;
+      if (b["state:main"] !== sh && sj.length <= SYNC_MAX) out.push({ pid, kind: "state", id: "main", t: now, u: now, data: { s: so } });
+    });
+    return { out, snap };
+  }
+  // the server's rows, applied unless this device changed the same line while the request was out (it goes up next time)
+  function applyRows(rows, snap) {
+    if (!Array.isArray(rows) || !rows.length) return false;
+    const by = {}; let touched = false;
+    rows.forEach(r => { if (isObj(r) && typeof r.pid === "string" && P.list.includes(r.pid) && (KJ[r.kind] || r.kind === "state") && typeof r.id === "string") (by[r.pid] = by[r.pid] || []).push(r); });
+    Object.keys(by).forEach(pid => {
+      const cur = stateOf(pid), st = JSON.parse(JSON.stringify(cur)), b = SYNC.base[pid] = SYNC.base[pid] || {}, done = [];
+      by[pid].forEach(r => {
+        const key = r.kind + ":" + r.id, sk = pid + "|" + key;
+        if (r.kind === "state") {
+          if (r.id !== "main" || !isObj(r.data) || !isObj(r.data.s)) return;
+          if (snap && sk in snap && snap[sk] !== stHash(cur)) return;
+          const keep = {}; Object.keys(st).forEach(k => { if (ST_SKIP.has(k)) keep[k] = st[k]; });
+          Object.keys(st).forEach(k => delete st[k]); Object.assign(st, r.data.s, keep);
+          done.push(key); return;
+        }
+        const k = KJ[r.kind], list = Array.isArray(st[k]) ? st[k] : [], was = (Array.isArray(cur[k]) ? cur[k] : []).find(e => e.id === r.id);
+        if (snap && sk in snap && (was ? entHash(was) : null) !== snap[sk]) return;
+        if (r.del) st[k] = list.filter(e => e.id !== r.id);
+        else if (isObj(r.data)) {
+          const e = Object.assign({}, r.data, { id: r.id, t: r.t }); if (r.u > r.t) e.u = r.u;
+          st[k] = list.filter(x => x.id !== r.id).concat([e]).sort((a, c) => a.t - c.t);
+        }
+        done.push(key);
+      });
+      if (!done.length) return;
+      const s = putState(pid, st); touched = true;
+      done.forEach(key => {
+        if (key === "state:main") { b[key] = stHash(s); return; }
+        const i = key.indexOf(":"), e = (Array.isArray(s[KJ[key.slice(0, i)]]) ? s[KJ[key.slice(0, i)]] : []).find(x => x.id === key.slice(i + 1));
+        if (e) b[key] = entHash(e); else delete b[key];
+      });
+    });
+    return touched;
+  }
+  const syncOk = r => r.status === 200 && isObj(r.body) && typeof r.body.cursor === "string" && Array.isArray(r.body.changes);
+  async function syncNow() {
+    if (!SYNC) return;
+    if (ACC.run) { ACC.again = true; return; }
+    if (navigator.onLine === false) return;
+    ACC.run = true; ACC.again = false; ACC.last = Date.now(); clearTimeout(SYNC_T);
+    const post = body => apiJson("/api/sync", { method: "POST", headers: API_H, body: JSON.stringify(body) }, 20000);
+    let touched = false, failed = false;
+    try {
+      if (!SYNC.linked) { // the first sync of this device: the account's copy comes first
+        let r, more = true;
+        while (more) { r = await post({ since: SYNC.cursor }); if (!syncOk(r)) throw r;
+          if (adoptProfiles(r.body.profiles, true)) touched = true;
+          if (applyRows(r.body.changes, null)) touched = true; SYNC.cursor = r.body.cursor; more = r.body.more === true; }
+        SYNC.linked = true; syncStore();
+      }
+      for (const pid of SYNC.gone.slice()) { // profiles deleted on this device
+        const d = await apiJson("/api/profiles/" + pid, { method: "DELETE", headers: API_H }, 10000);
+        if (d.status === 200 || d.status === 404) SYNC.gone = SYNC.gone.filter(x => x !== pid); else if (d.status === 401) throw d;
+      }
+      const pids = syncPids(), { out, snap } = localChanges(pids);
+      const profiles = pids.map(pid => { const st = stateOf(pid); return Object.assign({ pid, name: txt(st.name, 20), edition: st.edition === "adult" ? "adult" : "kids" }, SYNC.fresh.includes(pid) ? { fresh: true } : {}); });
+      let i = 0, r, sendProf = true;
+      do {
+        const chunk = out.slice(i, i + 200), body = { since: SYNC.cursor }; i += 200;
+        if (sendProf) body.profiles = profiles; if (chunk.length) body.changes = chunk;
+        r = await post(body);
+        if (r.status === 409 && isObj(r.body) && PID_RE.test(r.body.pid || "")) { dropProfile(r.body.pid); touched = true; ACC.again = true; break; }
+        if (!syncOk(r)) throw r;
+        SYNC.fresh = [];
+        if (adoptProfiles(r.body.profiles, false)) touched = true;
+        (Array.isArray(r.body.rejected) ? r.body.rejected : []).forEach(x => { // a challenge from before the year-end burn: it goes here too
+          if (isObj(x) && x.reason === "burned" && P.list.includes(x.pid) && x.kind === "challenge") {
+            const st = stateOf(x.pid); if ((st.chal || []).some(e => e.id === x.id)) { putState(x.pid, Object.assign({}, st, { chal: st.chal.filter(e => e.id !== x.id) })); touched = true; }
+            if (SYNC.base[x.pid]) delete SYNC.base[x.pid]["challenge:" + x.id];
+          } });
+        if (applyRows(r.body.changes, snap)) touched = true;
+        SYNC.cursor = r.body.cursor; sendProf = false;
+      } while (i < out.length || r.body.more === true);
+      SYNC.at = Date.now(); ACC.err = false;
+    } catch (r) {
+      failed = true;
+      if (r && r.status === 401) { ACC.me = null; SYNC = null; } // signed out elsewhere: what is stored stays, for the same account later
+      else ACC.err = true;
+    } finally {
+      ACC.run = false; syncStore();
+      if (touched || (sheetState && sheetState.kind === "settings")) accRefresh();
+      if (ACC.again && SYNC) syncSoon(1500);
+    }
+  }
+  // after sync or a sign-in change: the settings sheet and the current page show the new state (never under someone typing)
+  function accRefresh() {
+    if (sheetState && sheetState.kind === "settings") { const y = sheet.scrollTop; settingsSheet(); sheet.scrollTop = y; return; }
+    const ae = document.activeElement;
+    if (!sheet.hidden || (ae && /^(INPUT|TEXTAREA)$/.test(ae.tagName))) return;
+    render(true);
+  }
+  // signedIn: just back from Google; ask: the adult's journal asks even on a device never signed in (the extract button)
+  function accCheck(signedIn, ask) {
+    if (ACC.busy || !/^https?:$/.test(location.protocol) || typeof fetch !== "function") return;
+    ACC.busy = true; ACC.chk = Date.now();
+    const stored = syncLoad(), was = canon([ACC.srv, ACC.google, ACC.ai, ACC.me]);
+    apiJson("/api/health").then(h => {
+      const ok = h.status === 200 && isObj(h.body) && h.body.ok === true;
+      ACC.srv = ok; ACC.google = ok && isObj(h.body.sign_in) && h.body.sign_in.google === true; ACC.ai = ok && h.body.ai === true;
+      return ok && (signedIn || stored || ask) ? apiJson("/api/me") : null; // never signed in on this device: no account request
+    }).then(m => {
+      if (!m) return;
+      if (m.status === 200 && isObj(m.body) && isObj(m.body.account)) {
+        ACC.me = { email: txt(m.body.account.email, 254), adult_at: num(m.body.account.adult_at, 0, 4102444800000) || 0 };
+        if (!SYNC) { SYNC = stored && stored.email === ACC.me.email ? stored : { email: ACC.me.email, cursor: "0", base: {}, gone: [], fresh: [], prof: {}, linked: false, at: 0 }; syncStore(); }
+        if (signedIn) toast(u("accIn"), 4000);
+        syncSoon(0);
+      } else if (m.status === 401) { ACC.me = null; SYNC = null; }
+    }).catch(() => {}).then(() => { ACC.busy = false; if (was !== canon([ACC.srv, ACC.google, ACC.ai, ACC.me])) accRefresh(); });
+  }
+  function accInit() {
+    const h = location.hash, inNow = /^#\/signed-in/.test(h), err = /^#\/signin/.test(h);
+    if (inNow || err) { try { history.replaceState(null, "", location.pathname + location.search + "#/"); } catch (e) {} if (err) toast(u("accErr"), 5000); }
+    if (inNow || syncLoad()) accCheck(inNow);
+    window.addEventListener("online", () => { if (SYNC) syncSoon(500); else if (syncLoad()) accCheck(false); });
+    document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && SYNC && Date.now() - (SYNC.at || 0) > 60000) syncSoon(500); });
+  }
+  // the account block in settings: shown once the server answers (never on a copy of the site without it)
+  function accBlock() {
+    if (!ACC.me && !SYNC && !ACC.google) { if (Date.now() - ACC.chk > 60000) accCheck(false); return ""; }
+    const priv = `<a class="linkbtn" href="privacy/" target="_blank" rel="noopener">${esc(u("accPriv"))}</a>`;
+    let h = `<p style="margin:16px 0 6px;font-weight:600;font-size:14px">${esc(u("accT"))}</p>`;
+    if (!ACC.me) return h + `<p class="sub" style="margin:0 0 8px">${esc(u("accSub"))}</p>${ACC.google ? `<a class="btn block ghost" href="api/auth/google/start">${esc(u("accGoogle"))}</a>` : ""}<p style="margin:8px 0 0">${priv}</p>`;
+    const st = ACC.run || (SYNC && !SYNC.at) ? u("accNow") : ACC.err ? u("accFail") : SYNC && SYNC.at ? fmt(U.accLast, { d: fmtDate(SYNC.at) + " " + new Date(SYNC.at).toLocaleTimeString(L() === "ar" ? "ar-u-nu-latn" : "en-GB", { hour: "2-digit", minute: "2-digit" }) }) : "";
+    return h + `<p class="sub" style="margin:0 0 4px"><bdi>${esc(ACC.me.email)}</bdi></p><p class="sub" style="margin:0 0 8px" role="status">${esc(st)}</p>
+      <div class="bkrow"><button class="btn ghost" data-act="accsync">${esc(u("accSyncNow"))}</button><button class="btn ghost" data-act="accout">${esc(u("accOut"))}</button></div>
+      <p style="margin:8px 0 0">${priv}</p><p style="margin:4px 0 0"><button class="linkbtn" data-act="accdel">${esc(u("accDel"))}</button></p>`;
+  }
+  function accDelSheet() {
+    openSheet(`<h2 class="h">${esc(u("accDel"))}</h2><p class="short">${esc(u("accDelQ"))}</p>
+      <div class="row"><button class="btn ghost" data-act="close">${esc(u("twDelNo"))}</button><button class="btn" data-act="accdelyes">${esc(u("accDelYes"))}</button></div>`, { kind: "accdel" });
+  }
+  function accOut() {
+    apiJson("/api/auth/logout", { method: "POST", headers: API_H, body: "{}" }, 8000).catch(() => null).then(r => {
+      if (r && r.status !== 200 && r.status !== 401) { toast(u("accFail"), 4000); return; }
+      ACC.me = null; syncForget(); toast(u("accOutDone"), 4000); accRefresh();
+    });
+  }
+  function accDelete() {
+    apiJson("/api/account", { method: "DELETE", headers: API_H, body: JSON.stringify({ confirm: "delete" }) }, 10000).catch(() => null).then(r => {
+      if (!r || (r.status !== 200 && r.status !== 401)) { toast(u("accFail"), 4000); return; }
+      ACC.me = null; syncForget(); sheetState = null; closeSheet(); toast(u("accDeleted"), 5000); render(true);
+    });
+  }
+  // before the first extraction: the account holder states they are over eighteen (stored with its time on the server)
+  function adultSheet(id) {
+    openSheet(`<h2 class="h">${esc(u("adT"))}</h2><p class="short">${esc(u("adB"))}</p>
+      <button class="btn block" data-act="adultyes" data-id="${esc(id)}">${esc(u("adYes"))}</button>
+      <p style="margin:10px 0 0"><a class="linkbtn" href="privacy/" target="_blank" rel="noopener">${esc(u("accPriv"))}</a></p>`, { kind: "adult" });
+  }
+  function adultYes(id) {
+    apiJson("/api/account/adult", { method: "POST", headers: API_H, body: JSON.stringify({ confirm: true }) }, 10000).catch(() => null).then(r => {
+      if (r && r.status === 200 && isObj(r.body) && r.body.adult_at) { ACC.me.adult_at = num(r.body.adult_at, 0, 4102444800000) || Date.now(); sheetState = null; closeSheet(); extStart(id); }
+      else if (r && r.status === 401) { ACC.me = null; SYNC = null; sheetState = null; closeSheet(); extSignSheet(); }
+      else toast(u("adFail"), 4000);
+    });
+  }
+  function extSignSheet() {
+    openSheet(`<h2 class="h">${esc(u("twExtT"))}</h2><p class="short">${esc(u("twExtSign"))}</p>
+      ${ACC.google ? `<a class="btn block" href="api/auth/google/start">${esc(u("accGoogle"))}</a>` : ""}
+      <p style="margin:10px 0 0"><a class="linkbtn" href="privacy/" target="_blank" rel="noopener">${esc(u("accPriv"))}</a></p>`, { kind: "extsign" });
   }
 
   // the free writing: a new page, or an entry of the notebook reopened (TWE: its id; TWX: its text being edited)
@@ -1558,6 +1833,7 @@
     const y = yearEnd(); if (!y || S.burnY === y) return;
     const list = blItems().filter(x => inYear(x.e, y)).reverse().slice(-40);
     if (burn) S.chal = []; S.burnY = y; save(); // the deletion is real
+    if (burn && SYNC) apiJson("/api/burn", { method: "POST", headers: API_H, body: JSON.stringify({ pid: P.active }) }, 10000).catch(() => null).then(() => syncSoon(500));
     BURN = { y, ph: burn ? 0 : list.length ? 1 : 2, i: 0, list, pick: [] };
     sheetState = null; closeSheet(); FX(burn ? "tick" : "ok");
     const r = route(); if (r.name !== "tadwin" || r.sc) location.hash = "#/tadwin"; else { render(); window.scrollTo(0, 0); }
@@ -2723,7 +2999,7 @@
     if (p[0] === "sources") return { name: "sources" };
     if (p[0] === "about") return { name: "about" };
     if (p[0] === "deg") return { name: "deg", id: p[1], i: p[2] };
-    if (p[0] === "me") return { name: "home" };
+    if (p[0] === "me" || p[0] === "signed-in" || p[0] === "signin") return { name: "home" }; // back from Google sign-in (accInit)
     return { name: "missing" };
   }
   const view = document.getElementById("view");
@@ -2894,6 +3170,7 @@
         const id = P.active; try { localStorage.removeItem(keyOf(id)); } catch (e) {} delete MEM[id];
         P.list = P.list.filter(x => x !== id); P.active = "p1"; saveProfiles();
         F.seen = F.seen.filter(m => m.to !== id && m.from !== id); saveFamily();
+        if (SYNC) { if (!SYNC.gone.includes(id)) SYNC.gone.push(id); delete SYNC.base[id]; syncStore(); syncSoon(0); }
         const par = S.parent, lang = S.lang; S = loadOf("p1"); S.parent = par; S.lang = lang; render(true); settingsSheet(); break;
       }
       case "bpick": {
@@ -2999,6 +3276,11 @@
         S[st.k] = twList(st.k).filter(e => e.id !== st.id); if (st.k === "notes") { if (TWE === st.id) { TWE = null; TWX = null; } if (TW_LAST === st.id) TW_LAST = ""; }
         save(); closeSheet(); render(true); toast(u("twDeleted")); break; }
       case "nbsave": nbSave(); break;
+      case "accsync": ACC.err = false; syncSoon(0); { const y = sheet.scrollTop; settingsSheet(); sheet.scrollTop = y; } break;
+      case "accout": accOut(); break;
+      case "accdel": accDelSheet(); break;
+      case "accdelyes": if (sheetState && sheetState.kind === "accdel") accDelete(); break;
+      case "adultyes": if (sheetState && sheetState.kind === "adult" && ACC.me) adultYes(el.dataset.id || ""); break;
       case "nbcancel": TWE = null; TWX = null; FX("tick"); render(true); break;
       case "nbopen": { const e = twList("notes").find(x => x.id === el.dataset.id); if (!e) break;
         TWE = e.id; TWX = null; TW_LAST = ""; FX("tick"); render(true);
@@ -3166,7 +3448,7 @@
   if (params.get("tour") === "1") { S.intro = true; TOUR = { i: 0, hit: false }; }
   applyEdition(boot);
   function boot() {
-    render();
+    render(); accInit();
     const sel = params.get("sel");
     if (MOVE_IN) { S.intro = true; save(); moveIn(MOVE_IN); }
     else if (window.TZ_MOVE) moveSheet();
