@@ -168,7 +168,7 @@
     scTally: ["«غالبًا» في {a} من {b}", "\u201cOften\u201d on {a} of {b}"], pickFinger: ["اختر إصبعًا", "Pick a finger"],
     forParents: ["للوالدين", "For parents"],
     card: ["بطاقة الإشارة", "Sign card"], cardOf: ["سمات {f}", "{F} signs"], print: ["اطبع", "Print"], share: ["شارك", "Share"], copied: ["نُسخ نص البطاقة", "Card text copied"],
-    cardFoot: ["تزكية · tazkiya.pages.dev", "Tazkiya · tazkiya.pages.dev"],
+    cardFoot: ["تزكية · tazkiya.family", "Tazkiya · tazkiya.family"],
     today: ["مهمة اليوم", "Today's mission"],
     aloud: ["اقرأها بصوت عالٍ", "Read aloud"], aloudExit: ["عرض النص كاملًا", "Show full text"],
     rightHandWord: ["اليد اليمنى", "the right hand"],
@@ -409,6 +409,10 @@
   let S = load();
 
   const params = new URLSearchParams(location.search);
+  const CANON = "https://tazkiya.family/"; // the public address (since 23 Nov 2026)
+  // progress carried over from the former address arrives in the fragment (#move=…): read it once, then clear it from the address
+  let MOVE_IN = null;
+  if (/^#move=/.test(location.hash)) { MOVE_IN = location.hash.slice(6); try { history.replaceState(null, "", location.pathname + location.search + "#/"); } catch (e) { location.hash = "#/"; } }
   if (params.get("reset") === "1" && /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) { S = fresh(); try { history.replaceState(null, "", location.pathname + location.hash); } catch (e) {} }
   if (params.get("lang") === "en" || params.get("lang") === "ar") S.lang = params.get("lang");
   // ?ed=adult (or ?ed=kids) opens that edition directly, and never changes a profile behind its owner's back:
@@ -589,6 +593,20 @@
   });
   Object.assign(UF, { itpT: "ثبّتي تزكية حتى يبقى تقدّمك", itpSubMac: "سفاري يمسح بيانات المواقع التي لم تُفتح أسبوعًا. احفظي نسخة احتياطية، أو أضيفي تزكية إلى Dock من قائمة «ملف».",
     bkRemT: "احفظي نسخة احتياطية", itpTMac: "احفظي تقدّمك", iosMove: "لكِ تقدّم في سفاري؟ احفظي نسخة هناك، ثم استعيديها هنا.", eveGcal: "أضيفي إلى تقويم جوجل" });
+  Object.assign(U, {
+    moveT: ["انتقلت تزكية إلى tazkiya.family", "Tazkiya has moved to tazkiya.family"],
+    moveB: ["تقدّمك محفوظ في هذا الجهاز على العنوان القديم. بضغطة واحدة ينتقل معك إلى العنوان الجديد داخل الرابط نفسه، دون أن يمرّ بأي خادم.", "Your progress is saved on this device under the old address. One tap carries it to the new address inside the link itself, without passing through any server."],
+    moveGo: ["انقل تقدّمي وافتح الموقع الجديد", "Move my progress and open the new site"],
+    moveBig: ["تقدّمك أكبر من أن ينتقل داخل الرابط. احفظ نسخة احتياطية، ثم افتح الموقع الجديد واستعدها من الإعدادات.", "Your progress is too large to travel inside the link. Save a backup, then open the new site and restore it from Settings."],
+    moveOpen: ["افتح الموقع الجديد", "Open the new site"],
+    moveInT: ["تقدّمك من العنوان القديم", "Your progress from the old address"],
+    moveInAsk: ["انقل هذا التقدّم إلى هنا؟", "Bring this progress here?"],
+    moveInOver: ["في هذا الموقع تقدّم محفوظ من قبل، والنقل يحلّ محله.", "This site already has saved progress; the move replaces it."],
+    moveInYes: ["انقل التقدّم", "Move the progress"],
+    moveBad: ["تعذّرت قراءة التقدّم المنقول. افتح العنوان القديم واحفظ نسخة احتياطية، ثم استعدها هنا من الإعدادات.", "The moved progress could not be read. Open the old address and save a backup, then restore it here from Settings."]
+  });
+  Object.assign(UF, { moveBig: "تقدّمك أكبر من أن ينتقل داخل الرابط. احفظي نسخة احتياطية، ثم افتحي الموقع الجديد واستعيديها من الإعدادات.",
+    moveBad: "تعذّرت قراءة التقدّم المنقول. افتحي العنوان القديم واحفظي نسخة احتياطية، ثم استعيديها هنا من الإعدادات." });
   Object.assign(UF, { chTry: "جرّبي الاختيار الآخر", chOn: "تابعي إلى الخاتمة", chAgain: "اقرئي القصة من أولها" });
   Object.assign(UA, {
     eveQ1: ["أين غلبتك نفسك اليوم، وأين غلبتها؟", "Where did your self get the better of you today, and where did you get the better of it?"],
@@ -767,7 +785,7 @@
   function openSheet(html, st) {
     clearTimeout(closeT);
     document.body.classList.remove("intro-open");
-    sheet.classList.remove("tall"); sheet.classList.toggle("expanded", !!(st && st.expanded)); sheetState = st; sheet.innerHTML = `<button class="grab" data-act="sheetmore" aria-label="${esc(u("more"))}" tabindex="-1"></button><button class="x" data-act="close" aria-label="${esc(u("close"))}">×</button>` + html;
+    sheet.classList.remove("tall", "movefull"); sheet.classList.toggle("expanded", !!(st && st.expanded)); sheetState = st; sheet.innerHTML = `<button class="grab" data-act="sheetmore" aria-label="${esc(u("more"))}" tabindex="-1"></button><button class="x" data-act="close" aria-label="${esc(u("close"))}">×</button>` + html;
     sheet.hidden = false; scrim.hidden = !(st && st.kind === "pin"); sheet.classList.remove("closing"); document.body.classList.add("sheet-open");
     setInert(!(st && HAND_SHEETS.includes(st.kind)));
     if (st && ["stage", "virtue", "slot", "prophets"].includes(st.kind) && !st.expanded) keepHandInView();
@@ -1238,11 +1256,11 @@
     const loc = x => x.getFullYear() + p2(x.getMonth() + 1) + p2(x.getDate()) + "T" + p2(x.getHours()) + p2(x.getMinutes()) + "00";
     const utc = x => x.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
     const ie = x => String(x).replace(/[\\;,]/g, c => "\\" + c).replace(/\r?\n/g, "\\n");
-    const url = "https://tazkiya.pages.dev/#/evening", title = u("eveIcsT");
+    const url = CANON + "#/evening", title = u("eveIcsT");
     const enc = new TextEncoder();
     const fold = line => { let out = "", cur = "", n = 0, lim = 75; for (const ch of line) { const b = enc.encode(ch).length; if (n + b > lim) { out += cur + "\r\n "; cur = ""; n = 0; lim = 74; } cur += ch; n += b; } return out + cur; };
     return ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Tazkiya//Evening reckoning//" + (L() === "ar" ? "AR" : "EN"), "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
-      "BEGIN:VEVENT", "UID:tazkiya-evening-" + Date.now().toString(36) + "@tazkiya.pages.dev", "DTSTAMP:" + utc(now), "DTSTART:" + loc(d), "DURATION:PT5M", "RRULE:FREQ=DAILY",
+      "BEGIN:VEVENT", "UID:tazkiya-evening-" + Date.now().toString(36) + "@tazkiya.family", "DTSTAMP:" + utc(now), "DTSTART:" + loc(d), "DURATION:PT5M", "RRULE:FREQ=DAILY",
       "SUMMARY:" + ie(title), "DESCRIPTION:" + ie(u("eveIcsD") + " " + url), "URL:" + url,
       "BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:" + ie(title), "TRIGGER:PT0M", "END:VALARM", "END:VEVENT", "END:VCALENDAR"].map(fold).join("\r\n") + "\r\n";
   }
@@ -1312,9 +1330,9 @@
     if (IOS) return `<button class="btn block ghost" data-act="ioshow">${esc(u("iosT"))}</button>`;
     return `<p class="sub" style="margin:0">${esc(u("deskHow"))}</p><p class="sub" style="margin:6px 0 0"><button class="linkbtn" data-act="ioshow">${esc(u("iosT"))}</button></p>`;
   }
-  // the app's public base: on any tazkiya.pages.dev deployment the public address; elsewhere (a local copy) where it is served from
-  const CANON = "https://tazkiya.pages.dev/";
-  const appBase = () => /(^|\.)tazkiya\.pages\.dev$/.test(location.hostname) ? CANON : location.origin + location.pathname.replace(/[^/]*$/, "").replace(/adult\/$/, "");
+  // the app's public base: on the public site (tazkiya.family, its www, or the former tazkiya.pages.dev and its per-deploy hosts)
+  // the public address; elsewhere (a local copy) where it is served from
+  const appBase = () => /(^|\.)tazkiya\.(family|pages\.dev)$/.test(location.hostname) ? CANON : location.origin + location.pathname.replace(/[^/]*$/, "").replace(/adult\/$/, "");
   const shareUrl = ed => appBase() + (ed === "adult" ? "adult/" : "");
   async function shareApp(ed) {
     const data = { title: u("brand"), text: u(ed === "adult" ? "shareTextA" : "shareText"), url: shareUrl(ed) };
@@ -1574,9 +1592,21 @@
       <input type="file" id="bkFile" accept=".json,application/json" hidden>
       ${noRec ? "" : `<a class="card next" href="#/record" data-act="go" style="margin-top:10px"><span class="tx"><b>${esc(u("recT"))}</b><span class="m">${esc(u("recSubShort"))}</span></span><span class="arrow">→</span></a>`}`;
   }
-  function exportData() {
+  // the backup payload: every profile, the family record and the sound preferences (also what the move to the new address carries)
+  function backupData() {
     save(); const states = {}; P.list.forEach(id => { states[id] = id === P.active ? S : loadOf(id); });
-    const data = { app: "tazkiya", v: 1, at: new Date().toISOString(), profiles: P, states, family: F };
+    const fx = window.TZFX && window.TZFX.prefs ? window.TZFX.prefs() : null;
+    return Object.assign({ app: "tazkiya", v: 1, at: new Date().toISOString(), profiles: P, states, family: F }, fx ? { fx } : {});
+  }
+  const FXKEY = "tazkiya-fx";
+  function cleanFx(o) {
+    if (!isObj(o)) return null; const r = {};
+    if (typeof o.snd === "boolean") r.snd = o.snd; if (typeof o.hap === "boolean") r.hap = o.hap;
+    if (["off", "wind", "stream", "rain"].includes(o.amb)) r.amb = o.amb; if (num(o.vol, 0, 100) !== undefined) r.vol = Math.round(num(o.vol, 0, 100));
+    return Object.keys(r).length ? r : null;
+  }
+  function exportData() {
+    const data = backupData();
     return saveFile(new Blob([JSON.stringify(data)], { type: "application/json" }), "tazkiya-backup-" + today() + ".json", u("bkFileT")).then(ok => {
       if (!ok) return false;
       try { localStorage.setItem(BKKEY, String(Date.now())); } catch (e) {} toast(u("bkSaved"));
@@ -1595,7 +1625,7 @@
     const states = {};
     for (const id of prof.list) { const st = cleanState(d.states[id]); if (!st) return null; states[id] = st; }
     const at = typeof d.at === "string" && !isNaN(Date.parse(d.at)) ? Date.parse(d.at) : 0;
-    return { profiles: prof, states, at, family: d.family !== undefined ? cleanFamily(d.family) : null };
+    return { profiles: prof, states, at, family: d.family !== undefined ? cleanFamily(d.family) : null, fx: cleanFx(d.fx) };
   }
   function importFile(f) {
     if (!f) return;
@@ -1605,22 +1635,75 @@
     rd.onload = () => {
       const d = parseBackup(String(rd.result || ""));
       if (!d) { toast(u("bkBad")); return; }
-      pendingImport = d;
-      const names = d.profiles.list.map(id => nameOf(id, d.states[id])).join("، ");
-      openSheet(`<h2 class="h">${esc(u("bkImport"))}</h2><p class="short">${esc(u("bkAsk"))}</p><p class="sub">${esc(d.at ? fmtDate(d.at) : "")}${d.at ? " · " : ""}${esc(fmt(U.bkProf, { n: d.profiles.list.length }))}: ${esc(names)}</p>
-        <button class="btn block" data-act="bkyes">${esc(u("bkYes"))}</button><button class="btn block ghost" style="margin-top:8px" data-act="close">${esc(u("close"))}</button>`, { kind: "bk" }); };
+      bkAskSheet(d); };
     rd.onerror = () => toast(u("bkBad"));
     rd.readAsText(f);
   }
   // all or nothing: if the device refuses part of the write, the previous data is put back
+  function bkAskSheet(d, moved) {
+    pendingImport = d;
+    const names = d.profiles.list.map(id => nameOf(id, d.states[id])).join("، ");
+    const here = P.list.some(id => hasProgress(id === P.active ? S : loadOf(id)));
+    openSheet(`<h2 class="h">${esc(u(moved ? "moveInT" : "bkImport"))}</h2><p class="short">${esc(u(moved ? (here ? "moveInOver" : "moveInAsk") : "bkAsk"))}</p><p class="sub bk-who">${esc(d.at ? fmtDate(d.at) : "")}${d.at ? " · " : ""}${esc(fmt(U.bkProf, { n: d.profiles.list.length }))}: <bdi>${esc(names)}</bdi></p>
+      <button class="btn block" data-act="bkyes">${esc(u(moved ? "moveInYes" : "bkYes"))}</button><button class="btn block ghost" style="margin-top:8px" data-act="close">${esc(u("close"))}</button>`, { kind: "bk" });
+  }
+
+  /* ---------- the move from tazkiya.pages.dev to tazkiya.family (23 Nov 2026) ----------
+     Each address keeps its own storage. On the former address (boot.js found progress) a sheet carries everything over
+     inside the URL fragment, which browsers never send to a server: the backup payload as JSON, gzip-compressed where
+     CompressionStream exists, base64url, "#move=z.…" or "#move=j.…". The new address decodes it under the same limits
+     and checks as a backup file (size, parseBackup, cleanState, cleanProfiles), shows the names and date, and asks. */
+  const MOVE_MAX = 1500000, NEW_SITE = "https://tazkiya.family/";
+  const b64u = bytes => { let s = ""; for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000)); return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); };
+  const unb64u = s => { const b = atob(s.replace(/-/g, "+").replace(/_/g, "/")); const o = new Uint8Array(b.length); for (let i = 0; i < b.length; i++) o[i] = b.charCodeAt(i); return o; };
+  async function readLimited(stream, max) {
+    const r = stream.getReader(), parts = []; let n = 0;
+    for (;;) { const { done, value } = await r.read(); if (done) break; n += value.length; if (n > max) { try { r.cancel(); } catch (e) {} throw new Error("too big"); } parts.push(value); }
+    const out = new Uint8Array(n); let o = 0; parts.forEach(p => { out.set(p, o); o += p.length; }); return out;
+  }
+  async function moveEncode(json) {
+    const raw = new TextEncoder().encode(json);
+    if (window.CompressionStream) { try { return "z." + b64u(await readLimited(new Blob([raw]).stream().pipeThrough(new CompressionStream("gzip")), MOVE_MAX)); } catch (e) {} }
+    return "j." + b64u(raw);
+  }
+  async function moveDecode(s) {
+    if (typeof s !== "string" || s.length > MOVE_MAX || !/^[jz]\.[A-Za-z0-9_-]+$/.test(s)) return null;
+    let bytes; try { bytes = unb64u(s.slice(2)); } catch (e) { return null; }
+    try {
+      if (s[0] === "z") { if (!window.DecompressionStream) return null; bytes = await readLimited(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip")), BK_MAX); }
+      else if (bytes.length > BK_MAX) return null;
+      return parseBackup(new TextDecoder("utf-8", { fatal: true }).decode(bytes));
+    } catch (e) { return null; }
+  }
+  async function moveIn(s) {
+    const d = await moveDecode(s);
+    if (!d) { toast(u("moveBad"), 7000); return; }
+    bkAskSheet(d, true);
+  }
+  function moveSheet(big) {
+    const other = k => (U[k] || [])[L() === "ar" ? 1 : 0] || "";
+    openSheet(`<div class="move"><img src="assets/icon-192.png" alt="" width="64" height="64">
+      <h2 class="h">${esc(u("moveT"))}</h2><p class="sub move-alt" lang="${L() === "ar" ? "en" : "ar"}" dir="${L() === "ar" ? "ltr" : "rtl"}">${esc(other("moveT"))}</p>
+      ${big ? `<p class="short">${esc(u("moveBig"))}</p><button class="btn block" data-act="bkexport">${esc(u("bkExport"))}</button>
+        <a class="btn block ghost" style="margin-top:8px" href="${NEW_SITE}?restore=1#/">${esc(u("moveOpen"))}</a>`
+        : `<p class="short">${esc(u("moveB"))}</p><button class="btn block" data-act="movego">${esc(u("moveGo"))}</button>`}</div>`, { kind: "move", big: !!big });
+    sheet.classList.add("tall", "movefull");
+  }
+  async function moveGo() {
+    const enc = await moveEncode(JSON.stringify(backupData()));
+    if (enc.length > MOVE_MAX) { moveSheet(true); return; }
+    FX("ok"); location.href = NEW_SITE + "#move=" + enc;
+  }
+
   function restoreBackup(d) {
-    const keys = [PKEY, FKEY].concat([...new Set(P.list.concat(d.profiles.list))].map(keyOf)), prev = {};
+    const keys = [PKEY, FKEY, FXKEY].concat([...new Set(P.list.concat(d.profiles.list))].map(keyOf)), prev = {};
     try { keys.forEach(k => { prev[k] = localStorage.getItem(k); }); } catch (e) { return false; }
     try {
       P.list.filter(id => !d.profiles.list.includes(id)).forEach(id => localStorage.removeItem(keyOf(id)));
       d.profiles.list.forEach(id => localStorage.setItem(keyOf(id), JSON.stringify(Object.assign(fresh(), d.states[id]))));
       localStorage.setItem(PKEY, JSON.stringify(d.profiles));
       if (d.family) localStorage.setItem(FKEY, JSON.stringify(d.family));
+      if (d.fx) localStorage.setItem(FXKEY, JSON.stringify(Object.assign(window.TZFX && window.TZFX.prefs ? window.TZFX.prefs() : {}, d.fx)));
       return true;
     } catch (e) {
       try { keys.forEach(k => { if (prev[k] == null) localStorage.removeItem(k); else localStorage.setItem(k, prev[k]); }); } catch (x) {}
@@ -2555,6 +2638,7 @@
         if (!(mv[0] && climb(mv))) toast(msg); break;
       }
       case "bkexport": exportData(); break;
+      case "movego": el.disabled = true; moveGo().finally(() => { el.disabled = false; }); break;
       case "bklater": try { localStorage.setItem(BKLATER, String(Date.now())); } catch (e) {} render(true); break;
       case "evegcal": { const el2 = document.getElementById("eveTime"); window.open(eveGcalUrl(el2 && el2.value), "_blank", "noopener"); FX("ok"); closeSheet(); break; }
       case "bkimport": { const f = document.getElementById("bkFile"); if (f) f.click(); break; }
@@ -2635,6 +2719,7 @@
     else if (sheetState && sheetState.kind === "edlink") edLinkSheet(sheetState.ep);
     else if (sheetState && sheetState.kind === "everemind") eveRemindSheet();
     else if (sheetState && sheetState.kind === "khab") khSheet();
+    else if (sheetState && sheetState.kind === "move") moveSheet(sheetState.big);
     else if (sheetState && sheetState.kind === "pact") pactSheet();
     else if (sheetState && sheetState.kind === "saw") sawSheet();
     else if (sheetState && sheetState.kind === "sawgot") sawGotSheet(sheetState.ids);
@@ -2655,7 +2740,10 @@
   function boot() {
     render();
     const sel = params.get("sel");
-    if (sel && G[sel] && route().name === "home" && fingerOf(sel)) { homeSel = "L:" + fingerOf(sel); homeDeg = params.get("deg") ? +params.get("deg") : -1; render(); stageSheet(sel, homeDeg); }
+    if (MOVE_IN) { S.intro = true; save(); moveIn(MOVE_IN); }
+    else if (window.TZ_MOVE) moveSheet();
+    else if (params.get("restore") === "1") { S.intro = true; save(); settingsSheet(); }
+    else if (sel && G[sel] && route().name === "home" && fingerOf(sel)) { homeSel = "L:" + fingerOf(sel); homeDeg = params.get("deg") ? +params.get("deg") : -1; render(); stageSheet(sel, homeDeg); }
     else if (sel === "summit") summitSheet();
     else if (params.get("intro") === "0") { S.intro = true; if (params.get("tour") !== "1") S.tour = true; save(); }
     else if (!S.intro && route().name === "home") introSheet();

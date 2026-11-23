@@ -8,9 +8,9 @@
 
 ### الروابط
 
-- نسخة الأطفال: https://tazkiya.pages.dev
-- نسخة الكبار: https://tazkiya.pages.dev/adult/
-- صفحة الوالدين: https://tazkiya.pages.dev/parents/
+- نسخة الأطفال: https://tazkiya.family
+- نسخة الكبار: https://tazkiya.family/adult/
+- صفحة الوالدين: https://tazkiya.family/parents/
 
 ### الخصوصية
 
@@ -74,9 +74,9 @@ Tazkiya is a bilingual Arabic and English web app that walks a child, and an adu
 
 ### Links
 
-- Children's edition: https://tazkiya.pages.dev
-- Adult edition: https://tazkiya.pages.dev/adult/
-- For parents: https://tazkiya.pages.dev/parents/
+- Children's edition: https://tazkiya.family
+- Adult edition: https://tazkiya.family/adult/
+- For parents: https://tazkiya.family/parents/
 
 ### Privacy
 

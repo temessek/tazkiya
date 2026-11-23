@@ -560,7 +560,7 @@ async function ideaFlows(browser, base, content, AV) {
     const ics = fs.readFileSync(await dl.path(), "utf8");
     ok(dl.suggestedFilename().endsWith(".ics") && /^BEGIN:VCALENDAR\r\n/.test(ics) && /\r\nEND:VCALENDAR\r\n$/.test(ics), "2: the reminder is a calendar file");
     ok(/\r\nRRULE:FREQ=DAILY\r\n/.test(ics) && /\r\nDTSTART:\d{8}T200000\r\n/.test(ics), "2: it repeats daily at 20:00 local time (no Z, no time zone)");
-    ok(/SUMMARY:محاسبة المساء · تزكية/.test(ics.replace(/\r\n /g, "")) && /URL:https:\/\/tazkiya\.pages\.dev\/#\/evening/.test(ics), "2: title and link as specified");
+    ok(/SUMMARY:محاسبة المساء · تزكية/.test(ics.replace(/\r\n /g, "")) && /URL:https:\/\/tazkiya\.family\/#\/evening/.test(ics), "2: title and link as specified");
     ok(ics.split("\r\n").every(l => Buffer.byteLength(l, "utf8") <= 75), "2: lines are folded at 75 octets");
     await setS(page, "s.gender = 'f'; s.eve = { '2020-01-01': { f: '<b>' }, 'bad': { f: 'pig' }, '2020-01-02': { f: 'monkey', g: '<i>' + 'x'.repeat(300) } };"); await open(page); await go(page, "#/evening");
     ok(/أين كنتِ/.test(await txt(page, "#view")), "2: feminine wording");
@@ -765,6 +765,63 @@ async function ideaFlows(browser, base, content, AV) {
     ok(h.top > 0 && h.bot <= h.tabs + 1 && h.w <= h.iw && h.hw > 300 && !h.gOver && !h.step, `review C11: a phone held sideways shows the whole hand in the first view, the greeting beside it (${Math.round(h.top)}-${Math.round(h.bot)}, tabs ${Math.round(h.tabs)}, width ${Math.round(h.hw)})`);
     await ctx.close(); });
 
+  // the move to tazkiya.family (23 Nov 2026): the public hosts are mapped onto the local server
+  const ORIGIN = new URL(base).origin;
+  const hostCtx = async (init, arg) => {
+    const ctx = await browser.newContext({ viewport: { width: 375, height: 812 }, serviceWorkers: "block" });
+    await ctx.route(/^https:\/\/(www\.)?tazkiya\.(family|pages\.dev)\//, async route => { const u = new URL(route.request().url()); try { await route.fulfill({ response: await route.fetch({ url: ORIGIN + u.pathname + u.search }) }); } catch (e) { await route.abort(); } });
+    if (init) await ctx.addInitScript(init, arg);
+    const page = await ctx.newPage(); const errs = []; page.on("pageerror", e => errs.push(e.message)); page.errs = errs; return { ctx, page };
+  };
+  const seed = ([host, data]) => { if (location.hostname !== host || sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); for (const k in data) localStorage.setItem(k, JSON.stringify(data[k])); };
+  await step("move: www and an empty former address", async () => {
+    let { ctx, page } = await hostCtx();
+    await page.goto("https://www.tazkiya.family/?lang=en#/library"); await page.waitForTimeout(1200);
+    let u = new URL(page.url()); ok(u.hostname === "tazkiya.family" && u.hash === "#/library" && u.searchParams.get("lang") === "en", "move: www.tazkiya.family lands on tazkiya.family with its query and hash (" + page.url() + ")");
+    await ctx.close();
+    ({ ctx, page } = await hostCtx());
+    await page.goto("https://tazkiya.pages.dev/adult/#/library"); await page.waitForTimeout(1200);
+    u = new URL(page.url()); ok(u.hostname === "tazkiya.family" && u.hash === "#/library", "move: tazkiya.pages.dev with no saved progress goes straight to tazkiya.family (" + page.url() + ")");
+    ok((await page.evaluate(() => JSON.parse(localStorage.getItem("akhlaq-app-v1") || "{}").edition)) === "adult", "move: the path is kept (/adult/ opens the adult edition)");
+    await ctx.close();
+    ({ ctx, page } = await hostCtx(seed, ["tazkiya.pages.dev", { "akhlaq-app-v1": { mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, intro: true, lang: "ar" } }]));
+    await page.goto("https://tazkiya.pages.dev/"); await page.waitForTimeout(1200);
+    ok(new URL(page.url()).hostname === "tazkiya.family", "move: a former-address visit with no progress (only settings) is not held back");
+    await ctx.close(); });
+  await step("move: progress carried over", async () => {
+    const old = { "akhlaq-app-v1:profiles": { active: "p1", list: ["p1", "p2"] }, "akhlaq-app-v1": { mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, intro: true, lang: "ar", name: "ليلى", read: { "zombie-r1": 1763800000000 }, tasks: { "zombie-t1": "ok" } },
+      "akhlaq-app-v1:p2": { mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, intro: true, lang: "ar", edition: "adult", name: "Sam" }, "tazkiya-family": { pact: { v: "human:0", from: "2026-11-20", to: "2026-11-27" }, past: [], seen: [] }, "tazkiya-fx": { snd: false, hap: true, amb: "rain", vol: 40 } };
+    const { ctx, page } = await hostCtx(([o, n]) => { const s1 = (host, data) => { if (location.hostname !== host || sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); for (const k in data) localStorage.setItem(k, JSON.stringify(data[k])); }; s1("tazkiya.pages.dev", o); s1("tazkiya.family", n); },
+      [old, { "akhlaq-app-v1": { mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, intro: true, lang: "ar", name: "Other", read: { "pig-r1": 1763800000000 } } }]);
+    await page.goto("https://tazkiya.pages.dev/#/"); await page.waitForTimeout(1300);
+    ok(new URL(page.url()).hostname === "tazkiya.pages.dev" && await has(page, '#sheet.movefull [data-act="movego"]') && /انتقلت تزكية إلى tazkiya\.family/.test(await txt(page, "#sheet")) && /moved to tazkiya\.family/.test(await txt(page, "#sheet")),
+      "move: with progress, the former address shows the full-screen sheet in both languages");
+    await Promise.all([page.waitForURL(/^https:\/\/tazkiya\.family\//, { timeout: 8000 }), page.click('#sheet [data-act="movego"]')]); await page.waitForTimeout(1300);
+    ok(!/move=/.test(page.url()) && new URL(page.url()).hash === "#/", "move: the fragment is cleared from the address at once (" + page.url().slice(0, 50) + ")");
+    const sh = await txt(page, "#sheet");
+    ok(/ليلى/.test(sh) && /Sam/.test(sh) && /تقدّم محفوظ من قبل/.test(sh), "move: the new address shows the names and asks before replacing its own progress");
+    await page.click('#sheet [data-act="bkyes"]'); await page.waitForTimeout(1600);
+    const st = await page.evaluate(() => ({ p: JSON.parse(localStorage.getItem("akhlaq-app-v1:profiles") || "{}"), a: JSON.parse(localStorage.getItem("akhlaq-app-v1") || "{}"), b: JSON.parse(localStorage.getItem("akhlaq-app-v1:p2") || "{}"), f: JSON.parse(localStorage.getItem("tazkiya-family") || "{}"), fx: JSON.parse(localStorage.getItem("tazkiya-fx") || "{}"), url: location.href }));
+    ok(st.p.list && st.p.list.length === 2 && st.a.name === "ليلى" && st.a.read && st.a.read["zombie-r1"] && !st.a.read["pig-r1"] && st.b.name === "Sam" && st.b.edition === "adult", "move: both profiles arrive with their names and progress");
+    ok(st.f.pact && st.f.pact.v === "human:0" && st.fx.amb === "rain" && st.fx.snd === false, "move: the family record and the sound settings come too");
+    ok(!/move=/.test(st.url), "move: no fragment after the import");
+    ok(!page.errs.length, "move: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+    await ctx.close(); });
+  await step("move: a bad fragment", async () => {
+    const b64 = x => Buffer.from(x).toString("base64").replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+    const cases = [["z.AAAAbroken", "broken data"], ["j." + b64(JSON.stringify({ app: "evil", states: {} })), "not a Tazkiya backup"], ["j." + "A".repeat(1600000), "over the size limit"], ["j.<script>", "bad characters"],
+      ["j." + b64(JSON.stringify({ app: "tazkiya", v: 1, profiles: { active: "p1", list: ["p1"] }, states: { p1: { mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, name: "<img src=x onerror=window.__pwn=1>", read: { "__proto__": 1 } } } })), "markup in a name"]];
+    for (const [frag, what] of cases) {
+      const { ctx, page } = await hostCtx();
+      await page.goto("https://tazkiya.family/#move=" + frag); await page.waitForTimeout(1300);
+      const r = await page.evaluate(() => ({ h: location.hash, ask: !!document.querySelector('#sheet [data-act="bkyes"]'), pwn: !!window.__pwn, img: !!document.querySelector("#sheet img[src='x']"), toast: (document.querySelector(".toast") || {}).innerText || "" }));
+      if (what === "markup in a name") ok(r.h === "#/" && r.ask && !r.pwn && !r.img, "move: a name with markup is shown as text only");
+      else ok(r.h === "#/" && !r.ask && /تعذّرت/.test(r.toast), `move: a fragment with ${what} is refused and cleared`);
+      ok(!page.errs.length, `move (${what}): no script errors (` + page.errs.slice(0, 1).join("") + ")");
+      await ctx.close();
+    }
+  });
+
   return { fails, total, passed: total - fails.length, names };
 }
 
@@ -910,9 +967,9 @@ function staticChecks() {
     /rel="apple-touch-icon"/, /name="apple-mobile-web-app-capable"/, /name="apple-mobile-web-app-title"/, /name="apple-mobile-web-app-status-bar-style"/, /rel="apple-touch-startup-image"/, /rel="manifest"/, /name="theme-color"/];
   need.forEach(r => { if (!r.test(html)) errs.push(`index.html: missing ${r.source.slice(0, 50)}`); });
   for (const m of html.matchAll(/href="(assets\/[^"]+)"/g)) if (!fs.existsSync(path.join(ROOT, m[1]))) errs.push(`index.html: missing ${m[1]}`);
-  for (const m of html.matchAll(/content="https:\/\/tazkiya\.pages\.dev\/(assets\/[^"]+)"/g)) if (!fs.existsSync(path.join(ROOT, m[1]))) errs.push(`index.html: preview image missing ${m[1]}`);
+  for (const m of html.matchAll(/content="https:\/\/tazkiya\.family\/(assets\/[^"]+)"/g)) if (!fs.existsSync(path.join(ROOT, m[1]))) errs.push(`index.html: preview image missing ${m[1]}`);
   const ad = fs.existsSync(path.join(ROOT, "adult/index.html")) ? rd("adult/index.html") : "";
-  if (!ad) errs.push("adult/index.html missing"); else { if (!/og:image" content="https:\/\/tazkiya\.pages\.dev\/assets\/og-image-adult/.test(ad)) errs.push("adult page: no adult preview image"); if (!/noindex/.test(ad)) errs.push("adult page: no noindex"); if (/<script>/.test(ad)) errs.push("adult page: inline script (blocked by the CSP)"); }
+  if (!ad) errs.push("adult/index.html missing"); else { if (!/og:image" content="https:\/\/tazkiya\.family\/assets\/og-image-adult/.test(ad)) errs.push("adult page: no adult preview image"); if (!/noindex/.test(ad)) errs.push("adult page: no noindex"); if (/<script>/.test(ad)) errs.push("adult page: inline script (blocked by the CSP)"); }
   // every versioned file index.html asks for is precached under the same URL
   for (const m of html.matchAll(/(?:src|href)="([^"]+\?v=[^"]+)"/g)) if (!sw.includes(`"${m[1]}"`)) errs.push(`sw.js: CORE lacks ${m[1]} (bump it with index.html)`);
   if (!/SKIP_WAITING/.test(sw) || /addEventListener\("install"[\s\S]{0,300}skipWaiting\(\)/.test(sw)) errs.push("sw.js: a new version must wait for the user (SKIP_WAITING message only)");
@@ -923,7 +980,9 @@ function staticChecks() {
   // security and compatibility review (22 Nov 2026)
   for (const h of ["! Access-Control-Allow-Origin", "private-terms.txt", "404.html", "parents/index.html", "wrangler@4", "getexif", "esbuild@"]) if (!bp.includes(h)) errs.push(`build_public.py: missing ${h}`);
   for (const f of ["404.html", "parents/index.html", "assets/qr-kids.svg", "assets/qr-adult.svg"]) if (!fs.existsSync(path.join(ROOT, f))) errs.push(`missing ${f}`);
-  if (fs.existsSync(path.join(ROOT, "parents/index.html")) && /<script/.test(rd("parents/index.html"))) errs.push("parents page: no scripts expected");
+  if (fs.existsSync(path.join(ROOT, "parents/index.html")) && [...rd("parents/index.html").matchAll(/<script[^>]*>/g)].some(m => !/src="\.\.\/boot\.js\?v=\d+" data-page="static"/.test(m[0]))) errs.push("parents page: only boot.js (static) expected");
+  if (!/<script src="boot\.js\?v=\d+"><\/script>/.test(html.split("</head>")[0])) errs.push("index.html: boot.js must load in <head>, without defer");
+  for (const f of ["index.html", "adult/index.html", "parents/index.html"]) if (fs.existsSync(path.join(ROOT, f)) && /tazkiya\.pages\.dev/.test(rd(f))) errs.push(`${f}: names the former address`);
   if (ad) { if (!/<base href="\/">/.test(ad)) errs.push("adult page: no <base href=\"/\">");
     const vs = h => [...h.matchAll(/(?:src|href)="([^"]+\?v=[^"]+)"/g)].map(m => m[1]).join();
     if (vs(ad) !== vs(html)) errs.push("adult page: loads other files than index.html (run outputs/publish/adult_page.py)"); }

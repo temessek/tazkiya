@@ -12,8 +12,8 @@ sys.path.insert(0, PUB)
 import adult_page  # the adult page is generated from index.html (D3)
 adult_page.write()
 
-CANON = "https://tazkiya.pages.dev/"
-FILES = ["index.html", "404.html", "styles.css", "app.js", "fx.js", "intro.js", "fallback.js", "sw.js", "manifest.json",
+CANON = "https://tazkiya.family/"
+FILES = ["index.html", "404.html", "boot.js", "styles.css", "app.js", "fx.js", "intro.js", "fallback.js", "sw.js", "manifest.json",
          "content/content.js", "content/content-adult.js", "content/books.js", "adult/index.html", "parents/index.html"]
 MINIFY = ["app.js", "fx.js", "intro.js", "styles.css"]  # minified on publish only; the source stays readable with no build step
 

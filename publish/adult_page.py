@@ -13,8 +13,8 @@ ADULT_META = """<title>تزكية للكبار</title>
 <meta property="og:site_name" content="تزكية · Tazkiya">
 <meta property="og:title" content="تزكية للكبار · Tazkiya for adults">
 <meta property="og:description" content="من الغفلة إلى السبق بالخيرات، بأمثلة من العمل والبيت والعبادة. From heedlessness to racing ahead in good.">
-<meta property="og:url" content="https://tazkiya.pages.dev/adult/">
-<meta property="og:image" content="https://tazkiya.pages.dev/assets/og-image-adult.jpg">
+<meta property="og:url" content="https://tazkiya.family/adult/">
+<meta property="og:image" content="https://tazkiya.family/assets/og-image-adult.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="يد مرسومة بالألوان المائية: تزكية للكبار · A watercolour hand: Tazkiya for adults">
@@ -23,7 +23,7 @@ ADULT_META = """<title>تزكية للكبار</title>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="تزكية للكبار · Tazkiya for adults">
 <meta name="twitter:description" content="من الغفلة إلى السبق بالخيرات، بأمثلة من العمل والبيت والعبادة. From heedlessness to racing ahead in good.">
-<meta name="twitter:image" content="https://tazkiya.pages.dev/assets/og-image-adult.jpg">
+<meta name="twitter:image" content="https://tazkiya.family/assets/og-image-adult.jpg">
 """
 
 def adult_html(index_html):
