@@ -2,7 +2,7 @@
 # Pages Functions in ./functions (the /api/* routes). Run wrangler from THIS folder, so it finds ./functions:
 #   preview:    npx wrangler@4 pages deploy --branch server-preview --commit-dirty=true
 #   production: npx wrangler@4 pages deploy --branch main --commit-dirty=true   (only once the app UI uses the API)
-# Secrets (never in this file): GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, TEST_KEY (preview only). See docs/SERVER.md.
+# Secrets (never in this file): GOOGLE_CLIENT_SECRET (production and preview), TEST_KEY (preview only). See docs/SERVER.md.
 name = "tazkiya"
 pages_build_output_dir = "../public-dist"
 compatibility_date = "2026-11-01"
@@ -11,6 +11,7 @@ compatibility_date = "2026-11-01"
 [vars]
 APP_ENV = "production"
 MAIL_MODE = "off"            # becomes "worker" once Email Sending is on for tazkiya.family (needs Workers Paid)
+GOOGLE_CLIENT_ID = "892867885846-t2eu4h031m896bplp9ir6mfie07q1lr0.apps.googleusercontent.com"   # public; the secret is GOOGLE_CLIENT_SECRET
 
 [[d1_databases]]
 binding = "DB"
@@ -33,6 +34,7 @@ MAIL_MODE = "test"           # sends nothing; the link comes back only to the ho
 LIMIT_MAIL_IP = "200"        # the test suite runs from one address against the preview
 LIMIT_MAIL_TO = "20"
 LIMIT_VERIFY_IP = "200"
+GOOGLE_CLIENT_ID = "892867885846-t2eu4h031m896bplp9ir6mfie07q1lr0.apps.googleusercontent.com"   # public; the secret is GOOGLE_CLIENT_SECRET
 
 [[env.preview.d1_databases]]
 binding = "DB"

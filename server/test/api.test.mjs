@@ -28,7 +28,7 @@ before(async () => {
   execSync(`mkdir "${stat}"`, { shell: true });
   writeFileSync(join(stat, "index.html"), "<!doctype html><title>t</title>");
   execSync(`${npx} -y wrangler@4 d1 migrations apply tazkiya --local --persist-to "${state}"`, { cwd: ROOT, stdio: "pipe", shell: true, env: { ...process.env, CI: "1" } });
-  const vars = { MAIL_MODE: "test", TEST_KEY, AI_MODE: "stub", APP_ENV: "local", LIMIT_MAIL_IP: "4", LIMIT_MAIL_TO: "3", LIMIT_AI_ACCOUNT: "3", LIMIT_SYNC_ACCOUNT: "500" };
+  const vars = { MAIL_MODE: "test", TEST_KEY, AI_MODE: "stub", APP_ENV: "local", LIMIT_MAIL_IP: "4", LIMIT_MAIL_TO: "3", LIMIT_AI_ACCOUNT: "3", LIMIT_SYNC_ACCOUNT: "500", GOOGLE_CLIENT_SECRET: "local-dummy-secret" };
   const args = ["-y", "wrangler@4", "pages", "dev", stat, "--port", String(PORT), "--ip", "127.0.0.1", "--persist-to", state, "--show-interactive-dev-session=false",
     ...Object.entries(vars).flatMap(([k, v]) => ["--binding", `${k}=${v}`])];
   proc = spawn(npx, args, { cwd: ROOT, shell: true, stdio: ["ignore", "pipe", "pipe"], env: { ...process.env, CI: "1" } });
@@ -75,7 +75,6 @@ const now = () => Date.now();
 test("health answers and reports the sign-in methods", async () => {
   const r = await client()("GET", "/api/health");
   assert.equal(r.status, 200); assert.equal(r.body.ok, true);
-  assert.equal(r.body.sign_in.google, false, "Google stays inactive without its client");
   assert.equal(r.headers.get("cache-control"), "no-store");
 });
 
@@ -371,7 +370,26 @@ test("AI extract: validation, shape, the care line, rate limit", async () => {
   }
 });
 
-test("Google sign-in stays inactive without its client", async () => {
-  const r = await client()("GET", "/api/auth/google/start");
-  assert.equal(r.status, 503); assert.equal(r.body.error, "google_not_configured");
+test("Google sign-in: inactive without its secret, otherwise a PKCE redirect bound to this browser", async () => {
+  const h = await client()("GET", "/api/health");
+  const c = client();
+  const r = await c("GET", "/api/auth/google/start");
+  if (!h.body.sign_in.google) { assert.equal(r.status, 503); assert.equal(r.body.error, "google_not_configured"); return; }
+  assert.equal(r.status, 302);
+  const to = new URL(r.headers.get("location"));
+  assert.equal(to.origin + to.pathname, "https://accounts.google.com/o/oauth2/v2/auth");
+  const q = to.searchParams;
+  assert.match(q.get("client_id"), /\.apps\.googleusercontent\.com$/);
+  assert.equal(q.get("redirect_uri"), new URL(BASE).origin + "/api/auth/google/callback");
+  assert.equal(q.get("scope"), "openid email profile");
+  assert.equal(q.get("response_type"), "code"); assert.equal(q.get("code_challenge_method"), "S256");
+  assert.match(q.get("code_challenge"), /^[A-Za-z0-9_-]{43}$/); assert.ok(q.get("nonce") && q.get("state"));
+  assert.equal(c.jar["__Host-tz-o"], q.get("state"), "the state is also kept in this browser's cookie");
+  assert.match(r.headers.get("set-cookie"), /HttpOnly; Secure; SameSite=Lax/);
+  // a callback from another browser (no state cookie), a wrong state, or an error: back to the app, no session
+  for (const [who, qs] of [[client(), `state=${q.get("state")}&code=x`], [c, "state=wrong&code=x"], [c, "error=access_denied"]]) {
+    const cb = await who("GET", "/api/auth/google/callback?" + qs);
+    assert.equal(cb.status, 302); assert.equal(cb.headers.get("location"), "/#/signin?err=google");
+    assert.equal(who.jar["__Host-tz"], undefined);
+  }
 });

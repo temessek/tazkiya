@@ -132,7 +132,7 @@ export async function googleStart(req, env, url) {
   await env.DB.prepare("INSERT INTO oauth_states (hash, verifier, nonce, expires) VALUES (?, ?, ?, ?)")
     .bind(await sha256(state), verifier, nonce, Date.now() + OAUTH_MINUTES * 60000).run();
   const q = new URLSearchParams({
-    client_id: env.GOOGLE_CLIENT_ID, redirect_uri: redirectUri(url), response_type: "code", scope: "openid email",
+    client_id: env.GOOGLE_CLIENT_ID, redirect_uri: redirectUri(url), response_type: "code", scope: "openid email profile",
     state, nonce, code_challenge: await sha256b64url(verifier), code_challenge_method: "S256", prompt: "select_account",
   });
   // the state is also kept in a cookie, so the answer must come back to the same browser that started (login CSRF)
