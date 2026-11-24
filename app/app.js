@@ -243,6 +243,7 @@
     showSign: ["أشِر إلى الإصبع", "Show the sign"],
     signTitle: ["هذه من سمات {f}", "This is a trait of {f}"],
     signLead: ["أشِر إلى إصبع طفلك، ثم اقرآ معًا:", "Point at your child's finger, then read together:"],
+    signLeadTeen: ["انظر إلى إصبعك، واقرأ:", "Look at your own finger, and read:"], // the teen reads this page alone (24 Nov 2026)
     climbHint: ["والصعود منها:", "And the way up:"],
     signOf: ["سمة {a} من {b}", "Sign {a} of {b}"],
     introT: ["يدك سلّم", "Your hand is a ladder"],
