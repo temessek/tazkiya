@@ -2334,7 +2334,7 @@
           const tot = st.readings.length + st.quiz.length + st.tasks.length, done = r + q + tk;
           return `<a class="pfrow" href="${workUrl(id)}"><span class="pfn"><b style="color:${darker(id)}">${esc(nm(id))}</b></span>
             <span class="pfbar"><i style="width:${tot ? done / tot * 100 : 0}%;background:${MC(id)}"></i></span>
-            <span class="m pfc"><bdi>${r}/${st.readings.length}</bdi> ${esc(u("rShort"))} · <bdi>${q}/${st.quiz.length}</bdi> ${esc(u("qShort"))} · <bdi>${tk}/${st.tasks.length}</bdi> ${esc(u("tShort"))}</span></a>`; }).join("")}</div></section>
+            <span class="m pfc"><bdi>${r}/${st.readings.length}</bdi> ${esc(u("rShort"))} · <bdi>${q}/${st.quiz.length}</bdi> ${esc(u("qShort"))} · <bdi>${tk}/${st.tasks.length}</bdi> ${esc(u("tShort"))}</span><span class="pfgo" aria-hidden="true">${L() === "ar" ? "←" : "→"}</span></a>`; }).join("")}</div></section>
         ${eveLink()}
         <a class="card next" href="#/record" style="margin-top:14px"><span class="tx"><b>${esc(u("recOpen"))}</b><span class="m">${esc(u("recSubShort"))}</span></span><span class="arrow">→</span></a>
         ${USING_FALLBACK ? `<p class="center meta" style="margin-top:14px"><span class="ph">${esc(u("fallbackNote"))}</span></p>` : ""}
@@ -2432,7 +2432,30 @@
      every other reference shows as written. The checking record stays internal (content/REVIEW.md). */
   function refFmt(r) {
     const m = String(r || "").trim().match(/^([؀-ۿ][؀-ۿ ]*?)\s+\d{1,3}:(\d{1,3}(?:\s*[–-]\s*\d{1,3})?)$/);
+    if (L() === "en") { const e = refEn(r); if (e) return e; }
     return m ? `(${m[1]}: ${m[2].replace(/\s+/g, "")})` : String(r || "");
+  }
+  // English form of a source line (24 Nov 2026 mobile review): the English edition showed «صحيح البخاري 6407» and «(فاطر: 32)».
+  // Returns "" when any Arabic would remain, so the caller keeps the original.
+  const REF_EN = [
+    [/[؀-ۿ][؀-ۿ ]*?\s+(\d{1,3}:\d{1,3}(?:\s*[–-]\s*\d{1,3})?)/g, (_, v) => "Quran " + v.replace(/\s+/g, "")],
+    [/\(ترقيم sunnah\.com: الكتاب (\d+)، الحديث (\d+)\)/g, "(sunnah.com: book $1, hadith $2)"], [/\(الكتاب (\d+)، الحديث (\d+)\)/g, "(book $1, hadith $2)"],
+    ["وحديث «أحب الأعمال إلى الله تعالى أدومها وإن قل»: ", "the hadith «the deeds most loved by Allah are the most constant, even if small»: "],
+    ["وحديث الجلوس عند الغضب: ", "the hadith on sitting down when angry: "], ["وسؤال الصحابة في البخاري ", "the Companions' question in al-Bukhari "],
+    ["والقصة في ", "the story in "], ["ونحوه في البخاري ", "similar in al-Bukhari "], ["كتاب الأشربة ", "Book of Drinks "],
+    ["إحياء علوم الدين، كتاب كسر الشهوتين", "al-Ghazali, Ihya' 'Ulum al-Din, Book of Breaking the Two Desires"],
+    ["وصحيح البخاري", "and Sahih al-Bukhari"], ["وصحيح مسلم", "and Sahih Muslim"], ["صحيح البخاري", "Sahih al-Bukhari"], ["صحيح مسلم", "Sahih Muslim"], ["سنن الترمذي", "Jami' al-Tirmidhi"], ["جامع الترمذي", "Jami' al-Tirmidhi"], ["سنن أبي داود", "Sunan Abi Dawud"],
+    ["عائشة رضي الله عنها", "Aisha, may Allah be pleased with her"], ["أبي هريرة رضي الله عنه", "Abu Hurayra, may Allah be pleased with him"], ["علي عليه السلام", "Ali, peace be upon him"],
+    ["أنس بن مالك", "Anas ibn Malik"], ["حنظلة الأسيدي", "Hanzala al-Usaydi"], ["سهل بن سعد", "Sahl ibn Sa'd"], ["النعمان بن بشير", "al-Nu'man ibn Bashir"], ["جابر بن عبد الله", "Jabir ibn Abd Allah"],
+    ["عقبة بن الحارث", "Uqba ibn al-Harith"], ["عمر بن الخطاب", "Umar ibn al-Khattab"], ["عمار بن ياسر", "Ammar ibn Yasir"], ["كعب بن مالك", "Ka'b ibn Malik"], ["عثمان بن عفان", "Uthman ibn Affan"],
+    ["أبي جحيفة", "Abu Juhayfa"], ["ابن عباس", "Ibn Abbas"], ["ابن عمر", "Ibn Umar"], ["أبي هريرة", "Abu Hurayra"], ["عائشة", "Aisha"], ["أنس", "Anas"],
+    [/ و(\d)/g, " and $1"], ["، عن ", ", from "], [" عن ", " from "], ["؛ ", "; "], ["، ", ", "]
+  ];
+  function refEn(r) {
+    let s = String(r || "").trim(); if (!s) return "";
+    for (const [a, b] of REF_EN) s = typeof a === "string" ? s.split(a).join(b) : s.replace(a, b);
+    if (/^Quran \d/.test(s) && !/[;,]/.test(s)) s = "(" + s + ")";
+    return /[؀-ۿ]/.test(s.replace(/«[^»]*»/g, "")) ? "" : s;
   }
   function vSources() {
     let nQ = 0, nH = 0;

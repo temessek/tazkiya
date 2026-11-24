@@ -1095,7 +1095,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
       q: { ar: "ماذا وجدت دينا حين راجعت طلبات شهر كامل؟", en: "What did Dina find when she went through a whole month of orders?" },
       options: [
         { ar: "أن أكثرها كان في أيام العروض والتخفيضات الكبيرة", en: "That most of them fell on days of big offers and sales" },
-        { ar: "أن أكثرها كان في ليالٍ متعبة: بعد اجتماع أو مكالمة ثقيلة", en: "That most fell on draining nights: after a meeting or a heavy call" },
+        { ar: "أن أكثرها كان في ليالٍ متعبة: بعد اجتماع أو مكالمة ثقيلة", en: "That most of them came on draining nights, after a meeting or a heavy call" },
         { ar: "أن أكثرها كان هدايا اشترتها لأختها وصديقاتها", en: "That most of them were gifts she had bought for her sister and friends" }
       ],
       why: { ar: "كانت تشتري لتسكّن شيئًا آخر. ومعرفة متى تشتهي النفس أول المحاسبة.", en: "She was buying to quiet something else. Knowing when the self craves is where self-review begins." }

@@ -260,12 +260,13 @@ main.fade { animation: fadein .35s ease; }
 .glow { mix-blend-mode: multiply; transform-box: fill-box; transform-origin: center; animation: breathe 5s ease-in-out infinite; }
 @keyframes breathe { 0%, 100% { opacity: .65; transform: scale(.96); } 50% { opacity: 1; transform: scale(1.06); } }
 .pf { display: grid; gap: 4px; }
-.pfrow { display: grid; grid-template-columns: 112px 1fr; grid-template-areas: "n bar" "n c"; column-gap: 12px; align-items: center; text-decoration: none; padding: 8px 0; border-top: 1px dashed var(--line); }
+.pfrow { display: grid; grid-template-columns: 112px 1fr 16px; grid-template-areas: "n bar go" "n c go"; column-gap: 12px; align-items: center; text-decoration: none; padding: 8px 0; border-top: 1px dashed var(--line); }
 .pfrow:first-child { border-top: 0; }
 .pfn { grid-area: n; } .pfn b { display: block; font-weight: 600; } .pfn .m { font-size: 12.5px; color: var(--muted); }
 .pfbar { grid-area: bar; height: 8px; border-radius: 9px; background: var(--line); overflow: hidden; }
 .pfbar i { display: block; height: 100%; border-radius: 9px; }
 .pfc { grid-area: c; font-size: 12px; color: var(--muted); margin-top: 3px; }
+.pfgo { grid-area: go; color: var(--muted); font-size: 15px; text-align: center; } /* the row opens the finger's work page (mobile review, 24 Nov 2026) */
 
 /* round 6 */
 .tint { opacity: .28; mix-blend-mode: multiply; pointer-events: none; animation: tintin .12s ease-out; }
@@ -1223,6 +1224,7 @@ html[lang=en] .ye-hamd { font-family: var(--en-h); }
 .tw-nb .nb-list { margin: 0 0 10px; padding: 0; }
 .tw-nb .tw-none { margin: 8px 4px 2px; }
 .nb-all, .nb-write { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.nb-write svg { width: 18px; height: 18px; flex: none; } /* the pen filled the notebook page (mobile review, 24 Nov 2026) */
 .nbp .nb-month { font-size: 15px; font-weight: 700; color: var(--muted); margin: 18px 4px 8px; }
 .nbp .nb-list { margin: 0; padding: 0; }
 .nbp .tw-more { margin-top: 12px; }

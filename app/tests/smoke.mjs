@@ -1186,7 +1186,8 @@ async function ideaFlows(browser, base, content, AV) {
       ok(!seen.length, `refs (${q || "kids ar"}): no checking label on ${seen.join(", ") || "any page"}`);
       await go(page, "#/sources", 450);
       const refs = await page.evaluate(() => [...document.querySelectorAll(".src-ref")].map(e => e.textContent));
-      ok(refs.length > 3 && refs.filter(r => /^\(.+: \d/.test(r)).length >= 3 && !refs.some(r => /^[\u0600-\u06FF ]+ \d+:\d+$/.test(r)), `refs (${q || "kids ar"}): Quran references read «(السورة: الآية)» (${refs.slice(0, 3).join(" | ")})`);
+      const en = /lang=en/.test(q); // English shows «(Quran 35:32)» and «Sahih al-Bukhari 6407», with no Arabic (mobile review, 24 Nov 2026)
+      ok(refs.length > 3 && (en ? refs.filter(r => /^\(Quran \d+:\d/.test(r)).length >= 3 && !refs.some(r => /[\u0600-\u06FF]/.test(r)) : refs.filter(r => /^\(.+: \d/.test(r)).length >= 3 && !refs.some(r => /^[\u0600-\u06FF ]+ \d+:\d+$/.test(r))), `refs (${q || "kids ar"}): Quran references read ${en ? "«(Quran S:V)», no Arabic" : "«(السورة: الآية)»"} (${refs.slice(0, 3).join(" | ")})`);
       await ctx.close();
     }
   });

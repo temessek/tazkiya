@@ -5,7 +5,7 @@
  * Names always describe behaviour, never the person. All children in stories are fictional.
  */
 window.AKHLAQ_CONTENT = {
-  version: "0.28.0-draft-2026-11-24",
+  version: "0.28.1-draft-2026-11-24",
   stages: {},
   virtues: []
 };
