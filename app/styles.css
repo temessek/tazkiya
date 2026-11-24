@@ -160,6 +160,9 @@ main { position: relative; z-index: 2; outline: none; }
 .quote .ref { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: center; font-size: 13px; color: var(--muted); }
 .verify { font-size: 11.5px; color: #8a3d10; border: 1px dashed rgba(138,61,16,.55); border-radius: 99px; padding: 1px 10px; }
 .source { color: var(--muted); font-size: 13px; margin-top: 18px; }
+/* world tales (24 Nov 2026): the origin line under the title, and the tag on the reading card */
+.article .origin { margin: -2px 0 8px; color: #3d5a8a; font-size: 14px; font-weight: 600; }
+.rtag.w { background: #e4ebf7; color: #34508a; margin-inline-end: 0; vertical-align: 0; }
 
 /* quiz */
 .qhead { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 4px; color: var(--muted); font-size: 13px; }

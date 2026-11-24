@@ -6,7 +6,7 @@
  * IDs start with "az-" / "ap-" / "am-" / "ah-" / "as-" / "ad" so an adult record never mixes with a children's one.
  */
 window.AKHLAQ_CONTENT_ADULT = {
-  version: "0.3.0-adult-draft-2026-11-22",
+  version: "0.4.0-adult-draft-2026-11-24",
   stages: {},
   onboarding: [
     {
@@ -3645,3 +3645,187 @@ window.AKHLAQ_CONTENT_ADULT.choices = [
     end: { ar: "الحاجة لا تطرق الأبواب دائمًا. كثيرًا ما تقف صامتة خلفها، تنتظر من يسبق إليها.", en: "Need does not always knock. Often it waits silently behind a door for someone to reach it first." }
   }
 ];
+
+/* ───────────── من حكايات العالم وتجاربه للكبار، الدفعة الأولى، 24 نوفمبر 2026 ─────────────
+ * One retold public-domain tale per stage, followed by a short essay drawing on world education and on the psychology
+ * of habits and self-control, each study named with its journal and year. world:"tale" or "wisdom" sets the card tag.
+ * Invented characters are fictional.
+ */
+(function () {
+  var S = window.AKHLAQ_CONTENT_ADULT.stages;
+  function R(k, o) {
+    var b = o.body; o.body = { ar: b.common.ar.concat(b.tryAr), ar_f: b.common.ar.concat(b.tryArF || b.tryAr), en: b.common.en.concat(b.tryEn) };
+    S[k].readings.push(Object.assign({ world: "tale", quote: null, ages: "18+" }, o));
+  }
+  function Q(k, list) { list.forEach(function (q) { S[k].quiz.push(Object.assign({ type: "comprehension" }, q)); }); }
+  function O(a) { return a.map(function (x) { return { ar: x[0], en: x[1] }; }); }
+
+  /* ── الخنصر: الغفلة ── */
+  R("zombie", { id: "az-r9", minutes: 5,
+    title: { ar: "شجرة التنّوب التي كانت تنتظر", en: "The fir tree that kept waiting" },
+    origin: { ar: "من حكايات أندرسن", en: "From Hans Christian Andersen" },
+    body: { common: {
+      ar: ["في حكاية لأندرسن شجرة تنّوب صغيرة في غابة، حولها شمس ونسيم، وأرانب تقفز من فوقها. ولم يكن شيء من ذلك يفرحها. كانت تريد أن تكبر. وحين قطع الحطّابون الأشجار الكبيرة وحملوها بعيدًا، تمنّت أن تصير صاريًا في سفينة. وحين حُملت الأشجار الصغيرة إلى البيوت في الشتاء، تمنّت أن تُزيَّن مثلها.",
+        "ثم جاء دورها. حُملت إلى بيت دافئ، وعُلّقت عليها الأضواء والحلوى، وتجمّع حولها الأطفال ليلة واحدة. وكانت طوال الليلة تفكر في الغد: ماذا سيأتي بعد هذا؟ ما الأجمل منه؟ وفي الصباح حملوها إلى العلّية المظلمة.",
+        "في العلّية حكت للفئران عن الغابة: عن الشمس والنسيم والأرانب. وبينما هي تحكي فهمت أن تلك كانت أيامها السعيدة، ولم تعرف ذلك وهي فيها. وفي الربيع أُخرجت إلى الساحة، ورأت الحديقة تزهر وهي يابسة، وقالت في نفسها: ليتني فرحتُ حين كان الفرح ممكنًا.",
+        "سلوك الغفلة عند الكبير يأتي أحيانًا في ثوب الطموح: «حين أُرقّى سأرتاح»، «حين يكبر الأولاد نسافر»، «حين أنهي هذا المشروع أقرأ». ويصير الحاضر في كل ذلك ممرًّا إلى يوم آخر.",
+        "وقد قاس هذا باحثان من جامعة هارفارد، ماثيو كيلينغزورث ودانيال غيلبرت. سألا آلاف البالغين عبر هواتفهم، في لحظات عشوائية من يومهم: ماذا تفعل الآن؟ وفيمَ تفكر؟ وكيف تشعر؟ فوجدا الذهن شاردًا عمّا بين يدي صاحبه في نحو 47% من اللحظات التي سُئلوا فيها، ووجدا الناس وهم شاردون أقل سعادة منهم وهم حاضرون. والشرود إلى أمر سارّ لم يجعلهم أسعد من حضورهم في عملهم نفسه (مجلة Science، 2010).",
+        "للتفكير في الغد وقته ومكانه. وما فعلته الشجرة شيء آخر: جعلت كل يوم انتظارًا لليوم الذي بعده. والعلاج يبدأ صغيرًا محسوسًا: عمل واحد في اليوم يُؤدّى كله وصاحبه فيه. وجبة تُؤكل والهاتف في غرفة أخرى. حديث مع الابن إلى آخره، دون إعداد الجواب في الرأس. مشي عشر دقائق ينظر فيه الماشي إلى ما حوله."],
+      en: ["In one of Andersen's tales a little fir tree stands in a forest, with sunshine and breezes around it and hares leaping over it. None of it made the tree happy. It wanted to be big. When the woodcutters felled the tall trees and carried them away, it longed to be a ship's mast. When the small trees were carried into houses in winter, it longed to be decorated like them.",
+        "Then its turn came. It was carried into a warm house, hung with lights and sweets, and the children gathered round it for one night. All night it thought about tomorrow: what comes after this? What could be even lovelier? In the morning they carried it up to the dark attic.",
+        "In the attic it told the mice about the forest: the sunshine, the breezes, the hares. And as it talked, it understood that those had been its happy days, and it had not known it while it was in them. In spring it was dragged out into the yard and saw the garden in bloom while it stood dry, and it thought: if only I had been glad when gladness was possible.",
+        "In an adult, the behaviour of heedlessness sometimes comes dressed as ambition: “When I'm promoted I'll rest.” “When the children are older we'll travel.” “When I finish this project I'll read.” In each, the present becomes a corridor to some other day.",
+        "Two Harvard researchers, Matthew Killingsworth and Daniel Gilbert, measured this. They asked thousands of adults through their phones, at random moments of the day: What are you doing right now? What are you thinking about? How do you feel? They found the mind wandering away from the task at hand in about 47% of the moments sampled, and people less happy while wandering than while present. Wandering to something pleasant made them no happier than staying with what they were actually doing (Science, 2010).",
+        "Thinking about tomorrow has its time and place. What the tree did was something else: it made every day a wait for the next. The remedy starts small and concrete: one act a day done wholly, with yourself in it. A meal eaten with the phone in another room. A conversation with your child to the very end, without preparing your answer in your head. A ten-minute walk spent looking at what is around you."] },
+      tryAr: "جرّب هذا الأسبوع: اختر كل يوم عملًا عاديًّا واحدًا، وأدّه بحضور كامل، ثم اكتب في المساء سطرًا: ماذا رأيتُ فيه لم أكن أراه؟",
+      tryArF: "جرّبي هذا الأسبوع: اختاري كل يوم عملًا عاديًّا واحدًا، وأدّيه بحضور كامل، ثم اكتبي في المساء سطرًا: ماذا رأيتُ فيه لم أكن أراه؟",
+      tryEn: "Try this week: each day choose one ordinary task and do it with full presence, then write one line in the evening: what did I see in it that I had not been seeing?" },
+    source: { ar: "حكاية «شجرة التنّوب» للدنماركي هانس كريستيان أندرسن (1844)، رويناها بالمعنى، ومعها دراسة كيلينغزورث وغيلبرت «A wandering mind is an unhappy mind» في مجلة Science (2010).", en: "Hans Christian Andersen's “The Fir Tree” (1844), retold by meaning, with Killingsworth and Gilbert's study “A wandering mind is an unhappy mind”, Science (2010)." } });
+  Q("zombie", [
+    { id: "az-q15", readingId: "az-r9", correct: 1,
+      q: { ar: "بماذا كانت الشجرة تفكر ليلة زُيّنت في البيت؟", en: "What was the tree thinking about on the night it was decorated?" },
+      options: O([["في الغابة التي جاءت منها", "The forest it came from"], ["في الغد: ماذا سيأتي بعد هذا؟", "Tomorrow: what comes after this?"], ["في الأطفال الذين حولها", "The children around it"]]),
+      why: { ar: "حتى في ليلتها الجميلة كانت تنتظر ما بعدها، فلم تعشها.", en: "Even on its lovely night it was waiting for what came next, so it never lived that night." } },
+    { id: "az-q16", readingId: "az-r9", correct: 2,
+      q: { ar: "ماذا وجد كيلينغزورث وغيلبرت عن شرود الذهن؟", en: "What did Killingsworth and Gilbert find about mind-wandering?" },
+      options: O([["أنه نادر عند من يعملون عملًا يحبونه", "That it is rare in people doing work they love"], ["أنه يزيد السعادة إذا كان في أمور سارة", "That it raises happiness when it drifts to pleasant things"], ["أنه ظهر في نحو نصف اللحظات التي سُئلوا فيها، والناس فيه أقل سعادة", "That it showed up in about half the moments sampled, and people were less happy in it"]]),
+      why: { ar: "نحو 47% من اللحظات، والسعادة فيه أقل، والشرود إلى أمر سارّ لم يرفعها فوق الحضور.", en: "About 47% of sampled moments, with lower happiness; wandering somewhere pleasant did not lift it above being present." } }
+  ]);
+
+  /* ── البنصر: الكسل ── */
+  R("pig", { id: "ap-r9", minutes: 5,
+    title: { ar: "الكنز في الحقل", en: "The treasure in the field" },
+    origin: { ar: "من حكايات لافونتين", en: "From La Fontaine's fables" },
+    body: { common: {
+      ar: ["في حكاية لافونتين فلّاح غنيّ أحسّ بقرب أجله، فدعا أولاده وقال لهم: «لا تبيعوا الأرض التي ورثناها عن آبائنا. فيها كنز مخبوء، لا أعرف موضعه. فاحفروا، وقلّبوا التراب، ولا تتركوا شبرًا».",
+        "مات الأب. وبعد الحصاد حمل الأولاد المعاول، وقلّبوا الحقل كله، هنا وهناك وفي كل زاوية. فما وجدوا ذهبًا. وأعطت الأرض المقلوبة تلك السنة غلّة لم تعطها من قبل. وفهموا ما أراده أبوهم: العمل نفسه كنز.",
+        "سلوك الكسل عند الكبير قلّما يظهر كسلًا. يظهر انتظارًا: انتظار الحماسة، أو الوقت المناسب، أو صفاء الذهن. والفلاح العجوز أعطى أولاده سببًا ليبدؤوا، وترك للتراب بقية الشغل.",
+        "وفي علم النفس الحديث ما يشبه وصيته. فقد راجعت أنجيلا داكوورث وزميلاها ما يُعرف عن ضبط النفس، ورجّحوا أن ما يفعله المرء قبل لحظة الإغراء قد يكون أنفع مما يفعله فيها: أن يرتّب موقفه، فيبعد ما يغريه، ويقرّب ما يريد فعله (Perspectives on Psychological Science، 2016).",
+        "ومن ذلك ما سمّاه بيتر غولفيتزر «نيّة التنفيذ»: خطة بصيغة «إذا... فإني...». «إذا انتهيتُ من العشاء، فإني أغسل الصحون قبل أن أجلس». وقد جمع غولفيتزر وباسكال شيران أربعًا وتسعين دراسة، فوجدا أن هذه الخطة الصغيرة تزيد بوضوح احتمال أن يفعل المرء ما نوى (2006).",
+        "والعادة تحتاج وقتها. في دراسة فيليبا لالي وزملائها في لندن، على سلوكيات بسيطة اختارها المشاركون، احتاجوا نحو 66 يومًا في الوسط حتى صار السلوك الجديد يأتي وحده تقريبًا، ومنهم من احتاج 18 يومًا، ومنهم من قارب 254 يومًا. وتفويت يوم واحد لم يُفسد الطريق (2010)."],
+      en: ["In La Fontaine's fable a rich farmer feels his end approaching. He calls his sons and tells them: “Never sell the land our forefathers left us. A treasure is hidden in it; I don't know where. So dig, turn the soil, and leave no patch untouched.”",
+        "The father died. After the harvest the sons took up their spades and turned the whole field, here, there and in every corner. They found no gold. And that year the turned earth gave a crop it had never given before. They understood what their father had meant: work itself is a treasure.",
+        "In an adult, the behaviour of laziness rarely looks like laziness. It looks like waiting: for motivation, for the right time, for a clear head. The old farmer gave his sons a reason to begin, and left the rest to the soil.",
+        "Modern psychology says something close to his advice. Angela Duckworth and two colleagues reviewed what is known about self-control and argued that what you do before the moment of temptation may work better than what you do in it: arranging your situation, moving the tempting thing away and the intended thing closer (Perspectives on Psychological Science, 2016).",
+        "One such tool is what Peter Gollwitzer called an “implementation intention”: a plan in the form “If... then I will...”. “If I've finished dinner, then I'll wash the dishes before I sit down.” Gollwitzer and Paschal Sheeran gathered ninety-four studies and found that this small plan clearly raises the chance of doing what you intended (2006).",
+        "And habits take their time. In Phillippa Lally's study in London, on simple behaviours the participants chose themselves, they needed about 66 days at the median before a new behaviour came almost by itself; some needed 18 days, and some nearly 254. Missing a single day did not spoil the path (2010)."] },
+      tryAr: "جرّب هذا الأسبوع: اختر عملًا واحدًا تؤجّله دائمًا، واكتب له جملة «إذا... فإني...» تربطه بشيء تفعله كل يوم، وأبعد عنه عائقًا واحدًا: الكتاب على الوسادة، أو الحذاء الرياضي عند الباب.",
+      tryArF: "جرّبي هذا الأسبوع: اختاري عملًا واحدًا تؤجّلينه دائمًا، واكتبي له جملة «إذا... فإني...» تربطه بشيء تفعلينه كل يوم، وأبعدي عنه عائقًا واحدًا: الكتاب على الوسادة، أو الحذاء الرياضي عند الباب.",
+      tryEn: "Try this week: pick one task you always put off, write it an “If... then I will...” sentence that ties it to something you do every day, and remove one obstacle: the book on the pillow, the trainers by the door." },
+    source: { ar: "حكاية «الفلّاح وأولاده» لجان دو لافونتين (1668)، وأصلها عند إيسوب، رويناها بالمعنى. ومعها مراجعة داكوورث وغندلر وغروس (2016)، وتحليل غولفيتزر وشيران لأربع وتسعين دراسة (2006)، ودراسة لالي وزملائها في European Journal of Social Psychology (2010).", en: "La Fontaine's “The Ploughman and his Sons” (1668), after Aesop, retold by meaning. With the review by Duckworth, Gendler and Gross (2016), Gollwitzer and Sheeran's meta-analysis of ninety-four studies (2006), and Lally and colleagues in the European Journal of Social Psychology (2010)." } });
+  Q("pig", [
+    { id: "ap-q15", readingId: "ap-r9", correct: 1,
+      q: { ar: "ماذا وجد الأولاد بعد أن قلّبوا الحقل؟", en: "What did the sons find after turning the field?" },
+      options: O([["جرّة ذهب قرب البئر", "A jar of gold by the well"], ["لا ذهب، وغلّة لم يروا مثلها", "No gold, and a crop like none they had seen"], ["أن أباهم باع الأرض قبل موته", "That their father had sold the land before he died"]]),
+      why: { ar: "الكنز الذي وعد به الأب كان في التعب نفسه.", en: "The treasure the father promised was in the labour itself." } },
+    { id: "ap-q16", readingId: "ap-r9", correct: 0,
+      q: { ar: "ما «نيّة التنفيذ» التي وصفها غولفيتزر؟", en: "What is the “implementation intention” Gollwitzer described?" },
+      options: O([["خطة بصيغة: إذا حدث كذا، فإني أفعل كذا", "A plan in the form: if this happens, then I will do that"], ["الانتظار حتى تأتي الحماسة", "Waiting until motivation arrives"], ["وعد يُقال أمام الناس", "A promise made in front of others"]]),
+      why: { ar: "تربط النية بموقف محدد، فيأتي الفعل حين يأتي الموقف.", en: "It ties the intention to a specific situation, so the action comes when the situation does." } }
+  ]);
+
+  /* ── الوسطى: الغضب السريع ── */
+  R("monkey", { id: "am-r9", minutes: 5,
+    title: { ar: "من شدّ الزرع ليطول", en: "The man who pulled his sprouts" },
+    origin: { ar: "حكاية صينية من منشيوس", en: "A Chinese tale from Mencius" },
+    body: { common: {
+      ar: ["يحكي الفيلسوف الصيني منشيوس عن رجل من مملكة سونغ، كان يرى زرعه بطيئًا لا يطول. فخرج يومًا إلى الحقل، وشدّ كل نبتة قليلًا إلى أعلى، واحدة واحدة، من الصباح إلى المساء. ورجع إلى أهله متعبًا يقول: «تعبتُ اليوم، ساعدتُ الزرع أن يطول». فركض ابنه إلى الحقل، فوجد النبات كله ذابلًا.",
+        "الحكاية عن الزرع، وهي في البيوت كل يوم. ابن في السابعة يربط حذاءه ببطء، والأب متأخر عن عمله، فينحني ويربطه عنه بحركة حادة. بنت تحكي حكاية طويلة عن المدرسة، والأم تكمل جملها عنها لتصل إلى النهاية. واجب لا يُفهم في المرة الثالثة، فيرتفع الصوت: «كم مرة سأشرح؟».",
+        "يولد كثير من سلوك الغضب السريع في هذه المسافة: بين سرعة ما نريد وسرعة ما يكبر. وللزرع إيقاعه، وللولد إيقاعه.",
+        "وفي تجربة نشرها ماثيو ليبرمان وزملاؤه، عُرضت على المشاركين صور وجوه غاضبة أو خائفة وهم في جهاز تصوير الدماغ. وحين اختاروا للشعور اسمه («غاضب»، «خائف») هدأ نشاط اللوزة الدماغية، وهي من مراكز الإنذار في الدماغ، أكثر مما هدأ حين اختاروا اسم شخص يناسب الوجه (Psychological Science، 2007). تجربة مختبر على صور، وفيها ما يُجرَّب في البيت: كلمة واحدة تضع مسافة بين الشعور والفعل.",
+        "وتقترح «التربية الإيجابية» التي طوّرتها جين نيلسن، على خطى ألفرد أدلر ورودولف درايكورس، أن يكون الوالد لطيفًا وحازمًا في الوقت نفسه: الحذاء يُربط، والخروج في السابعة والنصف، ولهذا يبدأ ربطه في السابعة والربع. الحزم في الترتيب، واللطف في الصوت."],
+      en: ["The Chinese philosopher Mencius tells of a man from the state of Song who thought his crop was slow and would not grow. One day he went out to the field and pulled every sprout up a little, one by one, from morning to evening. He came home exhausted and told his family: “I'm worn out today. I helped the crop grow.” His son ran to the field and found every plant withered.",
+        "The tale is about crops, and it happens in homes every day. A seven-year-old ties his shoes slowly, his father is late for work, so he bends down and ties them for him with a sharp tug. A girl tells a long story about school, and her mother finishes her sentences to get to the end. Homework still not understood the third time, and the voice rises: “How many times do I have to explain?”",
+        "Much of the behaviour of quick anger is born in this gap: between the speed we want and the speed at which things grow. The crop has its rhythm, and so does the child.",
+        "In an experiment published by Matthew Lieberman and colleagues, participants in a brain scanner were shown pictures of angry or frightened faces. When they picked the name of the feeling (“angry”, “scared”), activity in the amygdala, one of the brain's alarm centres, calmed more than when they picked a person's name to match the face (Psychological Science, 2007). A lab experiment with pictures, with something to try at home: one word puts some distance between feeling and action.",
+        "Positive Discipline, developed by Jane Nelsen after Alfred Adler and Rudolf Dreikurs, suggests that a parent be kind and firm at the same time: the shoes get tied, we leave at half past seven, so tying starts at a quarter past. Firmness in the arrangement, kindness in the voice."] },
+      tryAr: "جرّب هذا الأسبوع: حين تحسّ بالحرارة تصعد، سمِّ ما تشعر به لنفسك بجملة واحدة قبل أن تتكلم: «أنا مستعجل، وخائف أن أتأخر». ثم انظر إلى ما بين يدي ولدك، واسأل نفسك: أيحتاج يدي، أم يحتاج وقتًا؟",
+      tryArF: "جرّبي هذا الأسبوع: حين تحسّين بالحرارة تصعد، سمّي ما تشعرين به لنفسك بجملة واحدة قبل أن تتكلمي: «أنا مستعجلة، وخائفة أن أتأخر». ثم انظري إلى ما بين يدي ولدك، واسألي نفسك: أيحتاج يدي، أم يحتاج وقتًا؟",
+      tryEn: "Try this week: when you feel the heat rising, name what you feel to yourself in one sentence before you speak: “I'm rushed, and afraid of being late.” Then look at what is in your child's hands, and ask yourself: does this need my hands, or does it need time?" },
+    source: { ar: "حكاية «شدّ الزرع» من كتاب «منشيوس» (القرن الرابع قبل الميلاد)، رويناها بالمعنى. ومعها تجربة ليبرمان وزملائه «Putting feelings into words» (2007)، ومبدأ «اللطف والحزم معًا» من «التربية الإيجابية» لجين نيلسن.", en: "The tale of the pulled sprouts from the book of Mencius (4th century BCE), retold by meaning. With Lieberman and colleagues' “Putting feelings into words” (2007) and the “kind and firm” principle of Jane Nelsen's Positive Discipline." } });
+  Q("monkey", [
+    { id: "am-q15", readingId: "am-r9", correct: 1,
+      q: { ar: "ماذا وجد الابن حين ركض إلى الحقل؟", en: "What did the son find when he ran to the field?" },
+      options: O([["النبات أطول مما كان", "The plants taller than before"], ["النبات كله ذابلًا", "Every plant withered"], ["أن أباه نسي نصف الحقل", "That his father had missed half the field"]]),
+      why: { ar: "استعجل الفلاح النمو، فقطع الجذور عن ترابها.", en: "The farmer hurried the growth, and tore the roots from their soil." } },
+    { id: "am-q16", readingId: "am-r9", correct: 0,
+      q: { ar: "ماذا حدث في تجربة ليبرمان حين اختار المشاركون اسم الشعور؟", en: "What happened in Lieberman's experiment when participants picked the name of the feeling?" },
+      options: O([["هدأ نشاط مركز من مراكز الإنذار في الدماغ", "Activity in one of the brain's alarm centres calmed"], ["زاد غضبهم لأنهم انتبهوا إليه", "Their anger grew because they focused on it"], ["لم يظهر أي فرق", "No difference appeared"]]),
+      why: { ar: "تسمية الشعور بكلمة هدّأت اللوزة الدماغية أكثر من تسمية الشخص.", en: "Naming the feeling calmed the amygdala more than naming the person did." } }
+  ]);
+
+  /* ── السبابة: أداء الواجب ── */
+  R("human", { id: "ah-r9", minutes: 4,
+    title: { ar: "السيف على الشجرة", en: "The sword on the tree" },
+    origin: { ar: "حكاية صينية", en: "A Chinese tale" },
+    body: { common: {
+      ar: ["يروي المؤرخ الصيني سيما تشيان أن الأمير جي تشا، من مملكة وو، خرج في سفارة إلى الممالك الشمالية، ومرّ في طريقه بأمير دولة صغيرة اسمها شو. وفي المجلس كان أمير شو ينظر إلى سيف جي تشا ويطيل النظر، ولم يطلبه، ولم يقل شيئًا.",
+        "فهم جي تشا ما في عينيه، وقال في نفسه: أعطيه السيف حين أعود، فالسفير لا يدخل على الملوك بلا سيف. ولم يقل ذلك لأحد.",
+        "ورجع بعد شهور، فوجد أمير شو قد مات. فذهب إلى قبره، وفكّ السيف عن خصره، وعلّقه على شجرة عند القبر، ومضى.",
+        "قال له من معه: «الرجل مات، ولم تعده بشيء. لمن تترك السيف؟». قال جي تشا: «وعدته في قلبي. أفأنقض ما في قلبي لأن صاحبه مات؟».",
+        "أداء الواجب عند كثيرين حساب لما يُطالَب به المرء: العقد المكتوب، والكلمة المسموعة، وما يراه الناس. وجي تشا حاسب نفسه على ما لم يسمعه أحد غيره.",
+        "ويصف عالم التربية الأمريكي توماس ليكونا الخُلق في كتابه «Educating for Character» (1991) بثلاث طبقات: أن يعرف المرء الخير، وأن يحبّه، وأن يفعله: الرأس والقلب واليد. يقف أكثرنا عند الأولى: يعرف أن الكلمة دَين. ووصل جي تشا إلى الثالثة في أمر لم يكن أحد سيسأله عنه.",
+        "وفي البيت دَين من هذا النوع كل يوم: «سأنظر إلى رسمك بعد قليل»، «في العطلة نذهب إلى البحر»، «غدًا أصلح الدرّاجة». وعود يقولها الكبير ليمضي، ويحفظها الصغير كلمة كلمة."],
+      en: ["The Chinese historian Sima Qian tells that Prince Ji Zha of the state of Wu set out on an embassy to the northern states, and on the way he visited the lord of a small state called Xu. At their meeting the lord of Xu kept looking at Ji Zha's sword, a long look; he did not ask for it, and said nothing.",
+        "Ji Zha understood what was in his eyes, and said to himself: I'll give him the sword when I come back, since an envoy cannot appear before kings without one. He told no one.",
+        "He returned months later and found the lord of Xu had died. So he went to his grave, unfastened the sword from his waist, hung it on a tree by the grave, and went on his way.",
+        "His companions said: “The man is dead, and you never promised him anything. Who are you leaving the sword for?” Ji Zha said: “I promised him in my heart. Should I break what was in my heart because the man has died?”",
+        "For many people, doing what is due means keeping account of what they can be asked for: the written contract, the word others heard, what people can see. Ji Zha held himself to account for what no one else had heard.",
+        "The American educator Thomas Lickona, in Educating for Character (1991), describes character in three layers: knowing the good, loving the good, and doing the good: head, heart and hand. Most of us stop at the first: we know a word given is a debt. Ji Zha reached the third, in a matter no one would ever have asked him about.",
+        "At home there are debts of this kind every day: “I'll look at your drawing in a minute.” “In the holidays we'll go to the sea.” “Tomorrow I'll fix the bike.” Promises an adult says to move on, and a child keeps word for word."] },
+      tryAr: "جرّب هذا الأسبوع: اكتب كل وعد قلته لأحد في البيت، صغيرًا كان أو كبيرًا، ثم أوفِ كل يوم بواحد منها، أو اعتذر عنه بوضوح، وضع مكانه وعدًا تقدر عليه.",
+      tryArF: "جرّبي هذا الأسبوع: اكتبي كل وعد قلتِه لأحد في البيت، صغيرًا كان أو كبيرًا، ثم أوفي كل يوم بواحد منها، أو اعتذري عنه بوضوح، وضعي مكانه وعدًا تقدرين عليه.",
+      tryEn: "Try this week: write down every promise you have made to someone at home, small or large, then each day keep one of them, or apologise for it clearly and put in its place a promise you can keep." },
+    source: { ar: "من «سجلات المؤرخ» لسيما تشيان (نحو 90 قبل الميلاد)، في خبر جي تشا من مملكة وو، رويناها بالمعنى. ومعها تعريف توماس ليكونا للخُلق في «Educating for Character» (1991).", en: "From Sima Qian's Records of the Grand Historian (c. 90 BCE), in the account of Ji Zha of Wu, retold by meaning. With Thomas Lickona's definition of character in Educating for Character (1991)." } });
+  Q("human", [
+    { id: "ah-q15", readingId: "ah-r9", correct: 1,
+      q: { ar: "لماذا لم يُعطِ جي تشا السيف لأمير شو في المرة الأولى؟", en: "Why didn't Ji Zha give the lord of Xu the sword the first time?" },
+      options: O([["لأن الأمير لم يطلبه", "Because the lord did not ask for it"], ["لأنه يحتاج إليه في سفارته", "Because he needed it for his embassy"], ["لأنه سيف ورثه عن أبيه", "Because it was a sword he had inherited from his father"]]),
+      why: { ar: "نوى العطاء من أول نظرة، وأجّله لأن السفير لا يدخل على الملوك بلا سيف.", en: "He meant to give it from the first look, and only waited because an envoy could not appear before kings without a sword." } },
+    { id: "ah-q16", readingId: "ah-r9", correct: 2,
+      q: { ar: "بمَ أجاب جي تشا حين سُئل لمن يترك السيف؟", en: "What did Ji Zha answer when asked who he was leaving the sword for?" },
+      options: O([["أن الأمير طلبه منه قبل موته", "That the lord had asked for it before he died"], ["أن السيف ثقيل في الطريق", "That the sword was heavy for the road"], ["أنه وعده في قلبه", "That he had promised him in his heart"]]),
+      why: { ar: "الوعد الذي في القلب دَين عنده، سمعه الناس أو لم يسمعوه.", en: "A promise in the heart was a debt to him, whether anyone heard it or not." } }
+  ]);
+
+  /* ── الإبهام: المبادرة بالخير ── */
+  R("sabiq", { id: "as-r9", minutes: 5, world: "wisdom",
+    title: { ar: "عقدة الكشّاف", en: "The Scout's knot" },
+    origin: { ar: "من عادات الكشافة", en: "From the Scouts" },
+    body: { common: {
+      ar: ["سنة 1908 نشر روبرت بادن باول، مؤسس الكشافة، كتابه «Scouting for Boys». وفيه عادة بسيطة: أن يفعل الكشّاف كل يوم عملًا طيبًا لأحد، بلا أجر. واقترح لها طريقة لا تحتاج إلى قوة إرادة: عقدة في المنديل أو في ربطة العنق، لا تُفكّ حتى يُفعل العمل الطيب.",
+        "وما زالت العقدة تعمل بعد أكثر من قرن، لأنها تعالج أمرًا يعرفه كل كبير: الخير الذي ننويه في الصباح يذوب في زحمة النهار، والنسيان يسبق التردد.",
+        "جرّبتها مها، وهي محاسبة وأمّ لثلاثة، بطريقتها: ربطت خيطًا أحمر حول ساعة يدها. في اليوم الأول تذكّرته في الحادية عشرة، فأرسلت لزميلة مريضة تسأل عنها. وفي الثاني نسيته حتى الليل، فطوت غسيل جارتها المسنّة المنشور قبل المطر. وفي الخامس لم تجد شيئًا حتى المساء، ثم رأت عيني ابنها الأوسط تطلبان من يسمعه، فجلست معه، وفكّت العقدة بعد نصف ساعة.",
+        "وفي علم النفس اسم لما تفعله العقدة: تذكير مربوط بموقف. فقد وجد غولفيتزر وشيران، في مراجعتهما لأربع وتسعين دراسة (2006)، أن من يربط نيّته بموقف محدد بصيغة «إذا... فإني...» يفعل ما نوى أكثر بوضوح ممن يكتفي بالنية العامة. «إذا جلستُ إلى الغداء، فإني أسأل نفسي: لمن أفعل خيرًا اليوم؟».",
+        "والعادة تحتاج وقتًا أطول مما نظن. في دراسة لالي وزملائها (2010) كان الوسط نحو 66 يومًا حتى يصير السلوك تلقائيًّا، وتفويت يوم لم يكسر الطريق. والعقدة تُربط من جديد في الصباح التالي.",
+        "وبعد شهرين صارت مها تفكّ الخيط قبل الظهر في أكثر الأيام. ثم نسيت أن تربطه ذات صباح، وفي الطريق إلى العمل وجدت نفسها تحمل عن رجل عجوز كيس خبزه إلى باب بيته."],
+      en: ["In 1908 Robert Baden-Powell, founder of the Scouts, published Scouting for Boys. In it is a simple habit: a Scout does a good turn for someone every day, unpaid. And he suggested a way to keep it that needs no willpower: a knot in your handkerchief or necktie, not untied until the good turn is done.",
+        "The knot still works more than a century later, because it deals with something every adult knows: the good we intend in the morning dissolves in the rush of the day, and forgetting comes before hesitating.",
+        "Maha, an accountant and mother of three, tried it her own way: a red thread tied around her watch. On the first day she remembered at eleven and messaged a colleague who was ill. On the second she forgot until night, then brought in her elderly neighbour's washing before the rain. On the fifth she found nothing until evening, then saw her middle son's eyes asking for someone to listen, so she sat with him, and untied the knot half an hour later.",
+        "Psychology has a name for what the knot does: a reminder tied to a situation. In their review of ninety-four studies (2006), Gollwitzer and Sheeran found that people who tie an intention to a specific situation, in the form “If... then I will...”, follow through clearly more often than those with a general intention. “If I sit down to lunch, then I'll ask myself: who can I do some good for today?”",
+        "And habits take longer than we expect. In Lally and colleagues' study (2010) the median was about 66 days before a behaviour became automatic, and missing one day did not break the path. The knot is tied again the next morning.",
+        "Two months on, Maha was untying the thread before noon on most days. Then one morning she forgot to tie it, and on the way to work found herself carrying an old man's bag of bread to his front door."] },
+      tryAr: "جرّب هذا الأسبوع: اربط عقدة، أو ضع منبّهًا بعد الغداء، واكتب جملتك: «إذا... فإني أفعل خيرًا لأحد لم يطلبه».",
+      tryArF: "جرّبي هذا الأسبوع: اربطي عقدة، أو ضعي منبّهًا بعد الغداء، واكتبي جملتك: «إذا... فإني أفعل خيرًا لأحد لم يطلبه».",
+      tryEn: "Try this week: tie a knot, or set an alarm for after lunch, and write your sentence: “If..., then I will do some good for someone who didn't ask.”" },
+    source: { ar: "العمل الطيب اليومي من «Scouting for Boys» لروبرت بادن باول (1908؛ رجعنا إلى طبعة 1910)، ومعه مراجعة غولفيتزر وشيران في Advances in Experimental Social Psychology (2006) ودراسة لالي وزملائها (2010). مها شخصية خيالية.", en: "The daily good turn from Robert Baden-Powell's Scouting for Boys (1908; checked in the 1910 edition), with Gollwitzer and Sheeran's review in Advances in Experimental Social Psychology (2006) and Lally and colleagues' study (2010). Maha is a fictional character." } });
+  Q("sabiq", [
+    { id: "as-q15", readingId: "as-r9", correct: 0,
+      q: { ar: "بماذا اقترح بادن باول أن يتذكر الكشّاف عمله الطيب؟", en: "How did Baden-Powell suggest a Scout remember the good turn?" },
+      options: O([["بعقدة في المنديل أو ربطة العنق لا تُفكّ حتى يفعله", "A knot in his handkerchief or necktie, not untied until it is done"], ["بدفتر يكتب فيه كل مساء", "A notebook written in every evening"], ["بشارة تُعلَّق على الصدر", "A badge worn on the chest"]]),
+      why: { ar: "تذكير يُرى ويُلمس، مربوط بالجسد طوال النهار.", en: "A reminder you can see and touch, tied to you all day." } },
+    { id: "as-q16", readingId: "as-r9", correct: 1,
+      q: { ar: "ماذا فعلت مها في الصباح الذي نسيت فيه أن تربط الخيط؟", en: "What did Maha do on the morning she forgot to tie the thread?" },
+      options: O([["رجعت إلى البيت لتربطه", "Went home to tie it"], ["حملت عن رجل عجوز كيس خبزه", "Carried an old man's bag of bread for him"], ["أرسلت رسالة لزميلتها المريضة", "Messaged her colleague who was ill"]]),
+      why: { ar: "بعد شهرين صار الخير يأتي وحده، بلا خيط.", en: "After two months the good came by itself, with no thread." } }
+  ]);
+
+  /* ── «إلى العمل» للكبار: مهام من تجارب التربية في العالم ── */
+  S.zombie.tasks.push({ id: "az-t6", ar: "وجبة واحدة اليوم بلا هاتف، تؤكل ببطء، مع سؤال: من زرع هذا، ومن أعدّه؟", en: "One meal today without the phone, eaten slowly, asking: who grew this, and who made it?" });
+  S.pig.tasks.push({ id: "ap-t6", ar: "أسبوع من أدوار البيت بالتناوب على الأسرة كلها، كنوبات الفصل في مدارس اليابان، والبدء بدوري.", en: "A week of household roles rotating through the whole family, like class duties in Japanese schools, starting with my own." });
+  S.monkey.tasks.push({ id: "am-t6", ar: "تسمية الشعور بجملة قبل الرد مرة واحدة اليوم («أنا منزعج لأن...»)، ثم الرد بعد دقيقة.", ar_f: "تسمية الشعور بجملة قبل الرد مرة واحدة اليوم («أنا منزعجة لأن...»)، ثم الرد بعد دقيقة.", en: "Named the feeling in a sentence before replying, once today (“I'm annoyed because...”), then replied a minute later." });
+  S.human.tasks.push({ id: "ah-t6", ar: "اجتماع عائلي ربع ساعة: شكر متبادل أولًا، ثم مشكلة واحدة يقترح الجميع لها حلولًا، ويُختار حل يُجرَّب أسبوعًا.", en: "A fifteen-minute family meeting: thanks to each other first, then one problem everyone suggests solutions for, and one solution chosen to try for a week." });
+  S.sabiq.tasks.push(
+    { id: "as-t6", ar: "عمل طيب كل يوم سبعة أيام لم يطلبه أحد، بتذكير ثابت: عقدة، أو منبّه بعد الغداء.", en: "A good turn every day for seven days that nobody asked for, with a fixed reminder: a knot, or an alarm after lunch." },
+    { id: "as-t7", ar: "تسمية فضيلة رأيتُها في ولد أو زميل بجملة محددة: «رأيتُ أمانتك اليوم حين...».", en: "Named a virtue I saw in a child or a colleague, in a specific sentence: “I saw your honesty today when...”" });
+})();

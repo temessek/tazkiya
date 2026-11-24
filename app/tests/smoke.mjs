@@ -133,7 +133,7 @@ function checkAdult(A, C, STAGES, kids, errs, warn, walk) {
     if (!STAGES.includes(s)) errs.push(`${w}: unknown stage`);
     const need = (k, lo, hi) => { const n = (st[k] || []).length; if (n < lo || n > hi) errs.push(`${w}.${k}: ${n} items, expected ${lo === hi ? lo : lo + "-" + hi}`); };
     if (!st.name || !st.short) errs.push(`${w}: name/short missing`);
-    need("signs", 5, 6); need("readings", 6, 8); need("quiz", 10, 14); need("tasks", 5, 5); need("selfcheck", 5, 5);
+    need("signs", 5, 6); need("readings", 6, 12); need("quiz", 10, 20); need("tasks", 5, 8); need("selfcheck", 5, 5); // ranges widened 24 Nov 2026 for the world-tales batch
     need("degrees", s === "sabiq" ? 2 : 3, s === "sabiq" ? 2 : 3);
     (st.degrees || []).forEach((d, i) => {
       ["name", "desc", "looks", "story", "step", "week", "habit", "q"].concat(["zombie", "pig", "monkey"].includes(s) ? ["turnName", "turn"] : []).forEach(k => { if (!d[k]) errs.push(`${w}.degrees[${i}]: "${k}" missing`); });

@@ -816,6 +816,7 @@
     rolesH: ["قدوتنا", "Our role models"],
     readKinds: ["ثلاثة ألوان من القراءة، تختار منها ما يناسب وقتك.", "Three kinds of reading: pick the one that suits your time."],
     kBooks: ["كتب بفصول", "Chapter books"], kBooksD: ["قصة طويلة تُقرأ فصلًا فصلًا على أيام.", "A longer story, read a chapter at a time over several days."],
+    tagWorld: ["من حكايات العالم", "World tales"], tagWisdom: ["من تجارب العالم", "From the world's experience"],
     kShort: ["قصص قصيرة", "Short stories"], kShortD: ["كل قصة تُقرأ في دقائق، وفي آخرها أسئلة عنها.", "Each one takes a few minutes and ends with questions about it."],
     kChoice: ["ماذا تفعل لو كنت في القصة؟", "What would you do in the story?"],
     kChoiceD: ["تقرأ موقفًا قصيرًا، ثم تختار ما يفعله البطل، وترى ما يحدث بعد اختيارك.", "Read a short situation, choose what the hero does, and see what happens next."],
@@ -2361,7 +2362,7 @@
     const mins = r => r.minutes ? `<span class="rc-min">${IC.clock}<bdi>${r.minutes}</bdi> ${esc(u("minutes"))}</span>` : "";
     const doneB = on => on ? `<span class="rc-done" aria-label="${esc(u("read"))}">✓</span>` : "";
     const card = r => `<a class="rcard" href="${href(r)}"><span class="rc-art" aria-hidden="true">${symImg(id, "rc-sym")}</span>
-        <b class="rc-t">${esc(t(r.title))}</b><span class="rc-m">${mins(r)}${ADU() ? "" : `<span>${agesHtml(r.ages)}</span>`}</span>${doneB(S.read[r.id])}</a>`;
+        <b class="rc-t">${esc(t(r.title))}</b><span class="rc-m">${r.world ? `<span class="rtag w">${esc(u(r.world === "wisdom" ? "tagWisdom" : "tagWorld"))}</span>` : ""}${mins(r)}${ADU() ? "" : `<span>${agesHtml(r.ages)}</span>`}</span>${doneB(S.read[r.id])}</a>`;
     const roleCard = (r, k) => `<a class="rolecard" href="${href(r)}"><span class="rtag ${k}">${esc(u(k === "s" ? "tagSummit" : "tagComp"))}</span>
         <b>${esc(t(r.title))}</b><span class="rc-m">${mins(r)}${ADU() ? "" : `<span>${agesHtml(r.ages)}</span>`}</span><span class="rc-go" aria-hidden="true">${IC.chev}</span>${doneB(S.read[r.id])}</a>`;
     const kind = (k, ic, title, sub) => `<div class="kind ${k}"><span class="kic" aria-hidden="true">${ic}</span><div><h3 class="h">${esc(u(title))}</h3><p>${esc(u(sub))}</p></div></div>`;
@@ -2672,7 +2673,7 @@
       aloudIx = Math.max(0, Math.min(aloudIx, body.length - 1)); if (aloudIx === body.length - 1) rs.end = true;
       return `<div class="wrap article aloud${aloudIx === body.length - 1 ? " last" : ""}" style="--fs:${Math.max(S.fs, 24)}px">
         <div class="reader-bar"><a class="back" href="#/stage/${id}">${BK()} ${esc(nm(id))}</a><span class="fsz">${ttsBtn()}<button class="small-btn" data-act="aloud" style="width:auto;border-radius:99px;padding:6px 12px">${esc(u("aloudExit"))}</button></span></div>
-        <h1 class="h">${esc(t(r.title))}</h1>
+        <h1 class="h">${esc(t(r.title))}</h1>${r.origin ? `<p class="origin">${esc(t(r.origin))}</p>` : ""}
         <div class="aloud-page"><p>${esc(body[aloudIx])}</p></div>
         ${pager(body.length)}
         ${aloudIx === body.length - 1 ? readStat(rs) : ""}
@@ -2682,7 +2683,7 @@
     return `<div class="wrap article${r.summit === true ? " summit-read" : ""}" style="--fs:${S.fs}px">
       <div class="reader-bar"><a class="back" href="#/stage/${id}">${BK()} ${esc(nm(id))}</a>
         <div class="fsz" role="group" aria-label="${esc(u("textSize"))}">${ttsBtn()}<button data-act="fs" data-d="-2" aria-label="A−">A−</button><button data-act="fs" data-d="2" aria-label="A+">A+</button></div></div>
-      <h1 class="h">${esc(t(r.title))}</h1>
+      <h1 class="h">${esc(t(r.title))}</h1>${r.origin ? `<p class="origin">${esc(t(r.origin))}</p>` : ""}
       <div class="meta"><span>${r.minutes ? r.minutes + " " + esc(u("minutes")) : ""}</span>${ADU() ? "" : `<span>${esc(u("ages"))}: ${agesHtml(r.ages)}</span>`}${young ? `<button class="small-btn" data-act="aloud">${esc(u("aloud"))}</button>` : ""}</div>
       <div class="body">${body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
       ${q ? `<figure class="quote" style="margin-inline:0">${q.ar ? `<p class="qar" lang="ar">${esc(q.ar)}</p>` : ""}${L() === "en" && q.en ? `<p class="qen" lang="en">${esc(q.en)}</p>` : ""}
