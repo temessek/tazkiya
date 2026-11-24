@@ -5,7 +5,7 @@
  * Names always describe behaviour, never the person. All children in stories are fictional.
  */
 window.AKHLAQ_CONTENT = {
-  version: "0.28.1-draft-2026-11-24",
+  version: "0.28.2-draft-2026-11-24",
   stages: {},
   virtues: []
 };
@@ -3112,7 +3112,7 @@ window.AKHLAQ_CONTENT.virtues = [
 
   C.faq = [
     { q: { ar: 'أليس وصف السلوك بـ«الخنزير» أو «القرد» مؤذيًا للطفل؟', en: 'Isn\'t naming behaviours after the pig or the monkey harmful to a child?' },
-      a: { ar: 'الأذى يأتي حين يُلصق الوصف بالطفل نفسه: «أنت خنزير». أما التطبيق فيصف السلوك فقط: «هذه من سمات البنصر». والأصل قرآني، فالقرآن ضرب أمثالًا بالحيوان لسلوك الإنسان لا لهيئته. ونؤكد للطفل دائمًا أن الله خلقه في أحسن تقويم، وأن كل الناس فيهم شيء من هذه السمات، وأن كل واحد يستطيع أن يصعد. ولهذا صارت إشارة الإصبع هي اللغة اليومية بدل اسم الحيوان.', en: 'Harm comes when a label is stuck on the child: "you are a pig". The app only ever describes behaviour: "that is a ring-finger trait". The idea is Quranic: the Quran uses animal images for human behaviour, never for a person\'s form. We always remind the child that Allah created them in the finest form, that everyone has some of these traits, and that everyone can climb. That is why the finger sign, not the animal name, is the everyday language.' } },
+      a: { ar: 'يصف التطبيق السلوك وحده، بلغة الإصبع: «هذه من سمات البنصر». والطفل نفسه خلقه الله في أحسن تقويم، ونذكّره بذلك دائمًا، ونذكّره أن في كل الناس شيئًا من هذه السمات، وأن كل واحد يستطيع أن يصعد. وأصل الفكرة قرآني: ضرب القرآن الأمثال بالحيوان لسلوك الإنسان. ولهذا صارت إشارة الإصبع لغة البيت اليومية.', en: 'The app describes the behaviour alone, in the language of the hand: \"that is a ring-finger trait\". The child is someone Allah created in the finest form, and we remind them of that often, along with two more things: everyone has some of these traits, and everyone can climb. The idea is Quranic: the Quran uses animal images to describe human behaviour. That is why the finger sign is the everyday language at home.' } },
     { q: { ar: 'ماذا أفعل إن رفض طفلي النسبة المئوية أو حزن منها؟', en: 'What if my child objects to a percentage or is upset by it?' },
       a: { ar: 'استمع إليه أولًا ولا تجادله. قل له: «النسبة ليست حكمًا عليك، بل صورة لسلوك هذا الأسبوع، وستتغير». وابدأ دائمًا بالجزء الإنساني والاتجاه: «انظر، صعدت هذا الأسبوع». وإن اعترض على رقم بعينه فاسأله: «وكيف تراه أنت؟»، فالتقييم الذاتي جزء من التطبيق، وحواره معك أهم من الرقم نفسه.', en: 'Listen first and do not argue. Say: "The number is not a verdict on you; it is a picture of this week\'s behaviour, and it will change." Always start with the human part and the direction: "Look, you went up this week." If they disagree with a particular number, ask: "How do you see it?" Self-assessment is part of the app, and talking it through with you matters more than the number itself.' } },
     { q: { ar: 'كم مرة نستعمل التطبيق؟', en: 'How often should we use the app?' },
