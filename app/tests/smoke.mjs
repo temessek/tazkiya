@@ -100,7 +100,7 @@ function checkContent() {
   return { errs, warn, stats, C, A, books, adult };
 }
 
-// choice stories (FIVE-IDEAS 5): { id, stage, trait, age, title, intro, q (with ar_f), opts: [{ t, out, why, weak? }] (2-3), end }; one per stage
+// choice stories (FIVE-IDEAS 5): { id, stage, trait, age, title, intro, q (with ar_f), opts: [{ t, out, why, weak? }] (2-3), end }; at least one per stage
 function checkChoices(list, stages, label, prefix, STAGES, errs) {
   if (!Array.isArray(list)) { errs.push(`${label}: missing`); return; }
   const ids = new Set(), per = {};
@@ -118,7 +118,7 @@ function checkChoices(list, stages, label, prefix, STAGES, errs) {
     else { x.opts.forEach((o, j) => ["t", "out", "why"].forEach(k => { if (!o[k] || !o[k].ar || !o[k].en) errs.push(`${w}.opts[${j}]: "${k}" missing`); }));
       if (!x.opts.some(o => !o.weak)) errs.push(`${w}: every option is weak`); }
   });
-  STAGES.forEach(s => { if (per[s] !== 1) errs.push(`${label}: ${per[s] || 0} stories for ${s}, expected 1`); });
+  STAGES.forEach(s => { if (!per[s]) errs.push(`${label}: no story for ${s}, expected at least 1`); }); // more than one allowed since 24 Nov 2026 (PSHE situations)
 }
 
 // adult edition (content/content-adult.js): same shape, ids apart from the children's, every written stage complete

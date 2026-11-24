@@ -6,7 +6,7 @@
  * IDs start with "az-" / "ap-" / "am-" / "ah-" / "as-" / "ad" so an adult record never mixes with a children's one.
  */
 window.AKHLAQ_CONTENT_ADULT = {
-  version: "0.4.0-adult-draft-2026-11-24",
+  version: "0.5.0-adult-draft-2026-11-24",
   stages: {},
   onboarding: [
     {
@@ -3828,4 +3828,176 @@ window.AKHLAQ_CONTENT_ADULT.choices = [
   S.sabiq.tasks.push(
     { id: "as-t6", ar: "عمل طيب كل يوم سبعة أيام لم يطلبه أحد، بتذكير ثابت: عقدة، أو منبّه بعد الغداء.", en: "A good turn every day for seven days that nobody asked for, with a fixed reminder: a knot, or an alarm after lunch." },
     { id: "as-t7", ar: "تسمية فضيلة رأيتُها في ولد أو زميل بجملة محددة: «رأيتُ أمانتك اليوم حين...».", en: "Named a virtue I saw in a child or a colleague, in a specific sentence: “I saw your honesty today when...”" });
+})();
+
+/* ───────────── من حكايات العالم وتجاربه للكبار، الدفعة الثانية، 24 نوفمبر 2026 ─────────────
+ * One more piece per stage: a retold public-domain tale or an account of a world practice or study,
+ * each study named with its journal and year. Invented characters are fictional.
+ */
+(function () {
+  var S = window.AKHLAQ_CONTENT_ADULT.stages;
+  function R(k, o) {
+    var b = o.body; o.body = { ar: b.common.ar.concat(b.tryAr), ar_f: b.common.ar.concat(b.tryArF || b.tryAr), en: b.common.en.concat(b.tryEn) };
+    S[k].readings.push(Object.assign({ world: "tale", quote: null, ages: "18+" }, o));
+  }
+  function Q(k, list) { list.forEach(function (q) { S[k].quiz.push(Object.assign({ type: "comprehension" }, q)); }); }
+  function O(a) { return a.map(function (x) { return { ar: x[0], en: x[1] }; }); }
+
+  /* ── الخنصر: الغفلة والعادة العمياء ── */
+  R("zombie", { id: "az-r10", minutes: 5,
+    title: { ar: "الناسك وجرّة السمن", en: "The hermit and the jar of ghee" },
+    origin: { ar: "من «كليلة ودمنة»", en: "From Kalila and Dimna" },
+    body: { common: {
+      ar: ["في «كليلة ودمنة» ناسك كان يأتيه كل يوم من بيت تاجر رزق من السمن والعسل، فيأكل منه حاجته، ويرفع الباقي في جرّة علّقها على وتد في ركن البيت، فوق رأسه. حتى امتلأت الجرّة.",
+        "وفي يوم استلقى الناسك على ظهره، وفي يده عصا، والجرّة معلّقة فوقه. وبدأ يفكر: لو بعت ما في الجرّة اشتريت عشرًا من الماعز، فتلد كل خمسة أشهر، حتى تصير أربعمئة. ثم أبيعها وأشتري مئة من البقر، وأرضًا أزرعها، وأبني بيتًا، وأتزوج امرأة جميلة، فتلد لي ولدًا. فإذا كبر الولد أدّبته، فإن عصاني ضربته بهذه العصا، هكذا!",
+        "ورفع العصا وأشار بها نحو الجرّة، فكسرها. فسال السمن والعسل على وجهه ولحيته. ذهبت الماعز والبقر والأرض والبيت والولد، وذهب معها عشاء الغد.",
+        "يدا الناسك تحرّكتا وعقله في مكان آخر. وهذا يحدث للكبار كل يوم، بلا جرّة ولا عسل: يقود أحدهم سيارته إلى عمله فيصل ولا يذكر الطريق. يردّ على ابنه «نعم، نعم» وهو يقرأ رسالة. يفتح الثلاجة ولا يذكر لماذا فتحها.",
+        "وقد درست هذا عالمة النفس الأمريكية ويندي وود وزميلاها. طلبوا من طلاب جامعيين أن يكتبوا كل ساعة ما يفعلونه، وما يفكرون فيه، وما يشعرون به. فكان نحو ثلث ما سجّلوه في الدراسة الأولى، ونحو 43% في الثانية، أفعالًا تتكرر كل يوم تقريبًا في المكان نفسه: أي عادات. وفي الدراسة الأولى كانت أفكارهم في غير ما يفعلون في نحو 60% من المرات التي كان الفعل فيها عادة، ونحو 40% حين لم يكن عادة (مجلة Journal of Personality and Social Psychology، 2002).",
+        "العادة نعمة، تحمل عنّا أعباء اليوم الصغيرة. وما تفعله الغفلة أن تترك اليد تعمل وحدها في ما يحتاج إلى القلب كله: في الحديث مع الأهل، وفي القيادة، وفي القرار الذي يُتخذ بنصف انتباه. والعلاج أن تعرف أيّ أفعالك تجري وحدها، وأيّها لا يصلح أن يجري وحده، ثم تعيد هذه إلى انتباهك."],
+      en: ["In Kalila and Dimna a hermit received a daily gift of ghee and honey from a merchant's house. He ate what he needed and stored the rest in a jar he hung from a peg in the corner, above his head, until the jar was full.",
+        "One day the hermit lay on his back with a stick in his hand and the jar hanging above him, and began to think: if I sold what's in the jar, I could buy ten goats. They would bear young every five months, until there were four hundred. Then I'd sell them and buy a hundred cows, and land to farm, and build a house, and marry a beautiful wife, and she would bear me a son. When the boy grew up I would discipline him, and if he disobeyed me I'd strike him with this stick, like this!",
+        "He raised the stick and pointed it at the jar, and broke it. The ghee and honey poured over his face and beard. Gone were the goats and the cows, the land, the house and the son, and with them tomorrow's supper.",
+        "The hermit's hands moved while his mind was somewhere else. Adults do this every day, without a jar or any honey: someone drives to work and arrives without remembering the road. A parent says “yes, yes” to a child while reading a message. Someone opens the fridge and can't remember why.",
+        "The American psychologist Wendy Wood and two colleagues studied this. They asked university students to write down every hour what they were doing, thinking and feeling. About a third of what they recorded in the first study, and about 43% in the second, were acts repeated almost daily in the same setting: habits. In the first study, people's thoughts were on something other than what they were doing in about 60% of the reports when the act was a habit, and about 40% when it was not (Journal of Personality and Social Psychology, 2002).",
+        "Habit is a blessing; it carries the small loads of the day for us. What heedlessness does is let the hand work alone at things that need the whole heart: talking with your family, driving, a decision made with half your attention. The remedy is to know which of your acts run by themselves, and which ones should never run by themselves, and to bring those back into your attention."] },
+      tryAr: "جرّب هذا الأسبوع: اكتب ثلاثة أفعال تجري عندك وحدها، وضع بجانب واحد منها لا يصلح أن يجري وحده علامة، وأدّه كل يوم وعقلك فيه.",
+      tryArF: "جرّبي هذا الأسبوع: اكتبي ثلاثة أفعال تجري عندكِ وحدها، وضعي بجانب واحد منها لا يصلح أن يجري وحده علامة، وأدّيه كل يوم وعقلكِ فيه.",
+      tryEn: "Try this week: write down three things you do on autopilot, mark the one that should never run by itself, and do it each day with your mind in it." },
+    source: { ar: "حكاية «الناسك وجرّة السمن» في «كليلة ودمنة» لابن المقفّع (باب الناسك وابن عرس)، رويناها بالمعنى، ومعها دراسة وود وكوين وكاشي «Habits in everyday life» في مجلة Journal of Personality and Social Psychology (2002).", en: "The tale of the hermit and the jar of ghee from Ibn al-Muqaffa's Kalila and Dimna (chapter of the hermit and the weasel), retold by meaning, with Wood, Quinn and Kashy's study “Habits in everyday life”, Journal of Personality and Social Psychology (2002)." } });
+  Q("zombie", [
+    { id: "az-q17", readingId: "az-r10", correct: 0,
+      q: { ar: "كيف انكسرت جرّة الناسك؟", en: "How did the hermit's jar get broken?" },
+      options: O([["أشار بالعصا وهو يتخيل تأديب ابنه، فأصابها", "He pointed his stick while imagining disciplining his son, and hit it"], ["سقطت من الوتد لثقلها", "It fell from the peg under its own weight"], ["كسرها فأر في الليل", "A mouse broke it in the night"]]),
+      why: { ar: "يده تحركت مع خياله، وعقله بعيد عن الجرّة التي فوقه.", en: "His hand moved with his daydream, while his mind was far from the jar above him." } },
+    { id: "az-q18", readingId: "az-r10", correct: 1,
+      q: { ar: "ماذا وجدت ويندي وود وزميلاها عن الأفعال المعتادة؟", en: "What did Wendy Wood and her colleagues find about habitual acts?" },
+      options: O([["أنها نادرة في حياة الطلاب", "That they are rare in students' lives"], ["أنها كانت بين ثلث ما سُجّل ونحو 43% منه، والفكر فيها أكثر شرودًا", "That they made up between a third and about 43% of what was recorded, with thoughts wandering more during them"], ["أن الناس يفكرون فيها أكثر مما يفكرون في غيرها", "That people think about them more than about other acts"]]),
+      why: { ar: "العادة تحرّر الفكر، فيذهب إلى غير ما تفعله اليد.", en: "Habit frees the mind, so it drifts away from what the hand is doing." } }
+  ]);
+
+  /* ── البنصر: الشَّرَه وضبط النفس ── */
+  R("pig", { id: "ap-r10", minutes: 6, world: "wisdom",
+    title: { ar: "اختبار حلوى الخطمي بعد خمسين عامًا", en: "The marshmallow test, fifty years on" },
+    origin: { ar: "من تجارب علم النفس", en: "From psychology's experiments" },
+    body: { common: {
+      ar: ["في أواخر الستينيات، في روضة جامعة ستانفورد، كان عالم النفس والتر ميشيل وزملاؤه يُجلسون طفلًا في الرابعة تقريبًا أمام طاولة عليها حلوى، ويقولون له: «سأخرج قليلًا. إن انتظرت حتى أرجع أخذت اثنتين، وإن لم تصبر فاقرع الجرس، وخذ واحدة الآن».",
+        "أول ما وجدوه لم يكن عن «قوة الإرادة»، بل عن الانتباه. في دراسة نشروها عام 1972 صبر الأطفال أطول حين اقتُرح عليهم أن يفكروا في شيء ممتع، أو أن يلعبوا بلعبة، وصبروا أقل حين بقيت عيونهم وأفكارهم على الحلوى (مجلة Journal of Personality and Social Psychology). فالصبر هنا مهارة في توجيه النظر والفكر، تُتعلّم.",
+        "ثم في 1990 تابع ميشيل وشودا وبيك بعض أولئك الأطفال في مراهقتهم، فوجدوا من صبر أطول في الروضة أعلى في نتائج اختبار القبول الجامعي. وكانت العينة صغيرة، من روضة جامعة واحدة، والنتيجة ارتباطًا لا سببًا. لكن الصحف والكتب حوّلتها إلى نبوءة: انظر كم ينتظر طفلك تعرف مستقبله.",
+        "وفي 2018 أعاد الباحثون تايلر واتس وغريغ دنكان وهاونان كوان الفكرة على عينة أكبر بكثير وأكثر تنوعًا. فكان الارتباط بين الانتظار في الرابعة والتحصيل في الخامسة عشرة نحو نصف ما وُجد في الدراسات الأولى، ولما أدخلوا في الحساب خلفية الأسرة وقدرات الطفل المبكرة نقص بنحو الثلثين (مجلة Psychological Science). فجزء كبير مما بدا «إرادة» كان ظروف البيت.",
+        "وقبلها، في 2013، أضافت سيليست كيد وزميلاها في جامعة روتشستر قطعة مهمة. قبل الحلوى، وعد باحث ثمانية وعشرين طفلًا بأدوات رسم أجمل إن انتظروا. فوفى لنصفهم، وأخلف مع النصف الآخر. ثم جاء اختبار الحلوى: صبر أطفال الوعد الموفى نحو اثنتي عشرة دقيقة في المتوسط، وأطفال الوعد المخلف نحو ثلاث دقائق. وانتظر تسعة من أربعة عشر في المجموعة الأولى الخمس عشرة دقيقة كلها، وواحد فقط في الثانية (مجلة Cognition). فالطفل الذي لا يصبر قد يكون يحسب حسابًا صحيحًا: الوعود في عالمه لا تُوفى.",
+        "ما الذي يبقى للكبير من هذا كله؟ ثلاثة أمور، كل منها أصغر من «نبوءة» وأنفع منها. أن الصبر يسهل حين يغيب المُغري عن العين: الهاتف في غرفة أخرى، والحلوى في الخزانة. وأنه يُعلَّم بحيل الانتباه: ماذا نفعل ونحن ننتظر. وأن البيت الذي تُوفى فيه الوعود الصغيرة يعلّم الطفل أن الانتظار يستحق."],
+      en: ["In the late 1960s, at Stanford University's nursery school, the psychologist Walter Mischel and his colleagues would sit a child of about four at a table with a treat on it and say: “I'm going out for a bit. If you wait till I come back, you get two. If you can't wait, ring the bell and have one now.”",
+        "The first thing they found was not about “willpower” but about attention. In a study published in 1972, children waited longer when they were encouraged to think about something fun or to play with a toy, and less when their eyes and thoughts stayed on the treat (Journal of Personality and Social Psychology). Waiting here was a skill of steering one's eyes and thoughts, and skills can be taught.",
+        "Then in 1990 Shoda, Mischel and Peake followed up some of those children as teenagers, and found that those who had waited longer at nursery scored higher on college entrance tests. The sample was small, from a single university nursery, and the finding was a correlation, not a cause. But newspapers and books turned it into a prophecy: see how long your child waits and you'll know their future.",
+        "In 2018 the researchers Tyler Watts, Greg Duncan and Haonan Quan revisited the idea with a much larger and more diverse sample. The link between waiting at four and achievement at fifteen was about half the size found in the first studies, and when they took family background and the child's early abilities into account, it shrank by about two thirds (Psychological Science). Much of what had looked like “will” was the circumstances of the home.",
+        "Before that, in 2013, Celeste Kidd and two colleagues at the University of Rochester added an important piece. Before the treat, a researcher promised twenty-eight children nicer art supplies if they waited. For half of them he kept his word; for the other half he broke it. Then came the treat test: the children whose promise had been kept waited about twelve minutes on average, and those whose promise had been broken about three. Nine of fourteen in the first group waited the full fifteen minutes, and only one in the second (Cognition). A child who won't wait may be reckoning correctly: in their world, promises are not kept.",
+        "What is left for an adult from all this? Three things, each smaller than a prophecy and more useful. Waiting is easier when the temptation is out of sight: the phone in another room, the sweets in the cupboard. It can be taught with tricks of attention: what we do while we wait. And a home where small promises are kept teaches a child that waiting is worth it."] },
+      tryAr: "جرّب هذا الأسبوع: أبعد عن نظرك إغراءً واحدًا تضعف أمامه، وعِد طفلك وعدًا صغيرًا محددًا، ووفِّ به في موعده بالضبط.",
+      tryArF: "جرّبي هذا الأسبوع: أبعدي عن نظركِ إغراءً واحدًا تضعفين أمامه، وعِدي طفلكِ وعدًا صغيرًا محددًا، ووفّي به في موعده بالضبط.",
+      tryEn: "Try this week: move one temptation you give in to out of sight, and make your child one small, specific promise, then keep it exactly on time." },
+    source: { ar: "من دراسات ميشيل وإبسن وزايس (Journal of Personality and Social Psychology، 1972)، وشودا وميشيل وبيك (Developmental Psychology، 1990)، وكيد وبالميري وأصلان «Rational snacking» (Cognition، 2013)، وواتس ودنكان وكوان «Revisiting the marshmallow test» (Psychological Science، 2018).", en: "From the studies of Mischel, Ebbesen and Zeiss (Journal of Personality and Social Psychology, 1972), Shoda, Mischel and Peake (Developmental Psychology, 1990), Kidd, Palmeri and Aslin, “Rational snacking” (Cognition, 2013), and Watts, Duncan and Quan, “Revisiting the marshmallow test” (Psychological Science, 2018)." } });
+  Q("pig", [
+    { id: "ap-q17", readingId: "ap-r10", correct: 2,
+      q: { ar: "ما الذي ساعد الأطفال على الصبر أطول في دراسة 1972؟", en: "What helped children wait longer in the 1972 study?" },
+      options: O([["أن يُطلب منهم النظر إلى الحلوى", "Being told to look at the treat"], ["أن تكون الحلوى أكبر", "A bigger treat"], ["أن يفكروا في شيء ممتع أو يلعبوا بلعبة", "Thinking about something fun or playing with a toy"]]),
+      why: { ar: "الصبر مهارة في صرف النظر والفكر عن المغري.", en: "Waiting is a skill of turning eyes and thoughts away from the temptation." } },
+    { id: "ap-q18", readingId: "ap-r10", correct: 0,
+      q: { ar: "ماذا أظهرت دراسة كيد وزميليها عام 2013؟", en: "What did Kidd and her colleagues show in 2013?" },
+      options: O([["أن الأطفال الذين وُفي لهم بالوعد صبروا أطول بكثير", "That children whose promise had been kept waited much longer"], ["أن الصبر في الرابعة يحدد مستقبل الطفل", "That waiting at four decides a child's future"], ["أن الأطفال لا يتذكرون الوعود", "That children don't remember promises"]]),
+      why: { ar: "نحو اثنتي عشرة دقيقة مقابل ثلاث: الطفل يحسب هل الانتظار يستحق.", en: "About twelve minutes against three: the child reckons whether waiting is worth it." } }
+  ]);
+
+  /* ── الوسطى: لا يسمع ولا يتوقف ── */
+  R("monkey", { id: "am-r10", minutes: 5,
+    title: { ar: "تلميذ الساحر", en: "The sorcerer's apprentice" },
+    origin: { ar: "من قصيدة لغوته", en: "From a poem by Goethe" },
+    body: { common: {
+      ar: ["في قصيدة للشاعر الألماني غوته خرج ساحر عجوز من بيته، وترك تلميذه وحده. وكان التلميذ قد سمع معلّمه يقول كلمات تجعل المكنسة تمشي وتعمل. فقال الكلمات، فقامت المكنسة على رجلين، وأخذت الدلو، وصارت تنقل الماء من النهر إلى الحوض.",
+        "فرح التلميذ أول الأمر. ثم امتلأ الحوض، والمكنسة تأتي بدلو بعد دلو. وفاض الماء على الأرض. وهنا تذكّر التلميذ أنه حفظ كلمة البدء، ولم يحفظ كلمة التوقف.",
+        "صاح بها، فلم تقف. أمسكها، فأفلتت. فأخذ فأسًا وشقّها نصفين، فقام كل نصف مكنسة كاملة، تحمل دلوًا. صار الماء يجري في الغرف والدرج، والتلميذ يصرخ: «يا معلّمي، الشدّة كبيرة! الأرواح التي دعوتها لا أستطيع أن أصرفها».",
+        "ورجع الساحر، فقال كلمة واحدة، فرجعت المكنسة إلى ركنها.",
+        "الكلمة الغاضبة عند الكبير تبدأ مثل المكنسة: جملة واحدة، ثم جملة تأتي بأخرى، ثم صوت يعلو فيعلو صوت الطرف الآخر. وكثيرًا ما يعرف الأب أو الأم كيف يبدأ الشجار، ولا يعرف كيف يوقفه.",
+        "ويستعمل الطبيب النفسي الأمريكي دانيال سيغل لذلك صورة باليد: اقبض أصابعك على إبهامك. الإبهام المطويّ هو الجزء الذي ينفعل ويخاف ويدافع، والأصابع فوقه هي الجزء الذي يفكر ويزن الكلام. فإذا اشتد الغضب «انفتحت» الأصابع، وبقي الانفعال وحده يعمل. وهي صورة للتعليم، لا خريطة دقيقة للدماغ، لكنها تشرح لماذا لا تنفع النصيحة في ذروة الغضب. ومدارس «التربية الإيجابية» تعلّمها للأطفال وللآباء معًا، وتقترح أن تُتفق الأسرة في وقت هادئ على «كلمة توقف» وعلى ركن يهدأ فيه من غضب، صغيرًا كان أو كبيرًا، ثم يرجع إلى الحديث."],
+      en: ["In a poem by the German poet Goethe, an old sorcerer leaves his house and his apprentice alone in it. The apprentice has heard his master say words that make the broom walk and work. He says the words, and the broom stands up on two legs, takes the bucket, and begins carrying water from the river to the basin.",
+        "At first the apprentice is delighted. Then the basin is full, and the broom keeps bringing bucket after bucket. Water spills over the floor. Only now does the apprentice remember that he learned the word for starting, and not the word for stopping.",
+        "He shouts at it; it won't stop. He grabs it; it slips away. He takes an axe and splits it in two, and each half stands up a whole broom carrying a bucket. Water runs through the rooms and down the stairs, and the apprentice cries out: “Master, the need is great! The spirits I called up, I cannot now send away.”",
+        "The sorcerer comes back, says one word, and the broom returns to its corner.",
+        "An adult's angry words start like the broom: one sentence, then a sentence that brings another, then a raised voice that raises the other person's voice. Parents often know how to start a quarrel and not how to stop it.",
+        "The American psychiatrist Daniel Siegel uses a picture made with the hand for this: fold your fingers over your thumb. The tucked thumb is the part that reacts, fears and defends; the fingers over it are the part that thinks and weighs words. When anger peaks, the fingers “flip up”, and the reacting part works alone. It is a teaching picture, not an exact map of the brain, but it explains why advice is useless at the height of anger. Positive Discipline teaches it to children and parents alike, and suggests that the family agree, at a calm time, on a “stop word” and on a corner where anyone who is angry, child or adult, can calm down and then come back to talk."] },
+      tryAr: "جرّب هذا الأسبوع: اتفق مع أسرتك في وقت هادئ على كلمة توقف واحدة، وعلى مكان يهدأ فيه الغاضب، وكن أول من يستعملها.",
+      tryArF: "جرّبي هذا الأسبوع: اتفقي مع أسرتكِ في وقت هادئ على كلمة توقف واحدة، وعلى مكان يهدأ فيه الغاضب، وكوني أول من يستعملها.",
+      tryEn: "Try this week: at a calm moment, agree with your family on one stop word and one place for whoever is angry to calm down, and be the first to use it." },
+    source: { ar: "قصيدة «تلميذ الساحر» ليوهان فولفغانغ فون غوته (1797)، رويناها بالمعنى، ومعها «نموذج الدماغ في كف اليد» لدانيال سيغل (Parenting from the Inside Out، 2003، مع ماري هارتزل) كما تعلّمه «التربية الإيجابية» (positivediscipline.com).", en: "Johann Wolfgang von Goethe's poem “The Sorcerer's Apprentice” (1797), retold by meaning, with Daniel Siegel's “hand model of the brain” (Parenting from the Inside Out, 2003, with Mary Hartzell) as taught by Positive Discipline (positivediscipline.com)." } });
+  Q("monkey", [
+    { id: "am-q17", readingId: "am-r10", correct: 1,
+      q: { ar: "ما الذي نسيه التلميذ؟", en: "What had the apprentice failed to learn?" },
+      options: O([["كلمة البدء", "The word for starting"], ["كلمة التوقف", "The word for stopping"], ["طريق النهر", "The way to the river"]]),
+      why: { ar: "عرف كيف يبدأ، ولم يعرف كيف يوقف ما بدأه.", en: "He knew how to start, and not how to stop what he had started." } },
+    { id: "am-q18", readingId: "am-r10", correct: 2,
+      q: { ar: "ماذا تمثّل الأصابع المطوية فوق الإبهام في صورة سيغل؟", en: "What do the fingers folded over the thumb stand for in Siegel's picture?" },
+      options: O([["الجزء الذي يخاف ويدافع", "The part that fears and defends"], ["الذاكرة البعيدة", "Long-term memory"], ["الجزء الذي يفكر ويزن الكلام", "The part that thinks and weighs words"]]),
+      why: { ar: "إذا «انفتحت» الأصابع في الغضب بقي الانفعال وحده يعمل.", en: "When the fingers “flip up” in anger, the reacting part works alone." } }
+  ]);
+
+  /* ── السبابة: الرجوع عن الخطأ ── */
+  R("human", { id: "ah-r10", minutes: 5, world: "wisdom",
+    title: { ar: "الإصلاح بعد الصراخ", en: "Repair after shouting" },
+    origin: { ar: "من «التربية الإيجابية»", en: "From Positive Discipline" },
+    body: { common: {
+      ar: ["كان حاتم متعبًا من يوم طويل، ودخل البيت فوجد الماء مسكوبًا على أوراق مهمة تركها على الطاولة، وابنه ذو الأعوام السبعة واقفًا بجانبها والكأس في يده. فصرخ صرخة سمعها الجيران، وقال كلمة ندم عليها قبل أن يكملها. وركض الولد إلى غرفته.",
+        "جلس حاتم وحده. وكان أمامه طريقان يعرفهما كل أب وأم: أن يقول في نفسه «يستحق، ليتعلم»، وينتظر أن ينسى الولد، أو أن يعتبر ما جرى خطأ منه هو يحتاج إلى إصلاح.",
+        "تقترح جين نيلسن، صاحبة منهج «التربية الإيجابية» (أول طبعة من كتابها عام 1981)، ثلاث خطوات لما تسميه «التعافي من الخطأ»، وتراها في متناول كل والد. الأولى: الاعتراف، أن يرى الكبير خطأه ويسمّيه دون أن يجلد نفسه. الثانية: المصالحة، أن يعتذر للطفل اعتذارًا صريحًا. الثالثة: الحل، أن يبحثا معًا، بعد أن يهدأ الاثنان، عن طريق يمنع تكرار ما حدث.",
+        "طرق حاتم باب الغرفة، وجلس على الأرض بجانب ابنه، وقال: «صرختُ عليك، وقلتُ كلمة لا تليق. أنا آسف». نظر إليه الولد طويلًا، ثم قال: «وأنا آسف على الأوراق». وفي الغد اتفقا: الأوراق المهمة في الدرج، والكؤوس تُشرب في المطبخ.",
+        "وفي هذا المنهج يُنظر إلى الخطأ على أنه فرصة للتعلّم. والطفل الذي يرى أباه يعترف ويعتذر ويصلح يتعلم ما لا تعلّمه النصيحة: أن الخطأ لا يُنهي المحبة، وأن الرجوع عنه قوة. وكثير من الآباء يخافون أن يُضعف الاعتذار هيبتهم، وما يحدث غالبًا عكس ذلك: يصير لكلامهم وزن أكبر، لأن الطفل عرف أنه صادق."],
+      en: ["Hatem was tired after a long day. He came home to find water spilled over important papers he had left on the table, and his seven-year-old standing beside them with the glass in his hand. He let out a shout the neighbours heard, and said a word he regretted before he had finished it. The boy ran to his room.",
+        "Hatem sat alone. Before him lay two roads every parent knows: to tell himself “he deserved it, he'll learn” and wait for the boy to forget, or to treat what had happened as his own mistake that needed repairing.",
+        "Jane Nelsen, founder of the Positive Discipline approach (her book first appeared in 1981), suggests three steps for what she calls recovery from mistakes, within reach of every parent. First, recognise: the adult sees the mistake and names it, without beating himself up. Second, reconcile: apologise to the child plainly. Third, resolve: once both are calm, look together for a way to keep it from happening again.",
+        "Hatem knocked on the bedroom door, sat on the floor beside his son, and said: “I shouted at you, and I said a word that wasn't right. I'm sorry.” The boy looked at him for a long time, then said: “And I'm sorry about the papers.” The next day they agreed: important papers go in the drawer, and drinks are drunk in the kitchen.",
+        "In this approach a mistake is seen as a chance to learn. A child who watches a parent admit, apologise and repair learns what advice cannot teach: that a mistake does not end love, and that turning back from it is strength. Many parents fear an apology will weaken their authority. What usually happens is the opposite: their words carry more weight, because the child has learned they are sincere."] },
+      tryAr: "جرّب هذا الأسبوع: حين تخطئ مع أحد أهل بيتك، امشِ في الخطوات الثلاث: سمِّ خطأك، واعتذر بجملة صريحة، ثم ابحثا معًا عن حل.",
+      tryArF: "جرّبي هذا الأسبوع: حين تخطئين مع أحد أهل بيتكِ، امشي في الخطوات الثلاث: سمّي خطأكِ، واعتذري بجملة صريحة، ثم ابحثا معًا عن حل.",
+      tryEn: "Try this week: when you get it wrong with someone at home, walk through the three steps: name your mistake, apologise in one plain sentence, then look for a solution together." },
+    source: { ar: "مشهد مؤلف أبطاله خياليون، على «خطوات التعافي الثلاث» (Three R's of Recovery) في منهج «التربية الإيجابية» لجين نيلسن (positivediscipline.com).", en: "An original scene with fictional characters, built on the Three R's of Recovery in Jane Nelsen's Positive Discipline (positivediscipline.com)." } });
+  Q("human", [
+    { id: "ah-q17", readingId: "ah-r10", correct: 2,
+      q: { ar: "ما الخطوات الثلاث للتعافي من الخطأ عند جين نيلسن؟", en: "What are Jane Nelsen's three steps for recovering from a mistake?" },
+      options: O([["العقاب، ثم النسيان، ثم البدء من جديد", "Punish, forget, start again"], ["الشرح، ثم التحذير، ثم المكافأة", "Explain, warn, reward"], ["الاعتراف، ثم المصالحة، ثم الحل", "Recognise, reconcile, resolve"]]),
+      why: { ar: "يرى الكبير خطأه، ويعتذر، ثم يبحث مع الطفل عن حل.", en: "The adult sees the mistake, apologises, then looks for a solution with the child." } },
+    { id: "ah-q18", readingId: "ah-r10", correct: 0,
+      q: { ar: "ماذا اتفق حاتم وابنه في الغد؟", en: "What did Hatem and his son agree the next day?" },
+      options: O([["الأوراق المهمة في الدرج، والكؤوس تُشرب في المطبخ", "Important papers go in the drawer, and drinks are drunk in the kitchen"], ["ألا يدخل الولد غرفة أبيه", "That the boy stays out of his father's room"], ["أن يدفع الولد ثمن الأوراق", "That the boy pays for the papers"]]),
+      why: { ar: "الحل المشترك يمنع التكرار، ولا يعاقب أحدًا.", en: "A shared solution prevents a repeat without punishing anyone." } }
+  ]);
+
+  /* ── الإبهام: مبادرة بالخير ── */
+  R("sabiq", { id: "as-r10", minutes: 5, world: "wisdom",
+    title: { ar: "لغة الفضائل", en: "The language of the virtues" },
+    origin: { ar: "من «مشروع الفضائل»", en: "From The Virtues Project" },
+    body: { common: {
+      ar: ["في عام 1988 أسس في كندا ليندا كافلين بوبوف ودان بوبوف وجون كافلين «مشروع الفضائل»، وهو برنامج تربوي انتشر بعد ذلك في مدارس وأسر في بلاد كثيرة. وأول ما يعلّمه للآباء والمعلمين أن «يتكلموا بلغة الفضائل».",
+        "معنى ذلك أن تسمّي الفضيلة حين تراها. بدل «ولد شاطر» تقول: «انتظرتَ دورك بصبر». وبدل «أحسنتِ» تقول: «كان ذلك لطفًا منكِ مع أخيكِ». وبدل «أنت كذاب» تقول: «أحتاج منك الآن الصدق. ماذا حدث فعلًا؟».",
+        "الفرق صغير في الكلمات، وكبير في أثره. «ولد شاطر» حكم على الطفل كله، يرفعه اليوم وقد يسقطه غدًا. و«انتظرت دورك بصبر» تخبره بما فعل، وتعطي الفعل اسمًا يستطيع أن يرجع إليه. والتصحيح بلغة الفضائل يطلب الفضيلة الغائبة، ولا يلصق بالطفل صفة السلوك الذي أخطأ فيه.",
+        "ويقوم المشروع على أن الفضائل كالبذور: موجودة في كل طفل، تحتاج إلى من يراها ويسقيها. فالكبير الذي يتكلم بهذه اللغة يبادر إلى الخير في غيره: يبحث عنه، ويسمّيه، قبل أن يُطلب منه.",
+        "وتنفع اللغة نفسها مع الكبار: مع زوج تعب في يوم صعب («كان صبرك اليوم كبيرًا»)، ومع زميل أنجز عملًا متقنًا («دقّتك في هذا التقرير وفّرت علينا أسبوعًا»)، ومع النفس حين تخطئ («أحتاج الآن الشجاعة لأعترف»).",
+        "وفي المشروع أربع ممارسات أخرى بعد هذه: انتهاز اللحظات التي تصلح للتعليم، ووضع حدود واضحة تقوم على الفضائل، واحترام ما في الإنسان من معنى وروح، والإنصات لمن يمر بضيق دون استعجال الحلول. واللغة أولها، لأنها تبدأ من اليوم، من أول جملة."],
+      en: ["In 1988, in Canada, Linda Kavelin Popov, Dan Popov and John Kavelin founded The Virtues Project, an educational programme that later spread to schools and families in many countries. The first thing it teaches parents and teachers is to “speak the language of the virtues”.",
+        "That means naming a virtue when you see it. Instead of “good boy”, you say: “You waited your turn patiently.” Instead of “well done”, you say: “That was kind of you to your brother.” Instead of “you liar”, you say: “I need honesty from you now. What really happened?”",
+        "The difference in words is small; the difference in effect is large. “Good boy” is a verdict on the whole child, lifting him today and perhaps dropping him tomorrow. “You waited your turn patiently” tells him what he did and gives the act a name he can return to. And correction in the language of the virtues asks for the missing virtue, rather than pinning the child to the behaviour he got wrong.",
+        "The project rests on the idea that virtues are like seeds: present in every child, needing someone to see and water them. An adult who speaks this language takes the initiative in the good of others: looking for it and naming it before anyone asks.",
+        "The same language works with adults: with a spouse after a hard day (“Your patience today was huge”), with a colleague who did careful work (“Your precision in this report saved us a week”), and with yourself when you get it wrong (“I need courage now to admit it”).",
+        "The project has four further practices after this one: seizing teachable moments, setting clear boundaries based on the virtues, honouring the spirit in a person, and companioning someone in distress by listening without rushing to fix. Language comes first because it starts today, with the very next sentence."] },
+      tryAr: "جرّب هذا الأسبوع: سمِّ كل يوم فضيلة واحدة رأيتها في أحد أهل بيتك، باسمها وبما فعله، دون «شاطر» و«أحسنت».",
+      tryArF: "جرّبي هذا الأسبوع: سمّي كل يوم فضيلة واحدة رأيتِها في أحد أهل بيتكِ، باسمها وبما فعله، دون «شاطر» و«أحسنت».",
+      tryEn: "Try this week: each day, name one virtue you saw in someone at home, by its name and by what they did, without “good boy” or “well done”." },
+    source: { ar: "من «مشروع الفضائل» (The Virtues Project) الذي أسسته ليندا كافلين بوبوف ودان بوبوف وجون كافلين في كندا عام 1988، ودليله للأسر (1991)، والأمثلة من عندنا.", en: "From The Virtues Project, founded by Linda Kavelin Popov, Dan Popov and John Kavelin in Canada in 1988, and its family guide (1991); the examples are ours." } });
+  Q("sabiq", [
+    { id: "as-q17", readingId: "as-r10", correct: 1,
+      q: { ar: "ما معنى «التكلم بلغة الفضائل»؟", en: "What does “speaking the language of the virtues” mean?" },
+      options: O([["أن تقرأ للطفل قصصًا عن الفضائل", "Reading the child stories about virtues"], ["أن تسمّي الفضيلة حين تراها، بما فعله صاحبها", "Naming a virtue when you see it, by what the person did"], ["أن تكافئ الطفل بهدية على كل فضيلة", "Rewarding the child with a gift for every virtue"]]),
+      why: { ar: "«انتظرت دورك بصبر» تخبر الطفل بما فعل، وتعطيه اسمًا يرجع إليه.", en: "“You waited your turn patiently” tells the child what he did and gives him a name to return to." } },
+    { id: "as-q18", readingId: "as-r10", correct: 0,
+      q: { ar: "كيف يكون التصحيح بلغة الفضائل؟", en: "How does correction work in the language of the virtues?" },
+      options: O([["يطلب الفضيلة الغائبة: «أحتاج منك الصدق الآن»", "It asks for the missing virtue: “I need honesty from you now”"], ["يسمّي الطفل باسم خطئه", "It calls the child by the name of his mistake"], ["يؤجل الكلام إلى الأسبوع التالي", "It puts off talking until next week"]]),
+      why: { ar: "يدعو إلى الخير بدل أن يلصق بالطفل الخطأ.", en: "It invites the good instead of pinning the mistake on the child." } }
+  ]);
 })();
