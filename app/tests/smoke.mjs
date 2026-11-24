@@ -389,10 +389,10 @@ async function editionFlows(browser, base, content, AV) {
     // the top-bar age button: teens keep the children's content with the 15+ shelf first; adults switch content
     await page.click("#ageBtn"); await page.waitForTimeout(300);
     ok(await page.locator('#sheet [data-act="setgrp"]').count() === 3, "the age button opens the three groups");
-    await page.click('#sheet [data-act="setgrp"][data-g="teen"]'); await page.waitForTimeout(500);
+    await page.click('#sheet [data-act="setgrp"][data-g="teen"]'); await page.waitForTimeout(1000);
     let s1 = (await state(page)).states[0]; ok(s1.edition === "kids" && s1.age === "15+", "teen group = children's content, 15+ books first");
     ok((await page.locator("#ageBtn").innerText()).trim() === "مراهقون", "the top bar shows the teen group");
-    await page.click("#ageBtn"); await page.waitForTimeout(300); await page.click('#sheet [data-act="setgrp"][data-g="adult"]'); await page.waitForTimeout(900);
+    await page.click("#ageBtn"); await page.waitForTimeout(300); await page.click('#sheet [data-act="setgrp"][data-g="adult"]'); await page.waitForTimeout(1300);
     await go(page, "#/stage/zombie"); ok((await viewText(page)).includes(adultR1), "the age button switches to adult content");
     ok(!(await page.evaluate(() => document.body.innerText)).includes("تغيير"), "no unexplained «تغيير» button left");
     const fxOk = await page.evaluate(() => !!window.TZFX && typeof window.TZFX.play === "function"); ok(fxOk, "sound module loaded");
@@ -408,8 +408,8 @@ async function editionFlows(browser, base, content, AV) {
     await ctx.close(); });
   // 4. first open asks for the edition, then shows that edition's onboarding
   await step("first-open choice", async () => { const { ctx, page } = await fresh(); await page.goto(`${base}?reset=1#/`); await page.waitForTimeout(500);
-    ok(await page.locator('#sheet [data-act="introed"]').count() === 3, "first open asks for the age group");
-    await page.click('#sheet [data-act="introed"][data-g="adult"]'); await page.waitForTimeout(900);
+    ok(await page.locator('#sheet .grpseg [data-act="introed"]').count() === 3 && !(await page.locator("#sheet .mapopt").count()), "first open asks for the age group in one segmented control");
+    await page.click('#sheet [data-act="introed"][data-g="adult"]'); await page.waitForTimeout(1300);
     const sh = await filmText(page);
     ok(sh.includes(adultOnb) && (await state(page)).states[0].edition === "adult", "choice saved and the adults' story of the hand plays");
     await ctx.close(); });
@@ -992,7 +992,24 @@ async function ideaFlows(browser, base, content, AV) {
     await page.click('#sheet [data-act="accout"]'); await page.waitForTimeout(800);
     ok(!(await page.evaluate(() => localStorage.getItem("tazkiya-sync"))) && (await getS(page)).bless.length >= 1, "acc: signing out forgets the sync state and keeps everything on the device");
     await page.goto(`${base}?reset=1&n=first#/`); await page.waitForTimeout(1600);
-    ok(await has(page, '#sheet .acc.first a.gsi[href="api/auth/google/start"]') && await page.locator("#sheet .mapopt").count() === 3, "acc: the first open shows Google's button, then «this device only» and the age groups");
+    ok(await has(page, '#sheet .acc.first a.gsi[href="api/auth/google/start"]') && await page.locator("#sheet .grpseg button").count() === 3, "acc: the first open shows Google's button, then «this device only» and the age groups");
+    // the age choice is one row of three short options with one helper line; at 375 x 667 nothing needs scrolling (owner decision, 24 Nov 2026)
+    for (const [vw, vh, q] of [[375, 667, ""], [375, 667, "&lang=en"], [320, 568, ""]]) {
+      await page.setViewportSize({ width: vw, height: vh }); await page.goto(`${base}?reset=1&n=first${q}#/`); await page.waitForTimeout(1600);
+      const g = await page.evaluate(() => { const s = document.getElementById("sheet"), bs = [...s.querySelectorAll(".grpseg button")], h = s.querySelector(".grp-help"), sr = s.getBoundingClientRect();
+        return { n: bs.length, row: new Set(bs.map(b => Math.round(b.getBoundingClientRect().top))).size === 1, tall: Math.max(...bs.map(b => b.getBoundingClientRect().height)),
+          labels: bs.map(b => b.innerText.replace(/\s+/g, " ").trim()), helps: s.querySelectorAll(".grp-help").length, help: h ? h.innerText : "",
+          hb: h ? Math.round(h.getBoundingClientRect().bottom) : 9e3, sb: Math.round(sr.bottom), scroll: s.scrollHeight - s.clientHeight, acc: !!s.querySelector(".acc .gsi") }; });
+      const tag = `${vw}x${vh}${q ? " en" : ""}`;
+      ok(g.n === 3 && g.row && g.tall < 70 && g.helps === 1 && g.acc, `acc ${tag}: Google card, then one row of three short options and one helper line`);
+      ok(q ? g.labels.join("|") === "Kids 4-12|Teens 13-17|Adults" : g.labels.join("|") === "أطفال 4-12|مراهقون 13-17|كبار", `acc ${tag}: short labels with ages (${g.labels.join(" | ")})`);
+      ok(g.scroll <= 2 && g.hb <= g.sb + 2, `acc ${tag}: the choice and its helper fit without scrolling (overflow ${g.scroll})`);
+      if (!q && vw === 375) { await page.click('#sheet [data-act="introed"][data-g="teen"]'); await page.waitForTimeout(120);
+        const t = await page.evaluate(() => ({ on: [...document.querySelectorAll("#sheet .grpseg button.on")].map(b => b.dataset.g).join(), help: document.querySelector("#sheet .grp-help")?.innerText || "" }));
+        ok(t.on === "teen" && t.help && t.help !== g.help, "acc: one tap lights the option and changes the helper line");
+        await page.waitForTimeout(1200); ok((await getS(page)).age === "15+" && await page.evaluate(() => document.body.classList.contains("film-open")), "acc: the same tap saves the teen group and moves on to the story"); }
+    }
+    await page.setViewportSize({ width: 375, height: 812 });
     ok(!errs.length, "acc: no script errors (" + errs.slice(0, 1).join("") + ")");
     await ctx.close();
   });
@@ -1237,7 +1254,7 @@ async function ideaFlows(browser, base, content, AV) {
   await step("review: iPhone", async () => {
     let { ctx, page } = await freshUA(IPHONE, () => { Object.defineProperty(Navigator.prototype, "standalone", { get: () => true, configurable: true }); });
     await page.goto(`${base}?reset=1&n=${++nOpen}#/`); await page.waitForTimeout(700);
-    if (await has(page, '#sheet [data-act="edpick"], #sheet .edpick')) { const b = page.locator("#sheet .mapopt").first(); await b.click(); await page.waitForTimeout(700); }
+    if (await has(page, '#sheet .grpseg [data-act="introed"]')) { const b = page.locator('#sheet .grpseg [data-act="introed"]').first(); await b.click(); await page.waitForTimeout(1100); }
     if (await has(page, ".film-skip")) { await page.click(".film-skip"); await page.waitForTimeout(600); } // the story of the hand first (22 Nov 2026), then the backup offer
     ok(await has(page, '#sheet .ios-move [data-act="bkimport"]') && await has(page, "#sheet #bkFile"), "review B4: the installed iPhone app's first screen offers to restore Safari's backup");
     await ctx.close();
@@ -1368,7 +1385,7 @@ async function introFlows(browser, base) {
     return { scene: window.TZINTRO ? window.TZINTRO.scene : 0, dir: f.getAttribute("dir"), still: f.classList.contains("still"), line: f.querySelector(".film-line").innerText, text: f.innerText,
       skip: vis(".film-skip"), next: vis(".film-next"), go: vis(".film-go"), focus: document.activeElement && document.activeElement.className }; });
   const until = async (page, sc, ms) => { const t0 = Date.now(); while (Date.now() - t0 < (ms || 15000)) { const n = await page.evaluate(() => window.TZINTRO && window.TZINTRO.open ? window.TZINTRO.scene : -1); if (n >= sc) return n; await page.waitForTimeout(60); } return -1; };
-  const first = async (page, g, q) => { await page.goto(`${base}?reset=1${q || ""}#/`); await page.waitForTimeout(500); await page.click(`#sheet [data-act="introed"][data-g="${g}"]`); await page.waitForTimeout(700); };
+  const first = async (page, g, q) => { await page.goto(`${base}?reset=1${q || ""}#/`); await page.waitForTimeout(500); await page.click(`#sheet [data-act="introed"][data-g="${g}"]`); await page.waitForTimeout(1100); };
   const imgsOk = page => page.evaluate(() => [...document.querySelectorAll(".film img")].every(i => i.complete && i.naturalWidth > 0));
   const replay = async (page, q, ms) => { await page.goto(`${base}?n=${Math.random().toString(36).slice(2)}${q || ""}#/about`); await page.waitForTimeout(ms || 500); await page.click('#view [data-act="filmplay"]'); await page.waitForTimeout(400); };
 

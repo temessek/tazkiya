@@ -840,6 +840,22 @@
   });
   Object.assign(UF, { accOr: "أو ابدئي على هذا الجهاز فقط" });
   Object.assign(UA, { sGender: ["رجل أم امرأة", "Man or woman"] });
+  // the age group as one segmented control (owner decision, 24 Nov 2026): short labels, one helper line that follows the choice
+  Object.assign(U, {
+    agChildH: ["قصص وأمثلة من يوم الطفل في البيت والمدرسة.", "Stories and examples from a child's day at home and school."],
+    agTeenH: ["المسار نفسه، والكتب الأنسب لهذا العمر أولًا.", "The same path, with the books best suited to this age first."],
+    agAdultH: ["من 18 سنة: أمثلة من العمل والبيت والعبادة.", "18 and over: examples from work, home and worship."]
+  });
+  const GRPA = { child: "4-12", teen: "13-17", adult: "" };
+  // one tap: the segment lights up and the helper line changes at once; cur "" = nothing chosen yet (helper shows `idle`)
+  const grpSeg = (act, cur, idle) => `<div class="segc wide grpseg" role="group" aria-label="${esc(u("agT"))}">${GRPS.map(g => { const on = cur === g;
+      return `<button class="${on ? "on" : ""}" data-act="${act}" data-g="${g}" aria-pressed="${on}"><span class="gn">${esc(u(GRPK[g]))}</span>${GRPA[g] ? `<span class="ga" dir="ltr">${GRPA[g]}</span>` : ""}</button>`; }).join("")}</div>
+    <p class="grp-help" aria-live="polite">${esc(cur ? u(GRPK[cur] + "H") : (idle || ""))}</p>`;
+  // shows the tapped segment and its helper line before the sheet moves on
+  const grpMark = el => { const box = el.closest(".grpseg"); if (!box) return;
+    box.querySelectorAll("button").forEach(b => { const on = b === el; b.classList.toggle("on", on); b.setAttribute("aria-pressed", on); });
+    const h = box.nextElementSibling; if (h && h.classList.contains("grp-help")) h.textContent = u(GRPK[el.dataset.g] + "H"); };
+  let grpBusy = 0;
   const qN = n => L() === "ar" ? (n === 1 ? "سؤال واحد" : n === 2 ? "سؤالان" : n <= 10 ? `${n} أسئلة` : `${n} سؤالًا`) : `${n} question${n === 1 ? "" : "s"}`;
   const svgI = p => `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${p}</svg>`;
   const IC = {
@@ -1180,7 +1196,7 @@
       <div class="sgroup">
         <label class="srow"><span class="sl">${esc(u("profName"))}</span><input id="profName" type="text" maxlength="20" autocomplete="off" value="${esc(S.name || "")}" placeholder="${esc(ADU() ? u("namePhA") : L() === "ar" ? "نور" : "Nour")}"></label>
         <div class="srow"><span class="sl">${esc(u("sGender"))}</span>${seg("setgender", "g", [["m", "boy"], ["f", "girl"]], S.gender)}</div>
-        <div class="srow col"><span class="sl">${esc(u("agT"))}</span>${seg("setgrp", "g", GRPS.map(g => [g, GRPK[g]]), GRP(S), "wide")}</div>
+        <div class="srow col"><span class="sl">${esc(u("agT"))}</span>${grpSeg("setgrp", GRP(S))}</div>
         ${GRP(S) !== "child" ? "" : `<div class="srow"><span class="sl">${esc(u("agBand"))}</span>${seg("setage", "a", [["4-8", "4-8", 1], ["9-14", "9-14", 1]], S.age)}</div>`}
       </div>
       ${fx ? `<h3 class="sg-h">${esc(u("fxT"))}</h3><div class="sgroup">
@@ -1259,10 +1275,9 @@
   let introIx = 0;
   function edSheet() {
     const acc = !ACC.me && ACC.google ? accCard("first") : "";
-    openSheet(`<div class="onb-art"><img src="assets/hand.webp" alt=""></div>
+    openSheet(`<div class="onb-art edart"><img src="assets/hand.webp" alt=""></div>
       ${acc ? `${acc}<p class="acc-or"><span>${esc(u("accOr"))}</span></p>` : ""}
-      <h2 class="h">${esc(u("edAskT"))}</h2><p class="onb-body">${esc(u("edAskB"))}</p>
-      <div class="maps edpick">${GRPS.map(g => `<button class="mapopt" data-act="introed" data-g="${g}"><b>${esc(u(GRPK[g]))}</b><span>${esc(u(GRPK[g] + "D"))}</span></button>`).join("")}</div>`, { kind: "intro" });
+      <h2 class="h">${esc(u("edAskT"))}</h2>${grpSeg("introed", "", u("edAskB"))}`, { kind: "intro" });
     document.body.classList.add("intro-open");
     sheet.classList.add("tall");
   }
@@ -2179,7 +2194,7 @@
   function ageSheet() {
     const g0 = GRP(S);
     openSheet(`<h2 class="h">${esc(u("agT"))}</h2><p class="short">${esc(u("agNote"))}</p>
-      <div class="maps edpick">${GRPS.map(g => `<button class="mapopt ${g === g0 ? "on" : ""}" data-act="setgrp" data-g="${g}" aria-pressed="${g === g0}"><b>${esc(u(GRPK[g]))}</b><span>${esc(u(GRPK[g] + "D"))}</span></button>`).join("")}</div>
+      ${grpSeg("setgrp", g0)}
       ${P.list.length > 1 ? `<p class="sub" style="margin:14px 0 0">${esc(profPhrase(P.active, S))} · <button class="linkbtn" data-act="settings">${esc(u("famOpen"))}</button></p>` : ""}`, { kind: "age" });
   }
   function fxBlock() {
@@ -2196,8 +2211,8 @@
   // re-open the settings sheet in place (keeps its scroll position)
   function settingsAgain() { const y = sheet.scrollTop; settingsSheet(); sheet.scrollTop = y; }
   function profAddSheet() {
-    openSheet(`<h2 class="h">${esc(u("addT"))}</h2><p class="short">${esc(u("addB"))}</p>
-      <div class="maps edpick">${GRPS.map(g => `<button class="mapopt" data-act="profadded" data-g="${g}"><b>${esc(u(GRPK[g]))}</b><span>${esc(u(GRPK[g] + "D"))}</span></button>`).join("")}</div>`, { kind: "profadd" });
+    openSheet(`<h2 class="h">${esc(u("addT"))}</h2>
+      ${grpSeg("profadded", "", u("addB"))}`, { kind: "profadd" });
   }
   // a new profile of the given edition; it starts with that edition's short onboarding
   function newProfile(ed, age) {
@@ -3322,17 +3337,21 @@
       case "setgrp": {
         const g = GRPS.includes(el.dataset.g) ? el.dataset.g : "child", was = GRP(S), fromSet = !!(sheetState && sheetState.kind === "settings");
         FX("tick");
-        if (g === was) { if (!fromSet) closeSheet(); break; }
+        if (g === was) { if (!fromSet) { grpMark(el); setTimeout(closeSheet, 450); } break; }
+        if (grpBusy > Date.now()) break;
         S.edition = g === "adult" ? "adult" : "kids"; if (g === "teen") S.age = "15+"; else if (S.age === "15+") S.age = "";
         save(); homeSel = null; homeDeg = -1;
-        applyEdition(() => { render(true); if (fromSet) settingsAgain(); else closeSheet(); toast(fmt(U.agSwitched, { e: u(GRPK[g]) })); });
+        const go = () => applyEdition(() => { render(true); if (fromSet) settingsAgain(); else closeSheet(); toast(fmt(U.agSwitched, { e: u(GRPK[g]) })); });
+        if (fromSet) go(); else { grpMark(el); grpBusy = Date.now() + 600; setTimeout(go, 450); }
         break;
       }
       case "fxset": { const X = window.TZFX; if (!X) break; const k = el.dataset.k, v = el.dataset.v; X.set(k, k === "amb" ? v : v === "1"); if (k === "amb") FX("tick"); settingsAgain(); break; }
       case "introed": {
         const g = GRPS.includes(el.dataset.g) ? el.dataset.g : (el.dataset.e === "adult" ? "adult" : "child");
-        S.edition = g === "adult" ? "adult" : "kids"; if (g === "teen") S.age = "15+"; save(); introIx = 0; FX("tick");
-        applyEdition(() => { render(true); introSheet(); });
+        if (grpBusy > Date.now()) break;
+        S.edition = g === "adult" ? "adult" : "kids"; S.age = g === "teen" ? "15+" : (S.age === "15+" ? "" : S.age); save(); introIx = 0; FX("tick");
+        grpMark(el); grpBusy = Date.now() + 600;
+        setTimeout(() => applyEdition(() => { render(true); introSheet(); }), 450);
         break;
       }
       case "setage": S.age = S.age === el.dataset.a ? "" : el.dataset.a; save(); FX("tick"); render(true); settingsAgain(); break;
@@ -3344,7 +3363,8 @@
       case "revdone": S.rev = S.rev || {}; S.rev[today()] = true; save(); render(true); break;
       case "prof": switchProfile(el.dataset.p); if (sheetState && sheetState.kind === "settings") settingsSheet(); break;
       case "profadd": if (P.list.length < PMAX) profAddSheet(); break;
-      case "profadded": { const g = GRPS.includes(el.dataset.g) ? el.dataset.g : (el.dataset.e === "adult" ? "adult" : "child"); newProfile(g === "adult" ? "adult" : "kids", g === "teen" ? "15+" : ""); break; }
+      case "profadded": { const g = GRPS.includes(el.dataset.g) ? el.dataset.g : (el.dataset.e === "adult" ? "adult" : "child"); if (grpBusy > Date.now()) break;
+        FX("tick"); grpMark(el); grpBusy = Date.now() + 600; setTimeout(() => newProfile(g === "adult" ? "adult" : "kids", g === "teen" ? "15+" : ""), 450); break; }
       case "edlinknew": newProfile(el.dataset.e === "adult" ? "adult" : "kids"); break;
       case "edlinkconv": { if (hasProgress(S)) break; const e = el.dataset.e === "adult" ? "adult" : "kids"; S.edition = e; save(); sheetState = null; closeSheet(); homeSel = null; homeDeg = -1;
         applyEdition(() => { render(true); toast(fmt(UA.edSwitched, { e: u(e === "adult" ? "edAdult" : "edKids") })); }); break; }

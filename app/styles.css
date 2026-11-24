@@ -1403,3 +1403,15 @@ section.summit-sec > p.sub { margin: 0 0 12px; color: #6d5214; }
 .sback { background: none; border: 0; padding: 0; font: inherit; color: var(--ink); cursor: pointer; margin-bottom: 4px; }
 @media (max-width: 340px) { .srow input[type="text"] { flex-basis: 55%; } .segc button { padding-inline: 10px; } .person { width: 66px; } .person .av { width: 54px; height: 54px; } }
 .rolecard .rtag { border-radius: 10px; padding: 2px 9px; line-height: 1.45; }
+/* age group: one segmented control with short labels and one helper line (24 Nov 2026) */
+.grpseg { margin-top: 12px; border-radius: 18px; }
+.grpseg button { min-height: 52px; border-radius: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; padding-block: 5px; line-height: 1.2; }
+.grpseg .gn { font-size: 15px; }
+.grpseg .ga { font-size: 12px; opacity: .8; font-variant-numeric: tabular-nums; }
+.grpseg button.on .ga { opacity: 1; }
+.grp-help { margin: 8px 2px 0; min-height: 2.6em; font-size: 13.5px; line-height: 1.35; color: var(--muted); text-align: center; }
+.srow .grpseg { margin-top: 6px; }
+.srow .grp-help { min-height: 0; text-align: start; margin-top: 6px; }
+/* first open on short screens: the picture gives way so the age choice stays in view without scrolling */
+@media (max-height: 760px) { .edart img { height: 112px; } }
+@media (max-height: 640px) { .edart { display: none; } .edart + .acc { margin-top: 26px; } .edart ~ .h { margin-block: 4px 2px; font-size: 24px; } .edart ~ .acc-or { margin-block: 6px; } .edart ~ .grpseg { margin-top: 8px; } }
