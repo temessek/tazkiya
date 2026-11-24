@@ -6,7 +6,7 @@
  * IDs start with "az-" / "ap-" / "am-" / "ah-" / "as-" / "ad" so an adult record never mixes with a children's one.
  */
 window.AKHLAQ_CONTENT_ADULT = {
-  version: "0.5.0-adult-draft-2026-11-24",
+  version: "0.5.1-adult-draft-2026-11-25",
   stages: {},
   onboarding: [
     {
@@ -277,14 +277,14 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
           "في الطريق إلى البيت تحاول أن تتذكر شيئًا واحدًا أتقنته اليوم، فلا تجد. كانت مشغولة طوال اليوم، ولم تحضر لحظة منه.",
           "أول حديث في صحيح البخاري يضع للعمل كله ميزانًا: «إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى» (البخاري 1). النية تجعل يوم العمل عبادة، والغفلة تجعله ساعات تمضي ولا تُحسب لصاحبها.",
           "جرّبت سلوى ثلاثة أشياء صغيرة: جملة نية في أول اليوم («أعمل لأكسب رزقًا حلالًا وأنفع الناس»)، ومهمة واحدة في كل مرة والنوافذ الأخرى مغلقة، ودقيقة صمت بين مهمة وأخرى تسأل فيها: ماذا أنجزت الآن؟",
-          "بقي عملها بحجمه، وصار عملها هي. وصارت في المساء تعرف ماذا فعلت، ولماذا."
+          "بقي العمل كما هو. والجديد أنها صارت تعرف في المساء ماذا فعلت فيه، ولماذا."
         ],
         en: [
           "Salwa starts her day at eight: email, then a meeting, then a call, then email. She moves between ten open windows and answers every message the moment it arrives. At five she shuts the laptop, exhausted.",
           "On the way home she tries to remember one thing she did well today, and finds none. She was busy all day, and present for not a moment of it.",
           "The first hadith in Sahih al-Bukhari gives all work a measure, meaning: actions are only by intentions, and each person has only what they intended (Bukhari 1). Intention turns a workday into worship; heedlessness turns it into hours that pass without counting for their owner.",
           "Salwa tried three small things: a sentence of intention at the start of the day («I work to earn a lawful living and to benefit people»), one task at a time with the other windows closed, and a minute of silence between tasks to ask: what have I just done?",
-          "Her work stayed the same size, and became her own. In the evening she knew what she had done, and why."
+          "The work was the same as before. What was new was that in the evening she knew what she had done, and why."
         ]
       },
       quote: {
@@ -303,21 +303,21 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
           "روى عمار بن ياسر رضي الله عنه أن النبي صلى الله عليه وآله وسلم قال: «إِنَّ الرَّجُلَ لَيَنْصَرِفُ وَمَا كُتِبَ لَهُ إِلاَّ عُشْرُ صَلاَتِهِ تُسْعُهَا ثُمُنُهَا سُبُعُهَا سُدُسُهَا خُمُسُهَا رُبُعُهَا ثُلُثُهَا نِصْفُهَا» (سنن أبي داود 796). فالصلاة الواحدة تتفاوت بقدر ما حضر فيها القلب.",
           "وفي «إحياء علوم الدين» يذكر الغزالي أن المعاني التي تحيا بها الصلاة «يجمعها ست جمل وهي: حضور القلب والتفهم والتعظيم والهيبة والرجاء والحياء» (كتاب أسرار الصلاة، الباب الثالث). وأولها حضور القلب: أن يكون القلب مع ما يفعله اللسان والجسد.",
           "ويردّ الغزالي شرود القلب في الصلاة إلى سببين: شيء من الخارج يشغل السمع والبصر، وشيء من الداخل هو الهمّ الذي يملأ القلب. وعلاج الأول قطع أسباب الشغل، وعلاج الثاني أن يفهم المصلي ما يقول، وأن يخفّ تعلّق قلبه بما يشغله.",
-          "خطوات عملية: ضع الهاتف بعيدًا قبل الوضوء لا بعد التكبير، وتعلّم معنى ما تحفظ من السور القصيرة، وقف قبل التكبير لحظة تتذكر فيها بين يدي من تقف. وإن شرد القلب في الصلاة فأعده بلطف، فالرجوع نفسه حضور."
+          "خطوات عملية: ضع الهاتف بعيدًا قبل الوضوء لا بعد التكبير، وتعلّم معنى ما تحفظ من السور القصيرة، وقف قبل التكبير لحظة تتذكر فيها بين يدي من تقف. وإن شرد القلب في الصلاة فأعده بلطف، ولو تكرر ذلك مرات."
         ],
         ar_f: [
           "قد يصلّي الإنسان سنوات بالحركات الصحيحة كلها، وقلبه في كل صلاة في مكان آخر: في حساب، أو خلاف، أو رسالة لم يرد عليها. يركع ويسجد، ثم يسلّم ولا يدري ماذا قرأ.",
           "روى عمار بن ياسر رضي الله عنه أن النبي صلى الله عليه وآله وسلم قال: «إِنَّ الرَّجُلَ لَيَنْصَرِفُ وَمَا كُتِبَ لَهُ إِلاَّ عُشْرُ صَلاَتِهِ تُسْعُهَا ثُمُنُهَا سُبُعُهَا سُدُسُهَا خُمُسُهَا رُبُعُهَا ثُلُثُهَا نِصْفُهَا» (سنن أبي داود 796). فالصلاة الواحدة تتفاوت بقدر ما حضر فيها القلب.",
           "وفي «إحياء علوم الدين» يذكر الغزالي أن المعاني التي تحيا بها الصلاة «يجمعها ست جمل وهي: حضور القلب والتفهم والتعظيم والهيبة والرجاء والحياء» (كتاب أسرار الصلاة، الباب الثالث). وأولها حضور القلب: أن يكون القلب مع ما يفعله اللسان والجسد.",
           "ويردّ الغزالي شرود القلب في الصلاة إلى سببين: شيء من الخارج يشغل السمع والبصر، وشيء من الداخل هو الهمّ الذي يملأ القلب. وعلاج الأول قطع أسباب الشغل، وعلاج الثاني أن يفهم المصلي ما يقول، وأن يخفّ تعلّق قلبه بما يشغله.",
-          "خطوات عملية: ضعي الهاتف بعيدًا قبل الوضوء لا بعد التكبير، وتعلّمي معنى ما تحفظين من السور القصيرة، وقفي قبل التكبير لحظة تتذكرين فيها بين يدي من تقفين. وإن شرد القلب في الصلاة فأعيديه بلطف، فالرجوع نفسه حضور."
+          "خطوات عملية: ضعي الهاتف بعيدًا قبل الوضوء لا بعد التكبير، وتعلّمي معنى ما تحفظين من السور القصيرة، وقفي قبل التكبير لحظة تتذكرين فيها بين يدي من تقفين. وإن شرد القلب في الصلاة فأعيديه بلطف، ولو تكرر ذلك مرات."
         ],
         en: [
           "A person may pray for years with every movement correct, while in each prayer the heart is somewhere else: in a sum, a quarrel, or a message not yet answered. They bow and prostrate, then give the salam without knowing what they recited.",
           "Ammar ibn Yasir, may Allah be pleased with him, reported that the Prophet, peace and blessings be upon him and his family, said, in meaning: a man may finish his prayer with only a tenth of it recorded for him, a ninth, an eighth, a seventh, a sixth, a fifth, a quarter, a third, a half (Sunan Abi Dawud 796). One and the same prayer differs by how much of the heart was present in it.",
           "In «The Revival of the Religious Sciences», al-Ghazali says the meanings that give a prayer its life «are gathered in six: presence of heart, understanding, reverence, awe, hope and shame before Allah» (Book of the Secrets of Prayer, chapter three). The first is presence of heart: the heart being with what the tongue and body are doing.",
           "Al-Ghazali traces the heart's wandering in prayer to two causes: something outside that occupies the ears and eyes, and something inside, the worry that fills the heart. The cure for the first is to cut off what distracts; the cure for the second is to understand what one is saying, and to loosen the heart's hold on what occupies it.",
-          "Practical steps: put the phone away before wudu, not after the takbir; learn the meaning of the short surahs you know; and pause before the takbir to remember before Whom you stand. If the heart wanders during the prayer, bring it back gently: coming back is itself presence."
+          "Practical steps: put the phone away before wudu, not after the takbir; learn the meaning of the short surahs you know; and pause before the takbir to remember before Whom you stand. If the heart wanders during the prayer, bring it back gently, as many times as it takes."
         ]
       },
       quote: {
@@ -335,13 +335,13 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
           "عند ريم دفتر أنيق تكتب فيه كل درس تحضره وكل محاضرة تسمعها: عن الصبر، وبرّ الوالدين، وحفظ اللسان، وقيام الليل. امتلأ الدفتر في ثلاث سنوات.",
           "وفي يوم أرادت أن تنصح صديقتها، ففتحت الدفتر تبحث عن كلمة في الصبر، ثم توقفت عند سؤال: كم نصيحة من هذه الصفحات عملتُ بها؟",
           "في القرآن وصف لمن ينتفع بما يسمع: ﴿الَّذِينَ يَسْتَمِعُونَ الْقَوْلَ فَيَتَّبِعُونَ أَحْسَنَهُ ۚ أُولَٰئِكَ الَّذِينَ هَدَاهُمُ اللَّهُ﴾ (الزمر 39:18). فالهداية في الآية لمن سمع ثم اتّبع.",
-          "فغيّرت ريم طريقتها: تكتب في الأسبوع نصيحة واحدة في رأس صفحة جديدة، وتحتها سبعة أسطر، تكتب في كل سطر ما فعلته بها في ذلك اليوم. صار الدفتر أبطأ امتلاءً، وصارت هي أسرع تغيّرًا."
+          "فغيّرت ريم طريقتها: تكتب في الأسبوع نصيحة واحدة في رأس صفحة جديدة، وتحتها سبعة أسطر، تكتب في كل سطر ما فعلته بها في ذلك اليوم. صار الدفتر يمتلئ ببطء، صفحة كل أسبوع، وتحت كل نصيحة سبعة أيام عملت بها."
         ],
         en: [
           "Reem has an elegant notebook where she writes down every lesson she attends and every lecture she hears: on patience, honouring parents, guarding the tongue, the night prayer. In three years the notebook filled up.",
           "One day she wanted to advise a friend and opened the notebook to find something on patience. Then she stopped at a question: how many of these pages have I acted on?",
           "The Quran describes those who benefit from what they hear, meaning: those who listen to speech and follow the best of it; they are the ones Allah has guided (az-Zumar 39:18). In the verse, guidance belongs to those who hear and then follow.",
-          "So Reem changed her method: each week she writes one piece of advice at the top of a new page, with seven lines beneath it, and on each line she writes what she did with it that day. The notebook now fills more slowly, and she changes more quickly."
+          "So Reem changed her method: each week she writes one piece of advice at the top of a new page, with seven lines beneath it, and on each line she writes what she did with it that day. The notebook fills slowly now, a page a week, and under each piece of advice are seven days of acting on it."
         ]
       },
       quote: {
@@ -360,21 +360,21 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
           "وقد عرّف مسكويه الخُلُق بأنه «حالٌ للنفس داعيةٌ لها إلى أفعالها من غير فكرٍ ولا رويّة» (تهذيب الأخلاق، المقالة الثانية)، وذكر أن منه ما يكون بالطبع، ومنه ما يُكتسب بالعادة والتدرّب حتى يصير خُلقًا. وهذا خبر طيب: ما صنعته العادة تستطيع العادة أن تغيّره.",
           "وفي «إحياء علوم الدين» (كتاب رياضة النفس) يقرر الغزالي أن الأخلاق تقبل التغيير بالمجاهدة، وأن طريقها أن يتكلّف الإنسان الأفعال التي تصدر عن الخلق المطلوب، ويداوم عليها حتى تصير له طبعًا. ومثاله عنده: من أراد خُلق الجود تكلّف بذل المال حتى يصير الجود طبعه. وعلى مثاله يتكلّف الذكرَ من طالت غفلته، حتى يسهل عليه.",
           "والقرآن يضع القاعدة الكبرى: ﴿إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا مَا بِأَنْفُسِهِمْ﴾ (الرعد 13:11). التغيير يبدأ من الداخل، ويظهر في الأفعال الصغيرة المتكررة.",
-          "طريقة عملية: اختر عادة واحدة لا كل العادات. لاحظ ما يسبقها (الملل، التعب، إشعار)، وضع في مكانها فعلًا صالحًا صغيرًا في الوقت نفسه، وغيّر المكان حين تستطيع: الهاتف خارج الغرفة، والمصحف على الطاولة. ثم داوم، فالقليل الدائم أقوى من الكثير المنقطع."
+          "طريقة عملية: اختر عادة واحدة لا كل العادات. لاحظ ما يسبقها (الملل، التعب، إشعار)، وضع في مكانها فعلًا صالحًا صغيرًا في الوقت نفسه، وغيّر المكان حين تستطيع: الهاتف خارج الغرفة، والمصحف على الطاولة. ثم داوم عليه وإن صغر، ففي الحديث: «أحب الأعمال إلى الله تعالى أدومها وإن قل»."
         ],
         ar_f: [
           "أكثر ما نفعله في اليوم لا نقرره: نمسك الهاتف حين نملّ، ونؤجل حين نقلق، ونأكل حين نتعب. تبدأ العادة اختيارًا، ثم تتكرر حتى تصير هي التي تختار.",
           "وقد عرّف مسكويه الخُلُق بأنه «حالٌ للنفس داعيةٌ لها إلى أفعالها من غير فكرٍ ولا رويّة» (تهذيب الأخلاق، المقالة الثانية)، وذكر أن منه ما يكون بالطبع، ومنه ما يُكتسب بالعادة والتدرّب حتى يصير خُلقًا. وهذا خبر طيب: ما صنعته العادة تستطيع العادة أن تغيّره.",
           "وفي «إحياء علوم الدين» (كتاب رياضة النفس) يقرر الغزالي أن الأخلاق تقبل التغيير بالمجاهدة، وأن طريقها أن يتكلّف الإنسان الأفعال التي تصدر عن الخلق المطلوب، ويداوم عليها حتى تصير له طبعًا. ومثاله عنده: من أراد خُلق الجود تكلّف بذل المال حتى يصير الجود طبعه. وعلى مثاله يتكلّف الذكرَ من طالت غفلته، حتى يسهل عليه.",
           "والقرآن يضع القاعدة الكبرى: ﴿إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا مَا بِأَنْفُسِهِمْ﴾ (الرعد 13:11). التغيير يبدأ من الداخل، ويظهر في الأفعال الصغيرة المتكررة.",
-          "طريقة عملية: اختاري عادة واحدة لا كل العادات. لاحظي ما يسبقها (الملل، التعب، إشعار)، وضعي في مكانها فعلًا صالحًا صغيرًا في الوقت نفسه، وغيّري المكان حين تستطيعين: الهاتف خارج الغرفة، والمصحف على الطاولة. ثم داومي، فالقليل الدائم أقوى من الكثير المنقطع."
+          "طريقة عملية: اختاري عادة واحدة لا كل العادات. لاحظي ما يسبقها (الملل، التعب، إشعار)، وضعي في مكانها فعلًا صالحًا صغيرًا في الوقت نفسه، وغيّري المكان حين تستطيعين: الهاتف خارج الغرفة، والمصحف على الطاولة. ثم داومي عليه وإن صغر، ففي الحديث: «أحب الأعمال إلى الله تعالى أدومها وإن قل»."
         ],
         en: [
           "Most of what we do in a day we never decide: we reach for the phone when bored, put things off when anxious, eat when tired. A habit begins as a choice, then repeats until it does the choosing.",
           "Miskawayh defined character as «a state of the soul that moves it to its actions without thought or deliberation» (Tahdhib al-Akhlaq, second discourse), and noted that some of it is natural and some is acquired by habit and training until it becomes character. That is good news: what habit has made, habit can change.",
           "In the Ihya (Book of Disciplining the Soul), al-Ghazali holds that character can be changed by striving, and that the way is to take on, with effort, the actions that flow from the character you want, and keep at them until they become natural. His example: whoever wants the trait of generosity makes himself give money until generosity becomes his nature. In the same way, someone long absent from remembrance makes himself remember, until it comes easily.",
           "The Quran sets the great rule, meaning: Allah does not change the condition of a people until they change what is in themselves (ar-Ra'd 13:11). Change begins inside and shows in small, repeated actions.",
-          "A practical way: choose one habit, not all of them. Notice what comes before it (boredom, tiredness, a notification), put a small good act in its place at the same time, and change the setting when you can: the phone out of the room, the mushaf on the table. Then keep going, for a little done constantly is stronger than a lot done and dropped."
+          "A practical way: choose one habit, not all of them. Notice what comes before it (boredom, tiredness, a notification), put a small good act in its place at the same time, and change the setting when you can: the phone out of the room, the mushaf on the table. Then keep at it, however small: the hadith says the deeds most loved by Allah are the most constant, even if small."
         ]
       },
       quote: {
@@ -526,7 +526,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
         { ar: "أعيد قلبي بلطف إلى ما أقول، وأكمل", en: "Gently bring my heart back to what I am saying, and carry on" },
         { ar: "أكمل وأنا أفكر في المشكلة، فالصلاة صحيحة", en: "Carry on thinking about the problem; the prayer is valid anyway" }
       ],
-      why: { ar: "الرجوع إلى الحضور حضور، ولا يحتاج إلى قطع الصلاة.", en: "Coming back to presence is itself presence, and needs no breaking off of the prayer." }
+      why: { ar: "يُعاد القلب بلطف إلى ما يقال، ويُكمل السجود. وقد يتكرر ذلك في الصلاة الواحدة مرات.", en: "The heart is brought back gently to the words, and the prostration goes on. It may happen several times in one prayer." }
     },
     {
       id: "az-q7", readingId: "az-r4", type: "comprehension", correct: 0,
@@ -570,7 +570,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
         { ar: "لأن أباها كان يقاطعها ليصحّح طريقة كلامها", en: "Because her father kept interrupting to correct the way she spoke" },
         { ar: "لأن أمها طلبت منها ألا تشغل أباها وقت العشاء", en: "Because her mother asked her not to bother her father at dinner" }
       ],
-      why: { ar: "الحاضر بالجسد وحده يغيب عمن حوله، والأولاد يلاحظون ذلك قبل الكبار.", en: "Someone present only in body is absent to those around them, and children notice it before adults do." }
+      why: { ar: "كان يسمعها وعيناه في الهاتف، فإذا سألته بعدها لم يذكر شيئًا مما قالت. فصارت تحكي لمن يحفظ.", en: "He listened with his eyes on the phone, and when she asked him later he remembered nothing she had said. So she started telling the one who did." }
     },
     {
       id: "az-q11", readingId: "az-r7", type: "comprehension", correct: 0,
@@ -580,7 +580,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
         { ar: "كان يجلس فيه للناس يعلّمهم ويقضي حوائجهم", en: "He sat there receiving people, teaching them and seeing to their needs" },
         { ar: "كان يخلو فيه للعبادة، ويترك شؤون البيت لأهله", en: "He withdrew there for worship and left the household's affairs to his family" }
       ],
-      why: { ar: "حاضر مع أهله في البيت، وحاضر مع ربه في الصلاة.", en: "Present with his family at home, and present with his Lord in prayer." }
+      why: { ar: "كان يخدم أهله في البيت، فإذا حضرت الصلاة ترك ما في يده وخرج إليها.", en: "He helped his family in the house, and when the prayer came he put down what was in his hands and went out to it." }
     },
     {
       id: "az-q12", readingId: "az-r8", type: "comprehension", correct: 1,
@@ -847,7 +847,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
           "وفي ليلة أرادت أن تعرف متى تشتري، فراجعت طلبات شهر كامل. وجدت أكثرها في ليالٍ بعينها: بعد اجتماع متعب، أو مكالمة ثقيلة، أو يوم مرّ ولم يشكرها فيه أحد على عملها. كانت تشتري لتسكّن شيئًا آخر.",
           "وفي الحديث صورة هذا الجوع الذي لا يشبع: «لَوْ كَانَ لاِبْنِ آدَمَ وَادِيَانِ مِنْ مَالٍ لاَبْتَغَى ثَالِثًا، وَلاَ يَمْلأُ جَوْفَ ابْنِ آدَمَ إِلاَّ التُّرَابُ، وَيَتُوبُ اللَّهُ عَلَى مَنْ تَابَ» (البخاري 6436). وفي حديث آخر موضع الغنى: «لَيْسَ الْغِنَى عَنْ كَثْرَةِ الْعَرَضِ، وَلَكِنَّ الْغِنَى غِنَى النَّفْسِ» (البخاري 6446).",
           "جرّبت دينا ثلاثة أشياء: حذفت تطبيقين من هاتفها، وجعلت لكل شراء غير ضروري مهلة ثلاثة أيام، وصارت كلما أرادت شيئًا جديدًا أخرجت من بيتها شيئًا لا تستعمله وأعطته لمن يحتاج إليه. وفي الليالي الثقيلة صارت تتصل بأختها قبل أن تفتح التطبيق.",
-          "بعد شهرين صار ما في بيتها أقل، ورضاها عنه أكثر، وبقي في حسابها آخر الشهر مبلغ تتصدق منه. وفي إحدى تلك المكالمات قالت لأختها: لم أكن أشتري الأشياء، كنت أشتري لحظة الشراء."
+          "بعد شهرين صار ما في بيتها أقل، وبقي في حسابها آخر الشهر مبلغ تتصدق منه. وفي إحدى تلك المكالمات قالت لأختها: كان يفرحني الضغط على زر الشراء، أكثر مما تفرحني الأشياء حين تصل."
         ],
         en: [
           "Dina works as a designer and earns well. At the end of each day, once the messages die down, she opens shopping apps to unwind: a bag, then a perfume, then something for the house. Parcels arrive every week, and some stay in their boxes by the bedroom door.",
@@ -855,7 +855,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
           "One night she wanted to know when she bought, so she went through a whole month of orders. Most of them fell on certain nights: after a draining meeting, a heavy phone call, or a day that went by without anyone thanking her for her work. She was buying to quiet something else.",
           "A hadith pictures this hunger that is never full, meaning: if the son of Adam had two valleys of wealth he would seek a third, and nothing fills the son of Adam's belly but dust, and Allah turns to whoever turns to Him (Bukhari 6436). Another shows where wealth lies: «Wealth is not an abundance of goods; wealth is the richness of the soul» (Bukhari 6446).",
           "Dina tried three things: she deleted two apps from her phone, gave every non-essential purchase three days' grace, and whenever she wanted something new she took something she no longer used out of her home and gave it to someone who needed it. On the heavy nights she began calling her sister before opening the app.",
-          "Two months later she owned less and was more content with it, and at the end of each month there was money left in her account to give in charity. In one of those calls she told her sister: I wasn't buying things; I was buying the moment of buying."
+          "Two months later there was less in her home, and at the end of each month there was money left in her account to give in charity. In one of those calls she told her sister: it was pressing the buy button that made me happy, more than the things when they came."
         ]
       },
       quote: {
@@ -936,21 +936,21 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
           "وللكسل في البيت صور أخفى من النوم: الانشغال بالهاتف والأولاد يسألون، و«سأفعلها لاحقًا» التي يفعلها غيرك، وترك السؤال عن يوم الطرف الآخر لأنك متعب. ومحاسبة آخر اليوم تكشفها بسؤال واحد: من تعب الليلة لأرتاح أنا؟",
           "وقد جعل النبي صلى الله عليه وآله وسلم البيت ميزان الخيرية: «خَيْرُكُمْ خَيْرُكُمْ لأَهْلِهِ وَأَنَا خَيْرُكُمْ لأَهْلِي» (جامع الترمذي 3895). الخير الذي يراه الناس في العمل والمسجد يُختبر في المطبخ وغرفة الأولاد.",
           "خطوات عملية: اجلسا مرة واحدة واكتبا أعمال البيت كلها، ثم اختر منها عملًا ثابتًا يكون لك. اجعل للأولاد نصيبًا بحسب أعمارهم. واسأل الطرف الآخر مرة في الأسبوع: ما الذي يثقل عليك هذه الأيام؟ واسمع الجواب دون أن تدافع عن نفسك.",
-          "ولكل بيت ظروفه وقسمته، والميزان فيها واحد: ألا يستريح أحد على تعب غيره وهو يقدر أن يعينه."
+          "ولكل بيت ظروفه وقسمته. يكفي أن ينظر كل واحد حوله قبل أن يجلس: من يحمل الآن شيئًا أقدر أن أحمله معه؟"
         ],
         ar_f: [
           "كثير من الخلاف في البيوت يبدأ قبل أي كلمة جارحة، بتعب يحمله واحد ويستريح منه الآخر. يتراكم التعب أيامًا، ثم يخرج في جملة غاضبة عن شيء صغير، فيتعجب الطرف الآخر من الغضب.",
           "وللكسل في البيت صور أخفى من النوم: الانشغال بالهاتف والأولاد يسألون، و«سأفعلها لاحقًا» التي يفعلها غيرك، وترك السؤال عن يوم الطرف الآخر لأنك متعبة. ومحاسبة آخر اليوم تكشفها بسؤال واحد: من تعب الليلة لأرتاح أنا؟",
           "وقد جعل النبي صلى الله عليه وآله وسلم البيت ميزان الخيرية: «خَيْرُكُمْ خَيْرُكُمْ لأَهْلِهِ وَأَنَا خَيْرُكُمْ لأَهْلِي» (جامع الترمذي 3895). الخير الذي يراه الناس في العمل والمسجد يُختبر في المطبخ وغرفة الأولاد.",
           "خطوات عملية: اجلسا مرة واحدة واكتبا أعمال البيت كلها، ثم اختاري منها عملًا ثابتًا يكون لك. اجعلي للأولاد نصيبًا بحسب أعمارهم. واسألي الطرف الآخر مرة في الأسبوع: ما الذي يثقل عليك هذه الأيام؟ واسمعي الجواب دون أن تدافعي عن نفسك.",
-          "ولكل بيت ظروفه وقسمته، والميزان فيها واحد: ألا يستريح أحد على تعب غيره وهو يقدر أن يعينه."
+          "ولكل بيت ظروفه وقسمته. يكفي أن ينظر كل واحد حوله قبل أن يجلس: من يحمل الآن شيئًا أقدر أن أحمله معه؟"
         ],
         en: [
           "Many quarrels at home begin before any hurtful word, with tiredness that one person carries while the other rests. It builds up for days, then comes out in an angry sentence about something small, and the other is surprised by the anger.",
           "Laziness at home takes quieter forms than sleep: being busy on the phone while the children ask for you, the «I'll do it later» that someone else ends up doing, not asking your spouse about their day because you are tired. An end-of-day review uncovers them with one question: who was tired tonight so that I could rest?",
           "The Prophet, peace and blessings be upon him and his family, made the home the measure of goodness: «The best of you are the best to their families, and I am the best of you to my family» (Jami' at-Tirmidhi 3895). The goodness people see at work and in the mosque is tested in the kitchen and the children's room.",
           "Practical steps: sit down together once and list all the housework, then pick one fixed job to be yours. Give the children a share according to their ages. Once a week, ask your spouse: what is weighing on you these days? Listen to the answer without defending yourself.",
-          "Every home has its own circumstances and its own split, and one measure for all of them: that no one rests on another's tiredness when they could help."
+          "Every home has its own circumstances and its own split. It is enough for each person to look around before sitting down: who is carrying something right now that I could help carry?"
         ]
       },
       quote: {
@@ -1180,7 +1180,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
         { ar: "الميزان الذي يزن به ما عنده: صار يقيسه على غيره", en: "The scale he weighed his life on: he measured it against others" },
         { ar: "سخر ابن خاله من سيارته القديمة أمام العائلة", en: "His cousin had mocked his old car in front of the family" }
       ],
-      why: { ar: "بقيت السيارة كما هي، وتغيّرت العين التي تنظر إليها.", en: "The car stayed the same; the eye looking at it had changed." }
+      why: { ar: "في الصباح كانت سيارته كما تركها. لكنه رآها في الليل بجانب سيارة ابن خاله، فصار يقيسها عليها.", en: "In the morning his car was just as he had left it. But that night he had seen it next to his cousin’s, and now he measured it against that one." }
     },
     {
       id: "ap-q9", readingId: "ap-r6", type: "comprehension", correct: 1,
@@ -1737,14 +1737,14 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
           "فلما دخل عيينة قال: «هِيْ يَا ابْنَ الْخَطَّابِ، فَوَاللَّهِ مَا تُعْطِينَا الْجَزْلَ، وَلاَ تَحْكُمُ بَيْنَنَا بِالْعَدْلِ». فغضب عمر حتى همّ به. فقال الحرّ: يا أمير المؤمنين، إن الله تعالى قال لنبيه: ﴿خُذِ الْعَفْوَ وَأْمُرْ بِالْعُرْفِ وَأَعْرِضْ عَنِ الْجَاهِلِينَ﴾ (الأعراف 7:199)، وإن هذا من الجاهلين.",
           "قال ابن عباس: «وَاللَّهِ مَا جَاوَزَهَا عُمَرُ حِينَ تَلاَهَا عَلَيْهِ، وَكَانَ وَقَّافًا عِنْدَ كِتَابِ اللَّهِ» (البخاري 4642).",
           "كان عمر رضي الله عنه أمير المؤمنين، شديدًا في الحق، وقد اتُّهم في وجهه بالظلم، وغضبه في ذلك مفهوم. ومع ذلك توقف عند آية واحدة. لم يكمل اندفاعه، ولم يجادل، ولم يقل: هذا الرجل يستحق.",
-          "هذه هي الصفة التي تحتاج إليها هذه المرحلة: أن يكون في الغضب مكان للوقوف. ولا يكون ذلك إلا لمن حفظ في قلبه ما يقف عنده، وجعل حوله من يذكّره به كما ذكّره الحرّ. فمن حولك يذكّرك عند الغضب؟"
+          "كان عمر رضي الله عنه يغضب، ثم يقف. ووقف ذلك اليوم لأن الآية كانت في قلبه، ولأن الحرّ كان بجانبه يقرؤها عليه. فمن حولك يذكّرك عند الغضب؟"
         ],
         en: [
           "Ibn Abbas, may Allah be pleased with them both, reported that Uyayna ibn Hisn came to Medina, and his nephew al-Hurr ibn Qays asked permission for him to see Umar ibn al-Khattab, may Allah be pleased with him. Al-Hurr was one of the Quran reciters whom Umar kept close and consulted.",
           "When Uyayna came in he said: «Listen, son of al-Khattab, by Allah you neither give us generously nor judge between us with justice.» Umar grew so angry that he was about to strike him. Al-Hurr said: Commander of the Believers, Allah said to His Prophet, meaning: take what is easily given, enjoin what is right, and turn away from the ignorant (al-A'raf 7:199), and this man is one of the ignorant.",
           "Ibn Abbas said: «By Allah, Umar did not go beyond it when it was recited to him, and he was one who stopped at the Book of Allah» (Bukhari 4642).",
           "Umar was the Commander of the Believers, firm for the truth; he had been accused of injustice to his face, and his anger was understandable. Yet he stopped at a single verse. He did not carry his impulse through, did not argue, did not say: this man deserves it.",
-          "This is the quality this stage needs: room to stop in the middle of anger. It belongs only to someone who keeps in his heart something to stop at, and keeps people around him who remind him, as al-Hurr reminded Umar. Who around you reminds you when you are angry?"
+          "Umar, may Allah be pleased with him, got angry, and then stopped. He stopped that day because the verse was in his heart, and because al-Hurr was beside him to recite it. Who around you reminds you when you are angry?"
         ]
       },
       quote: {
@@ -2565,8 +2565,8 @@ window.AKHLAQ_CONTENT_ADULT.stages.human = {
         { ar: "الاعتراف، ثم هدية، ثم انتظار أن تبرد المسألة", en: "Admitting it, then a gift, then waiting for things to cool down" }
       ],
       why: {
-        ar: "الاعتذار بلا «لكن» يداوي الجرح، والاعتذار الذي يحمل دفاعًا يزيده.",
-        en: "An apology without «but» heals the wound; an apology with a defence inside deepens it."
+        ar: "ذكرتها المقالة بالترتيب: أن تسمّي خطأك، وتقرّ بما سبّبه، ثم تصلح ما تستطيع.",
+        en: "The article gives them in order: name the mistake, own what it caused, then repair what you can."
       }
     },
     {

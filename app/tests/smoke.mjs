@@ -576,9 +576,9 @@ async function ideaFlows(browser, base, content, AV) {
     ok(!page.errs.length, "2: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
   await step("evening reckoning (adults)", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1&ed=adult", 900); await go(page, "#/evening");
-    ok(/أين غلبتك نفسك اليوم/.test(await txt(page, "#view")), "2a: the adult question");
+    ok(/ارجع إلى يومك من أوله/.test(await txt(page, "#view")), "2a: the adult question");
     await setS(page, "s.lang = 'en';"); await open(page, "", 900); await go(page, "#/evening");
-    ok(/get the better of you/.test(await txt(page, "#view")), "2a: English adult question");
+    ok(/where did most of it go/.test(await txt(page, "#view")), "2a: English adult question");
     ok(!page.errs.length, "2a: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
   // 3. the hidden deed: since Tadwin v2 (23 Nov 2026) a written line among «نِعَم الله عليّ», marked 🤲
@@ -626,7 +626,7 @@ async function ideaFlows(browser, base, content, AV) {
       ok(await has(page, '#view [data-act="twstart"]') && /عَلَّمَ بِالْقَلَمِ/.test(t) && /كَاتِبِينَ/.test(t), `tw: the first visit opens «why we write» with both verses (${q})`);
       ok(!TW_OLD.test(t), `tw: «why we write» speaks of writing, blessings and challenges (${q})`);
       if (q.includes("en")) ok(/taught by the pen/.test(t) && /recording/.test(t) && /blessings/.test(t) && /challenges/.test(t), `tw: English meanings of the verses and the new idea (${q})`);
-      else ok(/نعم/.test(t) && /(تحديات|مجاهدات)/.test(t) && /بحرية/.test(t), `tw: the intro names free writing, blessings and challenges (${q})`);
+      else ok(/نعم/.test(t) && /(تحديات|مجاهدات)/.test(t) && /(اكتب كما تحكي|اكتب يومك كما جرى)/.test(t), `tw: the intro names free writing, blessings and challenges (${q})`);
       await page.click('#view [data-act="twstart"]'); await page.waitForTimeout(350);
       const ord = await page.evaluate(() => ["#tw-write", "#tw-nb", "#tw-bless", "#tw-chal", ".sawc"].map(s => { const e = document.querySelector("#view " + s); return e ? e.getBoundingClientRect().top + scrollY : -1; }));
       ok(ord.every(x => x >= 0) && ord.every((x, i) => !i || x > ord[i - 1]), `tw: write, notebook, blessings, challenges, «رأيتُ خيرًا», in that order (${q}): ${ord.join(",")}`);

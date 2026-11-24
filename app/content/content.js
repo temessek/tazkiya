@@ -5,7 +5,7 @@
  * Names always describe behaviour, never the person. All children in stories are fictional.
  */
 window.AKHLAQ_CONTENT = {
-  version: "0.30.0-draft-2026-11-24",
+  version: "0.30.1-draft-2026-11-25",
   stages: {},
   virtues: []
 };
@@ -275,8 +275,8 @@ window.AKHLAQ_CONTENT.stages.zombie = {
       ],
       "correct": 2,
       "why": {
-        "ar": "الحاضر القلب يسمع النداء ويستجيب له، وهذا عكس سلوك الغفلة.",
-        "en": "A present heart hears the call and answers it. That is the opposite of heedlessness."
+        "ar": "حين يوضع الجهاز ويُلبّى النداء في الحال، تعرف الأم أن نداءها وصل. أما «حاضر» بلا حركة فمن سلوك الغفلة.",
+        "en": "When the device goes down and the call is answered straight away, a mother knows she was heard. Saying “coming” without moving is heedless behaviour."
       }
     },
     {
@@ -646,13 +646,13 @@ window.AKHLAQ_CONTENT.stages.pig = {
           "صفحة عملية. وجد علماء النفس أن القدرة على تأجيل الرغبة قليلًا مهارة تُتعلَّم، وأنها تساعد الإنسان في الدراسة والصداقة والحياة كلها.",
           "التمرين له خطوتان. الأولى: «انتظر». حين تشتهي شيئًا، عُدّ إلى عشرة قبل أن تأخذه.",
           "الثانية: «انظر». وأنت تعد، انظر حولك: هل يحتاج أحد هذا الشيء أكثر مني؟ هل أخذ الجميع؟ هل هناك من هو متعب؟",
-          "بعد العد، قرر. أحيانًا ستأخذ، وأحيانًا ستعطي. المهم أنك صرت أنت من يقرر، لا رغبتك."
+          "بعد العد، قرر. أحيانًا ستأخذ القطعة، وأحيانًا ستعطيها لغيرك. وفي المرتين تكون أنت الذي اختار، بعد أن انتظر."
         ],
         "en": [
           "A practical page. Psychologists have found that being able to delay a want a little is a learnable skill, and that it helps in study, friendship and all of life.",
           "The exercise has two steps. First: \"Wait.\" When you want something, count to ten before taking it.",
           "Second: \"Look.\" While you count, look around: does anyone need this more than me? Has everyone had some? Is anyone tired?",
-          "After counting, decide. Sometimes you will take, sometimes you will give. What matters is that you decide, not your craving."
+          "After counting, decide. Sometimes you will take the piece, sometimes you will give it away. Either way, you are the one who chose, after waiting."
         ]
       },
       "quote": null,
@@ -743,8 +743,8 @@ window.AKHLAQ_CONTENT.stages.pig = {
       ],
       "correct": 2,
       "why": {
-        "ar": "العطاء الأجمل أن تعطي ما تحب، وبه يصعد الإنسان من سمات البنصر.",
-        "en": "The finest giving is giving what you love; that is how we climb out of ring-finger traits."
+        "ar": "«على حبه» أي وهم يحبون الطعام ويشتهونه، ومع ذلك يعطونه لغيرهم.",
+        "en": "“Despite their love for it” means they want the food themselves, and they give it away all the same."
       }
     },
     {
@@ -1278,8 +1278,8 @@ window.AKHLAQ_CONTENT.stages.monkey = {
       ],
       "correct": 2,
       "why": {
-        "ar": "كلمة السلام تُنهي الشجار، والرد بالمثل يزيده.",
-        "en": "A word of peace ends a quarrel; answering in kind makes it bigger."
+        "ar": "هكذا وصفهم الله في سورة الفرقان: إذا كلمهم الجاهل بكلام سيئ ردّوا بكلمة واحدة: «سلامًا».",
+        "en": "That is how Allah describes them in Surat al-Furqan: when the ignorant speak badly to them, they answer with one word: “peace”."
       }
     },
     {
@@ -1692,8 +1692,8 @@ window.AKHLAQ_CONTENT.stages.human = {
       ],
       "correct": 2,
       "why": {
-        "ar": "الله خلق الإنسان في أحسن تقويم، والسلوك هو الذي يرفع أو يُنزل.",
-        "en": "Allah created us in the finest form; behaviour is what raises or lowers."
+        "ar": "خلق الله الإنسان في أحسن تقويم، ثم يسقط حين يترك الهداية بسلوكه. ومن آمن وعمل الصالحات بقي في مكانه الكريم.",
+        "en": "Allah created people in the finest form. A person falls when their behaviour leaves guidance behind, and those who believe and do good keep their honoured place."
       }
     },
     {
@@ -1953,13 +1953,13 @@ window.AKHLAQ_CONTENT.stages.sabiq = {
           "في سورة فاطر ذكر الله ثلاثة أقسام من الناس، وأعلاها «سابق بالخيرات بإذن الله». و«بإذن الله» تعلّمنا أن السبق نفسه هداية من الله، لا فخر لنا فيه.",
           "وفي سورة الواقعة: ﴿وَالسَّابِقُونَ السَّابِقُونَ ۝ أُولَٰئِكَ الْمُقَرَّبُونَ﴾ (الواقعة 56:10-11). السابقون إلى الخير في الدنيا هم السابقون إلى القرب من الله.",
           "وأمرنا الله بالمسارعة: ﴿وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِنْ رَبِّكُمْ﴾ (آل عمران 3:133). المسارعة ليست ركضًا بالأقدام، بل أن تسبق نفسك إلى الخير قبل أن تتكاسل.",
-          "وكلما اتبعت الهداية زادك الله هدى: ﴿وَالَّذِينَ اهْتَدَوْا زَادَهُمْ هُدًى﴾ (محمد 47:17). هكذا يكون الصعود: خطوة تتبع خطوة."
+          "وكلما اتبعت الهداية زادك الله هدى: ﴿وَالَّذِينَ اهْتَدَوْا زَادَهُمْ هُدًى﴾ (محمد 47:17)."
         ],
         "en": [
           "In Surat Fatir, Allah mentions three groups of people, the highest being those \"racing to good deeds by Allah's permission\". \"By Allah's permission\" teaches us that the racing itself is guidance from Allah, nothing to boast about.",
           "In Surat al-Waqi'a (56:10-11), the meaning is: and the foremost, the foremost, they are the ones brought near. Those who are first to good in this life are first in nearness to Allah.",
           "Allah tells us to hurry (Al Imran 3:133), meaning: hasten to forgiveness from your Lord. Hurrying is not running with your feet; it is getting to the good before laziness gets to you.",
-          "And the more you follow guidance, the more guidance Allah gives (Muhammad 47:17). That is how climbing works: one step following another."
+          "And the more you follow guidance, the more guidance Allah gives (Muhammad 47:17)."
         ]
       },
       "quote": {
@@ -2023,13 +2023,13 @@ window.AKHLAQ_CONTENT.stages.sabiq = {
           "صفحة عملية. قال النبي صلى الله عليه وآله وسلم: «كل معروف صدقة» (صحيح البخاري). حتى الابتسامة والكلمة الطيبة.",
           "ويقول علماء النفس إن أفعال اللطف الصغيرة تُسعد فاعلها كما تُسعد من تصله، وإن التخطيط لها مسبقًا يجعلنا نفعلها فعلًا.",
           "الخطة: كل مساء اكتب عملًا خفيًّا واحدًا ستفعله غدًا: ترتيب حذاء أبيك، أو وضع ماء لعطشان، أو دعاء لصديق باسمه.",
-          "لا تخبر أحدًا. واكتب في المساء التالي: هل فعلته؟ وماذا شعرت؟ هكذا تسبق نفسك إلى الخير."
+          "لا تخبر أحدًا. واكتب في المساء التالي: هل فعلته؟ وماذا شعرت؟"
         ],
         "en": [
           "A practical page. The Prophet, peace and blessings be upon him and his family, said, meaning: every act of kindness is charity (Sahih al-Bukhari). Even a smile and a kind word.",
           "Psychologists say small acts of kindness make the doer as happy as the receiver, and planning them ahead makes us actually do them.",
           "The plan: every evening, write one hidden good deed you will do tomorrow: arranging your father's shoes, bringing water to someone thirsty, praying for a friend by name.",
-          "Tell nobody. The next evening, write: did I do it? How did it feel? That is how you race ahead of yourself to good."
+          "Tell nobody. The next evening, write: did I do it? How did it feel?"
         ]
       },
       "quote": {
@@ -2679,13 +2679,13 @@ window.AKHLAQ_CONTENT.virtues = [
       'سمات الخنصر هي الغفلة: أن يمضي الوقت والقلب غائب. وهي أكثر ما يصيبنا جميعًا مع الشاشات، فابدأ بنفسك قدوةً قبل أن تنبّه طفلك.',
       'أشِر إلى الخنصر بهدوء وابتسامة، وصِف السلوك لا الطفل، ثم افتح له باب الصعود فورًا.',
       'قل مثلًا: «أرى أن الشاشة أخذتك ساعة، وهذه من سمات الخنصر. تعال نتوقف دقيقة ونعدّ ثلاث نعم معًا».',
-      'وتجنّب أن تقول: «أنت زومبي لا تفهم شيئًا». الوصف الذي يلتصق بالشخص يغلق الباب، والوصف الذي يصف السلوك يفتحه.'
+      'وتجنّب أن تقول: «أنت زومبي لا تفهم شيئًا». قل بدلها: «ناديتك ثلاث مرات ولم ترفع عينيك عن الشاشة، وهذه من سمات الخنصر». يسمعها خبرًا عن لحظة مضت، يقدر أن يغيّرها في المرة القادمة.'
     ],
     en: [
       'Little-finger traits are heedlessness: time passing while the heart is absent. Screens bring it to all of us, so start with yourself as the example before pointing it out to your child.',
       'Point to the little finger calmly and with a smile, describe the behaviour rather than the child, then open the way up straight away.',
       'Say, for example: "I can see the screen has taken an hour from you; that is a little-finger trait. Come, let\'s stop for a minute and count three blessings together."',
-      'Avoid saying: "You are a zombie who understands nothing." A label stuck on the person closes the door; a description of the behaviour opens it.'
+      'Avoid saying: "You are a zombie who understands nothing." Say instead: “I called you three times and you didn’t look up from the screen; that’s a little-finger trait.” They hear it as news about a moment that has passed, something they can change next time.'
     ]
   };
 
@@ -2701,14 +2701,14 @@ window.AKHLAQ_CONTENT.virtues = [
       'سمات البنصر هي التمحور حول الرغبة: «أنا أريد» قبل أن يرى الطفل غيره. والطفل في سنواته الأولى يرى نفسه أولًا بطبيعته، فالمطلوب أن نعلّمه أن يرى، لا أن نعيّره.',
       'أشِر إلى البنصر حين ترى السلوك، ثم ساعده أن ينظر: إلى وجه أخيه، أو تعب جدته، أو نصيب غيره.',
       'قل مثلًا: «أخذ أكبر قطعة قبل الجميع من سمات البنصر. انظر حولك: هل أخذ أخوك؟ ماذا تفعل الآن؟».',
-      'وتجنّب أن تقول: «أنت خنزير لا تفكر إلا في بطنك». الطفل يدافع عن نفسه حين يُوصف هو، ويتعلم حين يُوصف فعله.',
+      'وتجنّب أن تقول: «أنت خنزير لا تفكر إلا في بطنك». جرّب أن تقول: «أخذتَ القطعة الكبيرة قبل أن يجلس أحد». ستراه أحيانًا يعيدها دون أن تطلب.',
       'وامدحه بالإصبع الأعلى حين يحسن: «هذا الذي فعلته الآن من سمات السبابة».'
     ],
     en: [
       'Ring-finger traits are being centred on wanting: "I want" before the child sees anyone else. Young children naturally see themselves first, so the aim is to teach them to see, not to shame them.',
       'Point to the ring finger when you see the behaviour, then help them look: at a sibling\'s face, a grandmother\'s tiredness, someone else\'s share.',
       'Say, for example: "Taking the biggest piece before everyone else is a ring-finger trait. Look around: has your brother had some? What will you do now?"',
-      'Avoid saying: "You are a pig who only thinks about your stomach." Children defend themselves when they are labelled, and learn when their action is described.',
+      'Avoid saying: "You are a pig who only thinks about your stomach." Try saying instead: “You took the big piece before anyone sat down.” Sometimes you’ll see them put it back without being asked.',
       'Praise them with the higher finger when they do well: "What you just did is an index-finger trait."'
     ]
   };
@@ -2725,14 +2725,14 @@ window.AKHLAQ_CONTENT.virtues = [
       'سمات الوسطى هي الاندفاع: الصوت العالي، والحركة العنيفة، وعدم التوقف. وهي أشد ما تكون حين يكون الطفل متعبًا أو جائعًا أو منفعلًا، فاختر لحظة الهدوء للتعليم، ولحظة الانفعال للتوقيف فقط.',
       'في لحظة الانفعال: صوتك المنخفض أقوى من صوته العالي. أشِر إلى الوسطى بلا كلام كثير، وقل كلمة واحدة: «توقف»، ثم اجلس معه.',
       'قل مثلًا بعد أن يهدأ: «رفع الصوت قبل قليل كان من سمات الوسطى. ما الذي أغضبك؟ وماذا نفعل في المرة القادمة: قِف، تنفّس، اختر؟».',
-      'وتجنّب أن تقول وأنت غاضب: «أنت قرد لا تسمع أبدًا». الصراخ على الصراخ يعلّم الصراخ، وكلمة «أبدًا» تغلق باب الصعود.',
+      'وتجنّب أن تقول وأنت غاضب: «أنت قرد لا تسمع أبدًا». حين نرفع أصواتنا عليه نعلّمه ما نريد أن يتركه. وكلمة «أبدًا» تقول له إن المحاولة لا فائدة منها.',
       'وحين يتوقف من نفسه، احتفل بذلك: «توقفت فورًا، هذه درجة جديدة».'
     ],
     en: [
       'Middle-finger traits are impulsiveness: a loud voice, rough movement, not stopping. They are strongest when a child is tired, hungry or upset, so teach in calm moments and use the heated moment only to pause.',
       'In the heated moment your low voice is stronger than their loud one. Point to the middle finger without many words, say one word, "stop", then sit with them.',
       'Once they are calm, say, for example: "Raising your voice just now was a middle-finger trait. What made you angry? And what do we do next time: stop, breathe, choose?"',
-      'Avoid saying, while angry yourself: "You are a monkey who never listens." Shouting at shouting teaches shouting, and the word "never" closes the way up.',
+      'Avoid saying, while angry yourself: "You are a monkey who never listens." When we raise our voice at them, we teach the very thing we want them to drop. And the word "never" closes the way up.',
       'When they stop by themselves, celebrate it: "You stopped straight away; that is a new step."'
     ]
   };
@@ -2749,13 +2749,13 @@ window.AKHLAQ_CONTENT.virtues = [
       'السبابة هي الإنسان المعتدل: يكفّ أذاه، ويؤدي ما عليه، ويعتذر إذا أخطأ. وهي الإصبع التي يكثر أن تشير إليها مدحًا، فاجعل الإشارة إليها فرحًا يتكرر.',
       'حين ترى سلوكًا إنسانيًا، أشِر إلى السبابة وسمِّ الفعل بالتحديد، فالمديح المحدد يثبّت السلوك أكثر من المديح العام.',
       'قل مثلًا: «اعترفت بأنك كسرت الكوب واعتذرت، وهذه من سمات السبابة. أنا فخور بصدقك».',
-      'وتجنّب أن تقول: «أخيرًا صرت إنسانًا!». فهي توحي بأنه لم يكن إنسانًا قبل ذلك. الطفل إنسان كريم دائمًا، والسلوك هو ما يصعد وينزل.'
+      'وتجنّب أن تقول: «أخيرًا صرت إنسانًا!». فهي توحي بأنه لم يكن إنسانًا قبل ذلك. وهو إنسان كريم من يوم وُلد. امدح الفعل نفسه: «انتظرت دورك في الأرجوحة، وهذه من سمات السبابة».'
     ],
     en: [
       'The index finger is the balanced human: keeps harm away, does what is due, apologises when wrong. It is the finger you will often point to in praise, so make pointing to it a joy that repeats.',
       'When you see human behaviour, point to the index finger and name the exact action; specific praise fixes a behaviour better than general praise.',
       'Say, for example: "You owned up to breaking the cup and apologised; that is an index-finger trait. I\'m proud of your honesty."',
-      'Avoid saying: "Finally you\'ve become a human!" It suggests they were not human before. The child is always an honoured human being; it is the behaviour that rises and falls.'
+      'Avoid saying: "Finally you\'ve become a human!" It suggests they were not human before. They have been an honoured human being since the day they were born. Praise the act itself: “You waited your turn on the swing; that’s an index-finger trait.”'
     ]
   };
 
@@ -2771,13 +2771,13 @@ window.AKHLAQ_CONTENT.virtues = [
       'الإبهام هو السابق بالخيرات: يبادر قبل أن يُطلب منه، ويأخذ بيد غيره. وخطر هذه المرحلة أن يتعلم الطفل فعل الخير ليُمدح، فاجعل المدح هنا قليلًا هادئًا، والشكر لله.',
       'أشِر إلى الإبهام حين يبادر، واربط الفعل بقدوة من الأنبياء عليهم السلام لا بالمقارنة مع إخوته.',
       'قل مثلًا: «رتبت الأكواب قبل أن أطلب، وهذه من سمات الإبهام. الحمد لله الذي هداك إليها، وهكذا كان النبي صلى الله عليه وآله وسلم يخدم أهله».',
-      'وتجنّب أن تقول: «أنت أحسن من أخيك، هو ما زال في الوسطى». المقارنة تزرع العُجب في واحد والحزن في الآخر، والسابق الحقيقي يعين أخاه على الصعود.'
+      'وتجنّب أن تقول: «أنت أحسن من أخيك، هو ما زال في الوسطى». بعدها يتكبّر واحد قليلًا ويحزن الآخر. اطلب من الأول أن يعين أخاه في مهمته، فهذا من سمات الإبهام.'
     ],
     en: [
       'The thumb is Racing to good: acting before being asked and taking others by the hand. The danger here is a child learning to do good in order to be praised, so keep praise brief and quiet at this stage, and give the thanks to Allah.',
       'Point to the thumb when they take the initiative, and link the action to a prophet\'s example, peace be upon them, rather than comparing them with siblings.',
       'Say, for example: "You cleared the cups before I asked; that is a thumb trait. Praise be to Allah who guided you to it. The Prophet used to help his family like that too."',
-      'Avoid saying: "You\'re better than your brother; he\'s still on the middle finger." Comparison plants pride in one child and sadness in the other, and someone truly racing to good helps their brother climb.'
+      'Avoid saying: "You\'re better than your brother; he\'s still on the middle finger." One child walks away a little proud and the other sad. Ask the first to help their brother with his task instead; that is a thumb trait.'
     ]
   };
 
@@ -3114,15 +3114,15 @@ window.AKHLAQ_CONTENT.virtues = [
     { q: { ar: 'أليس وصف السلوك بـ«الخنزير» أو «القرد» مؤذيًا للطفل؟', en: 'Isn\'t naming behaviours after the pig or the monkey harmful to a child?' },
       a: { ar: 'يصف التطبيق السلوك وحده، بلغة الإصبع: «هذه من سمات البنصر». والطفل نفسه خلقه الله في أحسن تقويم، ونذكّره بذلك دائمًا، ونذكّره أن في كل الناس شيئًا من هذه السمات، وأن كل واحد يستطيع أن يصعد. وأصل الفكرة قرآني: ضرب القرآن الأمثال بالحيوان لسلوك الإنسان. ولهذا صارت إشارة الإصبع لغة البيت اليومية.', en: 'The app describes the behaviour alone, in the language of the hand: \"that is a ring-finger trait\". The child is someone Allah created in the finest form, and we remind them of that often, along with two more things: everyone has some of these traits, and everyone can climb. The idea is Quranic: the Quran uses animal images to describe human behaviour. That is why the finger sign is the everyday language at home.' } },
     { q: { ar: 'ماذا أفعل إن رفض طفلي النسبة المئوية أو حزن منها؟', en: 'What if my child objects to a percentage or is upset by it?' },
-      a: { ar: 'استمع إليه أولًا ولا تجادله. قل له: «النسبة ليست حكمًا عليك، بل صورة لسلوك هذا الأسبوع، وستتغير». وابدأ دائمًا بالجزء الإنساني والاتجاه: «انظر، صعدت هذا الأسبوع». وإن اعترض على رقم بعينه فاسأله: «وكيف تراه أنت؟»، فالتقييم الذاتي جزء من التطبيق، وحواره معك أهم من الرقم نفسه.', en: 'Listen first and do not argue. Say: "The number is not a verdict on you; it is a picture of this week\'s behaviour, and it will change." Always start with the human part and the direction: "Look, you went up this week." If they disagree with a particular number, ask: "How do you see it?" Self-assessment is part of the app, and talking it through with you matters more than the number itself.' } },
+      a: { ar: 'استمع إليه أولًا ولا تجادله. قل له: «هذه النسبة صورة لسلوكك هذا الأسبوع، وستتغير». وابدأ دائمًا بالجزء الإنساني والاتجاه: «انظر، صعدت هذا الأسبوع». وإن اعترض على رقم بعينه فاسأله: «وكيف تراه أنت؟»، فالتقييم الذاتي جزء من التطبيق، وحواره معك أهم من الرقم نفسه.', en: 'Listen first and do not argue. Say: "This number is a picture of how this week went, and it will change." Always start with the human part and the direction: "Look, you went up this week." If they disagree with a particular number, ask: "How do you see it?" Self-assessment is part of the app, and talking it through with you matters more than the number itself.' } },
     { q: { ar: 'كم مرة نستعمل التطبيق؟', en: 'How often should we use the app?' },
-      a: { ar: 'القليل الدائم أفضل: قراءة واحدة قصيرة وأسئلتها في اليوم، ومهمة يوم واحدة، وجلسة أسبوعية هادئة تنظران فيها معًا إلى المزيج. لا تجعله عقوبة بعد خطأ، بل عادة لطيفة في وقت ثابت، كبعد العصر أو قبل النوم.', en: 'A little, consistently, is best: one short reading with its questions each day, one daily mission, and a calm weekly sit-down to look at the mix together. Never use it as a punishment after a mistake; make it a gentle habit at a fixed time, such as after Asr or before bed.' } },
+      a: { ar: 'القليل الدائم أفضل: قراءة واحدة قصيرة وأسئلتها في اليوم، ومهمة يوم واحدة، وجلسة أسبوعية هادئة تنظران فيها معًا إلى المزيج. واجعله عادة لطيفة في وقت ثابت، كبعد العصر أو قبل النوم، بعيدًا عن ساعة العقاب بعد الخطأ.', en: 'A little, consistently, is best: one short reading with its questions each day, one daily mission, and a calm weekly sit-down to look at the mix together. Make it a gentle habit at a fixed time, such as after Asr or before bed, well away from the moment of punishment after a mistake.' } },
     { q: { ar: 'هل التطبيق نفسه لابن أربع سنوات ولابن اثنتي عشرة سنة وللكبير؟', en: 'Is it the same for a 4-year-old, a 12-year-old and an adult?' },
       a: { ar: 'السلم واحد، والطريقة تختلف. ابن الرابعة يسمع القصص المصورة من والده، ويجيب عن أسئلة المواقف بصوت عالٍ، ويرى الأصابع أكثر من الأرقام. وابن الثانية عشرة يقرأ وحده، ويحل الاختبارات، ويقيّم نفسه. والكبير يقرأ قراءات 15+، ويحاسب نفسه، ويكون قدوة. ولكل قراءة وسم عمري يساعدك على الاختيار.', en: 'The ladder is the same; the way of using it differs. A 4-year-old hears the picture-book stories from a parent, answers the situation questions aloud, and sees fingers more than numbers. A 12-year-old reads alone, does the quizzes and assesses themself. An adult reads the 15+ pages, reviews themself and sets the example. Every reading has an age tag to help you choose.' } },
     { q: { ar: 'هل ينزل طفلي إذا أخطأ؟', en: 'Does my child go down when they make a mistake?' },
-      a: { ar: 'تنزل النسبة الإنسانية ببطء شديد، وتصعد بسرعة أكبر بالاعتذار والإصلاح والحسنة بعد السيئة. والفكرة أن يعرف الطفل أن الباب مفتوح دائمًا، وأن الخطأ ليس نهاية، بل فرصة لصعود جديد.', en: 'The human share drops only slowly, and rises faster through apologising, repairing and following a bad deed with a good one. The point is for the child to know the door is always open: a mistake is not an ending but a chance to climb again.' } },
+      a: { ar: 'تنزل النسبة الإنسانية ببطء شديد، وتصعد بسرعة أكبر بالاعتذار والإصلاح والحسنة بعد السيئة. والفكرة أن يعرف الطفل أن الباب مفتوح دائمًا، فيخطئ اليوم، ويعتذر غدًا، ويكمل صعوده.', en: 'The human share drops only slowly, and rises faster through apologising, repairing and following a bad deed with a good one. The point is for the child to know the door is always open: a mistake today, an apology tomorrow, and the climb goes on.' } },
     { q: { ar: 'ما دوري في تأكيد المهام؟', en: 'What is my role in confirming tasks?' },
-      a: { ar: 'أنت الشاهد على السلوك الحقيقي في البيت. أكّد المهمة حين تراها فعلًا، وسمِّ الفعل بالتحديد حين تمدحه. ولا تؤكد ما لم يحدث لتفرحه، فالصدق هنا جزء من التربية. وإن لم ينجز المهمة فلا تعلّق بلوم، بل قل: «غدًا فرصة جديدة».', en: 'You are the witness of real behaviour at home. Confirm a task when you have actually seen it, and name the exact action when you praise it. Do not confirm something that did not happen just to please them; honesty here is part of the upbringing. If they did not manage it, skip the blame and say: "Tomorrow is a new chance."' } },
+      a: { ar: 'أنت الشاهد على السلوك الحقيقي في البيت. أكّد المهمة حين تراها فعلًا، وسمِّ الفعل بالتحديد حين تمدحه. ولا تؤكد ما لم يحدث لتفرحه، فالصدق هنا جزء من التربية. وإن لم ينجز المهمة فقل: «نجرّبها غدًا».', en: 'You are the witness of real behaviour at home. Confirm a task when you have actually seen it, and name the exact action when you praise it. Do not confirm something that did not happen just to please them; honesty here is part of the upbringing. If they did not manage it, just say: “We’ll try it again tomorrow.”' } },
     { q: { ar: 'كيف أستعمل إشارة الإصبع خارج التطبيق؟', en: 'How do I use the finger sign outside the app?' },
       a: { ar: 'أشِر إلى الإصبع بهدوء وابتسامة، بلا صراخ ولا أمام الغرباء. «هذه من سمات الوسطى» تكفي، ثم افتح باب الصعود: «ماذا نفعل الآن؟». واستعملها في المدح أكثر من التنبيه: «هذا الذي فعلته من سمات الإبهام!». وحين يبدأ الطفل يشير إلى إصبعه بنفسه، فقد بدأ يرى سلوكه.', en: 'Point to the finger calmly and with a smile, never shouting and never in front of strangers. "That\'s a middle-finger trait" is enough; then open the way up: "What shall we do now?" Use it for praise more than for correction: "What you did is a thumb trait!" When the child starts pointing to their own finger, they have begun to see their behaviour.' } },
     { q: { ar: 'وماذا عن سلوكي أنا بوصفي والدًا؟', en: 'What about my own behaviour as a parent?' },
@@ -3171,8 +3171,8 @@ window.AKHLAQ_CONTENT.virtues = [
     { week: 5, proposal: true, uses: ['human-r3', 'human-r4'],
       title: { ar: 'البوابة: من القراءة إلى الفعل', en: 'The gate: from reading to doing' },
       steps: {
-        ar: ['افتتاح (دقيقتان): نقرأ «سلم الناس من لسانه ويده»، ونقف عند «أحب الأعمال إلى الله تعالى أدومها وإن قل». فنحن لا نصعد بما نقرأ وحده، بل بما نفعله منه.', 'سؤال (3 دقائق): ما الشيء الذي قرأناه هذا الشهر ولم نفعله بعد؟', 'تمرين (4 دقائق): يختار كل واحد عادة صغيرة مربوطة بشيء ثابت («بعد العشاء أشكر أمي»)، ويكتبها الوالد ليؤكدها في الأسبوع.', D2.ar],
-        en: ['Opening (2 min): read "People are safe from his tongue and hand" and pause at "the deeds most loved by Allah are the most lasting, even if small". We climb not by what we read alone, but by what we do with it.', 'Question (3 min): what have we read this month that we have not yet done?', 'Practice (4 min): each person picks one tiny habit tied to a fixed moment ("after dinner I thank my mother"), and the parent writes it down to confirm during the week.', D2.en]
+        ar: ['افتتاح (دقيقتان): نقرأ «سلم الناس من لسانه ويده»، ونقف عند «أحب الأعمال إلى الله تعالى أدومها وإن قل».', 'سؤال (3 دقائق): ما الشيء الذي قرأناه هذا الشهر ولم نفعله بعد؟', 'تمرين (4 دقائق): يختار كل واحد عادة صغيرة مربوطة بشيء ثابت («بعد العشاء أشكر أمي»)، ويكتبها الوالد ليؤكدها في الأسبوع.', D2.ar],
+        en: ['Opening (2 min): read "People are safe from his tongue and hand" and pause at "the deeds most loved by Allah are the most lasting, even if small".', 'Question (3 min): what have we read this month that we have not yet done?', 'Practice (4 min): each person picks one tiny habit tied to a fixed moment ("after dinner I thank my mother"), and the parent writes it down to confirm during the week.', D2.en]
       } },
     { week: 6, proposal: true, uses: ['human-r6', 'human-r1'],
       title: { ar: 'السبابة: آسف وشكرًا', en: 'Index finger: sorry and thank you' },
@@ -3221,17 +3221,17 @@ window.AKHLAQ_CONTENT.virtues = [
     'zombie.parent0': 'سمات الخنصر هي الغفلة: أن يمضي الوقت والقلب غائب. وهي أكثر ما يصيبنا جميعًا مع الشاشات، فابدأ بنفسك قدوةً قبل أن تنبّه طفلتك.',
     'zombie.parent1': 'أشِر إلى الخنصر بهدوء وابتسامة، وصِف السلوك لا الطفلة، ثم افتح لها باب الصعود فورًا.',
     'zombie.parent2': 'قل مثلًا: «أرى أن الشاشة أخذتك ساعة، وهذه من سمات الخنصر. تعالي نتوقف دقيقة ونعدّ ثلاث نعم معًا».',
-    'zombie.parent3': 'وتجنّب أن تقول: «أنتِ زومبي لا تفهمين شيئًا». الوصف الذي يلتصق بالشخص يغلق الباب، والوصف الذي يصف السلوك يفتحه.',
+    'zombie.parent3': 'وتجنّب أن تقول: «أنتِ زومبي لا تفهمين شيئًا». قل بدلها: «ناديتك ثلاث مرات ولم ترفع عينيك عن الشاشة، وهذه من سمات الخنصر». يسمعها خبرًا عن لحظة مضت، يقدر أن يغيّرها في المرة القادمة.',
 
     /* البنصر */
     'pig-r2.b2': 'سلوك الخنزير يقول: «طعامي لي». وهذه الآية تعلّمنا العكس: أجمل العطاء أن تعطي ما تحبين، لا ما زاد عنك.',
     'pig-r4.b1': 'التمرين له خطوتان. الأولى: «انتظر». حين تشتهين شيئًا، عُدّي إلى عشرة قبل أن تأخذيه.',
     'pig-r4.b2': 'الثانية: «انظر». وأنتِ تعدّين، انظري حولك: هل يحتاج أحد هذا الشيء أكثر مني؟ هل أخذ الجميع؟ هل هناك من هو متعب؟',
-    'pig-r4.b3': 'بعد العد، قرري. أحيانًا ستأخذين، وأحيانًا ستعطين. المهم أنكِ صرتِ أنتِ من تقرر، لا رغبتك.',
+    'pig-r4.b3': 'بعد العد، قرري. أحيانًا ستأخذين القطعة، وأحيانًا ستعطينها لغيركِ. وفي المرتين تكونين أنتِ التي اختارت، بعد أن انتظرت.',
     'pig-r5.b3': 'والعلاج في القرآن ليس كبت الرغبة بل ترتيبها: ﴿وَأَمَّا مَنْ خَافَ مَقَامَ رَبِّهِ وَنَهَى النَّفْسَ عَنِ الْهَوَىٰ ۝ فَإِنَّ الْجَنَّةَ هِيَ الْمَأْوَىٰ﴾ (النازعات 79:40-41). النهي هنا قيادة: أنتِ تقودين النفس، لا هي تقودك.',
     'pig-r5.b4': 'تمرين: قبل أي شراء غير ضروري انتظري يومًا كاملًا. وكل أسبوع أعطي شيئًا تحبينه. ولاحظي كيف يخف ضجيج الرغبة كلما مارستِ العطاء.',
     'pig-r6.ask': 'ما الشيء الذي تحبين أن تشاركيه مع صديقتك؟',
-    'pig-q3.why': 'العطاء الأجمل أن تعطي ما تحبين، وبه يصعد الإنسان من سمات البنصر.',
+    'pig-q3.why': '«على حبه» أي وهم يحبون الطعام ويشتهونه، ومع ذلك يعطونه لغيرهم.',
     'pig-q4.q': 'بقيت قطعة حلوى واحدة، وأنتِ وأختك تريدانها. ماذا تفعلين؟',
     'pig-q6.q': 'جلستم للأكل من صحن واحد. من أين تأكلين؟',
     'pig-q6.why': '«كُل مما يليك»: تأخذين نصيبك وتتركين لغيرك نصيبهم.',
@@ -3243,7 +3243,7 @@ window.AKHLAQ_CONTENT.virtues = [
     'pig.parent0': 'سمات البنصر هي التمحور حول الرغبة: «أنا أريد» قبل أن ترى الطفلة غيرها. والطفلة في سنواتها الأولى ترى نفسها أولًا بطبيعتها، فالمطلوب أن نعلّمها أن ترى، لا أن نعيّرها.',
     'pig.parent1': 'أشِر إلى البنصر حين ترى السلوك، ثم ساعدها أن تنظر: إلى وجه أخيها، أو تعب جدتها، أو نصيب غيرها.',
     'pig.parent2': 'قل مثلًا: «أخذ أكبر قطعة قبل الجميع من سمات البنصر. انظري حولك: هل أخذ أخوك؟ ماذا تفعلين الآن؟».',
-    'pig.parent3': 'وتجنّب أن تقول: «أنتِ خنزيرة لا تفكرين إلا في بطنك». الطفلة تدافع عن نفسها حين تُوصف هي، وتتعلم حين يُوصف فعلها.',
+    'pig.parent3': 'وتجنّب أن تقول: «أنتِ خنزيرة لا تفكرين إلا في بطنك». جرّب أن تقول: «أخذتِ القطعة الكبيرة قبل أن يجلس أحد». ستراها أحيانًا تعيدها دون أن تطلب.',
     'pig.parent4': 'وامدحها بالإصبع الأعلى حين تحسن: «هذا الذي فعلتِه الآن من سمات السبابة».',
 
     /* الوسطى */
@@ -3269,7 +3269,7 @@ window.AKHLAQ_CONTENT.virtues = [
     'monkey.parent0': 'سمات الوسطى هي الاندفاع: الصوت العالي، والحركة العنيفة، وعدم التوقف. وهي أشد ما تكون حين تكون الطفلة متعبة أو جائعة أو منفعلة، فاختر لحظة الهدوء للتعليم، ولحظة الانفعال للتوقيف فقط.',
     'monkey.parent1': 'في لحظة الانفعال: صوتك المنخفض أقوى من صوتها العالي. أشِر إلى الوسطى بلا كلام كثير، وقل كلمة واحدة: «توقفي»، ثم اجلس معها.',
     'monkey.parent2': 'قل مثلًا بعد أن تهدأ: «رفع الصوت قبل قليل كان من سمات الوسطى. ما الذي أغضبك؟ وماذا نفعل في المرة القادمة: قِف، تنفّس، اختر؟».',
-    'monkey.parent3': 'وتجنّب أن تقول وأنت غاضب: «أنتِ قردة لا تسمعين أبدًا». الصراخ على الصراخ يعلّم الصراخ، وكلمة «أبدًا» تغلق باب الصعود.',
+    'monkey.parent3': 'وتجنّب أن تقول وأنت غاضب: «أنتِ قردة لا تسمعين أبدًا». حين نرفع أصواتنا عليه نعلّمه ما نريد أن يتركه. وكلمة «أبدًا» تقول له إن المحاولة لا فائدة منها.',
     'monkey.parent4': 'وحين تتوقف من نفسها، احتفل بذلك: «توقفتِ فورًا، هذه درجة جديدة».',
 
     /* السبابة */
@@ -3288,13 +3288,13 @@ window.AKHLAQ_CONTENT.virtues = [
     'human-q9.q': 'سكبتِ الماء على الطاولة دون قصد. ماذا تفعلين؟',
     'human-q9.o1': 'أقول: آسفة، وأمسحه.',
     'human-q10.q': 'جدتك أعطتك هدية. ماذا تقولين؟',
-    'human.parent3': 'وتجنّب أن تقول: «أخيرًا صرتِ إنسانة!». فهي توحي بأنها لم تكن إنسانة قبل ذلك. الطفلة إنسانة كريمة دائمًا، والسلوك هو ما يصعد وينزل.',
+    'human.parent3': 'وتجنّب أن تقول: «أخيرًا صرتِ إنسانة!». فهي توحي بأنها لم تكن إنسانة قبل ذلك. وهي إنسانة كريمة من يوم وُلدت. امدح الفعل نفسه: «انتظرتِ دوركِ في الأرجوحة، وهذه من سمات السبابة».',
 
     /* الإبهام */
     'sabiq-r2.b2': 'وأمرنا الله بالمسارعة: ﴿وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِنْ رَبِّكُمْ﴾ (آل عمران 3:133). المسارعة ليست ركضًا بالأقدام، بل أن تسبقي نفسك إلى الخير قبل أن تتكاسلي.',
     'sabiq-r3.b4': 'جرّبي هذا الأسبوع: اختاري خلقًا واحدًا من نبي: صبر أيوب، أو صدق يوسف، أو رحمة النبي محمد صلى الله عليه وآله وسلم بالصغار، وطبّقيه يومًا كاملًا.',
     'sabiq-r4.b2': 'الخطة: كل مساء اكتبي عملًا خفيًّا واحدًا ستفعلينه غدًا: ترتيب حذاء أبيك، أو وضع ماء لعطشان، أو دعاء لصديقتك باسمها.',
-    'sabiq-r4.b3': 'لا تخبري أحدًا. واكتبي في المساء التالي: هل فعلتُه؟ وماذا شعرتُ؟ هكذا تسبقين نفسك إلى الخير.',
+    'sabiq-r4.b3': 'لا تخبري أحدًا. واكتبي في المساء التالي: هل فعلتُه؟ وماذا شعرتُ؟',
     'sabiq-r5.b0': 'يعد الله المجاهدين في سبيله بالهداية: ﴿وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا﴾ (العنكبوت 29:69). المجاهدة هنا جهد النفس اليومي: أن تقومي إلى الخير ونفسك تريد الراحة.',
     'sabiq-r5.b4': 'خطوة عملية: اختاري صفة من صفات الأحزاب 35 العشر، واعملي عليها أربعين يومًا، ثم انتقلي إلى التي تليها.',
     'sabiq-r6.ask': 'ما الخير الصغير الذي تستطيعين أن تفعليه غدًا دون أن يطلبه أحد؟',
@@ -3596,7 +3596,7 @@ window.AKHLAQ_CONTENT.virtues = [
       { id: 'sabiq-q11', readingId: 'sabiq-r7', type: 'comprehension', correct: 0,
         q: { ar: 'لماذا أسرع النبي صلى الله عليه وآله وسلم إلى بيته بعد الصلاة؟', en: 'Why did the Prophet hurry home after the prayer?' },
         options: [{ ar: 'ليأمر بقسمة ذهب كان عنده على المحتاجين', en: 'To have some gold he had shared out to those in need' }, { ar: 'ليرتاح', en: 'To rest' }, { ar: 'ليأكل', en: 'To eat' }],
-        why: { ar: 'السابق لا يؤجل الخير، فيسبقه قبل أن يشغله شيء.', en: 'Someone racing to good does not put it off, but gets to it before anything gets in the way.' } },
+        why: { ar: 'تذكّر ذهبًا بقي في بيته، فكره أن يبقى عنده، فأمر بقسمته في الحال.', en: 'He remembered some gold left in his house, disliked keeping it, and had it shared out at once.' } },
       { id: 'sabiq-q12', readingId: 'sabiq-r7', type: 'comprehension', correct: 1,
         q: { ar: 'بماذا أجاب النبي صلى الله عليه وآله وسلم حين سألته السيدة عائشة عن قيامه الطويل؟', en: 'How did the Prophet answer when Lady Aisha asked about his long night prayer?' },
         options: [{ ar: 'إنه يخاف أن يُعاقب', en: 'That he was afraid of punishment' }, { ar: 'إنه يحب أن يكون عبدًا شكورًا', en: 'That he loved to be a grateful servant' }, { ar: 'إنه لا يستطيع النوم', en: 'That he could not sleep' }],
@@ -3709,7 +3709,7 @@ window.AKHLAQ_CONTENT.virtues = [
     zombie: [{ id: 'zombie-q13', readingId: 'zombie-r8', type: 'comprehension', correct: 2,
       q: { ar: 'لماذا خاف حنظلة رضي الله عنه على نفسه؟', en: 'Why was Hanzala worried about himself?' },
       options: [{ ar: 'لأنه لم يكن يحضر مجلس النبي صلى الله عليه وآله وسلم', en: 'Because he did not attend the Prophet\'s gatherings' }, { ar: 'لأنه لا يحب أولاده', en: 'Because he did not love his children' }, { ar: 'لأنه لاحظ أنه ينسى حين ينشغل في بيته', en: 'Because he noticed he forgot when busy at home' }],
-      why: { ar: 'ملاحظة الغفلة أول اليقظة، والقلب الحي يرجع.', en: 'Noticing heedlessness is the start of waking, and a living heart comes back.' } }],
+      why: { ar: 'كان قلبه حاضرًا في مجلس النبي صلى الله عليه وآله وسلم، فإذا رجع إلى بيته ولاعب الأولاد نسي كثيرًا. لاحظ ذلك في نفسه فخاف.', en: 'His heart was present when he sat with the Prophet (peace and blessings be upon him and his family), but back home, playing with the children, he forgot a great deal. He noticed this in himself, and it frightened him.' } }],
     pig: [{ id: 'pig-q12', readingId: 'pig-r8', type: 'comprehension', correct: 0,
       q: { ar: 'ماذا علّم النبي صلى الله عليه وآله وسلم فاطمة وعليًّا عليهما السلام بدل الخادم؟', en: 'What did the Prophet teach Fatima and Ali, peace be upon them, instead of a servant?' },
       options: [{ ar: 'التكبير والتسبيح والتحميد عند النوم', en: 'Saying Allahu akbar, Subhan Allah and al-hamdu lillah at bedtime' }, { ar: 'أن يتركا العمل في البيت', en: 'To stop working at home' }, { ar: 'أن يشتريا رحى جديدة', en: 'To buy a new hand-mill' }],
@@ -4227,8 +4227,8 @@ window.AKHLAQ_CONTENT.choices = [
 
   /* zombie-r8: الخاتمة بالإثبات */
   var r8 = R('zombie-r8');
-  r8.body.ar[3] = 'انتبه حنظلة لغفلته، وهذه أول اليقظة: القلب الحي يلاحظ متى يغيب، ثم يرجع. والمطلوب أن نعود كلما انتبهنا، ساعةً بعد ساعة.';
-  r8.body.en[3] = 'Hanzala noticed his own heedlessness, and that is where waking begins: a living heart notices when it drifts, then comes back. What is asked of us is to return whenever we notice, one hour after another.';
+  r8.body.ar[3] = 'انتبه حنظلة لغفلته، وخاف منها، وجاء يسأل. ونحن كذلك: ننتبه بعد ساعة من اللعب أو الانشغال، فنرجع إلى الله بكلمة، ثم ننسى، ثم ننتبه ونرجع.';
+  r8.body.en[3] = 'Hanzala noticed his own heedlessness, was frightened by it, and came to ask. We are the same: after an hour lost in play or busyness we notice, come back to Allah with a word, forget again, then notice and come back.';
   if (r8.body.ar_f) r8.body.ar_f[3] = r8.body.ar[3];
 
   /* zombie-r9: 15+، جديدة */
@@ -4410,18 +4410,18 @@ window.AKHLAQ_CONTENT.choices = [
       'التمرين له خطوتان. الأولى: «انتظر». حين تشتهي شيئًا، عُدّ إلى عشرة قبل أن تأخذه.',
       'الثانية: «انظر». وأنت تعد، انظر حولك: هل يحتاج أحد هذا الشيء أكثر مني؟ هل أخذ الجميع؟ هل هناك من هو متعب؟',
       'مثال: وصلت إلى البيت علبة حلوى، والكل يحبها. عددتَ إلى عشرة، ونظرت حولك، فرأيت أخاك الصغير يقف على أطراف أصابعه ليرى ما في العلبة. أعطيته أولًا، ثم أخذت قطعتك. القطعة نفسها، والقرار قرارك.',
-      'بعد العد، قرر. أحيانًا ستأخذ، وأحيانًا ستعطي. المهم أنك صرت أنت من يقرر، لا رغبتك.'],
+      'بعد العد، قرر. أحيانًا ستأخذ القطعة، وأحيانًا ستعطيها لغيرك. وفي المرتين تكون أنت الذي اختار، بعد أن انتظر.'],
     en: ['A practical page. Psychologists have found that being able to delay a want a little is a learnable skill, and that it helps in study, friendship and all of life.',
       'The exercise has two steps. First: "Wait." When you want something, count to ten before taking it.',
       'Second: "Look." While you count, look around: does anyone need this more than me? Has everyone had some? Is anyone tired?',
       'For example: a box of sweets arrives at home, and everyone loves them. You count to ten and look around, and you see your little brother on tiptoe, trying to see inside the box. You give him one first, then take yours. The same sweet, and the decision was yours.',
-      'After counting, decide. Sometimes you will take, sometimes you will give. What matters is that you decide, not your craving.']
+      'After counting, decide. Sometimes you will take the piece, sometimes you will give it away. Either way, you are the one who chose, after waiting.']
   };
   r4.body.ar_f = ['صفحة عملية. وجد علماء النفس أن القدرة على تأجيل الرغبة قليلًا مهارة تُتعلَّم، وأنها تساعد الإنسان في الدراسة والصداقة والحياة كلها.',
     'التمرين له خطوتان. الأولى: «انتظر». حين تشتهين شيئًا، عُدّي إلى عشرة قبل أن تأخذيه.',
     'الثانية: «انظر». وأنتِ تعدّين، انظري حولك: هل يحتاج أحد هذا الشيء أكثر مني؟ هل أخذ الجميع؟ هل هناك من هو متعب؟',
     'مثال: وصلت إلى البيت علبة حلوى، والكل يحبها. عددتِ إلى عشرة، ونظرتِ حولك، فرأيتِ أخاكِ الصغير يقف على أطراف أصابعه ليرى ما في العلبة. أعطيتِه أولًا، ثم أخذتِ قطعتك. القطعة نفسها، والقرار قراركِ.',
-    'بعد العد، قرري. أحيانًا ستأخذين، وأحيانًا ستعطين. المهم أنكِ صرتِ أنتِ من تقرر، لا رغبتك.'];
+    'بعد العد، قرري. أحيانًا ستأخذين القطعة، وأحيانًا ستعطينها لغيركِ. وفي المرتين تكونين أنتِ التي اختارت، بعد أن انتظرت.'];
   var q8 = Q('pig-q8');
   q8.type = 'comprehension';
   q8.q = { ar: 'في الخطوة الثانية «انظر»، ماذا تسأل نفسك وأنت تعدّ؟',
@@ -4472,15 +4472,15 @@ window.AKHLAQ_CONTENT.choices = [
       'جاءت امرأة ببُردة نسجتها بيدها، وقالت: نسجتُها لأكسوك إياها. فأخذها النبي صلى الله عليه وآله وسلم وهو محتاج إليها، ولبسها.',
       'فرآها عليه رجل من الحاضرين، فقال: ما أحسنها! اكسُنيها. فقال: «نعم». ثم طواها وأرسلها إليه.',
       'فقال الناس للرجل: لبسها النبي صلى الله عليه وآله وسلم محتاجًا إليها، ثم سألته إياها، وأنت تعلم أنه لا يردّ أحدًا.',
-      'سمات البنصر أن نقول «لي» قبل أن نرى غيرنا. والقمة أن تعطي الشيء الذي تحتاجه أنت، لأنك رأيت حاجة أخيك. وأول الطريق شيء صغير تحبه، تعطيه بوجه راضٍ.'],
+      'في سمات البنصر نقول «لي» قبل أن ننظر حولنا. والنبي صلى الله عليه وآله وسلم كان محتاجًا إلى البُردة يوم لبسها، ثم طواها وأرسلها إلى من طلبها. ابدأ بشيء صغير تحبه، وأعطه بوجه راضٍ.'],
     en: ['In the giving of the Prophet, peace and blessings be upon him and his family, we see the picture we walk towards.',
       'A woman brought him a cloak she had woven with her own hands and said: I wove it to clothe you in it. The Prophet, peace and blessings be upon him and his family, took it, needing it, and wore it.',
       'A man among those present saw it on him and said: How beautiful it is! Give it to me to wear. He said, "Yes." Then he folded it and sent it to him.',
       'The people said to the man: The Prophet wore it because he needed it, and then you asked him for it, knowing that he never turns anyone away.',
-      'The ring-finger trait is saying "mine" before we see anyone else. The summit is giving the very thing you need, because you saw your brother\'s or sister\'s need. The road starts with one small thing you love, given gladly.']
+      'The ring-finger trait is saying "mine" before we see anyone else. The Prophet (peace and blessings be upon him and his family) needed that cloak the day he put it on, and still folded it and sent it to the man who asked. Start with one small thing you love, and give it gladly.']
   };
   r7.body.ar_f = r7.body.ar.slice();
-  r7.body.ar_f[4] = 'سمات البنصر أن نقول «لي» قبل أن نرى غيرنا. والقمة أن تعطي الشيء الذي تحتاجينه أنتِ، لأنكِ رأيتِ حاجة أختك. وأول الطريق شيء صغير تحبينه، تعطينه بوجه راضٍ.';
+  r7.body.ar_f[4] = 'في سمات البنصر نقول «لي» قبل أن ننظر حولنا. والنبي صلى الله عليه وآله وسلم كان محتاجًا إلى البُردة يوم لبسها، ثم طواها وأرسلها إلى من طلبها. ابدئي بشيء صغير تحبينه، وأعطيه بوجه راضٍ.';
   r7.source = { ar: 'حديث في صحيح البخاري (1277 و5810)، يرويه سهل بن سعد رضي الله عنه.', en: 'A hadith in Sahih al-Bukhari (1277 and 5810), narrated by Sahl ibn Sa\'d, may Allah be pleased with him.' };
   var q11 = Q('pig-q11');
   q11.options = [{ ar: 'كانت عنده بردة أخرى أجمل منها', en: 'He had another, finer cloak' },
@@ -4679,10 +4679,10 @@ window.AKHLAQ_CONTENT.choices = [
   var r3 = R('monkey-r3');
   r3.body.ar[1] = 'وإذا كلمهم الجاهلون بكلام سيئ، قالوا «سلامًا»: كلمة تُنهي الشجار قبل أن يكبر.';
   r3.body.en[1] = 'And when ignorant people speak badly to them, they say "peace", a word that ends a quarrel before it grows.';
-  r3.body.ar[3] = 'وهذه الصفات عكس سلوك القرد: هدوء مكان العنف، وسلام مكان الصراخ. جرّب غدًا: إذا قال لك أحد كلمة سيئة في الملعب، قل «سلام» بصوت منخفض، وامشِ بخطوات هادئة، ثم لاحظ ماذا يحدث للشجار.';
-  r3.body.en[3] = 'These qualities are the opposite of monkey behaviour: calm in place of roughness, peace in place of shouting. Try it tomorrow: if someone says something nasty to you in the playground, say "peace" in a low voice, walk away with calm steps, and notice what happens to the quarrel.';
+  r3.body.ar[3] = 'وهذا ما يفعله عباد الرحمن حين يستفزّهم أحد. جرّب غدًا: إذا قال لك أحد كلمة سيئة في الملعب، قل «سلام» بصوت منخفض، وامشِ بخطوات هادئة، ثم لاحظ ماذا يحدث للشجار.';
+  r3.body.en[3] = 'This is what the servants of the Most Merciful do when someone provokes them. Try it tomorrow: if someone says something nasty to you in the playground, say "peace" in a low voice, walk away with calm steps, and notice what happens to the quarrel.';
   r3.body.ar_f = r3.body.ar.slice();
-  r3.body.ar_f[3] = 'وهذه الصفات عكس سلوك القرد: هدوء مكان العنف، وسلام مكان الصراخ. جرّبي غدًا: إذا قال لكِ أحد كلمة سيئة في الملعب، قولي «سلام» بصوت منخفض، وامشي بخطوات هادئة، ثم لاحظي ماذا يحدث للشجار.';
+  r3.body.ar_f[3] = 'وهذا ما يفعله عباد الرحمن حين يستفزّهم أحد. جرّبي غدًا: إذا قال لكِ أحد كلمة سيئة في الملعب، قولي «سلام» بصوت منخفض، وامشي بخطوات هادئة، ثم لاحظي ماذا يحدث للشجار.';
   var q5 = Q('monkey-q5');
   q5.options = [{ ar: 'يردّون عليهم بمثل كلامهم', en: 'They answer them in the same words' },
     { ar: 'يسكتون ويغضبون في قلوبهم', en: 'They keep quiet and fume inside' },
@@ -4693,7 +4693,7 @@ window.AKHLAQ_CONTENT.choices = [
     { ar: 'أدفعه بقوة حتى يسكت', en: 'Shove him hard until he stops' },
     { ar: 'أقول له كلمة أسوأ منها', en: 'Say something worse back' }];
   q6.correct = 0;
-  q6.why = { ar: 'الهدوء قوة: تقول «سلام» وتبتعد، وتخبر الكبار إن تكرر.', ar_f: 'الهدوء قوة: تقولين «سلام» وتبتعدين، وتخبرين الكبار إن تكرر.', en: 'Calm is strength: say "peace", walk away, and tell an adult if it happens again.' };
+  q6.why = { ar: 'تقول «سلام» بهدوء وتمشي، فلا يجد الشجار من يكمله. وإن تكرر الأمر فأخبر الكبار.', ar_f: 'تقولين «سلام» بهدوء وتمشين، فلا يجد الشجار من يكمله. وإن تكرر الأمر فأخبري الكبار.', en: 'Calm is strength: say "peace", walk away, and tell an adult if it happens again.' };
 
   /* monkey-r4: مثال من البيت، والسؤال يختبر التمرين */
   var r4 = R('monkey-r4');
@@ -4782,8 +4782,8 @@ window.AKHLAQ_CONTENT.choices = [
   r7.body.en[1] = 'Anas ibn Malik, may Allah be pleased with him, was walking with the Prophet, peace and blessings be upon him and his family, who wore a cloak from Najran with a rough edge. A Bedouin caught up with him and tugged the cloak so hard that Anas saw the mark its edge had left on his shoulder.';
   r7.body.ar[2] = 'ثم قال الأعرابي بخشونة: مُر لي من مال الله الذي عندك.';
   r7.body.en[2] = 'Then the Bedouin said roughly: order me something from the wealth of Allah that you hold.';
-  r7.body.ar[4] = 'سمات الوسطى أن يقود الغضب اليد والصوت. وفي القمة قلب يمسك المقود وأثر الجذبة على كتفه، ثم يعطي من جذبه. وأول الطريق إليها: حين يشدّنا أحد من كمّنا، نلتفت إليه بابتسامة قبل أي كلمة.';
-  r7.body.en[4] = 'The middle-finger trait is letting anger drive the hand and the voice. At the summit is a heart that holds the wheel with the mark of the tug still on the shoulder, and then gives to the one who tugged. The road there starts small: when someone pulls at our sleeve, we turn to them with a smile before any word.';
+  r7.body.ar[4] = 'في سمات الوسطى يقود الغضب اليد والصوت. وأثر الجذبة كان ما زال على عاتق النبي صلى الله عليه وآله وسلم حين ضحك، وأمر للأعرابي بعطاء. نبدأ من شيء صغير: حين يشدّنا أحد من كمّنا، نلتفت إليه بابتسامة قبل أي كلمة.';
+  r7.body.en[4] = 'The middle-finger trait is letting anger drive the hand and the voice. The mark of the tug was still on the Prophet’s shoulder (peace and blessings be upon him and his family) when he laughed and had the man given a gift. We start small: when someone pulls at our sleeve, we turn to them with a smile before any word.';
   if (r7.body.ar_f) { r7.body.ar_f[1] = r7.body.ar[1]; r7.body.ar_f[2] = r7.body.ar[2]; r7.body.ar_f[4] = r7.body.ar[4]; }
   r7.source = { ar: 'حديث في صحيح البخاري (3149)، يرويه أنس بن مالك رضي الله عنه.', en: 'A hadith in Sahih al-Bukhari (3149), narrated by Anas ibn Malik, may Allah be pleased with him.' };
   var q11 = Q('monkey-q11');
@@ -5078,13 +5078,13 @@ window.AKHLAQ_CONTENT.choices = [
     ar: ['الحادية عشرة ليلًا، والهاتف مطفأ على صدرك، وتعود إليك جملة قلتها لأخيك على العشاء أمام الجميع. ضحك لها الكل إلا هو.',
       'ذلك الصوت الذي يعيد الجملة له اسم في القرآن: «النفس اللوّامة»، وقد أقسم الله بها: ﴿وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ﴾ (القيامة 75:2). هي النفس التي تراجع صاحبها إذا قصّر، ووجودها علامة حياة في القلب.',
       'وللوم طريقان. لوم يقول: «أنا سيئ ولن أتغير»، فيتركك ثقيلًا في السرير حتى الصباح. ولوم يقول: «قلت هذا، وسأصلحه، وغدًا أفعل أحسن»، فيعطيك شيئًا تفعله.',
-      'وفي الحديث: «وأتبع السيئة الحسنة تمحها، وخالق الناس بخلق حسن» (سنن الترمذي). الندم على الخطأ أول الطريق، والحسنة بعده هي التي تمحوه.',
+      'وفي الحديث: «وأتبع السيئة الحسنة تمحها، وخالق الناس بخلق حسن» (سنن الترمذي). فإذا أخطأت وندمت، فابحث عن حسنة تفعلها بعده: اعتذار، أو مساعدة لمن أخطأت في حقه.',
       'ويؤيد علم النفس هذا: من يحاسب نفسه برفق ويخطط لما بعد الخطأ يتغير أكثر ممن يجلد نفسه. والحسنة هنا قد تكون صغيرة: أن تطرق باب أخيك وتقول: «كلمة العشاء كانت ثقيلة. آسف».',
       'التمرين: كل مساء دقيقة واحدة، ثلاثة أسئلة: ما الذي أحسنت فيه اليوم فأحمد الله؟ ما الذي قصّرت فيه؟ ما الحسنة التي أُتبعه بها غدًا؟'],
     en: ['Eleven at night, the phone switched off on your chest, and a line you said to your brother at dinner, in front of everyone, keeps coming back. Everyone laughed except him.',
       'The Quran has a name for the voice that replays it: "the self-reproaching soul", and Allah swears by it (al-Qiyama 75:2). It is the self that holds its owner to account when they fall short, and its presence is a sign of life in the heart.',
       'Blame can go two ways. One says: "I\'m bad and I\'ll never change," and leaves you lying heavy until morning. The other says: "I said that, I\'ll put it right, and tomorrow I\'ll do better," and hands you something to do.',
-      'A hadith (Sunan al-Tirmidhi) means: follow a bad deed with a good one and it will wipe it out, and treat people with good character. Regret is the start of the road; the good deed after it is what wipes the mistake away.',
+      'A hadith (Sunan al-Tirmidhi) means: follow a bad deed with a good one and it will wipe it out, and treat people with good character. So when you get something wrong and feel sorry, look for a good deed to do after it: an apology, or a hand for the person you wronged.',
       'Psychology supports this: people who review themselves kindly and plan what to do after a mistake change more than those who punish themselves. The good deed can be small: knocking on your brother\'s door and saying, "That thing at dinner was heavy. Sorry."',
       'The exercise: one minute each evening, three questions. What did I do well today, so I can praise Allah? Where did I fall short? What good deed will I follow it with tomorrow?']
   };
@@ -5147,15 +5147,15 @@ window.AKHLAQ_CONTENT.choices = [
       'قال: أعطاني أبي عطية. فقالت أمي عمرة بنت رواحة رضي الله عنها: لا أرضى حتى تُشهد رسول الله صلى الله عليه وآله وسلم.',
       'فذهب أبوه إلى النبي صلى الله عليه وآله وسلم، فسأله: «أعطيت سائر ولدك مثل هذا؟». قال: لا. فقال: «فاتقوا الله، واعدلوا بين أولادكم». فرجع أبوه، وردّ العطية.',
       'خسر النعمان الهدية يومها. وبعد سنين رواها للناس من فوق المنبر: أن النبي صلى الله عليه وآله وسلم أراد لكل طفل في البيت حقه، ولو في هدية واحدة.',
-      'والسبابة أن يأخذ كل واحد حقه منك. والقمة أن تحرس العدل في الأشياء الصغيرة: حين تقسم الكعكة بين إخوتك فتأخذ أنت القطعة الأخيرة، وحين يأتي دور الصغير في اللعبة، وفي الكلمة الطيبة لمن لا يلتفت إليه أحد.'],
+      'يكفي في السبابة أن يأخذ كل واحد حقه منك. أما القمة فأن تحرس العدل في الأشياء الصغيرة: حين تقسم الكعكة بين إخوتك فتأخذ أنت القطعة الأخيرة، وحين يأتي دور الصغير في اللعبة، وفي الكلمة الطيبة لمن لا يلتفت إليه أحد.'],
     en: ['Al-Nu\'man ibn Bashir, may Allah be pleased with them both, stood on the pulpit as a grown man and told a story from when he was a boy.',
       'He said: my father gave me a gift. My mother, Amra bint Rawaha, may Allah be pleased with her, said: I will not be content until you take the Messenger of Allah, peace and blessings be upon him and his family, as witness.',
       'So his father went to the Prophet, peace and blessings be upon him and his family, who asked him, meaning: "Have you given all your other children the same?" He said no. The Prophet said: "Then be mindful of Allah, and be fair between your children." His father went back and took the gift back.',
       'Al-Nu\'man lost the present that day. Years later he told the story to people from the pulpit: the Prophet, peace and blessings be upon him and his family, wanted every child at home to have their due, even over a single present.',
-      'The index finger is everyone getting their due from you. The summit is guarding fairness in small things: when you cut the cake for your brothers and sisters and take the last piece yourself, when it is the little one\'s turn in the game, and in a kind word for the one nobody notices.']
+      'On the index finger it is enough that everyone gets their due from you. The summit is guarding fairness in small things: when you cut the cake for your brothers and sisters and take the last piece yourself, when it is the little one\'s turn in the game, and in a kind word for the one nobody notices.']
   };
   r7.body.ar_f = r7.body.ar.slice();
-  r7.body.ar_f[4] = 'والسبابة أن يأخذ كل واحد حقه منك. والقمة أن تحرسي العدل في الأشياء الصغيرة: حين تقسمين الكعكة بين إخوتك فتأخذين أنتِ القطعة الأخيرة، وحين يأتي دور الصغير في اللعبة، وفي الكلمة الطيبة لمن لا يلتفت إليه أحد.';
+  r7.body.ar_f[4] = 'يكفي في السبابة أن يأخذ كل واحد حقه منك. أما القمة فأن تحرسي العدل في الأشياء الصغيرة: حين تقسمين الكعكة بين إخوتك فتأخذين أنتِ القطعة الأخيرة، وحين يأتي دور الصغير في اللعبة، وفي الكلمة الطيبة لمن لا يلتفت إليه أحد.';
   r7.source = { ar: 'حديث في صحيح البخاري (2587)، يرويه النعمان بن بشير رضي الله عنهما وهو على المنبر.', en: 'A hadith in Sahih al-Bukhari (2587), told by al-Nu\'man ibn Bashir, may Allah be pleased with them both, from the pulpit.' };
 
   /* human-r8: لفظ «حثية»، والخاتمة بالإثبات */
@@ -5848,7 +5848,7 @@ window.AKHLAQ_CONTENT.choices = [
         "ورجع تشو تشو في الليلة الرابعة، متعبًا جائعًا، فرحًا بما فعل. وعند مدخل القرية سمع الطبول، ورأى الفوانيس، وسمع اسمه بين الضحك.",
         "وقف في الظلام طويلًا. وقال في نفسه: أنا الشرّ الثالث.",
         "ولم يدخل الساحة. مشى أيامًا إلى معلّم حكيم اسمه لو يون، وقال له: «أريد أن أتغيّر، لكني أضعت سنين كثيرة، وأخاف أن الوقت فات». قال المعلم: «الوقت لا يفوت من قرّر في الصباح أن يتغير. المهم أن يثبت قلبك».",
-        "تعلّم تشو تشو القراءة، وتعلّم أن يسمع قبل أن يغضب. وبعد سنين، حين رجع إلى القرية، كان الأطفال يركضون إليه، لا منه."],
+        "تعلّم تشو تشو القراءة، وتعلّم أن يسمع قبل أن يغضب. وبعد سنين، حين رجع إلى القرية، كان الأطفال يركضون ليستقبلوه."],
       en: ["In an old Chinese village, between a mountain and a river, lived a young man called Zhou Chu. He was strong and quick to anger. He hit anyone who crossed him and took whatever he liked, and people changed their path when they saw him coming.",
         "Zhou Chu noticed that the villagers never laughed. He asked an old man: “Why is everyone so gloomy, when the harvest is good this year?”",
         "“We have three harms we can never rest from,” said the old man. “A tiger on the mountain that eats our cattle, and a beast in the river that overturns our boats...” And he stopped.",
@@ -5858,7 +5858,7 @@ window.AKHLAQ_CONTENT.choices = [
         "Zhou Chu came back on the fourth night, tired, hungry and proud of what he had done. At the edge of the village he heard the drums, saw the lanterns, and heard his own name among the laughter.",
         "He stood in the dark for a long time. I am the third harm, he thought.",
         "He did not go into the square. He walked for days to a wise teacher called Lu Yun and said: “I want to change, but I've wasted so many years. I'm afraid it's too late.” The teacher said: “It is never too late for someone who decides one morning to change. What matters is that your heart holds firm.”",
-        "Zhou Chu learned to read, and learned to listen before he got angry. Years later, when he went back to the village, the children ran towards him, not away."]
+        "Zhou Chu learned to read, and learned to listen before he got angry. Years later, when he went back to the village, the children came running to meet him."]
     },
     ask: { ar: "هل في ما أفعله شيء يضايق من حولي ولا يقولونه لي؟", en: "Is there something I do that bothers people around me, which they don't tell me?" },
     source: { ar: "من كتاب «شي شوو شين يو» (أخبار جديدة من أحاديث الناس) الصيني، في القرن الخامس الميلادي، أعدنا حكايته بكلماتنا.", en: "From the Chinese book Shishuo Xinyu (A New Account of Tales of the World), 5th century; retold in our own words." } });

@@ -343,7 +343,7 @@
             why: { ar: 'إيقاف اليدين أولًا يمنع الأذى قبل أن يقع.', en: 'Stopping the hands first prevents harm before it happens.' } },
           { correct: 0, q: { ar: 'لماذا لم تكتف سارة بما حققته في التدريب؟', en: 'Why was Sara not satisfied with what she managed at practice?' },
             options: [{ ar: 'لأنها أرادت أن تتوقف قبل أن يقولها أحد', en: 'She wanted to stop before anyone had to say it' }, { ar: 'لأن رنا لم تكلمها بعد التدريب', en: 'Rana did not talk to her after practice' }, { ar: 'لأن المدرب لم يلاحظ أنها توقفت', en: 'The coach did not notice she had stopped' }],
-            why: { ar: 'التوقف عند الطلب أول العلاج، والتوقف قبل الطلب أجمل منه.', en: 'Stopping when asked is where the cure begins; stopping before being asked is even better.' } }
+            why: { ar: 'كانت تتوقف حين يناديها المدرب. وأرادت أن تصل إلى يوم تتوقف فيه وحدها، قبل أن يقولها أحد.', en: 'She was already stopping when the coach called out. She wanted to reach the day she would stop on her own, before anyone said it.' } }
         ]) },
 
       { title: { ar: 'القوي الحقيقي', en: 'The truly strong one' },
@@ -490,7 +490,7 @@
             why: { ar: 'من أخطأ وقف مكانه، واعترف، وعرض أن يصلح.', en: 'Whoever makes a mistake stays put, owns it, and offers to put it right.' } },
           { correct: 2, q: { ar: 'كيف عمل يحيى بوصية «وأتبع السيئة الحسنة تمحها»؟', en: 'How did Yahya act on the counsel "follow a bad deed with a good one"?' },
             options: [{ ar: 'دفع ثمن الزجاج، ثم ترك لعب الكرة في الشارع', en: 'He paid for the glass, then gave up playing football in the street' }, { ar: 'اعتذر للعم منصور، ثم انتظر أن يسامحه', en: 'He apologised to Uncle Mansour, then waited to be forgiven' }, { ar: 'اعترف، ثم ساعد بيديه في تركيب الزجاج الجديد', en: 'He owned up, then helped fit the new glass with his own hands' }],
-            why: { ar: 'الحسنة بعد الخطأ تمحوه، وقد فتحت هنا بابًا لصداقة جديدة.', en: 'A good deed after a mistake wipes it out, and here it opened the door to a new friendship.' } }
+            why: { ar: 'اعترف يحيى أولًا، ثم ساعد بيديه في تركيب الزجاج الجديد. ومن تلك الساعة بدأت صداقة جديدة.', en: 'Yahya owned up first, then helped fit the new glass with his own hands. A new friendship began in that hour.' } }
         ]) },
 
       { title: { ar: 'العادة الصغيرة', en: 'The small habit' },
@@ -533,7 +533,7 @@
         quiz: Q('human', 5, [
           { correct: 2, q: { ar: 'ما الذي جعل يحيى يسأل نفسه إن كان «ألا يؤذي» يكفي؟', en: 'What made Yahya ask himself whether "not hurting" was enough?' },
             options: [{ ar: 'أن ندى أخبرته أن زينب حزينة', en: 'Nada told him Zaynab was sad' }, { ar: 'أن المعلمة طلبت منه أن يرافقها', en: 'The teacher asked him to keep her company' }, { ar: 'أنه تذكّر العم منصور: ما كان أحد يؤذيه، وكان وحيدًا', en: 'He remembered Uncle Mansour: nobody was hurting him, and he was lonely' }],
-            why: { ar: 'السبابة ألا تؤذي، والإبهام أن تبادر بالخير.', en: 'The index finger is not hurting; the thumb is reaching out with good first.' } },
+            why: { ar: 'كان العم منصور لا يؤذيه أحد، ومع ذلك عاش وحيدًا. فعرف يحيى أن بعض الناس يحتاجون من يطرق بابهم.', en: 'Nobody ever hurt Uncle Mansour, and still he lived alone. Yahya realised that some people need someone to come knocking.' } },
           { correct: 0, q: { ar: 'ماذا فعل يحيى حين رأى ولدًا يقف وحده عند السور؟', en: 'What did Yahya do when he saw a boy standing alone by the wall?' },
             options: [{ ar: 'دعاه ليجلس معهم ويحل المسألة', en: 'He invited him to sit with them and solve the problem' }, { ar: 'أخبر المعلم ليبحث له عن أصدقاء', en: 'He told the teacher to find him some friends' }, { ar: 'انتظر أن يقترب الولد وحده', en: 'He waited for the boy to come over by himself' }],
             why: { ar: 'سبق يحيى إلى الخير قبل أن يُطلب منه، وهذا أول باب الإبهام.', en: 'Yahya reached out with good before anyone asked him, and that is the first door of the thumb.' } }
@@ -660,7 +660,7 @@
             why: { ar: 'الآية تأمر أن نقتدي بهداهم: ﴿فَبِهُدَاهُمُ اقْتَدِهْ﴾.', en: 'The verse tells us to follow their guidance.' } },
           { correct: 0, q: { ar: 'ماذا كتبت أسماء على غلاف دفترها في آخر الكتاب؟', en: 'What did Asma write on the cover of her notebook at the end of the book?' },
             options: [{ ar: '«الجزء الأول»', en: '"Part One"' }, { ar: '«تمّ بحمد الله»', en: '"Finished, praise be to Allah"' }, { ar: '«أسرار صغيرة»', en: '"Little secrets"' }],
-            why: { ar: 'عرفت أن الطريق لا ينتهي، وأن كل هداية تفتح ما بعدها.', en: 'She knew the road does not end, and that each guidance opens what comes after it.' } }
+            why: { ar: 'كتبت «الجزء الأول» لأنها رأت أن ما تعلّمته بداية، وأن في الدفتر صفحات كثيرة بعده.', en: 'She wrote “Part One” because she saw that what she had learned was a beginning, with many pages still to come.' } }
         ]) }
     ]
   });
@@ -712,7 +712,7 @@
           en: ['Reem came home with her eyes wide open.', 'She saw her grandma holding her back as she carried the bread basket.', 'Reem ran and said: "Let me carry it for you, Grandma!"', 'Her grandma laughed: "Who taught you that?" Reem said: "The bird!"'] },
         quiz: Q('zombie-kids', 5, [{ correct: 0, q: { ar: 'ماذا رأت ريم حين رجعت إلى البيت؟', en: 'What did Reem see when she came home?' },
           options: [{ ar: 'جدتها متعبة تحمل سلة الخبز', en: 'Her grandma, tired, carrying the bread basket' }, { ar: 'أمها تطبخ الغداء', en: 'Her mother cooking lunch' }, { ar: 'القطة نائمة على الباب', en: 'The cat asleep by the door' }],
-          why: { ar: 'من يستيقظ يرى غيره، وهذا باب البنصر.', en: 'Whoever wakes up sees others: that is the door to the ring finger.' } }]) }
+          why: { ar: 'رفعت ريم رأسها فرأت جدتها متعبة، والسلة ثقيلة في يدها. ومن هنا يبدأ البنصر: أن ترى حاجة غيرك.', en: 'Reem looked up and saw her grandmother tired, the basket heavy in her hand. This is where the ring finger begins: seeing someone else’s need.' } }]) }
     ]
   });
 })();
@@ -1337,7 +1337,7 @@
             why: { ar: 'خُلقت الشهوة لفائدة، والرياضة أن تتحرك حين يحركها صاحبها وتقف حين يوقفها.', en: 'Desire was created for a purpose; training means it moves when its owner moves it and stops when he stops it.' } },
           { correct: 0, q: { ar: 'ماذا جمع زياد في الظرف بعد شهر؟', en: 'What had Ziyad gathered in the envelope after a month?' },
             options: [{ ar: 'ثمن دورة في البرمجة، وحذاء مريح لأمه', en: 'The price of a programming course, and comfortable shoes for his mother' }, { ar: 'ثمن الأسود والذهبي حين عاد إلى المخزون', en: 'The price of the black-and-gold pair when it came back in stock' }, { ar: 'ثمن حذاء كرة لبشر، وهدية لنادر', en: 'The price of football boots for Bishr, and a gift for Nader' }],
-            why: { ar: 'بقي الحرص كما هو، وتغيّرت وجهته: «احْرِصْ عَلَى مَا يَنْفَعُكَ». وبقي سؤال النار في يده، وهو باب الوسطى.', en: 'The eagerness stayed as it was and changed direction: "be eager for what benefits you". The fire in his hand is still a question, and it is the door to the middle finger.' } }
+            why: { ar: 'ما زال زياد يجمع المال بالحرص نفسه، لكنه صار يجمعه لدورة البرمجة ولحذاء أمه: «احْرِصْ عَلَى مَا يَنْفَعُكَ». وبقي سؤال النار في يده، وهو باب الوسطى.', en: 'Ziyad still saves with the same eagerness, but now it goes to a coding course and his mother’s shoes: "be eager for what benefits you". The fire in his hand is still a question, and it is the door to the middle finger.' } }
         ]) }
     ]
   });
@@ -1543,7 +1543,7 @@
         quiz: Q('human-adult', 3, [
           { correct: 2, q: { ar: 'ماذا قال يوسف بعد أن اعتذر له ليث؟', en: 'What did Yusuf say after Layth apologised to him?' },
             options: [{ ar: '«لن أنتظرك مرة أخرى»', en: '"I won\'t wait for you again"' }, { ar: '«الأستاذ فؤاد حكى لي كل شيء»', en: '"Ustadh Fuad told me everything"' }, { ar: '«فزتم؟»', en: '"Did you win?"' }],
-            why: { ar: 'الصدق فتح الباب الذي أغلقته الكذبة، وبدأ الدرس من هناك.', en: 'Honesty opened the door the lie had shut, and the lesson began from there.' } },
+            why: { ar: 'سأل يوسف «فزتم؟» ثم طلب مسألة صعبة. رأى كبيرًا يعتذر لصغير، فسامحه، وبدأ الدرس.', en: 'Yusuf asked “Did you win?” and then asked for a hard problem. He had seen an older boy apologise to a younger one; he forgave him, and the lesson began.' } },
           { correct: 1, q: { ar: 'لماذا كان ذهاب ليث في السبت الرابع صعبًا؟', en: 'Why was going on the fourth Saturday hard for Layth?' },
             options: [{ ar: 'لأن يوسف طلب أن ينتقل إلى معلم آخر', en: 'Because Yusuf had asked to move to another tutor' }, { ar: 'لأن المطر والتعب كانا عليه، ولن يعرف أحد إن غاب', en: 'Because of the rain and his tiredness, and nobody would know if he stayed away' }, { ar: 'لأن الأستاذ فؤاد غضب منه ذلك الأسبوع', en: 'Because Ustadh Fuad was angry with him that week' }],
             why: { ar: 'العمل الدائم يُختبر في اليوم الذي يذهب فيه الحماس ولا يراه أحد.', en: 'A constant deed is tested on the day the enthusiasm is gone and nobody is watching.' } }
@@ -1787,7 +1787,7 @@ window.AKHLAQ_BQ = function (bid, ci, list) {
             why: { ar: 'ست ساعات وعشرون دقيقة كانت رقم اليوم الواحد، وفي الأسبوع تقارب يومين كاملين.', en: 'Six hours twenty was the figure for one day; over a week it comes close to two whole days.' } },
           { correct: 2, q: { ar: 'ما السؤال الذي أرادت المعلمة أن يأخذه التلاميذ إلى البيت؟', en: 'What question did the teacher want the pupils to take home?' },
             options: [{ ar: 'كم ساعة قضيتم على الهاتف؟', en: 'How many hours did you spend on the phone?' }, { ar: 'ماذا شاهدتم في هذه الساعات؟', en: 'What did you watch in those hours?' }, { ar: 'في هذه الساعات كلها، أين كنتم أنتم؟', en: 'In all those hours, where were you?' }],
-            why: { ar: 'الرقم يُحسب في دقيقة، والسؤال عن حضور القلب يبقى بعده.', en: 'The number takes a minute to work out; the question about the heart\'s presence stays after it.' } }
+            why: { ar: 'حسب التلاميذ ساعاتهم أمام الشاشة في دقيقة. أما سؤال المعلمة فأخذوه معهم إلى البيت: أين كانوا هم في تلك الساعات كلها؟', en: 'The pupils added up their screen hours in a minute. The teacher’s question went home with them: where had they themselves been in all those hours?' } }
         ]) },
       { title: { ar: 'يوم بلا شحن', en: 'A day without charge' },
         body: {
@@ -1859,7 +1859,7 @@ window.AKHLAQ_BQ = function (bid, ci, list) {
             why: { ar: 'العينان المستيقظتان ترَيان الناس.', en: 'Waking eyes see people.' } },
           { correct: 2, q: { ar: 'ما الذي أسهر سلمى في آخر الكتاب؟', en: 'What kept Salma awake at the end of the book?' },
             options: [{ ar: 'هاتفها، لأنها أخذته إلى غرفتها من جديد', en: 'Her phone, because she had taken it back into her room' }, { ar: 'غضبها من أمها', en: 'Her anger with her mother' }, { ar: 'رغبة قوية في هاتف جديد، وهاتفها يعمل جيدًا', en: 'A strong wish for a new phone, though her own worked well' }],
-            why: { ar: 'من استيقظ رأى رغباته بوضوح، وماذا يفعل بها هو باب البنصر.', en: 'Whoever wakes sees their wants clearly; what to do with them is the door to the ring finger.' } }
+            why: { ar: 'صارت سلمى ترى رغبتها في الهاتف بوضوح، وهاتفها يعمل جيدًا. وماذا تفعل بهذه الرغبة؟ هذا سؤال البنصر.', en: 'Salma could now see her wish for a new phone clearly, though hers worked fine. What to do with that wish is the ring finger’s question.' } }
         ]) }
     ]
   });
@@ -2378,14 +2378,14 @@ window.AKHLAQ_BQ = function (bid, ci, list) {
             'وبعد صلاة العشاء جلست دانة مع أبيها، وسألته: «يا أبي، إذا وصل الواحد إلى الإبهام، فماذا بعده؟ هل انتهى الطريق؟». فرفع أبوها يده، وأشار فوق الإبهام وقال: «فوق الإبهام نور، وهو هدي الأنبياء عليهم السلام».',
             'ثم قرأ: ﴿لَقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ﴾ (الأحزاب 33:21). وقال: «هدي النبي صلى الله عليه وآله وسلم نور نمشي في ضوئه طول عمرنا. وكلما اقتربنا رأينا كم بقي لنا، وهذا من جمال الطريق».',
             'وعلّمها أبوها دعاءً كان النبي صلى الله عليه وآله وسلم يدعو به إذا قام إلى الصلاة، رواه علي عليه السلام: «وَاهْدِنِي لِأَحْسَنِ الْأَخْلَاقِ، لَا يَهْدِي لِأَحْسَنِهَا إِلَّا أَنْتَ، وَاصْرِفْ عَنِّي سَيِّئَهَا، لَا يَصْرِفُ عَنِّي سَيِّئَهَا إِلَّا أَنْتَ» (صحيح مسلم 771).',
-            'وفي تلك الليلة نظرت دانة إلى يدها، إصبعًا إصبعًا. تذكرت أيام الغفلة والرغبة والغضب، ورأت أن كل إصبع كان درجة. ونامت وهي تفكر: غدًا خبز، وغدًا أحذية، وغدًا شيء جديد لا يعرفه أحد.'
+            'وفي تلك الليلة نظرت دانة إلى يدها، إصبعًا إصبعًا. ومرّت على كل واحد منها بإبهامها. ونامت وهي تفكر: غدًا خبز، وغدًا أحذية، وغدًا شيء جديد لا يعرفه أحد.'
           ], en: [
             'In spring Hajja Nafisa recovered and came back to the masjid. On the first Friday she sat beside Dana and said quietly: "Dana, I want to tell you something. I don\'t know who left bread on my door, but I prayed for them every morning."',
             'Then she laid her hand on Dana\'s and said: "And I prayed that Allah make whoever did it one of those who race ahead." Dana said nothing. But she felt that Hajja Nafisa knew, and had chosen not to say, to keep the secret as Dana had kept it.',
             'That evening after isha Dana sat with her father and asked: "Dad, when someone reaches the thumb, what comes after? Is the road over?" Her father raised his hand, pointed above the thumb and said: "Above the thumb is a light: the guidance of the prophets, peace be upon them."',
             'Then he recited: "In the Messenger of Allah you have an excellent example" (al-Ahzab 33:21, meaning). He said: "The guidance of the Prophet, peace and blessings be upon him and his family, is a light we walk by all our lives. The closer we come, the more we see how far there is to go, and that is part of the beauty of the road."',
             'Her father taught her a supplication the Prophet, peace and blessings be upon him and his family, used to make when he stood for prayer, narrated by Ali, peace be upon him: "Guide me to the best of character, for none guides to the best of it but You, and turn its bad away from me, for none turns its bad away from me but You" (Sahih Muslim 771).',
-            'That night Dana looked at her hand, finger by finger. She remembered the days of heedlessness, wanting and anger, and saw that each finger had been a step. She fell asleep thinking: tomorrow bread, tomorrow shoes, tomorrow something new that no one knows.'
+            'That night Dana looked at her hand, finger by finger. She ran her thumb over each one. She fell asleep thinking: tomorrow bread, tomorrow shoes, tomorrow something new that no one knows.'
           ] },
         quiz: Q('sabiq-2', 5, [
           { correct: 1, q: { ar: 'ماذا قال الأب عما فوق الإبهام؟', en: 'What did her father say is above the thumb?' },
