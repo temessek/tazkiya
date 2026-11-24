@@ -841,7 +841,7 @@
     gSign: ["تسجيل الدخول باستخدام Google", "Sign in with Google"], accLater: ["المتابعة على هذا الجهاز فقط", "Continue on this device only"],
     accOr: ["أو ابدأ على هذا الجهاز فقط", "Or start on this device only"],
     peopleT: ["أفراد الأسرة", "Family members"], avT: ["الصورة", "Picture"], avG: ["صورتي في جوجل", "My Google picture"],
-    avcat: ["قطة", "Cat"], avlion: ["شبل", "Lion cub"], avowl: ["بومة", "Owl"], avrabbit: ["أرنب", "Rabbit"], avfalcon: ["صقر", "Falcon"], avturtle: ["سلحفاة", "Turtle"], avman: ["رجل", "Man"], avwoman: ["امرأة", "Woman"], owner: ["صاحب الحساب", "Account holder"], famAddS: ["إضافة", "Add"], profOf: ["ملف {p}", "{p}'s profile"],
+    avcat: ["قطة", "Cat"], avlion: ["شبل", "Lion cub"], avowl: ["بومة", "Owl"], avrabbit: ["أرنب", "Rabbit"], avfalcon: ["صقر", "Falcon"], avturtle: ["سلحفاة", "Turtle"], avman: ["رجل", "Man"], avwoman: ["امرأة", "Woman"], owner: ["صاحب الحساب", "Account holder"], famAddS: ["إضافة", "Add"], profOfP: ["ملف {p}", "{p}'s profile"],
     sGender: ["ولد أم بنت", "Boy or girl"], fxSndS: ["أصوات اللمس", "Touch sounds"], fxHapS: ["اهتزاز خفيف", "Light vibration"], moreT: ["المزيد", "More"]
   });
   Object.assign(UF, { accOr: "أو ابدئي على هذا الجهاز فقط" });
@@ -1198,7 +1198,7 @@
       ${accCard("settings")}
       <h3 class="sg-h">${esc(u("peopleT"))}</h3>
       <div class="people">${ord.map(person).join("")}${P.list.length < PMAX ? `<button class="person add" data-act="profadd"><span class="av" aria-hidden="true">+</span><span class="pn">${esc(u("famAddS"))}</span></button>` : ""}</div>
-      <h3 class="sg-h">${esc(fmt(u("profOf"), { p: nameOf(P.active, S) }))}</h3>
+      <h3 class="sg-h">${esc(fmt(u("profOfP"), { p: nameOf(P.active, S) }))}</h3>
       <div class="sgroup">
         <div class="srow col"><span class="sl">${esc(u("avT"))}</span>${avPick()}</div>
         <label class="srow"><span class="sl">${esc(u("profName"))}</span><input id="profName" type="text" maxlength="20" autocomplete="off" value="${esc(S.name || "")}" placeholder="${esc(ADU() ? u("namePhA") : L() === "ar" ? "نور" : "Nour")}"></label>
@@ -2698,6 +2698,7 @@
   const VG = "assets/vignettes/";
   const ART = { sym: {}, book: {} };
   ["zombie", "pig", "monkey", "human", "sabiq"].forEach(k => { ART.sym[k] = VG + "sym-" + k + ".webp?v=" + (k === "pig" ? 6 : 5); ART.book["book-" + k] = VG + "book-" + k + ".webp?v=5"; ART.book["book-" + k + "-2"] = VG + "book-" + k + "-2.webp?v=5"; });
+  ["monkey", "human"].forEach(k => { ART.book["book-" + k + "-adult"] = VG + "book-" + k + "-adult.webp?v=1"; });
   const symImg = (id, cls) => ART.sym[id] ? `<img class="${cls}" src="${ART.sym[id]}" alt="" aria-hidden="true" decoding="async" loading="lazy">` : "";
   const bookOf = id => C.books.find(b => b.id === id);
   const chKey = (b, n) => b.id + "#" + n;

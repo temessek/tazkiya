@@ -4,9 +4,9 @@
  * to the saved copy of the same file. A new version installs quietly and waits: the app shows "a new version is
  * ready" and the user chooses when to switch (SKIP_WAITING), so a page never changes under a reader.
  * Release: bump CACHE, and keep the ?v= numbers below equal to those in index.html (the smoke test checks this). */
-const CACHE = "tazkiya-2026-11-24m";
+const CACHE = "tazkiya-2026-11-24n";
 const CORE = [
-  "./", "index.html", "manifest.json", "boot.js?v=1", "styles.css?v=95", "app.js?v=102", "fx.js?v=2", "fallback.js?v=5", "content/content.js?v=35",
+  "./", "index.html", "manifest.json", "boot.js?v=1", "styles.css?v=95", "app.js?v=103", "fx.js?v=2", "fallback.js?v=5", "content/content.js?v=35",
   "content/content-adult.js", "content/books.js",
   "assets/hand.webp", "assets/right-hand-virtues.webp", "intro.js?v=1",
   "assets/intro/s1-fitra.webp", "assets/intro/s2-toddler.webp", "assets/intro/s3-child.webp", "assets/intro/s4-guide.webp",
@@ -16,7 +16,7 @@ const CORE = [
   "assets/fonts/plex-600-la.woff2", "assets/fonts/amiri-400.woff2", "assets/fonts/amiri-700.woff2", "assets/fonts/cormorant-var.woff2",
   "assets/vignettes/book-zombie.webp", "assets/vignettes/book-zombie-2.webp", "assets/vignettes/book-pig.webp", "assets/vignettes/book-pig-2.webp",
   "assets/vignettes/book-monkey.webp", "assets/vignettes/book-monkey-2.webp", "assets/vignettes/book-human.webp", "assets/vignettes/book-human-2.webp",
-  "assets/vignettes/book-sabiq.webp", "assets/vignettes/book-sabiq-2.webp"
+  "assets/vignettes/book-sabiq.webp", "assets/vignettes/book-sabiq-2.webp", "assets/vignettes/book-monkey-adult.webp", "assets/vignettes/book-human-adult.webp"
 ];
 const PAGE_WAIT = 5000; // ms before a slow network gives way to the saved page
 
