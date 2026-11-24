@@ -298,136 +298,121 @@
   var Q = window.AKHLAQ_BQ;
   window.AKHLAQ_BOOKS.push({
     id: 'book-monkey', stage: 'monkey', ages: '9-14',
-    title: { ar: 'سارة وفريق البالون', en: 'Sara and the balloon team' },
+    title: { ar: 'سارة والرمية الحرة', en: 'Sara and the free throw' },
     chapters: [
       { title: { ar: 'المباراة', en: 'The match' },
-        body: {
-          ar: [
+        body: { ar: [
             'كانت سارة في الحادية عشرة، وكانت أسرع لاعبة في فريق كرة السلة في مدرستها. وكان أخوها التوأم مالك في الفريق نفسه، وصديقتهما رنا تحرس السلة. كانوا يتدربون كل يوم ثلاثاء، ويحلمون بالفوز في بطولة المدارس قبل نهاية الشهر.',
             'في مباراة التدريب الأخيرة، دفعت لاعبة من الفريق الآخر سارة بكتفها، فسقطت على الأرض. قامت سارة بسرعة، ووجهها أحمر، وصرخت: أنتِ تغشين! ثم رمت الكرة بقوة نحو الجدار، فارتدت وأصابت رنا في ذراعها. ولم تنتبه سارة لما حدث لرنا، لأن عينيها كانتا على اللاعبة التي دفعتها.',
             'صفّر المدرب وقال: توقفي يا سارة! لكن سارة لم تتوقف. ظلت تصرخ وتشير بيديها، والكلمات تخرج منها كأنها حجارة. وحاول مالك أن يمسك يدها، فدفعته وقالت: اتركني! وكان كل الفريق ينظر إليها صامتًا، حتى اللاعبات الصغيرات اللواتي كن يعددنها قدوة لهن في الملعب.',
             'أخرجها المدرب من الملعب، فجلست على المقعد تتنفس بسرعة. وبعد دقائق بردت النار، ونظرت حولها: رنا تمسك ذراعها وتعضّ شفتها من الألم، ومالك يقف بعيدًا لا ينظر إليها، واللاعبة التي دفعتها تعتذر للمدرب بهدوء.',
-            'في الطريق إلى البيت لم يتكلم مالك. وفي غرفتها جلست سارة على السرير وبكت. لم تكن تريد أن تؤذي رنا، ولم تكن تكره أخاها. لكنها حين غضبت شعرت كأن شيئًا آخر أمسك يديها وفمها، وتركها هي تتفرج من بعيد. قالت في نفسها: من الذي كان يقودني هناك؟'
-          ],
-          en: [
+            'في الطريق إلى البيت لم يتكلم مالك. وفي غرفتها جلست سارة على السرير وبكت. كانت تحب رنا، وتحب أخاها، وحين تذكرت وجهيهما في الملعب لم تفهم كيف خرج منها كل ذلك. شعرت كأن شيئًا آخر أمسك يديها وفمها، وتركها هي تتفرج من بعيد. وقالت في نفسها: من الذي كان يقودني هناك؟'
+          ], en: [
             'Sara was eleven, and the fastest player on her school basketball team. Her twin brother Malik was on the same team, and their friend Rana guarded the hoop. They trained every Tuesday and dreamed of winning the schools\' tournament before the end of the month.',
             'In the last practice match, a player from the other team pushed Sara with her shoulder and she fell to the floor. Sara jumped up, her face red, and shouted: you\'re cheating! Then she hurled the ball at the wall, and it bounced back and hit Rana on the arm. Sara did not even notice what had happened to Rana, because her eyes were on the player who had pushed her.',
             'The coach blew the whistle and said: stop, Sara! But Sara did not stop. She kept shouting and waving her hands, the words flying out of her like stones. Malik tried to take her hand, and she pushed him and said: leave me alone! The whole team watched her in silence, even the younger players who looked up to her on the court.',
             'The coach sent her off the court, and she sat on the bench breathing fast. After a few minutes the fire cooled, and she looked around: Rana was holding her arm and biting her lip with pain, Malik was standing far off not looking at her, and the player who had pushed her was quietly apologising to the coach.',
-            'On the way home Malik did not say a word. In her room Sara sat on her bed and cried. She had not wanted to hurt Rana, and she did not hate her brother. But when she got angry she felt as if something else had taken hold of her hands and her mouth, leaving her watching from far away. She said to herself: who was driving me back there?'
-          ]
-        },
+            'On the way home Malik did not say a word. In her room Sara sat on her bed and cried. She loved Rana, and she loved her brother, and when she remembered their faces on the court she could not understand how all of that had come out of her. It felt as if something else had taken hold of her hands and her mouth, leaving her watching from far away. She said to herself: who was driving me back there?'
+          ] },
         quiz: Q('monkey', 1, [
           { correct: 1, q: { ar: 'ماذا فعلت سارة حين قال لها المدرب «توقفي»؟', en: 'What did Sara do when the coach said "stop"?' },
-            options: [{ ar: 'توقفت فورًا', en: 'Stopped at once' }, { ar: 'لم تتوقف، وظلت تصرخ وتشير', en: 'Did not stop, and kept shouting and waving' }, { ar: 'ضحكت', en: 'Laughed' }],
-            why: { ar: 'هذه سمة «لا يسمع ولا يتوقف» في الوسطى.', en: 'This is the middle-finger trait «not listening, not stopping».' } },
+            options: [{ ar: 'توقفت واعتذرت للاعبة', en: 'She stopped and apologised to the player' }, { ar: 'ظلت تصرخ، ودفعت مالك', en: 'She kept shouting, and pushed Malik' }, { ar: 'خرجت من الملعب باكية', en: 'She walked off the court in tears' }],
+            why: { ar: 'الاندفاع يسبق السمع: لم تسمع سارة كلمة المدرب، ولم تشعر بيد أخيها.', en: 'Impulsiveness outruns listening: Sara did not hear the coach\'s word or feel her brother\'s hand.' } },
           { correct: 0, q: { ar: 'ما السؤال الذي سألته سارة لنفسها في آخر الفصل؟', en: 'What question did Sara ask herself at the end of the chapter?' },
-            options: [{ ar: 'من الذي كان يقودني هناك؟', en: 'Who was driving me back there?' }, { ar: 'لماذا خسرنا المباراة؟', en: 'Why did we lose the match?' }, { ar: 'متى التدريب القادم؟', en: 'When is the next practice?' }],
+            options: [{ ar: 'من الذي كان يقودني هناك؟', en: 'Who was driving me back there?' }, { ar: 'لماذا دفعتني تلك اللاعبة؟', en: 'Why did that player push me?' }, { ar: 'هل سيسامحني مالك؟', en: 'Will Malik forgive me?' }],
             why: { ar: 'الغضب كان يقود، وهي تريد أن تعرف كيف تمسك المقود.', en: 'Anger was driving, and she wants to learn to take the wheel.' } }
         ]) },
 
-      { title: { ar: 'كلمة «توقف»', en: 'The word "stop"' },
-        body: {
-          ar: [
+      { title: { ar: 'كلمة «توقفي»', en: 'The word "stop"' },
+        body: { ar: [
             'بعد العشاء طرقت الأم باب غرفة سارة، وجلست بجانبها. حكت لها سارة كل شيء، ثم قالت: أنا لا أريد أن أكون هكذا يا أمي، لكنني لا أستطيع أن أتوقف. حين أغضب يصير الأمر كأن الفرامل تعطلت.',
             'فكّرت الأم قليلًا ثم قالت: لنتفق على كلمة واحدة. حين أقول لك «توقفي»، أو يقولها المدرب أو مالك، لا تفكري في شيء. جمّدي يديك أولًا، ثم أغلقي فمك ثانية واحدة. وبعدها تكلمي كما تريدين. المهم أن تتوقف اليدان قبل كل شيء.',
             'جرّبت سارة الاتفاق في الأيام التالية. في يوم الأربعاء أخذ مالك جهاز التحكم وغيّر برنامجها، فبدأت ترفع صوتها. فقالت أمها من المطبخ: توقفي. فجمّدت سارة يديها، وكانت يدها اليمنى قد ارتفعت لتأخذ الجهاز بقوة. أنزلتها ببطء.',
-            'وفي التدريب يوم الثلاثاء، أخطأت رنا تمريرة سهلة، فشعرت سارة بالنار تصعد. وقبل أن تصرخ قال مالك بهدوء: سارة، توقفي. فتوقفت. لم تكن هادئة من الداخل، لكن يديها وفمها لم يتحركا. وبعد ثانيتين قالت لرنا: لا بأس، المرة القادمة.',
+            'وفي التدريب يوم الثلاثاء، أخطأت رنا تمريرة سهلة، فشعرت سارة بالنار تصعد. وقبل أن تصرخ قال مالك بهدوء: سارة، توقفي. فتوقفت. كانت النار ما تزال في صدرها، ويداها وفمها ساكنة. وبعد ثانيتين قالت لرنا: لا بأس، المرة القادمة.',
             'في طريق العودة قال مالك: لقد توقفتِ اليوم! قالت سارة: نعم، لكن لأنك قلتها لي. أريد أن أتوقف قبل أن يقولها أحد. ابتسم مالك وقال: هذه خطوة، والخطوة التي بعدها تأتي. وشعرت سارة لأول مرة منذ المباراة أن أخاها رجع قريبًا منها، فأخذت يده ومشيا معًا إلى البيت.'
-          ],
-          en: [
+          ], en: [
             'In the evening their mother knocked on Sara\'s door and sat beside her. Sara told her everything, then said: I don\'t want to be like this, Mum, but I can\'t stop. When I get angry it\'s as if the brakes have failed.',
             'Her mother thought for a moment and said: let\'s agree on one word. When I say "stop" to you, or the coach or Malik says it, don\'t think about anything. Freeze your hands first, then close your mouth for one second. After that, say whatever you like. What matters is that the hands stop before anything else.',
             'Sara tried the agreement over the next days. On Wednesday Malik took the remote and changed her programme, and she began to raise her voice. Her mother called from the kitchen: stop. Sara froze her hands; her right hand had already risen to snatch the remote. She lowered it slowly.',
-            'At practice on Tuesday, Rana fumbled an easy pass, and Sara felt the fire rise. Before she could shout, Malik said quietly: Sara, stop. And she stopped. She was not calm inside, but her hands and mouth did not move. After two seconds she said to Rana: never mind, next time.',
+            'At practice on Tuesday, Rana fumbled an easy pass, and Sara felt the fire rise. Before she could shout, Malik said quietly: Sara, stop. And she stopped. The fire was still in her chest, and her hands and mouth stayed still. After two seconds she said to Rana: never mind, next time.',
             'On the way home Malik said: you stopped today! Sara said: yes, but because you told me to. I want to stop before anyone has to say it. Malik smiled and said: that\'s one step, and the next one will come. And for the first time since the match, Sara felt her brother was close to her again, so she took his hand and they walked home together.'
-          ]
-        },
+          ] },
         quiz: Q('monkey', 2, [
           { correct: 2, q: { ar: 'ما الاتفاق الذي علّمته الأم لسارة؟', en: 'What agreement did her mother teach Sara?' },
-            options: [{ ar: 'أن تترك فريق كرة السلة', en: 'To leave the basketball team' }, { ar: 'أن تصرخ في وسادتها', en: 'To shout into her pillow' }, { ar: 'حين تسمع «توقفي» تجمّد يديها أولًا، ثم تغلق فمها ثانية', en: 'When she hears "stop", freeze her hands first, then close her mouth for a second' }],
+            options: [{ ar: 'أن تعدّ إلى عشرة قبل أن ترد', en: 'To count to ten before answering' }, { ar: 'أن تخرج من الغرفة كلما غضبت', en: 'To leave the room whenever she got angry' }, { ar: 'أن تجمّد يديها أولًا حين تسمع «توقفي»', en: 'To freeze her hands first when she hears "stop"' }],
             why: { ar: 'إيقاف اليدين أولًا يمنع الأذى قبل أن يقع.', en: 'Stopping the hands first prevents harm before it happens.' } },
           { correct: 0, q: { ar: 'لماذا لم تكتف سارة بما حققته في التدريب؟', en: 'Why was Sara not satisfied with what she managed at practice?' },
-            options: [{ ar: 'لأنها أرادت أن تتوقف قبل أن يقولها لها أحد', en: 'Because she wanted to stop before anyone had to tell her' }, { ar: 'لأن الفريق خسر', en: 'Because the team lost' }, { ar: 'لأن رنا غضبت منها', en: 'Because Rana was angry with her' }],
+            options: [{ ar: 'لأنها أرادت أن تتوقف قبل أن يقولها أحد', en: 'She wanted to stop before anyone had to say it' }, { ar: 'لأن رنا لم تكلمها بعد التدريب', en: 'Rana did not talk to her after practice' }, { ar: 'لأن المدرب لم يلاحظ أنها توقفت', en: 'The coach did not notice she had stopped' }],
             why: { ar: 'التوقف عند الطلب أول العلاج، والتوقف قبل الطلب أجمل منه.', en: 'Stopping when asked is where the cure begins; stopping before being asked is even better.' } }
         ]) },
 
       { title: { ar: 'القوي الحقيقي', en: 'The truly strong one' },
-        body: {
-          ar: [
+        body: { ar: [
             'في يوم الجمعة جاء عمهم يوسف، وكان مدربًا قديمًا لكرة السلة. سمع قصة المباراة، فضحك وقال: أعرف هذه النار يا سارة. كنت مثلك حين كنت صغيرًا، حتى سمعت حديثًا غيّر طريقتي في اللعب كلها.',
-            'ثم قال: قال النبي صلى الله عليه وآله وسلم: «لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ». أي إن القوي ليس من يغلب الناس في المصارعة، بل من يغلب غضبه.',
-            'قالت سارة: لكن الغضب يأتي بسرعة يا عمي، أسرع مني! فقال: لذلك علّمنا النبي صلى الله عليه وآله وسلم أيضًا أن نغيّر وضع الجسد. من غضب وهو واقف فليجلس، فإن ذهب عنه الغضب وإلا فليضطجع. الجسد إذا هدأ تبعه القلب. والجلوس يجعل اليد أبعد عن الضرب، والاضطجاع يجعلها أبعد. فتغيير وضع الجسد يطفئ النار شيئًا فشيئًا.',
+            'ثم قال: قال النبي صلى الله عليه وآله وسلم: «لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ». والصُّرَعة هو الذي يصرع الناس كثيرًا في المصارعة. والقوة التي يمدحها الحديث أن يغلب الإنسان غضبه.',
+            'قالت سارة: لكن الغضب يأتي بسرعة يا عمي، أسرع مني! فقال: لذلك علّمنا النبي صلى الله عليه وآله وسلم أن نغيّر وضع الجسد: إذا غضب أحدنا وهو قائم فليجلس، فإن ذهب عنه الغضب وإلا فليضطجع. والجلوس يُبعد اليد عن الضرب، والاضطجاع يُبعدها أكثر، والقلب يهدأ حين يهدأ الجسد.',
             'ثم علّمها العم تمرينًا سمّاه «قِف، تنفّس، اختر». قِف: جمّدي يديك وقدميك. تنفّسي: شهيق إلى أربعة وزفير إلى أربعة، ثلاث مرات. ثم اختاري: ما التصرف الذي سأفخر به بعد ساعة؟ وقال: تمرّني عليه وأنتِ هادئة، كما تتمرنين على الرمية الحرة، حتى يصير جاهزًا وقت المباراة.',
             'ففعلت سارة ذلك كل ليلة قبل النوم، وكان مالك يتمرن معها مازحًا. كانا يتخيلان موقفًا يغضبهما، ثم يقفان ويتنفسان ويختاران. وكانت رنا تضحك منهما وتقول: صرتما مثل لاعبي اليوغا! لكنها في الأسبوع الثاني صارت تتمرن معهما.'
-          ],
-          en: [
+          ], en: [
             'On Friday their uncle Yusuf came over; he had been a basketball coach years ago. He heard the story of the match, laughed and said: I know that fire, Sara. I was like you when I was young, until I heard a hadith that changed the way I played.',
-            'Then he said: the Prophet, peace and blessings be upon him and his family, said, meaning: "The strong one is not the one who wins at wrestling; the strong one is the one who controls himself when angry." The strong person is not the one who beats others, but the one who beats his anger.',
-            'Sara said: but anger comes so fast, Uncle, faster than me! He said: that is why the Prophet also taught us to change the position of the body. If you get angry standing, sit down; if the anger goes, good, and if not, lie down. When the body calms, the heart follows. Sitting puts the hand further from hitting, and lying down puts it further still. Changing the body\'s position puts the fire out little by little.',
+            'Then he said: the Prophet, peace and blessings be upon him and his family, said, meaning: "The strong one is not the one who throws people in wrestling; the strong one is the one who controls himself when angry." The strength the hadith praises is beating your own anger.',
+            'Sara said: but anger comes so fast, Uncle, faster than me! He said: that is why the Prophet, peace and blessings be upon him and his family, taught us to change the body\'s position: if one of us gets angry while standing, let him sit; if the anger goes, good, and if not, let him lie down. Sitting moves the hand further from hitting, lying down moves it further still, and the heart calms when the body does.',
             'Then her uncle taught her an exercise he called "stop, breathe, choose". Stop: freeze your hands and feet. Breathe: in for four and out for four, three times. Then choose: what will I be proud of having done an hour from now? He said: practise it while you are calm, the way you practise free throws, so it is ready during the match.',
             'So Sara did it every night before bed, and Malik practised with her, half joking. They would imagine something that made them angry, then stop, breathe and choose. Rana laughed at them and said: you look like yoga players! But in the second week she started practising with them too.'
-          ]
-        },
+          ] },
         quiz: Q('monkey', 3, [
           { correct: 1, q: { ar: 'من «الشديد» في الحديث الذي حكاه العم يوسف؟', en: 'Who is "the strong one" in the hadith Uncle Yusuf told?' },
-            options: [{ ar: 'من يغلب الناس في المصارعة', en: 'The one who wins at wrestling' }, { ar: 'من يملك نفسه عند الغضب', en: 'The one who controls himself when angry' }, { ar: 'من يرمي الكرة أبعد', en: 'The one who throws the ball furthest' }],
+            options: [{ ar: 'من يغلب الناس في المصارعة', en: 'The one who wins at wrestling' }, { ar: 'من يملك نفسه عند الغضب', en: 'The one who controls himself when angry' }, { ar: 'من لا يغضب أبدًا', en: 'The one who never gets angry' }],
             why: { ar: 'القوة الحقيقية أن تغلب غضبك.', en: 'True strength is beating your own anger.' } },
           { correct: 2, q: { ar: 'لماذا نصح العم سارة أن تتمرن وهي هادئة؟', en: 'Why did her uncle advise Sara to practise while calm?' },
-            options: [{ ar: 'لأن التمرين ممل', en: 'Because practice is boring' }, { ar: 'لأن المدرب طلب ذلك', en: 'Because the coach asked' }, { ar: 'ليصير التمرين جاهزًا وقت الغضب، كالرمية الحرة', en: 'So the exercise is ready when anger comes, like a free throw' }],
+            options: [{ ar: 'لأن المدرب سيسألها عنه', en: 'Because the coach would ask her about it' }, { ar: 'لأنها لا تقدر عليه وهي متعبة', en: 'Because she can\'t do it when she is tired' }, { ar: 'ليجهز وقت الغضب، كالرمية الحرة', en: 'So it is ready when anger comes, like a free throw' }],
             why: { ar: 'ما نتمرن عليه في الهدوء نجده وقت الحاجة.', en: 'What we practise in calm is there when we need it.' } }
         ]) },
 
       { title: { ar: 'البطولة', en: 'The tournament' },
-        body: {
-          ar: [
+        body: { ar: [
             'جاء يوم البطولة. كانت المدرجات مليئة بالأهالي، وكانت أم سارة ومالك تجلس في الصف الأول، ومعها العم يوسف. وفي الشوط الثاني كان الفريقان متعادلين، والوقت يقترب من نهايته. وكانت سارة تشعر بالتعب في ساقيها، وتعرف أن التعب يجعل الغضب أسرع.',
             'وفجأة دفعت لاعبة من الفريق المنافس سارة دفعة قوية، وسقطت سارة على ركبتها. وفي اللحظة نفسها شعرت بالنار المعروفة تصعد من صدرها إلى وجهها. ورأت مالك ينظر إليها من بعيد، وقد فتح فمه ليقول: توقفي.',
             'لكن سارة سبقته. قالت لنفسها في سرها: قِف. فجمّدت يديها وهي ما تزال على الأرض. ثم تنفست: شهيق إلى أربعة، وزفير إلى أربعة. وتذكّرت نصيحة عمها، فبقيت جالسة لحظة قبل أن تقوم. ثم سألت نفسها: ما الذي سأفخر به بعد ساعة؟',
             'قامت سارة، ونظرت إلى الحكمة، وقالت بصوت عادي: لقد دفعتني. فاحتسبت الحكمة رمية حرة. ووقفت سارة على الخط، وقلبها ما يزال يدق بسرعة، لكن يديها كانتا ثابتتين. ورمت، فدخلت الكرة السلة. وصفّق الجميع، وكان أعلى تصفيق من الصف الأول.',
-            'فاز الفريق بنقطة واحدة. وبعد المباراة جاءت اللاعبة التي دفعتها واعتذرت، فصافحتها سارة. وجاء العم يوسف فقال: لم تتوقفي هذه المرة لأن أحدًا قالها لك، بل توقفتِ قبله. هذه هي الدرجة التي كنتِ تريدينها. أما مالك فقال ضاحكًا: كدت أقولها، لكنك كنت أسرع مني هذه المرة!'
-          ],
-          en: [
+            'فاز الفريق بنقطة واحدة. وبعد المباراة جاءت اللاعبة التي دفعتها واعتذرت، فصافحتها سارة. وجاء العم يوسف فقال: هذه المرة سبقتِ الكلمة يا سارة. أما مالك فقال ضاحكًا: كدت أقولها، لكنك كنت أسرع مني هذه المرة!'
+          ], en: [
             'Tournament day came. The stands were full of families, and Sara and Malik\'s mother sat in the front row with Uncle Yusuf. In the second half the two teams were level, and time was running out. Sara felt the tiredness in her legs, and she knew that tiredness makes anger come faster.',
             'Suddenly a player from the other team gave Sara a hard push, and Sara fell on her knee. At that same moment she felt the familiar fire rising from her chest to her face. She saw Malik looking at her from across the court, his mouth already open to say: stop.',
             'But Sara got there first. She said silently to herself: stop. She froze her hands while still on the floor. Then she breathed: in for four, out for four. She remembered her uncle\'s advice and stayed sitting for a moment before getting up. Then she asked herself: what will I be proud of an hour from now?',
             'Sara got up, looked at the referee, and said in an ordinary voice: she pushed me. The referee gave a free throw. Sara stood on the line, her heart still pounding, but her hands were steady. She threw, and the ball went in. Everyone clapped, and the loudest clapping came from the front row.',
-            'The team won by one point. After the match the player who had pushed her came and apologised, and Sara shook her hand. Uncle Yusuf came over and said: this time you didn\'t stop because someone told you to; you stopped before they did. That is the degree you wanted. Malik said laughing: I nearly said it, but you were faster than me this time!'
-          ]
-        },
+            'The team won by one point. After the match the player who had pushed her came and apologised, and Sara shook her hand. Uncle Yusuf came over and said: this time you got there before the word, Sara. And Malik said, laughing: I nearly said it, but you were faster than me this time!'
+          ] },
         quiz: Q('monkey', 4, [
           { correct: 0, q: { ar: 'ما الذي اختلف في البطولة عن مباراة التدريب الأولى؟', en: 'What was different at the tournament from the first practice match?' },
-            options: [{ ar: 'توقفت سارة بنفسها قبل أن يقول لها أحد «توقفي»', en: 'Sara stopped herself before anyone said "stop"' }, { ar: 'لم يدفعها أحد', en: 'Nobody pushed her' }, { ar: 'لم تكن أمها حاضرة', en: 'Her mother was not there' }],
-            why: { ar: 'هذا ملك النفس قبل الطلب، وبه يصير الاندفاع قوة.', en: 'This is self-mastery before being asked, and with it the rush becomes strength.' } },
+            options: [{ ar: 'توقفت بنفسها قبل أن يقولها أحد', en: 'She stopped herself before anyone said it' }, { ar: 'لم تدفعها أي لاعبة هذه المرة', en: 'No player pushed her this time' }, { ar: 'قال لها مالك «توقفي» في الوقت المناسب', en: 'Malik said "stop" just in time' }],
+            why: { ar: 'هذا ملك النفس قبل الطلب، وبه صار الاندفاع قوة في الملعب.', en: 'This is self-mastery before being asked, and with it the rush became strength on the court.' } },
           { correct: 1, q: { ar: 'ماذا قالت سارة للحكمة بعد أن قامت؟', en: 'What did Sara say to the referee after she got up?' },
-            options: [{ ar: 'صرخت بأن المنافسة تغش', en: 'She shouted that her opponent was cheating' }, { ar: 'قالت بصوت عادي: لقد دفعتني', en: 'She said in an ordinary voice: she pushed me' }, { ar: 'لم تقل شيئًا وخرجت', en: 'She said nothing and walked off' }],
-            why: { ar: 'الهدوء لا يعني السكوت عن الحق، بل قوله بلا أذى.', en: 'Calm does not mean keeping quiet about what is right, but saying it without harm.' } }
+            options: [{ ar: 'صرخت بأن المنافسة تغش', en: 'She shouted that her opponent was cheating' }, { ar: 'قالت بصوت عادي: لقد دفعتني', en: 'She said in an ordinary voice: she pushed me' }, { ar: 'سكتت وعادت إلى مكانها', en: 'She kept quiet and went back to her place' }],
+            why: { ar: 'قالت سارة الحق كاملًا، بصوت لا يؤذي أحدًا.', en: 'Sara said all of what was true, in a voice that hurt no one.' } }
         ]) },
 
       { title: { ar: 'اعتذار لرنا', en: 'An apology to Rana' },
-        body: {
-          ar: [
+        body: { ar: [
             'احتفلت الأسرة بالفوز تلك الليلة، وجاءت رنا مع أمها. وحين جلست الصغيرات يأكلن الحلوى، لاحظت سارة أن رنا ما تزال تتجنب أن تقف بجانبها كثيرًا، وأن على ذراعها أثرًا أزرق صغيرًا من الكرة التي رمتها قبل أسابيع.',
-            'فكّرت سارة: لقد تعلمت أن أتوقف، وأن أهدأ، وأن أقول الحق بلا صراخ. لكنني لم أصلح ما كسرته قبل ذلك. صحيح أن رنا ابتسمت لي، لكن الابتسامة لا تعني أن الجرح نُسي.',
+            'فكّرت سارة: تعلمت أن أتوقف، وأن أهدأ، وأن أقول الحق بلا صراخ. ورنا تبتسم لي، والأثر الأزرق ما زال على ذراعها، ولم أعتذر عنه قط.',
             'فقامت سارة وأخذت رنا إلى الشرفة، وقالت لها: يا رنا، يوم المباراة الأولى رميت الكرة وأنا غاضبة، فأصابتك. لم أعتذر لك كما يجب. أنا آسفة حقًّا، ولن أرمي شيئًا بعد اليوم وأنا غاضبة. وإن رأيتِني أغضب، فقولي لي: توقفي، وسأتوقف.',
             'سكتت رنا قليلًا، ثم قالت: كنت خائفة منك بعدها، ولم أقل لأحد. لكنني رأيتك اليوم في المباراة، وعرفت أنك تغيرتِ. ثم ضحكت وقالت: والرمية الحرة كانت جميلة! وتعانقتا، ورجعتا إلى الحلوى معًا. ولاحظت سارة أن رنا صارت تجلس بجانبها، وتضحك معها كما كانت تفعل من قبل.',
-            'وقبل النوم قالت الأم لسارة: صرتِ تمسكين غضبك، فلا تؤذين أحدًا بيدك. وهذا الآن يفتح لك بابًا جديدًا: أن يسلم الناس منك كل يوم، لا في المباراة وحدها. وأن تصلحي ما أفسدته، وتفي بما وعدتِ. فسألت سارة: وما اسم هذا الباب؟ قالت الأم: السبابة. وهناك ينتظرك الإنسان.'
-          ],
-          en: [
+            'وفي التدريب يوم الثلاثاء التالي، كانت أول كرة لمستها سارة لرنا: تمريرة هادئة من صدرها إلى يدي رنا مباشرة. التقطتها رنا وضحكت، وردّتها إليها بالطريقة نفسها. وصاح المدرب من طرف الملعب: هكذا يبدأ الفريق!'
+          ], en: [
             'In the evening the family celebrated the win, and Rana came with her mother. When the girls sat eating sweets, Sara noticed that Rana still avoided standing too close to her, and that there was a small blue mark on her arm from the ball Sara had thrown weeks before.',
-            'Sara thought: I have learned to stop, to calm down, and to say what is right without shouting. But I have not repaired what I broke before that. It\'s true that Rana smiled at me, but a smile does not mean the hurt is forgotten.',
+            'Sara thought: I\'ve learned to stop, to calm down, and to say what\'s true without shouting. Rana smiles at me, and the blue mark is still on her arm, and I never once said sorry for it.',
             'So Sara got up, took Rana out to the balcony and said: Rana, at the first match I threw the ball when I was angry and it hit you. I never apologised properly. I am truly sorry, and from today I won\'t throw anything when I\'m angry. And if you ever see me getting angry, just tell me: stop, and I will.',
             'Rana was quiet for a moment, then said: I was scared of you after that, and I didn\'t tell anyone. But I saw you at the match today and I knew you had changed. Then she laughed and said: and that free throw was lovely! They hugged and went back to the sweets together. Sara noticed that Rana sat next to her now, laughing with her as she used to before.',
-            'Before bed her mother said to Sara: you hold your anger now, so you don\'t hurt anyone with your hands. And that opens a new door for you: that people are safe from you every day, not only at matches; that you repair what you spoiled and keep what you promise. Sara asked: and what is that door called? Her mother said: the index finger. That is where being truly human is waiting for you.'
-          ]
-        },
+            'At practice the following Tuesday, the first ball Sara touched went to Rana: a gentle chest pass, straight into Rana\'s hands. Rana caught it, laughed, and sent it back the same way. And the coach called from the side of the court: that\'s how a team begins!'
+          ] },
         quiz: Q('monkey', 5, [
-          { correct: 2, q: { ar: 'لماذا اعتذرت سارة لرنا مع أن رنا كانت تبتسم لها؟', en: 'Why did Sara apologise to Rana even though Rana smiled at her?' },
-            options: [{ ar: 'لأن أمها أمرتها', en: 'Because her mother told her to' }, { ar: 'لأنها أرادت الحلوى', en: 'Because she wanted the sweets' }, { ar: 'لأن الابتسامة لا تعني أن الجرح نُسي، وهي لم تصلح ما كسرته', en: 'Because a smile does not mean the hurt is forgotten, and she had not repaired what she broke' }],
-            why: { ar: 'الإصلاح بعد الخطأ من سمات السبابة.', en: 'Repairing after a mistake is an index-finger trait.' } },
-          { correct: 0, q: { ar: 'ما الباب الجديد الذي حدثتها عنه أمها؟', en: 'What new door did her mother tell her about?' },
-            options: [{ ar: 'أن يسلم الناس منها كل يوم، وأن تصلح وتفي بوعدها', en: 'That people are safe from her every day, and that she repairs and keeps her promises' }, { ar: 'أن تلعب في فريق أكبر', en: 'To play on a bigger team' }, { ar: 'أن تترك الرياضة', en: 'To give up sport' }],
-            why: { ar: 'من ملك نفسه دخل باب السبابة.', en: 'Whoever holds themselves back enters the door of the index finger.' } }
+          { correct: 2, q: { ar: 'ما الذي جعل سارة تعتذر لرنا يوم الاحتفال؟', en: 'What made Sara apologise to Rana on the night of the celebration?' },
+            options: [{ ar: 'سؤال من أم رنا عن المباراة', en: 'A question from Rana\'s mother about the match' }, { ar: 'طلب من المدرب بعد الفوز', en: 'A request from the coach after the win' }, { ar: 'الأثر الأزرق على ذراع رنا', en: 'The blue mark on Rana\'s arm' }],
+            why: { ar: 'الابتسامة لم تمحُ الأثر، فأصلحت سارة ما كسرته بيدها.', en: 'The smile had not wiped out the mark, so Sara mended what her own hand had broken.' } },
+          { correct: 0, q: { ar: 'لمن مرّرت سارة أول كرة في التدريب التالي؟', en: 'Who got Sara\'s first pass at the next practice?' },
+            options: [{ ar: 'لرنا، تمريرة هادئة إلى يديها', en: 'Rana, a gentle pass into her hands' }, { ar: 'لمالك، تمريرة سريعة إلى السلة', en: 'Malik, a quick pass towards the hoop' }, { ar: 'للمدرب، ليبدأ التدريب', en: 'The coach, to start the session' }],
+            why: { ar: 'اليد التي رمت الكرة غاضبة صارت تمررها بلطف. ومن يسلم الناس من لسانه ويده يقف عند باب السبابة.', en: 'The hand that once hurled the ball in anger now passed it gently. Whoever keeps people safe from their tongue and hand stands at the door of the index finger.' } }
         ]) }
     ]
   });
@@ -809,35 +794,96 @@
     title: { ar: 'جود والبرج الملوّن', en: 'Joud and the colourful tower' },
     chapters: [
       { title: { ar: 'برج عال جدًّا', en: 'A very tall tower' },
-        body: { ar: ['بنت جود برجًا من المكعبات الملوّنة: أحمر، أزرق، أصفر.', 'صار البرج أطول منها!', 'وصفّقت جود وقالت: انظروا إلى برجي!'],
-          en: ['Joud built a tower of coloured blocks: red, blue, yellow.', 'The tower grew taller than her!', 'Joud clapped and said: look at my tower!'] },
-        quiz: Q('monkey-kids', 1, [{ correct: 0, q: { ar: 'ماذا بنت جود؟', en: 'What did Joud build?' },
-          options: [{ ar: 'برجًا من المكعبات', en: 'A tower of blocks' }, { ar: 'بيتًا من الرمل', en: 'A sand house' }, { ar: 'طائرة من الورق', en: 'A paper plane' }],
-          why: { ar: 'تعبت جود في البرج، ففرحت به.', en: 'Joud worked hard on the tower, so she was proud of it.' } }]) },
+        body: { ar: [
+            'بنت جود برجًا من المكعبات: أحمر، ثم أزرق، ثم أصفر.',
+            'ووقفت على أطراف أصابعها، ووضعت المكعب الأخير.',
+            'صار البرج أطول منها!',
+            'صفّقت جود وقالت: «انظروا إلى برجي!».'
+          ], en: [
+            'Joud built a tower of blocks: red, then blue, then yellow.',
+            'She stood on tiptoe and put on the very last block.',
+            'The tower was taller than her!',
+            'Joud clapped and said: "Look at my tower!"'
+          ] },
+        quiz: Q('monkey-kids', 1, [
+          { correct: 1, q: { ar: 'كيف وضعت جود المكعب الأخير؟', en: 'How did Joud put on the last block?' },
+            options: [{ ar: 'صعدت على كرسي المطبخ', en: 'She climbed on a kitchen chair' }, { ar: 'وقفت على أطراف أصابعها', en: 'She stood on tiptoe' }, { ar: 'رفعها أبوها إلى أعلى', en: 'Her father lifted her up high' }],
+            why: { ar: 'تعبت جود في برجها حتى صار أطول منها، ففرحت به.', en: 'Joud worked on her tower until it was taller than her, so she was proud of it.' } }
+        ]) },
+
       { title: { ar: 'طاخ!', en: 'Crash!' },
-        body: { ar: ['جاء أخوها الصغير عمر يحبو، ولمس البرج.', 'طاخ! وقعت المكعبات كلها على الأرض.', 'احمرّ وجه جود، ورفعت يدها لتضربه.'],
-          en: ['Her little brother Omar crawled over and touched the tower.', 'Crash! All the blocks fell to the floor.', 'Joud\'s face went red, and she raised her hand to hit him.'] },
-        quiz: Q('monkey-kids', 2, [{ correct: 2, q: { ar: 'ماذا أرادت جود أن تفعل حين وقع البرج؟', en: 'What did Joud want to do when the tower fell?' },
-          options: [{ ar: 'أن تضحك', en: 'Laugh' }, { ar: 'أن تنام', en: 'Sleep' }, { ar: 'أن تضرب أخاها', en: 'Hit her brother' }],
-          why: { ar: 'الغضب يجعل اليد تسبق القلب.', en: 'Anger makes the hand move before the heart thinks.' } }]) },
+        body: { ar: [
+            'جاء أخوها الصغير عمر يحبو، ومدّ يده إلى المكعب الأحمر.',
+            'طاخ! وقع البرج كله على الأرض.',
+            'ضحك عمر وصفّق: «طاخ! طاخ!».',
+            'احمرّ وجه جود، ورفعت يدها لتضربه.'
+          ], en: [
+            'Her little brother Omar crawled over and reached for the red block.',
+            'Crash! The whole tower fell to the floor.',
+            'Omar laughed and clapped: "Crash! Crash!"',
+            'Joud\'s face went red, and she raised her hand to hit him.'
+          ] },
+        quiz: Q('monkey-kids', 2, [
+          { correct: 2, q: { ar: 'ماذا أرادت جود أن تفعل حين وقع البرج؟', en: 'What did Joud want to do when the tower fell?' },
+            options: [{ ar: 'أن تبنيه من جديد', en: 'Build it again' }, { ar: 'أن تنادي أمها', en: 'Call her mother' }, { ar: 'أن تضرب أخاها', en: 'Hit her brother' }],
+            why: { ar: 'الغضب يجعل اليد تسبق القلب.', en: 'Anger makes the hand move before the heart thinks.' } }
+        ]) },
+
       { title: { ar: 'توقّفي', en: 'Stop' },
-        body: { ar: ['تذكرت جود ما علّمها أبوها: إذا غضبتِ فتوقفي.', 'أنزلت يدها، وجلست على الأرض.', 'وأخذت نفسًا طويلًا، ثم نفسًا آخر، وقالت: أعوذ بالله من الشيطان الرجيم.'],
-          en: ['Joud remembered what her father taught her: when you are angry, stop.', 'She lowered her hand and sat down on the floor.', 'She took a long breath, then another, and said: I seek refuge in Allah from the accursed devil.'] },
-        quiz: Q('monkey-kids', 3, [{ correct: 1, q: { ar: 'ماذا فعلت جود لتهدأ؟', en: 'What did Joud do to calm down?' },
-          options: [{ ar: 'صرخت', en: 'She shouted' }, { ar: 'جلست وتنفست واستعاذت بالله', en: 'She sat, breathed, and sought refuge in Allah' }, { ar: 'رمت المكعبات', en: 'She threw the blocks' }],
-          why: { ar: 'الجلوس والتنفس وذكر الله تطفئ نار الغضب.', en: 'Sitting, breathing and remembering Allah put out the fire of anger.' } }]) },
-      { title: { ar: 'عمر لا يعرف', en: 'Omar does not know' },
-        body: { ar: ['نظرت جود إلى عمر، فرأته يبتسم ويمسك مكعبًا أحمر.', 'قالت في نفسها: عمر صغير، لا يعرف أن البرج مهم.', 'ثم قالت له بصوت هادئ: تعال نبنيه معًا.'],
-          en: ['Joud looked at Omar and saw him smiling, holding a red block.', 'She said to herself: Omar is little, he does not know the tower matters.', 'Then she told him in a calm voice: come, let\'s build it together.'] },
-        quiz: Q('monkey-kids', 4, [{ correct: 0, q: { ar: 'ماذا قالت جود لعمر في النهاية؟', en: 'What did Joud say to Omar in the end?' },
-          options: [{ ar: 'تعال نبنيه معًا', en: 'Come, let\'s build it together' }, { ar: 'اذهب بعيدًا', en: 'Go away' }, { ar: 'لن ألعب معك أبدًا', en: 'I will never play with you' }],
-          why: { ar: 'حين يهدأ القلب، يرى عذر غيره.', en: 'When the heart is calm, it sees the other person\'s excuse.' } }]) },
+        body: { ar: [
+            'وفي الهواء توقفت يد جود.',
+            'تذكرت كلمة أبيها: «إذا غضبتِ وأنتِ واقفة، فاجلسي».',
+            'فأنزلت يدها، وجلست على الأرض.',
+            'وأخذت نفسًا طويلًا، ونفخته ببطء، وقالت: «أعوذ بالله من الشيطان الرجيم».'
+          ], en: [
+            'Joud\'s hand stopped in mid-air.',
+            'She remembered her father\'s words: "If you get angry while you are standing, sit down."',
+            'So she lowered her hand and sat on the floor.',
+            'She took a long breath, blew it out slowly, and said: "I seek refuge in Allah from the accursed devil."'
+          ] },
+        quiz: Q('monkey-kids', 3, [
+          { correct: 1, q: { ar: 'ماذا فعلت جود لتهدأ؟', en: 'What did Joud do to calm down?' },
+            options: [{ ar: 'ركضت إلى غرفتها وأغلقت الباب', en: 'She ran to her room and shut the door' }, { ar: 'جلست وتنفست واستعاذت بالله', en: 'She sat, breathed and sought refuge in Allah' }, { ar: 'جمعت المكعبات وخبأتها عن عمر', en: 'She gathered the blocks and hid them from Omar' }],
+            why: { ar: 'الجلوس والنفَس الطويل وذكر الله تطفئ نار الغضب، كما علّمنا النبي صلى الله عليه وآله وسلم.', en: 'Sitting, a long breath and remembering Allah put out the fire of anger, as the Prophet, peace and blessings be upon him and his family, taught us.' } }
+        ]) },
+
+      { title: { ar: 'عمر يقلّد جود', en: 'Omar copies Joud' },
+        body: { ar: [
+            'نظر عمر إلى أخته، ثم جلس مثلها على الأرض.',
+            'ونفخ خدّيه، ونفخ نفسًا طويلًا مثلها: «فوووو!».',
+            'ضحكت جود، وقالت في نفسها: «عمر صغير، يظن البرج لعبة طاخ».',
+            'ثم قالت له بصوت هادئ: «تعال نبنيه معًا».'
+          ], en: [
+            'Omar looked at his sister, then sat on the floor just like her.',
+            'He puffed out his cheeks and blew a long breath, just like her: "Fooooo!"',
+            'Joud laughed, and said to herself: "Omar is little. He thinks the tower is a crash game."',
+            'Then she said to him in a calm voice: "Come, let\'s build it together."'
+          ] },
+        quiz: Q('monkey-kids', 4, [
+          { correct: 0, q: { ar: 'ماذا فعل عمر حين جلست جود وتنفست؟', en: 'What did Omar do when Joud sat and breathed?' },
+            options: [{ ar: 'جلس مثلها ونفخ خدّيه', en: 'He sat like her and puffed his cheeks' }, { ar: 'أخذ المكعب الأحمر وهرب', en: 'He took the red block and crawled off' }, { ar: 'بكى ونادى أمه', en: 'He cried and called for Mum' }],
+            why: { ar: 'الصغار يقلّدون ما يرون. رأى عمر أخته تهدأ، فهدأ مثلها.', en: 'Little ones copy what they see. Omar saw his sister calm down, and calmed down like her.' } }
+        ]) },
+
       { title: { ar: 'برج أجمل', en: 'A lovelier tower' },
-        body: { ar: ['بنت جود وعمر برجًا جديدًا، أجمل من الأول.', 'وكان عمر يضع مكعبًا، وجود تضع مكعبًا.', 'فرحت أمها وقالت: أمسكتِ نفسك يا جود، والآن جاء وقت فعل الخير.', 'وهذا هو باب السبابة.'],
-          en: ['Joud and Omar built a new tower, lovelier than the first.', 'Omar put on a block, then Joud put on a block.', 'Their mother was delighted and said: you held yourself back, Joud; now it is time to do good.', 'And that is the door to the index finger.'] },
-        quiz: Q('monkey-kids', 5, [{ correct: 1, q: { ar: 'كيف صار البرج الجديد؟', en: 'What was the new tower like?' },
-          options: [{ ar: 'وقع مرة أخرى', en: 'It fell again' }, { ar: 'أجمل من الأول', en: 'Lovelier than the first' }, { ar: 'لم تبنِه جود', en: 'Joud did not build it' }],
-          why: { ar: 'من يمسك غضبه يبني أجمل مما هدم الغضب.', en: 'Whoever holds back anger builds something lovelier than anger ever broke.' } }]) }
+        body: { ar: [
+            'بنى الاثنان برجًا جديدًا: مكعب من جود، ومكعب من عمر.',
+            'وفي الأعلى وضع عمر المكعب الأحمر.',
+            'ثم مدّ يده إليه من جديد، ونظر إلى جود.',
+            'رفعت جود إصبعها وقالت ضاحكة: «لا طاخ هذه المرة!».',
+            'فسحب عمر يده، وصفّق للبرج.'
+          ], en: [
+            'The two of them built a new tower: one block from Joud, one block from Omar.',
+            'At the very top, Omar put the red block.',
+            'Then he reached out for it again, and looked at Joud.',
+            'Joud raised a finger and said, laughing: "No crash this time!"',
+            'So Omar pulled his hand back, and clapped for the tower.'
+          ] },
+        quiz: Q('monkey-kids', 5, [
+          { correct: 2, q: { ar: 'ماذا وضع عمر في أعلى البرج الجديد؟', en: 'What did Omar put at the top of the new tower?' },
+            options: [{ ar: 'المكعب الأصفر', en: 'The yellow block' }, { ar: 'المكعب الأزرق', en: 'The blue block' }, { ar: 'المكعب الأحمر', en: 'The red block' }],
+            why: { ar: 'أمسكت جود يدها، فبنت مع أخيها برجًا أجمل. ومن يسلم الناس من يده يقف عند باب السبابة.', en: 'Joud held her hand back and built a lovelier tower with her brother. Whoever keeps others safe from their hand stands at the door of the index finger.' } }
+        ]) }
     ]
   });
 })();
@@ -1193,122 +1239,121 @@
   var Q = window.AKHLAQ_BQ;
   window.AKHLAQ_BOOKS.push({
     id: 'book-monkey-adult', stage: 'monkey', ages: '15+',
-    title: { ar: 'نار في الصدر', en: 'Fire in the chest' },
+    title: { ar: 'عشرون ثانية', en: 'Twenty seconds' },
     chapters: [
-      { title: { ar: 'حين يسبق الفعل الفكر', en: 'When the act outruns the thought' },
+      { title: { ar: 'عرض رغد', en: 'The Raghad show' },
         body: { ar: [
-            'المرتبة الثالثة في المسار هي مرتبة الاندفاع. وصاحبها ليس نائمًا كالأول، ولا مشغولًا بالأخذ كالثاني، بل هو سريع جدًّا: يرد قبل أن يسمع، ويضرب قبل أن يفهم، ويقلد ما يراه دون أن يسأل هل هو خير. وقد سمّاها التطبيق باسم يدل على كثرة الحركة وقلة التوقف، وأكثر ما يظهر فيها الغضب.',
-            'وفي «إحياء علوم الدين» كتاب سماه الغزالي «ذم الغضب والحقد والحسد»، يصف فيه الغضب بالمعنى بأنه شعلة نار في القلب، وأنه غليان يطلب به الإنسان أن ينتقم ممن آذاه. فإذا اشتعلت هذه النار، صعد دخانها إلى الرأس، فأظلم العقل، فلم يعد الإنسان يرى العواقب، ولا يسمع النصيحة.',
-            'وهذا الوصف يفسر لنا ما نراه في أنفسنا وأطفالنا. فالولد الذي يرمي اللعبة على أخيه لا يكون قد فكر في ذلك ثم اختاره، بل تكون النار قد سبقت تفكيره. والشاب الذي يكتب كلمة جارحة في رسالة ثم يندم، لم يكن يقصد أن يجرح، لكن يده كانت أسرع من عقله. وكثيرًا ما يقلد الصغير هذه السرعة ممن حوله، فيتعلمها كما يتعلم الكلام.',
-            'ولذلك لا يكفي في هذه المرتبة أن نقول للطفل: لا تغضب. فالغضب يأتي قبل أن يقرر هو. والأنفع أن نعلّمه ما يفعل في اللحظة الأولى، حين يشعر بالحرارة في صدره، قبل أن تصل إلى يده ولسانه.',
-            'والخبر الجميل أن هذه اللحظة الأولى يمكن تدريبها. فكما يتعلم الطفل أن يضغط المكابح في دراجته قبل الحفرة، يتعلم أن يتوقف قبل الكلمة الجارحة. وكل مرة ينجح فيها، ولو مرة من عشر، تصير المكابح أقوى، ويصير الفكر أقرب إلى الفعل. وقد يحتاج ذلك إلى أشهر لا أيام، فلا ييأس الوالدان إذا تكرر الانفجار، لأن كل محاولة صادقة تترك أثرًا في القلب، ولو لم يظهر هذا الأثر سريعًا في السلوك.'
-          ],
-          en: [
-            'The third rank on the path is the rank of impulsiveness. Its owner is not asleep like the first, nor busy taking like the second, but very fast: replying before listening, striking before understanding, copying what they see without asking whether it is good. The app named it for much movement and little stopping, and anger shows in it most.',
-            'In "Ihya\' \'Ulum al-Din" al-Ghazali has a book called "The Condemnation of Anger, Rancour and Envy", where he describes anger, in meaning, as a flame of fire in the heart, a boiling by which a person seeks revenge on whoever hurt them. When this fire flares, its smoke rises to the head, darkening the mind, so the person no longer sees consequences or hears advice.',
-            'This explains what we see in ourselves and our children. The boy who throws a toy at his brother has not thought it over and chosen it; the fire got there before his thinking. The young person who types a wounding word and then regrets it did not mean to wound, but the hand was quicker than the mind. Often the little one copies this speed from those around, learning it as they learn speech.',
-            'So at this rank it is not enough to tell a child: do not get angry. Anger arrives before they decide. It helps more to teach them what to do in the first moment, when they feel the heat in the chest, before it reaches hand and tongue.',
-            'The good news is that this first moment can be trained. Just as a child learns to squeeze the brakes on a bike before a pothole, they learn to stop before the wounding word. Every time they succeed, even once in ten, the brakes grow stronger and thought comes closer to the act. This may take months, not days, so parents should not despair if outbursts repeat: every sincere attempt leaves a mark on the heart, even if it does not show quickly in behaviour.'
+            'تبدأ حصة الرياضيات، ورغد لا تستطيع أن تجلس ساكنة. ركبتها تهتز تحت الطاولة، والقلم في يدها يُفتح ويُغلق، وقد فتحت تحت الدرج ثلاثة تطبيقات وأغلقتها قبل أن تكمل المعلمة كتابة المسألة. رغد في السادسة عشرة، وفي تقاريرها منذ الروضة جملة لا تتغير: «ذكية، كثيرة الحركة». ولها موهبة يعرفها الصف كله: تسمع الصوت مرة واحدة فتقلّده، من «يا جماعة الخير» التي يبدأ بها أستاذ الفيزياء كل حصة، إلى سعال المديرة في الإذاعة الصباحية. وفي مجموعة الصف يسمّون مقاطعها «عرض رغد».',
+            'وفي منتصف الفصل الدراسي جاءت هبة، منقولة من مدينة أخرى. كانت تقرأ في حصة الإنجليزية ببطء، بلهجة لم يسمعها الصف من قبل، وتدفع نظارتها إلى أعلى أنفها بإصبعها بعد كل سطر. وفي الاستراحة رفعت تيماء هاتفها وقالت: «افعليها، هبة!». ترددت رغد ثانية واحدة، ثم فعلتها: عشرون ثانية، القراءة البطيئة، واللهجة، وحركة النظارة. وضحك الجميع. ونشرت تيماء المقطع في المجموعة وكتبت تحته: «للضحك فقط». وفي المساء كان قد شوهد ثلاثمئة مرة، وجاءه ستون وجهًا يضحك، وكتب أحدهم من صف آخر: «الجزء الثاني!». وشعرت رغد بالدفء الذي تعرفه: الضحك كله لها.',
+            'وللضحك من الناس اسم صريح في القرآن: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا لَا يَسْخَرْ قَوْمٌ مِنْ قَوْمٍ عَسَىٰ أَنْ يَكُونُوا خَيْرًا مِنْهُمْ وَلَا نِسَاءٌ مِنْ نِسَاءٍ عَسَىٰ أَنْ يَكُنَّ خَيْرًا مِنْهُنَّ﴾ (الحجرات 49:11). وقد عدّ أبو حامد الغزالي السخرية من آفات اللسان في كتاب «آفات اللسان» من «إحياء علوم الدين»، وشرح معناها بأنها استحقار الآخر والاستهانة به، والتنبيه على عيوبه ونقائصه على وجه يُضحك منه. ونبّه على أنها تكون بالكلام، وتكون بالمحاكاة في الفعل والقول، وبالإشارة والإيماء. فالمقطع الذي لم تقل فيه رغد كلمة واحدة من عندها، ولا شتيمة فيه، داخل في هذا التعريف كله.',
+            'والكبير الذي يقرأ هذه السطور يعرف العشرين ثانية، وإن تغيّر المسرح: زميل يقلّد لهجة موظف جديد في غرفة الاستراحة، ورسالة صوتية تُحوَّل مع «اسمعوا هذا»، وقريب يقلّد في جلسة العائلة طريقة كلام زوج ابنته. والضحك يأتي سريعًا، ويُصغَّر فيه إنسان ليكبر الحاضرون قليلًا. وفي الآية عبارة تترك السؤال مفتوحًا: ﴿عَسَىٰ أَنْ يَكُنَّ خَيْرًا مِنْهُنَّ﴾. فمن يدري أيهما خير عند الله: التي يُضحك منها، أم التي تُضحك الناس؟',
+            'وفي صباح اليوم التالي، عند الخزائن، رأت رغد هبة واقفة، وبنت من صف آخر تمد إليها هاتفها. وكان يخرج من الهاتف صوت رغد وهي تقرأ بلهجة هبة. لم تبكِ هبة. رفعت إصبعها لتدفع نظارتها كعادتها، ثم توقفت يدها في منتصف الطريق، كأنها عرفت الآن فقط أن هذه الحركة مضحكة. ودخلت رغد دورة المياه قبل أن تراها هبة، ووقفت وراء الباب وقلبها يدق، تسمع ضحك الصف يخرج من هاتف في الممر.'
+          ], en: [
+            'Maths begins, and Raghad cannot sit still. Her knee bounces under the desk, the pen in her hand clicks open and shut, and under the desk she has opened and closed three apps before the teacher has finished writing the problem. Raghad is sixteen, and every school report since kindergarten has carried the same sentence: "Bright, very restless." She also has a gift the whole class knows about: she hears a voice once and can do it, from the physics teacher\'s "right then, good people" that opens every lesson to the head teacher\'s cough over the morning announcements. In the class group her clips are called "the Raghad show".',
+            'Halfway through the term Hiba arrived, transferred from another city. In English she read aloud slowly, in an accent the class had never heard, and pushed her glasses up her nose with one finger after every line. At break Taima held up her phone and said: "Do Hiba!" Raghad hesitated for one second, then did it: twenty seconds, the slow reading, the accent, the glasses. Everyone laughed. Taima posted the clip in the group with the caption "just for laughs". By evening it had three hundred views and sixty laughing faces, and someone from another class wrote: "Part two!" Raghad felt the warmth she knew so well: all that laughter was hers.',
+            'Laughing at people has a plain name in the Quran. Meaning: O you who believe, let no people mock another people, perhaps they are better than them, nor women other women, perhaps they are better than them (al-Hujurat 49:11). Abu Hamid al-Ghazali counted mockery among the afflictions of the tongue, in the book of that name in the "Ihya\' \'Ulum al-Din" (The Revival of the Religious Sciences), and explained it, in meaning, as belittling and slighting another person, pointing out their faults and shortcomings in a way that makes people laugh. He noted that it can be done in words, or by imitating someone\'s actions and speech, or by gesture and sign. A clip in which Raghad said not one word of her own, and no insult, falls entirely within that definition.',
+            'An adult reading this knows those twenty seconds, only on a different stage: a colleague imitating a new employee\'s accent in the staff room, a voice note forwarded with "listen to this", a relative at a family gathering doing the way his son-in-law talks. The laugh comes quickly, and in it one person is made smaller so that everyone else feels a little bigger. And one phrase in the verse leaves the question open. Meaning: perhaps they are better than them. Who knows which is better in the sight of Allah: the one being laughed at, or the one getting the laughs?',
+            'The next morning, by the lockers, Raghad saw Hiba standing while a girl from another class held out a phone to her. Out of the phone came Raghad\'s voice, reading in Hiba\'s accent. Hiba did not cry. She lifted a finger to push up her glasses as she always did, and her hand stopped halfway, as if she had only now learned that the gesture was funny. Raghad slipped into the bathroom before Hiba could see her and stood behind the door, heart pounding, listening to the class\'s laughter coming out of a phone in the corridor.'
           ] },
         quiz: Q('monkey-adult', 1, [
-          { correct: 1, q: { ar: 'بماذا وصف الغزالي الغضب في «ذم الغضب والحقد والحسد»؟', en: 'How did al-Ghazali describe anger in "The Condemnation of Anger, Rancour and Envy"?' },
-            options: [{ ar: 'بأنه نوم القلب', en: 'As the heart\'s sleep' }, { ar: 'بأنه شعلة نار في القلب تطلب الانتقام', en: 'As a flame in the heart that seeks revenge' }, { ar: 'بأنه فضيلة دائمًا', en: 'As always a virtue' }],
-            why: { ar: 'إذا اشتعلت النار أظلم العقل فلم يرَ العواقب.', en: 'When the fire flares, the mind darkens and cannot see consequences.' } },
-          { correct: 0, q: { ar: 'ما الأنفع من قول «لا تغضب» بحسب هذا الفصل؟', en: 'What helps more than saying "do not get angry", according to this chapter?' },
-            options: [{ ar: 'تعليم ما يُفعل في اللحظة الأولى', en: 'Teaching what to do in the first moment' }, { ar: 'العقاب الشديد', en: 'Harsh punishment' }, { ar: 'تجاهل الغضب', en: 'Ignoring the anger' }],
-            why: { ar: 'اللحظة الأولى يمكن تدريبها كما تُدرَّب المكابح.', en: 'The first moment can be trained, like brakes.' } }
+          { correct: 0, q: { ar: 'ماذا فعلت يد هبة حين سمعت المقطع عند الخزائن؟', en: 'What did Hiba\'s hand do when she heard the clip by the lockers?' },
+            options: [{ ar: 'توقفت في منتصف الطريق', en: 'It stopped halfway to her glasses' }, { ar: 'أخذت الهاتف وحذفت المقطع', en: 'It took the phone and deleted the clip' }, { ar: 'غطّت وجهها وهي تبكي', en: 'It covered her face as she cried' }],
+            why: { ar: 'عرفت هبة من المقطع أن حركتها مضحكة، فصارت تخجل منها. وهذا ما تتركه السخرية بعد أن ينتهي الضحك.', en: 'From the clip Hiba learned her gesture was funny, and now she was ashamed of it. That is what mockery leaves behind once the laughing stops.' } },
+          { correct: 2, q: { ar: 'بماذا تكون السخرية عند الغزالي في «آفات اللسان»؟', en: 'In what ways can mockery be done, according to al-Ghazali on the afflictions of the tongue?' },
+            options: [{ ar: 'بالكلام الجارح أمام صاحبه', en: 'In hurtful words to someone\'s face' }, { ar: 'بالكلام في غياب صاحبه فقط', en: 'Only in words behind someone\'s back' }, { ar: 'بالكلام، والمحاكاة، والإشارة', en: 'In words, by imitation, and by gesture' }],
+            why: { ar: 'المحاكاة سخرية ولو لم تقل صاحبتها كلمة واحدة من عندها.', en: 'Imitation is mockery even when the one doing it says not a word of her own.' } }
         ]) },
-      { title: { ar: 'ثلاث درجات للغضب', en: 'Three degrees of anger' },
+
+      { title: { ar: 'الكل يصنع نسخته', en: 'Everyone has their own version' },
         body: { ar: [
-            'قد يظن بعض الناس أن الكمال ألا يغضب الإنسان أبدًا. لكن الغزالي في كتاب الغضب من «الإحياء» جعل للغضب ثلاث درجات: درجة التفريط، وهي أن يفقد الإنسان الغضب أصلًا، فلا يغضب حين تُنتهك حرمة أو يُظلم ضعيف؛ ودرجة الإفراط، وهي أن يغلب الغضب حتى يخرج عن سياسة العقل والدين؛ ودرجة الاعتدال بينهما، وهي المحمودة.',
-            'فالغضب عنده ليس شرًّا كله. فمن رأى أخاه الصغير يُضرب ولم يتحرك قلبه، فقد نقص منه شيء. ومن غضب لأن أحدًا سبقه في الطابور فصرخ وشتم، فقد زاد عن الحد. والميزان أن يغضب الإنسان في موضعه، وبقدره، ثم يملك نفسه فيما يفعل. فالغضب لله وللحق شيء، والغضب للنفس والكبر شيء آخر.',
-            'وهذا قريب مما قاله ابن مسكويه في «تهذيب الأخلاق» عن القوة الغضبية. فقد جعل فضيلتها الشجاعة، وجعل الشجاعة وسطًا بين رذيلتين: التهور، وهو الإقدام حيث لا ينبغي، والجبن، وهو الإحجام حيث ينبغي الإقدام. فالشجاع ليس من لا يخاف، ولا من يندفع في كل شيء، بل من يضع قوته في مكانها.',
-            'ولهذا التقسيم أثر كبير في التربية. فلا نريد أطفالًا بلا مشاعر، يسكتون على الظلم ويخافون من كل شيء. ولا نريدهم سريعي الانفجار. بل نريد أن يعرفوا أن الغضب طاقة، وأن الطاقة تحتاج إلى قائد. فالطفل الذي يتعلم قيادة غضبه اليوم، قد يصير غدًا شابًّا يدافع عن المظلوم بحكمة، ولا يؤذي من حوله بلسانه أو يده، ويعرف متى يتكلم ومتى يسكت.',
-            'ويمكن أن نقول للطفل: غضبك يخبرك أن شيئًا لم يعجبك، وهذا مفهوم. لكن أنت الذي تقرر ماذا تفعل به. فقد تقوله بكلمة هادئة، أو تطلب المساعدة، أو تبتعد قليلًا حتى تهدأ. وهكذا يصير الغضب رسالة نفهمها، لا عاصفة تقودنا.'
-          ],
-          en: [
-            'Some think perfection means never being angry. But al-Ghazali, in the book on anger in the "Ihya\'", gave anger three degrees: deficiency, losing anger altogether, so that one is not moved when something sacred is violated or a weak person is wronged; excess, when anger dominates until it leaves the governance of reason and religion; and the balance between them, which is praiseworthy.',
-            'For him anger is not wholly evil. Whoever sees a little brother being hit and feels nothing has lost something. Whoever is overtaken in a queue and shouts and curses has gone too far. The measure is to be angry in the right place and the right amount, then master oneself in what one does. Anger for Allah and for what is right is one thing; anger for the ego and pride is another.',
-            'This is close to what Ibn Miskawayh said in "Tahdhib al-Akhlaq" about the irascible power. He made its virtue courage, and courage a middle between two vices: recklessness, rushing in where one should not, and cowardice, holding back where one should step forward. The brave person is not one who never fears, nor one who rushes into everything, but one who puts their strength in its place.',
-            'This division matters a great deal in upbringing. We do not want children without feelings, silent before injustice and afraid of everything. Nor do we want them quick to explode. We want them to know that anger is energy, and energy needs a leader. A child who learns to lead their anger today may become a young person who defends the wronged with wisdom, harms no one with tongue or hand, and knows when to speak and when to stay silent.',
-            'We can tell a child: your anger tells you something did not please you, and that is understandable. But you decide what to do with it. You can say it in a calm word, ask for help, or step away until you calm down. So anger becomes a message we understand, not a storm that drives us.'
+            'في المساء جلست رغد إلى العشاء، وهي تقول لنفسها ما يقوله الجميع: ضحك الصف كله، وتيماء هي التي صوّرت ونشرت، وستون شخصًا ضغطوا الوجه الضاحك. ثم رفع أخوها أوس، ذو العشر سنوات، صحنه أمام وجهه كأنه كتاب، وقرأ بصوت بطيء ولهجة غريبة، ودفع إلى أعلى أنفه نظارة لا يلبسها. ضحكت أمها ضحكة قصيرة، ثم سكتت وسألت: من هذه؟ فقال أوس: «هبة! المقطع عند كل أولاد مدرستي».',
+            'في غرفتها كتبت رغد لتيماء: «احذفيه من المجموعة». فجاء الرد بعد ثوانٍ: «اهدئي، هي مزحة، والكل يصنع نسخته الآن». وأرسلت معه ملصقًا صوتيًّا صنعه أحدهم من المقطع: ثلاث ثوانٍ من صوت رغد بلهجة هبة. ونظرت رغد إلى الملصق طويلًا. تذكرت أنها فعلتها لأن تيماء قالت «افعليها»، وأن يدها سبقت سؤالها، كما سبقته مرات كثيرة من قبل. وكانت تريد الشيئين معًا: أن تبقى البنت المضحكة في الصف، وألا تكون البنت التي صنعت هذا.',
+            'قال النبي صلى الله عليه وآله وسلم: «الرَّجُلُ عَلَى دِينِ خَلِيلِهِ، فَلْيَنْظُرْ أَحَدُكُمْ مَنْ يُخَالِلُ» (سنن أبي داود 4833، وسنن الترمذي 2378). والخليل الصاحب القريب الذي يدخل القلب، والإنسان يأخذ منه دون أن يشعر: ضحكته، وكلماته، وما يراه مضحكًا، وما يراه عاديًّا. والتقليد في أصله قوة نافعة، به يتعلم الطفل الكلام والصلاة وآداب المائدة. والحديث يترك لكل واحد سؤالًا عمليًّا: من أقلّد أنا، وماذا آخذ منه؟',
+            'والكبار يقلّدون أيضًا، وتقليدهم أخفى: النبرة التي تتكلم بها مجموعة العمل عن زميل بعينه، والرسالة التي تُحوَّل لأن الجميع حوّلها، والرأي الذي نتبناه لأن أصحابنا تبنّوه قبلنا. والصغار في البيت يرون ذلك كله، ويأخذونه عنا بالحرف والحركة، كما أخذ أوس عن أخته.',
+            'قبل النوم طرقت رغد باب أوس، وقالت: «لا تقلّد هبة مرة أخرى، هذا يؤذيها». فنظر إليها من تحت الغطاء، وقال ببساطة: «لكنكِ أنتِ تفعلينها». وبقيت رغد في الباب لا تجد ما تقوله. ثم أطفأت له النور، وعادت إلى غرفتها، وفتحت المقطع مرة أخيرة بلا صوت. وبلا ضحك الصف لم يبقَ فيه إلا بنت تقرأ ببطء بلغة ليست لغتها، وتدفع نظارتها إلى أعلى.'
+          ], en: [
+            'At dinner that evening Raghad was telling herself what everyone tells themselves: the whole class laughed, Taima was the one who filmed and posted it, and sixty people pressed the laughing face. Then her ten-year-old brother Aws held his plate up in front of his face like a book, read in a slow voice with a strange accent, and pushed up glasses he does not wear. Their mother gave a short laugh, then stopped and asked: who is that? Aws said: "Hiba! Every kid at my school has the clip."',
+            'In her room Raghad messaged Taima: "Take it out of the group." The reply came in seconds: "Relax, it\'s a joke, everyone\'s making their own version now." With it came an audio sticker someone had cut from the clip: three seconds of Raghad\'s voice in Hiba\'s accent. Raghad looked at the sticker for a long time. She remembered that she had done it because Taima said "do it", and that her hand had got there before her question, as it had many times before. And she wanted both things at once: to stay the funny girl in the class, and not to be the girl who made this.',
+            'The Prophet, peace and blessings be upon him and his family, said, meaning: a person follows the way of his close friend, so let each of you look at whom he takes as a close friend (Sunan Abi Dawud 4833, and Sunan al-Tirmidhi 2378). A close friend is the companion who gets into the heart, and we take from them without noticing: their laugh, their words, what they find funny, what they find normal. Imitation in itself is a useful power; it is how a child learns speech, prayer and table manners. The hadith leaves everyone a practical question: whom do I imitate, and what am I taking from them?',
+            'Adults imitate too, and more quietly: the tone a work group takes about one particular colleague, the message forwarded because everyone forwarded it, the opinion we adopt because our friends adopted it first. The young ones at home see all of it, and take it from us word and gesture alike, the way Aws took it from his sister.',
+            'Before bed Raghad knocked on Aws\'s door and said: "Don\'t do Hiba again. It hurts her." He looked at her from under the covers and said simply: "But you do it." Raghad stood in the doorway with nothing to say. Then she switched off his light, went back to her room, and played the clip one last time with the sound off. Without the class laughing, all that was left was a girl reading slowly in a language not her own, pushing her glasses up.'
           ] },
         quiz: Q('monkey-adult', 2, [
-          { correct: 2, q: { ar: 'أي درجات الغضب محمودة عند الغزالي؟', en: 'Which degree of anger does al-Ghazali praise?' },
-            options: [{ ar: 'التفريط', en: 'Deficiency' }, { ar: 'الإفراط', en: 'Excess' }, { ar: 'الاعتدال', en: 'Balance' }],
-            why: { ar: 'فقد الغضب نقص، وغلبته زيادة، والمحمود ما بينهما.', en: 'Losing anger is a lack, being ruled by it is excess; the middle is praised.' } },
-          { correct: 0, q: { ar: 'ما الشجاعة عند ابن مسكويه؟', en: 'What is courage according to Ibn Miskawayh?' },
-            options: [{ ar: 'وسط بين التهور والجبن', en: 'A middle between recklessness and cowardice' }, { ar: 'ألا يخاف الإنسان أبدًا', en: 'Never feeling fear' }, { ar: 'الاندفاع في كل شيء', en: 'Rushing into everything' }],
-            why: { ar: 'الشجاع يضع قوته في مكانها.', en: 'The brave person puts their strength in its place.' } }
+          { correct: 1, q: { ar: 'ماذا قال أوس حين طلبت منه رغد ألا يقلّد هبة؟', en: 'What did Aws say when Raghad asked him not to imitate Hiba?' },
+            options: [{ ar: 'المقطع عند كل أولاد مدرستي', en: 'Every kid at my school has the clip' }, { ar: 'لكنكِ أنتِ تفعلينها', en: 'But you do it' }, { ar: 'كنت أمزح، ولن أعيدها', en: 'I was joking, and I won\'t do it again' }],
+            why: { ar: 'قلّد أوس أخته كما قلّدت هي هبة. والصغير يأخذ عن الكبير الحرف والحركة.', en: 'Aws copied his sister as she had copied Hiba. The young take word and gesture alike from the older ones.' } },
+          { correct: 0, q: { ar: 'بماذا يوصي حديث «الرَّجُلُ عَلَى دِينِ خَلِيلِهِ»؟', en: 'What does the hadith "a person follows the way of his close friend" advise?' },
+            options: [{ ar: 'أن ينظر الإنسان من يخالل', en: 'To look carefully at whom one befriends' }, { ar: 'أن يبتعد الإنسان عن الأصحاب', en: 'To keep away from friends' }, { ar: 'أن يكثر الإنسان من الأصحاب', en: 'To have as many friends as possible' }],
+            why: { ar: 'الصاحب يدخل القلب، ويأخذ منه صاحبه دون أن يشعر. ولهذا يُختار.', en: 'A close friend gets into the heart, and we take from them without noticing. That is why they are chosen with care.' } }
         ]) },
-      { title: { ar: 'الشديد الحقيقي', en: 'The truly strong' },
+
+      { title: { ar: 'الماء الذي يغلي', en: 'Water on the boil' },
         body: { ar: [
-            'في ثقافة الأطفال، وفي ثقافة الكبار أحيانًا، يبدو القوي هو الذي يرد الضربة بضربتين، ويرفع صوته أعلى من الجميع. لكن النبي صلى الله عليه وآله وسلم قلب هذا المعنى: «لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ» (صحيح البخاري 6114).',
-            'والصُّرَعة هو الذي يصرع الناس كثيرًا في المصارعة. فالحديث لا ينكر قوة الجسد، لكنه يقول إن هناك قوة أكبر منها: أن يملك الإنسان نفسه في اللحظة التي تريد فيها النفس أن تنفجر. وهذه القوة لا يراها الناس دائمًا، لأنها تحدث في الداخل، لكنها أصعب من رفع الأثقال. ولذلك يستحق صاحبها أن يُمدح عليها.',
-            'وفي القرآن وصف للمتقين يرسم سلّمًا لطيفًا في هذا الباب: ﴿وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ ۗ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ﴾ (آل عمران 3:134). فأول الدرجات كظم الغيظ، أي أن تمسكه في صدرك فلا يخرج أذى. ثم العفو، أي أن تترك حقك في الرد. ثم الإحسان، أي أن تقابل الإساءة بالخير.',
-            'وهذا السلم مهم في التربية لأنه لا يطلب كل شيء مرة واحدة. فالطفل في الوسطى يتدرب على الدرجة الأولى: أن يمسك يده ولسانه. فإذا أتقنها، صار العفو أسهل. ثم يأتي الإحسان في الإصبع التالي. ولا بأس أن يتعثر الطفل في الدرجة الأولى مرات كثيرة، فالكظم نفسه عمل شاق على الكبار، فكيف بالصغار. والمهم أن يرى أن المحاولة محبوبة، وأن الله يحب من يجاهد نفسه ولو لم ينجح كل مرة.',
-            'وحين نحكي هذا للشباب، نحسن أن نضرب لهم أمثلة من حياتهم: اللاعب الذي يُعرقل فيقوم ويكمل اللعب، والتلميذ الذي يُستفز في الساحة فيبتعد، والأخ الذي يُكسر شيء له فيقول: لا بأس. هؤلاء هم الأقوياء حقًّا، ولو لم يصفق لهم أحد.'
-          ],
-          en: [
-            'In children\'s culture, and sometimes in adults\' too, the strong one seems to be whoever returns one blow with two and shouts loudest. But the Prophet, peace and blessings be upon him and his family, overturned this. Meaning (not a translation): the strong one is not the one who throws others down; the strong one is the one who controls himself when angry (Sahih al-Bukhari 6114).',
-            'The word used is for someone who often throws people in wrestling. The hadith does not deny bodily strength; it says there is a greater strength: holding oneself at the moment the soul wants to explode. People do not always see this strength because it happens inside, but it is harder than lifting weights. So whoever has it deserves praise.',
-            'The Quran describes the God-conscious with a gentle ladder here. Meaning (not a translation): those who restrain their anger and pardon people, and Allah loves those who do good (Al \'Imran 3:134). The first step is restraining anger, holding it in the chest so no harm comes out. Then pardon, giving up the right to retaliate. Then excellence, meeting wrong with good.',
-            'This ladder matters because it does not ask for everything at once. A child at the middle finger practises the first step: holding back hand and tongue. Once that is mastered, pardon becomes easier. Excellence comes at the next finger. It is fine for a child to stumble on the first step many times; restraint is hard even for adults, let alone the young. What matters is that they see the attempt is loved, and that Allah loves whoever strives with themselves, even without succeeding every time.',
-            'When we tell this to young people, it helps to give examples from their lives: the player tripped who gets up and keeps playing, the pupil provoked in the playground who walks away, the brother whose thing gets broken who says: never mind. These are the truly strong, even if no one claps.'
+            'بعد يومين كانت رغد تذاكر الكيمياء في غرفتها، والهاتف على السرير، حين دخل أوس وأخذه وركض إلى الصالة. وقبل أن تلحق به كان قد فتح محادثتها مع تيماء، ووقف على الكرسي، وبدأ يقرأ رسائلها بصوت عال، بصوت يقلّدها فيه: نبرتها، وضحكتها القصيرة، وطريقتها في قول «يا بنت». وضحكت ابنة عمهما الصغيرة على الأريكة، وصفّقت.',
+            'صعدت النار من صدر رغد إلى وجهها في ثانية. وعرفت الشعور قبل أن تفهمه: هو ما شعرت به هبة عند الخزائن، يصيبها الآن هي، أمام أهل البيت. ولم تفكر. انتزعت الهاتف من يده بقوة، فاختل الكرسي، وسقط أوس، وارتطم فمه بحافة الطاولة. ورأت على شفته خيطًا رفيعًا من الدم. وكانت هي التي صرخت، لا هو: «لا تلمس أغراضي!». ثم ركضت إلى الحمام، وأغلقت الباب بالمفتاح.',
+            'وقد وصف الغزالي هذه الثانية في كتاب «ذم الغضب والحقد والحسد» من «الإحياء». فالغضب عنده شعلة نار، إذا اشتعلت غلى بها دم القلب، وانتشر في العروق، وارتفع إلى أعالي البدن كما يرتفع الماء الذي يغلي في القدر، فيحمرّ الوجه والعينان. ويصعد دخانه إلى الرأس فيُظلم العقل، فلا يرى صاحبه العواقب، ولا يسمع النصيحة. وفي القرآن وصف قصير لهذه العجلة التي تسبق الفكر: ﴿وَكَانَ الْإِنْسَانُ عَجُولًا﴾ (الإسراء 17:11).',
+            'وكل من يقرأ هذه السطور يعرف الماء الذي يغلي: الكلمة التي تخرج في السيارة قبل أن نصل إلى البيت، والباب الذي يُصفق، والرسالة التي تُكتب في دقيقة ويُعتذر عنها شهرًا. والأب الذي يصرخ «لا تصرخ» يعرفه أكثر من غيره. وما فعلته رغد في ثانيتين يشبه ما فعلته بالمقطع: يد سبقت السؤال. وهذه المرة كان الثمن على شفة أخيها.',
+            'في الحمام فتحت رغد الماء، ورفعت رأسها إلى المرآة. كان وجهها أحمر، والعروق ظاهرة في عنقها، وعيناها غريبتين عنها. لقد قلّدت مئة وجه في حياتها، ولم ترَ وجهها هي في هذه اللحظة قط. فغسلته بالماء البارد مرة، ثم مرة، ثم جلست على حافة حوض الاستحمام، تسمع من وراء الباب بكاء أوس، وصوت أمها يهدّئه.'
+          ], en: [
+            'Two days later Raghad was revising chemistry in her room, her phone on the bed, when Aws came in, grabbed it and ran into the living room. Before she could catch him he had opened her chat with Taima, climbed onto a chair, and started reading her messages out loud in a voice that imitated hers: her tone, her short laugh, the way she says "girl". Their little cousin on the sofa laughed and clapped.',
+            'The fire rose from Raghad\'s chest to her face in a second. She knew the feeling before she understood it: it was what Hiba had felt by the lockers, landing on her now, in front of the family. She did not think. She snatched the phone out of his hand, the chair tipped, Aws fell, and his mouth hit the edge of the table. She saw a thin line of blood on his lip. And it was she who screamed, not him: "Don\'t touch my things!" Then she ran to the bathroom and locked the door.',
+            'Al-Ghazali described that second in "The Condemnation of Anger, Rancour and Envy", a book of the "Ihya\'". For him, in meaning, anger is a flame: when it catches, the heart\'s blood boils, spreads through the veins and rises to the top of the body the way water rises when it boils in a pot, so the face and the eyes turn red. Its smoke rises to the head and darkens the mind, so the angry person no longer sees consequences or hears advice. And the Quran describes, in a few words, the haste that runs ahead of thought. Meaning: and the human being is ever hasty (al-Isra\' 17:11).',
+            'Everyone reading this knows the water on the boil: the word that comes out in the car before we even get home, the door that slams, the message typed in a minute and apologised for over a month. The parent who shouts "stop shouting" knows it better than anyone. What Raghad did in two seconds was like what she had done with the clip: a hand that got there before the question. This time the cost was on her brother\'s lip.',
+            'In the bathroom Raghad turned on the tap and looked up into the mirror. Her face was red, the veins stood out in her neck, and her eyes were a stranger\'s. She had imitated a hundred faces in her life, and had never once seen her own face at a moment like this. She washed it with cold water, once, then again, then sat on the edge of the bath, listening through the door to Aws crying and her mother\'s voice calming him.'
           ] },
         quiz: Q('monkey-adult', 3, [
-          { correct: 1, q: { ar: 'من الشديد بحسب الحديث؟', en: 'Who is strong according to the hadith?' },
-            options: [{ ar: 'من يصرع الناس كثيرًا', en: 'One who throws many people down' }, { ar: 'من يملك نفسه عند الغضب', en: 'One who controls himself when angry' }, { ar: 'من يرفع صوته أعلى', en: 'One who shouts loudest' }],
-            why: { ar: 'قوة ملك النفس أكبر من قوة الجسد.', en: 'Self-mastery is greater than bodily strength.' } },
-          { correct: 2, q: { ar: 'ما ترتيب الدرجات في آية آل عمران 3:134؟', en: 'What is the order of steps in Al \'Imran 3:134?' },
-            options: [{ ar: 'العفو ثم الغضب', en: 'Pardon, then anger' }, { ar: 'الإحسان ثم الصراخ', en: 'Excellence, then shouting' }, { ar: 'كظم الغيظ ثم العفو ثم الإحسان', en: 'Restraining anger, then pardon, then excellence' }],
-            why: { ar: 'السلم يبدأ بإمساك الغيظ وينتهي بمقابلة الإساءة بالخير.', en: 'The ladder starts with holding anger and ends with meeting wrong with good.' } }
+          { correct: 2, q: { ar: 'ماذا كان أوس يفعل بهاتف رغد؟', en: 'What was Aws doing with Raghad\'s phone?' },
+            options: [{ ar: 'يلعب لعبة ويرفض أن يعيده', en: 'Playing a game and refusing to give it back' }, { ar: 'يحذف صورها واحدة بعد واحدة', en: 'Deleting her photos one by one' }, { ar: 'يقرأ رسائلها بصوت يقلّدها فيه', en: 'Reading her messages aloud in an imitation of her voice' }],
+            why: { ar: 'ذاقت رغد ما ذاقته هبة: أن يُقلَّد صوتها أمام الناس. فاشتعلت النار قبل أن تفكر.', en: 'Raghad tasted what Hiba had tasted: her own voice imitated in front of others. The fire caught before she could think.' } },
+          { correct: 0, q: { ar: 'بماذا شبّه الغزالي ارتفاع الغضب في البدن؟', en: 'What did al-Ghazali compare anger rising through the body to?' },
+            options: [{ ar: 'بالماء الذي يغلي في القدر', en: 'Water boiling in a pot' }, { ar: 'بالريح التي تقتلع الشجر', en: 'A wind uprooting trees' }, { ar: 'بالسيل الذي يهدم البيوت', en: 'A flood knocking down houses' }],
+            why: { ar: 'يغلي دم القلب ويرتفع إلى الوجه فيحمرّ، كما رأت رغد في المرآة.', en: 'The heart\'s blood boils and rises to the face and reddens it, as Raghad saw in the mirror.' } }
         ]) },
-      { title: { ar: 'علاج الغضب بالعلم والعمل', en: 'Treating anger with knowledge and action' },
+
+      { title: { ar: 'الأناة', en: 'Taking one\'s time' },
         body: { ar: [
-            'لم يكتف الغزالي في كتاب الغضب بالوصف، بل ذكر علاجه، وجعله من بابين: علم وعمل. فأما العلم فأن يتفكر الإنسان في فضل كظم الغيظ والعفو، وفي عاقبة الغضب، وأن يتذكر أن قدرة الله عليه أعظم من قدرته هو على من أغضبه. ومن لطيف ما ذكره أن يتفكر الغاضب في قبح صورته حين يغضب، فلو رأى وجهه في تلك اللحظة لاستحيا منه.',
-            'وأما العمل فأن يستعيذ بالله من الشيطان الرجيم، وأن يغير حاله: فإن كان قائمًا جلس، وإن كان جالسًا اضطجع. وهذا مأخوذ من السنة، ففي سنن أبي داود (4782) أن النبي صلى الله عليه وآله وسلم أمر من غضب وهو قائم أن يجلس، فإن ذهب عنه الغضب وإلا فليضطجع. وذكر الغزالي أيضًا الوضوء، لأن النار تُطفأ بالماء.',
-            'وهذه الوسائل قريبة جدًّا من الأطفال. فالجلوس، والتنفس الطويل، وشرب الماء أو غسل الوجه، وقول «أعوذ بالله»، كلها أفعال يستطيعها طفل في الرابعة. وقد جعلها المسار خطوات صغيرة في درجات الوسطى، حتى يجد الطفل في يده شيئًا يفعله حين يغضب، بدل أن يُطلب منه أن يهدأ فقط. ويحسن أن يتدرب عليها في أوقات الهدوء، كاللعب، حتى يتذكرها في وقت الغضب.',
-            'والفكرة العميقة هنا أن تغيير الجسد يغير القلب. فمن غيّر وضعه، وأبطأ نفسه، وبرّد وجهه، أعطى عقله فرصة ليعود. وهذا ما تقوله أيضًا تجارب كثير من المربين اليوم، لكن جذوره قديمة في السنة وفي كتب الأدب.',
-            'وللوالدين نصيب من هذا العلاج قبل أطفالهم. فالأب الذي يجلس حين يغضب، والأم التي تقول بصوت مسموع «أعوذ بالله» ثم تتنفس قبل أن ترد، يعلّمان أبناءهما الدرس كله دون كلمة. أما الوالد الذي يصرخ وهو يقول لابنه لا تصرخ، فإن ابنه يسمع صوته قبل أن يسمع كلامه، ويتعلم الصراخ لا النهي عنه.'
-          ],
-          en: [
-            'Al-Ghazali did not stop at description in the book on anger; he gave its treatment in two parts: knowledge and action. Knowledge is to reflect on the merit of restraining anger and pardoning, on where anger leads, and to remember that Allah\'s power over us is greater than our power over whoever angered us. One fine point he makes is that the angry person should consider how ugly they look in anger; if they saw their face at that moment, they would be ashamed.',
-            'Action is to seek refuge in Allah from the accursed devil and to change one\'s position: if standing, sit; if sitting, lie down. This comes from the Sunna: in Sunan Abi Dawud (4782) the Prophet, peace and blessings be upon him and his family, told whoever is angry while standing to sit, and if the anger did not leave, to lie down. Al-Ghazali also mentions ablution, since fire is put out with water.',
-            'These means are very close to children. Sitting, a long breath, drinking water or washing the face, saying "I seek refuge in Allah": a four-year-old can do all of these. The path made them small steps in the middle finger\'s degrees, so the child has something in hand to do when angry, instead of only being told to calm down. It helps to practise them in calm times, like a game, so they are remembered in anger.',
-            'The deep idea is that changing the body changes the heart. Whoever changes position, slows their breath and cools their face gives the mind a chance to return. Many educators say the same today, but its roots are old, in the Sunna and in books of adab.',
-            'Parents have their share of this treatment before their children. The father who sits when angry, the mother who says aloud "I seek refuge in Allah" and breathes before answering, teach the whole lesson without a word. But a parent who shouts while telling a child not to shout is heard by the voice before the words, and the child learns the shouting, not the warning against it.'
+            'بعد ساعة طرق أبوها باب الحمام، وقال: «لن أدخل. أنا جالس هنا». وسمعته يجلس على أرض الممر، وظهره إلى الباب. ففتحت رغد الباب قليلًا، وجلست في الجهة الأخرى. قالت: «أمي تقول إن شفته ستُشفى». ثم سكتت طويلًا، وقالت: «كل ما فيّ سرعة يا بابا. تقاريري كلها تقول هذا منذ الروضة».',
+            'قال أبوها: «وأنا كنت كذلك. في سنتي الأولى في العمل كتبت لمديري رسالة غاضبة في دقيقة، وقضيت سنة أصلح ما فعلته تلك الدقيقة». ثم حكى لها عن وفد عبد القيس حين قدموا على النبي صلى الله عليه وآله وسلم في المدينة: تسابقوا عن رواحلهم إليه، وانتظر رجل منهم يقال له الأشج، حتى أتى متاعه فلبس ثوبيه، ثم جاء. فقال له النبي صلى الله عليه وآله وسلم: «إِنَّ فِيكَ خَصْلَتَيْنِ يُحِبُّهُمَا اللَّهُ: الْحِلْمُ وَالْأَنَاةُ» (صحيح مسلم 17، وخبر انتظاره في سنن أبي داود 5225). والأناة أن يتمهل الإنسان قبل أن يفعل، فيسبق فكرُه يدَه. وفي رواية أبي داود سأل الأشج: أنا أتخلّق بهما، أم الله جبلني عليهما؟ فقال صلى الله عليه وآله وسلم: «بَلِ اللَّهُ جَبَلَكَ عَلَيْهِمَا».',
+            'قالت رغد: «هو جُبل عليهما. وأنا جُبلت على العكس». فقال أبوها: «والأشج سأل لأن الطريقين معروفان: خلق يولد مع صاحبه، وخلق يُكتسب». ثم ذكر لها ما كتبه الغزالي في كتاب «رياضة النفس» من «الإحياء»، بالمعنى: من أراد أن يكتسب خلقًا حسنًا فطريقه أن يتكلف أفعال صاحبه، ويواظب عليها مجاهدًا نفسه، حتى تصير له طبعًا. وجعل الغزالي علاج الغضب بابين: علمًا، أن يتفكر الغاضب في عاقبة غضبه وفي قبح صورته حين يغضب، وعملًا، أن يستعيذ بالله ويغيّر حاله. وقال أبوها: «أنتِ تقلّدين أي إنسان في عشرين ثانية. قلّدي الحلم شهرًا».',
+            'وعلّمها ما علّمه النبي صلى الله عليه وآله وسلم لمن غضب: «إِذَا غَضِبَ أَحَدُكُمْ وَهُوَ قَائِمٌ فَلْيَجْلِسْ، فَإِنْ ذَهَبَ عَنْهُ الْغَضَبُ وَإِلَّا فَلْيَضْطَجِعْ» (سنن أبي داود 4782). ورأى النبي صلى الله عليه وآله وسلم رجلًا يسبّ صاحبه وقد احمرّ وجهه، فقال: «إِنِّي لَأَعْلَمُ كَلِمَةً لَوْ قَالَهَا لَذَهَبَ عَنْهُ مَا يَجِدُ، لَوْ قَالَ: أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ» (صحيح البخاري 6115). فاختارت رغد لنفسها ثلاث حركات تقلّدها حتى تصير لها: تجلس، وتضع كفيها مفتوحتين على ركبتيها، وتقول الكلمة. وجعلت خلفية شاشة هاتفها سطرًا واحدًا بخط كبير: «اجلسي أولًا».',
+            'في الصباح كان أوس على المائدة، وعلى شفته أثر صغير منتفخ. جلست رغد أمامه وقالت: «آسفة يا أوس. يدي سبقتني، ولن تسبقني إليك مرة أخرى». فنظر إليها، ثم قلّدها بصوت مبالغ فيه: «آسفة يا أوس، يدي سبقتني...»، وانتظر. وشعرت رغد بالحرارة تصعد إلى وجهها من جديد، وهي جالسة أصلًا. فوضعت كفيها على ركبتيها، وقالت الكلمة في سرها، ثم ضحكت وقالت: «الحاجبان أعلى من هذا». فضحك أوس حتى شرق بالحليب.'
+          ], en: [
+            'An hour later her father knocked on the bathroom door and said: "I\'m not coming in. I\'m sitting here." She heard him sit down on the corridor floor with his back to the door. Raghad opened the door a little and sat down on the other side. She said: "Mum says his lip will heal." Then she was quiet for a long time, and said: "Everything in me is speed, Baba. Every report has said so since kindergarten."',
+            'Her father said: "I was the same. In my first year at work I wrote my manager an angry email in one minute, and spent a year repairing what that minute did." Then he told her about the delegation of Abd al-Qays when they came to the Prophet, peace and blessings be upon him and his family, in Madina: they raced from their mounts to reach him, while one of them, a man called al-Ashajj, waited, went to his baggage, put on his two garments, and then came. The Prophet, peace and blessings be upon him and his family, said to him, meaning: there are two traits in you that Allah loves, forbearance and deliberateness (Sahih Muslim 17; the account of his waiting is in Sunan Abi Dawud 5225). Deliberateness means taking your time before you act, so that thought goes ahead of the hand. In Abu Dawud\'s narration al-Ashajj asked: do I put these on by effort, or did Allah create me with them? He, peace and blessings be upon him and his family, answered, meaning: Allah created you with them.',
+            'Raghad said: "He was born with them. I was born with the opposite." Her father said: "Al-Ashajj asked because both roads are known: character a person is born with, and character a person earns." Then he told her what al-Ghazali wrote in the book "Disciplining the Soul" of the "Ihya\'", in meaning: whoever wants to acquire a good trait should take on its actions deliberately and keep at them, struggling with the self, until they become nature. And al-Ghazali gave anger a treatment with two doors: knowledge, where the angry person reflects on where anger leads and on how ugly they look in its grip; and action, where they seek refuge in Allah and change their position. Her father said: "You can imitate anyone in twenty seconds. Imitate forbearance for a month."',
+            'He taught her what the Prophet, peace and blessings be upon him and his family, taught whoever is angry. Meaning: if one of you becomes angry while standing, let him sit; if the anger leaves him, good, and if not, let him lie down (Sunan Abi Dawud 4782). And the Prophet, peace and blessings be upon him and his family, saw a man insulting another, his face gone red, and said, meaning: I know a word which, if he said it, would take away what he feels; if he said: I seek refuge in Allah from the accursed devil (Sahih al-Bukhari 6115). So Raghad picked three moves to imitate until they became hers: sit down, rest both palms open on her knees, and say the words. And she made her lock screen a single line in large letters: "Sit first."',
+            'In the morning Aws was at the breakfast table with a small swollen mark on his lip. Raghad sat down opposite him and said: "Sorry, Aws. My hand got there before me, and it won\'t get to you again." He looked at her, then imitated her in an exaggerated voice: "Sorry, Aws, my hand got there before me..." and waited. Raghad felt the heat climbing to her face again, and she was already sitting. So she put her palms on her knees, said the words under her breath, then laughed and said: "The eyebrows go higher than that." And Aws laughed so hard he choked on his milk.'
           ] },
         quiz: Q('monkey-adult', 4, [
-          { correct: 0, q: { ar: 'من أي بابين جعل الغزالي علاج الغضب؟', en: 'What two parts did al-Ghazali give for treating anger?' },
-            options: [{ ar: 'العلم والعمل', en: 'Knowledge and action' }, { ar: 'الصراخ والبكاء', en: 'Shouting and crying' }, { ar: 'النوم والأكل', en: 'Sleep and food' }],
-            why: { ar: 'العلم يذكّر بالفضل والعاقبة، والعمل يغير الحال.', en: 'Knowledge recalls merit and consequence; action changes one\'s state.' } },
-          { correct: 1, q: { ar: 'ماذا يفعل من غضب وهو قائم بحسب حديث أبي داود؟', en: 'What should someone angry while standing do, per the hadith in Abu Dawud?' },
-            options: [{ ar: 'يركض', en: 'Run' }, { ar: 'يجلس', en: 'Sit down' }, { ar: 'يرفع صوته', en: 'Raise their voice' }],
-            why: { ar: 'تغيير الجسد يعطي العقل فرصة ليعود.', en: 'Changing the body gives the mind a chance to return.' } }
+          { correct: 1, q: { ar: 'ما الخصلتان اللتان قال النبي صلى الله عليه وآله وسلم للأشج إن الله يحبهما؟', en: 'What two traits did the Prophet, peace and blessings be upon him and his family, tell al-Ashajj that Allah loves?' },
+            options: [{ ar: 'الشجاعة والكرم', en: 'Courage and generosity' }, { ar: 'الحلم والأناة', en: 'Forbearance and deliberateness' }, { ar: 'الصبر والصدق', en: 'Patience and truthfulness' }],
+            why: { ar: 'تمهّل الأشج حين تسابق غيره، والأناة أن يسبق الفكرُ الفعل.', en: 'Al-Ashajj took his time while the others raced ahead; deliberateness means thought goes before the act.' } },
+          { correct: 2, q: { ar: 'ماذا فعلت رغد حين قلّدها أوس على المائدة؟', en: 'What did Raghad do when Aws imitated her at breakfast?' },
+            options: [{ ar: 'أخذت كوب الحليب من يده بقوة', en: 'She snatched the glass of milk from his hand' }, { ar: 'قامت عن المائدة دون أن تتكلم', en: 'She got up from the table without a word' }, { ar: 'وضعت كفيها على ركبتيها، ثم ضحكت', en: 'She put her palms on her knees, then laughed' }],
+            why: { ar: 'قلّدت رغد الحلم كما قال أبوها، فوجدت الضحكة مكان الصرخة.', en: 'Raghad imitated forbearance, as her father had said, and found a laugh where the scream used to be.' } }
         ]) },
-      { title: { ar: 'مع الطفل: بعد العاصفة', en: 'With the child: after the storm' },
+
+      { title: { ar: 'الجزء الثاني', en: 'Part two' },
         body: { ar: [
-            'أصعب لحظة في تربية الغضب ليست لحظة الانفجار، بل ما بعدها. فإذا هدأ الطفل بعد أن صرخ أو ضرب، يأتي سؤال الوالدين: ماذا نقول له الآن؟ والمسار يقترح ألا تكون هذه اللحظة محاكمة، بل جلسة هادئة نفهم فيها ما حدث معًا.',
-            'ومن المفيد أن نسأل الطفل ثلاثة أسئلة بسيطة: ماذا شعرت؟ وأين شعرت به في جسدك؟ وماذا كان يمكن أن تفعل في اللحظة الأولى؟ فالسؤال الأول يعلمه أن يسمي مشاعره، والثاني يعلمه أن ينتبه لإشارات جسده، والثالث يعلمه أن هناك طريقًا آخر في المرة القادمة. ويحسن أن نسمع الإجابات دون أن نقاطع أو نصحح فورًا، فالطفل الذي يشعر بأنه مسموع يهدأ أسرع، ويقبل النصيحة بقلب مفتوح، ويعود إلينا حين يغضب مرة أخرى بدل أن يخفي غضبه عنا.',
-            'ولا ينبغي أن نجعل الخطأ لقبًا يلاحق الطفل. فلا نقول له أمام إخوته: أنت دائمًا هكذا، ولا نذكّره بغضب الأمس كلما أخطأ اليوم. فقد سبق أن الغزالي أوصى بالتغافل عن الزلة وترك الإكثار من العتاب، وهذا أولى في الغضب، لأن العتاب الكثير قد يشعل نارًا جديدة.',
-            'وإذا أخطأ الطفل في حق أحد، فمن تمام الدرس أن يصلح ما أفسد: أن يعتذر لأخيه، أو يعيد بناء ما هدم، أو يقدم له شيئًا يحبه. فالاعتذار ليس إذلالًا، بل قوة أخرى من قوة ملك النفس. ومن رأى والديه يعتذران حين يخطئان، تعلم أن الاعتذار من أخلاق الكبار.',
-            'وحين يتعلم الطفل أن يمسك يده ولسانه، يجد أمامه سؤالًا جديدًا: ماذا أفعل بيدي الآن؟ وهنا يأتي الجزء الأخير من الآية: ﴿وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ ۗ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ﴾. فبعد الإمساك يبدأ العطاء، ويبدأ باب السبابة، إصبع الخير العادي الذي يفعله الإنسان كما ينبغي.'
-          ],
-          en: [
-            'The hardest moment in raising a child through anger is not the explosion but what comes after. When the child calms down after shouting or hitting, parents ask: what do we say now? The path suggests this moment should not be a trial, but a calm sitting where we understand together what happened.',
-            'We can ask three simple questions: what did you feel? Where did you feel it in your body? What could you have done in the first moment? The first teaches the child to name feelings, the second to notice the body\'s signals, the third that there is another way next time. It helps to hear the answers without interrupting or correcting at once: a child who feels heard calms faster, accepts advice with an open heart, and comes back to us next time instead of hiding their anger.',
-            'We should not turn the mistake into a nickname that follows the child. We do not say in front of siblings: you are always like this, nor bring up yesterday\'s anger whenever they slip today. Al-Ghazali, as we saw, advised overlooking a slip and not reproaching too often, and this applies even more to anger, since constant reproach can light a new fire.',
-            'If the child wronged someone, completing the lesson means repairing the harm: apologising to a brother, rebuilding what was knocked down, or offering something he loves. An apology is not humiliation but another form of self-mastery. A child who sees parents apologise when they are wrong learns that apology is the character of grown-ups.',
-            'When a child learns to hold back hand and tongue, a new question appears: what do I do with my hand now? Here comes the end of the verse quoted earlier: those who restrain anger and pardon people, and Allah loves those who do good. After holding back, giving begins, and so does the door to the index finger: ordinary good, done as a human being should.'
+            'في الأسبوع التالي كتبت تيماء في المجموعة: «متى الجزء الثاني يا رغد؟»، ووضعت الملصق الصوتي تحت السؤال. وكانت رغد قد قضت أيامًا تبحث عن طريقة تصلح بها ما فعلت. فكّرت في مقطع اعتذار تنشره للجميع، ثم تخيّلت هبة ترى نفسها في المجموعة مرة أخرى، ولو في اعتذار، فتركت الفكرة. وفي الاستراحة جلست بجانب هبة في المكتبة، وقالت: «المقطع كان مني. أنا آسفة. ماذا تريدين أن أفعل؟». سكتت هبة طويلًا، ثم قالت: «أريد أن يتوقفوا عن تشغيله».',
+            'ففعلت رغد الشيء الأصعب. كتبت في المجموعة، باسمها، أمام الجميع: «المقطع الذي صنعته في الاستراحة كان خطأ مني. أرجو من كل من عنده أن يحذفه، ولن يكون له جزء ثانٍ». ثم كتبت لتيماء وحدها أن تحذفه من أصله. وجاءت الردود: بعضهم كتب «احترام»، وبعضهم أرسل وجوهًا تضحك، وكتب أحدهم: «رغد صارت واعظة!». وصار الملصق يُرسَل إليها هي هذه المرة. وعرفت رغد طعم أن تكون موضوع الضحك، وبقيت جالسة، وكفاها على ركبتيها.',
+            'وكانت في صدرها في تلك الساعة نار من نوع آخر، نار تريد أن تقف مع هبة. وقد ذكر الغزالي في كتاب الغضب من «الإحياء» للغضب ثلاث درجات: التفريط، أن يفقد الإنسان غضبه فلا يتحرك حين يُظلم أحد أمامه، والإفراط، أن يغلب الغضب حتى يخرج عن سياسة العقل والدين، والاعتدال بينهما، وهو المحمود. وجعل ابن مسكويه في «تهذيب الأخلاق» فضيلة القوة الغضبية الشجاعة، وهي وسط بين التهور والجبن. فالسرعة التي كانت في يد رغد يوم المقطع ويوم الهاتف، صارت في هذه الرسالة إقدامًا في موضعه.',
+            'وقال النبي صلى الله عليه وآله وسلم: «الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ» (صحيح البخاري 10). وفي الحديث ذكر اللسان قبل اليد، وفي قصة رغد بدأ الأذى بعشرين ثانية من اللسان، ثم وصل إلى اليد على شفة أخيها. وكل من يقرأ هذه السطور، في السادسة عشرة أو في الأربعين، يعرف من يحتاج أن يسلم منه هذا الأسبوع: زميل يُقلَّد في غيابه، أو ولد يُضحك منه على المائدة، أو مجموعة يُظلم فيها أحد ونحن نقرأ ونسكت.',
+            'يوم الخميس جاء دور هبة في القراءة في حصة الإنجليزية. وكانت ركبة رغد تهتز تحت الطاولة كعادتها، وهاتفها مقلوب على وجهه، وعيناها على هبة. وفي الصف الأخير بدأ أحدهم يشغّل الملصق، فالتفتت إليه رغد، ونظرت إليه حتى أطفأه. وأكملت هبة السطر، ثم رفعت إصبعها ودفعت نظارتها إلى أعلى أنفها، حتى آخرها هذه المرة. وبعد الحصة جاءت إلى رغد وقالت: «أنتِ تسمعين اللهجات أحسن من أي أحد. هل تساعدينني في نطق الإنجليزية؟». فابتسمت رغد، وأخرجت دفترها، وسألت نفسها: ماذا تكون الموهبة، إن لم تكن لهذا؟'
+          ], en: [
+            'The following week Taima wrote in the group: "When\'s part two, Raghad?" and put the audio sticker under the question. Raghad had spent days looking for a way to repair what she had done. She thought of posting an apology clip for everyone, then pictured Hiba seeing herself in the group yet again, even in an apology, and let the idea go. At break she sat next to Hiba in the library and said: "The clip was mine. I\'m sorry. What do you want me to do?" Hiba was quiet for a long while, then said: "I want them to stop playing it."',
+            'So Raghad did the hardest thing. She wrote in the group, under her own name, in front of everyone: "The clip I made at break was wrong of me. Please, everyone who has it, delete it. There won\'t be a part two." Then she wrote to Taima alone, asking her to delete the original. The replies came: some wrote "respect", some sent laughing faces, and one wrote: "Raghad\'s turned preacher!" Now the sticker was being sent to her. Raghad learned what it tastes like to be the joke, and she stayed sitting, her palms on her knees.',
+            'In that hour there was another kind of fire in her chest, a fire that wanted to stand with Hiba. Al-Ghazali, in the book on anger in the "Ihya\'", gave anger three degrees: deficiency, losing one\'s anger so that one is not moved when someone is wronged in front of them; excess, when anger takes over until it leaves the governance of reason and religion; and the balance between them, which is the praiseworthy one. And Ibn Miskawayh, in "Tahdhib al-Akhlaq" (The Refinement of Character), made courage the virtue of the irascible power, a middle between recklessness and cowardice. The speed that had been in Raghad\'s hand on the day of the clip and the day of the phone had become, in this message, boldness in its proper place.',
+            'The Prophet, peace and blessings be upon him and his family, said, meaning: the Muslim is the one from whose tongue and hand the Muslims are safe (Sahih al-Bukhari 10). The hadith mentions the tongue before the hand, and in Raghad\'s story the harm began with twenty seconds of the tongue and reached the hand on her brother\'s lip. Everyone reading this, at sixteen or at forty, knows who needs to be safe from them this week: a colleague imitated behind their back, a child laughed at over dinner, or a group where someone is being wronged while we read and say nothing.',
+            'On Thursday it was Hiba\'s turn to read in English. Raghad\'s knee bounced under the desk as always, her phone lay face down, and her eyes were on Hiba. At the back someone started playing the sticker; Raghad turned round and looked at him until he switched it off. Hiba finished the line, then lifted a finger and pushed her glasses up her nose, all the way this time. After the lesson she came over to Raghad and said: "You hear accents better than anyone. Will you help me with my English pronunciation?" Raghad smiled, took out her notebook, and asked herself: what is a gift for, if not for this?'
           ] },
         quiz: Q('monkey-adult', 5, [
-          { correct: 2, q: { ar: 'ما الأسئلة الثلاثة المقترحة بعد الغضب؟', en: 'What three questions are suggested after anger?' },
-            options: [{ ar: 'لماذا أنت سيئ؟ ومن بدأ؟ ومتى تعتذر؟', en: 'Why are you bad? Who started? When will you apologise?' }, { ar: 'لا أسئلة، بل عقاب', en: 'No questions, only punishment' }, { ar: 'ماذا شعرت؟ وأين في جسدك؟ وماذا كان يمكن أن تفعل؟', en: 'What did you feel? Where in your body? What could you have done?' }],
-            why: { ar: 'الأسئلة تعلّم الطفل تسمية مشاعره وطريقًا آخر للمرة القادمة.', en: 'The questions teach naming feelings and another way for next time.' } },
-          { correct: 0, q: { ar: 'ماذا يبدأ بعد الإمساك عن الأذى؟', en: 'What begins after holding back from harm?' },
-            options: [{ ar: 'العطاء وفعل الخير', en: 'Giving and doing good' }, { ar: 'النوم', en: 'Sleep' }, { ar: 'الغضب من جديد', en: 'Anger again' }],
-            why: { ar: 'الآية تنتقل من كظم الغيظ إلى الإحسان، وهذا باب السبابة.', en: 'The verse moves from restraining anger to excellence: the door to the index finger.' } }
+          { correct: 0, q: { ar: 'ماذا طلبت هبة حين سألتها رغد ماذا تريد؟', en: 'What did Hiba ask for when Raghad asked what she wanted?' },
+            options: [{ ar: 'أن يتوقفوا عن تشغيل المقطع', en: 'That they stop playing the clip' }, { ar: 'أن تعتذر رغد في مقطع للجميع', en: 'That Raghad apologise in a clip for everyone' }, { ar: 'أن تبتعد عنها رغد بقية السنة', en: 'That Raghad keep away from her for the rest of the year' }],
+            why: { ar: 'سألت رغد قبل أن تصلح، فأصلحت ما تحتاجه هبة، وحفظت وجهها.', en: 'Raghad asked before she repaired, so she mended what Hiba needed, and spared her face.' } },
+          { correct: 1, q: { ar: 'أي درجات الغضب محمودة عند الغزالي؟', en: 'Which degree of anger does al-Ghazali praise?' },
+            options: [{ ar: 'التفريط، أن يفقد الإنسان غضبه', en: 'Deficiency, losing one\'s anger' }, { ar: 'الاعتدال بين التفريط والإفراط', en: 'Balance, between deficiency and excess' }, { ar: 'الإفراط، إذا كان الغضب للحق', en: 'Excess, when the anger is for what is right' }],
+            why: { ar: 'غضبت رغد لهبة بقدر، وقالت الحق باسمها، وكفاها على ركبتيها. ومن يسلم الناس من لسانه ويده يقف عند باب السبابة.', en: 'Raghad was angry for Hiba in due measure, spoke up under her own name, palms on her knees. Whoever keeps people safe from their tongue and hand stands at the door of the index finger.' } }
         ]) }
     ]
   });
@@ -1864,134 +1909,126 @@ window.AKHLAQ_BQ = function (bid, ci, list) {
     title: { ar: 'شهد والرسالة التي لم تُرسَل', en: 'Shahd and the message never sent' },
     chapters: [
       { title: { ar: 'الرسمة في المجموعة', en: 'The drawing in the group' },
-        body: {
-          ar: [
+        body: { ar: [
             'كانت شهد في الثالثة عشرة، وكانت تحب الرسم أكثر من أي شيء. وفي مجموعة محادثة الصف، التي فيها ثلاثون تلميذة، نشرت رسمة لقطة جالسة على نافذة، تعبت فيها ثلاثة أيام، ثم انتظرت أن ترى ما تقول صديقاتها.',
             'جاءت قلوب كثيرة، وكتبت صديقتها ديما: ما أجملها! ثم كتبت بنت اسمها نوال: هذه قطة أم بطاطا؟ ووضعت وجهًا يضحك حتى البكاء. وبعد ثوانٍ ضحكت بنتان أخريان بالوجه نفسه.',
-            'شعرت شهد بحرارة تصعد من صدرها إلى وجهها. وفي أقل من دقيقة، ودون أن تفكر، ضغطت زر التسجيل وأرسلت رسالة صوتية طويلة. قالت فيها لنوال كلامًا قاسيًا: إنها غيورة، وإنها لا تعرف شيئًا، وإن رسومها هي أقبح ما رأته في حياتها. ولم تكن تقصد كل ذلك، لكنه خرج.',
+            'شعرت شهد بحرارة تصعد من صدرها إلى وجهها. وفي أقل من دقيقة، ودون أن تفكر، ضغطت زر التسجيل وأرسلت رسالة صوتية طويلة. قالت فيها لنوال كلامًا قاسيًا: إنها غيورة، وإنها لا تعرف شيئًا، وإن رسومها هي أقبح ما رأته في حياتها. وكانت الكلمات تخرج أسرع مما تفكر فيه.',
             'ثم أرسلت رسالة ثانية وثالثة. وكانت أصابعها ترتجف، وكلما ردت نوال بكلمة ردت شهد بعشر. وصارت المجموعة كلها تراقب: بعض البنات يضحكن، وبعضهن يكتبن: اهدئي يا شهد، وبعضهن يرسلن وجوهًا مندهشة.',
             'وفجأة كتبت المعلمة، وهي مشرفة المجموعة: توقفن الآن من فضلكن. ثم أغلقت المجموعة فلا يكتب فيها أحد. ووضعت شهد الهاتف على السرير، وصدرها يعلو وينزل، ولم تعرف هل هي غاضبة أم خائفة أم نادمة.',
             'ولم يأتها النوم تلك الليلة. سمعت صوتها في الرسائل يتكرر في رأسها، عاليًا وقاسيًا، ولم تعرف هذا الصوت. وقالت في نفسها: من التي كانت تتكلم بلساني هناك؟'
-          ],
-          en: [
+          ], en: [
             'Shahd was thirteen and loved drawing more than anything. In the class chat group, with thirty girls in it, she posted a drawing of a cat sitting on a window sill. It had taken her three days, and she waited to see what her friends would say.',
             'Lots of hearts came, and her friend Dima wrote: so beautiful! Then a girl called Nawal wrote: is that a cat or a potato? with a face laughing to tears. Seconds later two other girls laughed with the same face.',
-            'Shahd felt heat rising from her chest to her face. In less than a minute, without thinking, she pressed record and sent a long voice message. In it she said harsh things to Nawal: that she was jealous, knew nothing, and that her drawings were the ugliest she had ever seen. She did not mean all of it, but it came out.',
+            'Shahd felt heat rising from her chest to her face. In less than a minute, without thinking, she pressed record and sent a long voice message. In it she said harsh things to Nawal: that she was jealous, knew nothing, and that her drawings were the ugliest she had ever seen. The words came out faster than she could think them.',
             'Then she sent a second and a third. Her fingers were shaking, and every time Nawal replied with one word, Shahd replied with ten. The whole group was watching: some girls laughed, some wrote: calm down, Shahd, and some sent shocked faces.',
             'Suddenly the teacher, who supervised the group, wrote: stop now, please. Then she locked the group so no one could write. Shahd put the phone on her bed, her chest rising and falling, not knowing whether she was angry, afraid or sorry.',
             'That night she could not sleep. She heard her voice from the messages repeating in her head, loud and harsh, and did not recognise it. She said to herself: who was speaking with my tongue back there?'
           ] },
         quiz: Q('monkey-2', 1, [
           { correct: 2, q: { ar: 'ماذا فعلت شهد حين سخرت نوال من رسمتها؟', en: 'What did Shahd do when Nawal mocked her drawing?' },
-            options: [{ ar: 'تجاهلت التعليق', en: 'Ignored the comment' }, { ar: 'شكرت صديقاتها', en: 'Thanked her friends' }, { ar: 'أرسلت رسائل صوتية قاسية دون تفكير', en: 'Sent harsh voice messages without thinking' }],
+            options: [{ ar: 'ردّت عليها بوجه ضاحك مثلها', en: 'Replied with a laughing face of her own' }, { ar: 'خرجت من المجموعة غاضبة', en: 'Left the group in anger' }, { ar: 'أرسلت رسالة صوتية قاسية', en: 'Sent a harsh voice message' }],
             why: { ar: 'الغضب جعل إصبعها أسرع من عقلها.', en: 'Anger made her finger faster than her mind.' } },
           { correct: 0, q: { ar: 'لماذا أغلقت المعلمة المجموعة؟', en: 'Why did the teacher lock the group?' },
-            options: [{ ar: 'لتوقف الشجار', en: 'To stop the quarrel' }, { ar: 'لأن الوقت متأخر', en: 'Because it was late' }, { ar: 'لتنشر رسمة', en: 'To post a drawing' }],
+            options: [{ ar: 'لتوقف الشجار', en: 'To stop the quarrel' }, { ar: 'لأن الوقت تأخر', en: 'Because it was late' }, { ar: 'لأن نوال اشتكت', en: 'Because Nawal complained' }],
             why: { ar: 'الشجار في المجموعة يكبر أمام الجميع بسرعة.', en: 'A quarrel in a group grows fast in front of everyone.' } }
         ]) },
+
       { title: { ar: 'لقطة الشاشة', en: 'The screenshot' },
-        body: {
-          ar: [
+        body: { ar: [
             'قبل أن تصل شهد إلى المدرسة صباحًا، كانت إحدى البنات قد أخذت لقطة شاشة من رسائلها، ونشرتها في مجموعة أخرى. وانتقلت اللقطة من هاتف إلى هاتف، حتى وصلت إلى بنات من صفوف لا تعرفهن.',
-            'وفي الساحة كانت البنات ينظرن إليها ويتهامسن. وسمعت واحدة تقول بصوت منخفض: هذه التي صرخت في المجموعة. فشعرت شهد بالخجل يحرق وجهها، وتمنت لو تختفي. ولم تكن تعرف أن رسائل دقيقة واحدة يمكن أن تسبقها إلى كل مكان، وتتكلم عنها قبل أن تتكلم هي.',
+            'وفي الساحة كانت البنات ينظرن إليها ويتهامسن. وسمعت واحدة تقول بصوت منخفض: هذه التي صرخت في المجموعة. فشعرت شهد بالخجل يحرق وجهها، وتمنت لو تختفي. رسائل دقيقة واحدة سبقتها إلى كل مكان، وتكلمت عنها قبل أن تتكلم هي.',
             'وكانت ديما واقفة وحدها عند الباب، وعيناها حمراوان. اقتربت منها شهد، فقالت ديما: في رسالتك الثالثة قلتِ إن صديقات نوال كلهن تافهات. وأنا أجلس مع نوال في الرياضيات. هل أنا تافهة يا شهد؟',
             'تجمدت شهد. لم تتذكر أنها قالت ذلك. ففتحت الهاتف وسمعت الرسالة، فإذا الكلمة فيها، واضحة وقاسية. لقد أصابت صديقتها الأقرب وهي تحاول أن تصيب غيرها، كمن يرمي حجرًا في الظلام.',
             'قالت شهد: لم أقصدك يا ديما. فقالت ديما بهدوء: أعرف، لكنك قلتِها. ثم مشت إلى الصف. وبقيت شهد في الساحة وحدها، وعرفت لأول مرة أن الكلمة المرسَلة لا تعود، حتى لو حذفتها.',
             'وفي ذلك اليوم لم تأكل شهد غداءها. كانت تفكر في الدقيقة الواحدة التي أرسلت فيها كل شيء، وفي الأيام الطويلة التي ستحتاجها لتصلح ما فعلته تلك الدقيقة. وتمنت لو تستطيع أن ترجع بالزمن.'
-          ],
-          en: [
+          ], en: [
             'In the morning, before Shahd reached school, one of the girls had taken a screenshot of her messages and posted it in another group. The screenshot moved from phone to phone until it reached girls in classes she did not know.',
-            'In the playground the girls looked at her and whispered. She heard one say quietly: that\'s the one who shouted in the group. Shahd felt shame burning her face and wished she could disappear. She had not known that the messages of one minute could get everywhere ahead of her and speak about her before she spoke.',
+            'In the playground the girls looked at her and whispered. She heard one say quietly: that\'s the one who shouted in the group. Shahd felt shame burning her face and wished she could disappear. The messages of one minute had got everywhere ahead of her, and were speaking about her before she could speak.',
             'Dima was standing alone by the door, her eyes red. When Shahd came near, Dima said: in your third message you said all Nawal\'s friends are worthless. I sit with Nawal in maths. Am I worthless, Shahd?',
             'Shahd froze. She did not remember saying that. She opened her phone and listened, and the word was there, clear and harsh. She had hit her closest friend while trying to hit someone else, like throwing a stone in the dark.',
             'Shahd said: I didn\'t mean you, Dima. Dima said quietly: I know, but you said it. Then she walked to class. Shahd stayed alone in the playground, and learned for the first time that a sent word does not come back, even if you delete it.',
             'That day Shahd did not eat her lunch. She was thinking of the single minute in which she had sent everything, and of the long days she would need to mend what that minute had done. She wished she could turn back time.'
           ] },
         quiz: Q('monkey-2', 2, [
-          { correct: 1, q: { ar: 'لماذا حزنت ديما؟', en: 'Why was Dima upset?' },
-            options: [{ ar: 'لأن رسمتها لم تعجب أحدًا', en: 'Nobody liked her drawing' }, { ar: 'لأن شهد قالت كلمة جارحة أصابتها هي أيضًا', en: 'Shahd said a hurtful word that hit her too' }, { ar: 'لأنها نسيت واجبها', en: 'She forgot her homework' }],
+          { correct: 0, q: { ar: 'ما الكلمة التي جرحت ديما في رسالة شهد الثالثة؟', en: 'What in Shahd\'s third message hurt Dima?' },
+            options: [{ ar: 'أن صديقات نوال كلهن تافهات', en: 'That all Nawal\'s friends were worthless' }, { ar: 'أن ديما لا تفهم شيئًا في الرسم', en: 'That Dima knew nothing about drawing' }, { ar: 'أن ديما غيورة مثل نوال', en: 'That Dima was jealous, like Nawal' }],
             why: { ar: 'كلمة الغضب تصيب أبعد مما نقصد.', en: 'Angry words hit further than we intend.' } },
           { correct: 0, q: { ar: 'ماذا تعلمت شهد عن الكلمة المرسَلة؟', en: 'What did Shahd learn about a sent word?' },
-            options: [{ ar: 'أنها لا تعود حتى لو حُذفت', en: 'It does not come back, even if deleted' }, { ar: 'أنها تُنسى بسرعة', en: 'It is soon forgotten' }, { ar: 'أنها لا تؤذي أحدًا', en: 'It hurts no one' }],
+            options: [{ ar: 'أنها لا تعود حتى لو حُذفت', en: 'It does not come back, even if deleted' }, { ar: 'أنها تُنسى بعد يوم أو يومين', en: 'It is forgotten in a day or two' }, { ar: 'أن حذفها يمحوها من كل الهواتف', en: 'Deleting it wipes it from every phone' }],
             why: { ar: 'لقطات الشاشة تحفظ ما نرسله في لحظة الغضب.', en: 'Screenshots keep what we send in a moment of anger.' } }
         ]) },
+
       { title: { ar: 'الشديد الحقيقي', en: 'The truly strong' },
-        body: {
-          ar: [
-            'عند المغرب جلست شهد مع خالتها رحاب، وكانت معلمة لغة عربية تزورهم. حكت لها كل شيء وهي تبكي، ثم قالت: أنا لست بنتًا سيئة يا خالتي، لكني حين أغضب أصير شخصًا آخر. شخصًا لا أحبه.',
-            'قالت الخالة: أعرف أنك لست سيئة. الغضب ليس أنتِ، لكنه يحاول أن يقودك. وقد قال النبي صلى الله عليه وآله وسلم: «لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ».',
+        body: { ar: [
+            'عند المغرب جلست شهد مع خالتها رحاب، وكانت معلمة لغة عربية تزورهم. حكت لها كل شيء وهي تبكي، ثم قالت: حين أغضب يا خالتي أصير شخصًا لا أعرفه، ولا أحبه.',
+            'قالت الخالة: أنا أعرفك: أنتِ البنت التي رسمت قطة ثلاثة أيام. والصوت الذي في الرسائل صوت الغضب حين يمسك المقود. وقد قال النبي صلى الله عليه وآله وسلم: «لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ».',
             'سألت شهد: لكن كيف أملك نفسي، والغضب أسرع مني؟ قالت الخالة: في زمن الهاتف، الغضب يحتاج إلى ثانية واحدة ليصل إلى ثلاثين شخصًا. فنحن نحتاج إلى فاصل صغير بين الشعور والزر. دعيني أعلمك قاعدة الدقائق الثلاث. إنها صغيرة، لكنها تحمي كثيرًا.',
-            'وقالت: إذا غضبتِ من رسالة، فلا تردي بصوتك أبدًا. اكتبي الرد إن شئت، لكن لا ترسليه. ضعي الهاتف بعيدًا، واشربي ماء، وقولي: أعوذ بالله من الشيطان الرجيم. وبعد ثلاث دقائق اقرئي ما كتبتِ، واسألي: هل أريد أن يرى هذا ثلاثون شخصًا غدًا؟',
-            'ضحكت شهد رغم دموعها وقالت: لو فعلت هذا أمس، لما أرسلت شيئًا. فقالت الخالة: ولهذا هي قاعدة. فالقوي ليس من لا يغضب، بل من يمسك يده حين يغضب، وفي زمننا: من يمسك إصبعه عن الزر.',
+            'وقالت: إذا غضبتِ من رسالة، فلا تردي بصوتك أبدًا. اكتبي الرد إن شئت، لكن لا ترسليه. ضعي الهاتف بعيدًا، واشربي ماء، وقولي الكلمة التي قال النبي صلى الله عليه وآله وسلم إنها تُذهب الغضب عن صاحبه: أعوذ بالله من الشيطان الرجيم. وبعد ثلاث دقائق اقرئي ما كتبتِ، واسألي: هل أريد أن يرى هذا ثلاثون شخصًا غدًا؟',
+            'ضحكت شهد رغم دموعها وقالت: لو فعلت هذا أمس، لما أرسلت شيئًا. فقالت الخالة: ولهذا هي قاعدة. والشديد في زمننا يمسك إصبعه عن الزر.',
             'وقبل أن تنام، كتبت شهد القاعدة على ورقة صغيرة، وألصقتها خلف غطاء هاتفها، حتى تراها كلما فتحته. وكتبت فوقها بخط صغير: ثلاث دقائق، ثم أقرأ، ثم أقرر.'
-          ],
-          en: [
-            'In the evening Shahd sat with her aunt Rihab, an Arabic teacher who was visiting. She told her everything, crying, then said: I\'m not a bad girl, Auntie, but when I get angry I become someone else. Someone I don\'t like.',
-            'Her aunt said: I know you\'re not bad. Anger isn\'t you, but it tries to lead you. The Prophet, peace and blessings be upon him and his family, said, meaning: "The strong one is not the one who wins at wrestling; the strong one is the one who controls himself when angry."',
+          ], en: [
+            'In the evening Shahd sat with her aunt Rihab, an Arabic teacher who was visiting. She told her everything, crying, then said: when I get angry, Auntie, I turn into someone I don\'t know, and don\'t like.',
+            'Her aunt said: I know you. You are the girl who spent three days drawing a cat. The voice in those messages is anger\'s voice when it grabs the wheel. And the Prophet, peace and blessings be upon him and his family, said, meaning: "The strong one is not the one who throws people in wrestling; the strong one is the one who controls himself when angry."',
             'Shahd asked: but how do I control myself when anger is faster than me? Her aunt said: in the age of phones, anger needs one second to reach thirty people. So we need a small gap between the feeling and the button. Let me teach you the three-minute rule. It is small, but it protects a lot.',
-            'She said: if a message makes you angry, never reply with your voice. Type a reply if you like, but don\'t send it. Put the phone away, drink some water, and say: I seek refuge in Allah from the accursed devil. After three minutes, read what you wrote and ask: do I want thirty people to see this tomorrow?',
-            'Shahd laughed through her tears and said: if I\'d done that yesterday, I wouldn\'t have sent anything. Her aunt said: that is why it\'s a rule. The strong one is not the one who never gets angry, but the one who holds back her hand when angry; and in our time, the one who holds her finger back from the button.',
+            'She said: if a message makes you angry, never reply with your voice. Type a reply if you like, but don\'t send it. Put the phone away, drink some water, and say the words the Prophet, peace and blessings be upon him and his family, said would take anger away from the one who says them: I seek refuge in Allah from the accursed devil. After three minutes, read what you wrote and ask: do I want thirty people to see this tomorrow?',
+            'Shahd laughed through her tears and said: if I\'d done that yesterday, I wouldn\'t have sent anything. Her aunt said: that\'s why it\'s a rule. In our time, the strong one holds her finger back from the button.',
             'Before sleeping, Shahd wrote the rule on a small slip and stuck it inside her phone case, so she would see it whenever she opened it. Above it, in small writing: three minutes, then read, then decide.'
           ] },
         quiz: Q('monkey-2', 3, [
           { correct: 2, q: { ar: 'ما قاعدة الدقائق الثلاث؟', en: 'What is the three-minute rule?' },
-            options: [{ ar: 'أن ترد بسرعة قبل الجميع', en: 'Reply fast before everyone' }, { ar: 'أن تحذف المجموعة', en: 'Delete the group' }, { ar: 'أن تكتب الرد ولا ترسله، ثم تقرأه بعد ثلاث دقائق', en: 'Type the reply but don\'t send it, then read it after three minutes' }],
+            options: [{ ar: 'أن ترد كتابة لا صوتًا، بعد ثلاث دقائق', en: 'Reply in writing, not by voice, after three minutes' }, { ar: 'أن تترك الهاتف ثلاث دقائق ثم ترد بهدوء', en: 'Leave the phone three minutes, then reply calmly' }, { ar: 'أن تكتب الرد ولا ترسله، ثم تقرأه بعد ثلاث دقائق', en: 'Type the reply but don\'t send it, then read it after three minutes' }],
             why: { ar: 'الفاصل الصغير بين الشعور والزر يعطي العقل فرصة.', en: 'A small gap between feeling and button gives the mind a chance.' } },
-          { correct: 1, q: { ar: 'من الشديد الحقيقي في زمن الهاتف بحسب الخالة؟', en: 'Who is truly strong in the age of phones, according to the aunt?' },
-            options: [{ ar: 'من يرد بأقوى الكلمات', en: 'Whoever replies with the strongest words' }, { ar: 'من يمسك إصبعه عن الزر حين يغضب', en: 'Whoever holds her finger back from the button when angry' }, { ar: 'من لا يملك هاتفًا', en: 'Whoever has no phone' }],
+          { correct: 1, q: { ar: 'من الشديد في زمن الهاتف بحسب الخالة؟', en: 'Who is strong in the age of phones, according to the aunt?' },
+            options: [{ ar: 'من لا يقرأ التعليقات أبدًا', en: 'Whoever never reads the comments' }, { ar: 'من يمسك إصبعه عن الزر', en: 'Whoever holds her finger back from the button' }, { ar: 'من يرد بكلمات قليلة هادئة', en: 'Whoever replies in a few calm words' }],
             why: { ar: 'الحديث يجعل القوة في ملك النفس عند الغضب.', en: 'The hadith places strength in self-control when angry.' } }
         ]) },
+
       { title: { ar: 'الاعتذار الصعب', en: 'The hard apology' },
-        body: {
-          ar: [
+        body: { ar: [
             'في اليوم التالي ذهبت شهد إلى ديما قبل الحصة الأولى، وقالت: كنتِ على حق. قلتُ الكلمة، وكانت ظالمة. أنا آسفة، ولا أطلب أن تسامحيني اليوم، لكني أردت أن تعرفي أنني أعرف خطئي.',
             'نظرت ديما إليها قليلًا، ثم قالت: كنت أنتظر أن تقولي إن نوال هي السبب. فقالت شهد: نوال أخطأت حين سخرت، لكن ما قلته أنا هو خطئي أنا. فابتسمت ديما ابتسامة صغيرة، ومدت يدها. فأمسكتها شهد بقوة، وشعرت أن صداقتهما صارت أقوى مما كانت.',
-            'ثم كان الاعتذار الأصعب: نوال. فكرت شهد كثيرًا: هي التي بدأت، لماذا أعتذر لها؟ لكنها تذكرت صوتها في الرسائل، وكلماتها عن رسوم نوال وغيرتها. فعرفت أن خطأ غيرها لا يجعل خطأها صوابًا. وأن الاعتذار ليس هزيمة.',
-            'كتبت لها رسالة خاصة، لا في المجموعة. كتبتها، ثم انتظرت ثلاث دقائق، ثم قرأتها. ثم أرسلتها: أعتذر عن رسائلي الصوتية. ما قلته عن رسومك ظالم، ولم يكن صحيحًا. أتمنى أن نبدأ من جديد.',
+            'ثم كان الاعتذار الأصعب: نوال. فكرت شهد كثيرًا: هي التي بدأت، لماذا أعتذر لها؟ لكنها تذكرت صوتها في الرسائل، وكلماتها عن رسوم نوال وغيرتها. فعرفت أن خطأ نوال لا يجعل كلامها هي صوابًا.',
+            'كتبت لها رسالة خاصة، لا في المجموعة. كتبتها، ثم انتظرت ثلاث دقائق، ثم قرأتها. ثم أرسلتها: أعتذر عن رسائلي الصوتية. ما قلته عن رسومك ظالم وغير صحيح. أتمنى أن نبدأ من جديد.',
             'بعد ساعة ردت نوال: وأنا أعتذر عن تعليق البطاطا. كانت مزحة سخيفة. رسمتك كانت جميلة فعلًا. فضحكت شهد وحدها في غرفتها، وشعرت كأن حجرًا ثقيلًا سقط عن صدرها.',
-            'وفي الغد أعادت المعلمة فتح المجموعة، وكتبت فيها: شكرًا للبنات اللواتي أصلحن ما بينهن. فلم تذكر أسماء، لكن شهد عرفت أنها تقصدها، واحمرّ وجهها هذه المرة من الفرح. وعرفت أن إصلاح الخطأ يحتاج شجاعة أكبر من الغضب نفسه.'
-          ],
-          en: [
+            'وفي الغد أعادت المعلمة فتح المجموعة، وكتبت فيها: شكرًا للبنات اللواتي أصلحن ما بينهن. فلم تذكر أسماء، لكن شهد عرفت أنها تقصدها، واحمرّ وجهها هذه المرة من الفرح.'
+          ], en: [
             'The next day Shahd went to Dima before the first lesson and said: you were right. I said the word, and it was unjust. I\'m sorry. I\'m not asking you to forgive me today, but I wanted you to know that I know my mistake.',
             'Dima looked at her for a moment, then said: I was waiting for you to say Nawal was to blame. Shahd said: Nawal was wrong to mock, but what I said is my own mistake. Dima gave a small smile and held out her hand. Shahd held it tightly and felt their friendship had become stronger than before.',
-            'Then came the hardest apology: Nawal. Shahd thought hard: she started it, why should I apologise? But she remembered her voice in the messages, and her words about Nawal\'s drawings and jealousy. She knew that someone else\'s mistake does not make hers right. And that an apology is not a defeat.',
+            'Then came the hardest apology: Nawal. Shahd thought hard: she started it, why should I apologise? But she remembered her voice in the messages, and her words about Nawal\'s drawings and jealousy. She knew that Nawal\'s mistake did not make her own words right.',
             'She wrote her a private message, not in the group. She wrote it, waited three minutes, read it, then sent it: I\'m sorry for my voice messages. What I said about your drawings was unjust and untrue. I hope we can start again.',
             'An hour later Nawal replied: and I\'m sorry about the potato comment. It was a silly joke. Your drawing really was beautiful. Shahd laughed alone in her room and felt as if a heavy stone had fallen from her chest.',
-            'The next day the teacher reopened the group and wrote: thank you to the girls who made things right between them. She named no one, but Shahd knew she meant her, and this time her face went red with joy. She knew that mending a mistake takes more courage than anger itself.'
+            'The next day the teacher reopened the group and wrote: thank you to the girls who made things right between them. She named no one, but Shahd knew she meant her, and this time her face went red with joy.'
           ] },
         quiz: Q('monkey-2', 4, [
           { correct: 0, q: { ar: 'لماذا اعتذرت شهد لنوال مع أن نوال بدأت؟', en: 'Why did Shahd apologise to Nawal though Nawal started it?' },
-            options: [{ ar: 'لأن خطأ غيرها لا يجعل خطأها صوابًا', en: 'Because someone else\'s mistake does not make hers right' }, { ar: 'لأن المعلمة أجبرتها', en: 'Because the teacher forced her' }, { ar: 'لأنها تريد رسمة منها', en: 'Because she wanted a drawing from her' }],
+            options: [{ ar: 'لأن خطأ نوال لا يجعل كلامها صوابًا', en: 'Nawal\'s mistake did not make her own words right' }, { ar: 'لأن المعلمة طلبت منها ذلك', en: 'The teacher asked her to' }, { ar: 'لأن ديما اشترطت ذلك لتسامحها', en: 'Dima made it a condition of forgiving her' }],
             why: { ar: 'كل واحد مسؤول عن كلماته هو.', en: 'Each person answers for their own words.' } },
           { correct: 2, q: { ar: 'أين أرسلت شهد اعتذارها لنوال؟', en: 'Where did Shahd send her apology to Nawal?' },
-            options: [{ ar: 'في المجموعة أمام الجميع', en: 'In the group in front of everyone' }, { ar: 'على السبورة', en: 'On the board' }, { ar: 'في رسالة خاصة بعد ثلاث دقائق', en: 'In a private message after three minutes' }],
+            options: [{ ar: 'في المجموعة أمام الجميع', en: 'In the group in front of everyone' }, { ar: 'في ورقة وضعتها في حقيبة نوال', en: 'In a note slipped into Nawal\'s bag' }, { ar: 'في رسالة خاصة بعد ثلاث دقائق', en: 'In a private message, after three minutes' }],
             why: { ar: 'الاعتذار الخاص الهادئ يحفظ الكرامة للطرفين.', en: 'A calm private apology protects both people\'s dignity.' } }
         ]) },
+
       { title: { ar: 'المجموعة نفسها، شيء آخر', en: 'The same group, something else' },
-        body: {
-          ar: [
-            'بعد أسبوعين مرضت بنت في الصف اسمها رهف، وغابت عن المدرسة أيامًا. وكانت الامتحانات قريبة. فكرت شهد: المجموعة التي اشتعلت فيها النار يمكن أن تكون مكانًا لشيء آخر. فالمجموعة ليست سيئة ولا جيدة، بل هي كاليد: تؤذي أو تساعد، بحسب من يحركها.',
+        body: { ar: [
+            'بعد أسبوعين مرضت بنت في الصف اسمها رهف، وغابت عن المدرسة أيامًا. وكانت الامتحانات قريبة. فكرت شهد: المجموعة التي اشتعلت فيها النار يمكن أن تكون مكانًا لشيء آخر. والمجموعة كاليد: تؤذي أو تساعد، بحسب من يحركها.',
             'كتبت في المجموعة: رهف مريضة، والامتحان بعد أسبوع. ما رأيكن أن ترسل كل واحدة منا ملخص درس واحد بخط واضح، فنجمعها لها؟ وبعد دقائق جاءت الردود: أنا آخذ العلوم! وأنا الرياضيات! وكتبت نوال: وأنا أرسم لها بطاقة.',
             'وفي يومين امتلأ ملف كامل بالملخصات، ورسمت نوال بطاقة فيها قطة جالسة على نافذة، وكتبت تحتها: من نوال وشهد. فضحكت شهد حين رأتها، وعرفت أن القطة صارت سرًّا صغيرًا بينهما.',
             'وحين عادت رهف إلى المدرسة قالت إن الملخصات أنقذتها، وإنها حفظت البطاقة في دفترها. وفي الطريق إلى البيت قالت ديما لشهد: أتذكرين حين كانت المجموعة مكانًا للصراخ؟ قالت شهد: أذكر، ولا أريد أن أنسى. لأني إن نسيت قد أعود إليه، وإن تذكرت عرفت الطريق.',
-            'وفكرت شهد في الأسابيع الماضية: تعلمت أولًا أن تمسك إصبعها عن الزر، ثم أن تعتذر وتصلح. واليوم اكتشفت شيئًا ثالثًا: أن اليد التي تمسك نفسها عن الأذى، تصير فارغة، ومستعدة لتعطي.',
-            'من هنا يُفتح باب السبابة: بعد أن نكف أذانا عن الناس، نبدأ نفعل الخير لهم، كما ينبغي للإنسان أن يفعل. بلا ضجيج، وبلا انتظار للشكر.'
-          ],
-          en: [
-            'Two weeks later a girl in the class called Rahaf fell ill and missed school for days. Exams were close. Shahd thought: the group that caught fire could be a place for something else. A group is neither bad nor good; it is like a hand: it harms or helps, depending on who moves it.',
+            'وفي المساء نشرت شهد في المجموعة رسمة جديدة: قطتان على نافذة واحدة، إحداهما مستديرة قليلًا كحبة بطاطا. وكتبت تحتها: «إلى رهف، بمناسبة العودة». ثم انتظرت ثلاث دقائق، كعادتها الجديدة، وضغطت الزر. وكان أول تعليق من نوال: وجه يضحك حتى البكاء، ثم قلب.'
+          ], en: [
+            'Two weeks later a girl in the class called Rahaf fell ill and missed school for days. Exams were close. Shahd thought: the group that caught fire could be a place for something else. A group is like a hand: it harms or helps, depending on who moves it.',
             'She wrote in the group: Rahaf is ill and the exam is in a week. What if each of us sends a summary of one lesson in clear handwriting, and we put them together for her? Minutes later the replies came: I\'ll take science! I\'ll do maths! And Nawal wrote: I\'ll draw her a card.',
             'In two days a whole file filled with summaries, and Nawal drew a card with a cat sitting on a window sill, and wrote underneath: from Nawal and Shahd. Shahd laughed when she saw it, and knew the cat had become a small secret between them.',
             'When Rahaf came back she said the summaries had saved her and that she had kept the card in her notebook. On the way home Dima said to Shahd: remember when the group was a place for shouting? Shahd said: I remember, and I don\'t want to forget. If I forget, I might go back to it; if I remember, I know the way.',
-            'Shahd thought about the past weeks: first she had learned to hold her finger back from the button, then to apologise and repair. Today she found a third thing: a hand that holds itself back from harm becomes free, and ready to give.',
-            'And that is the door to the index finger: after we keep our harm from people, we begin to do good for them, as a human being should. Without fuss, and without waiting for thanks.'
+            'In the evening Shahd posted a new drawing in the group: two cats on one window sill, one of them a little round, like a potato. Underneath she wrote: "For Rahaf, welcome back." Then she waited three minutes, her new habit, and pressed the button. The first comment was from Nawal: a face laughing to tears, then a heart.'
           ] },
         quiz: Q('monkey-2', 5, [
           { correct: 1, q: { ar: 'ماذا اقترحت شهد في المجموعة من أجل رهف؟', en: 'What did Shahd suggest in the group for Rahaf?' },
-            options: [{ ar: 'أن يتركوها وحدها', en: 'Leave her alone' }, { ar: 'أن ترسل كل بنت ملخص درس', en: 'That each girl send a lesson summary' }, { ar: 'أن يؤجلوا الامتحان', en: 'Postpone the exam' }],
+            options: [{ ar: 'أن يتركوها ترتاح حتى تعود', en: 'Let her rest until she came back' }, { ar: 'أن ترسل كل بنت ملخص درس', en: 'That each girl send a lesson summary' }, { ar: 'أن يطلبوا تأجيل امتحانها', en: 'Ask for her exam to be postponed' }],
             why: { ar: 'المكان الذي اشتعلت فيه النار صار مكانًا للخير.', en: 'The place that caught fire became a place for good.' } },
-          { correct: 0, q: { ar: 'ما الشيء الثالث الذي اكتشفته شهد؟', en: 'What third thing did Shahd discover?' },
-            options: [{ ar: 'أن اليد التي تمسك نفسها عن الأذى تصير مستعدة لتعطي', en: 'A hand held back from harm becomes ready to give' }, { ar: 'أن الهاتف سيئ دائمًا', en: 'That phones are always bad' }, { ar: 'أن الرسم لا ينفع', en: 'That drawing is useless' }],
-            why: { ar: 'بعد كف الأذى يبدأ فعل الخير، وهذا باب السبابة.', en: 'After holding back harm, doing good begins: the door to the index finger.' } }
+          { correct: 1, q: { ar: 'ماذا رسمت شهد لرهف في آخر القصة؟', en: 'What did Shahd draw for Rahaf at the end of the story?' },
+            options: [{ ar: 'قطة واحدة على نافذة، كالرسمة الأولى', en: 'One cat on a window sill, like the first drawing' }, { ar: 'قطتين على نافذة، إحداهما كحبة بطاطا', en: 'Two cats on a window sill, one like a potato' }, { ar: 'باقة ورد، وتحتها بطاقة شكر', en: 'A bunch of flowers with a thank-you card' }],
+            why: { ar: 'صارت النكتة التي أشعلت الشجار ضحكة مشتركة. واليد التي أمسكت أذاها صارت تعطي، وهذا باب السبابة.', en: 'The joke that started the quarrel became a shared laugh. The hand that held back its harm now gives, and that is the door to the index finger.' } }
         ]) }
     ]
   });
@@ -2310,7 +2347,7 @@ window.AKHLAQ_FAMILY({
     q: [
       { ar: 'ماذا حدث لسارة في المباراة حين غضبت؟ ومن تأذى دون أن تقصد؟', en: 'What happened to Sara in the match when she got angry? Who got hurt without her meaning it?' },
       { ar: 'ما الذي ساعد سارة على أن تتوقف؟ وماذا يساعد كل واحد منا حين يغضب؟', en: 'What helped Sara stop? What helps each of us when we get angry?' },
-      { ar: 'لماذا كان اعتذار سارة لرنا قويًّا لا ضعيفًا؟', en: 'Why was Sara\'s apology to Rana strong, not weak?' }
+      { ar: 'رأت سارة الأثر الأزرق على ذراع رنا بعد أسابيع، فاعتذرت. هل عندنا اعتذار تأخر، نستطيع أن نقوله هذا الأسبوع؟', en: 'Sara saw the blue mark on Rana\'s arm weeks later, and apologised. Is there an apology we have put off that we could make this week?' }
     ],
     act: { ar: 'كلمة السر العائلية: نختار معًا كلمة لطيفة يقولها أي واحد منا حين يرى غيره يغضب، فنتوقف كلنا ونتنفس ثلاث مرات.', en: 'A family code word: together we choose a gentle word anyone can say when they see someone getting angry, and we all stop and take three breaths.' }
   },
@@ -2352,9 +2389,9 @@ window.AKHLAQ_FAMILY({
   },
   'book-monkey-kids': {
     q: [
-      { ar: 'ماذا شعرت جود حين وقع البرج؟', en: 'How did Joud feel when the tower fell?' },
-      { ar: 'ماذا فعلت جود لتهدأ؟ لنجرب معًا: نجلس، ونتنفس نفسًا طويلًا.', en: 'What did Joud do to calm down? Let\'s try together: we sit and take one long breath.' },
-      { ar: 'كيف صار البرج الثاني؟ ولماذا كان أجمل؟', en: 'What was the second tower like? Why was it lovelier?' }
+      { ar: 'ماذا شعرت جود حين وقع البرج؟ وماذا أرادت يدها أن تفعل؟', en: 'How did Joud feel when the tower fell? What did her hand want to do?' },
+      { ar: 'ماذا فعلت جود لتهدأ؟ لنجرب معًا مثل عمر: نجلس، وننفخ نفسًا طويلًا.', en: 'What did Joud do to calm down? Let\'s try it together like Omar: we sit and blow out one long breath.' },
+      { ar: 'قلّد عمر أخته حين هدأت. من في بيتنا يقلّدنا؟ وماذا نحب أن يرى منا؟', en: 'Omar copied his sister when she calmed down. Who copies us at home? What would we like them to see us do?' }
     ],
     act: { ar: 'برج العائلة: نبني برجًا من المكعبات أو العلب، كل واحد يضع قطعة بدوره. وإن وقع ضحكنا وقلنا: نبنيه أجمل.', en: 'The family tower: we build a tower of blocks or boxes, each adding one piece in turn. If it falls, we laugh and say: let\'s build it lovelier.' }
   },
@@ -2396,11 +2433,11 @@ window.AKHLAQ_FAMILY({
   },
   'book-monkey-adult': {
     q: [
-      { ar: 'ما إشارات الغضب الأولى في أجسادنا قبل أن يصل إلى ألسنتنا؟', en: 'What are the first signs of anger in our bodies before it reaches our tongues?' },
-      { ar: 'أي وسيلة من وسائل التهدئة تناسب كل واحد منا: الجلوس، أو الماء، أو الاستعاذة، أو الابتعاد قليلًا؟', en: 'Which calming means suits each of us: sitting, water, seeking refuge, or stepping away a little?' },
-      { ar: 'كيف نجلس مع الطفل بعد العاصفة، فنفهم ما حدث دون محاكمة؟', en: 'How do we sit with a child after the storm and understand what happened without putting them on trial?' }
+      { ar: 'كانت عشرون ثانية من التقليد كافية لتوقف يد هبة في منتصف الطريق. متى ضحكنا، كبارًا وصغارًا، من تقليد أحد؟ وماذا بقي عنده بعد أن انتهى الضحك؟', en: 'Twenty seconds of imitation were enough to stop Hiba\'s hand halfway. When have we, adults and young people, laughed at someone being imitated? What stayed with them after the laughing stopped?' },
+      { ar: 'قال أوس لأخته: «لكنكِ أنتِ تفعلينها». ماذا يأخذ الصغار في بيتنا عنا نحن، في الغضب وفي الضحك؟', en: 'Aws told his sister: "But you do it." What do the young ones at home take from us, in anger and in laughter?' },
+      { ar: 'اختارت رغد ثلاث حركات تقلّدها حتى تصير لها: تجلس، وتضع كفيها على ركبتيها، وتستعيذ بالله. ما حركة كل واحد منا حين تصعد النار؟', en: 'Raghad picked three moves to imitate until they became hers: sit, palms on knees, seek refuge in Allah. What is each of our moves when the fire rises?' }
     ],
-    act: { ar: 'ركن الهدوء: نختار معًا مكانًا في البيت فيه وسادة وكأس ماء، يذهب إليه من يغضب، كبيرًا أو صغيرًا، ولا يتبعه أحد حتى يهدأ.', en: 'A calm corner: together we choose a spot at home with a cushion and a glass of water, where anyone who is angry, adult or child, can go, and no one follows until they have calmed down.' }
+    act: { ar: 'اجلس أولًا: نتفق هذا الأسبوع على أن من شعر بالغضب، كبيرًا كان أو صغيرًا، يجلس قبل أن يتكلم ويقول «أعوذ بالله من الشيطان الرجيم»، ومن رآه يجلس لا يكمل الجدال حتى يهدأ. وفي آخر الأسبوع يحكي كل واحد عن مرة جلس فيها. والكبار يبدؤون.', en: 'Sit first: this week we agree that anyone who feels anger rising, adult or child, sits down before speaking and says "I seek refuge in Allah from the accursed devil", and whoever sees them sit does not carry on the argument until they have calmed down. At the end of the week each of us tells of one time they sat. The adults go first.' }
   },
   'book-human-adult': {
     q: [

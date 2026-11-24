@@ -1301,14 +1301,14 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
       },
       story: {
         ar: [
-          "بدأت سهى هذا العام ثلاث دورات على الإنترنت: في التصميم، وفي اللغة، وفي الطبخ. ولم تكمل منها واحدة.",
-          "كانت كلما رأت دورة جديدة أعجبتها اشتركت فيها، ثم تركتها عند أول درس صعب.",
-          "فكتبت الدورات الثلاث على ورقة، واختارت واحدة، وقررت ألا تفتح غيرها حتى تنهيها. وبعد شهرين علّقت شهادتها الأولى فوق مكتبها."
+          "بدأت سهى هذا العام ثلاث دورات على الإنترنت: في التصميم، وفي اللغة، وفي الطبخ. كانت كلما رأت إعلان دورة جديدة اشتركت فيها في الليلة نفسها، ثم تركتها عند أول درس صعب.",
+          "وفي صباح واحد وصلتها ثلاث رسائل تذكّرها بتجديد الاشتراكات الثلاثة. فتحتها واحدة بعد واحدة: الأولى توقفت فيها عند الدرس الرابع، والثانية عند الثالث، والثالثة لم تدخلها منذ دفعت ثمنها.",
+          "ألغت اشتراكين، وكتبت على ورقة ألصقتها بطرف الشاشة: «دورة واحدة حتى آخرها». وبعد شهرين علّقت شهادتها الأولى فوق مكتبها، وتحتها الورقة نفسها."
         ],
         en: [
-          "This year Suha started three online courses: in design, in a language, and in cooking. She finished none of them.",
-          "Whenever she saw a new course she liked, she signed up, then dropped it at the first hard lesson.",
-          "So she wrote the three courses on a sheet of paper, chose one, and decided not to open any other until she had finished it. Two months later she hung her first certificate above her desk."
+          "This year Suha started three online courses: in design, in a language, and in cooking. Whenever she saw an advert for a new course she signed up that same night, then dropped it at the first hard lesson.",
+          "One morning three emails arrived reminding her to renew all three subscriptions. She opened them one by one: in the first course she had stopped at lesson four, in the second at lesson three, and the third she had not opened since paying for it.",
+          "She cancelled two of them and wrote on a slip of paper stuck to the edge of her screen: «One course, to the end». Two months later she hung her first certificate above her desk, with the same slip of paper beneath it."
         ]
       },
       step: {
@@ -1340,9 +1340,9 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
           en: "You are writing an important presentation due tomorrow, and ten messages arrive in your group chats. What is most useful?"
         },
         options: [
-          { ar: "أرد على الرسائل أولًا حتى أرتاح منها", en: "Answer the messages first to get them out of the way" },
-          { ar: "أكتم الإشعارات ساعة، وأنهي جزءًا من العرض، ثم أنظر في الرسائل", en: "Mute notifications for an hour, finish part of the presentation, then look at the messages" },
-          { ar: "أكتب سطرًا وأرد على رسالة، بالتناوب", en: "Write a line, answer a message, and alternate" }
+          { ar: "أرد على الرسائل أولًا، فهي قصيرة، ثم أتفرغ للعرض", en: "Answer the messages first, since they're short, then give myself to the presentation" },
+          { ar: "أكتم الإشعارات ساعة، وأنهي جزءًا من العرض أولًا", en: "Mute notifications for an hour and finish part of the presentation first" },
+          { ar: "أفتح المجموعات كل ربع ساعة، حتى لا يتراكم عليّ شيء", en: "Check the groups every quarter of an hour so that nothing piles up" }
         ],
         why: {
           ar: "كل انتقال يأخذ من الذهن وقتًا ليعود إلى ما كان فيه. والوقت المتصل لعمل واحد ينجز أكثر من ساعات متقطعة.",
@@ -1353,8 +1353,8 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
     {
       name: { ar: "لا يسمع ولا يتوقف", en: "Not listening, not stopping" },
       desc: {
-        ar: "الكلام قبل الاستماع، والرد قبل الفهم، والمضيّ في الأمر دون وقفة: لا يتوقف ليسمع، ولا ليتأكد، ولا ليراجع.",
-        en: "Speaking before listening, replying before understanding, pressing on without a pause: never stopping to hear, to check, or to think again."
+        ar: "الكلام قبل الاستماع، والرد قبل الفهم، والنقل قبل التثبت: يمضي صاحبها في الأمر ولا يقف ليسمع، أو ليتأكد، أو ليراجع.",
+        en: "Speaking before listening, replying before understanding, passing things on before checking them: pressing ahead without pausing to hear, to confirm, or to think again."
       },
       looks: {
         ar: "تقاطع زوجتك قبل أن تنهي جملتها لأنك عرفت ما ستقول، وتكتب ردًّا طويلًا في مجموعة العائلة على رسالة لم تقرأها كاملة.",
@@ -1363,14 +1363,14 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
       },
       story: {
         ar: [
-          "في اجتماع القسم كان فراس يقاطع كل من يتكلم: «فهمتك، فهمتك»، ثم يعرض فكرته.",
-          "وفي آخر الاجتماع تبيّن أن زميله كان يقترح الحل نفسه الذي يدافع عنه فراس، لكنه لم يدعه يكمل.",
-          "في الاجتماع التالي وضع فراس أمامه ورقة، يكتب فيها ما يريد قوله وينتظر حتى ينتهي المتكلم. وقال له زميله بعدها: هذه أول مرة أشعر أنك سمعتني."
+          "في اجتماعات القسم كان فراس يقاطع كل من يتكلم: «فهمتك، فهمتك»، ثم يعرض فكرته.",
+          "وفي آخر أحد الاجتماعات قرأ المدير الخلاصة بصوت عالٍ، فإذا الحل الذي دافع عنه فراس عشرين دقيقة هو الحل الذي بدأ زميله سليم يقترحه في أول الاجتماع، قبل أن يقطعه فراس.",
+          "في الاجتماع التالي وضع فراس أمامه ورقة وقلمًا، وكلما خطرت له فكرة كتبها وانتظر. وبعد الاجتماع وقف سليم عند باب مكتبه وقال: «هذه أول مرة أكمل فيها فكرة أمامك»."
         ],
         en: [
           "In department meetings Firas interrupted everyone who spoke: «I get it, I get it», then put forward his own idea.",
-          "At the end of one meeting it turned out that his colleague had been proposing the very solution Firas was arguing for, but Firas had not let him finish.",
-          "At the next meeting Firas put a sheet of paper in front of him, wrote down what he wanted to say, and waited until the speaker had finished. Afterwards his colleague told him: this is the first time I've felt you heard me."
+          "At the end of one meeting the manager read out the summary, and the solution Firas had argued for twenty minutes turned out to be the very one his colleague Salim had started to propose at the beginning, before Firas cut him off.",
+          "At the next meeting Firas put a sheet of paper and a pen in front of him, and whenever an idea came to him he wrote it down and waited. Afterwards Salim stopped at the door of his office and said: «That's the first time I've finished an idea in front of you»."
         ]
       },
       step: {
@@ -1402,9 +1402,9 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
           en: "In the family group you get a message about a remedy that «cures diabetes in a week», and your aunt asks everyone to share it. What do you do?"
         },
         options: [
-          { ar: "أعيد توجيهها، فقد ينتفع بها أحد", en: "Forward it; someone might benefit" },
-          { ar: "لا أنشرها حتى أتحقق من مصدر موثوق، وأكتب لخالتي بلطف أن الخبر غير مؤكد", en: "Don't share it until I check a reliable source, and gently tell my aunt it isn't confirmed" },
-          { ar: "أكتب ردًّا ساخرًا في المجموعة", en: "Post a mocking reply in the group" }
+          { ar: "أعيد توجيهها، وأكتب معها أن على من يجرّبها أن يسأل طبيبه", en: "Forward it, adding that anyone who tries it should ask their doctor" },
+          { ar: "لا أنشرها حتى أتحقق من مصدرها، وأكتب لخالتي بلطف أنها غير مؤكدة", en: "Don't share it until I check its source, and gently tell my aunt it isn't confirmed" },
+          { ar: "أكتب في المجموعة أن رسائل العلاج كلها كاذبة، ليتوقف الجميع", en: "Write in the group that all such remedy messages are lies, so everyone stops" }
         ],
         why: {
           ar: "التبيّن قبل النقل أمر قرآني، والخبر الطبي الكاذب يضر من يصدّقه. واللطف مع الخالة من صلة الرحم.",
@@ -1426,13 +1426,13 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
       story: {
         ar: [
           "كان باسل هادئًا في عمله، لكنه في الطريق يتغير: يرفع صوته على كل سائق يخطئ، ويلوّح بيده من النافذة.",
-          "وفي يوم كان ابنه في المقعد الخلفي، فسمعه بعد أيام يصرخ على أخيه الصغير بالكلمات نفسها.",
-          "من يومها جعل باسل لنفسه قاعدة في السيارة: إذا غضب قال «أعوذ بالله من الشيطان الرجيم» وسكت حتى الإشارة التالية. وصار ابنه يذكّره بها إذا نسي."
+          "وفي يوم كان ابنه في المقعد الخلفي. وبعد أيام سمعه في الصالة يلعب بسيارتين صغيرتين على السجادة، ويصرخ على أخيه بالكلمات نفسها، ويلوّح بيده كما يلوّح أبوه.",
+          "من يومها جعل باسل لنفسه قاعدة في السيارة: إذا غضب قال «أعوذ بالله من الشيطان الرجيم» وسكت حتى الإشارة التالية. وصار ابنه يذكّره بها من المقعد الخلفي إذا نسي."
         ],
         en: [
           "Basil was calm at work, but on the road he changed: he shouted at every driver who made a mistake and waved his hand out of the window.",
-          "One day his son was in the back seat, and a few days later Basil heard him shouting at his little brother with the very same words.",
-          "From then on Basil kept a rule in the car: when he got angry he said «I seek refuge in Allah from Satan the accursed» and stayed silent until the next traffic light. His son now reminds him when he forgets."
+          "One day his son was in the back seat. A few days later Basil heard him in the living room, playing with two toy cars on the rug, shouting at his brother with the very same words and waving his hand the way his father did.",
+          "From then on Basil kept a rule in the car: when he got angry he said «I seek refuge in Allah from Satan the accursed» and stayed silent until the next traffic light. Now his son reminds him from the back seat when he forgets."
         ]
       },
       step: {
@@ -1448,7 +1448,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
       habit: {
         ar: "اجعل وصية النبي صلى الله عليه وآله وسلم أمام عينك. قال له رجل: أوصني، فقال: «لاَ تَغْضَبْ». فردّد مرارًا، قال: «لاَ تَغْضَبْ» (البخاري 6116).",
         ar_f: "اجعلي وصية النبي صلى الله عليه وآله وسلم أمام عينك. قال له رجل: أوصني، فقال: «لاَ تَغْضَبْ». فردّد مرارًا، قال: «لاَ تَغْضَبْ» (البخاري 6116).",
-        en: "Keep the Prophet's counsel before your eyes. A man said to him: advise me. He said: «Do not get angry.» The man repeated his request several times, and each time he said: «Do not get angry» (Bukhari 6116)."
+        en: "Keep before your eyes the counsel of the Prophet, peace and blessings be upon him and his family. A man said to him: advise me. He said: «Do not get angry.» The man repeated his request several times, and each time he said: «Do not get angry» (Bukhari 6116)."
       },
       turnName: { ar: "الشجاعة في الحق", en: "Courage for what is right" },
       turn: {
@@ -1464,9 +1464,9 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
           en: "Your seven-year-old breaks your phone while playing, and you are tired. What is closest to the cure for quick anger?"
         },
         options: [
-          { ar: "أصرخ عليه حتى لا يكررها", en: "Shout at him so he won't do it again" },
-          { ar: "أسكت قليلًا وأبتعد حتى أهدأ، ثم أكلمه بهدوء عن الحرص على أغراض الناس", en: "Go quiet and step away until I am calm, then talk to him calmly about taking care of other people's things" },
-          { ar: "أمنعه من اللعب شهرًا كاملًا", en: "Ban him from playing for a whole month" }
+          { ar: "أرفع صوتي عليه مرة واحدة، حتى يعرف قيمة ما كسر", en: "Raise my voice at him once, so he learns the value of what he broke" },
+          { ar: "أبتعد حتى أهدأ، ثم أكلمه بهدوء عن الحرص على الأغراض", en: "Step away until I am calm, then talk to him calmly about taking care of things" },
+          { ar: "أمنعه من اللعب شهرًا، ولا أكلمه في الأمر الليلة", en: "Ban him from playing for a month, and say nothing about it tonight" }
         ],
         why: {
           ar: "الصمت والابتعاد يطفئان أول الغضب، والكلام الهادئ بعده يعلّم الطفل أكثر من الصراخ والعقوبة المبالغ فيها.",
@@ -1482,24 +1482,27 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
       body: {
         ar: [
           "على حاسوب أيمن عشرون تبويبًا مفتوحًا: بريد، ومقال لم يكمله، وفاتورة لم يدفعها، وسيارة يفكر في شرائها، ودرس بدأه قبل أسبوعين. يقول إنه يعمل على كل شيء في وقت واحد.",
-          "وفي آخر اليوم يعرف أنه لم يعمل على شيء. كل تبويب يذكّره بعمل ناقص، والذهن ينتقل بينها كما ينتقل من غصن إلى غصن، ولا يستقر على واحد.",
-          "في القرآن آية جاءت في سياق آخر، لكنها تذكّر بحقيقة الإنسان: ﴿مَا جَعَلَ اللَّهُ لِرَجُلٍ مِنْ قَلْبَيْنِ فِي جَوْفِهِ﴾ (الأحزاب 33:4). للإنسان قلب واحد، وانتباه واحد، وما يوزّعه على عشرين أمرًا يأخذ كل أمر منه قليلًا.",
+          "وفي آخر اليوم يعرف أنه لم يعمل على شيء. كل تبويب يذكّره بعمل ناقص، والذهن يقفز بينها ولا يستقر على واحد. وفي المساء جاءه ابنه بورقة رسمها في المدرسة، فقال «جميلة» وعينه على الشاشة، فطوى الصغير ورقته وخرج.",
+          "وفي سورة الأحزاب آية نزلت في شأن آخر، وفي لفظها حقيقة عن الإنسان كله: ﴿مَا جَعَلَ اللَّهُ لِرَجُلٍ مِنْ قَلْبَيْنِ فِي جَوْفِهِ﴾ (الأحزاب 33:4). للإنسان قلب واحد، وانتباه واحد، وما يوزّعه على عشرين أمرًا يأخذ كل أمر منه قليلًا.",
           "وكل انتقال من عمل إلى عمل له ثمن: يحتاج الذهن وقتًا ليعود إلى ما كان فيه، فتضيع في الانتقالات ساعات لا يراها صاحبها.",
-          "خطوات عملية: أغلق كل تبويب لا يحتاج إليه عملك الآن، واكتب ما تخاف أن تنساه على ورقة بدل أن تتركه مفتوحًا. اعمل على أمر واحد وقتًا متصلًا، ثم انتقل. وفي آخر اليوم، أتمّ شيئًا واحدًا، ولو صغيرًا، قبل أن تغلق الحاسوب."
+          "خطوات عملية: أغلق كل تبويب لا يحتاج إليه عملك الآن، واكتب ما تخاف أن تنساه على ورقة بدل أن تتركه مفتوحًا. اعمل على أمر واحد وقتًا متصلًا، ثم انتقل. وإذا جاءك أحد أولادك فأدر الشاشة عنك قبل أن تنظر إليه. وفي آخر اليوم، أتمّ شيئًا واحدًا، ولو صغيرًا، قبل أن تغلق الحاسوب.",
+          "في الليلة التالية أغلق أيمن ثمانية عشر تبويبًا، وكتب ما فيها على بطاقة صغيرة وضعها بجانب لوحة المفاتيح. ودفع الفاتورة، وأتم المقال. وحين دخل ابنه، أنزل غطاء الحاسوب، وطلب أن يرى الرسم من جديد."
         ],
         ar_f: [
           "على حاسوب أيمن عشرون تبويبًا مفتوحًا: بريد، ومقال لم يكمله، وفاتورة لم يدفعها، وسيارة يفكر في شرائها، ودرس بدأه قبل أسبوعين. يقول إنه يعمل على كل شيء في وقت واحد.",
-          "وفي آخر اليوم يعرف أنه لم يعمل على شيء. كل تبويب يذكّره بعمل ناقص، والذهن ينتقل بينها كما ينتقل من غصن إلى غصن، ولا يستقر على واحد.",
-          "في القرآن آية جاءت في سياق آخر، لكنها تذكّر بحقيقة الإنسان: ﴿مَا جَعَلَ اللَّهُ لِرَجُلٍ مِنْ قَلْبَيْنِ فِي جَوْفِهِ﴾ (الأحزاب 33:4). للإنسان قلب واحد، وانتباه واحد، وما يوزّعه على عشرين أمرًا يأخذ كل أمر منه قليلًا.",
+          "وفي آخر اليوم يعرف أنه لم يعمل على شيء. كل تبويب يذكّره بعمل ناقص، والذهن يقفز بينها ولا يستقر على واحد. وفي المساء جاءه ابنه بورقة رسمها في المدرسة، فقال «جميلة» وعينه على الشاشة، فطوى الصغير ورقته وخرج.",
+          "وفي سورة الأحزاب آية نزلت في شأن آخر، وفي لفظها حقيقة عن الإنسان كله: ﴿مَا جَعَلَ اللَّهُ لِرَجُلٍ مِنْ قَلْبَيْنِ فِي جَوْفِهِ﴾ (الأحزاب 33:4). للإنسان قلب واحد، وانتباه واحد، وما يوزّعه على عشرين أمرًا يأخذ كل أمر منه قليلًا.",
           "وكل انتقال من عمل إلى عمل له ثمن: يحتاج الذهن وقتًا ليعود إلى ما كان فيه، فتضيع في الانتقالات ساعات لا يراها صاحبها.",
-          "خطوات عملية: أغلقي كل تبويب لا يحتاج إليه عملك الآن، واكتبي ما تخافين أن تنسيه على ورقة بدل أن تتركيه مفتوحًا. اعملي على أمر واحد وقتًا متصلًا، ثم انتقلي. وفي آخر اليوم، أتمّي شيئًا واحدًا، ولو صغيرًا، قبل أن تغلقي الحاسوب."
+          "خطوات عملية: أغلقي كل تبويب لا يحتاج إليه عملك الآن، واكتبي ما تخافين أن تنسيه على ورقة بدل أن تتركيه مفتوحًا. اعملي على أمر واحد وقتًا متصلًا، ثم انتقلي. وإذا جاءك أحد أولادك فأديري الشاشة عنكِ قبل أن تنظري إليه. وفي آخر اليوم، أتمّي شيئًا واحدًا، ولو صغيرًا، قبل أن تغلقي الحاسوب.",
+          "في الليلة التالية أغلق أيمن ثمانية عشر تبويبًا، وكتب ما فيها على بطاقة صغيرة وضعها بجانب لوحة المفاتيح. ودفع الفاتورة، وأتم المقال. وحين دخل ابنه، أنزل غطاء الحاسوب، وطلب أن يرى الرسم من جديد."
         ],
         en: [
           "Ayman has twenty tabs open on his computer: email, an article he never finished, a bill he hasn't paid, a car he is thinking of buying, a lesson he started two weeks ago. He says he is working on everything at once.",
-          "At the end of the day he knows he has worked on nothing. Every tab reminds him of something unfinished, and his mind jumps between them as from branch to branch, settling on none.",
-          "There is a verse in the Quran that came in another context, yet it reminds us of something true of every person, meaning: Allah has not placed two hearts inside any man (al-Ahzab 33:4). A person has one heart and one attention, and whatever is spread across twenty things gives each of them little.",
+          "At the end of the day he knows he has worked on nothing. Every tab reminds him of something unfinished, and his mind jumps between them, settling on none. In the evening his son brought him a drawing from school; Ayman said «lovely» with his eyes on the screen, and the boy folded his paper and left.",
+          "A verse of al-Ahzab, revealed about another matter, holds in its wording a truth about every person, meaning: Allah has not placed two hearts inside any man (al-Ahzab 33:4). A person has one heart and one attention, and whatever is spread across twenty things gives each of them little.",
           "Every switch from one task to another has a cost: the mind needs time to return to where it was, and hours are lost in the switching that their owner never sees.",
-          "Practical steps: close every tab your current work doesn't need, and write down on paper whatever you fear forgetting instead of leaving it open. Work on one thing for an unbroken stretch, then move on. At the end of the day, finish one thing, however small, before you shut the computer."
+          "Practical steps: close every tab your current work doesn't need, and write down on paper whatever you fear forgetting instead of leaving it open. Work on one thing for an unbroken stretch, then move on. When one of your children comes to you, turn the screen away before you look at them. At the end of the day, finish one thing, however small, before you shut the computer.",
+          "The next night Ayman closed eighteen tabs and wrote what was in them on a small card by the keyboard. He paid the bill and finished the article. When his son came in, he lowered the laptop lid and asked to see the drawing again."
         ]
       },
       quote: {
@@ -1518,21 +1521,24 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
           "سكتت منى، ثم قالت: «لم أطلب حلًّا يا زياد، أردت أن تسمعني». واستغرب زياد، فقد ظن أنه يساعدها.",
           "كثير منا يسمع ليرد، لا ليفهم. يبدأ تحضير الجواب والآخر ما زال يتكلم، فيقاطعه، أو يكمل جملته عنه، أو يقفز إلى نصيحة لم تُطلب. والقرآن يأمر بأحسن القول، ويحذّر مما يفعله الكلام السيئ بين الناس: ﴿وَقُلْ لِعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ ۚ إِنَّ الشَّيْطَانَ يَنْزَغُ بَيْنَهُمْ﴾ (الإسراء 17:53).",
           "والمقاطعة من أسرع ما يفتح باب هذا النزغ: يشعر المقاطَع أنه غير مهم، فيرفع صوته، ويتحول الحديث إلى خصام.",
-          "خطوات عملية: دع المتكلم ينهي كلامه كله. أعد عليه ما فهمته في جملة: «تقصد أن...». واسأل قبل أن تنصح: «تريد رأيي، أم تريد أن أسمعك؟». وفي الاجتماعات اكتب فكرتك على ورقة بدل أن تقطع بها كلام غيرك."
+          "خطوات عملية: دع المتكلم ينهي كلامه كله. أعد عليه ما فهمته في جملة: «تقصد أن...». واسأل قبل أن تنصح: «تريد رأيي، أم تريد أن أسمعك؟». وفي الاجتماعات اكتب فكرتك على ورقة بدل أن تقطع بها كلام غيرك.",
+          "بعد أيام عادت منى متعبة مرة أخرى. أطفأ زياد الموقد، وجلس قبالتها، وسألها: «تريدين رأيي، أم أسمعك؟». قالت: «اسمعني أولًا». فسمع عشر دقائق لم يقل فيها شيئًا، ثم كانت هي التي سألته عن رأيه."
         ],
         ar_f: [
           "عادت منى من عملها مهمومة، وبدأت تحكي لزوجها زياد عن خلاف مع مديرتها. وقبل أن تكمل الجملة الثانية قال زياد: «لا تهتمي، اكتبي لها رسالة واضحة، أو ابحثي عن عمل آخر».",
           "سكتت منى، ثم قالت: «لم أطلب حلًّا يا زياد، أردت أن تسمعني». واستغرب زياد، فقد ظن أنه يساعدها.",
           "كثير منا يسمع ليرد، لا ليفهم. يبدأ تحضير الجواب والآخر ما زال يتكلم، فيقاطعه، أو يكمل جملته عنه، أو يقفز إلى نصيحة لم تُطلب. والقرآن يأمر بأحسن القول، ويحذّر مما يفعله الكلام السيئ بين الناس: ﴿وَقُلْ لِعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ ۚ إِنَّ الشَّيْطَانَ يَنْزَغُ بَيْنَهُمْ﴾ (الإسراء 17:53).",
           "والمقاطعة من أسرع ما يفتح باب هذا النزغ: يشعر المقاطَع أنه غير مهم، فيرفع صوته، ويتحول الحديث إلى خصام.",
-          "خطوات عملية: دعي المتكلم ينهي كلامه كله. أعيدي عليه ما فهمتِه في جملة: «تقصد أن...». واسألي قبل أن تنصحي: «تريد رأيي، أم تريد أن أسمعك؟». وفي الاجتماعات اكتبي فكرتك على ورقة بدل أن تقطعي بها كلام غيرك."
+          "خطوات عملية: دعي المتكلم ينهي كلامه كله. أعيدي عليه ما فهمتِه في جملة: «تقصد أن...». واسألي قبل أن تنصحي: «تريد رأيي، أم تريد أن أسمعك؟». وفي الاجتماعات اكتبي فكرتك على ورقة بدل أن تقطعي بها كلام غيرك.",
+          "بعد أيام عادت منى متعبة مرة أخرى. أطفأ زياد الموقد، وجلس قبالتها، وسألها: «تريدين رأيي، أم أسمعك؟». قالت: «اسمعني أولًا». فسمع عشر دقائق لم يقل فيها شيئًا، ثم كانت هي التي سألته عن رأيه."
         ],
         en: [
           "Mona came home from work troubled and began telling her husband Ziyad about a disagreement with her manager. Before she had finished her second sentence Ziyad said: «Don't worry about it; write her a clear message, or look for another job.»",
           "Mona fell silent, then said: «I didn't ask for a solution, Ziyad. I wanted you to listen.» Ziyad was surprised; he had thought he was helping.",
           "Many of us listen in order to reply, not to understand. We start preparing the answer while the other is still talking, so we interrupt, finish their sentence for them, or jump to advice nobody asked for. The Quran commands the best speech and warns of what bad words do between people, meaning: tell My servants to say what is best; Satan sows discord among them (al-Isra 17:53).",
           "Interrupting is one of the quickest ways to open the door to that discord: the person cut off feels unimportant, raises their voice, and the conversation turns into a quarrel.",
-          "Practical steps: let the speaker finish everything. Sum up what you understood in one sentence: «You mean that...». Ask before advising: «Do you want my opinion, or do you want me to listen?» In meetings, write your idea on paper instead of cutting into someone else's words with it."
+          "Practical steps: let the speaker finish everything. Sum up what you understood in one sentence: «You mean that...». Ask before advising: «Do you want my opinion, or do you want me to listen?» In meetings, write your idea on paper instead of cutting into someone else's words with it.",
+          "A few days later Mona came home tired again. Ziyad turned off the stove, sat down facing her and asked: «Do you want my opinion, or shall I listen?» She said: «Listen first.» He listened for ten minutes without a word, and in the end it was she who asked what he thought."
         ]
       },
       quote: {
@@ -1549,23 +1555,26 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
         ar: [
           "كان نادر متأخرًا عن اجتماع، فدخلت سيارة أمامه فجأة. ضغط البوق طويلًا، ولحق بها، وأنزل زجاج النافذة وصاح. وحين وقفت السيارتان عند الإشارة رأى في المقعد الخلفي للسيارة الأخرى طفلًا خائفًا ينظر إليه.",
           "وصل نادر إلى الاجتماع وقلبه يخفق، ولم يستطع أن يركّز فيه. وطوال اليوم كانت صورة الطفل تعود إليه.",
-          "قال النبي صلى الله عليه وآله وسلم: «لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ» (البخاري 6114). القوة ليست في أن تغلب الآخر، بل في أن تغلب ما يشتعل فيك.",
-          "وعلّم النبي صلى الله عليه وآله وسلم دواء الغضب. استبّ رجلان عنده، وقد احمرّ وجه أحدهما، فقال: «إِنِّي لأَعْلَمُ كَلِمَةً لَوْ قَالَهَا لَذَهَبَ عَنْهُ مَا يَجِدُ لَوْ قَالَ أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ» (البخاري 6115).",
-          "خطوات عملية: اخرج قبل موعدك بدقائق، فالاستعجال وقود الغضب. وإذا أخطأ أحد في حقك على الطريق فقل الاستعاذة، وخفّف السرعة، ولا تلحق به. وتذكّر أن السائق الآخر قد يكون مسرعًا إلى مستشفى، أو أبًا متعبًا، أو مخطئًا كما تخطئ أنت أحيانًا."
+          "قال النبي صلى الله عليه وآله وسلم: «لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ» (البخاري 6114). والقوة التي يمدحها الحديث أن تغلب ما يشتعل فيك أنت.",
+          "وعلّم النبي صلى الله عليه وآله وسلم دواء الغضب. استبّ رجلان عنده، وأحدهما يسبّ صاحبه مغضبًا قد احمرّ وجهه، فقال: «إِنِّي لأَعْلَمُ كَلِمَةً لَوْ قَالَهَا لَذَهَبَ عَنْهُ مَا يَجِدُ لَوْ قَالَ أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ» (البخاري 6115).",
+          "خطوات عملية: اخرج قبل موعدك بدقائق، فالاستعجال وقود الغضب. وإذا أخطأ أحد في حقك على الطريق فقل الاستعاذة، وخفّف السرعة، ولا تلحق به. وتذكّر أن السائق الآخر قد يكون مسرعًا إلى مستشفى، أو أبًا متعبًا، أو مخطئًا كما تخطئ أنت أحيانًا.",
+          "في الأسبوع التالي خرج نادر قبل موعده بربع ساعة. وعلى الطريق نفسه دخلت سيارة أمامه، فرفع قدمه عن الوقود، وقال الاستعاذة بصوت لم يسمعه غيره، وترك بينه وبينها مسافة حتى الإشارة."
         ],
         ar_f: [
           "كان نادر متأخرًا عن اجتماع، فدخلت سيارة أمامه فجأة. ضغط البوق طويلًا، ولحق بها، وأنزل زجاج النافذة وصاح. وحين وقفت السيارتان عند الإشارة رأى في المقعد الخلفي للسيارة الأخرى طفلًا خائفًا ينظر إليه.",
           "وصل نادر إلى الاجتماع وقلبه يخفق، ولم يستطع أن يركّز فيه. وطوال اليوم كانت صورة الطفل تعود إليه.",
-          "قال النبي صلى الله عليه وآله وسلم: «لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ» (البخاري 6114). القوة ليست في أن تغلب الآخر، بل في أن تغلب ما يشتعل فيك.",
-          "وعلّم النبي صلى الله عليه وآله وسلم دواء الغضب. استبّ رجلان عنده، وقد احمرّ وجه أحدهما، فقال: «إِنِّي لأَعْلَمُ كَلِمَةً لَوْ قَالَهَا لَذَهَبَ عَنْهُ مَا يَجِدُ لَوْ قَالَ أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ» (البخاري 6115).",
-          "خطوات عملية: اخرجي قبل موعدك بدقائق، فالاستعجال وقود الغضب. وإذا أخطأ أحد في حقك على الطريق فقولي الاستعاذة، وخفّفي السرعة، ولا تلحقي به. وتذكّري أن السائق الآخر قد يكون مسرعًا إلى مستشفى، أو أبًا متعبًا، أو مخطئًا كما تخطئين أنتِ أحيانًا."
+          "قال النبي صلى الله عليه وآله وسلم: «لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ» (البخاري 6114). والقوة التي يمدحها الحديث أن تغلبي ما يشتعل فيكِ أنتِ.",
+          "وعلّم النبي صلى الله عليه وآله وسلم دواء الغضب. استبّ رجلان عنده، وأحدهما يسبّ صاحبه مغضبًا قد احمرّ وجهه، فقال: «إِنِّي لأَعْلَمُ كَلِمَةً لَوْ قَالَهَا لَذَهَبَ عَنْهُ مَا يَجِدُ لَوْ قَالَ أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ» (البخاري 6115).",
+          "خطوات عملية: اخرجي قبل موعدك بدقائق، فالاستعجال وقود الغضب. وإذا أخطأ أحد في حقك على الطريق فقولي الاستعاذة، وخفّفي السرعة، ولا تلحقي به. وتذكّري أن السائق الآخر قد يكون مسرعًا إلى مستشفى، أو أبًا متعبًا، أو مخطئًا كما تخطئين أنتِ أحيانًا.",
+          "في الأسبوع التالي خرج نادر قبل موعده بربع ساعة. وعلى الطريق نفسه دخلت سيارة أمامه، فرفع قدمه عن الوقود، وقال الاستعاذة بصوت لم يسمعه غيره، وترك بينه وبينها مسافة حتى الإشارة."
         ],
         en: [
           "Nader was late for a meeting when a car suddenly pulled in front of him. He leaned on the horn, chased it, rolled down his window and shouted. When the two cars stopped at the lights he saw a frightened child in the back seat of the other car, looking at him.",
           "Nader reached the meeting with his heart pounding and could not concentrate. All day the picture of that child kept coming back to him.",
-          "The Prophet, peace and blessings be upon him and his family, said: «The strong one is not the one who wrestles others down; the strong one is he who controls himself when angry» (Bukhari 6114). Strength is not in overpowering the other, but in overpowering what flares up inside you.",
-          "The Prophet also taught the remedy for anger. Two men were insulting each other in his presence, and one had gone red in the face. He said, in meaning: I know a phrase which, if he said it, what he feels would leave him: if he said, I seek refuge in Allah from Satan the accursed (Bukhari 6115).",
-          "Practical steps: leave a few minutes early, for hurry is the fuel of anger. If someone wrongs you on the road, say the words of refuge, slow down, and don't chase them. Remember that the other driver may be rushing to a hospital, or be a tired parent, or simply be wrong, as you are sometimes."
+          "The Prophet, peace and blessings be upon him and his family, said: «The strong one is not the one who wrestles others down; the strong one is he who controls himself when angry» (Bukhari 6114). The strength the hadith praises is overpowering what flares up inside you.",
+          "The Prophet also taught the remedy for anger. Two men were insulting each other in his presence, one of them furious and red in the face. He said, in meaning: I know a phrase which, if he said it, what he feels would leave him: if he said, I seek refuge in Allah from Satan the accursed (Bukhari 6115).",
+          "Practical steps: leave a few minutes early, for hurry is the fuel of anger. If someone wrongs you on the road, say the words of refuge, slow down, and don't chase them. Remember that the other driver may be rushing to a hospital, or be a tired parent, or simply be wrong, as you are sometimes.",
+          "The following week Nader left a quarter of an hour early. On the same road a car pulled in front of him; he lifted his foot off the accelerator, said the words of refuge too quietly for anyone else to hear, and kept his distance until the lights."
         ]
       },
       quote: {
@@ -1582,64 +1591,73 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
         ar: [
           "الساعة السابعة صباحًا. سلمى تحضّر الإفطار، وتبحث عن حذاء ابنها، وتذكّر ابنتها بكتاب نسيته، والحافلة بعد عشر دقائق. وحين سكب الصغير الحليب على قميصه المدرسي صرخت بصوت سمعه الجيران.",
           "ركب الأولاد الحافلة صامتين. وجلست سلمى في المطبخ تشعر بثقل، وتعرف أن الحليب لم يكن السبب، وأن الصباح المزدحم كان يغلي فيها قبل أن يُسكب.",
-          "قالت السيدة عائشة إن النبي صلى الله عليه وآله وسلم قال: «إِنَّ الرِّفْقَ لاَ يَكُونُ فِي شَىْءٍ إِلاَّ زَانَهُ وَلاَ يُنْزَعُ مِنْ شَىْءٍ إِلاَّ شَانَهُ» (صحيح مسلم 2594). والصراخ ينزع الرفق من البيت، ويعلّم الأولاد أن الصوت العالي طريقة لحل المشكلات.",
-          "وأكثر الغضب على الأولاد لا يأتي من خطئهم، بل من ضغط سابق: استعجال، أو تعب، أو همّ من العمل. ومن عرف ذلك عرف أين يبدأ العلاج.",
-          "خطوات عملية: حضّر في الليل ما تستطيع: الملابس والحقائب والإفطار. وإذا شعرت بالصوت يرتفع فانزل إلى مستوى الطفل، وتكلم بصوت أخفض مما تريد. وإن صرخت فاعتذر إليه بعد أن تهدأ، فالاعتذار للصغير درس لا ينساه."
+          "روت السيدة عائشة رضي الله عنها عن النبي صلى الله عليه وآله وسلم أنه قال: «إِنَّ الرِّفْقَ لاَ يَكُونُ فِي شَىْءٍ إِلاَّ زَانَهُ وَلاَ يُنْزَعُ مِنْ شَىْءٍ إِلاَّ شَانَهُ» (صحيح مسلم 2594). والصراخ ينزع الرفق من البيت، ويعلّم الأولاد أن الصوت العالي طريقة لحل المشكلات.",
+          "وأكثر الغضب على الأولاد يبدأ قبل خطئهم بكثير: في استعجال، أو تعب، أو همّ حُمل من العمل. ومن عرف ذلك عرف أين يبدأ العلاج.",
+          "خطوات عملية: حضّر في الليل ما تستطيع: الملابس والحقائب والإفطار. وإذا شعرت بالصوت يرتفع فانزل إلى مستوى الطفل، وتكلم بصوت أخفض مما تريد. وإن صرخت فاعتذر إليه بعد أن تهدأ، فالاعتذار للصغير درس لا ينساه.",
+          "في المساء صفّت سلمى الحقائب الثلاث عند الباب، وعلّقت القمصان على ظهور الكراسي. ثم دخلت غرفة الصغير، وجلست على طرف سريره، وقالت: «صرختُ عليك اليوم، وأنا آسفة». فأمسك يدها وقال: «والقميص صار نظيفًا»."
         ],
         ar_f: [
           "الساعة السابعة صباحًا. سلمى تحضّر الإفطار، وتبحث عن حذاء ابنها، وتذكّر ابنتها بكتاب نسيته، والحافلة بعد عشر دقائق. وحين سكب الصغير الحليب على قميصه المدرسي صرخت بصوت سمعه الجيران.",
           "ركب الأولاد الحافلة صامتين. وجلست سلمى في المطبخ تشعر بثقل، وتعرف أن الحليب لم يكن السبب، وأن الصباح المزدحم كان يغلي فيها قبل أن يُسكب.",
-          "قالت السيدة عائشة إن النبي صلى الله عليه وآله وسلم قال: «إِنَّ الرِّفْقَ لاَ يَكُونُ فِي شَىْءٍ إِلاَّ زَانَهُ وَلاَ يُنْزَعُ مِنْ شَىْءٍ إِلاَّ شَانَهُ» (صحيح مسلم 2594). والصراخ ينزع الرفق من البيت، ويعلّم الأولاد أن الصوت العالي طريقة لحل المشكلات.",
-          "وأكثر الغضب على الأولاد لا يأتي من خطئهم، بل من ضغط سابق: استعجال، أو تعب، أو همّ من العمل. ومن عرف ذلك عرف أين يبدأ العلاج.",
-          "خطوات عملية: حضّري في الليل ما تستطيعين: الملابس والحقائب والإفطار. وإذا شعرتِ بالصوت يرتفع فانزلي إلى مستوى الطفل، وتكلمي بصوت أخفض مما تريدين. وإن صرختِ فاعتذري إليه بعد أن تهدئي، فالاعتذار للصغير درس لا ينساه."
+          "روت السيدة عائشة رضي الله عنها عن النبي صلى الله عليه وآله وسلم أنه قال: «إِنَّ الرِّفْقَ لاَ يَكُونُ فِي شَىْءٍ إِلاَّ زَانَهُ وَلاَ يُنْزَعُ مِنْ شَىْءٍ إِلاَّ شَانَهُ» (صحيح مسلم 2594). والصراخ ينزع الرفق من البيت، ويعلّم الأولاد أن الصوت العالي طريقة لحل المشكلات.",
+          "وأكثر الغضب على الأولاد يبدأ قبل خطئهم بكثير: في استعجال، أو تعب، أو همّ حُمل من العمل. ومن عرف ذلك عرف أين يبدأ العلاج.",
+          "خطوات عملية: حضّري في الليل ما تستطيعين: الملابس والحقائب والإفطار. وإذا شعرتِ بالصوت يرتفع فانزلي إلى مستوى الطفل، وتكلمي بصوت أخفض مما تريدين. وإن صرختِ فاعتذري إليه بعد أن تهدئي، فالاعتذار للصغير درس لا ينساه.",
+          "في المساء صفّت سلمى الحقائب الثلاث عند الباب، وعلّقت القمصان على ظهور الكراسي. ثم دخلت غرفة الصغير، وجلست على طرف سريره، وقالت: «صرختُ عليك اليوم، وأنا آسفة». فأمسك يدها وقال: «والقميص صار نظيفًا»."
         ],
         en: [
           "Seven in the morning. Salma is making breakfast, hunting for her son's shoe, reminding her daughter of a book she forgot, and the bus comes in ten minutes. When the youngest spills milk on his school shirt she shouts loud enough for the neighbours to hear.",
           "The children get on the bus in silence. Salma sits in the kitchen feeling heavy, knowing the milk wasn't the cause, that the crowded morning had been boiling inside her before anything was spilled.",
-          "Lady Aisha reported that the Prophet, peace and blessings be upon him and his family, said: «Gentleness is not in anything except that it adorns it, and it is not removed from anything except that it disfigures it» (Sahih Muslim 2594). Shouting removes gentleness from a home, and teaches children that a loud voice is the way to solve problems.",
-          "Most anger at children does not come from their mistakes but from pressure already there: hurry, tiredness, or worry from work. Whoever knows that knows where the cure begins.",
-          "Practical steps: prepare what you can the night before: clothes, bags, breakfast. When you feel your voice rising, get down to the child's level and speak more softly than you want to. If you do shout, apologise once you are calm, for an apology to a little one is a lesson they never forget."
+          "Lady Aisha, may Allah be pleased with her, reported that the Prophet, peace and blessings be upon him and his family, said: «Gentleness is not in anything except that it adorns it, and it is not removed from anything except that it disfigures it» (Sahih Muslim 2594). Shouting removes gentleness from a home, and teaches children that a loud voice is the way to solve problems.",
+          "Most anger at children begins long before their mistake: in hurry, in tiredness, in worry carried home from work. Whoever knows that knows where the cure begins.",
+          "Practical steps: prepare what you can the night before: clothes, bags, breakfast. When you feel your voice rising, get down to the child's level and speak more softly than you want to. If you do shout, apologise once you are calm, for an apology to a little one is a lesson they never forget.",
+          "That evening Salma lined up the three bags by the door and hung the shirts over the backs of the chairs. Then she went into the youngest's room, sat on the edge of his bed and said: «I shouted at you today, and I'm sorry.» He took her hand and said: «And the shirt got clean again.»"
         ]
       },
       quote: {
         ar: "«إِنَّ الرِّفْقَ لاَ يَكُونُ فِي شَىْءٍ إِلاَّ زَانَهُ وَلاَ يُنْزَعُ مِنْ شَىْءٍ إِلاَّ شَانَهُ»",
         en: "Meaning: Gentleness is not in anything except that it adorns it, and it is not removed from anything except that it disfigures it.",
-        ref: "صحيح مسلم 2594 (ترقيم sunnah.com: الكتاب 45، الحديث 100)، عن عائشة", checked: "hadith-api (fawazahmed0)", verify: true
+        ref: "صحيح مسلم 2594 (ترقيم sunnah.com: الكتاب 45، الحديث 100)، عن عائشة رضي الله عنها", checked: "hadith-api (fawazahmed0), ara-muslim 6602", verify: true
       },
       source: { ar: "قصة مؤلفة بشخصيات خيالية، مع حديث في صحيح مسلم.", en: "An original story with fictional characters, with a hadith in Sahih Muslim." }
     },
     {
-      id: "am-r5", minutes: 4, ages: "18+",
-      title: { ar: "قبل أن تضغط «إعادة توجيه»", en: "Before you press «forward»" },
+      id: "am-r5", minutes: 5, ages: "18+",
+      title: { ar: "مقطع أضحك المجموعة", en: "A clip that made the group laugh" },
       body: {
         ar: [
-          "في مجموعات المحادثة تنتقل الأخبار أسرع من أي وقت مضى: تحذير من دواء، وخبر وفاة، وصورة لحادث، وكلام منسوب إلى عالم أو طبيب. يكفي ضغطة واحدة لتصل الرسالة إلى مئات الناس، وأكثرهم لا يسأل: من قال هذا؟",
-          "والقرآن وضع لهذا قاعدة واضحة قبل أن تُخترع الهواتف: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِنْ جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَنْ تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ﴾ (الحجرات 49:6).",
-          "في الآية سبب الأمر ونتيجة تركه: من نقل ما لم يتبيّنه قد يصيب قومًا بجهالة، فيُتّهم بريء، أو يُصدَّق علاج كاذب، أو يُنشر خوف لا أصل له. ثم يأتي الندم بعد أن يكون الخبر قد طار.",
-          "والرد قبل الفهم مثل النقل قبل التبيّن: يقرأ أحدنا أول سطر من رسالة طويلة، فيرد غاضبًا على ما لم يُقل، ويتحول النقاش في المجموعة إلى خلاف بين الأقارب.",
-          "خطوات عملية: اقرأ الرسالة كاملة قبل أن ترد. اسأل عن مصدرها، وابحث عنه إن استطعت. وإن لم تعرف صحتها فلا تنقلها، ويكفيك أن تسكت. وإذا كتبت ردًّا وأنت منفعل فاتركه دقائق قبل أن ترسله."
+          "وصل إلى وائل في مجموعة الأصدقاء مقطع قصير: رجل مسنّ عند صندوق الدفع في متجر، يحاول أن يدفع بهاتفه فيضغط الزر الخطأ مرة بعد مرة، والطابور خلفه يتأفف. وفوق المقطع موسيقى مضحكة، وتحته تعليق: «جيل لا أمل فيه».",
+          "ضحك وائل، وأعاد توجيهه إلى مجموعة العمل، وزاد عليه ثلاثة رموز ضاحكة. وفي دقائق امتلأت المجموعة بالضحكات، ومضى كل واحد إلى عمله.",
+          "وفي صباح الجمعة وقف وائل في طابور الصيدلية، فرأى أباه أمامه عند الصندوق يحاول أن يدفع بهاتفه الجديد. أخطأ أبوه الزر مرتين، وتنهّد الشاب الذي خلفه بصوت مسموع، فاحمرّ وجه الأب ونظر حوله كأنه يعتذر. تقدّم وائل ووقف بجانبه، وأمسك الهاتف معه حتى تم الدفع.",
+          "قال الله تعالى: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا لَا يَسْخَرْ قَوْمٌ مِنْ قَوْمٍ عَسَىٰ أَنْ يَكُونُوا خَيْرًا مِنْهُمْ﴾ (الحجرات 49:11). والرجل في المقطع له اسم وبيت وأولاد، ولعل له عند الله منزلة لا يبلغها أحد ممن ضحكوا منه. وقال النبي صلى الله عليه وآله وسلم: «بِحَسْبِ امْرِئٍ مِنَ الشَّرِّ أَنْ يَحْقِرَ أَخَاهُ الْمُسْلِمَ» (صحيح مسلم 2564).",
+          "ويعرّف الغزالي السخرية بأنها «الاستهانة والتحقير والتنبيه على العيوب والنقائص على وجه يضحك منه»، ويذكر أنها قد تكون «بالمحاكاة في الفعل والقول»، وقد تكون «بالإشارة والإيماء» (إحياء علوم الدين، كتاب آفات اللسان، الآفة الحادية عشرة). وفي زماننا صار للإشارة شكل جديد: رمز ضاحك تحت مقطع، أو إعادة توجيه بضغطة واحدة.",
+          "خطوات عملية: قبل أن تعيد توجيه مقطع يُضحك، اسأل: هل فيه إنسان يُضحك منه؟ وهل أرضى أن يدور مثله عن أبي، أو عني؟ وإذا دار في مجموعة فلا تزد عليه رمزًا، ويكفيك أن تسكت، أو أن تكتب: «لعل له عذرًا». وإن أرسلته ثم تبيّن لك، فاحذفه، واعتذر في المجموعة نفسها التي أرسلته فيها.",
+          "في السيارة فتح وائل مجموعة العمل، فوجد المقطع ما زال في أعلاها. حذفه، وكتب تحته: «أرسلت أمس مقطعًا لا يليق، وأعتذر. رأيت اليوم أبي في الموقف نفسه». ثم أعاد الهاتف إلى جيبه، وسأل أباه إن كان يريد أن يتعلم الدفع بالهاتف في البيت."
         ],
         ar_f: [
-          "في مجموعات المحادثة تنتقل الأخبار أسرع من أي وقت مضى: تحذير من دواء، وخبر وفاة، وصورة لحادث، وكلام منسوب إلى عالم أو طبيب. يكفي ضغطة واحدة لتصل الرسالة إلى مئات الناس، وأكثرهم لا يسأل: من قال هذا؟",
-          "والقرآن وضع لهذا قاعدة واضحة قبل أن تُخترع الهواتف: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِنْ جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَنْ تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ﴾ (الحجرات 49:6).",
-          "في الآية سبب الأمر ونتيجة تركه: من نقل ما لم يتبيّنه قد يصيب قومًا بجهالة، فيُتّهم بريء، أو يُصدَّق علاج كاذب، أو يُنشر خوف لا أصل له. ثم يأتي الندم بعد أن يكون الخبر قد طار.",
-          "والرد قبل الفهم مثل النقل قبل التبيّن: يقرأ أحدنا أول سطر من رسالة طويلة، فيرد غاضبًا على ما لم يُقل، ويتحول النقاش في المجموعة إلى خلاف بين الأقارب.",
-          "خطوات عملية: اقرئي الرسالة كاملة قبل أن تردي. اسألي عن مصدرها، وابحثي عنه إن استطعتِ. وإن لم تعرفي صحتها فلا تنقليها، ويكفيك أن تسكتي. وإذا كتبتِ ردًّا وأنتِ منفعلة فاتركيه دقائق قبل أن ترسليه."
+          "وصل إلى وائل في مجموعة الأصدقاء مقطع قصير: رجل مسنّ عند صندوق الدفع في متجر، يحاول أن يدفع بهاتفه فيضغط الزر الخطأ مرة بعد مرة، والطابور خلفه يتأفف. وفوق المقطع موسيقى مضحكة، وتحته تعليق: «جيل لا أمل فيه».",
+          "ضحك وائل، وأعاد توجيهه إلى مجموعة العمل، وزاد عليه ثلاثة رموز ضاحكة. وفي دقائق امتلأت المجموعة بالضحكات، ومضى كل واحد إلى عمله.",
+          "وفي صباح الجمعة وقف وائل في طابور الصيدلية، فرأى أباه أمامه عند الصندوق يحاول أن يدفع بهاتفه الجديد. أخطأ أبوه الزر مرتين، وتنهّد الشاب الذي خلفه بصوت مسموع، فاحمرّ وجه الأب ونظر حوله كأنه يعتذر. تقدّم وائل ووقف بجانبه، وأمسك الهاتف معه حتى تم الدفع.",
+          "قال الله تعالى: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا لَا يَسْخَرْ قَوْمٌ مِنْ قَوْمٍ عَسَىٰ أَنْ يَكُونُوا خَيْرًا مِنْهُمْ﴾ (الحجرات 49:11). والرجل في المقطع له اسم وبيت وأولاد، ولعل له عند الله منزلة لا يبلغها أحد ممن ضحكوا منه. وقال النبي صلى الله عليه وآله وسلم: «بِحَسْبِ امْرِئٍ مِنَ الشَّرِّ أَنْ يَحْقِرَ أَخَاهُ الْمُسْلِمَ» (صحيح مسلم 2564).",
+          "ويعرّف الغزالي السخرية بأنها «الاستهانة والتحقير والتنبيه على العيوب والنقائص على وجه يضحك منه»، ويذكر أنها قد تكون «بالمحاكاة في الفعل والقول»، وقد تكون «بالإشارة والإيماء» (إحياء علوم الدين، كتاب آفات اللسان، الآفة الحادية عشرة). وفي زماننا صار للإشارة شكل جديد: رمز ضاحك تحت مقطع، أو إعادة توجيه بضغطة واحدة.",
+          "خطوات عملية: قبل أن تعيدي توجيه مقطع يُضحك، اسألي: هل فيه إنسان يُضحك منه؟ وهل أرضى أن يدور مثله عن أبي، أو عني؟ وإذا دار في مجموعة فلا تزيدي عليه رمزًا، ويكفيكِ أن تسكتي، أو أن تكتبي: «لعل له عذرًا». وإن أرسلتِه ثم تبيّن لكِ، فاحذفيه، واعتذري في المجموعة نفسها التي أرسلتِه فيها.",
+          "في السيارة فتح وائل مجموعة العمل، فوجد المقطع ما زال في أعلاها. حذفه، وكتب تحته: «أرسلت أمس مقطعًا لا يليق، وأعتذر. رأيت اليوم أبي في الموقف نفسه». ثم أعاد الهاتف إلى جيبه، وسأل أباه إن كان يريد أن يتعلم الدفع بالهاتف في البيت."
         ],
         en: [
-          "In group chats news travels faster than ever: a warning about a medicine, a death announcement, a photo of an accident, words attributed to a scholar or a doctor. One tap is enough for a message to reach hundreds of people, most of whom never ask: who said this?",
-          "The Quran set a clear rule for this long before phones were invented, meaning: O you who believe, if a wrongdoer brings you news, verify it, lest you harm a people out of ignorance and then regret what you have done (al-Hujurat 49:6).",
-          "The verse gives both the reason for the command and the result of ignoring it: whoever passes on what they have not verified may harm people out of ignorance, so that an innocent person is accused, a false cure is believed, or baseless fear is spread. Regret comes after the story has already flown.",
-          "Replying before understanding is like passing on before verifying: we read the first line of a long message, reply angrily to something that was never said, and the discussion in the group turns into a quarrel between relatives.",
-          "Practical steps: read the whole message before you reply. Ask where it comes from, and look it up if you can. If you don't know whether it is true, don't pass it on; silence is enough. And if you write a reply while upset, leave it for a few minutes before you send it."
+          "A short clip reached Wael in his friends' group: an elderly man at a shop checkout trying to pay with his phone, pressing the wrong button again and again while the queue behind him sighs. Comic music plays over it, and beneath it a caption: «A hopeless generation».",
+          "Wael laughed, forwarded it to his work group and added three laughing emojis. Within minutes the group was full of laughter, and everyone went back to work.",
+          "On Friday morning Wael was standing in the pharmacy queue when he saw his father ahead of him at the counter, trying to pay with his new phone. His father pressed the wrong button twice, the young man behind him sighed audibly, and his father's face reddened as he looked around as if to apologise. Wael stepped up beside him and held the phone with him until the payment went through.",
+          "Allah says, in meaning: O you who believe, let no people mock another people; perhaps they are better than them (al-Hujurat 49:11). The man in the clip has a name, a home and children, and perhaps a standing with Allah that none of those laughing at him will reach. The Prophet, peace and blessings be upon him and his family, said: «It is evil enough for a man to look down on his Muslim brother» (Sahih Muslim 2564).",
+          "Al-Ghazali defines mockery as «belittling and scorning, and pointing out faults and shortcomings in a way that makes people laugh», and notes that it can be «by imitation in deed and word» or «by gesture and hint» (Ihya 'Ulum al-Din, Book of the Afflictions of the Tongue, eleventh affliction). In our time the gesture has taken a new form: a laughing emoji under a clip, or a forward with a single tap.",
+          "Practical steps: before you forward a funny clip, ask: is there a person in it being laughed at? Would I accept something like it going round about my father, or about me? If it is circulating in a group, add no emoji to it; silence is enough, or write: «Perhaps he has an excuse.» And if you sent it and then saw it for what it was, delete it and apologise in the same group where you sent it.",
+          "In the car Wael opened the work group and found the clip still at the top. He deleted it and wrote: «Yesterday I sent a clip that wasn't fitting, and I apologise. Today I saw my father in the same situation.» Then he put the phone back in his pocket and asked his father whether he would like to learn to pay with his phone at home."
         ]
       },
       quote: {
-        ar: "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا إِنْ جَاءَكُمْ فَاسِقٌ بِنَبَإٍ فَتَبَيَّنُوا أَنْ تُصِيبُوا قَوْمًا بِجَهَالَةٍ فَتُصْبِحُوا عَلَىٰ مَا فَعَلْتُمْ نَادِمِينَ﴾",
-        en: "Meaning (not a translation): O you who believe, if a wrongdoer brings you news, verify it, lest you harm a people out of ignorance and then regret what you have done.",
-        ref: "الحجرات 49:6", checked: "tanzil quran-simple, with diacritics (api.alquran.cloud)", verify: true
+        ar: "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا لَا يَسْخَرْ قَوْمٌ مِنْ قَوْمٍ عَسَىٰ أَنْ يَكُونُوا خَيْرًا مِنْهُمْ﴾",
+        en: "Meaning (not a translation): O you who believe, let no people mock another people; perhaps they are better than them.",
+        ref: "الحجرات 49:11", checked: "tanzil quran-simple, with diacritics (api.alquran.cloud); Muslim 2564 = hadith-api ara-muslim 6541; al-Ghazali text: ar.wikisource.org (Ihya, Kitab Afat al-Lisan)", verify: true
       },
-      source: { ar: "مقالة مع آية من سورة الحجرات.", en: "An article with a verse from al-Hujurat." }
+      source: { ar: "قصة مؤلفة بشخصيات خيالية، مع آية من سورة الحجرات، وحديث في صحيح مسلم، ونقل من «إحياء علوم الدين» للغزالي.", en: "An original story with fictional characters, with a verse from al-Hujurat, a hadith in Sahih Muslim, and a passage from al-Ghazali's Ihya 'Ulum al-Din." }
     },
     {
       id: "am-r6", minutes: 4, ages: "18+",
@@ -1648,23 +1666,26 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
         ar: [
           "رأى عادل على هاتفه صديقًا قديمًا يسافر كل شهر، ويصوّر مطاعم فاخرة وسيارة جديدة. وبعد أسابيع كان قد غيّر سيارته بقرض، وحجز رحلة لا تحتملها ميزانيته، وصار يصوّر كل ما يأكل.",
           "ولم يشعر بالسعادة التي رآها في الصور. شعر بالقلق من القسط، وبالتعب من الحرص على أن تبدو حياته جميلة لمن يتابعه.",
-          "التقليد في ذاته ليس عيبًا، فالإنسان يتعلم بالاقتداء. لكن التقليد الأعمى يأخذ ما يراه دون أن يسأل: هل هذا صحيح؟ وهل يناسبني؟ وهل أعرف ما وراء الصورة؟ والقرآن يحذّر من اتباع ما لا علم للإنسان به: ﴿وَلَا تَقْفُ مَا لَيْسَ لَكَ بِهِ عِلْمٌ ۚ إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤَادَ كُلُّ أُولَٰئِكَ كَانَ عَنْهُ مَسْئُولًا﴾ (الإسراء 17:36).",
+          "الإنسان يتعلم بالاقتداء، وبه يأخذ الولد لغة أبيه وصلاته وطريقته في الكلام. والتقليد الأعمى يأخذ ما يراه دون أن يسأل: هل هذا صحيح؟ وهل يناسبني؟ وهل أعرف ما وراء الصورة؟ والقرآن يحذّر من اتباع ما لا علم للإنسان به: ﴿وَلَا تَقْفُ مَا لَيْسَ لَكَ بِهِ عِلْمٌ ۚ إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤَادَ كُلُّ أُولَٰئِكَ كَانَ عَنْهُ مَسْئُولًا﴾ (الإسراء 17:36).",
           "والبصر مسؤول عمّا يرى، والقلب مسؤول عمّا يقلّده. وما يُعرض على الشاشة مختار ومقصوص: لا ترى فيه الديون، ولا الخلافات، ولا الأيام العادية.",
-          "خطوات عملية: قبل أن تشتري ما رأيته أو تفعل ما انتشر، اسأل ثلاثة أسئلة: هل هو حلال؟ هل أحتاج إليه؟ هل كنت سأريده لو لم أره عند غيري؟ وألغِ متابعة من يتركك كل مرة ساخطًا على حياتك، وتابع من يزيدك علمًا أو خيرًا."
+          "خطوات عملية: قبل أن تشتري ما رأيته أو تفعل ما انتشر، اسأل ثلاثة أسئلة: هل هو حلال؟ هل أحتاج إليه؟ هل كنت سأريده لو لم أره عند غيري؟ وألغِ متابعة من يتركك كل مرة ساخطًا على حياتك، وتابع من يزيدك علمًا أو خيرًا.",
+          "في آخر الشهر جلس عادل مع زوجته أمام كشف الحساب، وألغى حجز الرحلة. وفي العطلة أخذ أولاده إلى بيت جدهم في القرية، وبقي الهاتف في جيبه حتى المساء."
         ],
         ar_f: [
           "رأى عادل على هاتفه صديقًا قديمًا يسافر كل شهر، ويصوّر مطاعم فاخرة وسيارة جديدة. وبعد أسابيع كان قد غيّر سيارته بقرض، وحجز رحلة لا تحتملها ميزانيته، وصار يصوّر كل ما يأكل.",
           "ولم يشعر بالسعادة التي رآها في الصور. شعر بالقلق من القسط، وبالتعب من الحرص على أن تبدو حياته جميلة لمن يتابعه.",
-          "التقليد في ذاته ليس عيبًا، فالإنسان يتعلم بالاقتداء. لكن التقليد الأعمى يأخذ ما يراه دون أن يسأل: هل هذا صحيح؟ وهل يناسبني؟ وهل أعرف ما وراء الصورة؟ والقرآن يحذّر من اتباع ما لا علم للإنسان به: ﴿وَلَا تَقْفُ مَا لَيْسَ لَكَ بِهِ عِلْمٌ ۚ إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤَادَ كُلُّ أُولَٰئِكَ كَانَ عَنْهُ مَسْئُولًا﴾ (الإسراء 17:36).",
+          "الإنسان يتعلم بالاقتداء، وبه يأخذ الولد لغة أبيه وصلاته وطريقته في الكلام. والتقليد الأعمى يأخذ ما يراه دون أن يسأل: هل هذا صحيح؟ وهل يناسبني؟ وهل أعرف ما وراء الصورة؟ والقرآن يحذّر من اتباع ما لا علم للإنسان به: ﴿وَلَا تَقْفُ مَا لَيْسَ لَكَ بِهِ عِلْمٌ ۚ إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤَادَ كُلُّ أُولَٰئِكَ كَانَ عَنْهُ مَسْئُولًا﴾ (الإسراء 17:36).",
           "والبصر مسؤول عمّا يرى، والقلب مسؤول عمّا يقلّده. وما يُعرض على الشاشة مختار ومقصوص: لا ترين فيه الديون، ولا الخلافات، ولا الأيام العادية.",
-          "خطوات عملية: قبل أن تشتري ما رأيتِه أو تفعلي ما انتشر، اسألي ثلاثة أسئلة: هل هو حلال؟ هل أحتاج إليه؟ هل كنت سأريده لو لم أره عند غيري؟ وألغي متابعة من يتركك كل مرة ساخطة على حياتك، وتابعي من يزيدك علمًا أو خيرًا."
+          "خطوات عملية: قبل أن تشتري ما رأيتِه أو تفعلي ما انتشر، اسألي ثلاثة أسئلة: هل هو حلال؟ هل أحتاج إليه؟ هل كنت سأريده لو لم أره عند غيري؟ وألغي متابعة من يتركك كل مرة ساخطة على حياتك، وتابعي من يزيدك علمًا أو خيرًا.",
+          "في آخر الشهر جلس عادل مع زوجته أمام كشف الحساب، وألغى حجز الرحلة. وفي العطلة أخذ أولاده إلى بيت جدهم في القرية، وبقي الهاتف في جيبه حتى المساء."
         ],
         en: [
           "On his phone Adel saw an old friend travelling every month, posting fine restaurants and a new car. Within weeks Adel had changed his car with a loan, booked a trip his budget could not bear, and started photographing everything he ate.",
           "He did not feel the happiness he had seen in the pictures. He felt anxious about the instalments, and tired from working to make his life look beautiful to those who followed him.",
-          "Imitation in itself is no fault; people learn by following good examples. But blind imitation takes what it sees without asking: is this true? Does it suit me? Do I know what lies behind the picture? The Quran warns against following what one has no knowledge of, meaning: do not pursue what you have no knowledge of; hearing, sight and heart will each be asked about it (al-Isra 17:36).",
+          "People learn by following examples; that is how a child takes on his father's language, his prayer and his way of speaking. Blind imitation takes what it sees without asking: is this true? Does it suit me? Do I know what lies behind the picture? The Quran warns against following what one has no knowledge of, meaning: do not pursue what you have no knowledge of; hearing, sight and heart will each be asked about it (al-Isra 17:36).",
           "Sight is answerable for what it looks at, and the heart for what it copies. What is shown on a screen is chosen and cut: you don't see the debts in it, or the quarrels, or the ordinary days.",
-          "Practical steps: before you buy what you saw or do what is trending, ask three questions: is it lawful? Do I need it? Would I want it if I hadn't seen it with someone else? Unfollow whoever leaves you resentful of your own life every time, and follow those who add to your knowledge or your good."
+          "Practical steps: before you buy what you saw or do what is trending, ask three questions: is it lawful? Do I need it? Would I want it if I hadn't seen it with someone else? Unfollow whoever leaves you resentful of your own life every time, and follow those who add to your knowledge or your good.",
+          "At the end of the month Adel sat down with his wife over the bank statement and cancelled the trip. In the holidays he took his children to their grandfather's house in the village, and the phone stayed in his pocket until evening."
         ]
       },
       quote: {
@@ -1675,34 +1696,37 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
       source: { ar: "قصة مؤلفة بشخصيات خيالية، مع آية من سورة الإسراء.", en: "An original story with fictional characters, with a verse from al-Isra." }
     },
     {
-      id: "am-r7", summit: true, minutes: 3, ages: "18+",
+      id: "am-r7", summit: true, minutes: 4, ages: "18+",
       title: { ar: "القمة: «دَعُوهُ»", en: "The summit: «Leave him»" },
       body: {
         ar: [
           "روى أبو هريرة رضي الله عنه أن أعرابيًّا قام فبال في المسجد، فتناوله الناس، أي همّوا به ينهرونه. فقال لهم النبي صلى الله عليه وآله وسلم: «دَعُوهُ وَهَرِيقُوا عَلَى بَوْلِهِ سَجْلاً مِنْ مَاءٍ، أَوْ ذَنُوبًا مِنْ مَاءٍ، فَإِنَّمَا بُعِثْتُمْ مُيَسِّرِينَ، وَلَمْ تُبْعَثُوا مُعَسِّرِينَ» (البخاري 220).",
-          "الخطأ هنا كبير وفي أطهر مكان، والغضب له مفهوم. واندفع الناس كما يندفع أكثرنا. لكن النبي صلى الله عليه وآله وسلم توقف، ونظر في العاقبة: رجل جاهل لا يعرف، وماء يطهّر المكان، وقلب يُكسب للإسلام بدل أن يُنفَّر منه.",
-          "في هذا الموقف كل ما تعالجه هذه المرحلة: لم يتشتت عن المقصود، ولم يندفع قبل أن ينظر، ولم يغضب قبل أن يفكر. ثم جعل من الموقف درسًا لأصحابه في التيسير.",
-          "سؤال للتأمل: متى اندفعت آخر مرة إلى إنسان أخطأ؟ وكيف كان يمكن أن يكون الموقف لو قلت أولًا: «دعوه»، ثم أصلحت الخطأ بهدوء؟"
+          "وفي رواية أنس بن مالك رضي الله عنه أنه صلى الله عليه وآله وسلم قال لأصحابه: «لاَ تُزْرِمُوهُ دَعُوهُ»، أي لا تقطعوا عليه، فتركوه حتى فرغ. ثم دعاه فقال له: «إِنَّ هَذِهِ الْمَسَاجِدَ لاَ تَصْلُحُ لِشَىْءٍ مِنْ هَذَا الْبَوْلِ وَلاَ الْقَذَرِ إِنَّمَا هِيَ لِذِكْرِ اللَّهِ عَزَّ وَجَلَّ وَالصَّلاَةِ وَقِرَاءَةِ الْقُرْآنِ» (صحيح مسلم 285).",
+          "الخطأ هنا كبير، وفي أطهر مكان، واندفع الناس كما يندفع أكثرنا حين يرى خطأ أمام عينه. ونظر النبي صلى الله عليه وآله وسلم إلى العاقبة: رجل لا يعرف، وماء يطهّر المكان، وقلب يُكسب ويبقى قريبًا.",
+          "وفي الموقف دواء هذه المرحلة كلها: انتباه ثابت على المقصود وسط الضجة، ونظر يسبق الحركة، وحِلم يسبق الغضب، ثم كلمة تعليم هادئة بعد أن يهدأ كل شيء. وجعل من الموقف درسًا لأصحابه في التيسير.",
+          "سؤال للتأمل: متى اندفعت آخر مرة إلى إنسان أخطأ أمامك، في البيت أو في العمل؟ وكيف كان يمكن أن يكون الموقف لو قلت أولًا: «دعوه»، ثم علّمت بهدوء؟"
         ],
         ar_f: [
           "روى أبو هريرة رضي الله عنه أن أعرابيًّا قام فبال في المسجد، فتناوله الناس، أي همّوا به ينهرونه. فقال لهم النبي صلى الله عليه وآله وسلم: «دَعُوهُ وَهَرِيقُوا عَلَى بَوْلِهِ سَجْلاً مِنْ مَاءٍ، أَوْ ذَنُوبًا مِنْ مَاءٍ، فَإِنَّمَا بُعِثْتُمْ مُيَسِّرِينَ، وَلَمْ تُبْعَثُوا مُعَسِّرِينَ» (البخاري 220).",
-          "الخطأ هنا كبير وفي أطهر مكان، والغضب له مفهوم. واندفع الناس كما يندفع أكثرنا. لكن النبي صلى الله عليه وآله وسلم توقف، ونظر في العاقبة: رجل جاهل لا يعرف، وماء يطهّر المكان، وقلب يُكسب للإسلام بدل أن يُنفَّر منه.",
-          "في هذا الموقف كل ما تعالجه هذه المرحلة: لم يتشتت عن المقصود، ولم يندفع قبل أن ينظر، ولم يغضب قبل أن يفكر. ثم جعل من الموقف درسًا لأصحابه في التيسير.",
-          "سؤال للتأمل: متى اندفعتِ آخر مرة إلى إنسان أخطأ؟ وكيف كان يمكن أن يكون الموقف لو قلتِ أولًا: «دعوه»، ثم أصلحتِ الخطأ بهدوء؟"
+          "وفي رواية أنس بن مالك رضي الله عنه أنه صلى الله عليه وآله وسلم قال لأصحابه: «لاَ تُزْرِمُوهُ دَعُوهُ»، أي لا تقطعوا عليه، فتركوه حتى فرغ. ثم دعاه فقال له: «إِنَّ هَذِهِ الْمَسَاجِدَ لاَ تَصْلُحُ لِشَىْءٍ مِنْ هَذَا الْبَوْلِ وَلاَ الْقَذَرِ إِنَّمَا هِيَ لِذِكْرِ اللَّهِ عَزَّ وَجَلَّ وَالصَّلاَةِ وَقِرَاءَةِ الْقُرْآنِ» (صحيح مسلم 285).",
+          "الخطأ هنا كبير، وفي أطهر مكان، واندفع الناس كما يندفع أكثرنا حين يرى خطأ أمام عينه. ونظر النبي صلى الله عليه وآله وسلم إلى العاقبة: رجل لا يعرف، وماء يطهّر المكان، وقلب يُكسب ويبقى قريبًا.",
+          "وفي الموقف دواء هذه المرحلة كلها: انتباه ثابت على المقصود وسط الضجة، ونظر يسبق الحركة، وحِلم يسبق الغضب، ثم كلمة تعليم هادئة بعد أن يهدأ كل شيء. وجعل من الموقف درسًا لأصحابه في التيسير.",
+          "سؤال للتأمل: متى اندفعتِ آخر مرة إلى إنسان أخطأ أمامك، في البيت أو في العمل؟ وكيف كان يمكن أن يكون الموقف لو قلتِ أولًا: «دعوه»، ثم علّمتِ بهدوء؟"
         ],
         en: [
           "Abu Hurayra, may Allah be pleased with him, reported that a Bedouin stood up and urinated in the mosque, and the people rushed at him. The Prophet, peace and blessings be upon him and his family, said to them: «Leave him, and pour a bucket of water over his urine; you were sent to make things easy, not to make them hard» (Bukhari 220).",
-          "The wrong here was serious, and in the purest of places, and anger at it is understandable. The people rushed forward as most of us would. But the Prophet paused and looked at the outcome: an ignorant man who did not know, water that would purify the place, and a heart to be won for Islam rather than driven from it.",
-          "This one moment holds everything this stage treats: he was not distracted from what mattered, did not rush before looking, did not grow angry before thinking. Then he turned the moment into a lesson in ease for his Companions.",
-          "A question to reflect on: when did you last rush at someone who made a mistake? How might it have gone if you had first said «leave him», and then put the mistake right calmly?"
+          "In the narration of Anas ibn Malik, may Allah be pleased with him, he told his Companions: «Do not cut him short; leave him», and they left him until he had finished. Then he called the man and said to him, in meaning: these mosques are not fit for anything of this urine or filth; they are only for the remembrance of Allah, the prayer and the recitation of the Quran (Sahih Muslim 285).",
+          "The wrong here was serious, and in the purest of places, and the people rushed forward as most of us do when a mistake happens before our eyes. The Prophet looked to the outcome: a man who did not know, water that would purify the place, and a heart to be won and kept close.",
+          "This one moment holds the cure for this whole stage: attention held on what matters amid the commotion, looking before moving, forbearance before anger, and then a calm word of teaching once everything has settled. And he turned the moment into a lesson in ease for his Companions.",
+          "A question to reflect on: when did you last rush at someone who made a mistake in front of you, at home or at work? How might it have gone if you had first said «leave him», and then taught calmly?"
         ]
       },
       quote: {
         ar: "«فَإِنَّمَا بُعِثْتُمْ مُيَسِّرِينَ، وَلَمْ تُبْعَثُوا مُعَسِّرِينَ»",
         en: "Meaning: You were sent to make things easy, not to make them hard.",
-        ref: "صحيح البخاري 220، عن أبي هريرة", checked: "hadith-api (fawazahmed0)", verify: true
+        ref: "صحيح البخاري 220، عن أبي هريرة؛ وصحيح مسلم 285 (ترقيم sunnah.com: الكتاب 2، الحديث 127)، عن أنس", checked: "hadith-api (fawazahmed0): ara-bukhari 220, ara-muslim 661", verify: true
       },
-      source: { ar: "حديث في صحيح البخاري.", en: "A hadith in Sahih al-Bukhari." }
+      source: { ar: "حديثان في صحيحي البخاري ومسلم.", en: "Two hadiths, in Sahih al-Bukhari and Sahih Muslim." }
     },
     {
       id: "am-r8", companions: true, minutes: 4, ages: "18+",
@@ -1736,9 +1760,9 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
       id: "am-q1", readingId: "am-r1", type: "comprehension", correct: 1,
       q: { ar: "لماذا لم ينجز أيمن شيئًا مع أنه يعمل على كل شيء؟", en: "Why did Ayman get nothing done although he was working on everything?" },
       options: [
-        { ar: "لأن عمله أكثر من طاقته", en: "Because he had more work than he could handle" },
-        { ar: "لأن انتباهه توزّع على عشرين أمرًا، فأخذ كل أمر منه قليلًا", en: "Because his attention was spread over twenty things, giving each of them little" },
-        { ar: "لأن حاسوبه بطيء", en: "Because his computer was slow" }
+        { ar: "لأن عمله في ذلك اليوم كان أكثر من طاقته", en: "Because he had more work that day than he could handle" },
+        { ar: "لأن انتباهه توزّع على عشرين أمرًا مفتوحًا", en: "Because his attention was spread over twenty open things" },
+        { ar: "لأنه كان ينتظر ردود زملائه على البريد", en: "Because he was waiting for his colleagues to answer his emails" }
       ],
       why: { ar: "للإنسان قلب واحد وانتباه واحد. وكل انتقال يأخذ من الذهن وقتًا ليعود.", en: "A person has one heart and one attention, and every switch costs the mind time to come back." }
     },
@@ -1750,19 +1774,19 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
         en: "You are afraid of forgetting many things, so you leave them all open in front of you. Which step does the article suggest?"
       },
       options: [
-        { ar: "أكتبها على ورقة، وأغلق ما لا يحتاج إليه عملي الآن", en: "Write them on paper, and close whatever my current work doesn't need" },
-        { ar: "أفتح المزيد حتى لا يفوتني شيء", en: "Open more so that nothing slips" },
-        { ar: "أعمل على كل أمر خمس دقائق بالتناوب", en: "Work on each for five minutes in turn" }
+        { ar: "أكتبها على ورقة، وأغلق ما لا يحتاج إليه عملي", en: "Write them on paper, and close what my current work doesn't need" },
+        { ar: "أتركها مفتوحة، وأرتّبها في نوافذ منفصلة", en: "Leave them open, sorted into separate windows" },
+        { ar: "أعمل على كل أمر منها خمس دقائق بالتناوب", en: "Work on each of them for five minutes in turn" }
       ],
-      why: { ar: "الورقة تحفظ ما تخاف نسيانه، فيتفرغ الذهن لعمل واحد.", en: "The paper holds what you fear forgetting, so the mind is free for one task." }
+      why: { ar: "الورقة تحفظ الأمور المؤجلة، فيتفرغ الذهن لعمل واحد.", en: "The paper holds what is waiting, so the mind is free for one task." }
     },
     {
       id: "am-q3", readingId: "am-r2", type: "comprehension", correct: 2,
       q: { ar: "ماذا أرادت منى من زوجها حين حكت له عن عملها؟", en: "What did Mona want from her husband when she told him about work?" },
       options: [
-        { ar: "أن يكتب لمديرتها", en: "For him to write to her manager" },
-        { ar: "أن يبحث لها عن عمل آخر", en: "For him to find her another job" },
-        { ar: "أن يسمعها", en: "For him to listen" }
+        { ar: "أن يقترح عليها رسالة تكتبها لمديرتها", en: "For him to suggest a message she could write to her manager" },
+        { ar: "أن يشجعها على البحث عن عمل آخر", en: "For him to encourage her to look for another job" },
+        { ar: "أن يسمعها حتى تنتهي من كلامها", en: "For him to listen until she had finished" }
       ],
       why: { ar: "كثير ممن يتكلمون يريدون أن يُسمعوا قبل أن يُنصحوا. والسؤال «تريد رأيي أم أسمعك؟» يحفظ الحديث.", en: "Many people who speak want to be heard before being advised. Asking «do you want my opinion, or shall I listen?» protects the conversation." }
     },
@@ -1776,49 +1800,49 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
       options: [
         { ar: "أقاطعه قبل أن تضيع الفكرة", ar_f: "أقاطعها قبل أن تضيع الفكرة", en: "Interrupt before the idea is lost" },
         { ar: "أكتبها على ورقة، وأنتظر حتى ينتهي", ar_f: "أكتبها على ورقة، وأنتظر حتى تنتهي", en: "Write it on paper and wait until they finish" },
-        { ar: "أتركها، فلن يسمعني أحد", en: "Drop it; no one will listen to me anyway" }
+        { ar: "أهمس بها لمن بجانبي حتى لا أنساها", en: "Whisper it to the person next to me so I don't forget it" }
       ],
-      why: { ar: "الورقة تحفظ الفكرة، والانتظار يحفظ حق المتكلم ويجعل الناس يسمعونك حين تتكلم.", en: "The paper keeps the idea; waiting keeps the speaker's right and makes people listen when it is your turn." }
+      why: { ar: "الورقة تحفظ الفكرة، والانتظار يحفظ حق المتكلم ويجعل الناس يسمعونك حين تتكلم.", ar_f: "الورقة تحفظ الفكرة، والانتظار يحفظ حق المتكلم ويجعل الناس يسمعونكِ حين تتكلمين.", en: "The paper keeps the idea; waiting keeps the speaker's right and makes people listen when it is your turn." }
     },
     {
       id: "am-q5", readingId: "am-r3", type: "comprehension", correct: 0,
-      q: { ar: "ما الكلمة التي قال النبي صلى الله عليه وآله وسلم إنها تُذهب الغضب؟", en: "Which words did the Prophet say would take anger away?" },
+      q: { ar: "ما الذي رآه نادر عند الإشارة فبقي معه طوال اليوم؟", en: "What did Nader see at the lights that stayed with him all day?" },
       options: [
-        { ar: "أعوذ بالله من الشيطان الرجيم", en: "I seek refuge in Allah from Satan the accursed" },
-        { ar: "سبحان الله", en: "Glory be to Allah" },
-        { ar: "لا حول ولا قوة إلا بالله", en: "There is no power nor strength except through Allah" }
+        { ar: "طفلًا خائفًا في المقعد الخلفي للسيارة الأخرى", en: "A frightened child in the back seat of the other car" },
+        { ar: "شرطيًّا يكتب له مخالفة على جانب الطريق", en: "A police officer writing him a ticket at the roadside" },
+        { ar: "السائق الآخر يلوّح له بيده معتذرًا", en: "The other driver waving to him in apology" }
       ],
-      why: { ar: "في البخاري (6115): «لَوْ قَالَ أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ» لذهب عنه ما يجد.", en: "In al-Bukhari (6115): if he said «I seek refuge in Allah from Satan the accursed», what he feels would leave him." }
+      why: { ar: "صورة الطفل كشفت لنادر أن غضبه وصل إلى من لا ذنب له.", en: "The child's face showed Nader that his anger had reached someone who had done nothing." }
     },
     {
       id: "am-q6", readingId: "am-r3", type: "comprehension", correct: 1,
-      q: { ar: "من الشديد بحسب حديث البخاري 6114؟", en: "Who is the strong one according to Bukhari 6114?" },
+      q: { ar: "من الشديد بحسب الحديث الذي في القراءة؟", en: "Who is the strong one according to the hadith in the reading?" },
       options: [
         { ar: "من يغلب غيره في الخصام", en: "The one who beats others in a quarrel" },
         { ar: "من يملك نفسه عند الغضب", en: "The one who controls himself when angry" },
-        { ar: "من لا يغضب أبدًا", en: "The one who never gets angry" }
+        { ar: "من لا يغضب مهما أُوذي", en: "The one who never gets angry, however he is hurt" }
       ],
-      why: { ar: "القوة الحقيقية أن تغلب ما يشتعل فيك، لا أن تغلب الآخر.", en: "True strength is overpowering what flares in you, not overpowering the other." }
+      why: { ar: "القوة التي يمدحها الحديث أن تغلب ما يشتعل فيك.", ar_f: "القوة التي يمدحها الحديث أن تغلبي ما يشتعل فيكِ.", en: "The strength the hadith praises is overpowering what flares up inside you." }
     },
     {
       id: "am-q7", readingId: "am-r4", type: "comprehension", correct: 2,
       q: { ar: "ما الذي فهمته سلمى بعد أن صرخت على ابنها؟", en: "What did Salma realise after shouting at her son?" },
       options: [
-        { ar: "أن ابنها يتعمد إزعاجها", en: "That her son was annoying her on purpose" },
-        { ar: "أن الصراخ ضروري في الصباح", en: "That shouting is necessary in the mornings" },
-        { ar: "أن ضغط الصباح كان يغلي فيها قبل أن يُسكب الحليب", en: "That the pressure of the morning had been boiling in her before the milk was spilled" }
+        { ar: "أن ابنها الصغير يتعمد إزعاجها كل صباح", en: "That her youngest annoys her on purpose every morning" },
+        { ar: "أن الصراخ لا بد منه أحيانًا مع الأولاد", en: "That shouting is sometimes unavoidable with children" },
+        { ar: "أن ضغط الصباح كان يغلي فيها قبل الحليب", en: "That the morning's pressure was boiling in her before the milk" }
       ],
-      why: { ar: "أكثر الغضب على الأولاد يأتي من ضغط سابق. ومن عرف السبب عرف أين يبدأ العلاج.", en: "Most anger at children comes from pressure already there. Knowing the cause shows where the cure begins." }
+      why: { ar: "أكثر الغضب على الأولاد يبدأ من ضغط سابق. ومن عرف السبب عرف أين يبدأ العلاج.", en: "Most anger at children starts from pressure already there. Knowing the cause shows where the cure begins." }
     },
     {
       id: "am-q8", readingId: "am-r5", type: "comprehension", correct: 0,
-      q: { ar: "ماذا تأمر آية الحجرات من يصله خبر؟", en: "What does the verse of al-Hujurat command anyone who receives news?" },
+      q: { ar: "ما الذي رآه وائل في طابور الصيدلية؟", en: "What did Wael see in the pharmacy queue?" },
       options: [
-        { ar: "أن يتبيّن قبل أن يعمل به أو ينقله", en: "To verify it before acting on it or passing it on" },
-        { ar: "أن ينشره بسرعة حتى يعلم الناس", en: "To spread it quickly so people know" },
-        { ar: "أن يكذّب كل خبر", en: "To disbelieve every report" }
+        { ar: "أباه يتعثر في الدفع بهاتفه، وشابًّا يتنهّد خلفه", en: "His father struggling to pay with his phone, and a young man sighing behind him" },
+        { ar: "الرجل نفسه الذي في المقطع، يشتري دواءه", en: "The very man from the clip, buying his medicine" },
+        { ar: "زميلًا من العمل يعرض المقطع على الصيدلي", en: "A colleague from work showing the clip to the pharmacist" }
       ],
-      why: { ar: "«فَتَبَيَّنُوا أَنْ تُصِيبُوا قَوْمًا بِجَهَالَةٍ»: التبيّن يحمي الأبرياء ويحمي الناقل من الندم.", en: "«Verify it, lest you harm a people out of ignorance»: verifying protects the innocent and protects the one passing it on from regret." }
+      why: { ar: "حين صار الموقف موقف أبيه رأى وائل ما لم يره في المقطع: إنسانًا يُحرَج أمام الناس.", en: "Once the scene was his father's, Wael saw what he had missed in the clip: a person embarrassed in front of others." }
     },
     {
       id: "am-q9", readingId: "am-r6", type: "situation", correct: 1,
@@ -1828,21 +1852,21 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
         en: "You see many people buying and showing off a new gadget, and you feel you want it. Which question does the article suggest first?"
       },
       options: [
-        { ar: "أين أجده بأرخص سعر؟", en: "Where can I find it cheapest?" },
+        { ar: "أين أجده بأرخص سعر هذا الأسبوع؟", en: "Where can I find it cheapest this week?" },
         { ar: "هل كنت سأريده لو لم أره عند غيري؟", en: "Would I want it if I hadn't seen it with others?" },
-        { ar: "كم شخصًا سيرى صورتي معه؟", en: "How many people will see my photo with it?" }
+        { ar: "كم شخصًا سيرى صورتي وأنا أستعمله؟", en: "How many people will see my photo using it?" }
       ],
       why: { ar: "التقليد الأعمى يأخذ ما يراه دون سؤال. والسؤال الصادق يكشف هل الرغبة منك أم من الشاشة.", en: "Blind imitation takes what it sees without asking. An honest question shows whether the wish is yours or the screen's." }
     },
     {
       id: "am-q10", readingId: "am-r7", type: "comprehension", correct: 0,
-      q: { ar: "ماذا قال النبي صلى الله عليه وآله وسلم للناس حين همّوا بالأعرابي؟", en: "What did the Prophet say to the people when they rushed at the Bedouin?" },
+      q: { ar: "ماذا فعل النبي صلى الله عليه وآله وسلم بالأعرابي بعد أن فرغ، في رواية أنس؟", en: "In the narration of Anas, what did the Prophet do with the Bedouin once he had finished?" },
       options: [
-        { ar: "«دعوه»، وأمر بماء يُصبّ على المكان", en: "«Leave him», and told them to pour water over the place" },
-        { ar: "أمر بإخراجه من المسجد", en: "He ordered him put out of the mosque" },
-        { ar: "سكت ولم يقل شيئًا", en: "He kept silent and said nothing" }
+        { ar: "دعاه وعلّمه بهدوء ما تصلح له المساجد", en: "He called him and calmly taught him what mosques are for" },
+        { ar: "أمر أن يُخرج من المسجد فلا يعود إليه", en: "He ordered him out of the mosque, never to return" },
+        { ar: "تركه يمضي، ولم يكلمه في الأمر", en: "He let him go and said nothing to him about it" }
       ],
-      why: { ar: "«فَإِنَّمَا بُعِثْتُمْ مُيَسِّرِينَ، وَلَمْ تُبْعَثُوا مُعَسِّرِينَ»: توقف قبل الاندفاع، وإصلاح بهدوء.", en: "«You were sent to make things easy, not to make them hard»: a pause before rushing, and calm repair." }
+      why: { ar: "«إِنَّمَا هِيَ لِذِكْرِ اللَّهِ عَزَّ وَجَلَّ وَالصَّلاَةِ وَقِرَاءَةِ الْقُرْآنِ»: وقف الأذى أولًا، ثم علّم بالكلمة الهادئة.", en: "«They are only for the remembrance of Allah, the prayer and the recitation of the Quran»: first he stopped the harm, then he taught with a calm word." }
     },
     {
       id: "am-q11", readingId: "am-r8", type: "comprehension", correct: 2,
@@ -1862,11 +1886,31 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
         en: "You shouted at your daughter this morning over something small, and regretted it after she left for school. What is most useful?"
       },
       options: [
-        { ar: "أنسى الأمر، فالأطفال ينسون سريعًا", en: "Forget it; children forget quickly" },
-        { ar: "أعتذر إليها حين تعود، وأحضّر في الليل ما يخفف ضغط الصباح", en: "Apologise when she comes home, and prepare the night before what eases the morning rush" },
-        { ar: "أشتري لها هدية بدل الاعتذار", en: "Buy her a present instead of apologising" }
+        { ar: "أتجاوز الأمر، فالأطفال ينسون ما يجري في الصباح", en: "Let it pass; children forget what happens in the morning" },
+        { ar: "أعتذر إليها حين تعود، وأحضّر الصباح من الليل", en: "Apologise when she's home, and prepare the morning the night before" },
+        { ar: "أشتري لها في المساء شيئًا تحبه بدل الكلام", en: "Buy her something she likes in the evening instead of talking" }
       ],
-      why: { ar: "الاعتذار للصغير يعلّمه الرجوع عن الخطأ، وتحضير الليل يعالج سبب الغضب لا أثره فقط.", en: "Apologising to a child teaches them to turn back from mistakes, and preparing the night before treats the cause of the anger, not only its effect." }
+      why: { ar: "الاعتذار للصغير يعلّمه الرجوع عن الخطأ، وتحضير الليل يعالج سبب الغضب مع أثره.", en: "Apologising to a child teaches them to turn back from mistakes, and preparing the night before treats the cause of the anger along with its effect." }
+    },
+    {
+      id: "am-q13", readingId: "am-r6", type: "comprehension", correct: 2,
+      q: { ar: "بماذا شعر عادل بعد أن غيّر سيارته وحجز الرحلة؟", en: "How did Adel feel after changing his car and booking the trip?" },
+      options: [
+        { ar: "بالفرح، لأنه صار يعيش مثل صديقه القديم", en: "Happy, because he was living like his old friend" },
+        { ar: "بالندم، لأنه لم يفعل ذلك منذ سنوات", en: "Regretful, because he hadn't done it years before" },
+        { ar: "بالقلق من القسط، والتعب من تجميل صورة حياته", en: "Anxious about the instalments, and tired of polishing the picture of his life" }
+      ],
+      why: { ar: "ما يُعرض على الشاشة مختار ومقصوص، ومن قلّده حمل ما لم يظهر في الصورة.", en: "What is shown on a screen is chosen and cut, and whoever copies it carries what the picture left out." }
+    },
+    {
+      id: "am-q14", readingId: "am-r5", type: "situation", correct: 1,
+      q: { ar: "في مجموعة العمل أرسل أحد الزملاء ملصقًا يقلّد طريقة مدير القسم في الكلام، وانهالت الرموز الضاحكة. أي تصرف أقرب إلى ما في القراءة؟", en: "In the work group a colleague posts a sticker imitating the way the department head talks, and laughing emojis pour in. Which response is closest to the reading?" },
+      options: [
+        { ar: "أضع رمزًا ضاحكًا واحدًا، حتى لا أبدو متكلفًا", en: "Add a single laughing emoji, so I don't seem stiff" },
+        { ar: "لا أزيد عليه شيئًا، وأسكت أو أصرف الحديث عنه", en: "Add nothing to it, and stay silent or steer the talk away" },
+        { ar: "أعيد توجيهه إلى المدير حتى يعرف ما يقال عنه", en: "Forward it to the manager so he knows what is said about him" }
+      ],
+      why: { ar: "السخرية عند الغزالي تكون «بالمحاكاة في الفعل والقول» وتكون «بالإشارة والإيماء»، والرمز الضاحك مشاركة فيها.", en: "For al-Ghazali, mockery can be «by imitation in deed and word» or «by gesture and hint», and a laughing emoji is a share in it." }
     }
   ],
   tasks: [
@@ -3067,8 +3111,8 @@ window.AKHLAQ_CONTENT_ADULT.choices = [
     id: "ach-monkey-1", stage: "monkey", trait: 2, age: "18+",
     title: { ar: "رسالة في مجموعة العائلة", en: "A message in the family group" },
     intro: {
-      ar: ["كتب ابن عم ماجد في مجموعة العائلة تعليقًا ساخرًا على صورة أرسلها ماجد من حفل تخرّج ابنته، وضحك بعض الأقارب بالرموز.", "شعر ماجد أن الدم يغلي في عروقه، وبدأت أصابعه تكتب ردًا طويلًا حادًا، فيه أمور قديمة يعرفها عن ابن عمه.", "إصبعه الآن فوق زر الإرسال."],
-      en: ["Majid's cousin posted a mocking comment in the family group on a photo Majid had shared from his daughter's graduation, and a few relatives laughed with emojis.", "Majid felt his blood boil. His fingers began typing a long, sharp reply, full of old things he knew about his cousin.", "His finger is now over the send button."]
+      ar: ["أرسل ماجد في مجموعة العائلة صورة ابنته يوم تخرّجها. وبعد دقائق كتب ابن عمه تحتها: «أخيرًا! كنا نخاف أن تلحق بأبيها في الرسوب»، وضحك بعض الأقارب بالرموز.", "شعر ماجد بالحرارة تصعد إلى وجهه، وبدأت أصابعه تكتب ردًّا طويلًا حادًّا، فيه أمور قديمة يعرفها عن ابن عمه ولا يعرفها أكثر من في المجموعة.", "إصبعه الآن فوق زر الإرسال."],
+      en: ["Majid posted a photo of his daughter on her graduation day in the family group. A few minutes later his cousin wrote beneath it: “Finally! We were afraid she'd follow her dad and fail,” and a few relatives laughed with emojis.", "Majid felt the heat rise to his face. His fingers began typing a long, sharp reply, full of old things he knew about his cousin that most of the group did not.", "His finger is now over the send button."]
     },
     q: { ar: "لو كنتَ مكان ماجد، ماذا تفعل؟", ar_f: "لو كنتِ مكان ماجد، ماذا تفعلين؟", en: "If you were Majid, what would you do?" },
     opts: [
@@ -3080,9 +3124,9 @@ window.AKHLAQ_CONTENT_ADULT.choices = [
         why: { ar: "التأجيل يعطي العقل فرصة ليلحق بالقلب.", en: "Waiting gives the mind a chance to catch up with the heart." } },
       { t: { ar: "أتصل به على انفراد، وأقول له إن التعليق آلمني.", en: "Call him privately and tell him the comment hurt." },
         out: { ar: "تردّد ماجد ثم اتصل، وقال بهدوء: «تعليقك في المجموعة جرحني». سكت ابن عمه، ثم قال: «لم أقصد، كان مزاحًا ثقيلًا، سامحني». وحذف التعليق بنفسه.", en: "Majid hesitated, then called. He said calmly, “Your comment in the group hurt me.” His cousin went quiet, then said, “I didn't mean it, it was a heavy joke. Forgive me,” and deleted the comment himself." },
-        why: { ar: "الشجاعة في الحق أن تقول ما آلمك لصاحبه، لا للناس.", en: "Courage for what is right means telling the person what hurt you, not telling everyone." } }
+        why: { ar: "الشجاعة في الحق أن تقول ما آلمك لصاحبه وحده.", ar_f: "الشجاعة في الحق أن تقولي ما آلمكِ لصاحبه وحده.", en: "Courage for what is right means telling the one who hurt you, and him alone." } }
     ],
-    end: { ar: "الغضب السريع يكتب بسرعة ويرسل بسرعة. والقوة الحقيقية في الإصبع الذي يتوقف فوق زر الإرسال.", en: "Quick anger types fast and sends fast. Real strength is the finger that stops above the send button." }
+    end: { ar: "السخرية تُكتب في سطر، والرد الغاضب عليها يُكتب في عشرة. والقوة في الإصبع الذي يقف فوق زر الإرسال.", en: "Mockery takes one line to write, and the angry answer to it takes ten. Strength is in the finger that stops above the send button." }
   },
   {
     id: "ach-human-1", stage: "human", trait: 2, age: "18+",

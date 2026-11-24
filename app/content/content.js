@@ -5,7 +5,7 @@
  * Names always describe behaviour, never the person. All children in stories are fictional.
  */
 window.AKHLAQ_CONTENT = {
-  version: "0.25.0-draft-2026-11-24",
+  version: "0.26.0-draft-2026-11-24",
   stages: {},
   virtues: []
 };
@@ -4550,5 +4550,332 @@ window.AKHLAQ_CONTENT.choices = [
         { ar: 'دعت هلا إلى بيتزا أخرى يوم السبت', en: 'Invited Hala for another pizza on Saturday' },
         { ar: 'دفعت ثمن قطعها، وأعادت جود الفرق لهلا', en: 'Paid for her slices, and Jood gave Hala the difference' }],
       why: { ar: 'أصلحت الحساب بصمت: دفعت ما أكلت، ووصل إلى هلا حقها دون أن تُحرَج.', en: 'She fixed the bill quietly: she paid for what she ate, and Hala got her share back without being embarrassed.' } }
+  );
+})();
+
+/* ───────────── مراجعة الكتابة، 24 نوفمبر 2026: المرحلة الثالثة (الوسطى) ─────────────
+ * المعيار: دليل الكتابة حسب العمر. هذه الجولة تحلّ محلّ ما سبقها في الحقول المذكورة هنا وحدها، وتبقى المعرّفات كما هي:
+ * - قصص السمات الثلاث: لكل قصة لحظة تحول سببها في القصة نفسها، ونهاية بفعل (جنى وشجرتها، وبلال والوسادة الثالثة، وآمنة في الطابور).
+ *   وسؤالا الموقف في السمتين الثانية والثالثة بخيارات متقاربة الطول. وآية آل عمران 3:133 بنص تنزيل.
+ * - monkey-r1 (4-8): جمل قصيرة وحوار ودعابة، وحذف خاتمة «لم يكن لعب يونس شرًّا. لكن...»؛ وmonkey-q1 يختبر القصة الجديدة.
+ * - monkey-r3: الرد بـ«سلامًا» بالإثبات، وخطوة عملية في آخرها؛ وmonkey-q5 وq6 بخيارات معقولة، وبلا «الهدوء لا يعني الضعف».
+ * - monkey-r4: مثال من البيت، ومرجع الاستعاذة عند الغضب؛ وmonkey-q7 صار يختبر خطوة «اختر» بدل ترتيب الخطوات الظاهر في العنوان.
+ * - monkey-r5 (15+): بصوت المراهق وعالمه (رسالة «خسرنا بسببك» في مجموعة الفريق)، وبلا «الغضب ليس عيبًا».
+ * - monkey-q9 وq10 صارا من قصة monkey-r6. monkey-r7: «رضي الله عنه» لأنس، ولفظ «مُر لي»، وخطوة صغيرة في آخرها، ورقم الحديث.
+ * - monkey-r8: مشهد انتظار الأشج من سنن أبي داود، والخاتمة بالإثبات بدل «ليس ضعفًا، بل...». الأسئلة q11 وq12 بخيارات متقاربة.
+ * - ch-monkey-1: الخاتمة بالإثبات بدل «لا عيب في أن نشعر به»، وصيغة المؤنث للخيار الذي يقول «أنا غاضب».
+ * - جديد: monkey-q13 (لقراءة monkey-r5)، وmonkey-r9 (15+) قصة «ملصق في مجموعة الصف» وسؤالاها monkey-q14 وmonkey-q15.
+ * التحقق: آل عمران 3:133 و3:134 و3:159، الفرقان 25:63، لقمان 31:19 على تنزيل (quran-simple عبر api.alquran.cloud)؛
+ * البخاري 6114 و6115 و3149، ومسلم (hadith-api ara-muslim 6643 و117)، وأبو داود 4782 و5225 على hadith-api.
+ */
+(function () {
+  var M = window.AKHLAQ_CONTENT.stages.monkey;
+  var R = function (id) { return M.readings.filter(function (r) { return r.id === id; })[0]; };
+  var Q = function (id) { return M.quiz.filter(function (q) { return q.id === id; })[0]; };
+
+  /* سمة «التشتت» */
+  var d0 = M.degrees[0];
+  d0.story = {
+    ar: ['أخرجت جنى ألوانها، ورسمت جذع شجرة بنيًّا.',
+      'ثم رأت المكعبات، فتركت الشجرة، وبنت نصف برج.',
+      'ثم سمعت الكرة تتدحرج، فتركت البرج، وجرت وراءها.',
+      'جاء أخوها الصغير، ورفع الورقة، وقال: «شجرة بلا أوراق؟ ألا تبرد؟».',
+      'ضحكت جنى، وجلست، وأمسكت اللون الأخضر.',
+      'ورقة، ثم ورقة، ثم ورقة، حتى امتلأت الشجرة كلها.',
+      'ثم علّقتها على باب الثلاجة، ورجعت إلى برجها.'],
+    en: ['Jana got out her crayons and drew a brown tree trunk.',
+      'Then she saw the blocks, left the tree, and built half a tower.',
+      'Then she heard the ball rolling, left the tower, and ran after it.',
+      'Her little brother came, held up the paper and said: "A tree with no leaves? Won\'t it get cold?"',
+      'Jana laughed, sat down, and picked up the green crayon.',
+      'A leaf, then a leaf, then another leaf, until the whole tree was full.',
+      'Then she stuck it on the fridge door, and went back to her tower.']
+  };
+  d0.turn = {
+    ar: 'الخفة والحيوية نفسها، إذا اجتمعت على هدف، تصير نشاطًا ومسارعة إلى الخير. قال الله تعالى: ﴿وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِنْ رَبِّكُمْ﴾ (آل عمران 3:133).',
+    en: d0.turn.en
+  };
+
+  /* سمة «لا يسمع ولا يتوقف» */
+  var d1 = M.degrees[1];
+  d1.story = {
+    ar: ['بنى بلال قلعة كبيرة من الوسائد.',
+      'مرّ أخوه الصغير خالد، فأسقط وسادة من فوقها.',
+      'صرخ بلال، ورمى وسادة على خالد، ثم أخرى.',
+      'قالت أمه: «توقف يا بلال». فرفع بلال الوسادة الثالثة.',
+      'ثم رأى خالدًا يغطي وجهه بيديه الصغيرتين.',
+      'فتجمّدت يدا بلال، والوسادة فوق رأسه، كأنه تمثال في حديقة.',
+      'أنزلها ببطء، وأعاد الوسادة الساقطة إلى مكانها، وقال: «تعال يا خالد، أنت حارس القلعة».'],
+    en: ['Bilal built a big castle out of cushions.',
+      'His little brother Khalid walked past and knocked a cushion off the top.',
+      'Bilal shouted and threw a cushion at Khalid, then another.',
+      'His mother said: "Stop, Bilal." And Bilal lifted the third cushion.',
+      'Then he saw Khalid covering his face with his small hands.',
+      'Bilal\'s hands froze, the cushion above his head, like a statue in a park.',
+      'He lowered it slowly, put the fallen cushion back in its place, and said: "Come on, Khalid, you\'re the castle guard."']
+  };
+  d1.q.options = [{ ar: 'أكمل، فأخي هو الذي بدأ', en: 'Carry on, my brother started it' },
+    { ar: 'أجمّد يديّ فورًا، ثم أشرح', en: 'Freeze my hands at once, then explain' },
+    { ar: 'أصرخ أعلى حتى يسمعوني', en: 'Shout louder so they hear me' }];
+  d1.q.correct = 1;
+
+  /* سمة «الغضب السريع» */
+  var d2 = M.degrees[2];
+  d2.story = {
+    ar: ['كانت آمنة ترسم بيتًا، فاصطدمت بها صديقتها، فخطّ القلم خطًّا طويلًا على الرسم.',
+      'احمرّ وجه آمنة، ورفعت يدها لتدفعها.',
+      'قالت المعلمة: «آمنة، توقفي». فتوقفت آمنة، وأنزلت يدها.',
+      'وفي الطريق إلى البيت قالت في نفسها: «في المرة القادمة أتوقف أنا، قبل أن تقول المعلمة».',
+      'وفي الغد وقف زميل في مكانها في الطابور.',
+      'أحسّت آمنة بالحرارة في وجهها، فوضعت يديها خلف ظهرها، وتنفّست ثلاث مرات.',
+      'ثم قالت بصوت هادئ: «هذا مكاني، كنتُ هنا». فرجع زميلها خطوة، ونظرت آمنة إلى المعلمة فوجدتها تبتسم.'],
+    en: ['Amina was drawing a house when her friend bumped into her, and the pencil made a long line across the picture.',
+      'Amina\'s face went red, and she raised her hand to push her.',
+      'The teacher said: "Amina, stop." Amina stopped and lowered her hand.',
+      'On the way home she told herself: "Next time I\'ll stop myself, before the teacher has to say it."',
+      'The next day a classmate stepped into her place in the line.',
+      'Amina felt the heat in her face, so she put her hands behind her back and breathed three times.',
+      'Then she said in a calm voice: "That\'s my place, I was here." Her classmate stepped back, and when Amina looked at the teacher, she was smiling.']
+  };
+  d2.q.options = [{ ar: 'أدفعه بقوة حتى لا يكررها', en: 'Push him hard so he won\'t do it again' },
+    { ar: 'أبتعد خطوة، وأتنفس، ثم أكلمه', en: 'Step back, breathe, then talk to him' },
+    { ar: 'أصرخ عليه أمام الجميع', en: 'Shout at him in front of everyone' }];
+  d2.q.correct = 1;
+
+  /* monkey-r1: 4-8 */
+  var r1 = R('monkey-r1');
+  r1.body = {
+    ar: ['طاخ! طاخ! كان يونس يركل الكرة في غرفة الجلوس.',
+      'وعند الباب كانت أخته هالة تبني برجًا عاليًا، مكعبًا فوق مكعب، وهي تحبس أنفاسها.',
+      'قال أبوه: «يونس، توقف من فضلك».',
+      'قال يونس: «ركلة واحدة فقط!»، ورفع قدمه.',
+      'ثم سمع الكلمة مرة ثانية في رأسه: «توقف».',
+      'فتجمّد في مكانه، وقدمه في الهواء، كأنه تمثال في حديقة.',
+      'ضحكت هالة: «يونس صار تمثالًا!».',
+      'أنزل يونس قدمه، وأمسك الكرة، وسأل: «لماذا يا أبي؟». فأشار أبوه إلى البرج، وكانت الكرة قريبة منه جدًّا.',
+      'قالت هالة: «تضع أنت المكعب الأخير؟».',
+      'فوضعه يونس في القمة بهدوء. وبقي البرج واقفًا، والكرة نائمة في حضنه.'],
+    en: ['Thud! Thud! Yunus was kicking a ball in the living room.',
+      'By the door his sister Hala was building a tall tower, block on block, holding her breath.',
+      'His father said: "Yunus, stop, please."',
+      'Yunus said: "Just one more kick!" and lifted his foot.',
+      'Then he heard the word again inside his head: "Stop."',
+      'So he froze where he was, one foot in the air, like a statue in a park.',
+      'Hala laughed: "Yunus has turned into a statue!"',
+      'Yunus put his foot down, picked up the ball, and asked: "Why, Dad?" His father pointed at the tower. The ball had been very close to it.',
+      'Hala said: "Do you want to put the last block on?"',
+      'Yunus placed it on top, gently. The tower stayed standing, and the ball sat quietly in his lap.']
+  };
+  delete r1.body.ar_f;
+  var q1 = Q('monkey-q1');
+  q1.q = { ar: 'ماذا فعل يونس حين سمع كلمة «توقف» في رأسه؟', en: 'What did Yunus do when he heard the word "stop" inside his head?' };
+  q1.options = [{ ar: 'تجمّد وقدمه في الهواء', en: 'Froze with one foot in the air' },
+    { ar: 'ركل ركلة أخيرة صغيرة', en: 'Gave one last small kick' },
+    { ar: 'ركض بالكرة إلى غرفته', en: 'Ran off to his room with the ball' }];
+  q1.correct = 0;
+  q1.why = { ar: 'توقف أولًا، ثم سأل «لماذا؟»، فرأى كم كانت الكرة قريبة من البرج.', en: 'He stopped first, then asked "why?", and saw how close the ball had been to the tower.' };
+
+  /* monkey-r3: الرد بالإثبات، وخطوة عملية */
+  var r3 = R('monkey-r3');
+  r3.body.ar[1] = 'وإذا كلمهم الجاهلون بكلام سيئ، قالوا «سلامًا»: كلمة تُنهي الشجار قبل أن يكبر.';
+  r3.body.en[1] = 'And when ignorant people speak badly to them, they say "peace", a word that ends a quarrel before it grows.';
+  r3.body.ar[3] = 'وهذه الصفات عكس سلوك القرد: هدوء مكان العنف، وسلام مكان الصراخ. جرّب غدًا: إذا قال لك أحد كلمة سيئة في الملعب، قل «سلام» بصوت منخفض، وامشِ بخطوات هادئة، ثم لاحظ ماذا يحدث للشجار.';
+  r3.body.en[3] = 'These qualities are the opposite of monkey behaviour: calm in place of roughness, peace in place of shouting. Try it tomorrow: if someone says something nasty to you in the playground, say "peace" in a low voice, walk away with calm steps, and notice what happens to the quarrel.';
+  r3.body.ar_f = r3.body.ar.slice();
+  r3.body.ar_f[3] = 'وهذه الصفات عكس سلوك القرد: هدوء مكان العنف، وسلام مكان الصراخ. جرّبي غدًا: إذا قال لكِ أحد كلمة سيئة في الملعب، قولي «سلام» بصوت منخفض، وامشي بخطوات هادئة، ثم لاحظي ماذا يحدث للشجار.';
+  var q5 = Q('monkey-q5');
+  q5.options = [{ ar: 'يردّون عليهم بمثل كلامهم', en: 'They answer them in the same words' },
+    { ar: 'يسكتون ويغضبون في قلوبهم', en: 'They keep quiet and fume inside' },
+    { ar: 'يقولون: سلامًا', en: 'They say: peace' }];
+  q5.correct = 2;
+  var q6 = Q('monkey-q6');
+  q6.options = [{ ar: 'أقول «سلام» بهدوء، وأبتعد', en: 'Say "peace" calmly and walk away' },
+    { ar: 'أدفعه بقوة حتى يسكت', en: 'Shove him hard until he stops' },
+    { ar: 'أقول له كلمة أسوأ منها', en: 'Say something worse back' }];
+  q6.correct = 0;
+  q6.why = { ar: 'الهدوء قوة: تقول «سلام» وتبتعد، وتخبر الكبار إن تكرر.', ar_f: 'الهدوء قوة: تقولين «سلام» وتبتعدين، وتخبرين الكبار إن تكرر.', en: 'Calm is strength: say "peace", walk away, and tell an adult if it happens again.' };
+
+  /* monkey-r4: مثال من البيت، والسؤال يختبر التمرين */
+  var r4 = R('monkey-r4');
+  r4.minutes = 3;
+  r4.body = {
+    ar: ['صفحة عملية. يقول علماء السلوك إن بين الشيء الذي يغضبنا وبين ردّنا عليه مسافة صغيرة، ومن تعلّم أن يوسّعها صار أهدأ.',
+      'الخطوة الأولى: «قِف». جمّد يديك وقدميك وفمك ثانية واحدة.',
+      'الخطوة الثانية: «تنفّس». شهيق ببطء إلى أربعة، وزفير إلى أربعة. ثلاث مرات. ويمكنك أن تقول في نفسك: «أعوذ بالله من الشيطان الرجيم».',
+      'الخطوة الثالثة: «اختر». اسأل نفسك: ما التصرف الإنساني الآن؟ أن أتكلم بهدوء؟ أن أبتعد قليلًا؟ أن أطلب المساعدة؟ ثم افعله.',
+      'مثال: أخوك يمسك جهاز التحكم ولا يعطيك دورك، ويدك تريد أن تخطفه. «قِف»: يداك على ركبتيك. «تنفّس»: أربعة وأربعة، ثلاث مرات. «اختر»: «دوري بعد هذه الجولة، اتفقنا؟».',
+      'تمرّن عليها وأنت هادئ أيضًا، حتى تصير جاهزة حين تحتاجها.'],
+    en: ['A practical page. Behaviour scientists say there is a small gap between what makes us angry and how we respond, and whoever learns to widen it becomes calmer.',
+      'Step one: "Stop." Freeze your hands, your feet and your mouth for one second.',
+      'Step two: "Breathe." In slowly for four, out for four, three times. You can also say quietly: "I seek refuge in Allah from the accursed Shaytan."',
+      'Step three: "Choose." Ask yourself: what is the human thing to do now? Speak calmly? Step away for a bit? Ask for help? Then do it.',
+      'For example: your brother has the remote and won\'t give you your turn, and your hand wants to snatch it. "Stop": hands on your knees. "Breathe": four in, four out, three times. "Choose": "My turn after this round, deal?"',
+      'Practise it when you are calm too, so it is ready when you need it.']
+  };
+  r4.body.ar_f = ['صفحة عملية. يقول علماء السلوك إن بين الشيء الذي يغضبنا وبين ردّنا عليه مسافة صغيرة، ومن تعلّم أن يوسّعها صار أهدأ.',
+    'الخطوة الأولى: «قِف». جمّدي يديك وقدميك وفمك ثانية واحدة.',
+    'الخطوة الثانية: «تنفّس». شهيق ببطء إلى أربعة، وزفير إلى أربعة. ثلاث مرات. ويمكنك أن تقولي في نفسك: «أعوذ بالله من الشيطان الرجيم».',
+    'الخطوة الثالثة: «اختر». اسألي نفسك: ما التصرف الإنساني الآن؟ أن أتكلم بهدوء؟ أن أبتعد قليلًا؟ أن أطلب المساعدة؟ ثم افعليه.',
+    'مثال: أخوكِ يمسك جهاز التحكم ولا يعطيكِ دوركِ، ويدكِ تريد أن تخطفه. «قِف»: يداكِ على ركبتيكِ. «تنفّس»: أربعة وأربعة، ثلاث مرات. «اختر»: «دوري بعد هذه الجولة، اتفقنا؟».',
+    'تمرّني عليها وأنتِ هادئة أيضًا، حتى تصير جاهزة حين تحتاجينها.'];
+  r4.source = { ar: 'مستفاد من تقنيات تنظيم الانفعال في علم النفس المعاصر، مع الاستعاذة عند الغضب الواردة في صحيح البخاري (6115).', en: 'Adapted from emotion-regulation techniques in modern psychology, with seeking refuge in Allah when angry, as taught in Sahih al-Bukhari (6115).' };
+  var q7 = Q('monkey-q7');
+  q7.q = { ar: 'في خطوة «اختر»، ماذا تسأل نفسك؟', ar_f: 'في خطوة «اختر»، ماذا تسألين نفسك؟', en: 'In the "Choose" step, what do you ask yourself?' };
+  q7.options = [{ ar: 'ما التصرف الإنساني الآن؟', en: 'What is the human thing to do now?' },
+    { ar: 'من الذي بدأ المشكلة؟', en: 'Who started the trouble?' },
+    { ar: 'كيف أردّ عليه بمثلها؟', en: 'How do I pay him back?' }];
+  q7.correct = 0;
+  q7.why = { ar: 'بعد أن يهدأ الجسد، تسأل: ما التصرف الإنساني الآن؟ ثم تفعله.', ar_f: 'بعد أن يهدأ الجسد، تسألين: ما التصرف الإنساني الآن؟ ثم تفعلينه.', en: 'Once the body is calm, you ask: what is the human thing to do now? Then you do it.' };
+  var q8 = Q('monkey-q8');
+  q8.options = [{ ar: 'أضربه ليتعلم ألا يأخذها', en: 'Hit him so he learns not to take it' },
+    { ar: 'أكسر لعبته كما أخذ لعبتي', en: 'Break his toy, since he took mine' },
+    { ar: 'أقف وأتنفس، ثم أطلبها بهدوء', en: 'Stop, breathe, then ask for it calmly' }];
+  q8.correct = 2;
+
+  /* monkey-r5: 15+، بصوت المراهق وعالمه */
+  var r5 = R('monkey-r5');
+  r5.body = {
+    ar: ['«خسرنا بسببك». رسالة من زميلك في مجموعة الفريق بعد المباراة، وتحتها ثلاثة وجوه ضاحكة من آخرين. والرد جاهز في أصابعك قبل أن تنتهي من القراءة.',
+      'في تلك الثواني يحدث شيء معروف: الغضب يصل قبل التفكير. وصوت في الداخل يقول: اكتب الآن، بأقسى كلمة عندك، وأمام الجميع.',
+      'تذكر آية آل عمران من صفات المتقين: ﴿وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ ۗ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ﴾ (آل عمران 3:134). ثلاث درجات، كل واحدة فوق التي قبلها: أن تكظم، ثم أن تعفو، ثم أن تحسن.',
+      'الكظم أن تمسك الغيظ فلا يخرج من يدك ولا من لسانك ولا من أصابعك على الشاشة. والعرب تقول: كظم السقاء، إذا ملأه وسدّ فاه. الغيظ موجود، والفم مشدود عليه.',
+      'والعفو أن تُسقط الحساب من قلبك، فلا تحمل الرسالة معك إلى النوم، ولا إلى مباراة الأسبوع القادم. والإحسان أن ترد بخير: أن تكتب له في الغد «المباراة القادمة لنا»، أو تمرّر له الكرة الأولى.',
+      'ويضيف علم النفس أداة اسمها «إعادة التقييم»: أن تسأل قبل الرد: هل هناك تفسير آخر؟ ربما كتبها وهو غاضب من نفسه بعد الخسارة. التفسير الآخر يترك الخطأ خطأً، ويطفئ نصف النار قبل أن تشتعل.',
+      'جرّب أسبوعًا: كل رد تكتبه وأنت غاضب يبقى في المسودة عشر دقائق قبل أن ترسله. وفي آخر الأسبوع عُدّ: كم ردًّا أرسلتَه كما كتبته أول مرة؟'],
+    en: ['"We lost because of you." A message from a teammate in the team group after the match, with three laughing faces from others underneath. The reply is already in your fingers before you have finished reading.',
+      'Something well known happens in those seconds: anger arrives before thinking. A voice inside says: write now, with the harshest words you have, in front of everyone.',
+      'A verse in Al Imran lists among the qualities of the God-conscious, meaning: those who restrain anger and pardon people, and Allah loves those who do good (Al Imran 3:134). Three steps, each one above the last: restrain, then pardon, then do good.',
+      'Restraining means holding the anger in, so it comes out neither through your hand, nor your tongue, nor your fingers on the screen. The Arabic word is the one used for filling a waterskin and closing its mouth: the anger is there, and the mouth is held closed over it.',
+      'Pardoning means dropping the account in your heart, so you do not carry the message to bed, or to next week\'s match. Doing good means answering with something good: writing to him the next day "the next match is ours", or passing him the first ball.',
+      'Psychology adds a tool called "reappraisal": before replying, ask whether there is another explanation. Maybe he wrote it while angry with himself after the loss. The other explanation leaves the wrong a wrong, and puts out half the fire before it catches.',
+      'Try it for a week: any reply you write while angry waits in your drafts for ten minutes before you send it. At the end of the week, count: how many replies did you send exactly as you first wrote them?']
+  };
+  r5.body.ar_f = ['«خسرنا بسببك». رسالة من زميلتك في مجموعة الفريق بعد المباراة، وتحتها ثلاثة وجوه ضاحكة من أخريات. والرد جاهز في أصابعك قبل أن تنتهي من القراءة.',
+    'في تلك الثواني يحدث شيء معروف: الغضب يصل قبل التفكير. وصوت في الداخل يقول: اكتبي الآن، بأقسى كلمة عندك، وأمام الجميع.',
+    'تذكر آية آل عمران من صفات المتقين: ﴿وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ ۗ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ﴾ (آل عمران 3:134). ثلاث درجات، كل واحدة فوق التي قبلها: أن تكظمي، ثم أن تعفي، ثم أن تحسني.',
+    'الكظم أن تمسكي الغيظ فلا يخرج من يدك ولا من لسانك ولا من أصابعك على الشاشة. والعرب تقول: كظم السقاء، إذا ملأه وسدّ فاه. الغيظ موجود، والفم مشدود عليه.',
+    'والعفو أن تُسقطي الحساب من قلبك، فلا تحملي الرسالة معك إلى النوم، ولا إلى مباراة الأسبوع القادم. والإحسان أن تردي بخير: أن تكتبي لها في الغد «المباراة القادمة لنا»، أو تمرّري لها الكرة الأولى.',
+    'ويضيف علم النفس أداة اسمها «إعادة التقييم»: أن تسألي قبل الرد: هل هناك تفسير آخر؟ ربما كتبتها وهي غاضبة من نفسها بعد الخسارة. التفسير الآخر يترك الخطأ خطأً، ويطفئ نصف النار قبل أن تشتعل.',
+    'جرّبي أسبوعًا: كل رد تكتبينه وأنتِ غاضبة يبقى في المسودة عشر دقائق قبل أن ترسليه. وفي آخر الأسبوع عُدّي: كم ردًّا أرسلتِه كما كتبتِه أول مرة؟'];
+  r5.source = { ar: 'القرآن الكريم، آل عمران 3:134، ومعنى «كظم السقاء» في «المعجم الوسيط» (مادة كظم)، مع أداة إعادة التقييم في علم النفس المعرفي.', en: 'The Quran, Al Imran 3:134; the sense of "filling the waterskin and closing its mouth" from al-Mu\'jam al-Wasit (root k-z-m); with the reappraisal tool from cognitive psychology.' };
+
+  /* monkey-q9 وq10: من قصة monkey-r6 */
+  var q9 = Q('monkey-q9');
+  q9.type = 'comprehension';
+  q9.q = { ar: 'ماذا فعل عمر حين كبر بالون الغضب في صدره؟', en: 'What did Omar do when the anger balloon grew in his chest?' };
+  q9.options = [{ ar: 'صرخ بأعلى صوته على أخته', en: 'Shouted at his sister as loud as he could' },
+    { ar: 'وضع يده على صدره وتنفّس ببطء', en: 'Put his hand on his chest and breathed slowly' },
+    { ar: 'أخذ قلمًا آخر من حقيبتها', en: 'Took another pencil from her bag' }];
+  q9.correct = 1;
+  q9.why = { ar: 'تنفّس ببطء حتى صغر البالون، ثم طلب قلمه بصوت هادئ.', en: 'He breathed slowly until the balloon shrank, then asked for his pencil in a calm voice.' };
+  var q10 = Q('monkey-q10');
+  q10.q = { ar: 'أخذ أخوك ألوانك وأنت ترسم، وأحسست بالبالون يكبر في صدرك. ماذا تفعل أولًا؟', ar_f: 'أخذ أخوكِ ألوانكِ وأنتِ ترسمين، وأحسستِ بالبالون يكبر في صدركِ. ماذا تفعلين أولًا؟', en: 'Your brother took your crayons while you were drawing, and you feel the balloon growing in your chest. What do you do first?' };
+  q10.options = [{ ar: 'أضع يدي على صدري وأعدّ إلى أربعة', en: 'Put my hand on my chest and count to four' },
+    { ar: 'أصرخ حتى يعيد إليّ ألواني', en: 'Shout until he gives my crayons back' },
+    { ar: 'آخذ ألعابه أنا أيضًا', en: 'Take his toys too' }];
+  q10.correct = 0;
+  q10.why = { ar: 'أنفاس قليلة تصغّر البالون، فيخرج الكلام هادئًا.', en: 'A few breaths shrink the balloon, and the words come out calm.' };
+
+  /* monkey-r7: القمة */
+  var r7 = R('monkey-r7');
+  r7.body.ar[1] = 'كان أنس بن مالك رضي الله عنه يمشي مع النبي صلى الله عليه وآله وسلم، وعليه بُرد نجراني غليظ الحاشية. فأدركه أعرابي وجذبه من ردائه جذبة شديدة، حتى رأى أنس أثر الحاشية على عاتقه.';
+  r7.body.en[1] = 'Anas ibn Malik, may Allah be pleased with him, was walking with the Prophet, peace and blessings be upon him and his family, who wore a cloak from Najran with a rough edge. A Bedouin caught up with him and tugged the cloak so hard that Anas saw the mark its edge had left on his shoulder.';
+  r7.body.ar[2] = 'ثم قال الأعرابي بخشونة: مُر لي من مال الله الذي عندك.';
+  r7.body.en[2] = 'Then the Bedouin said roughly: order me something from the wealth of Allah that you hold.';
+  r7.body.ar[4] = 'سمات الوسطى أن يقود الغضب اليد والصوت. وفي القمة قلب يمسك المقود وأثر الجذبة على كتفه، ثم يعطي من جذبه. وأول الطريق إليها: حين يشدّنا أحد من كمّنا، نلتفت إليه بابتسامة قبل أي كلمة.';
+  r7.body.en[4] = 'The middle-finger trait is letting anger drive the hand and the voice. At the summit is a heart that holds the wheel with the mark of the tug still on the shoulder, and then gives to the one who tugged. The road there starts small: when someone pulls at our sleeve, we turn to them with a smile before any word.';
+  if (r7.body.ar_f) { r7.body.ar_f[1] = r7.body.ar[1]; r7.body.ar_f[2] = r7.body.ar[2]; r7.body.ar_f[4] = r7.body.ar[4]; }
+  r7.source = { ar: 'حديث في صحيح البخاري (3149)، يرويه أنس بن مالك رضي الله عنه.', en: 'A hadith in Sahih al-Bukhari (3149), narrated by Anas ibn Malik, may Allah be pleased with him.' };
+  var q11 = Q('monkey-q11');
+  q11.options = [{ ar: 'دفعه عنه وأكمل طريقه', en: 'Pushed him off and walked on' },
+    { ar: 'رفع صوته عليه أمام الناس', en: 'Raised his voice at him in front of people' },
+    { ar: 'ضحك، ثم أمر له بعطاء', en: 'Laughed, then ordered him a gift' }];
+  q11.correct = 2;
+
+  /* monkey-r8: مشهد الانتظار، والخاتمة بالإثبات */
+  var r8 = R('monkey-r8');
+  r8.body = {
+    ar: ['جاء وفد من قبيلة عبد القيس إلى المدينة ليلقوا النبي صلى الله عليه وآله وسلم، وكان فيهم رجل يُعرف بأشجّ عبد القيس رضي الله عنه.',
+      'فلما وصلوا، أسرع أصحابه عن رواحلهم شوقًا إلى النبي صلى الله عليه وآله وسلم. وانتظر الأشج، حتى أتى حقيبة ثيابه، فلبس ثوبيه، ثم جاء.',
+      'فقال له النبي صلى الله عليه وآله وسلم: «إن فيك خصلتين يحبهما الله: الحلم والأناة».',
+      'الحلم أن تملك نفسك حين تغضب، فلا تسبق يدك ولا لسانك. والأناة أن تتمهل، فتفكر قبل أن تفعل، كما تمهّل الأشج عند رواحله.',
+      'وهاتان الخصلتان عكس سمات الوسطى: الاندفاع والعجلة. ولاحظ كلمة «يحبهما»: التمهل قوة يحبها الله في عباده.'],
+    en: ['A delegation from the tribe of Abd al-Qays came to Madina to meet the Prophet, peace and blessings be upon him and his family. Among them was a man known as al-Ashajj of Abd al-Qays, may Allah be pleased with him.',
+      'When they arrived, his companions hurried down from their mounts, eager to reach the Prophet, peace and blessings be upon him and his family. Al-Ashajj waited: he went to his bag of clothes, put on his two garments, and then came.',
+      'The Prophet said to him, meaning: "You have two qualities that Allah loves: forbearance and deliberateness."',
+      'Forbearance is keeping hold of yourself when you are angry, so neither your hand nor your tongue gets ahead of you. Deliberateness is taking your time, so you think before you act, as al-Ashajj took his time by his mount.',
+      'These two qualities are the opposite of the middle-finger trait: impulsiveness and haste. And notice the word "loves": taking your time is a strength Allah loves in His servants.']
+  };
+  r8.body.ar_f = r8.body.ar.slice();
+  r8.body.ar_f[3] = 'الحلم أن تملكي نفسك حين تغضبين، فلا تسبق يدك ولا لسانك. والأناة أن تتمهلي، فتفكري قبل أن تفعلي، كما تمهّل الأشج عند رواحله.';
+  r8.body.ar_f[4] = 'وهاتان الخصلتان عكس سمات الوسطى: الاندفاع والعجلة. ولاحظي كلمة «يحبهما»: التمهل قوة يحبها الله في عباده.';
+  r8.source = { ar: 'حديث في صحيح مسلم عن ابن عباس رضي الله عنهما، وخبر انتظار الأشج في سنن أبي داود (5225).', en: 'A hadith in Sahih Muslim from Ibn Abbas, may Allah be pleased with them both; the account of al-Ashajj waiting is in Sunan Abi Dawud (5225).' };
+  var q12 = Q('monkey-q12');
+  q12.options = [{ ar: 'الشجاعة والكرم', en: 'Courage and generosity' },
+    { ar: 'الحلم والأناة', en: 'Forbearance and deliberateness' },
+    { ar: 'الصبر والصدق', en: 'Patience and truthfulness' }];
+  q12.correct = 1;
+  q12.why = { ar: 'تمهّل الأشج حين أسرع غيره، فذكر النبي صلى الله عليه وآله وسلم الحلم والأناة، وهما عكس الاندفاع والعجلة.', en: 'Al-Ashajj took his time while others hurried, and the Prophet, peace and blessings be upon him and his family, named forbearance and deliberateness, the opposite of impulse and haste.' };
+
+  /* ch-monkey-1: الخاتمة بالإثبات */
+  var ch = window.AKHLAQ_CONTENT.choices.filter(function (c) { return c.id === 'ch-monkey-1'; })[0];
+  ch.opts[0].why = { ar: 'الغضب يكسر شيئًا آخر، والبرج يبقى على الأرض.', en: 'Anger breaks something else, and the tower stays on the floor.' };
+  ch.opts[1].t.ar_f = 'أتوقف، وآخذ نفسًا عميقًا، ثم أقول: «أنا غاضبة، كان برجي».';
+  ch.opts[1].why = { ar: 'قول ما يغضبنا بهدوء شجاعة، والصراخ هو الطريق السهل.', en: 'Saying calmly what made us angry takes courage; shouting is the easy way.' };
+  ch.end = { ar: 'الغضب يأتي سريعًا، وكلنا نشعر به. والقوة أن نمسك أيدينا وألسنتنا حتى يمرّ.', en: 'Anger comes fast, and all of us feel it. Strength is holding our hands and tongues until it passes.' };
+
+  /* monkey-q13: سؤال لقراءة monkey-r5 */
+  M.quiz.push(
+    { id: 'monkey-q13', readingId: 'monkey-r5', type: 'situation', correct: 1,
+      q: { ar: '«خسرنا بسببك» في مجموعة الفريق، والرد جاهز في أصابعك. أي خطوة تشبه ما تقترحه القراءة؟', en: '"We lost because of you" in the team group, and the reply is ready in your fingers. Which step matches what the reading suggests?' },
+      options: [{ ar: 'أرد فورًا قبل أن يظن الجميع أنه محق', ar_f: 'أرد فورًا قبل أن يظن الجميع أنها محقة', en: 'Reply at once before everyone thinks he is right' },
+        { ar: 'أترك ردي في المسودة عشر دقائق', en: 'Leave my reply in drafts for ten minutes' },
+        { ar: 'أخرج من مجموعة الفريق الليلة', en: 'Leave the team group tonight' }],
+      why: { ar: 'الدقائق العشر تفصل بين الغيظ والرد، فيبقى الرد لصاحبه.', en: 'Ten minutes put space between the anger and the reply, so the reply stays yours.' } }
+  );
+
+  /* monkey-r9: 15+، جديدة */
+  M.readings.push({
+    id: 'monkey-r9', minutes: 4, ages: '15+',
+    title: { ar: 'ملصق في مجموعة الصف', en: 'A sticker in the class group' },
+    body: {
+      ar: ['في حصة العلوم قدّم سليم عرضه عن البراكين. وفي منتصفه قال: «ثار البركان سنة 2079»، وهو يقصد 1079. ضحك الصف، وضحك سليم معهم، وأكمل.',
+        'وفي المساء نشر فارس في مجموعة الصف ملصقًا: صورة سليم أمام اللوح، وفوقها بخط أصفر: «عاجل من سنة 2079». وفي ساعة صار الملصق لعبة المجموعة: كل رسالة يرد عليها أحدهم به، والوجوه الضاحكة تنهال.',
+        'والملصق مضحك فعلًا، ويامن يعرف ذلك. ويامن أمهر من في الصف في صنع الملصقات، والكل ينتظر ملصقاته. في ثلاثين ثانية صنع واحدًا أضحك: سليم بنظارة شمسية فوق بركان، وتحته: «المؤرخ القادم من المستقبل». ووقف إبهامه فوق زر الإرسال.',
+        'ثم ظهر تحت اسم سليم: «يكتب...». واختفى. ثم ظهر مرة أخرى، واختفى. ثم وصل منه وجه ضاحك واحد، وحده.',
+        'نظر يامن إلى ذلك الوجه طويلًا. تذكّر سليمًا في المكتبة أمس، يعيد عرضه بصوت خافت أمام الحائط، ويكتب التواريخ على بطاقات صغيرة.',
+        'ثم وجد أصابعه تكتب لفارس، بسرعة: «تضحك على غيرك؟ نسيت عرضك الشهر الماضي؟». رد جاهز وحاد، وسيضحك له نصف الصف أيضًا.',
+        'وضع يامن الهاتف على المكتب ووجهه إلى الأسفل، وعدّ أنفاسه حتى عشرة.',
+        'ثم رفعه، ومسح الملصق، ومسح الرد. وكتب في المجموعة: «يكفي يا جماعة، عرضه كان أحسن من عرضي». فرد فارس: «اهدأ يا شيخ يامن»، وضحك اثنان. وأحسّ يامن بالحرارة في وجهه، وترك الهاتف.',
+        'وبعد العشاء فتح محادثة سليم، وكتب: «جزء الرماد الذي غطّى المدينة ما فهمته إلا من عرضك. نراجع معًا للاختبار في الفسحة؟».',
+        'وصل الرد بعد دقيقة: «أكيد». وفي المجموعة صعد الملصق إلى الأعلى، ودفنته رسائل الواجب وصور المباراة.'],
+      en: ['In science, Salim gave his presentation on volcanoes. Halfway through he said: "The volcano erupted in 2079," meaning 1079. The class laughed, Salim laughed with them, and carried on.',
+        'That evening Faris posted a sticker in the class group: a photo of Salim at the board, with yellow letters on top: "Breaking news from 2079." Within an hour the sticker was the group\'s game: someone answered every message with it, and the laughing faces poured in.',
+        'The sticker really was funny, and Yamen knew it. Yamen was the best sticker-maker in the class, and everyone waited for his. In thirty seconds he made a funnier one: Salim in sunglasses on top of a volcano, with the caption "The historian from the future." His thumb stopped over the send button.',
+        'Then under Salim\'s name appeared: "typing..." It disappeared. It appeared again, and disappeared. Then a single laughing face arrived from him, on its own.',
+        'Yamen looked at that face for a long time. He remembered Salim in the library yesterday, going over his presentation quietly in front of the wall, writing the dates on little cards.',
+        'Then he found his fingers typing to Faris, fast: "Laughing at someone else? Forgotten your own presentation last month?" A ready, sharp reply, and half the class would laugh at it too.',
+        'Yamen put the phone face down on the desk and counted his breaths to ten.',
+        'Then he picked it up, deleted the sticker, and deleted the reply. In the group he wrote: "Enough, guys, his presentation was better than mine." Faris replied: "Calm down, Sheikh Yamen," and two people laughed. Yamen felt the heat in his face, and put the phone down.',
+        'After dinner he opened Salim\'s chat and wrote: "The part about the ash covering the city, I only got it from your presentation. Revise together for the test at break?"',
+        'The reply came a minute later: "Sure." In the group, the sticker drifted up out of sight, buried under homework messages and match photos.']
+    },
+    ask: { ar: 'متى وقف إبهامك فوق زر الإرسال، وأنت تعرف أن الضحكة ستكون على حساب أحد؟', ar_f: 'متى وقف إبهامكِ فوق زر الإرسال، وأنتِ تعرفين أن الضحكة ستكون على حساب أحد؟', en: 'When has your thumb hovered over send, knowing the laugh would be at someone\'s expense?' },
+    quote: null,
+    source: { ar: 'قصة مؤلفة، أبطالها خياليون.', en: 'An original story with fictional characters.' }
+  });
+  M.quiz.push(
+    { id: 'monkey-q14', readingId: 'monkey-r9', type: 'comprehension', correct: 2,
+      q: { ar: 'ما الذي جعل يامن ينظر طويلًا قبل أن يرسل ملصقه؟', en: 'What made Yamen stare for a long time before sending his sticker?' },
+      options: [{ ar: 'طلب المعلم من الصف حذف الملصق', en: 'The teacher told the class to delete the sticker' },
+        { ar: 'سبقه فارس بملصق أضحك من ملصقه', en: 'Faris beat him to it with a funnier sticker' },
+        { ar: 'أرسل سليم وجهًا ضاحكًا واحدًا بعد تردد', en: 'Salim sent a single laughing face after hesitating' }],
+      why: { ar: 'كتب سليم ثم مسح مرتين، ثم ضحك على نفسه مع الجميع، ويامن رآه أمس يتدرب في المكتبة.', en: 'Salim typed and deleted twice, then laughed at himself along with everyone, and Yamen had seen him rehearsing in the library the day before.' } },
+    { id: 'monkey-q15', readingId: 'monkey-r9', type: 'comprehension', correct: 1,
+      q: { ar: 'ماذا فعل يامن بالرد الحاد الذي كتبه لفارس؟', en: 'What did Yamen do with the sharp reply he typed to Faris?' },
+      options: [{ ar: 'أرسله إلى فارس في رسالة خاصة', en: 'Sent it to Faris in a private message' },
+        { ar: 'مسحه، وكتب: «عرضه أحسن من عرضي»', en: 'Deleted it and wrote: "His was better than mine"' },
+        { ar: 'أرسله في المجموعة ثم حذفه', en: 'Sent it to the group, then deleted it' }],
+      why: { ar: 'أمسك الرد الذي كان سيُضحك نصف الصف، ودفع ثمن ذلك ضحكة على نفسه.', en: 'He held back a reply that would have made half the class laugh, and paid for it with a laugh at his own expense.' } }
   );
 })();
