@@ -424,134 +424,119 @@
     id: 'book-human', stage: 'human', ages: '9-14',
     title: { ar: 'يحيى والوعد الصغير', en: 'Yahya and the small promise' },
     chapters: [
-      { title: { ar: 'مجموعة الصف', en: 'The class group chat' },
-        body: {
-          ar: [
-            'كان يحيى في الثالثة عشرة، وكان له في هاتفه مجموعة لطلاب صفه يتبادلون فيها الواجبات والنكات. وفي أول الشهر جاءت إلى المدرسة طالبة جديدة اسمها زينب، تتكلم بلهجة مختلفة، وتلبس نظارة سميكة.',
-            'في المساء كتب أحد الأولاد في المجموعة نكتة عن نظارة زينب، فضحك الجميع وأرسلوا الوجوه الضاحكة. ثم كتب آخر نكتة عن لهجتها، ثم ثالث. وكان هشام، صديق يحيى المقرّب، يكتب أكثرهم، ويضيف صورًا مضحكة يرسمها بنفسه، فيزداد الضحك في المجموعة.',
-            'كتب يحيى وجهًا ضاحكًا، ثم توقف. تذكّر أن أخته ندى، وهي في الحادية عشرة، انتقلت إلى مدرسة جديدة العام الماضي، وكانت تعود كل يوم باكية لأن البنات يسخرن من حقيبتها القديمة. فمسح الوجه الضاحك قبل أن يقرأه أحد.',
-            'وفي الصباح سأل أباه: هل الضحك على نكتة في المجموعة أذى، مع أنني لم أكتبها؟ قال الأب: قال النبي صلى الله عليه وآله وسلم: «الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ». واللسان اليوم يكتب أيضًا. والضحكة في المجموعة قد تجرح كما تجرح الكلمة.',
-            'فكتب يحيى في المجموعة تلك الليلة: يا جماعة، لنتوقف عن هذا. زينب جديدة، وقد تقرأ ما نكتب. سكت الجميع لحظة، ثم كتب هشام: أنت جادّ؟ فقال يحيى: نعم. ولم يرد أحد بعدها. لم يكن الأمر سهلًا، لكن يحيى نام وهو يشعر أن يده ولسانه نظيفان تلك الليلة.'
-          ],
-          en: [
-            'Yahya was thirteen, and on his phone he had a group for the students in his class where they swapped homework and jokes. At the start of the month a new girl called Zaynab came to the school; she spoke with a different accent and wore thick glasses.',
-            'In the evening one of the boys posted a joke in the group about Zaynab\'s glasses, and everyone laughed and sent laughing faces. Then another posted a joke about her accent, then a third. Hisham, Yahya\'s closest friend, was posting the most, adding funny pictures he drew himself, and the laughter in the group grew.',
-            'Yahya sent a laughing face, then stopped. He remembered that his sister Nada, who was eleven, had moved to a new school last year and came home crying every day because the girls mocked her old schoolbag. So he deleted the laughing face before anyone could read it.',
-            'In the morning he asked his father: is laughing at a joke in the group harmful, even if I didn\'t write it? His father said: the Prophet, peace and blessings be upon him and his family, said, meaning: "The Muslim is the one from whose tongue and hand the Muslims are safe." And today the tongue types too. A laugh in a group chat can wound just as a word can.',
-            'So that night Yahya wrote in the group: guys, let\'s stop this. Zaynab is new, and she might read what we write. Everyone went quiet for a moment, then Hisham wrote: are you serious? Yahya said: yes. Nobody replied after that. It was not easy, but Yahya went to sleep feeling that his hand and his tongue were clean that night.'
-          ]
-        },
+      { title: { ar: 'مجموعة الصف', en: 'The class group' },
+        body: { ar: [
+            'كان يحيى في الثالثة عشرة، وفي هاتفه مجموعة لطلاب صفه يتبادلون فيها الواجبات والنكات. وفي أول الشهر جاءت إلى المدرسة طالبة جديدة اسمها زينب، تتكلم بلهجة غير لهجتهم، وتلبس نظارة سميكة.',
+            'وفي المساء كتب أحد الأولاد في المجموعة نكتة عن نظارة زينب، فانهالت الوجوه الضاحكة. ثم كتب آخر نكتة عن لهجتها، ثم ثالث. وكان هشام، صديق يحيى المقرّب، أكثرهم كتابة، يرسم بنفسه صورًا مضحكة ويرسلها، فيزداد الضحك.',
+            'كتب يحيى وجهًا ضاحكًا، وقبل أن يرسله توقف إصبعه. تذكّر أخته ندى، وهي في الحادية عشرة، حين انتقلت إلى مدرسة جديدة العام الماضي، وكانت تعود كل يوم باكية لأن البنات يسخرن من حقيبتها القديمة. فمسح الوجه الضاحك قبل أن يصل.',
+            'وفي الصباح سأل أباه: «هل الضحك على نكتة في المجموعة أذى، مع أنني لم أكتبها؟». فقرأ له الأب قول النبي صلى الله عليه وآله وسلم: «الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ»، ثم قال: «واللسان اليوم يكتب أيضًا. والوجه الضاحك في المجموعة يجرح كما تجرح الكلمة».',
+            'وفي المساء التالي بدأت نكتة جديدة. فكتب يحيى: «يا جماعة، لنتوقف. زينب جديدة، وقد تقرأ ما نكتب». سكتت المجموعة. ثم كتب هشام: «أنت جادّ؟». فكتب يحيى: «نعم». ولم يرد أحد بعدها. ووضع يحيى الهاتف على الطاولة مقلوبًا، وإصبعه ما تزال ترتجف قليلًا، وأطفأ النور.'
+          ], en: [
+            'Yahya was thirteen, and on his phone was a group for his classmates where they swapped homework and jokes. At the start of the month a new girl named Zaynab came to the school. She spoke with an accent different from theirs and wore thick glasses.',
+            'In the evening one of the boys posted a joke in the group about Zaynab\'s glasses, and the laughing faces poured in. Then another posted a joke about her accent, then a third. Hisham, Yahya\'s closest friend, posted the most, drawing funny pictures himself and sending them, and the laughter grew.',
+            'Yahya typed a laughing face, and his finger stopped before sending it. He remembered his sister Nada, who is eleven, when she moved to a new school last year and came home crying every day because the girls mocked her old schoolbag. So he deleted the laughing face before it went out.',
+            'In the morning he asked his father: "Is laughing at a joke in the group hurting someone, even if I did not write it?" His father read him the words of the Prophet, peace and blessings be upon him and his family: "The Muslim is the one from whose tongue and hand the Muslims are safe." Then he said: "And today the tongue types too. A laughing face in a group wounds just as a word does."',
+            'The next evening a new joke started. Yahya wrote: "Guys, let\'s stop. Zaynab is new, and she might read what we write." The group went quiet. Then Hisham wrote: "Are you serious?" Yahya wrote: "Yes." Nobody replied after that. Yahya put the phone face down on the table, his finger still trembling a little, and switched off the light.'
+          ] },
         quiz: Q('human', 1, [
-          { correct: 1, q: { ar: 'لماذا مسح يحيى الوجه الضاحك؟', en: 'Why did Yahya delete the laughing face?' },
-            options: [{ ar: 'لأن أباه رآه', en: 'Because his father saw it' }, { ar: 'لأنه تذكّر حزن أخته حين سخرت منها البنات', en: 'Because he remembered his sister\'s sadness when the girls mocked her' }, { ar: 'لأن هاتفه تعطل', en: 'Because his phone broke' }],
-            why: { ar: 'من يتذكر ألم غيره يكفّ أذاه.', en: 'Whoever remembers others\' pain keeps their harm away.' } },
-          { correct: 0, q: { ar: 'كيف شرح الأب أن «اللسان» يشمل المجموعة على الهاتف؟', en: 'How did the father explain that "the tongue" includes a group chat?' },
-            options: [{ ar: 'قال إن اللسان اليوم يكتب أيضًا، والضحكة قد تجرح كالكلمة', en: 'He said the tongue types too today, and a laugh can wound like a word' }, { ar: 'قال إن الهاتف لا يدخل في الحديث', en: 'He said phones are not included in the hadith' }, { ar: 'قال إن النكتة لا تؤذي أحدًا', en: 'He said jokes never hurt anyone' }],
-            why: { ar: 'هذه الدرجة الأولى في السبابة: كفّ الأذى باليد واللسان.', en: 'This is the first index-finger degree: keeping harm away by hand and tongue.' } }
+          { correct: 1, q: { ar: 'لماذا مسح يحيى الوجه الضاحك قبل أن يرسله؟', en: 'Why did Yahya delete the laughing face before sending it?' },
+            options: [{ ar: 'لأن أباه كان ينظر إلى هاتفه', en: 'Because his father was looking at his phone' }, { ar: 'لأنه تذكّر بكاء أخته حين سخرت منها البنات', en: 'Because he remembered his sister crying when the girls mocked her' }, { ar: 'لأن هشام طلب منه ألا يضحك', en: 'Because Hisham asked him not to laugh' }],
+            why: { ar: 'من يتذكر ألم غيره يكفّ أذاه.', en: 'Whoever remembers another person\'s pain holds back from hurting.' } },
+          { correct: 0, q: { ar: 'كيف شرح الأب أن الحديث يشمل المجموعة على الهاتف؟', en: 'How did the father explain that the hadith includes the group on the phone?' },
+            options: [{ ar: 'قال إن اللسان اليوم يكتب أيضًا، والوجه الضاحك يجرح كالكلمة', en: 'He said the tongue types too today, and a laughing face wounds like a word' }, { ar: 'قال إن الذنب على من كتب النكتة وحده، لا على من ضحك', en: 'He said the blame is only on whoever wrote the joke, not on those who laughed' }, { ar: 'قال إن الأفضل أن يخرج يحيى من المجموعة ويرتاح', en: 'He said Yahya had better leave the group and be done with it' }],
+            why: { ar: 'هذه الدرجة الأولى في السبابة: كفّ الأذى باليد واللسان.', en: 'This is the first step of the index finger: holding back harm from hand and tongue.' } }
         ]) },
 
       { title: { ar: 'مشروع ندى', en: 'Nada\'s project' },
-        body: {
-          ar: [
-            'في يوم الأحد طلبت ندى من أخيها أن يساعدها في مشروع العلوم: بركان صغير من الطين يثور بالخل والصودا. فقال يحيى وهو ينظر إلى هاتفه: حسنًا، يوم الأربعاء بعد المدرسة، أعدك. وقالها بسرعة كما يقول الناس كلمات كثيرة في اليوم. ففرحت ندى وكتبت الموعد على ورقة وألصقتها على باب الثلاجة.',
-            'وجاء يوم الأربعاء. خرج يحيى من المدرسة، فدعاه هشام ليلعبا في بيته اللعبة الجديدة. فذهب معه، ونسي كل شيء. ولم يرجع إلى البيت إلا بعد المغرب، فوجد ندى جالسة إلى الطاولة وأمامها الطين والخل، والبركان لم يُبنَ.',
-            'لم تصرخ ندى، لكنها قالت بهدوء: انتظرتك ثلاث ساعات. شعر يحيى بشيء ثقيل في صدره. نظر إلى الورقة على الثلاجة، فرأى خط أخته الصغير: الأربعاء، يحيى يساعدني. لقد وعدها بنفسه، ثم نسيها كأن الوعد لم يكن.',
-            'قال الأب ليحيى تلك الليلة: الإنسان يُعرف بشيئين صغيرين: هل يؤذي الناس؟ وهل يفي بما عليه؟ ولا أحد يحتاج أن يذكّرك بوعدك كل مرة. الوعد الذي تحفظه وحدك يجعلك إنسانًا يُعتمد عليه.',
-            'فاعتذر يحيى لأخته اعتذارًا صادقًا، ولم يقدّم أعذارًا، وجلس معها حتى منتصف الليل يبنيان البركان. وثار البركان في الصباح أمام صفها، فصفق الجميع. ومنذ ذلك اليوم صار يحيى يكتب وعوده في دفتر صغير، ولا ينام حتى يفي بوعد اليوم، أو يعتذر ويحدد موعدًا جديدًا يفي به.'
-          ],
-          en: [
-            'On Sunday Nada asked her brother to help with her science project: a small clay volcano that erupts with vinegar and baking soda. Yahya said, looking at his phone: okay, Wednesday after school, I promise. He said it quickly, the way people say a lot of words in a day. Nada was delighted, wrote the time on a note and stuck it on the fridge door.',
-            'Wednesday came. Yahya left school, and Hisham invited him over to play his new game. He went with him and forgot everything. He did not get home until after sunset, and found Nada sitting at the table with the clay and the vinegar in front of her, and no volcano built.',
-            'Nada did not shout; she said quietly: I waited three hours for you. Yahya felt something heavy in his chest. He looked at the note on the fridge and saw his sister\'s small handwriting: Wednesday, Yahya helps me. He had made the promise himself, then forgotten it as if it had never been.',
-            'His father said to him that night: a person is known by two small things: do they hurt people, and do they do what is due from them? And nobody should have to remind you of your promise every time. A promise you keep on your own makes you someone people can rely on.',
-            'So Yahya apologised to his sister sincerely, without making excuses, and sat with her until midnight building the volcano. In the morning it erupted in front of her class, and everyone clapped. From that day Yahya wrote his promises in a small notebook, and did not sleep until he had kept that day\'s promise, or apologised and set a new time that he kept.'
-          ]
-        },
+        body: { ar: [
+            'يوم الأحد طلبت ندى من أخيها أن يساعدها في مشروع العلوم: بركان صغير من الطين يثور بالخل والصودا. فقال يحيى وعيناه على هاتفه: «حسنًا، الأربعاء بعد المدرسة. أعدك». قالها بسرعة، كما تُقال كلمات كثيرة في اليوم. ففرحت ندى، وكتبت الموعد على ورقة وألصقتها على باب الثلاجة.',
+            'وجاء الأربعاء. خرج يحيى من المدرسة، فدعاه هشام ليجرّبا في بيته اللعبة الجديدة. فذهب معه، ونسي كل شيء. ولم يرجع إلا بعد المغرب، فوجد ندى جالسة إلى الطاولة، أمامها الطين وزجاجة الخل، والبركان لم يُبنَ.',
+            'رفعت ندى عينيها وقالت بهدوء: «انتظرتك ثلاث ساعات». شعر يحيى بشيء ثقيل في صدره. ونظر إلى الورقة على الثلاجة، فرأى خط أخته الصغير: «الأربعاء، يحيى يساعدني». لقد وعدها بنفسه، ثم نسيها كأن الوعد لم يُقل.',
+            'وتلك الليلة قال له أبوه: «الإنسان يُعرف بشيئين صغيرين: هل يسلم الناس منه؟ وهل يفي بما قال؟ والوعد الذي تحفظه دون أن يذكّرك به أحد يجعلك إنسانًا يُعتمد عليه».',
+            'فقال يحيى لأخته: «أخطأت، ولا عذر عندي». وجلس معها حتى منتصف الليل يبنيان البركان. وفي الصباح ثار البركان أمام صفها، فصفّق الجميع. وفي المساء اشترى يحيى دفترًا صغيرًا، وكتب في أول صفحة: «وعود اليوم». وصار لا ينام حتى يفي بوعد يومه، أو يعتذر ويحدد موعدًا جديدًا يفي به.'
+          ], en: [
+            'On Sunday Nada asked her brother to help with her science project: a little clay volcano that erupts with vinegar and baking soda. Yahya said with his eyes on his phone: "Fine, Wednesday after school. I promise." He said it quickly, the way so many words get said in a day. Nada was delighted, wrote the date on a sheet of paper and stuck it on the fridge door.',
+            'Wednesday came. Yahya left school, and Hisham invited him home to try the new game. He went with him and forgot everything. He did not get back until after maghrib, and found Nada sitting at the table with the clay and the bottle of vinegar in front of her, and no volcano.',
+            'Nada looked up and said quietly: "I waited for you for three hours." Yahya felt something heavy in his chest. He looked at the paper on the fridge and saw his little sister\'s handwriting: "Wednesday, Yahya helps me." He had promised her himself, then forgotten as if the promise had never been spoken.',
+            'That night his father told him: "A person is known by two small things: are people safe from him? And does he keep what he said? A promise you keep without anyone reminding you makes you someone people can rely on."',
+            'So Yahya said to his sister: "I got it wrong, and I have no excuse." He sat with her until midnight building the volcano. In the morning it erupted in front of her class, and everyone clapped. That evening Yahya bought a small notebook and wrote on the first page: "Today\'s promises." From then on he would not sleep until he had kept the day\'s promise, or apologised and set a new time that he kept.'
+          ] },
         quiz: Q('human', 2, [
           { correct: 2, q: { ar: 'لماذا لم يُبنَ البركان يوم الأربعاء؟', en: 'Why was the volcano not built on Wednesday?' },
-            options: [{ ar: 'لأن ندى نسيت', en: 'Because Nada forgot' }, { ar: 'لأن الخل انتهى', en: 'Because the vinegar ran out' }, { ar: 'لأن يحيى ذهب ليلعب ونسي وعده', en: 'Because Yahya went to play and forgot his promise' }],
-            why: { ar: 'الوعد الذي يُنسى يكسر ثقة من ينتظره.', en: 'A forgotten promise breaks the trust of the one waiting.' } },
-          { correct: 0, q: { ar: 'ماذا صار يحيى يفعل بوعوده بعد ذلك اليوم؟', en: 'What did Yahya do with his promises after that day?' },
-            options: [{ ar: 'يكتبها في دفتر، ولا ينام حتى يفي بها أو يعتذر ويحدد موعدًا جديدًا', en: 'Wrote them in a notebook and did not sleep until he kept them, or apologised and set a new time' }, { ar: 'توقف عن الوعد أبدًا', en: 'Stopped making promises at all' }, { ar: 'صار ينتظر أن يذكّره أبوه', en: 'Waited for his father to remind him' }],
-            why: { ar: 'هذه الدرجة الثانية: أداء الواجب والوفاء دون تذكير.', en: 'This is the second degree: doing what is due and keeping promises without reminders.' } }
+            options: [{ ar: 'لأن ندى نسيت أن تشتري الصودا', en: 'Because Nada forgot to buy the baking soda' }, { ar: 'لأن الطين لم يجف في الوقت', en: 'Because the clay did not dry in time' }, { ar: 'لأن يحيى ذهب ليلعب ونسي وعده', en: 'Because Yahya went to play and forgot his promise' }],
+            why: { ar: 'الوعد الذي يُنسى يكسر ثقة من ينتظره.', en: 'A forgotten promise breaks the trust of the one who waits.' } },
+          { correct: 0, q: { ar: 'ماذا كتب يحيى في أول صفحة من دفتره الصغير؟', en: 'What did Yahya write on the first page of his small notebook?' },
+            options: [{ ar: '«وعود اليوم»', en: '"Today\'s promises"' }, { ar: '«لا أنسى ندى»', en: '"Don\'t forget Nada"' }, { ar: '«مشروع البركان»', en: '"The volcano project"' }],
+            why: { ar: 'صار يكتب وعوده، ولا ينام حتى يفي بها أو يعتذر ويحدد موعدًا جديدًا.', en: 'He began writing down his promises, and would not sleep until he kept them or apologised and set a new time.' } }
         ]) },
 
       { title: { ar: 'نافذة الجار', en: 'The neighbour\'s window' },
-        body: {
-          ar: [
+        body: { ar: [
             'في عطلة نهاية الأسبوع كان يحيى وهشام يلعبان الكرة في الشارع الخلفي. ركل يحيى الكرة بقوة، فطارت فوق السور وكسرت نافذة صغيرة في بيت العم منصور، الجار الكبير الذي يسكن وحده.',
-            'قال هشام بسرعة: اهرب! لم يرنا أحد! وكاد يحيى يركض معه. لكنه تذكّر الدفتر الصغير، وتذكّر كلام أبيه عن الإنسان الذي يُعتمد عليه. فوقف مكانه، وقال: لا، أنا كسرتها، وسأخبره. فنظر إليه هشام متعجبًا، ثم وقف بجانبه ولم يهرب.',
-            'طرق يحيى باب العم منصور، وقلبه يدق بسرعة. فتح الرجل الباب، فقال يحيى: يا عمي، أنا آسف. ركلت الكرة فكسرت نافذتك. سأدفع ثمنها من مصروفي، وسأساعدك في إصلاحها. نظر العم منصور إليه طويلًا، ثم قال: لم يعتذر لي أحد بهذه الطريقة منذ سنين. ادخل يا بني.',
-            'وفي البيت حكى يحيى لأبيه ما حدث. فقال الأب: هذا ما علّمنا إياه النبي صلى الله عليه وآله وسلم حين قال: «وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ». الخطأ يقع من كل الناس، لكن الإنسان لا يخفيه، بل يتبعه بحسنة تمحوه.',
-            'ويوم السبت ذهب يحيى مع أبيه، وساعدا العم منصور في تركيب زجاج جديد. وبعد الانتهاء صنع لهما العم منصور الشاي، وحكى لهما عن أيام شبابه. وخرج يحيى وهو يفكر: الخطأ صار بابًا لصداقة جديدة. ولو هربت، لبقيت نافذة مكسورة، وجار وحيد غاضب.'
-          ],
-          en: [
-            'At the weekend Yahya and Hisham were playing football in the back street. Yahya kicked the ball hard, and it flew over the wall and broke a small window in the house of Uncle Mansur, the elderly neighbour who lived alone.',
-            'Hisham said quickly: run! Nobody saw us! Yahya nearly ran with him. But he remembered the little notebook, and his father\'s words about being someone people can rely on. So he stayed where he was and said: no, I broke it, and I\'m going to tell him. Hisham looked at him in surprise, then stood beside him and did not run.',
-            'Yahya knocked on Uncle Mansur\'s door, his heart pounding. The man opened the door, and Yahya said: Uncle, I\'m sorry. I kicked the ball and broke your window. I\'ll pay for it from my pocket money, and I\'ll help you fix it. Uncle Mansur looked at him for a long time, then said: nobody has apologised to me like this in years. Come in, my son.',
-            'At home Yahya told his father what had happened. His father said: this is what the Prophet, peace and blessings be upon him and his family, taught us when he said, meaning: "Follow a bad deed with a good one and it will wipe it out, and treat people with good character." Everyone makes mistakes, but a true human does not hide a mistake; he follows it with a good deed that wipes it out.',
-            'On Saturday Yahya went with his father and they helped Uncle Mansur fit new glass. When they had finished, Uncle Mansur made them tea and told them about his younger days. Yahya left thinking: the mistake has become a door to a new friendship. If I had run, there would still be a broken window, and a lonely, angry neighbour.'
-          ]
-        },
+            'صاح هشام: «اهرب! لم يرنا أحد!». وكاد يحيى يركض معه. ثم تذكّر الدفتر الصغير، وتذكّر وجه ندى وهي تنتظر. فوقف مكانه وقال: «أنا كسرتها، وسأخبره». فنظر إليه هشام متعجبًا، ثم رجع ووقف بجانبه.',
+            'طرق يحيى باب العم منصور، وقلبه يدق بسرعة. ولما فتح الرجل الباب قال يحيى: «يا عمي، أنا آسف. ركلت الكرة فكسرت نافذتك. سأدفع ثمنها من مصروفي، وأساعدك في إصلاحها». نظر إليه العم منصور طويلًا، ثم قال: «منذ سنين لم يعتذر لي أحد بهذه الطريقة. ادخل يا بني».',
+            'وفي البيت حكى يحيى لأبيه ما حدث، فذكّره الأب بوصية النبي صلى الله عليه وآله وسلم: «وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ». ثم قال مبتسمًا: «كسرتها بقدمك، وستصلحها بيديك».',
+            'ويوم السبت ذهب يحيى مع أبيه، فركّبا مع العم منصور زجاجًا جديدًا. وبعد الانتهاء صنع لهما العم منصور الشاي، وحكى عن أيام شبابه حين كان يلعب الكرة في الشارع نفسه. وعند الباب أخرج من خزانته كرة جلدية قديمة، وناولها ليحيى وقال: «هذه لا تكسر النوافذ. كانت تكسر قلوب حراس المرمى».'
+          ], en: [
+            'At the weekend Yahya and Hisham were playing football in the back street. Yahya kicked the ball hard, and it flew over the wall and broke a small window in the house of Uncle Mansour, the elderly neighbour who lives alone.',
+            'Hisham shouted: "Run! Nobody saw us!" Yahya almost ran with him. Then he remembered the little notebook, and Nada\'s face as she waited. So he stood still and said: "I broke it, and I\'m going to tell him." Hisham stared at him in surprise, then came back and stood beside him.',
+            'Yahya knocked on Uncle Mansour\'s door, his heart racing. When the man opened it, Yahya said: "Uncle, I\'m sorry. I kicked the ball and broke your window. I\'ll pay for it from my pocket money, and help you fix it." Uncle Mansour looked at him for a long time, then said: "Nobody has apologised to me like that in years. Come in, son."',
+            'At home Yahya told his father what had happened, and his father reminded him of the Prophet\'s counsel, peace and blessings be upon him and his family: "Follow a bad deed with a good one and it will wipe it out, and treat people with good character." Then he smiled and said: "You broke it with your foot, and you will mend it with your hands."',
+            'On Saturday Yahya went with his father, and together with Uncle Mansour they fitted new glass. Afterwards Uncle Mansour made them tea and told them about his young days, when he played football in that same street. At the door he took an old leather ball out of his cupboard, handed it to Yahya and said: "This one never broke windows. It broke goalkeepers\' hearts."'
+          ] },
         quiz: Q('human', 3, [
           { correct: 1, q: { ar: 'ماذا فعل يحيى بعد أن كسر النافذة؟', en: 'What did Yahya do after breaking the window?' },
-            options: [{ ar: 'هرب مع هشام', en: 'Ran away with Hisham' }, { ar: 'اعترف للعم منصور وعرض أن يدفع ويساعد في الإصلاح', en: 'Owned up to Uncle Mansur and offered to pay and help fix it' }, { ar: 'قال إن هشام كسرها', en: 'Said Hisham broke it' }],
-            why: { ar: 'الإنسان لا يخفي خطأه، بل يعترف ويصلح.', en: 'A true human does not hide a mistake, but owns it and repairs it.' } },
-          { correct: 2, q: { ar: 'ما معنى «وأتبع السيئة الحسنة تمحها» في هذه القصة؟', en: 'What does "follow a bad deed with a good one and it will wipe it out" mean in this story?' },
-            options: [{ ar: 'أن ننسى الخطأ', en: 'To forget the mistake' }, { ar: 'أن نلوم غيرنا', en: 'To blame someone else' }, { ar: 'أن يتبع يحيى الخطأ بعمل طيب يصلحه، كتركيب الزجاج', en: 'That Yahya follows his mistake with a good deed that repairs it, like fitting the glass' }],
-            why: { ar: 'الحسنة بعد الخطأ تمحوه وتفتح بابًا جديدًا.', en: 'A good deed after a mistake wipes it out and opens a new door.' } }
+            options: [{ ar: 'ركض مع هشام، ثم رجع وحده في المساء', en: 'He ran with Hisham, then came back alone in the evening' }, { ar: 'طرق الباب واعترف، وعرض أن يدفع ويساعد في الإصلاح', en: 'He knocked, owned up, and offered to pay and help with the repair' }, { ar: 'ترك ورقة اعتذار تحت باب العم منصور', en: 'He left an apology note under Uncle Mansour\'s door' }],
+            why: { ar: 'من أخطأ وقف مكانه، واعترف، وعرض أن يصلح.', en: 'Whoever makes a mistake stays put, owns it, and offers to put it right.' } },
+          { correct: 2, q: { ar: 'كيف عمل يحيى بوصية «وأتبع السيئة الحسنة تمحها»؟', en: 'How did Yahya act on the counsel "follow a bad deed with a good one"?' },
+            options: [{ ar: 'دفع ثمن الزجاج، ثم ترك لعب الكرة في الشارع', en: 'He paid for the glass, then gave up playing football in the street' }, { ar: 'اعتذر للعم منصور، ثم انتظر أن يسامحه', en: 'He apologised to Uncle Mansour, then waited to be forgiven' }, { ar: 'اعترف، ثم ساعد بيديه في تركيب الزجاج الجديد', en: 'He owned up, then helped fit the new glass with his own hands' }],
+            why: { ar: 'الحسنة بعد الخطأ تمحوه، وقد فتحت هنا بابًا لصداقة جديدة.', en: 'A good deed after a mistake wipes it out, and here it opened the door to a new friendship.' } }
         ]) },
 
       { title: { ar: 'العادة الصغيرة', en: 'The small habit' },
-        body: {
-          ar: [
-            'بعد أسابيع زار يحيى العم منصور مرة أخرى، فوجده يحاول أن يقرأ رسالة من البنك بعينين متعبتين. قال العم: صارت الحروف صغيرة جدًّا يا بني. فقرأها يحيى له بصوت واضح، وشرح له ما فيها، وكتب له رقم الهاتف الذي يجب أن يتصل به بخط كبير.',
-            'وفي الطريق إلى البيت فكّر يحيى: ماذا لو فعلت هذا كل أسبوع؟ لم يطلبه مني أحد، ولن يعرفه أحد. لكن العم منصور وحده، ولا أحد يقرأ له. فقرر أن يزوره كل يوم سبت بعد العصر، ولو نصف ساعة.',
-            'وتذكّر يحيى حديثًا قرأه في كتاب المدرسة: «أحب الأعمال إلى الله تعالى أدومها وإن قل». فقال في نفسه: لن أفعل شيئًا ضخمًا مرة واحدة ثم أتعب. سأفعل شيئًا صغيرًا، وأداوم عليه.',
-            'في السبت الأول قرأ له الجريدة. وفي الثاني ساعده في ري النباتات على الشرفة. وفي الثالث جاءت ندى معه، وصنعت للعم منصور بطاقة ملونة مكتوبًا عليها: جارنا العزيز. فعلّقها العم منصور على الحائط، وكان يريها لكل من يزوره بفخر كبير.',
-            'لاحظ يحيى أن شيئًا تغيّر فيه. لم يعد يكتفي بألا يؤذي أحدًا، وأن يفي بوعوده. صار يزيد خيرًا من نفسه أحيانًا، دون أن يُطلب منه. لم يكن يفعل ذلك كل يوم، لكنه صار يحب هذا الشعور. وقال لأبيه: كأن الواجب أرض، والخير الزائد درج يصعد منها.'
-          ],
-          en: [
-            'A few weeks later Yahya visited Uncle Mansur again and found him trying to read a letter from the bank with tired eyes. Uncle Mansur said: the letters have got very small, my son. So Yahya read it to him in a clear voice, explained what it said, and wrote the phone number he needed to call in large letters.',
-            'On the way home Yahya thought: what if I did this every week? Nobody asked me to, and nobody will know. But Uncle Mansur is alone, and nobody reads to him. So he decided to visit him every Saturday after the afternoon prayer, even if only for half an hour.',
-            'Yahya remembered a hadith he had read in his school book, meaning: "The deeds most loved by Allah are the most lasting, even if small." He said to himself: I won\'t do something huge once and then get tired. I\'ll do something small and keep it up.',
-            'On the first Saturday he read him the newspaper. On the second he helped him water the plants on the balcony. On the third Nada came with him and made Uncle Mansur a colourful card that said: our dear neighbour. Uncle Mansur hung it on the wall and proudly showed it to everyone who visited.',
-            'Yahya noticed something had changed in him. He was no longer satisfied just with not hurting anyone and keeping his promises. Now and then he added some good of his own, without being asked. He did not do it every day, but he had come to love the feeling. He said to his father: it\'s as if duty is the ground, and the extra good is a staircase going up from it.'
-          ]
-        },
+        body: { ar: [
+            'بعد أسابيع زار يحيى العم منصور مرة أخرى، فوجده يحاول أن يقرأ رسالة من البنك بعينين متعبتين. قال العم: «صارت الحروف صغيرة جدًّا يا بني». فقرأها يحيى له بصوت واضح، وشرح ما فيها، وكتب له رقم الهاتف الذي يتصل به بخط كبير.',
+            'وفي الطريق إلى البيت فكّر يحيى: «ماذا لو فعلت هذا كل أسبوع؟ لم يطلبه مني أحد، ولن يعرفه أحد. والعم منصور وحده، ولا أحد يقرأ له». فقرر أن يزوره كل سبت بعد العصر، ولو نصف ساعة.',
+            'وتذكّر حديثًا قرأه في كتاب المدرسة: «أَحَبُّ الْأَعْمَالِ إِلَى اللَّهِ تَعَالَى أَدْوَمُهَا وَإِنْ قَلَّ». فقال في نفسه: «شيء صغير أداوم عليه، أحسن من شيء ضخم أفعله مرة ثم أتعب».',
+            'في السبت الأول قرأ له الجريدة. وفي الثاني ساعده في ري النباتات على الشرفة. وفي الثالث جاءت ندى معه، وصنعت للعم منصور بطاقة ملونة كتبت عليها: «جارنا العزيز». فعلّقها العم منصور على الحائط، وصار يريها لكل من يزوره.',
+            'وفي السبت الرابع كانت المباراة على التلفاز، ويحيى متعب، ولن يعرف أحد إن لم يذهب. وقف عند الباب طويلًا، ثم قال لأبيه: «كأن الواجب أرض، والخير الزائد درج أصعد عليه. واليوم الدرجة ثقيلة». فضحك أبوه. ولبس يحيى حذاءه، وأخذ الجريدة تحت ذراعه، ونزل الدرج.'
+          ], en: [
+            'A few weeks later Yahya visited Uncle Mansour again, and found him trying to read a letter from the bank with tired eyes. "The letters have got so small, son," he said. So Yahya read it to him in a clear voice, explained what it said, and wrote the phone number he needed to call in big handwriting.',
+            'On the way home Yahya thought: "What if I did this every week? Nobody asked me, and nobody will know. But Uncle Mansour is alone, and there is no one to read to him." So he decided to visit him every Saturday after asr, even for half an hour.',
+            'He remembered a hadith he had read in his school book: "The deeds most beloved to Allah are the most constant, even if they are small." He said to himself: "Something small I keep doing is better than something huge I do once and then tire of."',
+            'On the first Saturday he read him the newspaper. On the second he helped him water the plants on the balcony. On the third Nada came along and made Uncle Mansour a colourful card that said: "Our dear neighbour." Uncle Mansour hung it on the wall and showed it to everyone who visited.',
+            'On the fourth Saturday the match was on television, Yahya was tired, and nobody would know if he stayed home. He stood at the door for a long time, then said to his father: "It is as if duty were the ground, and extra good a staircase I climb. Today the step is heavy." His father laughed. Yahya put on his shoes, tucked the newspaper under his arm, and went down the stairs.'
+          ] },
         quiz: Q('human', 4, [
-          { correct: 0, q: { ar: 'لماذا اختار يحيى عملًا صغيرًا يداوم عليه بدل عمل كبير مرة واحدة؟', en: 'Why did Yahya choose a small deed to keep up instead of a big one done once?' },
-            options: [{ ar: 'لأن أحب الأعمال إلى الله أدومها وإن قل', en: 'Because the deeds most loved by Allah are the most lasting, even if small' }, { ar: 'لأنه كسول', en: 'Because he was lazy' }, { ar: 'لأن العم منصور طلب ذلك', en: 'Because Uncle Mansur asked for it' }],
-            why: { ar: 'القليل الدائم يبني الإنسان.', en: 'A little that lasts builds a person.' } },
+          { correct: 0, q: { ar: 'لماذا اختار يحيى عملًا صغيرًا يداوم عليه بدل عمل كبير مرة واحدة؟', en: 'Why did Yahya choose a small deed to keep up rather than a big one done once?' },
+            options: [{ ar: 'لأن أحب الأعمال إلى الله أدومها وإن قل', en: 'Because the deeds most beloved to Allah are the most constant, even if small' }, { ar: 'لأن العم منصور طلب منه أن يأتي كل أسبوع', en: 'Because Uncle Mansour asked him to come every week' }, { ar: 'لأن أباه وعده بهدية إن داوم', en: 'Because his father promised him a gift if he kept it up' }],
+            why: { ar: 'القليل الدائم يبني الإنسان.', en: 'Small and constant builds a person.' } },
           { correct: 1, q: { ar: 'ماذا قصد يحيى بقوله «الواجب أرض، والخير الزائد درج»؟', en: 'What did Yahya mean by "duty is the ground, and extra good is a staircase"?' },
-            options: [{ ar: 'أن الواجب غير مهم', en: 'That duty does not matter' }, { ar: 'أن أداء الواجب أساس، والخير الزائد من النفس يرفع الإنسان', en: 'That doing your duty is the base, and good of your own lifts you higher' }, { ar: 'أن عليه أن يصعد الدرج كل يوم', en: 'That he had to climb stairs every day' }],
-            why: { ar: 'هذه الدرجة الثالثة في السبابة: إحسان زائد على الواجب أحيانًا.', en: 'This is the third index-finger degree: some extra good beyond duty, sometimes.' } }
+            options: [{ ar: 'أن الواجب يكفي، ولا حاجة إلى زيادة عليه', en: 'That duty is enough, with no need for anything more' }, { ar: 'أن الواجب أساس يقف عليه، والخير الزائد يرفعه', en: 'That duty is the base he stands on, and extra good lifts him higher' }, { ar: 'أن الخير الزائد أهم من أداء الواجب', en: 'That extra good matters more than doing one\'s duty' }],
+            why: { ar: 'هذه الدرجة الثالثة في السبابة: إحسان زائد على الواجب، ولو ثقل في بعض الأيام.', en: 'This is the third step of the index finger: good beyond duty, even on the days it feels heavy.' } }
         ]) },
 
       { title: { ar: 'زينب في الساحة', en: 'Zaynab in the playground' },
-        body: {
-          ar: [
-            'في آخر الفصل الدراسي لاحظ يحيى أن زينب ما تزال تجلس وحدها في الاستراحة. توقفت النكات في المجموعة منذ تلك الليلة، لكن أحدًا لم يقترب منها. فهي لم تعد تُؤذى، لكنها أيضًا لم تجد صديقًا. وكانت تأكل طعامها ببطء، وتقرأ كتابًا، وترفع عينيها أحيانًا نحو الأولاد الذين يلعبون.',
-            'قال يحيى لنفسه: أنا لم أؤذها، وطلبت من الآخرين أن يتوقفوا. هذا واجبي، وقد أديته. لكن هل يكفي ألا أؤذي؟ ثم تذكّر العم منصور قبل أن يزوره: لم يكن أحد يؤذيه، لكنه كان وحيدًا.',
-            'وفي اليوم التالي، قبل أن يطلب منه أحد، أخبر يحيى أخته ندى عن زينب، وطلب منها أن تعرّفها على صديقاتها في المكتبة، لأن زينب تحب القراءة كثيرًا. ثم ذهب إلى هشام وقال: زينب تعرف حل مسائل الرياضيات الصعبة، تعال نسألها.',
-            'تردد هشام، ثم ذهب معه. وجلسوا ثلاثتهم يحلون المسائل، وكانت زينب تشرح ببطء وصبر. وفي آخر الاستراحة قال هشام لها بصوت منخفض: أنا آسف على ما كتبته في المجموعة. فابتسمت زينب وقالت: لا بأس، شكرًا لأنكم جلستم معي.',
-            'ولما جلسوا إلى العشاء قال الأب ليحيى: حين كففت أذاك صرت إنسانًا يسلم منه الناس. وحين وفيت بوعودك صرت إنسانًا يُعتمد عليه. أما اليوم، فقد سبقت إلى الخير قبل أن يطلبه أحد، وأخذت غيرك معك. وهذا يا بني باب الإبهام، باب السابقين بالخيرات.'
-          ],
-          en: [
-            'At the end of term Yahya noticed that Zaynab still sat alone at break. The jokes in the group had stopped since that night, but nobody had gone near her. She was no longer being hurt, but she had not found a friend either. She ate her lunch slowly, read a book, and now and then looked up at the children playing.',
-            'Yahya said to himself: I didn\'t hurt her, and I asked the others to stop. That was my duty, and I did it. But is it enough not to hurt? Then he remembered Uncle Mansur before he started visiting: nobody was hurting him, but he was lonely.',
-            'The next day, before anyone asked him, Yahya told his sister Nada about Zaynab and asked her to introduce her to her friends in the library, because Zaynab loved reading. Then he went to Hisham and said: Zaynab knows how to solve the hard maths problems, let\'s go and ask her.',
-            'Hisham hesitated, then went with him. The three of them sat solving problems, and Zaynab explained slowly and patiently. At the end of break Hisham said to her quietly: I\'m sorry about what I wrote in the group. Zaynab smiled and said: never mind, thank you for sitting with me.',
-            'In the evening his father said to Yahya: when you kept your harm away, you became someone people are safe from. When you kept your promises, you became someone people can rely on. But today you raced to the good before anyone asked, and took others with you. That, my son, is the door of the thumb, the door of those racing to good.'
-          ]
-        },
+        body: { ar: [
+            'في آخر الفصل الدراسي لاحظ يحيى أن زينب ما تزال تجلس وحدها في الاستراحة. توقفت النكات في المجموعة منذ تلك الليلة، ولم يقترب منها أحد. كانت تأكل طعامها ببطء، وتقرأ كتابًا، وترفع عينيها أحيانًا نحو الأولاد الذين يلعبون.',
+            'قال يحيى في نفسه: «لم أؤذها، وطلبت من الآخرين أن يتوقفوا. فهل يكفي هذا؟». ثم تذكّر العم منصور قبل السبت الأول: ما كان أحد يؤذيه، وكان وحيدًا.',
+            'وفي اليوم التالي، قبل أن يطلب منه أحد، أخبر ندى عن زينب، وطلب منها أن تعرّفها على صديقاتها في المكتبة، لأن زينب تحب القراءة. ثم ذهب إلى هشام وقال: «زينب تحل مسائل الرياضيات الصعبة. تعال نسألها عن المسألة السابعة».',
+            'تردد هشام، ثم ذهب معه. وجلسوا ثلاثتهم يحلّون المسائل، وزينب تشرح ببطء وصبر. وفي آخر الاستراحة قال هشام لها بصوت منخفض: «أنا آسف على ما كتبته في المجموعة». فابتسمت زينب وقالت: «شكرًا لأنكم جلستم معي».',
+            'وفي الغد سبقتهم زينب إلى الطاولة، وفتحت دفترها على المسألة الثامنة. ونظر يحيى حوله، فرأى ولدًا من الصف الآخر يقف وحده عند السور، ويداه في جيبيه. فقام إليه وقال: «تعال، نحتاج رأسًا رابعًا لهذه المسألة».'
+          ], en: [
+            'At the end of term Yahya noticed that Zaynab still sat alone at break. The jokes in the group had stopped since that night, and nobody had come near her. She ate her lunch slowly, read a book, and now and then looked up at the children playing.',
+            'Yahya said to himself: "I did not hurt her, and I asked the others to stop. Is that enough?" Then he remembered Uncle Mansour before that first Saturday: nobody was hurting him, and he was lonely.',
+            'The next day, before anyone asked him, he told Nada about Zaynab and asked her to introduce her to her friends in the library, since Zaynab loves reading. Then he went to Hisham and said: "Zaynab can solve the hard maths problems. Come on, let\'s ask her about number seven."',
+            'Hisham hesitated, then went with him. The three of them sat solving problems, with Zaynab explaining slowly and patiently. At the end of break Hisham said to her in a low voice: "I\'m sorry for what I wrote in the group." Zaynab smiled and said: "Thank you for sitting with me."',
+            'The next day Zaynab got to the table before them and opened her notebook at problem eight. Yahya looked around and saw a boy from the other class standing alone by the wall, hands in his pockets. He went over to him and said: "Come on, we need a fourth head for this one."'
+          ] },
         quiz: Q('human', 5, [
-          { correct: 2, q: { ar: 'ما الذي جعل يحيى يفكر أن «ألا يؤذي» لا يكفي؟', en: 'What made Yahya think that "not hurting" was not enough?' },
-            options: [{ ar: 'أن المعلم وبّخه', en: 'That the teacher told him off' }, { ar: 'أن هشام طلب منه', en: 'That Hisham asked him' }, { ar: 'أنه تذكّر أن العم منصور لم يكن يؤذيه أحد، لكنه كان وحيدًا', en: 'That he remembered Uncle Mansur: nobody was hurting him, but he was lonely' }],
-            why: { ar: 'السبابة ألا تؤذي، والإبهام أن تبادر بالخير.', en: 'The index finger is not hurting; the thumb is starting the good.' } },
-          { correct: 0, q: { ar: 'لماذا قال الأب إن يحيى وقف عند باب الإبهام؟', en: 'Why did the father say Yahya was at the door of the thumb?' },
-            options: [{ ar: 'لأنه سبق إلى الخير قبل أن يُطلب منه، وأخذ غيره معه', en: 'Because he raced to the good before being asked, and took others with him' }, { ar: 'لأنه حلّ مسائل الرياضيات', en: 'Because he solved the maths problems' }, { ar: 'لأنه ترك المجموعة', en: 'Because he left the group chat' }],
-            why: { ar: 'المبادرة بالخير وأخذ الآخرين معك هما أول الإبهام.', en: 'Starting the good and taking others with you is where the thumb begins.' } }
+          { correct: 2, q: { ar: 'ما الذي جعل يحيى يسأل نفسه إن كان «ألا يؤذي» يكفي؟', en: 'What made Yahya ask himself whether "not hurting" was enough?' },
+            options: [{ ar: 'أن ندى أخبرته أن زينب حزينة', en: 'Nada told him Zaynab was sad' }, { ar: 'أن المعلمة طلبت منه أن يرافقها', en: 'The teacher asked him to keep her company' }, { ar: 'أنه تذكّر العم منصور: ما كان أحد يؤذيه، وكان وحيدًا', en: 'He remembered Uncle Mansour: nobody was hurting him, and he was lonely' }],
+            why: { ar: 'السبابة ألا تؤذي، والإبهام أن تبادر بالخير.', en: 'The index finger is not hurting; the thumb is reaching out with good first.' } },
+          { correct: 0, q: { ar: 'ماذا فعل يحيى حين رأى ولدًا يقف وحده عند السور؟', en: 'What did Yahya do when he saw a boy standing alone by the wall?' },
+            options: [{ ar: 'دعاه ليجلس معهم ويحل المسألة', en: 'He invited him to sit with them and solve the problem' }, { ar: 'أخبر المعلم ليبحث له عن أصدقاء', en: 'He told the teacher to find him some friends' }, { ar: 'انتظر أن يقترب الولد وحده', en: 'He waited for the boy to come over by himself' }],
+            why: { ar: 'سبق يحيى إلى الخير قبل أن يُطلب منه، وهذا أول باب الإبهام.', en: 'Yahya reached out with good before anyone asked him, and that is the first door of the thumb.' } }
         ]) }
     ]
   });
@@ -895,35 +880,104 @@
     title: { ar: 'صالح وجارنا العم سليم', en: 'Saleh and our neighbour, Uncle Saleem' },
     chapters: [
       { title: { ar: 'السلام عليكم', en: 'As-salamu alaykum' },
-        body: { ar: ['في الصباح خرج صالح مع أبيه، فرأى العم سليم، جارهم الكبير.', 'قال صالح بصوت واضح: السلام عليكم يا عم سليم!', 'فابتسم العم سليم وقال: وعليكم السلام يا صالح.'],
-          en: ['In the morning Saleh went out with his father and saw Uncle Saleem, their old neighbour.', 'Saleh said in a clear voice: as-salamu alaykum, Uncle Saleem!', 'Uncle Saleem smiled and said: wa alaykum as-salam, Saleh.'] },
-        quiz: Q('human-kids', 1, [{ correct: 2, q: { ar: 'ماذا قال صالح حين رأى جاره؟', en: 'What did Saleh say when he saw his neighbour?' },
-          options: [{ ar: 'لم يقل شيئًا', en: 'Nothing' }, { ar: 'ابتعد', en: 'Go away' }, { ar: 'السلام عليكم', en: 'As-salamu alaykum' }],
-          why: { ar: 'السلام أول خير صغير نقدّمه للناس.', en: 'A greeting of peace is the first small good we give people.' } }]) },
+        body: { ar: [
+            'في الصباح خرج صالح مع أبيه إلى المخبز.',
+            'وأمام البيت المجاور رأى العم سليم جالسًا على كرسيه الأخضر، وعصاه بجانبه.',
+            'قال صالح بصوت واضح: «السلام عليكم يا عم سليم!».',
+            'فابتسم العم سليم وقال: «وعليكم السلام يا صالح. صوتك أيقظ العصافير!».',
+            'ونظر صالح إلى الشجرة، فطارت منها ثلاثة عصافير.'
+          ], en: [
+            'In the morning Saleh went out with his father to the bakery.',
+            'In front of the house next door he saw Uncle Saleem sitting on his green chair, with his walking stick beside him.',
+            'Saleh said in a clear voice: "As-salamu alaykum, Uncle Saleem!"',
+            'Uncle Saleem smiled and said: "Wa alaykum as-salam, Saleh. Your voice woke up the sparrows!"',
+            'Saleh looked up at the tree, and three sparrows flew out of it.'
+          ] },
+        quiz: Q('human-kids', 1, [
+          { correct: 0, q: { ar: 'ماذا قال العم سليم عن صوت صالح؟', en: 'What did Uncle Saleem say about Saleh\'s voice?' },
+            options: [{ ar: 'أيقظ العصافير', en: 'It woke up the sparrows' }, { ar: 'عالٍ جدًّا في الصباح', en: 'It is too loud in the morning' }, { ar: 'يشبه صوت أبيه', en: 'It sounds like his father\'s' }],
+            why: { ar: 'سلّم صالح بصوت واضح، ففرح جاره وضحك.', en: 'Saleh greeted him in a clear voice, and his neighbour was glad and laughed.' } }
+        ]) },
+
       { title: { ar: 'الأكياس الثقيلة', en: 'The heavy bags' },
-        body: { ar: ['رأى صالح العم سليم يحمل أكياسًا ثقيلة من السوق.', 'قال صالح: يا بابا، هل نساعده؟', 'فحمل الأب كيسين، وحمل صالح كيسًا صغيرًا فيه خبز.'],
-          en: ['Saleh saw Uncle Saleem carrying heavy bags from the market.', 'Saleh said: Daddy, shall we help him?', 'So his father carried two bags, and Saleh carried a small bag of bread.'] },
-        quiz: Q('human-kids', 2, [{ correct: 0, q: { ar: 'ماذا حمل صالح؟', en: 'What did Saleh carry?' },
-          options: [{ ar: 'كيسًا صغيرًا فيه خبز', en: 'A small bag of bread' }, { ar: 'لا شيء', en: 'Nothing' }, { ar: 'كل الأكياس', en: 'All the bags' }],
-          why: { ar: 'نساعد بقدر ما نستطيع، ولو بشيء صغير.', en: 'We help as much as we can, even with something small.' } }]) },
+        body: { ar: [
+            'وفي طريق العودة رأى صالح العم سليم يمشي ببطء، وفي يديه أكياس ثقيلة من السوق.',
+            'قال صالح: «يا بابا، هل نساعده؟».',
+            'فحمل الأب كيسين كبيرين، وحمل صالح كيسًا صغيرًا فيه خبز ساخن.',
+            'وكانت رائحة الخبز طيبة جدًّا، فقرقرت بطن صالح: قررر!',
+            'ضحك العم سليم، وأعطاه رغيفًا صغيرًا وقال: «هذا لأقوى حمّال في الحي».'
+          ], en: [
+            'On the way back Saleh saw Uncle Saleem walking slowly, with heavy bags from the market in his hands.',
+            'Saleh said: "Dad, shall we help him?"',
+            'So his father carried two big bags, and Saleh carried a small bag of warm bread.',
+            'The bread smelled so good that Saleh\'s tummy rumbled: grrrr!',
+            'Uncle Saleem laughed, gave him a small loaf and said: "This is for the strongest carrier on our street."'
+          ] },
+        quiz: Q('human-kids', 2, [
+          { correct: 0, q: { ar: 'ماذا كان في الكيس الذي حمله صالح؟', en: 'What was in the bag Saleh carried?' },
+            options: [{ ar: 'خبز ساخن', en: 'Warm bread' }, { ar: 'برتقال وتفاح', en: 'Oranges and apples' }, { ar: 'علب حليب', en: 'Cartons of milk' }],
+            why: { ar: 'حمل صالح كيسًا صغيرًا بقدر يديه، وساعد بما يستطيع.', en: 'Saleh carried a small bag his hands could manage, and helped as much as he could.' } }
+        ]) },
+
       { title: { ar: 'وعد صالح', en: 'Saleh\'s promise' },
-        body: { ar: ['قال العم سليم: شكرًا يا صالح. هل تسقي زهوري غدًا؟ سأكون عند الطبيب.', 'قال صالح: نعم، أعدك!', 'وفي الليل وضع صالح إبريق الماء الصغير بجانب الباب حتى لا ينسى.'],
-          en: ['Uncle Saleem said: thank you, Saleh. Will you water my flowers tomorrow? I will be at the doctor\'s.', 'Saleh said: yes, I promise!', 'That night Saleh put his little watering can by the door so he would not forget.'] },
-        quiz: Q('human-kids', 3, [{ correct: 1, q: { ar: 'لماذا وضع صالح الإبريق بجانب الباب؟', en: 'Why did Saleh put the watering can by the door?' },
-          options: [{ ar: 'ليلعب به', en: 'To play with it' }, { ar: 'حتى لا ينسى وعده', en: 'So he would not forget his promise' }, { ar: 'ليرميه', en: 'To throw it away' }],
-          why: { ar: 'من يحب الوفاء يستعد له.', en: 'Whoever loves keeping promises gets ready for it.' } }]) },
-      { title: { ar: 'المطر أم الكرتون؟', en: 'Rain or cartoons?' },
-        body: { ar: ['في الصباح كان الكرتون المفضّل على الشاشة.', 'قال صالح: سأشاهد قليلًا ثم أذهب.', 'ثم رأى الإبريق بجانب الباب، فأطفأ الشاشة وقال: الوعد أولًا.'],
-          en: ['In the morning his favourite cartoon was on the screen.', 'Saleh said: I\'ll watch a little, then go.', 'Then he saw the watering can by the door, switched off the screen and said: the promise comes first.'] },
-        quiz: Q('human-kids', 4, [{ correct: 2, q: { ar: 'ماذا قال صالح حين رأى الإبريق؟', en: 'What did Saleh say when he saw the watering can?' },
-          options: [{ ar: 'سأذهب غدًا', en: 'I\'ll go tomorrow' }, { ar: 'لا أريد', en: 'I don\'t want to' }, { ar: 'الوعد أولًا', en: 'The promise comes first' }],
-          why: { ar: 'الوفاء بالوعد من أخلاق الإنسان الطيب.', en: 'Keeping a promise is part of good human character.' } }]) },
-      { title: { ar: 'زهرة صغيرة سرّية', en: 'A little secret flower' },
-        body: { ar: ['سقى صالح الزهور كلها، فلمعت أوراقها في الشمس.', 'ثم رأى زهرة صغيرة ذابلة خلف الحائط، لم يطلب منه أحد أن يسقيها.', 'فسقاها أيضًا، ولم يخبر أحدًا.', 'وفعل الخير قبل أن يُطلب منك هو باب الإبهام.'],
-          en: ['Saleh watered all the flowers, and their leaves shone in the sun.', 'Then he saw a small, wilted flower behind the wall that nobody had asked him to water.', 'So he watered it too, and told no one.', 'Doing good before anyone asks you is the door to the thumb.'] },
-        quiz: Q('human-kids', 5, [{ correct: 0, q: { ar: 'ماذا فعل صالح بالزهرة الذابلة؟', en: 'What did Saleh do with the wilted flower?' },
-          options: [{ ar: 'سقاها ولم يخبر أحدًا', en: 'He watered it and told no one' }, { ar: 'قطفها', en: 'He picked it' }, { ar: 'تركها', en: 'He left it' }],
-          why: { ar: 'الخير الخفي الذي لا يطلبه أحد هو سباق الإبهام.', en: 'Hidden good that no one asked for is the thumb\'s race.' } }]) }
+        body: { ar: [
+            'عند الباب قال العم سليم: «شكرًا يا صالح. هل تسقي زهوري غدًا؟ سأذهب إلى الطبيب».',
+            'قال صالح: «نعم، أعدك!».',
+            'وفي الليل أخذ صالح إبريق الماء الصغير الأخضر.',
+            'ووضعه بجانب الباب، وقال: «هنا، حتى لا أنسى».'
+          ], en: [
+            'At the door Uncle Saleem said: "Thank you, Saleh. Will you water my flowers tomorrow? I am going to the doctor."',
+            'Saleh said: "Yes, I promise!"',
+            'At night Saleh took his little green watering can.',
+            'He put it by the front door and said: "Here, so I don\'t forget."'
+          ] },
+        quiz: Q('human-kids', 3, [
+          { correct: 1, q: { ar: 'لماذا وضع صالح الإبريق بجانب الباب؟', en: 'Why did Saleh put the watering can by the door?' },
+            options: [{ ar: 'لأن أمه طلبت ذلك', en: 'Because his mother asked him to' }, { ar: 'حتى لا ينسى وعده', en: 'So he would not forget his promise' }, { ar: 'ليملأه بالماء في الصباح', en: 'To fill it with water in the morning' }],
+            why: { ar: 'من يحب الوفاء يستعد له من الليل.', en: 'Someone who loves keeping promises gets ready the night before.' } }
+        ]) },
+
+      { title: { ar: 'الكرتون أم الوعد؟', en: 'Cartoons or the promise?' },
+        body: { ar: [
+            'في الصباح كان الكرتون المفضّل على الشاشة.',
+            'قال صالح: «حلقة واحدة فقط، ثم أذهب».',
+            'ثم مرّت القطة عند الباب، فوقع الإبريق: طنننن!',
+            'نظر صالح إلى الإبريق، وتذكّر العم سليم وزهوره.',
+            'فأطفأ الشاشة، وحمل الإبريق، وقال للقطة: «الوعد أولًا!».'
+          ], en: [
+            'In the morning his favourite cartoon was on the screen.',
+            'Saleh said: "Just one episode, then I\'ll go."',
+            'Then the cat walked past the door, and the watering can fell over: clang!',
+            'Saleh looked at the watering can and remembered Uncle Saleem and his flowers.',
+            'So he switched off the screen, picked up the can and said to the cat: "The promise comes first!"'
+          ] },
+        quiz: Q('human-kids', 4, [
+          { correct: 2, q: { ar: 'ما الذي جعل صالح يتذكّر وعده؟', en: 'What made Saleh remember his promise?' },
+            options: [{ ar: 'نادته أمه من المطبخ', en: 'His mother called him from the kitchen' }, { ar: 'انتهت حلقة الكرتون', en: 'The cartoon episode ended' }, { ar: 'أوقعت القطة الإبريق', en: 'The cat knocked over the watering can' }],
+            why: { ar: 'رأى صالح الإبريق الذي وضعه بنفسه، فقدّم وعده على الكرتون.', en: 'Saleh saw the can he had put there himself, and put his promise before the cartoon.' } }
+        ]) },
+
+      { title: { ar: 'زهرة صغيرة سرّية', en: 'A small secret flower' },
+        body: { ar: [
+            'سقى صالح زهور العم سليم كلها، فلمعت أوراقها في الشمس.',
+            'ثم رأى خلف الحائط زهرة صغيرة ذابلة، لم يطلب منه أحد أن يسقيها.',
+            'فسقاها أيضًا، ولم يخبر أحدًا.',
+            'وفي اليوم التالي رجع العم سليم، فوجد الزهرة الصغيرة قد تفتّحت حمراء.',
+            'قال متعجبًا: «من سقى زهرتي الصغيرة؟».',
+            'فابتسم صالح، وملأ الإبريق من جديد.'
+          ], en: [
+            'Saleh watered all of Uncle Saleem\'s flowers, and their leaves shone in the sun.',
+            'Then behind the wall he saw a small drooping flower. Nobody had asked him to water it.',
+            'He watered it too, and told no one.',
+            'The next day Uncle Saleem came back and found the little flower had opened, bright red.',
+            'He said in surprise: "Who watered my little flower?"',
+            'Saleh smiled, and filled the watering can again.'
+          ] },
+        quiz: Q('human-kids', 5, [
+          { correct: 0, q: { ar: 'ماذا فعل صالح بالزهرة الذابلة خلف الحائط؟', en: 'What did Saleh do with the drooping flower behind the wall?' },
+            options: [{ ar: 'سقاها ولم يخبر أحدًا', en: 'He watered it and told no one' }, { ar: 'قطفها وأعطاها لأمه', en: 'He picked it and gave it to his mother' }, { ar: 'نقلها إلى الشمس', en: 'He moved it into the sun' }],
+            why: { ar: 'سقاها دون أن يطلب منه أحد، فتفتّحت حمراء. والخير الخفي يفتح باب الإبهام.', en: 'He watered it without being asked, and it opened red. Hidden kindness opens the door of the thumb.' } }
+        ]) }
     ]
   });
 })();
@@ -1363,132 +1417,121 @@
   var Q = window.AKHLAQ_BQ;
   window.AKHLAQ_BOOKS.push({
     id: 'book-human-adult', stage: 'human', ages: '15+',
-    title: { ar: 'إنسان كما ينبغي', en: 'Human as one should be' },
+    title: { ar: 'نعم في ثانيتين', en: 'Yes in two seconds' },
     chapters: [
-      { title: { ar: 'في أحسن تقويم', en: 'In the finest form' },
+      { title: { ar: 'نعم في ثانيتين', en: 'Yes in two seconds' },
         body: { ar: [
-            'قد يبدو غريبًا أن يجعل المسار «الإنسان العادي» مرتبة يُرتقى إليها، كأن الإنسان لا يكون إنسانًا من البداية. لكن القرآن يشرح هذا المعنى: ﴿لَقَدْ خَلَقْنَا الْإِنْسَانَ فِي أَحْسَنِ تَقْوِيمٍ ۝ ثُمَّ رَدَدْنَاهُ أَسْفَلَ سَافِلِينَ ۝ إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ﴾ (التين 95:4-6).',
-            'فالإنسان خُلق في أحسن صورة وأعدل خلقة، لكنه قد ينزل عن هذا المقام بسلوكه، حتى يصير أدنى مما خُلق له. ثم يأتي الاستثناء: الذين آمنوا وعملوا الصالحات. فالصعود إلى الإنسانية الكاملة ليس شيئًا يُعطى مرة واحدة، بل طريق يُمشى كل يوم بالإيمان والعمل.',
-            'وهذا هو الأساس الذي بُنيت عليه أسماء المراتب الأولى في التطبيق. فهي لا تقول إن الطفل حيوان، بل تقول إن هناك أفعالًا تُنزل الإنسان عن مقامه، وأفعالًا ترده إليه. فإذا غفل أو شره أو اندفع، نزل درجة. وإذا استيقظ وقنع وملك نفسه، رجع إلى صورته التي خُلق عليها.',
-            'والسبابة في اليد هي إصبع الإنسان الذي رجع إلى مقامه. ليس قديسًا ولا بطلًا خارقًا، بل إنسان يفعل ما ينبغي أن يفعله الإنسان: يصدق، ويفي، ويكف أذاه، ويساعد من يحتاج، ويعتذر إذا أخطأ.',
-            'وقد يقول قائل: هذا قليل، فأين المراتب العالية؟ والجواب أن هذا القليل هو الذي يغيب عن كثير من الناس. فكم من إنسان يعرف الكثير ويعبد كثيرًا، ثم يكذب في وعده، ويؤذي جاره، ويقسو على أهله. والمسار يريد أن يبني الأساس قبل البناء.',
-            'ولهذا يحسن أن نحتفل مع أطفالنا حين يصلون إلى هذه المرتبة، فهي ليست محطة صغيرة، بل عودة إلى الصورة الحسنة التي خلقهم الله عليها. ونحتفل بلطف لا بمبالغة، حتى لا يظن الطفل أن الخير شيء نادر يستحق الجوائز، بل يعرف أنه صورته الطبيعية التي يحبها الله، ويحبها أهله، ويرتاح لها قلبه هو قبل غيره.'
-          ],
-          en: [
-            'It may seem strange that the path makes "the ordinary human" a rank to rise to, as if a person were not human from the start. But the Quran explains this. Meaning (not a translation): We created the human being in the finest form, then returned him to the lowest of the low, except those who believe and do righteous deeds (al-Tin 95:4-6).',
-            'The human being was created in the finest form, yet can fall from that station through behaviour, until lower than what they were made for. Then comes the exception: those who believe and do good. Rising to full humanity is not given once; it is a road walked every day with faith and deeds.',
-            'This is the basis for the names of the first ranks in the app. They do not say the child is an animal; they say some acts lower a person from their station and others return them to it. When heedless, greedy or impulsive, one goes down a step. When awake, content and self-possessed, one returns to the form one was created in.',
-            'The index finger is the finger of the person who has returned to their station. Not a saint nor a superhero, but someone who does what a human should: tells the truth, keeps promises, holds back harm, helps those in need, apologises when wrong.',
-            'Someone may say: that is little; where are the high ranks? The answer is that this little is what many people lack. How many know a great deal and worship a great deal, then break promises, hurt neighbours and are harsh with family. The path wants to lay the foundation before the building.',
-            'So it is good to celebrate with our children when they reach this rank. It is not a small stop, but a return to the good form in which Allah created them. We celebrate gently, not lavishly, so the child does not think good is a rare thing deserving prizes, but knows it is their natural form, loved by Allah and by their family, and restful to their own heart first.'
+            'ليث في السادسة عشرة، ويقول «نعم» أسرع من أي أحد يعرفه: نعم للمدرب حين يحتاج حارس مرمى، ونعم لأمه حين تطلب الخبز، ونعم لكل من يكتب في مجموعة الصف «من يرسل لي الحل؟». يحب أن يكون الذي يُعتمد عليه، ويحب أكثر من ذلك النظرة التي تأتيه حين يقولها. وفي أول الفصل، بعد صلاة الجمعة، أوقفه الأستاذ فؤاد عند باب المسجد. الأستاذ فؤاد يدير نادي الواجبات للصغار يوم السبت، وقال: «عندي ولد في العاشرة اسمه يوسف، يكره الكسور كرهًا شديدًا، وأمه تعمل يوم السبت. تأخذه كل سبت في العاشرة، حتى آخر الفصل؟». وكان ليث يكتب رسالة في هاتفه، فرفع رأسه وقال: «نعم، أكيد». ثانيتان، وعاد إلى الرسالة.',
+            'وفي السبتين الأولين ذهب. يوسف صغير الجسم، يمسك القلم من آخره، ويقول عن كل مسألة «هذه مستحيلة» قبل أن يقرأها. فرسم له ليث بيتزا على الورقة، وقطّعها ثماني قطع، و«أكل» منها ثلاثًا بالقلم، فضحك يوسف لأول مرة وقال: «بقي خمسة أثمان!». وفي آخر الحصة الثانية طوى يوسف ورقة الكسور ووضعها في جيبه، وقال: «السبت القادم أحلّ لك ورقة كاملة وحدي».',
+            'وفي ليلة الجمعة الثالثة جاءت رسالة كريم في مجموعة الفريق: «النهائي غدًا العاشرة. حارسنا مريض. ليث، أنت الحارس، ولا تقل لا». وتحتها عشرة ردود: «ليث!»، «البطل!»، «الحارس الأسطوري». ونظر ليث إلى الساعة: العاشرة يوسف، والعاشرة النهائي. وكانت تمر في رأسه آية يحفظها منذ صغره: ﴿وَأَوْفُوا بِالْعَهْدِ ۖ إِنَّ الْعَهْدَ كَانَ مَسْئُولًا﴾ (الإسراء 17:34)، وهو يكتب ويمسح ويكتب. وفي الصباح كتب للأستاذ فؤاد: «السلام عليكم أستاذ، عندي حرارة اليوم، أعتذر». وأرسلها، ولبس قفازيه.',
+            'وكل من يقرأ هذه السطور يعرف «نعم» السريعة: «أكيد، أرسله لك الليلة»، و«أتصل بك بعد قليل»، و«نخرج يوم الجمعة» تُقال لولد يعدّ الأيام من الأحد. تخرج الكلمة في ثانيتين لأنها مريحة في لحظتها، ثم تبقى على صاحبها دَينًا. والآية تقول: ﴿إِنَّ الْعَهْدَ كَانَ مَسْئُولًا﴾، فهو سؤال سيأتي، يُسأل عنه صاحبه، ولو نسيه هو.',
+            'وفاز الفريق. صدّ ليث ركلة جزاء في آخر دقيقة، فرفعه الأولاد على أكتافهم، ونشر كريم الصورة: ليث في الوسط، والقفازان في الهواء. وبعد الظهر وصل رد الأستاذ فؤاد: «شفاك الله يا ليث. يوسف انتظرك عند الباب ساعة، وفي يده ورقة كسور حلّها كلها وحده. ثم قال: لعله يأتي متأخرًا». وكانت الصورة على حساب ليث منذ ساعتين، والأستاذ فؤاد من متابعيه. فوضع إبهامه على زر الحذف، ثم رفعه: الحذف كذبة ثانية فوق الأولى. وقلب الهاتف على وجهه، وبقي جالسًا على حافة السرير، والقفازان في يديه.'
+          ], en: [
+            'Layth is sixteen, and he says "yes" faster than anyone he knows: yes to the coach when he needs a goalkeeper, yes to his mother when she asks for bread, yes to anyone in the class group who writes "who can send me the answers?" He likes being the one people rely on, and he likes even more the look he gets when he says it. At the start of term, after Friday prayer, Ustadh Fuad stopped him at the mosque door. Ustadh Fuad runs the Saturday homework club for the little ones, and he said: "I have a ten-year-old called Yusuf who hates fractions with a passion, and his mother works on Saturdays. Will you take him every Saturday at ten, until the end of term?" Layth was typing a message on his phone. He looked up and said: "Yes, sure." Two seconds, and he was back to his message.',
+            'For the first two Saturdays he went. Yusuf is small for his age, holds his pencil by the very end, and says "this one\'s impossible" about every problem before reading it. So Layth drew a pizza on the sheet, cut it into eight slices and "ate" three of them with his pen, and Yusuf laughed for the first time: "Five eighths left!" At the end of the second session Yusuf folded the fractions sheet, put it in his pocket and said: "Next Saturday I\'ll solve a whole sheet for you on my own."',
+            'On the third Thursday night Karim\'s message arrived in the team group: "Final tomorrow at ten. Our keeper is sick. Layth, you\'re in goal, and don\'t say no." Under it came ten replies: "Layth!", "The hero!", "Legendary keeper." Layth looked at the time: ten o\'clock was Yusuf, and ten o\'clock was the final. A verse he had known since childhood kept passing through his head as he typed, deleted and typed again: "And fulfil the covenant; the covenant will be asked about" (al-Isra 17:34, meaning). In the morning he wrote to Ustadh Fuad: "Assalamu alaykum, Ustadh, I have a fever today, sorry." He sent it, and pulled on his gloves.',
+            'Everyone reading these lines knows the quick yes: "Sure, I\'ll send it tonight," "I\'ll call you back in a minute," "We\'ll go out on Friday," said to a child who starts counting the days on Sunday. The word comes out in two seconds because it is comfortable in the moment, and then it stays on its owner like a debt. The verse says the covenant "will be asked about", so it is a question that is coming, put to the one who gave it, even if he himself forgets.',
+            'The team won. Layth saved a penalty in the last minute, the boys lifted him onto their shoulders, and Karim posted the photo: Layth in the middle, gloves in the air. In the afternoon Ustadh Fuad\'s reply came: "May Allah heal you, Layth. Yusuf waited for you at the door for an hour, holding a fractions sheet he had solved entirely by himself. Then he said: maybe he is just late." The photo had been on Layth\'s account for two hours, and Ustadh Fuad was one of his followers. He put his thumb on the delete button, then lifted it: deleting it would be a second lie on top of the first. He turned the phone face down and stayed sitting on the edge of the bed, the gloves still in his hands.'
           ] },
         quiz: Q('human-adult', 1, [
-          { correct: 1, q: { ar: 'من الذين استثنتهم آيات التين 95:4-6 من النزول؟', en: 'Who are excepted from falling in al-Tin 95:4-6?' },
-            options: [{ ar: 'الأقوياء', en: 'The strong' }, { ar: 'الذين آمنوا وعملوا الصالحات', en: 'Those who believe and do righteous deeds' }, { ar: 'الأغنياء', en: 'The wealthy' }],
-            why: { ar: 'الصعود إلى الإنسانية الكاملة طريق بالإيمان والعمل.', en: 'Rising to full humanity is a road of faith and deeds.' } },
-          { correct: 0, q: { ar: 'لماذا تُعد مرتبة الإنسان العادي مهمة؟', en: 'Why does the ordinary human rank matter?' },
-            options: [{ ar: 'لأنها الأساس الذي يغيب عن كثير من الناس', en: 'Because it is the foundation many people lack' }, { ar: 'لأنها آخر المسار', en: 'Because it ends the path' }, { ar: 'لأنها لا تحتاج إلى عمل', en: 'Because it needs no effort' }],
-            why: { ar: 'الصدق والوفاء وكف الأذى أساس قبل البناء.', en: 'Truthfulness, loyalty and holding back harm are the foundation before the building.' } }
+          { correct: 1, q: { ar: 'ماذا كتب ليث للأستاذ فؤاد صباح النهائي؟', en: 'What did Layth write to Ustadh Fuad on the morning of the final?' },
+            options: [{ ar: '«نسيت أن عندي مباراة، أعتذر»', en: '"I forgot I have a match, sorry"' }, { ar: '«عندي حرارة اليوم، أعتذر»', en: '"I have a fever today, sorry"' }, { ar: '«آتي بعد المباراة، في الحادية عشرة»', en: '"I\'ll come after the match, at eleven"' }],
+            why: { ar: 'غطّى الوعد الذي أخلفه بكذبة في سطر واحد.', en: 'He covered the promise he broke with a one-line lie.' } },
+          { correct: 0, q: { ar: 'ماذا كان في يد يوسف وهو ينتظر عند الباب؟', en: 'What was Yusuf holding as he waited at the door?' },
+            options: [{ ar: 'ورقة كسور حلّها كلها وحده', en: 'A fractions sheet he had solved entirely on his own' }, { ar: 'رسم البيتزا المقطّعة ثماني قطع', en: 'The drawing of the pizza cut into eight' }, { ar: 'ورقة فارغة لم يحل منها شيئًا', en: 'A blank sheet with nothing solved' }],
+            why: { ar: 'وفى الصغير بوعده، وانتظر الكبير الذي وعده.', en: 'The little one kept his promise, and waited for the older one who had made his.' } }
         ]) },
-      { title: { ar: 'كف الأذى أولًا', en: 'Holding back harm first' },
+
+      { title: { ar: 'الصوت الذي لا يسكت', en: 'The voice that will not go quiet' },
         body: { ar: [
-            'قال النبي صلى الله عليه وآله وسلم: «الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ» (صحيح البخاري 10). والحديث قصير، لكنه يضع للخلق الحسن بداية واضحة: قبل أن تعطي الناس شيئًا، لا تأخذ منهم سلامتهم.',
-            'واللافت أن الحديث بدأ باللسان قبل اليد. فأذى اللسان أوسع وأخفى: كلمة سخرية في الصف، ولقب جارح، ونقل كلام يفسد بين صديقين، ورسالة غاضبة في مجموعة. وكثير من الأطفال الذين لا يضربون أحدًا يجرحون بألسنتهم كل يوم دون أن ينتبهوا.',
-            'وفي «الإحياء» عقد الغزالي كتابًا سماه «آفات اللسان»، عدّد فيه آفات كثيرة، منها الكذب والغيبة والنميمة والسخرية والمراء والجدال. ومجرد معرفة هذه الأسماء يساعد الشاب على أن يرى ما كان لا يراه في كلامه. فمن عرف أن نقل الكلام بين الناس اسمه النميمة، وأن ذكر الغائب بما يكره اسمه الغيبة، صار يتوقف قبل أن يقع فيهما، ويسأل نفسه: هل أحب أن يقال هذا عني؟',
-            'ويمكن أن نجعل كف الأذى تمرينًا عمليًّا في البيت. فنسأل في آخر اليوم: هل سلم منك أحد اليوم؟ هل كدت تقول كلمة جارحة ثم أمسكتها؟ ونمدح الإمساك كما نمدح العطاء، لأن ترك الأذى عمل صالح يحتاج إلى جهد.',
-            'ولا يعني كف الأذى أن يسكت الإنسان عن الحق أو يقبل الظلم. فالإنسان في هذه المرتبة يعرف أن يقول «لا» بأدب، وأن يدافع عن نفسه وعن غيره دون أن يجرح. والفرق دقيق، لكنه هو الفرق بين القوة والعدوان. ويمكن أن نتدرب مع الأطفال على جمل هادئة واضحة، مثل: لا أحب هذا، أرجوك توقف.',
-            'وللوالدين في هذا مسؤولية خاصة. فالطفل الذي يسمع في بيته السخرية من الناس وألقابهم، سيحمل ذلك إلى مدرسته. والبيت الذي يُحفظ فيه اللسان يُخرج أطفالًا يُؤمَن جانبهم.'
-          ],
-          en: [
-            'The Prophet, peace and blessings be upon him and his family, said, in meaning: the Muslim is the one from whose tongue and hand Muslims are safe (Sahih al-Bukhari 10). The hadith is short, yet it gives good character a clear beginning: before giving people anything, do not take away their safety.',
-            'Notice that the hadith puts the tongue before the hand. Harm by the tongue is wider and more hidden: a mocking word in class, a hurtful nickname, carrying words that spoil a friendship, an angry message in a group. Many children who never hit anyone wound with their tongues every day without noticing.',
-            'In the "Ihya\'" al-Ghazali devoted a book to "The Afflictions of the Tongue", listing many of them, among them lying, backbiting, tale-bearing, mockery and quarrelsome argument. Simply knowing these names helps a young person see what they did not see in their own speech. Whoever knows that carrying words between people is called tale-bearing, and mentioning the absent with what they dislike is called backbiting, starts to pause before falling into them and asks: would I like this said about me?',
-            'Holding back harm can become a practice at home. At the end of the day we ask: was anyone safe from you today? Did you almost say a wounding word and hold it back? We praise holding back as we praise giving, because leaving harm is a good deed that takes effort.',
-            'Holding back harm does not mean staying silent about what is right or accepting injustice. A person at this rank knows how to say "no" politely and defend themselves and others without wounding. The difference is fine, but it is the difference between strength and aggression. We can practise calm, clear sentences with children, such as: I don\'t like this, please stop.',
-            'Parents bear a special responsibility here. A child who hears mockery of people and their nicknames at home will carry it to school. A home where the tongue is guarded raises children others feel safe with.'
+            'في تلك الليلة لم ينم ليث. كانت المجموعة تمتلئ بالفوز، والصور تتوالى، وفي رأسه صورة واحدة لا يراها أحد غيره: ولد في العاشرة عند باب المسجد، يطوي ورقة ويفتحها. وتذكر حديثًا حفظه في المدرسة ولم يفكر فيه يومًا: «آيَةُ الْمُنَافِقِ ثَلَاثٌ: إِذَا حَدَّثَ كَذَبَ، وَإِذَا وَعَدَ أَخْلَفَ، وَإِذَا اؤْتُمِنَ خَانَ» (صحيح البخاري 33). فعدّ على أصابعه: وعد أخلفه، وحديث كذب فيه، والاثنان في رسالة واحدة. وشعر بالبرد وهو تحت الغطاء.',
+            'ولهذا الصوت الذي لا يسكت اسم في القرآن، أقسم الله به: ﴿وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ﴾ (القيامة 75:2)، النفس التي تلوم صاحبها بعد الخطأ. وقد عقد أبو حامد الغزالي في «إحياء علوم الدين» كتابًا في المراقبة والمحاسبة، شبّه فيه العقل بتاجر والنفس بشريكه: يشارطه في أول النهار، ويراقبه في أثنائه، ويحاسبه في آخره على ما ربح وما ضيّع (بالمعنى). واللوم أول هذه المحاسبة، وبعده سؤال أصعب منه: ماذا أفعل الآن؟',
+            'وكان أمامه طريقان سهلان. أن يسكت، فينسى الأستاذ فؤاد بعد أسبوع، ويجد ليوسف متطوعًا غيره. أو أن يذهب ويقول: «تحسنت والحمد لله، وأرجع السبت»، فتنتهي القصة بنصف كذبة لا يعرفها أحد. وكتب هذه الرسالة الثانية فعلًا، ونظر إليها طويلًا، ثم مسحها حرفًا حرفًا.',
+            'والكبير يعرف هذا المفترق جيدًا: الموعد الذي فات، والتقرير الذي تأخر، والعذر الجاهز الذي يحفظ الوجه ويُبقي الخطأ في مكانه. والاعتراف يُدفع ثمنه الآن، في الوجه وفي الصوت. والعذر يُدفع ثمنه بعد ذلك، وبالتقسيط، لأنه يحتاج كذبة أخرى ليعيش.',
+            'يوم الأحد بعد العصر وقف ليث عند باب غرفة الأستاذ فؤاد في المسجد. ولما رآه الأستاذ قال: «الحمد لله على السلامة». فقال ليث بسرعة، قبل أن يتراجع: «ما كانت عندي حرارة يا أستاذ. ذهبت إلى المباراة، وكذبت عليك». وسكت الأستاذ فؤاد طويلًا. ثم فتح الدرج، وأخرج ورقة مطوية مرات كثيرة، وناوله إياها: «هذه ورقة يوسف، تركها لك عند الباب. أما أن يصدقك السبت القادم، فهذا شيء تكسبه أنت». وفتح ليث الورقة في الطريق: الكسور كلها محلولة، وفي آخرها بخط مائل: «لليث».'
+          ], en: [
+            'That night Layth could not sleep. The group was filling up with the win, photo after photo, and in his head was one picture nobody else could see: a ten-year-old at the mosque door, folding and unfolding a sheet of paper. He remembered a hadith he had memorised at school and never once thought about: "The signs of the hypocrite are three: when he speaks he lies, when he promises he breaks it, and when he is trusted he betrays" (Sahih al-Bukhari 33). He counted on his fingers: a promise broken, a word that was a lie, both in a single message. He felt cold, under the blanket.',
+            'This voice that will not go quiet has a name in the Quran, and Allah swears by it: "And I swear by the self-reproaching soul" (al-Qiyama 75:2, meaning), the soul that blames its owner after a wrong. Abu Hamid al-Ghazali devoted a book of his Ihya Ulum al-Din to watchfulness and self-accounting, likening the mind to a merchant and the self to his partner: he sets terms with it at the start of the day, watches it through the day, and at the end of the day takes account of what it earned and what it wasted (in meaning). Blame is the first part of that accounting, and after it comes a harder question: what do I do now?',
+            'He had two easy roads in front of him. He could say nothing; Ustadh Fuad would forget within a week and find Yusuf another volunteer. Or he could go and say: "I\'m better, alhamdulillah, I\'ll be back on Saturday," and the story would end with half a lie that nobody would ever know about. He actually typed that second message, looked at it for a long time, then deleted it letter by letter.',
+            'Adults know this crossroads well: the missed appointment, the late report, the ready-made excuse that saves face and leaves the mistake where it is. Owning up is paid for now, in the face and in the voice. The excuse is paid for later, in instalments, because it needs another lie to stay alive.',
+            'On Sunday after asr Layth stood at the door of Ustadh Fuad\'s room at the mosque. When the Ustadh saw him he said: "Glad to see you well." Layth said quickly, before he could back out: "I didn\'t have a fever, Ustadh. I went to the match, and I lied to you." Ustadh Fuad was silent for a long time. Then he opened his drawer, took out a sheet of paper folded many times over, and handed it to him: "This is Yusuf\'s sheet. He left it for you at the door. As for whether he believes you next Saturday, that is something you will have to earn." Layth unfolded it on the way home: every fraction solved, and at the bottom, in slanting handwriting: "For Layth."'
           ] },
         quiz: Q('human-adult', 2, [
-          { correct: 2, q: { ar: 'بماذا بدأ حديث «المسلم من سلم...»؟', en: 'What does the hadith "the Muslim is the one from whom..." mention first?' },
-            options: [{ ar: 'المال', en: 'Wealth' }, { ar: 'اليد', en: 'The hand' }, { ar: 'اللسان', en: 'The tongue' }],
-            why: { ar: 'أذى اللسان أوسع وأخفى من أذى اليد.', en: 'Harm by the tongue is wider and more hidden than harm by the hand.' } },
-          { correct: 0, q: { ar: 'ماذا سمّى الغزالي كتابه في عيوب الكلام من «الإحياء»؟', en: 'What did al-Ghazali call his book on faults of speech in the "Ihya\'"?' },
-            options: [{ ar: 'آفات اللسان', en: 'The Afflictions of the Tongue' }, { ar: 'كسر الشهوتين', en: 'Breaking the Two Desires' }, { ar: 'منازل السائرين', en: 'The Stations of the Wayfarers' }],
-            why: { ar: 'عدّد فيه آفات منها الكذب والغيبة والنميمة والسخرية.', en: 'He listed afflictions such as lying, backbiting, tale-bearing and mockery.' } }
+          { correct: 2, q: { ar: 'ماذا عدّ ليث على أصابعه ليلة النهائي؟', en: 'What did Layth count on his fingers on the night of the final?' },
+            options: [{ ar: 'الركلات التي صدّها في النهائي', en: 'The shots he saved in the final' }, { ar: 'السبوت الباقية حتى آخر الفصل', en: 'The Saturdays left until the end of term' }, { ar: 'خصلتين من حديث «آية المنافق» في رسالة واحدة', en: 'Two traits from the hadith on "the signs of the hypocrite" in one message' }],
+            why: { ar: 'رأى في رسالة واحدة وعدًا أخلفه وكلامًا كذب فيه، فبدأت نفسه تلومه.', en: 'In one message he saw a promise broken and a word that was a lie, and his soul began to reproach him.' } },
+          { correct: 1, q: { ar: 'ماذا أعطى الأستاذ فؤاد ليثًا بعد أن اعترف؟', en: 'What did Ustadh Fuad give Layth after he owned up?' },
+            options: [{ ar: 'جدولًا جديدًا لأيام السبت', en: 'A new Saturday timetable' }, { ar: 'ورقة يوسف المطوية التي تركها له', en: 'The folded sheet Yusuf had left for him' }, { ar: 'رسالة من أم يوسف تعاتبه فيها', en: 'A note from Yusuf\'s mother reproaching him' }],
+            why: { ar: 'أعطاه ورقة الولد الذي انتظره، وترك له أن يكسب ثقته بفعله.', en: 'He gave him the sheet of the boy who had waited, and left it to him to earn that trust by what he did.' } }
         ]) },
-      { title: { ar: 'حقوق الصحبة', en: 'The rights of companionship' },
+
+      { title: { ar: 'السبت الرابع', en: 'The fourth Saturday' },
         body: { ar: [
-            'الإنسان في هذه المرتبة لا يعيش وحده، بل يعيش بين إخوة وأصدقاء وجيران وزملاء. ولذلك عقد الغزالي في «الإحياء» كتابًا سماه «آداب الألفة والأخوة والصحبة والمعاشرة»، وذكر فيه أن لأخيك عليك حقوقًا، وجعلها ثمانية.',
-            'فأولها حق في المال، بأن تواسيه إذا احتاج. وثانيها حق في النفس، بأن تعينه في حاجته بيدك ووقتك. وثالثها حق في اللسان بالسكوت، فتسكت عن عيوبه ولا تنقل ما يسوؤه. ورابعها حق في اللسان بالنطق، فتثني عليه بما فيه من خير وتنصحه برفق. وهذا الحق الرابع يعلمنا أن الصداقة ليست مجاملة دائمة، بل محبة تقول الحق بلطف.',
-            'وخامسها العفو عن زلاته وهفواته. وسادسها الدعاء له في حياته وبعد موته. وسابعها الوفاء والإخلاص، بأن تثبت على محبته ولا تتغير عليه. وثامنها التخفيف وترك التكلف، فلا تحمّله ما يشق عليه، ولا تطلب منه أن يتكلف لك.',
-            'وهذه الحقوق الثمانية تصلح أن تكون منهجًا كاملًا لتربية الصداقة عند الشباب. فكثير من مشكلات المدرسة سببها أن الصديق لا يعرف ما عليه لصديقه: يفضحه حين يغضب منه، أو يتركه حين يحتاجه، أو يغير عليه إذا جاء صديق جديد. ومنها أيضًا أن يكلّف الصديق صديقه ما لا يطيق، فيطلب منه أن يغش له أو يكذب من أجله، فيظن ذلك وفاء، وهو في الحقيقة ضد الحقوق كلها.',
-            'ولنختر مع الطفل حقًّا واحدًا كل أسبوع، ونبحث معه عن موقف يطبقه فيه: أن يدعو لصديقه دون أن يخبره، أو يسكت عن خطأ رآه منه، أو يساعده في واجب صعب. فتصير الأخوة أفعالًا صغيرة لا شعارات.',
-            'وحين يجد الشاب صديقًا يعامله بهذه الحقوق، يعرف قيمة الإنسان الذي رجع إلى مقامه، ويحب أن يكون مثله. ثم يسعى أن يكون هو هذا الصديق لغيره.'
-          ],
-          en: [
-            'At this rank a person does not live alone, but among siblings, friends, neighbours and classmates. That is why al-Ghazali devoted a book of the "Ihya\'" to "The Manners of Friendship, Brotherhood, Companionship and Living Together", in which he says your brother has rights over you, and lists eight.',
-            'The first is a right in wealth: helping him when in need. The second is a right in person: assisting him with your hands and time. The third is a right of the tongue in silence: keeping quiet about his faults and not passing on what would hurt him. The fourth is a right of the tongue in speech: praising the good in him and advising him gently. This fourth right teaches that friendship is not constant flattery, but love that speaks the truth kindly.',
-            'The fifth is pardoning his slips. The sixth is praying for him in life and after death. The seventh is loyalty and sincerity: staying constant in love and not changing towards him. The eighth is lightness and leaving formality: not burdening him, and not asking him to strain himself for you.',
-            'These eight rights could be a complete programme for raising friendship among young people. Many school problems come from a friend not knowing what is owed: exposing a friend when angry, leaving them when needed, or turning away when a new friend arrives. Another is asking a friend for what they cannot bear, such as cheating or lying for them, thinking that is loyalty, when in truth it goes against all these rights.',
-            'We can choose one right with the child each week and look for a situation to practise it: praying for a friend without telling them, keeping quiet about a mistake they saw, helping with hard homework. Then brotherhood becomes small acts, not slogans.',
-            'When a young person finds a friend who treats them with these rights, they know the worth of a person who has returned to their station, and they want to be like that. Then they try to be that friend for others.'
+            'في السبت التالي كان ليث عند الباب في العاشرة إلا دقيقة. وجاء يوسف مع أخته الكبيرة، فرآه، ومر بجانبه ودخل، وجلس في أبعد طاولة، وفتح دفتر الرسم. قال ليث: «صباح الخير يا يوسف». فقال يوسف وعيناه على الدفتر: «قالوا إنك كنت مريضًا».',
+            'وكان يستطيع أن يقول «نعم» ويبدأ الدرس. فجلس أمامه وقال: «ما كنت مريضًا. ذهبت ألعب مباراة، وكذبت على الأستاذ فؤاد. وأنت انتظرتني ساعة. آسف». ورفع يوسف رأسه ببطء، ونظر إليه كمن يرى شيئًا لأول مرة: كبير يعتذر لصغير. ثم سأل: «فزتم؟». قال ليث: «فزنا». فقال يوسف: «إذن أعطني مسألة صعبة».',
+            'ثم توالت السبوت. ذهب الحماس الذي كان في السبت الأول، وبقي التعب. وفي السبت الرابع كانت السماء تمطر منذ الفجر، وكان ليث قد سهر على واجب الفيزياء، والمجموعة تقول إن الشباب سيلعبون في الصالة المغلقة. ولو نام، فلن يعرف أحد: الأستاذ فؤاد مسافر هذا الأسبوع، والنادي يفتحه حارس المسجد، ويوسف قد لا يأتي في هذا المطر. وكان يعرف الحديث: «أَحَبُّ الْأَعْمَالِ إِلَى اللَّهِ تَعَالَى أَدْوَمُهَا وَإِنْ قَلَّ» (صحيح مسلم 783). وفهم ذلك الصباح لماذا يُحَب الدائم: لأنه يُعمل في اليوم الذي لا حماس فيه.',
+            'وكان في الدرس شيء آخر لا يراه أحد. كان يستطيع أن يملي على يوسف الأجوبة، فتمتلئ الورقة وينتهي الوقت. فصار يحضّر في الليل: يرسم فطائر وبرتقالات وساعات، ويكتب لكل سبت مسألة فيها اسم يوسف وكرة قدم. وما كان أحد يفحص تحضيره. وقد سأل جبريل عليه السلام النبي صلى الله عليه وآله وسلم عن الإحسان، فقال: «أَنْ تَعْبُدَ اللَّهَ كَأَنَّكَ تَرَاهُ، فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاكَ» (صحيح البخاري 50). وفي الورقة التي لا يراجعها أحد، يبدأ هذا المعنى صغيرًا.',
+            'ولبس ليث معطفه، ومشى إلى المسجد تحت المطر، يقول في نفسه إن يوسف لن يأتي في هذا الجو. وكان يوسف واقفًا تحت المظلة الصغيرة عند الباب، وحذاؤه مبلول، والورقة في يده. قال: «قلت لأمي إنك ستأتي». فطوى ليث مظلته، ومسح الماء عن الورقة بطرف كمّه، وجلسا.'
+          ], en: [
+            'The next Saturday Layth was at the door at one minute to ten. Yusuf arrived with his older sister, saw him, walked past him and went in, sat at the farthest table and opened his drawing book. Layth said: "Good morning, Yusuf." Yusuf said, his eyes on the book: "They said you were sick."',
+            'He could have said "yes" and started the lesson. Instead he sat down opposite him and said: "I wasn\'t sick. I went to play a match, and I lied to Ustadh Fuad. And you waited an hour for me. I\'m sorry." Yusuf slowly raised his head and looked at him like someone seeing a thing for the first time: an older boy apologising to a younger one. Then he asked: "Did you win?" Layth said: "We won." And Yusuf said: "Then give me a hard one."',
+            'Then the Saturdays came one after another. The enthusiasm of the first Saturday was gone, and the tiredness stayed. On the fourth Saturday it had been raining since dawn, Layth had stayed up late over his physics homework, and the group said the boys were playing in the indoor hall. If he slept in, nobody would know: Ustadh Fuad was away that week, the caretaker was opening the club, and Yusuf might not come in that rain. He knew the hadith: "The deeds most beloved to Allah the Exalted are the most constant, even if they are small" (Sahih Muslim 783). That morning he understood why the constant deed is loved: because it is done on the day with no enthusiasm in it.',
+            'There was something else in the lessons that nobody saw. He could have dictated the answers to Yusuf, filled the sheet and run out the clock. Instead he started preparing at night: drawing pies and oranges and clocks, and writing a problem for each Saturday with Yusuf\'s name and a football in it. Nobody ever checked his preparation. Jibril, peace be upon him, asked the Prophet, peace and blessings be upon him and his family, about ihsan, and he said: "That you worship Allah as though you see Him, and if you do not see Him, He sees you" (Sahih al-Bukhari 50). On a sheet nobody will ever check, that meaning begins, small.',
+            'Layth put on his coat and walked to the mosque in the rain, telling himself Yusuf would never come in this weather. Yusuf was standing under the little awning by the door, his shoes soaked, the sheet in his hand. He said: "I told my mum you\'d come." Layth folded his umbrella, wiped the rain off the sheet with the edge of his sleeve, and they sat down.'
           ] },
         quiz: Q('human-adult', 3, [
-          { correct: 1, q: { ar: 'كم حقًّا للأخ ذكر الغزالي في «آداب الألفة والأخوة»؟', en: 'How many rights of a brother did al-Ghazali list in "The Manners of Friendship and Brotherhood"?' },
-            options: [{ ar: 'ثلاثة', en: 'Three' }, { ar: 'ثمانية', en: 'Eight' }, { ar: 'عشرون', en: 'Twenty' }],
-            why: { ar: 'جعلها ثمانية، من المال إلى ترك التكلف.', en: 'He listed eight, from wealth to leaving formality.' } },
-          { correct: 0, q: { ar: 'ما حق اللسان بالسكوت؟', en: 'What is the right of the tongue in silence?' },
-            options: [{ ar: 'أن تسكت عن عيوب أخيك ولا تنقل ما يسوؤه', en: 'Keeping quiet about a brother\'s faults and not passing on what hurts him' }, { ar: 'ألا تكلمه أبدًا', en: 'Never speaking to him' }, { ar: 'أن تسكت عن الحق', en: 'Staying silent about what is right' }],
-            why: { ar: 'الستر من الوفاء للأخ.', en: 'Covering faults is part of loyalty to a brother.' } }
+          { correct: 2, q: { ar: 'ماذا قال يوسف بعد أن اعتذر له ليث؟', en: 'What did Yusuf say after Layth apologised to him?' },
+            options: [{ ar: '«لن أنتظرك مرة أخرى»', en: '"I won\'t wait for you again"' }, { ar: '«الأستاذ فؤاد حكى لي كل شيء»', en: '"Ustadh Fuad told me everything"' }, { ar: '«فزتم؟»', en: '"Did you win?"' }],
+            why: { ar: 'الصدق فتح الباب الذي أغلقته الكذبة، وبدأ الدرس من هناك.', en: 'Honesty opened the door the lie had shut, and the lesson began from there.' } },
+          { correct: 1, q: { ar: 'لماذا كان ذهاب ليث في السبت الرابع صعبًا؟', en: 'Why was going on the fourth Saturday hard for Layth?' },
+            options: [{ ar: 'لأن يوسف طلب أن ينتقل إلى معلم آخر', en: 'Because Yusuf had asked to move to another tutor' }, { ar: 'لأن المطر والتعب كانا عليه، ولن يعرف أحد إن غاب', en: 'Because of the rain and his tiredness, and nobody would know if he stayed away' }, { ar: 'لأن الأستاذ فؤاد غضب منه ذلك الأسبوع', en: 'Because Ustadh Fuad was angry with him that week' }],
+            why: { ar: 'العمل الدائم يُختبر في اليوم الذي يذهب فيه الحماس ولا يراه أحد.', en: 'A constant deed is tested on the day the enthusiasm is gone and nobody is watching.' } }
         ]) },
-      { title: { ar: 'العادة الصغيرة الدائمة', en: 'The small, lasting habit' },
+
+      { title: { ar: 'الورقة السرية', en: 'The private form' },
         body: { ar: [
-            'من أكثر ما يتعب الشباب في طريق الأخلاق أنهم يبدؤون بحماس كبير، ثم يتوقفون بعد أيام. يقرر أحدهم أن يقرأ كل يوم ساعة، أو أن يساعد أهله في كل شيء، ثم ينسى بعد أسبوع ويشعر بالفشل. ثم يظن أن الأخلاق ليست له، وأنه لن يتغير، فيترك الطريق كله بسبب بداية كانت أكبر من طاقته.',
-            'وقد علّمنا النبي صلى الله عليه وآله وسلم ميزانًا آخر، ففي الحديث: «أحب الأعمال إلى الله تعالى أدومها وإن قل» (صحيح مسلم، ونحوه في البخاري 6464). فالمحبوب ليس العمل الكبير الذي ينقطع، بل العمل الصغير الذي يدوم.',
-            'وهذا يوافق ما سبق من كلام ابن مسكويه في «تهذيب الأخلاق»، أن الخلق قد يُكتسب بالعادة والتدريب حتى يصير كالطبع. فالعادة الصغيرة المتكررة هي التي تصنع الحال الثابتة في النفس، وليس القرار الكبير الذي لا يتكرر.',
-            'ولهذا اقترح المسار في مرتبة الإنسان أن يختار الطفل عادة واحدة صغيرة جدًّا: أن يرتب سريره، أو يسلم على جاره، أو يشكر من خدمه، أو يرد الشيء إلى مكانه. ثم يحافظ عليها أسابيع قبل أن يضيف غيرها. والصغر هنا مقصود، لأن الصغير يدوم. ومع الوقت تتصل العادات الصغيرة بعضها ببعض، فيجد الطفل نفسه بعد أشهر إنسانًا مختلفًا، دون أن يشعر أنه حمل عبئًا ثقيلًا في أي يوم.',
-            'وإذا أخطأ الإنسان في هذا الطريق، فهناك وصية نبوية جامعة: «وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ» (سنن الترمذي 1987). فلا يقف الشاب عند خطئه يلوم نفسه طويلًا، بل يتبعه بحسنة، ويعود إلى عادته الصغيرة.',
-            'وهذا يرفع عن الأطفال والكبار عبء الكمال. فالمطلوب ليس ألا نخطئ، بل أن نعود دائمًا. والعودة نفسها عادة تُتعلم كما تُتعلم سائر العادات.'
-          ],
-          en: [
-            'One of the things that most tires young people on the path of character is starting with great enthusiasm and stopping after a few days. Someone decides to read for an hour daily or help the family with everything, then forgets after a week and feels a failure. Then they think character is not for them, that they will never change, and leave the whole road because of a start bigger than their strength.',
-            'The Prophet, peace and blessings be upon him and his family, taught a different measure. Meaning (not a translation): the deeds most beloved to Allah are the most lasting, even if small (Sahih Muslim, and similar in al-Bukhari 6464). What is loved is not the big deed that stops, but the small one that lasts.',
-            'This agrees with what we saw from Ibn Miskawayh in "Tahdhib al-Akhlaq": character can be acquired by habit and training until it becomes like nature. The small, repeated habit is what forms a settled state in the soul, not the big decision that is never repeated.',
-            'So at the human rank the path suggests the child choose one very small habit: making the bed, greeting a neighbour, thanking whoever served them, putting things back. Then keep it for weeks before adding another. The smallness is deliberate, because what is small lasts. Over time the small habits connect, and after some months the child finds themselves a different person, without having carried a heavy load on any single day.',
-            'And when a person slips on this road, there is a comprehensive prophetic counsel. Meaning (not a translation): follow a bad deed with a good one and it will erase it, and treat people with good character (Sunan al-Tirmidhi 1987). So a young person does not stay stuck blaming themselves, but follows the slip with a good deed and returns to the small habit.',
-            'This lifts the burden of perfection from children and adults alike. What is asked is not that we never slip, but that we always return. Returning is itself a habit, learned like any other.'
+            'وفي المدرسة كان مشروع التاريخ: ثلاثة طلاب، وبحث عن الحي القديم في المدينة، وعرض في آخر الشهر. وكان فريق ليث: ليث، وكريم، وعدنان. كريم صاحبه في الفريق وفي المجموعة، يضحك فيضحك الصف، ويعد بالكثير. وعدنان قليل الكلام، يجلس في المقعد الأول، ويكتب كل شيء بخط صغير مرتب. وفي أسابيع البحث ذهب عدنان إلى أرشيف البلدية ثلاث مرات، وصوّر خرائط الحي القديم، وكتب نصف البحث. ووعد كريم بالشرائح أربع مرات، ثم صنعها ليلة العرض في ساعة. وغاب ليث عن لقاء واحد: لقاء السبت، يوم النهائي.',
+            'ونجح العرض. وقف كريم يشرح، فأضحك الصف وأقنعه، وصفق المعلم. وبعد العرض وزّع المعلم ورقة صغيرة: «قيّم كل زميل في فريقك من عشرة. الورقة سرية، لا يراها غيري». وقبل أن يكتب ليث شيئًا وصلته رسالة من كريم: «عشرة لي، وعشرة لك، ونريّح بعضنا. وعدنان ما سمعنا له صوتًا في العرض، خمسة تكفيه». وبعدها وجه ضاحك.',
+            'وجلس ليث والقلم في يده. كريم صاحبه منذ الابتدائية، وهو الذي رفعه على كتفيه يوم النهائي. وعدنان لا يكاد يعرفه. والورقة سرية، ولن يعرف أحد ما كتب فيها. وكان الإمام قد قرأ في صلاة الفجر آية لم يتوقف عندها من قبل: ﴿وَإِذَا قُلْتُمْ فَاعْدِلُوا وَلَوْ كَانَ ذَا قُرْبَىٰ﴾ (الأنعام 6:152). والقريب هنا كريم، والورقة قول وإن كُتبت بقلم. فكتب: عدنان عشرة. كريم ستة. ثم توقف عند اسمه هو، وكتب: سبعة، وتحتها بخط صغير: «غبت عن لقاء السبت».',
+            'والكبير يعرف الورقة السرية وإن تغيّر اسمها: الشهادة في خلاف بين قريبين، والتوصية لزميل نحبه، وتقسيم الفضل في اجتماع العمل حين يُسأل «من صنع هذا؟». وفي هذه المواضع تصير آية أخرى أوضح مما نحب: ﴿وَلَا تَبْخَسُوا النَّاسَ أَشْيَاءَهُمْ﴾ (هود 11:85). والجهد الذي بذله صاحبه من أشيائه.',
+            'وبعد أسبوع أعلن المعلم الدرجات: عدنان الأعلى في الفريق، وكريم الأدنى. ونظر كريم إلى ليث نظرة طويلة، ولم يقل شيئًا. وفي المساء كانت المجموعة تتكلم عن سهرة الخميس، ولم يذكر أحد اسم ليث. وفي الصباح وجد ليث على درجه نسخة مصورة من خريطة قديمة، وفي زاويتها بخط صغير مرتب: «هذا شارع مسجدكم قبل ستين سنة. عدنان». فنظر إلى المقعد الأول، فرفع عدنان يده بتحية صغيرة، ورجع إلى دفتره.'
+          ], en: [
+            'At school there was the history project: three students, research on the old quarter of the city, and a presentation at the end of the month. Layth\'s team was Layth, Karim and Adnan. Karim is his friend on the team and in the group chat; when he laughs the class laughs, and he promises a lot. Adnan says little, sits in the front row and writes everything in small, tidy handwriting. Over the weeks of research Adnan went to the municipal archive three times, photographed the maps of the old quarter, and wrote half the report. Karim promised the slides four times, then made them in an hour the night before. Layth missed one meeting: the Saturday one, the day of the final.',
+            'The presentation went well. Karim stood up to explain, made the class laugh and won them over, and the teacher applauded. Afterwards the teacher handed out a small form: "Rate each teammate out of ten. This form is private; nobody sees it but me." Before Layth had written anything, a message came from Karim: "Ten for me, ten for you, and we look after each other. And Adnan, we didn\'t hear a word from him in the presentation, five is plenty." Then a laughing face.',
+            'Layth sat with the pen in his hand. Karim had been his friend since primary school, and he was the one who carried him on his shoulders on the day of the final. Adnan he hardly knew. The form was private, and nobody would ever know what he wrote. At fajr the imam had recited a verse he had never paused over before: "And when you speak, be just, even if it concerns a relative" (al-An\'am 6:152, meaning). The relative here was Karim, and the form was speech, even if written with a pen. So he wrote: Adnan, ten. Karim, six. Then he stopped at his own name, wrote seven, and underneath in small letters: "I missed the Saturday meeting."',
+            'Adults know the private form, whatever it is called: testimony in a dispute between relatives, a reference for a colleague we like, sharing out the credit in a work meeting when someone asks "who made this?" In those places another verse becomes clearer than we would like: "And do not deprive people of what is theirs" (Hud 11:85, meaning). The effort someone put in is one of the things that are theirs.',
+            'A week later the teacher announced the marks: Adnan the highest on the team, Karim the lowest. Karim gave Layth a long look and said nothing. That evening the group was talking about Thursday night plans, and nobody mentioned Layth. In the morning Layth found on his desk a photocopy of an old map, and in its corner, in small tidy handwriting: "This is your mosque\'s street sixty years ago. Adnan." He looked over at the front row; Adnan raised a hand in a small greeting, and went back to his notebook.'
           ] },
         quiz: Q('human-adult', 4, [
-          { correct: 2, q: { ar: 'ما أحب الأعمال إلى الله بحسب الحديث؟', en: 'Which deeds are most beloved to Allah according to the hadith?' },
-            options: [{ ar: 'أكبرها ولو انقطع', en: 'The biggest, even if they stop' }, { ar: 'أصعبها', en: 'The hardest' }, { ar: 'أدومها وإن قل', en: 'The most lasting, even if small' }],
-            why: { ar: 'العمل الصغير الدائم يصنع الخلق الثابت.', en: 'A small lasting deed forms settled character.' } },
-          { correct: 1, q: { ar: 'ماذا نفعل إذا أخطأنا بحسب حديث الترمذي؟', en: 'What do we do after slipping, per the hadith in al-Tirmidhi?' },
-            options: [{ ar: 'نترك الطريق', en: 'Leave the road' }, { ar: 'نتبع السيئة بحسنة', en: 'Follow the bad deed with a good one' }, { ar: 'نلوم أنفسنا طويلًا', en: 'Blame ourselves at length' }],
-            why: { ar: 'المطلوب أن نعود دائمًا، لا ألا نخطئ أبدًا.', en: 'What is asked is always returning, not never slipping.' } }
+          { correct: 1, q: { ar: 'ماذا طلب كريم من ليث في رسالته؟', en: 'What did Karim ask Layth in his message?' },
+            options: [{ ar: 'أن يكتبا اسم عدنان على الشرائح', en: 'That they put Adnan\'s name on the slides' }, { ar: 'أن يعطيا بعضهما عشرة، وعدنان خمسة', en: 'That they give each other ten, and Adnan five' }, { ar: 'أن يطلبا من المعلم إعادة العرض', en: 'That they ask the teacher to let them present again' }],
+            why: { ar: 'طلب منه أن يبخس جهد عدنان في ورقة لا يراها أحد.', en: 'He asked him to short-change Adnan\'s effort on a form nobody would see.' } },
+          { correct: 0, q: { ar: 'ماذا كتب ليث تحت درجته هو في الورقة؟', en: 'What did Layth write under his own mark on the form?' },
+            options: [{ ar: '«غبت عن لقاء السبت»', en: '"I missed the Saturday meeting"' }, { ar: '«كتبت نصف البحث»', en: '"I wrote half the report"' }, { ar: '«صنعت الشرائح مع كريم»', en: '"I made the slides with Karim"' }],
+            why: { ar: 'عدل مع نفسه كما عدل مع غيره، فذكر غيابه في ورقة لا يراها أحد.', en: 'He was as fair with himself as with others, and noted his own absence on a form nobody would see.' } }
         ]) },
-      { title: { ar: 'مع الطفل: الوعد والقدوة', en: 'With the child: promises and example' },
+
+      { title: { ar: 'لمن كانت السبوت؟', en: 'Whose were the Saturdays?' },
         body: { ar: [
-            'يتعلم الطفل الوفاء بالوعد من وعودنا نحن له أكثر مما يتعلمه من نصائحنا. فالأب الذي يقول «سنخرج إلى الحديقة يوم الجمعة» ثم ينسى، والأم التي تقول «سأشتري لك» لتسكته ثم لا تفعل، يعلّمان الطفل أن الوعد كلمة تُقال لا عهد يُحفظ.',
-            'وقد قال الله تعالى: ﴿لَقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ﴾ (الأحزاب 33:21). فالأخلاق في الإسلام لم تأت كتابًا يُقرأ فقط، بل جاءت في إنسان يُرى ويُقتدى به. وكذلك البيت: الطفل يقرأ والديه قبل أن يقرأ كتبه. وأول ما يقرؤه منهما صدق كلامهما.',
-            'ولهذا يحسن أن يكون الوالدان حذرين في وعودهما. فلا يعدان إلا بما يستطيعان، وإذا عجزا عن وعد اعتذرا للطفل بصدق، وشرحا له السبب، وجعلا له موعدًا آخر. فالاعتذار عن الوعد المكسور يعلم الطفل أن الوعد شيء مهم يستحق الاعتذار.',
-            'ومن الأفعال الصغيرة التي تبني هذه المرتبة في البيت أن نعطي الطفل مسؤولية حقيقية يفي بها: نبتة يسقيها، أو حيوانًا صغيرًا يطعمه، أو جارًا كبيرًا يطمئن عليه. فالوفاء يكبر حين يجد شيئًا حقيقيًّا يحمله. ونحسن أن نثق بالطفل في هذه المسؤولية، فلا نسحبها منه عند أول تقصير، بل نذكّره بلطف ونعطيه فرصة أخرى، لأن الثقة نفسها تربي الوفاء.',
-            'وحين يتقن الطفل الخير المطلوب منه، يبدأ سؤال جديد: هل أنتظر دائمًا أن يُطلب مني الخير؟ وهنا يقف على باب الإبهام، حيث يقول القرآن: ﴿وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِنْ رَبِّكُمْ﴾ (آل عمران 3:133). فالمسارعة أن يرى الإنسان الخير فيسبق إليه قبل أن يطلبه أحد، وقبل أن يراه أحد.',
-            'وهذا الانتقال لطيف وطبيعي. فمن تعوّد أن يفي بما وعد، يصير قلبه حساسًا لحاجات الناس، فيبدأ يرى ما لم يُطلب منه، ويحب أن يقدمه. وهذا هو أول السباق.'
-          ],
-          en: [
-            'A child learns to keep promises from the promises we make to them more than from our advice. The father who says "we will go to the park on Friday" and forgets, the mother who says "I will buy it for you" to quiet the child and then does not, teach that a promise is a word said, not a pledge kept.',
-            'Allah says, in meaning (not a translation): in the Messenger of Allah you have an excellent example (al-Ahzab 33:21). Character in Islam did not come only as a book to read; it came in a person to be seen and followed. So too at home: a child reads their parents before reading their books. And the first thing they read is whether our words are true.',
-            'So parents should be careful with promises. They promise only what they can do, and when they cannot keep one, they apologise sincerely, explain why and set another time. Apologising for a broken promise teaches the child that a promise matters enough to deserve an apology.',
-            'One small way to build this rank at home is to give the child a real responsibility to keep: a plant to water, a small animal to feed, an elderly neighbour to check on. Loyalty grows when it has something real to carry. It helps to trust the child with this responsibility and not withdraw it at the first lapse, but remind gently and give another chance, because trust itself nurtures loyalty.',
-            'When the child has mastered the good asked of them, a new question begins: must I always wait to be asked? Here they stand at the door of the thumb, where the Quran says, in meaning: and hasten to forgiveness from your Lord (Al \'Imran 3:133). Hastening means seeing the good and racing to it before anyone asks, and before anyone sees.',
-            'This transition is gentle and natural. Whoever is used to keeping what they promised develops a heart sensitive to people\'s needs, begins to see what no one asked of them, and loves to offer it. That is the start of the race.'
+            'في آخر الفصل امتُحن يوسف في الكسور، فأخذ سبعة عشر من عشرين. وجاء إلى النادي يركض، والورقة في يده مرفوعة كالكأس. وفرح الأستاذ فؤاد، وقال: «نصوّر المتطوعين مع الأولاد للصفحة، ونكتب: شكرًا لأبطالنا». ووقف المتطوعون في صف، كل صغير بجانب معلمه.',
+            'وشعر ليث بشيء يتحرك فيه. الصورة ستنزل على صفحة المسجد، ويراها الشباب في المجموعة، ويراها كريم. وتخيّل التعليقات: «ليث البطل مرة أخرى». وعرف الشعور في اللحظة نفسها: هو الذي كان يأتيه حين يقول «نعم» في ثانيتين. وتذكّر الحديث الذي يفتتح به صحيح البخاري: «إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ» (صحيح البخاري 1). وقد كتب الغزالي في «الإحياء»، في كتاب ذم الجاه والرياء، عن الرياء الخفي: لا يدعو صاحبه إلى العمل، ويفرح صاحبه إذا اطّلع الناس على عمله (بالمعنى). وسأل ليث نفسه: لمن كانت السبوت المبتلة؟',
+            'فقال: «أنا أصوّر يا أستاذ». وأخذ الهاتف، ووقف أمامهم، وصوّر يوسف رافعًا ورقته، والأستاذ فؤاد وراءه يضحك. ونزلت الصورة على الصفحة في المساء، وفيها كل الأولاد وكل المتطوعين إلا واحدًا.',
+            'وكل من يقرأ هذه السطور يعرف الصورة التي تُلتقط للعمل الطيب: صندوق التبرعات أمام الكاميرا، والزيارة التي تُكتب في الحالة، والمساعدة التي تُحكى في المجلس بتواضع محسوب. وبعض الصور تدعو غيرنا إلى الخير، وتبقى في كل صورة مسألة ليث: لمن كان العمل؟ وفي حديث السبعة الذين يظلهم الله في ظله: «وَرَجُلٌ تَصَدَّقَ بِصَدَقَةٍ فَأَخْفَاهَا حَتَّى لَا تَعْلَمَ شِمَالُهُ مَا تُنْفِقُ يَمِينُهُ» (صحيح البخاري 1423).',
+            'وفي الليل جاءته رسالة من كريم، أول رسالة منذ الدرجات: «أخي الصغير يكره الكسور. سمعت أنك... يعني. عندكم مكان في النادي؟». وقرأها ليث مرتين، وكتب: «السبت، العاشرة. أكون عند الباب». وبعد العشاء وصلته رسالة الأستاذ فؤاد: «الفصل القادم، تأخذ يوسف مرة أخرى؟». ففتح ليث التقويم، وعدّ السبوت واحدًا واحدًا، ونظر في مواعيد المباريات، ونام. وفي الصباح كتب: «نعم، إن شاء الله. نظرت في السبوت كلها، وهي لهما». وكانت «نعم» هذه قد أخذت منه ليلة كاملة.'
+          ], en: [
+            'At the end of term Yusuf sat his fractions test and got seventeen out of twenty. He came running into the club, holding the paper up like a trophy. Ustadh Fuad was delighted and said: "Let\'s take a photo of the volunteers with the children for the page, and write: thank you to our heroes." The volunteers lined up, each little one beside his tutor.',
+            'Layth felt something stir inside him. The photo would go up on the mosque page, the boys in the group would see it, Karim would see it. He imagined the comments: "Layth the hero, again." And in the same moment he recognised the feeling: it was the one that came to him whenever he said "yes" in two seconds. He remembered the hadith that opens Sahih al-Bukhari: "Actions are only by intentions" (Sahih al-Bukhari 1). Al-Ghazali wrote in the Ihya, in the book on the blame of status and showing off, about hidden showing off: it does not move a person to act, yet he is pleased when people come to see what he did (in meaning). Layth asked himself: whose were those rainy Saturdays?',
+            'So he said: "I\'ll take it, Ustadh." He took the phone, stood in front of them, and photographed Yusuf holding up his paper, with Ustadh Fuad laughing behind him. The photo went up on the page that evening, with every child and every volunteer in it but one.',
+            'Everyone reading these lines knows the photo taken of a good deed: the donation box in front of the camera, the visit posted in a status, the help recounted at a gathering with carefully measured modesty. Some photos invite others to do good, and every photo still carries Layth\'s question: whose was the deed? In the hadith of the seven whom Allah shades in His shade: "and a man who gives charity and hides it, so that his left hand does not know what his right hand spends" (Sahih al-Bukhari 1423).',
+            'That night a message came from Karim, the first since the marks: "My little brother hates fractions. I heard you... well. Is there room at the club?" Layth read it twice and wrote: "Saturday, ten. I\'ll be at the door." After isha a message came from Ustadh Fuad: "Next term, will you take Yusuf again?" Layth opened his calendar, counted the Saturdays one by one, checked the match fixtures, and went to sleep. In the morning he wrote: "Yes, in sha Allah. I have looked at every Saturday, and they are theirs." This yes had taken him a whole night.'
           ] },
         quiz: Q('human-adult', 5, [
-          { correct: 0, q: { ar: 'من أين يتعلم الطفل الوفاء بالوعد أكثر؟', en: 'Where does a child learn to keep promises most?' },
-            options: [{ ar: 'من وعود والديه له', en: 'From the promises parents make to them' }, { ar: 'من الكتب وحدها', en: 'From books alone' }, { ar: 'من التلفاز', en: 'From television' }],
-            why: { ar: 'الطفل يقرأ والديه قبل أن يقرأ كتبه.', en: 'A child reads their parents before reading books.' } },
-          { correct: 2, q: { ar: 'ماذا يفعل الوالدان إذا عجزا عن وعد؟', en: 'What should parents do if they cannot keep a promise?' },
-            options: [{ ar: 'يتجاهلان الأمر', en: 'Ignore it' }, { ar: 'يلومان الطفل', en: 'Blame the child' }, { ar: 'يعتذران بصدق ويشرحان ويجعلان موعدًا آخر', en: 'Apologise sincerely, explain and set another time' }],
-            why: { ar: 'الاعتذار عن الوعد يعلم أن الوعد مهم.', en: 'Apologising for a promise teaches that promises matter.' } }
+          { correct: 0, q: { ar: 'ماذا فعل ليث حين وقف المتطوعون للصورة؟', en: 'What did Layth do when the volunteers lined up for the photo?' },
+            options: [{ ar: 'أخذ الهاتف وصوّرهم، ولم يظهر في الصورة', en: 'He took the phone and photographed them, and was not in the picture' }, { ar: 'وقف بجانب يوسف ورفع معه الورقة', en: 'He stood beside Yusuf and held up the paper with him' }, { ar: 'طلب من الأستاذ ألا تُنشر الصورة', en: 'He asked Ustadh Fuad not to post the photo' }],
+            why: { ar: 'رأى في نفسه الرغبة في أن يُرى، فاختار أن يبقى عمله خالصًا.', en: 'He saw in himself the wish to be seen, and chose to keep his deed sincere.' } },
+          { correct: 2, q: { ar: 'كيف ردّ ليث على سؤال الأستاذ فؤاد عن الفصل القادم؟', en: 'How did Layth answer Ustadh Fuad\'s question about next term?' },
+            options: [{ ar: 'قال «نعم، أكيد» في الحال، كما فعل أول مرة', en: 'He said "yes, sure" at once, as he did the first time' }, { ar: 'اعتذر لأن المباريات تملأ أيام السبت', en: 'He declined because matches fill his Saturdays' }, { ar: 'نظر في التقويم ليلة كاملة، ثم قال نعم في الصباح', en: 'He looked at his calendar overnight, then said yes in the morning' }],
+            why: { ar: 'صار يعد بما ينظر أولًا في قدرته على الوفاء به، فصارت «نعم» عهدًا.', en: 'He now promises only after checking he can keep it, and his yes has become a covenant.' } }
         ]) }
     ]
   });
@@ -2042,134 +2085,128 @@ window.AKHLAQ_BQ = function (bid, ci, list) {
     title: { ar: 'معاذ ومشروع الماء النظيف', en: 'Muadh and the clean water project' },
     chapters: [
       { title: { ar: 'فريق من ثلاثة', en: 'A team of three' },
-        body: {
-          ar: [
+        body: { ar: [
             'كان معاذ في الثانية عشرة، وكان يحب العلوم. وفي أول الفصل أعلن المعلم عن مسابقة المشاريع: كل ثلاثة تلاميذ يصنعون مشروعًا واحدًا، ويعرضونه أمام المدرسة كلها بعد شهر، والفائز يمثل المدرسة في مسابقة المدينة.',
-            'ثم قرأ المعلم أسماء الفرق. وكان فريق معاذ: معاذ، ونزار، وإياد. ففرح معاذ بنزار، لأنه ذكي ويتكلم بثقة، وكل الصف يحبه. لكن نزار لوى وجهه حين سمع اسم إياد، وهمس لمعاذ: انتهينا، سنخسر.',
-            'كان إياد قد جاء إلى المدرسة هذا العام من بلد آخر. وكانت عربيته بطيئة، يبحث عن الكلمات قبل أن يقولها، ودرجاته في الاختبارات المكتوبة ضعيفة. وكان يجلس في آخر الصف، ولا يرفع يده أبدًا، حتى حين يعرف الجواب. حتى إن بعض الأولاد يقلدون طريقته في الكلام.',
-            'في الاستراحة قال نزار لمعاذ: سنعمل نحن الاثنين، ونكتب اسمه على المشروع فقط حتى لا يغضب المعلم. هو لن يفهم شيئًا على أي حال. وضحك. ولم يقل معاذ شيئًا، لأنه لم يرد أن يخسر صداقة نزار.',
-            'لكن في الطريق إلى البيت، رأى معاذ إيادًا يمشي وحده، وحقيبته ثقيلة على كتف واحد. فتذكر كلام نزار، وشعر بشيء غير مريح في صدره، كأنه وقّع على شيء ظالم دون أن يقرأه.',
-            'وقال في نفسه: لو كنت أنا الجديد في بلد لا أعرف لغته جيدًا، هل كنت أحب أن يكتب أحد اسمي على عمل لم يتركني أشارك فيه؟ وعرف أنه لن يحب ذلك أبدًا.'
-          ],
-          en: [
-            'Muadh was twelve and loved science. At the start of term the teacher announced a project competition: every three pupils would make one project and present it to the whole school in a month, and the winner would represent the school in the city competition.',
-            'Then the teacher read out the teams. Muadh\'s team was Muadh, Nizar and Iyad. Muadh was pleased about Nizar, who was clever, spoke confidently, and was liked by the whole class. But Nizar pulled a face when he heard Iyad\'s name and whispered to Muadh: we\'re finished, we\'ll lose.',
-            'Iyad had come to the school this year from another country. His Arabic was slow; he searched for words before saying them, and his marks in written tests were weak. He sat at the back and never raised his hand, even when he knew the answer. Some boys imitated the way he spoke.',
-            'At break Nizar told Muadh: we\'ll do the work, just the two of us, and put his name on the project so the teacher isn\'t angry. He won\'t understand anything anyway. And he laughed. Muadh said nothing, because he did not want to lose Nizar\'s friendship.',
-            'But on the way home Muadh saw Iyad walking alone, his heavy bag on one shoulder. He remembered Nizar\'s words and felt something uncomfortable in his chest, as if he had signed something unjust without reading it.',
-            'He said to himself: if I were the new one in a country whose language I didn\'t know well, would I like someone to put my name on work they never let me share in? And he knew he would never like that.'
+            'ثم قرأ المعلم أسماء الفرق، وفي فريق معاذ: معاذ، ونزار، وإياد. ففرح معاذ بنزار، فهو ذكي ويتكلم بثقة، والصف كله يحبه. أما نزار فلوى وجهه حين سمع اسم إياد، وهمس لمعاذ: «انتهينا، سنخسر».',
+            'كان إياد قد جاء إلى المدرسة هذا العام من بلد آخر. عربيته بطيئة، يبحث عن الكلمة قبل أن يقولها، ودرجاته في الاختبارات المكتوبة ضعيفة. يجلس في آخر الصف، ولا يرفع يده أبدًا، حتى حين يعرف الجواب. وبعض الأولاد يقلّدون طريقته في الكلام.',
+            'وفي الاستراحة قال نزار: «نعمل نحن الاثنين، ونكتب اسمه على المشروع حتى لا يغضب المعلم. هو لن يفهم شيئًا على أي حال». وضحك. وسكت معاذ، فقد خاف أن يخسر صداقة نزار.',
+            'وفي الطريق إلى البيت رأى معاذ إيادًا يمشي وحده، وحقيبته الثقيلة على كتف واحد. فتذكر كلام نزار، وشعر بشيء غير مريح في صدره، كأنه وقّع على ورقة ظالمة دون أن يقرأها.',
+            'وقال في نفسه: «لو كنت أنا الجديد في بلد لا أعرف لغته جيدًا، هل كنت أحب أن يُكتب اسمي على عمل لم يتركوني أشارك فيه؟». ثم أسرع حتى صار بجانب إياد، وقال: «أنت في فريقنا. نلتقي الخميس في بيتي؟». فرفع إياد عينيه متفاجئًا، وأومأ.'
+          ], en: [
+            'Muadh was twelve and loved science. At the start of term the teacher announced the project competition: every three pupils would make one project and present it to the whole school a month later, and the winners would represent the school in the city competition.',
+            'Then the teacher read out the teams. Muadh\'s team was Muadh, Nizar and Iyad. Muadh was glad to have Nizar: he was clever, spoke with confidence, and the whole class liked him. But Nizar pulled a face when he heard Iyad\'s name, and whispered to Muadh: "That\'s it, we\'re going to lose."',
+            'Iyad had come to the school this year from another country. His Arabic was slow; he searched for each word before saying it, and his marks in written tests were weak. He sat at the back of the class and never raised his hand, even when he knew the answer. Some boys copied the way he spoke.',
+            'At break Nizar said: "We\'ll do it ourselves, the two of us, and put his name on the project so the teacher doesn\'t get angry. He won\'t understand anything anyway." And he laughed. Muadh said nothing; he was afraid of losing Nizar\'s friendship.',
+            'On the way home Muadh saw Iyad walking alone, his heavy bag on one shoulder. He remembered what Nizar had said and felt something uncomfortable in his chest, as if he had signed an unfair paper without reading it.',
+            'He said to himself: "If I were the new one, in a country whose language I hardly knew, would I want my name put on work they never let me take part in?" Then he hurried until he was beside Iyad and said: "You\'re on our team. Shall we meet on Thursday at my house?" Iyad looked up in surprise, and nodded.'
           ] },
         quiz: Q('human-2', 1, [
           { correct: 1, q: { ar: 'ماذا اقترح نزار في الاستراحة؟', en: 'What did Nizar suggest at break?' },
-            options: [{ ar: 'أن يقود إياد الفريق', en: 'That Iyad lead the team' }, { ar: 'أن يعمل هو ومعاذ وحدهما ويكتبا اسم إياد فقط', en: 'That he and Muadh work alone and just add Iyad\'s name' }, { ar: 'أن يتركوا المسابقة', en: 'That they quit the competition' }],
-            why: { ar: 'إقصاء الزميل الأضعف ظلم ولو كُتب اسمه.', en: 'Shutting out the weaker classmate is unjust even if his name is written.' } },
+            options: [{ ar: 'أن يطلبوا من المعلم نقل إياد إلى فريق آخر', en: 'That they ask the teacher to move Iyad to another team' }, { ar: 'أن يعمل هو ومعاذ وحدهما ويكتبا اسم إياد فقط', en: 'That he and Muadh work alone and just put Iyad\'s name on it' }, { ar: 'أن يعطوا إيادًا أسهل جزء في المشروع', en: 'That they give Iyad the easiest part of the project' }],
+            why: { ar: 'إقصاء الزميل وكتابة اسمه فقط ظلم له، ولو بدا حلًّا مريحًا.', en: 'Shutting a teammate out and only writing his name is unfair to him, however convenient it looks.' } },
           { correct: 0, q: { ar: 'ما السؤال الذي سأله معاذ نفسه؟', en: 'What question did Muadh ask himself?' },
-            options: [{ ar: 'لو كنت أنا الجديد، هل كنت أحب هذا؟', en: 'If I were the new one, would I like this?' }, { ar: 'كيف أفوز وحدي؟', en: 'How do I win alone?' }, { ar: 'لماذا جاء إياد؟', en: 'Why did Iyad come?' }],
-            why: { ar: 'أن تحب لغيرك ما تحب لنفسك بداية العدل.', en: 'Wanting for others what you want for yourself is the start of fairness.' } }
+            options: [{ ar: 'لو كنت أنا الجديد، هل كنت أحب هذا؟', en: 'If I were the new one, would I want this?' }, { ar: 'هل سيغضب نزار إن خالفته؟', en: 'Will Nizar be angry if I disagree?' }, { ar: 'هل يستطيع إياد أن يشارك حقًّا؟', en: 'Can Iyad really take part?' }],
+            why: { ar: 'أن تحب لغيرك ما تحب لنفسك بداية العدل.', en: 'Wanting for others what you want for yourself is where fairness begins.' } }
         ]) },
+
       { title: { ar: 'يدا إياد', en: 'Iyad\'s hands' },
-        body: {
-          ar: [
-            'اختار الفريق أن يصنع جهازًا لتنقية الماء من الرمل والحصى والفحم. وفي أول لقاء في بيت معاذ، جلس نزار على الحاسوب يكتب، وأعطى إيادًا ورقة وقال: ارسم الشعار، هذا يكفي.',
-            'أخذ إياد الورقة بصمت. وبينما كان معاذ ونزار يتجادلان في كيفية قص الزجاجات البلاستيكية، كانت الزجاجة الأولى تتشقق، والثانية تنثني. فقال إياد بصوت منخفض، وهو يبحث عن الكلمات: في بلدي... أبي... نصنع هذا.',
-            'نظر إليه معاذ مندهشًا وقال: أنت تعرف كيف؟ فأومأ إياد، وأخذ الزجاجة، وسخّن السكين قليلًا على شمعة، وقص الزجاجة قصًّا مستقيمًا نظيفًا. ثم رتب الطبقات بيديه: حصى كبير، ثم صغير، ثم رمل، ثم فحم، في دقائق. تحركت يداه بثقة لم يرها معاذ فيه من قبل، كأنه في بيته.',
-            'وصب الماء العكر من الأعلى، فخرج من الأسفل أصفى بكثير. فصفق معاذ، وحتى نزار رفع حاجبيه وقال: من أين تعلمت هذا؟ قال إياد: في بلدي، الماء لم يكن دائمًا نظيفًا. كنا نصنع هذا في البيت.',
-            'سكت الولدان. وفهم معاذ أن إيادًا ليس ضعيفًا، بل لغته الجديدة هي البطيئة. وأن في يديه علمًا لا يظهر في الاختبارات المكتوبة. وتذكر كيف كانوا سيكتبون اسمه على عمل لا يعرف عنه شيئًا.',
-            'وقبل أن يذهب نزار، قال له معاذ بهدوء: إياد ليس اسمًا على الغلاف. هو جزء من الفريق، وربما أهم جزء. فلم يرد نزار، لكنه نظر إلى إياد نظرة جديدة.'
-          ],
-          en: [
-            'The team chose to make a water filter from sand, gravel and charcoal. At their first meeting at Muadh\'s house, Nizar sat at the computer typing and handed Iyad a sheet: draw the logo, that\'s enough.',
-            'Iyad took the sheet silently. While Muadh and Nizar argued about how to cut the plastic bottles, the first bottle cracked and the second bent. Iyad said quietly, searching for words: in my country... my father... we make this.',
-            'Muadh looked at him in surprise and said: you know how? Iyad nodded, took the bottle, warmed the knife a little over a candle, and cut a straight, clean line. Then he layered it with his hands: big gravel, then small, then sand, then charcoal, in minutes. His hands moved with a confidence Muadh had never seen in him, as if he were at home.',
-            'He poured muddy water in at the top, and it came out much clearer below. Muadh clapped, and even Nizar raised his eyebrows: where did you learn this? Iyad said: in my country the water was not always clean. We made this at home.',
-            'The two boys fell silent. Muadh understood that Iyad was not weak; it was his new language that was slow. In his hands was knowledge that did not show in written tests. And he remembered how they had been going to put his name on work he knew nothing about.',
-            'Before Nizar left, Muadh told him quietly: Iyad isn\'t a name on the cover. He\'s part of the team, maybe the most important part. Nizar did not reply, but looked at Iyad in a new way.'
+        body: { ar: [
+            'اختار الفريق أن يصنع جهازًا لتنقية الماء من الرمل والحصى والفحم. وفي أول لقاء في بيت معاذ جلس نزار إلى الحاسوب يكتب، وأعطى إيادًا ورقة وقال: «ارسم الشعار، هذا يكفي».',
+            'أخذ إياد الورقة بصمت. وكان معاذ ونزار يتجادلان في طريقة قص الزجاجات البلاستيكية، فتشققت الزجاجة الأولى، وانثنت الثانية. فقال إياد بصوت منخفض، وهو يبحث عن الكلمات: «في بلدي... أبي... نصنع هذا».',
+            'نظر إليه معاذ مندهشًا: «أنت تعرف كيف؟». فأومأ إياد، وأخذ الزجاجة، وسخّن السكين قليلًا على شمعة، وقصّها قصًّا مستقيمًا نظيفًا. ثم رتب الطبقات بيديه: حصى كبير، ثم صغير، ثم رمل، ثم فحم، في دقائق. وتحركت يداه بثقة لم يرها معاذ فيه من قبل، كأنه في بيته.',
+            'وصب الماء العكر من الأعلى، فخرج من الأسفل أصفى بكثير. فصفق معاذ، ورفع نزار حاجبيه وقال: «من أين تعلمت هذا؟». قال إياد: «في بلدي، الماء ما كان دائمًا نظيفًا. كنا نصنع هذا في البيت».',
+            'سكت الولدان. وفهم معاذ أن لغة إياد الجديدة هي البطيئة، وأن عقله سريع، وفي يديه علم لا يظهر في الاختبارات المكتوبة. وتذكر كيف كانوا سيكتبون اسمه على عمل لا يعرف عنه شيئًا.',
+            'وقبل أن يذهب نزار، أخذ معاذ ورقة الشعار من أمام إياد، وكتب في أعلاها بخط كبير: «المهندس: إياد». ثم قال لنزار بهدوء: «هذا مكانه في الفريق». فلم يرد نزار، لكنه نظر إلى إياد نظرة جديدة.'
+          ], en: [
+            'The team chose to build a device that cleans water with sand, gravel and charcoal. At the first meeting, at Muadh\'s house, Nizar sat at the computer typing, handed Iyad a sheet of paper and said: "Draw the logo. That\'s enough."',
+            'Iyad took the paper without a word. Muadh and Nizar were arguing about how to cut the plastic bottles; the first bottle cracked and the second buckled. Then Iyad said in a low voice, searching for the words: "In my country... my father... we make this."',
+            'Muadh looked at him in amazement: "You know how?" Iyad nodded, took the bottle, warmed the knife a little over a candle, and cut it in a clean, straight line. Then he arranged the layers with his hands: large gravel, then small, then sand, then charcoal, in a few minutes. His hands moved with a confidence Muadh had never seen in him, as if he were at home.',
+            'He poured the muddy water in at the top, and it came out at the bottom much clearer. Muadh clapped, and Nizar raised his eyebrows: "Where did you learn that?" Iyad said: "In my country the water was not always clean. We made this at home."',
+            'The two boys fell silent. Muadh understood that it was Iyad\'s new language that was slow, that his mind was quick, and that his hands held a knowledge that never shows up in written tests. He remembered how they had been about to put his name on work he knew nothing about.',
+            'Before Nizar left, Muadh took the logo sheet from in front of Iyad and wrote across the top in big letters: "Engineer: Iyad." Then he said quietly to Nizar: "This is his place on the team." Nizar did not reply, but he looked at Iyad with new eyes.'
           ] },
         quiz: Q('human-2', 2, [
           { correct: 2, q: { ar: 'ماذا اكتشف معاذ عن إياد؟', en: 'What did Muadh discover about Iyad?' },
-            options: [{ ar: 'أنه لا يعرف شيئًا', en: 'That he knew nothing' }, { ar: 'أنه يحب الرسم فقط', en: 'That he only liked drawing' }, { ar: 'أن في يديه علمًا لا يظهر في الاختبارات المكتوبة', en: 'That his hands held knowledge that written tests did not show' }],
-            why: { ar: 'اللغة البطيئة لا تعني عقلًا ضعيفًا.', en: 'A slow language does not mean a weak mind.' } },
-          { correct: 1, q: { ar: 'لماذا كان إياد يعرف صنع جهاز التنقية؟', en: 'Why did Iyad know how to make the filter?' },
-            options: [{ ar: 'قرأه في كتاب', en: 'He read it in a book' }, { ar: 'لأن الماء في بلده لم يكن دائمًا نظيفًا', en: 'Because water in his country was not always clean' }, { ar: 'علّمه نزار', en: 'Nizar taught him' }],
-            why: { ar: 'لكل إنسان قصة وعلم لا نراه من بعيد.', en: 'Everyone has a story and knowledge we cannot see from afar.' } }
+            options: [{ ar: 'أنه يفهم العربية جيدًا لكنه يخجل', en: 'That he understands Arabic well but is shy' }, { ar: 'أنه يرسم الشعارات أحسن من الجميع', en: 'That he draws logos better than anyone' }, { ar: 'أن في يديه علمًا لا يظهر في الاختبارات المكتوبة', en: 'That his hands hold a knowledge that never shows in written tests' }],
+            why: { ar: 'اللغة البطيئة قد يكون وراءها عقل سريع.', en: 'A slow new language can hide a quick mind.' } },
+          { correct: 1, q: { ar: 'لماذا كان إياد يعرف صنع جهاز التنقية؟', en: 'Why did Iyad know how to make the water filter?' },
+            options: [{ ar: 'رآه في درس علوم في مدرسته القديمة', en: 'He saw it in a science lesson at his old school' }, { ar: 'لأن الماء في بلده ما كان دائمًا نظيفًا', en: 'Because the water in his country was not always clean' }, { ar: 'لأن أباه مهندس في شركة مياه', en: 'Because his father is an engineer at a water company' }],
+            why: { ar: 'لكل إنسان قصة وعلم لا نراه من بعيد.', en: 'Every person has a story and a knowledge we cannot see from a distance.' } }
         ]) },
+
       { title: { ar: 'كلمة في الصف', en: 'A word in class' },
-        body: {
-          ar: [
-            'في الأسبوع التالي سأل المعلم كل فريق عن تقدمه. فوقف نزار، كعادته، وشرح المشروع كله بكلمات جميلة، ولم يذكر إيادًا مرة واحدة. وكان يقول: نحن صنعنا، نحن جربنا، وكأن «نحن» تعني هو ومعاذ.',
-            'ثم سأل المعلم: ومن قص الزجاجات بهذه الدقة؟ فضحك ولد من فريق آخر وقال: أكيد ليس إياد، فهو لا يعرف أن يقول جملة! وضحك بعض الصف، وأحنى إياد رأسه حتى كاد يلمس الطاولة.',
-            'شعر معاذ بقلبه يدق. كان يمكنه أن يسكت، كما سكت في الاستراحة الأولى. فالسكوت أسهل، ولن يغضب منه أحد. لكنه تذكر وجه إياد وهو يصب الماء، وكيف خرج صافيًا. وقال في نفسه: إن سكتُّ الآن، فأنا أضحك معهم.',
-            'فرفع يده وقال: يا أستاذ، إياد هو الذي قص الزجاجات، وهو الذي عرف ترتيب الطبقات. نحن جربنا مرتين وفشلنا، وهو نجح في دقائق. والفكرة كلها من بيته. وقال للولد الذي ضحك بهدوء: ليس كل من يتكلم ببطء يفكر ببطء.',
-            'سكت الصف. ونظر المعلم إلى إياد وابتسم وقال: أحسنت يا إياد، وأحسنت يا معاذ. ثم قال للصف كله: النبي صلى الله عليه وآله وسلم قال: «الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ». والضحك على زميل يجرحه، ولو كان مزحة.',
-            'ورفع إياد رأسه لأول مرة في ذلك اليوم، ونظر إلى معاذ نظرة لم ينسها معاذ أبدًا. وفي الاستراحة جاء الولد الذي ضحك، وجلس بجانب إياد، وسأله عن الجهاز.'
-          ],
-          en: [
-            'The next week the teacher asked each team about its progress. Nizar stood, as usual, explained the whole project in fine words, and never mentioned Iyad once. He kept saying: we made, we tested, as if "we" meant him and Muadh.',
-            'Then the teacher asked: and who cut the bottles so precisely? A boy from another team laughed and said: definitely not Iyad, he can\'t even say a sentence! Some of the class laughed, and Iyad bent his head until it nearly touched the desk.',
-            'Muadh felt his heart pounding. He could stay silent, as he had at that first break. Silence was easier, and no one would be angry with him. But he remembered Iyad\'s face as he poured the water, and how it came out clear. He told himself: if I keep quiet now, I am laughing with them.',
-            'So he raised his hand: sir, Iyad cut the bottles, and he knew the order of the layers. We tried twice and failed; he did it in minutes. The whole idea comes from his home. And he told the boy who had laughed, calmly: not everyone who speaks slowly thinks slowly.',
-            'The class went quiet. The teacher looked at Iyad, smiled and said: well done, Iyad, and well done, Muadh. Then he told the whole class: the Prophet, peace and blessings be upon him and his family, said, meaning: "The Muslim is the one from whose tongue and hand Muslims are safe." Laughing at a classmate hurts him, even as a joke.',
-            'Iyad lifted his head for the first time that day and gave Muadh a look Muadh never forgot. At break the boy who had laughed came and sat beside Iyad and asked him about the filter.'
+        body: { ar: [
+            'في الأسبوع التالي سأل المعلم كل فريق عن تقدمه. فوقف نزار كعادته، وشرح المشروع بكلمات جميلة، ولم يذكر إيادًا مرة واحدة. كان يقول: «نحن صنعنا، نحن جربنا»، و«نحن» عنده هو ومعاذ.',
+            'ثم سأل المعلم: «ومن قص الزجاجات بهذه الدقة؟». فضحك ولد من فريق آخر وقال: «أكيد ليس إياد، فهو لا يعرف أن يقول جملة!». وضحك بعض الصف، وأحنى إياد رأسه حتى كاد يلمس الطاولة.',
+            'شعر معاذ بقلبه يدق. كان يستطيع أن يسكت، كما سكت في الاستراحة الأولى، فالسكوت أسهل، ولن يغضب منه أحد. ثم تذكر وجه إياد وهو يصب الماء، وكيف خرج صافيًا. وقال في نفسه: «إن سكتُّ الآن، فأنا أضحك معهم».',
+            'فرفع يده وقال: «يا أستاذ، إياد هو الذي قص الزجاجات، وهو الذي عرف ترتيب الطبقات. نحن جربنا مرتين وفشلنا، وهو نجح في دقائق. والفكرة كلها من بيته». ثم قال للولد الذي ضحك بهدوء: «ليس كل من يتكلم ببطء يفكر ببطء».',
+            'سكت الصف. ونظر المعلم إلى إياد وابتسم: «أحسنت يا إياد، وأحسنت يا معاذ». ثم قرأ على الصف قول النبي صلى الله عليه وآله وسلم: «الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ»، وقال: «والضحكة على زميل تجرحه، ولو سمّيناها مزحة».',
+            'ورفع إياد رأسه لأول مرة في ذلك اليوم، ونظر إلى معاذ نظرة لم ينسها معاذ. وفي الاستراحة جاء الولد الذي ضحك، وجلس بجانب إياد، وسأله كيف يُقص البلاستيك بسكين ساخن.'
+          ], en: [
+            'The next week the teacher asked each team about its progress. Nizar stood up as usual and explained the project in fine words, without mentioning Iyad once. He kept saying: "We built, we tested," and by "we" he meant himself and Muadh.',
+            'Then the teacher asked: "And who cut the bottles so precisely?" A boy from another team laughed and said: "Not Iyad, that\'s for sure. He can\'t even say a sentence!" Part of the class laughed, and Iyad bent his head until it nearly touched the desk.',
+            'Muadh felt his heart pounding. He could stay quiet, as he had at that first break; silence was easier, and nobody would be angry with him. Then he remembered Iyad\'s face as he poured the water, and how it came out clear. He said to himself: "If I stay quiet now, I am laughing with them."',
+            'So he raised his hand and said: "Sir, Iyad is the one who cut the bottles, and the one who knew the order of the layers. We tried twice and failed, and he did it in minutes. The whole idea comes from his home." Then he said calmly to the boy who had laughed: "Speaking slowly is not the same as thinking slowly."',
+            'The class went quiet. The teacher looked at Iyad and smiled: "Well done, Iyad, and well done, Muadh." Then he read the class the words of the Prophet, peace and blessings be upon him and his family: "The Muslim is the one from whose tongue and hand the Muslims are safe," and said: "Laughing at a classmate wounds him, even when we call it a joke."',
+            'Iyad lifted his head for the first time that day and gave Muadh a look Muadh never forgot. At break the boy who had laughed came and sat next to Iyad and asked him how you cut plastic with a hot knife.'
           ] },
         quiz: Q('human-2', 3, [
           { correct: 0, q: { ar: 'ماذا فعل معاذ حين ضحك الصف على إياد؟', en: 'What did Muadh do when the class laughed at Iyad?' },
-            options: [{ ar: 'رفع يده وقال الحقيقة عن عمل إياد', en: 'Raised his hand and told the truth about Iyad\'s work' }, { ar: 'ضحك معهم', en: 'Laughed with them' }, { ar: 'سكت', en: 'Stayed silent' }],
-            why: { ar: 'العدل أن يُنسب العمل إلى صاحبه.', en: 'Fairness means giving credit to whoever did the work.' } },
-          { correct: 2, q: { ar: 'ماذا قال معاذ للولد الذي ضحك؟', en: 'What did Muadh tell the boy who laughed?' },
-            options: [{ ar: 'أنت سيئ', en: 'You\'re bad' }, { ar: 'اسكت', en: 'Be quiet' }, { ar: 'ليس كل من يتكلم ببطء يفكر ببطء', en: 'Not everyone who speaks slowly thinks slowly' }],
-            why: { ar: 'دافع عن زميله بهدوء، دون أن يجرح أحدًا.', en: 'He defended his classmate calmly, without wounding anyone.' } }
+            options: [{ ar: 'رفع يده وقال الحقيقة عن عمل إياد', en: 'He raised his hand and told the truth about Iyad\'s work' }, { ar: 'انتظر نهاية الحصة وأخبر المعلم وحده', en: 'He waited for the end of the lesson and told the teacher privately' }, { ar: 'نظر إلى نزار ينتظر أن يتكلم هو', en: 'He looked at Nizar, waiting for him to speak' }],
+            why: { ar: 'العدل أن يُنسب العمل إلى صاحبه، ولو كان السكوت أسهل.', en: 'Fairness means giving the work to the one who did it, even when silence is easier.' } },
+          { correct: 2, q: { ar: 'ماذا قال معاذ للولد الذي ضحك؟', en: 'What did Muadh say to the boy who laughed?' },
+            options: [{ ar: '«اعتذر لإياد أمام الجميع»', en: '"Apologise to Iyad in front of everyone"' }, { ar: '«جرّب أنت أن تقص زجاجة مثله»', en: '"You try cutting a bottle like him"' }, { ar: '«ليس كل من يتكلم ببطء يفكر ببطء»', en: '"Speaking slowly is not the same as thinking slowly"' }],
+            why: { ar: 'دافع عن زميله بهدوء، ولم يجرح أحدًا.', en: 'He stood up for his classmate calmly, and wounded no one.' } }
         ]) },
+
       { title: { ar: 'نزار يغضب ثم يفهم', en: 'Nizar gets angry, then understands' },
-        body: {
-          ar: [
-            'بعد الحصة لحق نزار بمعاذ في الممر، وقال غاضبًا: لماذا فعلت هذا؟ جعلتني أبدو كاذبًا أمام الأستاذ! قال معاذ: لم أقل إنك كذبت. قلت ما فعله إياد فقط. وأنا أيضًا أخطأت في الأول حين سكت عن فكرتك.',
-            'قال نزار: وما المشكلة؟ المهم أن نفوز! قال معاذ: إن فزنا وإياد يشعر أنه لا شيء، فلن أفرح. ثم قال: أتذكر حين انكسرت ذراعك السنة الماضية، ولم تستطع أن تكتب؟ من كتب عنك الواجبات؟',
-            'سكت نزار. فقد كان معاذ هو الذي كتب له شهرًا كاملًا. ثم قال بصوت أخفض: كنت أظن أنه سيجعلنا نخسر. قال معاذ: وهو الذي جعل الجهاز يعمل. فلم يجد نزار ما يقوله.',
-            'وقبل أن ينام أرسل نزار رسالة إلى إياد: آسف لأني لم أذكرك في الصف. وغدًا أنت من يشرح كيف تُرتب الطبقات، وأنا أساعدك في الكلمات إن احتجت. فرد إياد بقلب أحمر، وكلمة واحدة: شكرًا.',
-            'وكان معاذ قد قرأ في كتاب جده حديثًا يحبه: «وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ». فكر فيه وقال في نفسه: سكتُّ في الأول، وكان سكوتي خطأً. ثم تكلمت بالحق، وهذه حسنة بعد السيئة.',
-            'ولاحظ معاذ أن الفريق صار أقوى. فنزار يتكلم، وإياد يبني، وهو يكتب ويرتب. ولم يعد أحد منهم اسمًا على الغلاف. وصاروا يلتقون كل يوم بعد المدرسة، ويضحكون أكثر مما يعملون أحيانًا، لكن العمل كان يتقدم.'
-          ],
-          en: [
-            'After the lesson Nizar caught up with Muadh in the corridor and said angrily: why did you do that? You made me look like a liar in front of the teacher! Muadh said: I didn\'t say you lied. I only said what Iyad did. And I was wrong too, at first, when I kept quiet about your idea.',
-            'Nizar said: so what? What matters is winning! Muadh said: if we win while Iyad feels he\'s nothing, I won\'t be happy. Then he said: remember when you broke your arm last year and couldn\'t write? Who wrote your homework for you?',
-            'Nizar was silent. It had been Muadh, for a whole month. Then he said more quietly: I thought he\'d make us lose. Muadh said: and he\'s the one who made the filter work. Nizar found nothing to say.',
-            'That evening Nizar messaged Iyad: sorry I didn\'t mention you in class. Tomorrow you explain how the layers go, and I\'ll help with the words if you need. Iyad replied with a red heart and one word: thanks.',
-            'Muadh had read a hadith he loved in his grandfather\'s book. Meaning: "Follow a bad deed with a good one and it will erase it, and treat people with good character." He thought of it and said to himself: I kept quiet at first, and that silence was wrong. Then I spoke the truth, a good deed after the bad.',
-            'Muadh noticed the team had grown stronger. Nizar spoke, Iyad built, and he wrote and organised. None of them was a name on the cover any more. They met every day after school, sometimes laughing more than working, but the work moved forward.'
+        body: { ar: [
+            'بعد الحصة لحق نزار بمعاذ في الممر، وقال غاضبًا: «لماذا فعلت هذا؟ جعلتني أبدو كاذبًا أمام الأستاذ!». قال معاذ: «قلت ما فعله إياد فقط. وأنا أيضًا أخطأت في الأول حين سكتُّ عن فكرتك».',
+            'قال نزار: «وما المشكلة؟ المهم أن نفوز!». قال معاذ: «إن فزنا وإياد يشعر أنه لا شيء، فلن أفرح». ثم سأله: «أتذكر حين انكسرت ذراعك السنة الماضية، ولم تستطع أن تكتب؟ من كتب عنك الواجبات؟».',
+            'سكت نزار. كان معاذ هو الذي كتب عنه شهرًا كاملًا. ثم قال بصوت أخفض: «كنت أظن أنه سيجعلنا نخسر». قال معاذ: «وهو الذي جعل الجهاز يعمل». فلم يجد نزار ما يقوله.',
+            'وقبل أن ينام أرسل نزار رسالة إلى إياد: «آسف لأني لم أذكرك في الصف. وغدًا أنت من يشرح ترتيب الطبقات، وأنا أساعدك في الكلمات إن احتجت». فرد إياد بقلب أحمر، وكلمة واحدة: «شكرًا».',
+            'وكان معاذ قد قرأ في كتاب جده حديثًا يحبه: «وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا، وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ». ففكر فيه وقال في نفسه: «سكوتي في الأول كان خطأ، وكلامي اليوم بالحق حسنة بعده».',
+            'وفي اليوم التالي التقى الثلاثة بعد المدرسة. وقف إياد أمام الجهاز يشرح، ونزار يكتب كلماته على بطاقات صغيرة ويصحح له كلمة أحيانًا، ومعاذ يرتب الصور. وحين كتب نزار «الفحمة» بدل «الفحم»، ضحك إياد لأول مرة ضحكة عالية، وصحّحها له.'
+          ], en: [
+            'After the lesson Nizar caught up with Muadh in the corridor and said angrily: "Why did you do that? You made me look like a liar in front of the teacher!" Muadh said: "I only said what Iyad did. And I got it wrong too, at the start, when I kept quiet about your idea."',
+            'Nizar said: "So what? What matters is that we win!" Muadh said: "If we win and Iyad feels like nothing, I won\'t be happy." Then he asked him: "Remember when you broke your arm last year and couldn\'t write? Who wrote your homework for you?"',
+            'Nizar fell silent. It was Muadh who had written it for him for a whole month. Then he said more quietly: "I thought he would make us lose." Muadh said: "And he is the one who made the device work." Nizar had nothing to say.',
+            'Before going to sleep Nizar sent Iyad a message: "Sorry I didn\'t mention you in class. Tomorrow you explain the order of the layers, and I\'ll help you with the words if you need." Iyad replied with a red heart and one word: "Thanks."',
+            'Muadh had read a hadith he loved in his grandfather\'s book: "Follow a bad deed with a good one and it will wipe it out, and treat people with good character." He thought about it and said to himself: "My silence at the start was a mistake, and speaking the truth today is a good deed after it."',
+            'The next day the three met after school. Iyad stood by the device explaining, Nizar wrote his words on small cards and corrected a word now and then, and Muadh arranged the photos. When Nizar wrote the wrong word for charcoal, Iyad laughed out loud for the first time, and corrected it for him.'
           ] },
         quiz: Q('human-2', 4, [
           { correct: 1, q: { ar: 'بماذا ذكّر معاذ نزارًا؟', en: 'What did Muadh remind Nizar of?' },
-            options: [{ ar: 'بدرجاته في الرياضيات', en: 'His maths marks' }, { ar: 'بأنه كتب عنه الواجبات حين انكسرت ذراعه', en: 'That he wrote Nizar\'s homework when his arm was broken' }, { ar: 'بمباراة كرة', en: 'A football match' }],
-            why: { ar: 'تذكّر حاجتنا إلى غيرنا يجعلنا ألطف مع المحتاج.', en: 'Remembering our own need for others makes us kinder to those in need.' } },
+            options: [{ ar: 'بأنه هو الذي اقترح فكرة الجهاز', en: 'That he was the one who suggested the device' }, { ar: 'بأنه كتب عنه الواجبات حين انكسرت ذراعه', en: 'That he wrote his homework for him when his arm was broken' }, { ar: 'بأن المعلم يكافئ الفرق المتعاونة', en: 'That the teacher rewards teams that cooperate' }],
+            why: { ar: 'تذكّر حاجتنا إلى غيرنا يجعلنا ألطف مع من يحتاجنا.', en: 'Remembering how we once needed others makes us gentler with those who need us.' } },
           { correct: 0, q: { ar: 'ما الحسنة التي أتبع بها معاذ سكوته الأول؟', en: 'What good deed did Muadh follow his first silence with?' },
-            options: [{ ar: 'أنه تكلم بالحق عن عمل إياد', en: 'He spoke the truth about Iyad\'s work' }, { ar: 'أنه ترك الفريق', en: 'He left the team' }, { ar: 'أنه اشترى هدية للمعلم', en: 'He bought the teacher a gift' }],
-            why: { ar: 'الحديث يأمر أن نتبع السيئة بحسنة تمحوها.', en: 'The hadith tells us to follow a bad deed with a good one that erases it.' } }
+            options: [{ ar: 'أنه تكلم بالحق عن عمل إياد أمام الصف', en: 'He spoke the truth about Iyad\'s work in front of the class' }, { ar: 'أنه اعتذر لإياد في رسالة قبل النوم', en: 'He apologised to Iyad in a message before bed' }, { ar: 'أنه ترك لإياد أن يعرض المشروع وحده', en: 'He let Iyad present the project alone' }],
+            why: { ar: 'الحديث يوصي أن نتبع السيئة بحسنة تمحوها.', en: 'The hadith counsels following a bad deed with a good one that wipes it out.' } }
         ]) },
+
       { title: { ar: 'يوم العرض', en: 'Presentation day' },
-        body: {
-          ar: [
-            'في يوم العرض وقف الفريق أمام المدرسة كلها. بدأ نزار بالمقدمة، ثم تقدم إياد. كانت يداه ترتجفان قليلًا، لكنه صب الماء العكر في الجهاز، وشرح ببطء ووضوح: حصى كبير، حصى صغير، رمل، فحم. وخرج الماء صافيًا، فصفق الجميع. وفي آخر القاعة وقف أبو إياد يمسح عينيه.',
-            'ولم يفز الفريق بالمركز الأول، بل بالثاني. لكن المعلم قال عند إعلان النتائج: أعطينا هذا الفريق جائزة إضافية، هي جائزة روح الفريق، لأن كل واحد فيه كان له مكان حقيقي.',
-            'وفي طريق العودة مشى الثلاثة معًا لأول مرة. وكان إياد يتكلم أكثر من أي يوم مضى، ويحكي عن نهر قرب بيته القديم، وعن أبيه الذي علّمه صنع الأشياء بيديه. ونزار يسأله، ويصحح له كلمة أحيانًا بلطف.',
-            'وقال معاذ لأمه في المساء: لم نفز بالأول، لكني فرحت أكثر مما لو فزنا وإياد خارج الفريق. فقالت أمه: هذا هو الإنسان كما ينبغي أن يكون: لا يظلم، ويعطي كل ذي حق حقه.',
-            'وفي الأسبوع التالي لاحظ معاذ أن إيادًا يجلس في المكتبة وحده، وأمامه كتاب العربية، وهو يكتب الكلمات الصعبة في دفتر صغير. لم يطلب منه إياد شيئًا، ولم يطلب منه المعلم شيئًا.',
-            'لكن معاذ جلس بجانبه، وفتح كتابه، وقال: أنا أيضًا أحتاج أن أراجع. تعال نقرأ معًا. وهنا يبدأ شيء أعلى من العدل: أن تفعل الخير قبل أن يطلبه أحد. وهذا باب الإبهام.'
-          ],
-          en: [
-            'On presentation day the team stood before the whole school. Nizar began with the introduction, then Iyad stepped forward. His hands shook a little, but he poured the muddy water into the filter and explained slowly and clearly: big gravel, small gravel, sand, charcoal. The water came out clear, and everyone clapped. Iyad\'s father stood at the back of the hall, wiping his eyes.',
-            'The team did not win first place, but second. When the results were announced, the teacher said: we are giving this team an extra prize, for team spirit, because everyone in it had a real place.',
-            'On the way back the three walked together for the first time. Iyad talked more than ever, telling them about a river near his old home and his father who taught him to make things with his hands. Nizar asked him questions and sometimes gently corrected a word.',
-            'That evening Muadh told his mother: we didn\'t come first, but I\'m happier than if we\'d won with Iyad left out. His mother said: that is a human being as one should be: doing no injustice, and giving everyone their due.',
-            'The next week Muadh noticed Iyad sitting alone in the library with his Arabic book, writing difficult words in a small notebook. Iyad had not asked him for anything, and neither had the teacher.',
-            'But Muadh sat beside him, opened his own book and said: I need to revise too. Let\'s read together. Here begins something higher than fairness: doing good before anyone asks. And that is the door to the thumb.'
+        body: { ar: [
+            'في يوم العرض وقف الفريق أمام المدرسة كلها. بدأ نزار بالمقدمة، ثم تقدم إياد. كانت يداه ترتجفان قليلًا وهو يصب الماء العكر في الجهاز، ويشرح ببطء ووضوح: «حصى كبير، حصى صغير، رمل، فحم». وخرج الماء صافيًا، فصفق الجميع. وفي آخر القاعة وقف أبو إياد يمسح عينيه.',
+            'وفاز الفريق بالمركز الثاني. وعند إعلان النتائج قال المعلم: «ولهذا الفريق جائزة إضافية، جائزة روح الفريق، لأن كل واحد فيه كان له مكان حقيقي».',
+            'وفي طريق العودة مشى الثلاثة معًا لأول مرة. وكان إياد يتكلم أكثر من أي يوم مضى، يحكي عن نهر قرب بيته القديم، وعن أبيه الذي علّمه صنع الأشياء بيديه. ونزار يسأله، ويصحح له كلمة أحيانًا بلطف.',
+            'وفي المساء قال معاذ لأمه: «لم نفز بالأول، وفرحت أكثر مما لو فزنا وإياد خارج الفريق». فابتسمت أمه، وعلّقت شهادة روح الفريق على باب الثلاجة.',
+            'وفي الأسبوع التالي رأى معاذ إيادًا في المكتبة وحده، أمامه كتاب العربية، يكتب الكلمات الصعبة في دفتر صغير. لم يطلب منه إياد شيئًا، ولم يطلب منه المعلم شيئًا.',
+            'فسحب معاذ الكرسي المجاور، وفتح كتابه، وقال: «أنا أيضًا أحتاج أن أراجع. نقرأ معًا؟». فدفع إياد دفتره الصغير إلى وسط الطاولة، وأشار إلى أول كلمة صعبة.'
+          ], en: [
+            'On presentation day the team stood before the whole school. Nizar began with the introduction, then Iyad stepped forward. His hands trembled a little as he poured the muddy water into the device and explained slowly and clearly: "Large gravel, small gravel, sand, charcoal." The water came out clear, and everyone clapped. At the back of the hall Iyad\'s father stood wiping his eyes.',
+            'The team came second. When the results were announced the teacher said: "And this team gets an extra award, the team spirit award, because every one of them had a real place in it."',
+            'On the way home the three walked together for the first time. Iyad talked more than he ever had, telling them about a river near his old home, and about his father who taught him to make things with his hands. Nizar asked him questions, and gently corrected a word now and then.',
+            'In the evening Muadh told his mother: "We didn\'t come first, and I was happier than if we had won with Iyad left out." His mother smiled, and stuck the team spirit certificate on the fridge door.',
+            'The next week Muadh saw Iyad alone in the library, his Arabic book in front of him, writing the hard words in a small notebook. Iyad had not asked him for anything, and neither had the teacher.',
+            'Muadh pulled out the chair beside him, opened his own book and said: "I need to revise too. Shall we read together?" Iyad pushed his little notebook into the middle of the table and pointed to the first hard word.'
           ] },
         quiz: Q('human-2', 5, [
-          { correct: 2, q: { ar: 'ما الجائزة الإضافية التي نالها الفريق؟', en: 'What extra prize did the team win?' },
-            options: [{ ar: 'جائزة أسرع فريق', en: 'Fastest team' }, { ar: 'جائزة أجمل شعار', en: 'Best logo' }, { ar: 'جائزة روح الفريق', en: 'Team spirit' }],
-            why: { ar: 'كان لكل واحد في الفريق مكان حقيقي.', en: 'Everyone in the team had a real place.' } },
+          { correct: 2, q: { ar: 'ما الجائزة الإضافية التي نالها الفريق؟', en: 'What extra award did the team receive?' },
+            options: [{ ar: 'جائزة أفضل فكرة علمية', en: 'The best scientific idea award' }, { ar: 'جائزة أحسن عرض أمام الجمهور', en: 'The best presentation award' }, { ar: 'جائزة روح الفريق', en: 'The team spirit award' }],
+            why: { ar: 'كان لكل واحد في الفريق مكان حقيقي.', en: 'Every member of the team had a real place in it.' } },
           { correct: 1, q: { ar: 'ماذا فعل معاذ حين رأى إيادًا في المكتبة؟', en: 'What did Muadh do when he saw Iyad in the library?' },
-            options: [{ ar: 'تركه وذهب يلعب', en: 'Left him and went to play' }, { ar: 'جلس بجانبه ليقرآ معًا دون أن يطلب منه أحد', en: 'Sat beside him to read together without being asked' }, { ar: 'أخبر المعلم', en: 'Told the teacher' }],
-            why: { ar: 'الخير قبل أن يُطلب هو باب الإبهام.', en: 'Good done before it is asked for is the door to the thumb.' } }
+            options: [{ ar: 'أخبر المعلم أن إيادًا يحتاج دروس تقوية', en: 'He told the teacher Iyad needed extra lessons' }, { ar: 'جلس بجانبه ليقرآ معًا دون أن يطلب منه أحد', en: 'He sat beside him to read together, without anyone asking' }, { ar: 'أعطاه دفترًا فيه كلمات المشروع', en: 'He gave him a notebook with the project words' }],
+            why: { ar: 'الخير قبل أن يُطلب هو باب الإبهام.', en: 'Good done before anyone asks is the door of the thumb.' } }
         ]) }
     ]
   });
@@ -2397,8 +2434,8 @@ window.AKHLAQ_FAMILY({
   },
   'book-human-kids': {
     q: [
-      { ar: 'ماذا قال صالح حين رأى العم سليم؟', en: 'What did Saleh say when he saw Uncle Saleem?' },
-      { ar: 'لماذا وضع صالح الإبريق بجانب الباب؟', en: 'Why did Saleh put the watering can by the door?' },
+      { ar: 'ماذا قال صالح حين رأى العم سليم؟ ومن نبدؤه نحن بالسلام غدًا؟', en: 'What did Saleh say when he saw Uncle Saleem? Whom shall we greet first tomorrow?' },
+      { ar: 'لماذا وضع صالح الإبريق بجانب الباب؟ وماذا نضع نحن حتى لا ننسى وعدًا؟', en: 'Why did Saleh put the watering can by the door? What could we put out so we do not forget a promise?' },
       { ar: 'من الجار الذي نحب أن نسلّم عليه أو نساعده هذا الأسبوع؟', en: 'Which neighbour would we like to greet or help this week?' }
     ],
     act: { ar: 'نبتة الوعد: نزرع معًا بذرة في كوب، ويعد كل واحد بأن يسقيها في يومه، ونرى معًا كيف تكبر حين نفي.', en: 'The promise plant: together we plant a seed in a cup; each promises to water it on their day, and we watch together how it grows when we keep our word.' }
@@ -2441,11 +2478,11 @@ window.AKHLAQ_FAMILY({
   },
   'book-human-adult': {
     q: [
-      { ar: 'أي وعد قطعناه لأطفالنا ثم نسيناه؟ وكيف نعتذر عنه؟', en: 'Which promise did we make to our children and then forget? How do we apologise for it?' },
-      { ar: 'أي حق من حقوق الصحبة الثمانية نحتاجه أكثر في بيتنا الآن؟', en: 'Which of the eight rights of companionship do we most need in our home right now?' },
-      { ar: 'ما العادة الصغيرة الدائمة التي يمكن أن تجتمع عليها العائلة كلها؟', en: 'What small lasting habit could the whole family share?' }
+      { ar: 'قال ليث «نعم» في ثانيتين، ثم غطّاها بكذبة في سطر. ما الوعود السريعة التي قلناها، كبارًا وصغارًا، هذا الشهر؟ وأيها ما زال صاحبه ينتظر؟', en: 'Layth said "yes" in two seconds, then covered it with a one-line lie. What quick promises have we made this month, adults and young people alike? Which of them is someone still waiting for?' },
+      { ar: 'قال ليث للأستاذ فؤاد: «ما كانت عندي حرارة». متى اعترفنا بخطأ وكان الاعتراف أثقل من العذر؟ وماذا حدث بعده؟', en: 'Layth told Ustadh Fuad: "I didn\'t have a fever." When did we own up to a mistake when the confession was heavier than the excuse? What happened afterwards?' },
+      { ar: 'كتب ليث درجات عادلة في ورقة لا يراها أحد، ودفع ثمنها مع صاحبه. أين يُسأل كل واحد منا عن جهد غيره: في البيت، أو المدرسة، أو العمل؟', en: 'Layth wrote fair marks on a form nobody would see, and paid for it with his friend. Where is each of us asked about the effort of others: at home, at school, or at work?' }
     ],
-    act: { ar: 'حق الأسبوع: نختار حقًّا واحدًا من حقوق الأخوة، مثل الدعاء في الغيب أو ستر العيب، ويطبقه كل واحد مع فرد آخر في العائلة.', en: 'This week\'s right: we choose one right of brotherhood, such as praying for someone in their absence or covering their faults, and each practises it with another family member.' }
+    act: { ar: 'نعم بعد ليلة: نتفق هذا الأسبوع على أن كل وعد غير عاجل، من الكبار للصغار ومن الصغار للكبار، يُجاب عنه بعد أن ننظر في وقتنا: «أخبرك غدًا». وما وعدنا به نكتبه على ورقة على باب الثلاجة، ومن تأخر في وعد يعتذر بلا عذر جاهز، ويحدد موعدًا جديدًا. والكبار يبدؤون.', en: 'Yes after a night: this week we agree that every promise that is not urgent, from adults to children and from children to adults, is answered only after we check our time: "I\'ll tell you tomorrow." What we promise goes on a sheet on the fridge door, and whoever is late with a promise apologises without a ready-made excuse and sets a new time. The adults go first.' }
   },
   'book-sabiq-adult': {
     q: [

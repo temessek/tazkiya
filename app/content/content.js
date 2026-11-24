@@ -5,7 +5,7 @@
  * Names always describe behaviour, never the person. All children in stories are fictional.
  */
 window.AKHLAQ_CONTENT = {
-  version: "0.26.0-draft-2026-11-24",
+  version: "0.27.0-draft-2026-11-24",
   stages: {},
   virtues: []
 };
@@ -4877,5 +4877,345 @@ window.AKHLAQ_CONTENT.choices = [
         { ar: 'مسحه، وكتب: «عرضه أحسن من عرضي»', en: 'Deleted it and wrote: "His was better than mine"' },
         { ar: 'أرسله في المجموعة ثم حذفه', en: 'Sent it to the group, then deleted it' }],
       why: { ar: 'أمسك الرد الذي كان سيُضحك نصف الصف، ودفع ثمن ذلك ضحكة على نفسه.', en: 'He held back a reply that would have made half the class laugh, and paid for it with a laugh at his own expense.' } }
+  );
+})();
+
+/* ───────────── مراجعة الكتابة، 24 نوفمبر 2026: المرحلة الرابعة (السبابة) ─────────────
+ * المعيار: دليل الكتابة حسب العمر. هذه الجولة تحلّ محلّ ما سبقها في الحقول المذكورة هنا وحدها، وتبقى المعرّفات كما هي:
+ * - قصص الدرجات الثلاث: مشاهد أقصر جملًا وأكثر حوارًا، ونهاية بفعل (عمّار والحذاء الأصفر، ومريم والحبل، وزياد والقلم الأزرق).
+ *   وأسئلة الدرجات بخيارات متقاربة الطول، وسؤال الدرجة الثالثة من قصتها الجديدة، وآية الأعراف 7:23 بنص تنزيل.
+ * - human-r1 (4-8): قصة جديدة «زيد والأرجوحة» بدل قصة الكوب التي كانت تكرر قصة الاختيار؛ وhuman-q1 وq2 يختبرانها.
+ * - human-r2: الخاتمة بالإثبات بدل «ليس شكله... بل سلوكه»؛ وhuman-q3 بخيارات متقاربة.
+ * - human-r3: لفظ سؤال الصحابة كما في البخاري 11، وأمثلة من يوم القارئ، وخطوة عملية في آخرها؛ وhuman-q6 صار يختبر القراءة.
+ * - human-r4 وhuman-r5 (15+): بصوت المراهق وعالمه، وبلا «لا علامة فشل» ولا «لا يُمحى... بل»؛ وhuman-q8 من مشهد القراءة.
+ * - human-r6 (4-8): دعابة خفيفة ونهاية بفعل بدل سطر العبرة؛ وhuman-q9 وq10 صارا من القصة نفسها.
+ * - human-r7: الترضي عن النعمان وأمه، والقصة من فم النعمان على المنبر كما في البخاري، والخاتمة بالإثبات.
+ * - human-r8: «حثية» بلفظ الحديث، والخاتمة بالإثبات؛ وhuman-q12 بخيارات معقولة.
+ * - ch-human-1: الخيار الصحيح بطول الخيارين الآخرين.
+ * - جديد: human-r9 (15+) قصة «الصف الأول» (وعد لأخ صغير في مقابل رحلة الأصحاب)، وسؤالاها human-q13 وhuman-q14.
+ * التحقق: التين 95:4-6، فاطر 35:32، الأعراف 7:23، القيامة 75:2 على تنزيل (quran-simple عبر api.alquran.cloud)؛
+ * البخاري 10 و11 و2296 و2587 و6464 و6465، ومسلم (hadith-api ara-muslim 163 و1830)، والترمذي 1987 على hadith-api.
+ */
+(function () {
+  var H = window.AKHLAQ_CONTENT.stages.human;
+  var R = function (id) { return H.readings.filter(function (r) { return r.id === id; })[0]; };
+  var Q = function (id) { return H.quiz.filter(function (q) { return q.id === id; })[0]; };
+
+  /* درجة «كفّ الأذى» */
+  var d0 = H.degrees[0];
+  d0.story = {
+    ar: ['جاء ولد جديد إلى الصف اسمه رامي، وفي قدميه حذاء أصفر لامع.',
+      'ضحك الأولاد وقالوا: «حذاء موز! حذاء موز!».',
+      'ونظروا إلى عمّار: «قلها معنا يا عمّار!».',
+      'فتح عمّار فمه، ثم رأى رامي يخبئ قدميه تحت الكرسي.',
+      'فأغلق عمّار فمه، ولم يضحك.',
+      'وفي الفسحة جلس بجانب رامي، وقال: «حذاؤك سريع؟ تسابقني إلى الشجرة؟».',
+      'فركضا معًا، والحذاء الأصفر يلمع في الشمس، ووصل رامي أولًا.'],
+    en: ['A new boy called Rami came to the class, wearing shiny yellow shoes.',
+      'The boys laughed and said: "Banana shoes! Banana shoes!"',
+      'Then they looked at Ammar: "Say it with us, Ammar!"',
+      'Ammar opened his mouth, then saw Rami hiding his feet under his chair.',
+      'So Ammar closed his mouth, and did not laugh.',
+      'At break he sat next to Rami and said: "Are your shoes fast? Race me to the tree?"',
+      'So they ran together, the yellow shoes shining in the sun, and Rami got there first.']
+  };
+  d0.q.options = [{ ar: 'أضحك قليلًا حتى لا يغضبوا مني', ar_f: 'أضحك قليلًا حتى لا يغضبن مني', en: 'Laugh a little so they won\'t be cross with me' },
+    { ar: 'لا أضحك، وأجلس بجانب الزميل', ar_f: 'لا أضحك، وأجلس بجانب الزميلة', en: 'Don\'t laugh, and sit next to the classmate' },
+    { ar: 'أسكت الآن، وأضحك معهم لاحقًا', ar_f: 'أسكت الآن، وأضحك معهن لاحقًا', en: 'Stay quiet now, and laugh with them later' }];
+  d0.q.correct = 1;
+
+  /* درجة «أداء الواجب» */
+  var d1 = H.degrees[1];
+  d1.story = {
+    ar: ['قالت أم مريم: «رتّبي ألعابك قبل العشاء». قالت مريم: «وعد!».',
+      'ثم نادتها صديقتها هند من الشرفة: «تعالي نلعب بالحبل!».',
+      'نظرت مريم إلى الحبل، ثم إلى الدمى على الأرض، وقالت: «بعد أن أرتّب، لأني وعدت».',
+      'وضعت الدمى في الصندوق، والمكعبات في السلة، والدب الكبير على السرير.',
+      'ثم خرجت إلى الشرفة، وقفزت مع هند على الحبل عشرين مرة.',
+      'وحين جاءت أمها تنادي للعشاء، فتحت فمها لتقول: «رتّبي...»، ثم رأت الغرفة، فضحكت وقالت: «تعالي نأكل».'],
+    en: ['Maryam\'s mother said: "Tidy your toys before dinner." Maryam said: "Promise!"',
+      'Then her friend Hind called from the balcony: "Come and skip with me!"',
+      'Maryam looked at the skipping rope, then at the dolls on the floor, and said: "After I tidy up, because I promised."',
+      'She put the dolls in the box, the blocks in the basket, and the big teddy on the bed.',
+      'Then she went out to the balcony and skipped with Hind twenty times.',
+      'When her mother came to call her for dinner, she opened her mouth to say "Tidy your...", then saw the room, laughed and said: "Come and eat."']
+  };
+  d1.q.options = [{ ar: 'أرتّب أولًا لأني وعدت، ثم ألعب', en: 'Tidy first because I promised, then play' },
+    { ar: 'ألعب قليلًا، ثم أرتّب إن تذكرت', en: 'Play a little, then tidy if I remember' },
+    { ar: 'أطلب من أمي أن ترتّب عني', en: 'Ask Mum to tidy up for me' }];
+  d1.q.correct = 0;
+
+  /* درجة «الرجوع عن الخطأ» */
+  var d2 = H.degrees[2];
+  d2.story = {
+    ar: ['بحث زياد عن قلمه الأزرق في كل مكان، فلم يجده.',
+      'رأى أخته سارة ترسم، فصاح: «أنتِ أخذتِ قلمي!».',
+      'قالت سارة: «ما أخذته!»، وعيناها تلمعان بالدموع.',
+      'فتح زياد حقيبته وهو غاضب، فإذا القلم الأزرق في الجيب الصغير.',
+      'وقف ينظر إلى القلم، وقال في نفسه: «لن تعرف سارة أني وجدته هنا».',
+      'ثم مشى إليها، وقال: «أخطأتُ يا سارة. القلم كان في حقيبتي. أنا آسف».',
+      'ومدّ إليها القلم وقال: «ارسمي به السماء». فرسمت سماء كبيرة، ووضعت فيها شمسًا لزياد.'],
+    en: ['Ziyad looked everywhere for his blue pencil, and could not find it.',
+      'He saw his sister Sara drawing, and shouted: "You took my pencil!"',
+      'Sara said: "I didn\'t take it!", her eyes shining with tears.',
+      'Ziyad opened his bag, still angry, and there was the blue pencil in the little pocket.',
+      'He stood looking at the pencil and told himself: "Sara won\'t know I found it here."',
+      'Then he walked over to her and said: "I got it wrong, Sara. The pencil was in my bag. I\'m sorry."',
+      'He held out the pencil and said: "Draw the sky with it." So she drew a big sky, and put a sun in it for Ziyad.']
+  };
+  d2.q.q = { ar: 'صرختَ في أختك أنها أخذت قلمك، ثم وجدته في حقيبتك. ماذا تفعل؟', ar_f: 'صرختِ في أختك أنها أخذت قلمك، ثم وجدتِه في حقيبتك. ماذا تفعلين؟', en: 'You shouted at your sister that she took your pencil, then found it in your own bag. What do you do?' };
+  d2.q.options = [{ ar: 'أسكت، فهي لم ترني وأنا أجده', en: 'Keep quiet; she didn\'t see me find it' },
+    { ar: 'أقول لها: أخطأتُ، وأعتذر منها', en: 'Tell her: I got it wrong, and say sorry' },
+    { ar: 'أضعه على مكتبها لتظن أنها وجدته', en: 'Leave it on her desk so she thinks she found it' }];
+  d2.q.correct = 1;
+  d2.q.why = { ar: 'الآدمي إذا أخطأ رجع، كما قال أبوانا آدم وحواء عليهما السلام: ﴿رَبَّنَا ظَلَمْنَا أَنْفُسَنَا﴾ (الأعراف 7:23).', en: d2.q.why.en };
+
+  /* human-r1: 4-8، قصة جديدة */
+  var r1 = R('human-r1');
+  r1.title = { ar: 'زيد والأرجوحة', en: 'Zayd and the swing' };
+  r1.minutes = 2;
+  r1.body = {
+    ar: ['في الحديقة أرجوحة حمراء واحدة، وزيد فوقها يطير.',
+      'جاء ولد صغير اسمه عادل، ووقف بجانبها يمسك يد أمه.',
+      'قال زيد في نفسه: «وصلتُ أولًا. الأرجوحة لي».',
+      'وعادل ينتظر ولا يقول شيئًا، وعيناه تصعدان وتنزلان مع الأرجوحة.',
+      'فقال زيد: «عشر مرات، ثم دورك. اتفقنا؟». فهزّ عادل رأسه.',
+      'عدّ زيد ببطء شديد: «واحد... اثناااان...». فضحك عادل، فضحك زيد، وأكمل العدّ بسرعته العادية.',
+      'وعند العاشرة نزل زيد وقال: «تفضل يا عادل».',
+      'جلس عادل على الأرجوحة، ثم نظر إلى زيد وقال: «تدفعني؟».',
+      'فدفعه زيد، وطار عادل يضحك، وأمه تبتسم من بعيد.'],
+    en: ['In the park there is one red swing, and Zayd is flying on it.',
+      'A little boy called Adil came and stood beside it, holding his mother\'s hand.',
+      'Zayd told himself: "I got here first. The swing is mine."',
+      'Adil waited and said nothing, his eyes going up and down with the swing.',
+      'So Zayd said: "Ten more times, then it\'s your turn. Deal?" Adil nodded.',
+      'Zayd counted very, very slowly: "One... twooooo..." Adil laughed, Zayd laughed, and he counted the rest at normal speed.',
+      'At ten Zayd got off and said: "Your turn, Adil."',
+      'Adil sat on the swing, then looked at Zayd and said: "Will you push me?"',
+      'So Zayd pushed him, and Adil flew up laughing, while his mother smiled from a distance.']
+  };
+  delete r1.body.ar_f;
+  var q1 = Q('human-q1');
+  q1.q = { ar: 'كم مرة تأرجح زيد قبل أن يعطي عادلًا دوره؟', en: 'How many more times did Zayd swing before giving Adil his turn?' };
+  q1.options = [{ ar: 'حتى نادته أمه إلى البيت', en: 'Until his mother called him home' },
+    { ar: 'عشر مرات، كما اتفقا', en: 'Ten times, as they agreed' },
+    { ar: 'حتى تعب وأراد النزول', en: 'Until he got tired and wanted to get off' }];
+  q1.correct = 1;
+  q1.why = { ar: 'قال زيد: «عشر مرات، ثم دورك»، وعدّ، ونزل عند العاشرة.', en: 'Zayd said "ten more times, then it\'s your turn", counted, and got off at ten.' };
+  var q2 = Q('human-q2');
+  q2.type = 'comprehension';
+  q2.q = { ar: 'ماذا طلب عادل من زيد بعد أن جلس على الأرجوحة؟', en: 'What did Adil ask Zayd after he sat on the swing?' };
+  q2.options = [{ ar: 'أن يدفعه على الأرجوحة', en: 'To push him on the swing' },
+    { ar: 'أن يعدّ له عشر مرات', en: 'To count ten times for him' },
+    { ar: 'أن يذهب ليلعب وحده', en: 'To go and play on his own' }];
+  q2.correct = 0;
+  q2.why = { ar: 'قال عادل: «تدفعني؟»، فدفعه زيد، وطار عادل يضحك.', en: 'Adil said "Will you push me?", so Zayd pushed him, and Adil flew up laughing.' };
+
+  /* human-r2: الخاتمة بالإثبات */
+  var r2 = R('human-r2');
+  r2.body.ar[1] = 'ثم تقول الآية إن الإنسان قد يُرَدّ «أسفل سافلين». والذي ينزل هو السلوك حين يترك الهداية، والصورة التي خلقها الله تبقى كريمة.';
+  r2.body.en[1] = 'Then the verse says a person may be brought down "to the lowest of the low". What falls is behaviour, when it leaves guidance; the form Allah made stays honoured.';
+  var q3 = Q('human-q3');
+  q3.options = [{ ar: 'شكله الذي خُلق عليه', en: 'The form they were created in' },
+    { ar: 'فقره وقلة ماله', en: 'Being poor and having little' },
+    { ar: 'سلوكه حين يترك الهداية', en: 'Their behaviour when they leave guidance' }];
+  q3.correct = 2;
+
+  /* human-r3: لفظ الحديث، وأمثلة من اليوم، وخطوة عملية */
+  var r3 = R('human-r3');
+  r3.body = {
+    ar: ['سأل الصحابة النبي صلى الله عليه وآله وسلم: أي الإسلام أفضل؟ فقال: «من سلم المسلمون من لسانه ويده».',
+      'هذه أول درجة في السبابة: أن يأمن الناس جانبك. واللسان يؤذي بطرق كثيرة: لقب يضحك له الصف، وكلمة ساخرة في المجموعة، ونقل كلام عن غائب. واليد تؤذي بدفعة في الطابور، وبأخذ شيء دون إذن.',
+      'وقال صلى الله عليه وآله وسلم: «أحب الأعمال إلى الله تعالى أدومها وإن قل». يكفي الإنسانَ عمل صغير يداوم عليه: سلام على حارس المدرسة كل صباح، أو صفحة من القرآن بعد العشاء.',
+      'والحديثان معًا طريق ثابت على السبابة: كفّ أذاك، وداوم على خير صغير. جرّب هذا الأسبوع: اكتب في آخر دفترك خيرًا صغيرًا واحدًا، وضع بجانبه علامة كل يوم تفعله فيه.'],
+    en: ['The Companions asked the Prophet, peace and blessings be upon him and his family: which Islam is best? He said, meaning: "The one from whose tongue and hand the Muslims are safe."',
+      'That is the first step on the index finger: people feel safe around you. The tongue hurts in many ways: a nickname the class laughs at, a mocking word in the group chat, passing on talk about someone who isn\'t there. The hand hurts with a shove in the queue, or by taking something without asking.',
+      'He also said, meaning: "The deeds most loved by Allah are the most lasting, even if small." A small deed kept up is enough: a greeting to the school guard every morning, or one page of the Quran after the evening prayer.',
+      'Together the two hadiths make a steady path on the index finger: keep your harm away, and keep up a small good. Try it this week: write one small good deed at the back of your notebook, and put a tick beside it every day you do it.']
+  };
+  r3.body.ar_f = r3.body.ar.slice();
+  r3.body.ar_f[3] = 'والحديثان معًا طريق ثابت على السبابة: كفّي أذاك، وداومي على خير صغير. جرّبي هذا الأسبوع: اكتبي في آخر دفترك خيرًا صغيرًا واحدًا، وضعي بجانبه علامة كل يوم تفعلينه فيه.';
+  r3.quote.ref = 'صحيح البخاري 10، وسؤال الصحابة في البخاري 11؛ صحيح مسلم (ترقيم sunnah.com: الكتاب 1، الحديث 68)؛ وحديث «أحب الأعمال إلى الله تعالى أدومها وإن قل»: صحيح مسلم (الكتاب 6، الحديث 258)، ونحوه في البخاري 6464 و6465';
+  var q5 = Q('human-q5');
+  q5.options = [{ ar: 'أكبرها وإن انقطع', en: 'The biggest, even if they stop' },
+    { ar: 'ما يراه الناس ويمدحونه', en: 'Those people see and praise' },
+    { ar: 'أدومها وإن قل', en: 'The most lasting, even if small' }];
+  var q6 = Q('human-q6');
+  q6.type = 'comprehension';
+  q6.q = { ar: 'أيّ هذه ذكرته القراءة مثالًا على أذى اللسان؟', en: 'Which of these does the reading give as an example of harm by the tongue?' };
+  q6.options = [{ ar: 'دفعة في الطابور', en: 'A shove in the queue' },
+    { ar: 'لقب يضحك له الصف', en: 'A nickname the class laughs at' },
+    { ar: 'أخذ شيء دون إذن', en: 'Taking something without asking' }];
+  q6.correct = 1;
+  q6.why = { ar: 'اللقب الذي يضحك له الصف أذى باللسان، والدفعة وأخذ الشيء دون إذن أذى باليد.', en: 'A nickname the class laughs at is harm by the tongue; a shove and taking without asking are harm by the hand.' };
+
+  /* human-r4: 15+، بصوت المراهق وعالمه */
+  var r4 = R('human-r4');
+  r4.minutes = 3;
+  r4.body = {
+    ar: ['صفحة عملية. أكثر العزائم الكبيرة تبدأ يوم الأحد وتنتهي يوم الثلاثاء. وتقول أبحاث العادات إن السلوك يثبت حين يكون صغيرًا جدًا، ومربوطًا بشيء تفعله كل يوم أصلًا، ومتبوعًا بشعور طيب.',
+      'اختر عادة أصغر من طموحك: أن تشكر أمك بعد كل وجبة، أو أن تضع الهاتف خارج الغرفة قبل النوم، أو أن تقول كلمة طيبة لأول من تلقاه في المدرسة.',
+      'واربطها بشيء ثابت في جملة واحدة: «بعد أن أغسل يدي من الطعام، أقول لأمي: شكرًا». أو: «حين أشحن الهاتف ليلًا، أتركه في الصالة».',
+      'وحين تفعلها، قل «الحمد لله»، وضع علامة على ورقة في باب خزانتك. ستأتي ليلة تبدو فيها العادة سخيفة وأنت متعب، وتلك الليلة تُحسب أكثر من غيرها. وبعد أسابيع تصير العادة جزءًا منك، وهذا معنى «أدومها وإن قل».'],
+    en: ['A practical page. Most big resolutions start on Sunday and end on Tuesday. Habit research says a behaviour sticks when it is very small, tied to something you already do every day, and followed by a good feeling.',
+      'Choose a habit smaller than your ambition: thank your mother after every meal, leave your phone outside your room at bedtime, or say a kind word to the first person you meet at school.',
+      'Tie it to something fixed, in one sentence: "After I wash my hands from eating, I say thank you to my mother." Or: "When I charge my phone at night, I leave it in the living room."',
+      'When you do it, say "Alhamdulillah" and put a tick on a sheet inside your wardrobe door. A night will come when the habit feels silly and you are tired, and that night counts more than the others. After a few weeks the habit becomes part of you; that is the meaning of "the most lasting, even if small".']
+  };
+  r4.body.ar_f = ['صفحة عملية. أكثر العزائم الكبيرة تبدأ يوم الأحد وتنتهي يوم الثلاثاء. وتقول أبحاث العادات إن السلوك يثبت حين يكون صغيرًا جدًا، ومربوطًا بشيء تفعلينه كل يوم أصلًا، ومتبوعًا بشعور طيب.',
+    'اختاري عادة أصغر من طموحك: أن تشكري أمك بعد كل وجبة، أو أن تضعي الهاتف خارج الغرفة قبل النوم، أو أن تقولي كلمة طيبة لأول من تلقينه في المدرسة.',
+    'واربطيها بشيء ثابت في جملة واحدة: «بعد أن أغسل يدي من الطعام، أقول لأمي: شكرًا». أو: «حين أشحن الهاتف ليلًا، أتركه في الصالة».',
+    'وحين تفعلينها، قولي «الحمد لله»، وضعي علامة على ورقة في باب خزانتك. ستأتي ليلة تبدو فيها العادة سخيفة وأنتِ متعبة، وتلك الليلة تُحسب أكثر من غيرها. وبعد أسابيع تصير العادة جزءًا منك، وهذا معنى «أدومها وإن قل».'];
+  var q7 = Q('human-q7');
+  q7.options = [{ ar: 'أقرر أن أشكرها مئة مرة غدًا', en: 'Decide to thank her a hundred times tomorrow' },
+    { ar: 'أربطها بشيء ثابت: بعد كل وجبة', en: 'Tie it to something fixed: after every meal' },
+    { ar: 'أنتظر حتى أتذكرها من نفسي', en: 'Wait until I remember on my own' }];
+  q7.correct = 1;
+
+  /* human-r5: 15+، مشهد من الليل، والخاتمة بالإثبات */
+  var r5 = R('human-r5');
+  r5.body = {
+    ar: ['الحادية عشرة ليلًا، والهاتف مطفأ على صدرك، وتعود إليك جملة قلتها لأخيك على العشاء أمام الجميع. ضحك لها الكل إلا هو.',
+      'ذلك الصوت الذي يعيد الجملة له اسم في القرآن: «النفس اللوّامة»، وقد أقسم الله بها: ﴿وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ﴾ (القيامة 75:2). هي النفس التي تراجع صاحبها إذا قصّر، ووجودها علامة حياة في القلب.',
+      'وللوم طريقان. لوم يقول: «أنا سيئ ولن أتغير»، فيتركك ثقيلًا في السرير حتى الصباح. ولوم يقول: «قلت هذا، وسأصلحه، وغدًا أفعل أحسن»، فيعطيك شيئًا تفعله.',
+      'وفي الحديث: «وأتبع السيئة الحسنة تمحها، وخالق الناس بخلق حسن» (سنن الترمذي). الندم على الخطأ أول الطريق، والحسنة بعده هي التي تمحوه.',
+      'ويؤيد علم النفس هذا: من يحاسب نفسه برفق ويخطط لما بعد الخطأ يتغير أكثر ممن يجلد نفسه. والحسنة هنا قد تكون صغيرة: أن تطرق باب أخيك وتقول: «كلمة العشاء كانت ثقيلة. آسف».',
+      'التمرين: كل مساء دقيقة واحدة، ثلاثة أسئلة: ما الذي أحسنت فيه اليوم فأحمد الله؟ ما الذي قصّرت فيه؟ ما الحسنة التي أُتبعه بها غدًا؟'],
+    en: ['Eleven at night, the phone switched off on your chest, and a line you said to your brother at dinner, in front of everyone, keeps coming back. Everyone laughed except him.',
+      'The Quran has a name for the voice that replays it: "the self-reproaching soul", and Allah swears by it (al-Qiyama 75:2). It is the self that holds its owner to account when they fall short, and its presence is a sign of life in the heart.',
+      'Blame can go two ways. One says: "I\'m bad and I\'ll never change," and leaves you lying heavy until morning. The other says: "I said that, I\'ll put it right, and tomorrow I\'ll do better," and hands you something to do.',
+      'A hadith (Sunan al-Tirmidhi) means: follow a bad deed with a good one and it will wipe it out, and treat people with good character. Regret is the start of the road; the good deed after it is what wipes the mistake away.',
+      'Psychology supports this: people who review themselves kindly and plan what to do after a mistake change more than those who punish themselves. The good deed can be small: knocking on your brother\'s door and saying, "That thing at dinner was heavy. Sorry."',
+      'The exercise: one minute each evening, three questions. What did I do well today, so I can praise Allah? Where did I fall short? What good deed will I follow it with tomorrow?']
+  };
+  r5.body.ar_f = ['الحادية عشرة ليلًا، والهاتف مطفأ على صدرك، وتعود إليكِ جملة قلتِها لأخيك على العشاء أمام الجميع. ضحك لها الكل إلا هو.',
+    r5.body.ar[1],
+    'وللوم طريقان. لوم يقول: «أنا سيئة ولن أتغير»، فيترككِ ثقيلة في السرير حتى الصباح. ولوم يقول: «قلت هذا، وسأصلحه، وغدًا أفعل أحسن»، فيعطيكِ شيئًا تفعلينه.',
+    r5.body.ar[3],
+    'ويؤيد علم النفس هذا: من يحاسب نفسه برفق ويخطط لما بعد الخطأ يتغير أكثر ممن يجلد نفسه. والحسنة هنا قد تكون صغيرة: أن تطرقي باب أخيك وتقولي: «كلمة العشاء كانت ثقيلة. آسفة».',
+    r5.body.ar[5]];
+  var q8 = Q('human-q8');
+  q8.q = { ar: 'قلتَ لأخيك جملة جارحة على العشاء، وندمت. أي لوم هو اللوم النافع كما في القراءة؟', ar_f: 'قلتِ لأخيك جملة جارحة على العشاء، وندمتِ. أي لوم هو اللوم النافع كما في القراءة؟', en: 'You said something hurtful to your brother at dinner, and regret it. Which is the helpful self-reproach, as in the reading?' };
+  q8.options = [{ ar: '«أنا سيئ ولن أتغير أبدًا»', ar_f: '«أنا سيئة ولن أتغير أبدًا»', en: '"I\'m bad and I\'ll never change."' },
+    { ar: '«لا يهم، كانت مجرد مزحة»', en: '"It doesn\'t matter, it was just a joke."' },
+    { ar: '«قلتها، وسأعتذر له غدًا»', en: '"I said it, and I\'ll apologise tomorrow."' }];
+  q8.correct = 2;
+  q8.why = { ar: 'اللوم النافع يسمّي الخطأ، ثم يخطط لحسنة تمحوه.', en: 'Helpful self-reproach names the mistake, then plans a good deed to wipe it out.' };
+
+  /* human-r6: 4-8، نهاية بفعل */
+  var r6 = R('human-r6');
+  r6.body = {
+    ar: ['كان يوسف وسامر يلعبان بالكرة في الحديقة.',
+      'ركض يوسف وراء الكرة، فداس على قدم سامر.',
+      'قال سامر: «آي!»، وجلس على العشب يمسك قدمه.',
+      'توقف يوسف. أما الكرة فتدحرجت وحدها حتى وقفت عند القطة.',
+      'جلس يوسف بجانب سامر وقال: «آسف يا سامر، لم أقصد. هل تؤلمك؟».',
+      'نفخ سامر على أصابع قدمه، وقال: «صارت أحسن».',
+      'ثم قفز واقفًا وقال: «أنا أركل الآن!».',
+      'فركلا الكرة معًا، وقفزت القطة من مكانها.'],
+    en: ['Yusuf and Samer were playing football in the garden.',
+      'Yusuf ran after the ball and stepped on Samer\'s foot.',
+      'Samer said: "Ouch!" and sat on the grass holding his foot.',
+      'Yusuf stopped. The ball rolled on by itself until it stopped by the cat.',
+      'Yusuf sat down next to Samer and said: "Sorry, Samer, I didn\'t mean it. Does it hurt?"',
+      'Samer blew on his toes and said: "It\'s better now."',
+      'Then he jumped up and said: "My kick now!"',
+      'So they kicked the ball together, and the cat jumped out of the way.']
+  };
+  delete r6.body.ar_f;
+  var q9 = Q('human-q9');
+  q9.type = 'comprehension';
+  q9.q = { ar: 'ماذا قال يوسف بعد أن داس على قدم سامر؟', en: 'What did Yusuf say after stepping on Samer\'s foot?' };
+  q9.options = [{ ar: '«ابتعد عن طريقي يا سامر»', en: '"Get out of my way, Samer"' },
+    { ar: '«آسف، لم أقصد. هل تؤلمك؟»', en: '"Sorry, I didn\'t mean it. Does it hurt?"' },
+    { ar: '«هيا نكمل، لم يحدث شيء»', en: '"Come on, let\'s carry on, it\'s nothing"' }];
+  q9.correct = 1;
+  q9.why = { ar: 'توقف يوسف، وجلس بجانب صديقه، واعتذر، وسأله عن قدمه.', en: 'Yusuf stopped, sat next to his friend, said sorry, and asked about his foot.' };
+  var q10 = Q('human-q10');
+  q10.type = 'comprehension';
+  q10.q = { ar: 'ماذا فعل سامر بعد أن قال «صارت أحسن»؟', en: 'What did Samer do after he said "It\'s better now"?' };
+  q10.options = [{ ar: 'قفز وقال: «أنا أركل الآن!»', en: 'Jumped up and said: "My kick now!"' },
+    { ar: 'رجع إلى البيت وهو يبكي', en: 'Went back home crying' },
+    { ar: 'جلس وحده على العشب', en: 'Sat on the grass on his own' }];
+  q10.correct = 0;
+  q10.why = { ar: 'كلمة «آسف» أصلحت الوجع، فرجع سامر يلعب ويركل.', en: 'The word "sorry" mended the hurt, and Samer went back to playing and kicking.' };
+
+  /* human-r7: القمة، من فم النعمان على المنبر */
+  var r7 = R('human-r7');
+  r7.body = {
+    ar: ['وقف النعمان بن بشير رضي الله عنهما على المنبر، وهو رجل كبير، يحكي قصة حدثت له وهو صغير.',
+      'قال: أعطاني أبي عطية. فقالت أمي عمرة بنت رواحة رضي الله عنها: لا أرضى حتى تُشهد رسول الله صلى الله عليه وآله وسلم.',
+      'فذهب أبوه إلى النبي صلى الله عليه وآله وسلم، فسأله: «أعطيت سائر ولدك مثل هذا؟». قال: لا. فقال: «فاتقوا الله، واعدلوا بين أولادكم». فرجع أبوه، وردّ العطية.',
+      'خسر النعمان الهدية يومها. وبعد سنين رواها للناس من فوق المنبر: أن النبي صلى الله عليه وآله وسلم أراد لكل طفل في البيت حقه، ولو في هدية واحدة.',
+      'والسبابة أن يأخذ كل واحد حقه منك. والقمة أن تحرس العدل في الأشياء الصغيرة: حين تقسم الكعكة بين إخوتك فتأخذ أنت القطعة الأخيرة، وحين يأتي دور الصغير في اللعبة، وفي الكلمة الطيبة لمن لا يلتفت إليه أحد.'],
+    en: ['Al-Nu\'man ibn Bashir, may Allah be pleased with them both, stood on the pulpit as a grown man and told a story from when he was a boy.',
+      'He said: my father gave me a gift. My mother, Amra bint Rawaha, may Allah be pleased with her, said: I will not be content until you take the Messenger of Allah, peace and blessings be upon him and his family, as witness.',
+      'So his father went to the Prophet, peace and blessings be upon him and his family, who asked him, meaning: "Have you given all your other children the same?" He said no. The Prophet said: "Then be mindful of Allah, and be fair between your children." His father went back and took the gift back.',
+      'Al-Nu\'man lost the present that day. Years later he told the story to people from the pulpit: the Prophet, peace and blessings be upon him and his family, wanted every child at home to have their due, even over a single present.',
+      'The index finger is everyone getting their due from you. The summit is guarding fairness in small things: when you cut the cake for your brothers and sisters and take the last piece yourself, when it is the little one\'s turn in the game, and in a kind word for the one nobody notices.']
+  };
+  r7.body.ar_f = r7.body.ar.slice();
+  r7.body.ar_f[4] = 'والسبابة أن يأخذ كل واحد حقه منك. والقمة أن تحرسي العدل في الأشياء الصغيرة: حين تقسمين الكعكة بين إخوتك فتأخذين أنتِ القطعة الأخيرة، وحين يأتي دور الصغير في اللعبة، وفي الكلمة الطيبة لمن لا يلتفت إليه أحد.';
+  r7.source = { ar: 'حديث في صحيح البخاري (2587)، يرويه النعمان بن بشير رضي الله عنهما وهو على المنبر.', en: 'A hadith in Sahih al-Bukhari (2587), told by al-Nu\'man ibn Bashir, may Allah be pleased with them both, from the pulpit.' };
+
+  /* human-r8: لفظ «حثية»، والخاتمة بالإثبات */
+  var r8 = R('human-r8');
+  r8.body.ar[2] = 'فجاءه جابر وأخبره بالوعد، فحثا له أبو بكر حثية بكفّيه، فعدّها جابر فإذا هي خمسمئة، فقال له: خذ مثليها.';
+  r8.body.ar[3] = 'حفظ أبو بكر رضي الله عنه وعد النبي صلى الله عليه وآله وسلم بعد وفاته، وأرسل مناديًا يبحث عن صاحبه. والسبابة أن تفي بوعدك الصغير، فكيف بمن يفي بوعد غيره؟';
+  r8.body.en[2] = 'Jabir came and told him about the promise. Abu Bakr scooped up a double handful for him; Jabir counted it and it was five hundred, and Abu Bakr told him: take twice as much again.';
+  r8.body.en[3] = 'Abu Bakr, may Allah be pleased with him, kept the Prophet\'s promise after his passing, and sent a caller out to find the person it was owed to. The index finger is keeping your own small promise; imagine keeping someone else\'s.';
+  var q12 = Q('human-q12');
+  q12.options = [{ ar: 'ليجمع المال في بيت المال أولًا', en: 'To gather the wealth into the treasury first' },
+    { ar: 'ليسأل الناس كيف يقسم المال', en: 'To ask people how to divide the wealth' },
+    { ar: 'ليفي بما وعد به النبي صلى الله عليه وآله وسلم', en: 'To keep what the Prophet had promised' }];
+  q12.correct = 2;
+
+  /* ch-human-1: الخيار الصحيح بطول غيره */
+  var ch = window.AKHLAQ_CONTENT.choices.filter(function (c) { return c.id === 'ch-human-1'; })[0];
+  ch.opts[1].t = { ar: 'أبتعد عن الزجاج، وأخبر أمي حين تعود.', en: 'Keep away from the glass, and tell Mum when she gets home.' };
+
+  /* human-r9: 15+، جديدة */
+  H.readings.push({
+    id: 'human-r9', minutes: 4, ages: '15+',
+    title: { ar: 'الصف الأول', en: 'The front row' },
+    body: {
+      ar: ['يوم الإثنين، وهو يربط حذاء الكرة الجديد، سأل إلياس أخاه حمزة: «مباراتي الأولى مع فريق الحي، السبت الساعة العاشرة. ستأتي؟». قال حمزة وعينه على الهاتف: «أكيد. وعد».',
+        'ومساء الجمعة كتب ماجد في مجموعة الأصحاب: «غدًا رحلة الدراجات إلى البحيرة. نتحرك التاسعة، وأبي يوصلنا، والسيارة تتسع لستة». وتوالت الأسماء: «أنا». «أنا». «وأنا». وبقي مكان واحد.',
+        'حمزة ينتظر هذه الرحلة منذ الصيف. كتب «وأنا»، وأرسلها، وقام إلى المطبخ يشرب.',
+        'وفي الممر رأى حذاء إلياس عند الباب، ممسوحًا حتى يلمع، وفوقه ورقة بخط أخيه المائل: «حمزة في الصف الأول».',
+        'وقف حمزة والكأس في يده، وقال في نفسه: مباراة صغار، يركضون كلهم وراء كرة واحدة، وبعد أسبوع لن يذكر إلياس من حضر. ثم نظر إلى الورقة مرة أخرى.',
+        'رجع إلى غرفته، وكتب في المجموعة: «آسف يا شباب، عندي وعد لأخي. خذوا غيري». فرد ماجد: «وعد لطفل؟ يحزن خمس دقائق ثم ينسى»، وأرسل أحدهم وجهًا نائمًا. وبعد دقيقة كتب نزار: «أخذتُ المكان».',
+        'يوم السبت كان الملعب باردًا، والمدرج ثلاث درجات من الإسمنت. خسر فريق إلياس أربعة لصفر. وفي جيب حمزة ظل الهاتف يهتز. أخرجه مرة، فرأى أول صورة: الدراجات على العشب، والماء يلمع خلفها. ثم أعاده إلى جيبه.',
+        'وفي الدقيقة الأخيرة خطف إلياس الكرة من لاعب أطول منه بشبرين. فوقف حمزة وصفّر بإصبعين في فمه، وحده في الصف الأول.',
+        'في طريق العودة قال إلياس وهو يمسح الطين عن ركبته: «خسرنا. لكن رأيت كيف أخذتها منه؟». قال حمزة: «رأيت. كنت في الصف الأول».',
+        'وفي المساء نشر ماجد صورة الستة على صخرة عند البحيرة. كتب حمزة تحتها: «صورة رائعة. في الرحلة القادمة اسمي أول اسم». ثم حمل حذاء إلياس إلى الحوض، وبدأ يغسل عنه الطين.'],
+      en: ['On Monday, while tying the laces of his new football boots, Ilyas asked his brother Hamza: "My first match with the neighbourhood team, Saturday at ten. Will you come?" Hamza said, his eyes on his phone: "Sure. Promise."',
+        'On Friday evening Majid wrote in the friends\' group: "Bike trip to the lake tomorrow. We leave at nine, my dad\'s driving, and the car takes six." The names came one after another: "Me." "Me." "Me too." One place was left.',
+        'Hamza had been waiting for this trip since the summer. He typed "Me too", sent it, and went to the kitchen for a drink.',
+        'In the hallway he saw Ilyas\'s boots by the door, wiped until they shone, and on top of them a note in his brother\'s slanting handwriting: "Hamza in the front row."',
+        'Hamza stood there with the glass in his hand and told himself: a kids\' match, all of them chasing one ball, and in a week Ilyas won\'t remember who came. Then he looked at the note again.',
+        'He went back to his room and wrote in the group: "Sorry, guys, I promised my brother. Take someone else." Majid replied: "A promise to a kid? He\'ll be sad for five minutes and then forget," and someone sent a sleeping face. A minute later Nizar wrote: "I\'ll take the place."',
+        'On Saturday the pitch was cold, and the stand was three steps of concrete. Ilyas\'s team lost four-nil. In Hamza\'s pocket the phone kept buzzing. He took it out once and saw the first photo: bikes on the grass, the water shining behind them. Then he put it back in his pocket.',
+        'In the last minute Ilyas snatched the ball from a player a hand-span taller than him. Hamza stood up and whistled with two fingers in his mouth, alone in the front row.',
+        'On the way home Ilyas said, wiping the mud off his knee: "We lost. But did you see how I took it off him?" Hamza said: "I saw. I was in the front row."',
+        'That evening Majid posted a photo of the six of them on a rock by the lake. Hamza wrote underneath: "Great photo. Next trip, my name goes first." Then he carried Ilyas\'s boots to the sink and started washing off the mud.']
+    },
+    ask: { ar: 'متى كلّفك وعد صغير شيئًا كنت تريده كثيرًا؟', ar_f: 'متى كلّفكِ وعد صغير شيئًا كنتِ تريدينه كثيرًا؟', en: 'When has a small promise cost you something you really wanted?' },
+    quote: null,
+    source: { ar: 'قصة مؤلفة، أبطالها خياليون.', en: 'An original story with fictional characters.' }
+  });
+  H.quiz.push(
+    { id: 'human-q13', readingId: 'human-r9', type: 'comprehension', correct: 1,
+      q: { ar: 'ما الذي رآه حمزة مساء الجمعة، بعد أن أرسل «وأنا»؟', en: 'What did Hamza see on Friday evening, after he sent "Me too"?' },
+      options: [{ ar: 'رسالة من أمه تذكّره بالمباراة', en: 'A message from his mother reminding him of the match' },
+        { ar: 'حذاء أخيه عند الباب، وفوقه ورقة', en: 'His brother\'s boots by the door, with a note on them' },
+        { ar: 'صورة الدراجات على عشب البحيرة', en: 'A photo of the bikes on the grass by the lake' }],
+      why: { ar: 'الحذاء الممسوح والورقة «حمزة في الصف الأول» ذكّراه بأن أخاه ينتظره.', en: 'The polished boots and the note "Hamza in the front row" reminded him that his brother was counting on him.' } },
+    { id: 'human-q14', readingId: 'human-r9', type: 'comprehension', correct: 2,
+      q: { ar: 'ماذا كلّف الوعدُ حمزة؟', en: 'What did the promise cost Hamza?' },
+      options: [{ ar: 'مكانه في فريق الحي، فلعب غيره', en: 'His place in the neighbourhood team, so someone else played' },
+        { ar: 'هاتفه، فقد أخذه أبوه يوم المباراة', en: 'His phone, which his father took on match day' },
+        { ar: 'مكانه في الرحلة، فأخذه نزار', en: 'His place on the trip, which Nizar took' }],
+      why: { ar: 'انسحب من الرحلة أمام المجموعة، وسمع «وعد لطفل؟»، وأخذ نزار المكان الأخير.', en: 'He pulled out in front of the group, heard "a promise to a kid?", and Nizar took the last place.' } }
   );
 })();

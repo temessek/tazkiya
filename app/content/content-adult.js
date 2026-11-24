@@ -1944,10 +1944,19 @@ window.AKHLAQ_CONTENT_ADULT.stages.human = {
     { ar: "«أخطأتُ، وأنا آسف» تُقال للزوج والزميل والولد، دون «لكن».", en: "«I was wrong, and I'm sorry» said to a spouse, a colleague or a child, without «but»." }
   ],
   climb: [
-    { ar: "أحافظ على عمل خير صغير كل يوم، فالقليل الدائم أحب إلى الله.", en: "I keep up one small good deed every day, for a little done constantly is most loved by Allah." },
-    { ar: "إذا أخطأت فلا أيأس: أعتذر، وأصلح، وأُتبع السيئة حسنة.", en: "When I go wrong I don't despair: I apologise, put it right, and follow the bad deed with a good one." },
+    {
+      ar: "أحافظ على عمل خير صغير كل يوم، فالقليل الدائم أحب إلى الله.",
+      en: "I keep up one small good deed every day, for a little done constantly is most loved by Allah."
+    },
+    {
+      ar: "إذا أخطأت فلا أيأس: أعتذر، وأصلح، وأُتبع السيئة حسنة.",
+      en: "When I go wrong I don't despair: I apologise, put it right, and follow the bad deed with a good one."
+    },
     { ar: "أبدأ بالخير قبل أن يُطلب مني، فهذا باب الإبهام.", en: "I start the good before I am asked, for that is the door to the thumb." },
-    { ar: "أختار قدوة من الأنبياء عليهم السلام أو الصحابة، وأقرأ سيرته.", en: "I choose a model from the prophets, peace be upon them, or the Companions, and read their life." }
+    {
+      ar: "أختار قدوة من الأنبياء عليهم السلام أو الصحابة، وأقرأ سيرته.",
+      en: "I choose a model from the prophets, peace be upon them, or the Companions, and read their life."
+    }
   ],
   degrees: [
     {
@@ -1989,7 +1998,10 @@ window.AKHLAQ_CONTENT_ADULT.stages.human = {
         en: "Make keeping harm away part of your nature. The Prophet, peace and blessings be upon him and his family, said: «The Muslim is the one from whose tongue and hand the Muslims are safe» (Bukhari 10)."
       },
       q: {
-        id: "ah-d1q", type: "situation", readingId: null, correct: 1,
+        id: "ah-d1q",
+        type: "situation",
+        readingId: null,
+        correct: 1,
         q: {
           ar: "في مجموعة الأصدقاء بدأ أحدهم يسخر من زميل غائب بسبب لهجته، والجميع يضحكون. ماذا تفعل؟",
           ar_f: "في مجموعة الصديقات بدأت إحداهن تسخر من زميلة غائبة بسبب لهجتها، والجميع يضحكن. ماذا تفعلين؟",
@@ -1998,7 +2010,11 @@ window.AKHLAQ_CONTENT_ADULT.stages.human = {
         options: [
           { ar: "أضحك معهم، فهو لن يعرف", ar_f: "أضحك معهن، فهي لن تعرف", en: "Laugh along; they'll never know" },
           { ar: "لا أشارك، وأقول بلطف: لنتكلم في شيء آخر", en: "Don't join in, and say gently: let's talk about something else" },
-          { ar: "أنقل الكلام إلى الزميل ليعرف ما قيل عنه", ar_f: "أنقل الكلام إلى الزميلة لتعرف ما قيل عنها", en: "Pass it on to the colleague so they know what was said" }
+          {
+            ar: "أنقل الكلام إلى الزميل ليعرف ما قيل عنه",
+            ar_f: "أنقل الكلام إلى الزميلة لتعرف ما قيل عنها",
+            en: "Pass it on to the colleague so they know what was said"
+          }
         ],
         why: {
           ar: "كفّ الأذى يشمل الغائب. ونقل الكلام إليه أذى آخر، أما تغيير الحديث بلطف فيحفظ الجميع.",
@@ -2045,7 +2061,10 @@ window.AKHLAQ_CONTENT_ADULT.stages.human = {
         en: "Make trust your measure in everything in your hands, money, work and time. Allah says, in meaning: Allah commands you to render trusts to those they are owed to (an-Nisa 4:58)."
       },
       q: {
-        id: "ah-d2q", type: "situation", readingId: null, correct: 1,
+        id: "ah-d2q",
+        type: "situation",
+        readingId: null,
+        correct: 1,
         q: {
           ar: "مديرك مسافر أسبوعًا، ولا أحد يراقب ساعات العمل. ما الأقرب إلى أداء الواجب؟",
           en: "Your manager is away for a week and no one is checking working hours. What is closest to doing what is due?"
@@ -2100,16 +2119,23 @@ window.AKHLAQ_CONTENT_ADULT.stages.human = {
         en: "Make the prayer of our first parents, Adam and Hawwa, your nightly words, meaning: our Lord, we have wronged ourselves, and if You do not forgive us and have mercy on us, we will surely be among the losers (al-A'raf 7:23)."
       },
       q: {
-        id: "ah-d3q", type: "situation", readingId: null, correct: 1,
+        id: "ah-d3q",
+        type: "situation",
+        readingId: null,
+        correct: 1,
         q: {
           ar: "اكتشفت أنك أرسلت إلى زميلك أرقامًا خاطئة بنى عليها تقريره، ولم يلاحظ أحد بعد. ماذا تفعل؟",
           ar_f: "اكتشفتِ أنكِ أرسلتِ إلى زميلتك أرقامًا خاطئة بنت عليها تقريرها، ولم يلاحظ أحد بعد. ماذا تفعلين؟",
           en: "You discover you sent a colleague wrong figures on which they built their report, and no one has noticed yet. What do you do?"
         },
         options: [
-          { ar: "أنتظر، فربما لا يلاحظ أحد", en: "Wait; maybe no one will notice" },
-          { ar: "أخبره الآن، وأعتذر، وأرسل الأرقام الصحيحة، وأساعده في التصحيح", ar_f: "أخبرها الآن، وأعتذر، وأرسل الأرقام الصحيحة، وأساعدها في التصحيح", en: "Tell them now, apologise, send the correct figures, and help them fix it" },
-          { ar: "أصحح الأرقام عندي فقط", en: "Correct the figures on my side only" }
+          { ar: "أنتظر حتى يسألني، ثم أشرح ما حدث", ar_f: "أنتظر حتى تسألني، ثم أشرح ما حدث", en: "Wait until they ask, then explain what happened" },
+          {
+            ar: "أخبره الآن، وأعتذر، وأرسل الأرقام الصحيحة",
+            ar_f: "أخبرها الآن، وأعتذر، وأرسل الأرقام الصحيحة",
+            en: "Tell them now, apologise, and send the correct figures"
+          },
+          { ar: "أرسل له الأرقام الصحيحة دون تعليق", ar_f: "أرسل لها الأرقام الصحيحة دون تعليق", en: "Send them the correct figures without comment" }
         ],
         why: {
           ar: "الرجوع عن الخطأ اعتراف وإصلاح. وكلما تأخر الاعتراف كبر الضرر على غيرك.",
@@ -2120,66 +2146,87 @@ window.AKHLAQ_CONTENT_ADULT.stages.human = {
   ],
   readings: [
     {
-      id: "ah-r1", minutes: 4, ages: "18+",
+      id: "ah-r1",
+      minutes: 4,
+      ages: "18+",
       title: { ar: "قبل أن تنشر", en: "Before you post" },
       body: {
         ar: [
           "تختلف الكلمة على الشاشة عن الكلمة في المجلس في أمرين: أنها تبقى، وأنها تصل إلى من لا تعرفه. تعليق قاله صاحبه في لحظة غضب قد يقرؤه المقصود به بعد سنوات، وقد يقرؤه أولاده.",
-          "وكثير ممن يكتبون على الإنترنت لا يكتبون ما يقولونه في وجه أحد. يسخرون من شكل إنسان، أو يفضحون خطأه، أو يتهمونه بما سمعوا. والقرآن يذكّر بأن الكلمة كلها محفوظة: ﴿مَا يَلْفِظُ مِنْ قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ﴾ (ق 50:18). وما يُكتب أولى بالحفظ مما يُلفظ.",
+          "وكثير ممن يكتبون على الإنترنت يكتبون ما لا يقولونه في وجه أحد. يسخرون من شكل إنسان، أو يفضحون خطأه، أو يتهمونه بما سمعوا. والقرآن يذكّر بأن الكلمة كلها محفوظة: ﴿مَا يَلْفِظُ مِنْ قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ﴾ (ق 50:18). وما يُكتب أولى بالحفظ مما يُلفظ.",
           "وقال النبي صلى الله عليه وآله وسلم: «الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ» (البخاري 10). واليد اليوم تكتب، فتؤذي كما يؤذي اللسان.",
           "وفي «إحياء علوم الدين» كتاب كامل في آفات اللسان، عدّها الغزالي عشرين آفة، وأولها «الكلام فيما لا يعنيك». وأكثر ما يُكتب في التعليقات من هذا الباب: رأي في أمر لا يخص كاتبه، ولم يُسأل عنه.",
-          "خطوات عملية: اقرأ ما كتبت مرتين قبل أن تنشره، واسأل: هل أقوله في وجه صاحبه؟ لا تكتب وأنت غاضب. وإذا رأيت من يُهاجَم ظلمًا فاكتب كلمة طيبة بدل أن تزيد الهجوم. ويكفيك أحيانًا ألا تكتب شيئًا."
+          "خطوات عملية: اقرأ ما كتبت مرتين قبل أن تنشره، واسأل: هل أقوله في وجه صاحبه؟ لا تكتب وأنت غاضب. وإذا رأيت من يُهاجَم ظلمًا فاكتب كلمة طيبة بدل أن تزيد الهجوم. ويكفيك أحيانًا ألا تكتب شيئًا.",
+          "في الحادية عشرة ليلًا كتب مازن ردًّا طويلًا في مجموعة أولياء الأمور على أب انتقد المعلمة. قرأه مرة، فوجد فيه جملة عن «أمثاله». وقرأه مرة ثانية، فحذف الجملة، ثم حذف الرد كله. وكتب للمعلمة وحدها رسالة قصيرة يشكرها فيها على صبرها، وأطفأ الهاتف."
         ],
         ar_f: [
           "تختلف الكلمة على الشاشة عن الكلمة في المجلس في أمرين: أنها تبقى، وأنها تصل إلى من لا تعرفينه. تعليق قاله صاحبه في لحظة غضب قد يقرؤه المقصود به بعد سنوات، وقد يقرؤه أولاده.",
-          "وكثير ممن يكتبون على الإنترنت لا يكتبون ما يقولونه في وجه أحد. يسخرون من شكل إنسان، أو يفضحون خطأه، أو يتهمونه بما سمعوا. والقرآن يذكّر بأن الكلمة كلها محفوظة: ﴿مَا يَلْفِظُ مِنْ قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ﴾ (ق 50:18). وما يُكتب أولى بالحفظ مما يُلفظ.",
+          "وكثير ممن يكتبون على الإنترنت يكتبون ما لا يقولونه في وجه أحد. يسخرون من شكل إنسان، أو يفضحون خطأه، أو يتهمونه بما سمعوا. والقرآن يذكّر بأن الكلمة كلها محفوظة: ﴿مَا يَلْفِظُ مِنْ قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ﴾ (ق 50:18). وما يُكتب أولى بالحفظ مما يُلفظ.",
           "وقال النبي صلى الله عليه وآله وسلم: «الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ» (البخاري 10). واليد اليوم تكتب، فتؤذي كما يؤذي اللسان.",
           "وفي «إحياء علوم الدين» كتاب كامل في آفات اللسان، عدّها الغزالي عشرين آفة، وأولها «الكلام فيما لا يعنيك». وأكثر ما يُكتب في التعليقات من هذا الباب: رأي في أمر لا يخص كاتبه، ولم يُسأل عنه.",
-          "خطوات عملية: اقرئي ما كتبتِ مرتين قبل أن تنشريه، واسألي: هل أقوله في وجه صاحبه؟ لا تكتبي وأنتِ غاضبة. وإذا رأيتِ من يُهاجَم ظلمًا فاكتبي كلمة طيبة بدل أن تزيدي الهجوم. ويكفيك أحيانًا ألا تكتبي شيئًا."
+          "خطوات عملية: اقرئي ما كتبتِ مرتين قبل أن تنشريه، واسألي: هل أقوله في وجه صاحبه؟ لا تكتبي وأنتِ غاضبة. وإذا رأيتِ من يُهاجَم ظلمًا فاكتبي كلمة طيبة بدل أن تزيدي الهجوم. ويكفيك أحيانًا ألا تكتبي شيئًا.",
+          "في الحادية عشرة ليلًا كتب مازن ردًّا طويلًا في مجموعة أولياء الأمور على أب انتقد المعلمة. قرأه مرة، فوجد فيه جملة عن «أمثاله». وقرأه مرة ثانية، فحذف الجملة، ثم حذف الرد كله. وكتب للمعلمة وحدها رسالة قصيرة يشكرها فيها على صبرها، وأطفأ الهاتف."
         ],
         en: [
           "A word on a screen differs from a word in company in two ways: it stays, and it reaches people you don't know. A comment written in a moment of anger may be read by the person it targets years later, or by their children.",
           "Many who write online write what they would never say to anyone's face. They mock a person's looks, expose their mistake, or accuse them of what they have heard. The Quran reminds us that every word is recorded, meaning: not a word does one utter but there is a watcher ready beside him (Qaf 50:18). What is written is all the more recorded than what is spoken.",
           "The Prophet, peace and blessings be upon him and his family, said: «The Muslim is the one from whose tongue and hand the Muslims are safe» (Bukhari 10). Today the hand types, and can hurt as the tongue does.",
           "The Ihya 'Ulum al-Din has a whole book on the afflictions of the tongue. Al-Ghazali counts twenty, the first being «speaking about what does not concern you». Much of what is written in comment sections belongs here: an opinion on a matter that does not concern the writer, which no one asked for.",
-          "Practical steps: read what you wrote twice before posting, and ask: would I say this to their face? Don't write while angry. When you see someone attacked unjustly, write a kind word rather than add to the attack. And sometimes it is enough to write nothing."
+          "Practical steps: read what you wrote twice before posting, and ask: would I say this to their face? Don't write while angry. When you see someone attacked unjustly, write a kind word rather than add to the attack. And sometimes it is enough to write nothing.",
+          "At eleven at night Mazen wrote a long reply in the parents' group to a father who had criticised the teacher. He read it once and found a sentence about «people like him». He read it a second time, deleted the sentence, then deleted the whole reply. He wrote the teacher alone a short message thanking her for her patience, and switched off the phone."
         ]
       },
       quote: {
         ar: "﴿مَا يَلْفِظُ مِنْ قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ﴾",
         en: "Meaning (not a translation): Not a word does one utter but there is a watcher ready beside him.",
-        ref: "ق 50:18", checked: "tanzil quran-simple, with diacritics (api.alquran.cloud)", verify: true
+        ref: "ق 50:18",
+        checked: "tanzil quran-simple, with diacritics (api.alquran.cloud)",
+        verify: true
       },
-      source: { ar: "مقالة مع آية من سورة ق، وحديث في صحيح البخاري، وإحياء علوم الدين للغزالي (كتاب آفات اللسان).", en: "An article with a verse from Qaf, a hadith in Sahih al-Bukhari, and al-Ghazali's Ihya (Book of the Afflictions of the Tongue)." }
+      source: {
+        ar: "مقالة مع آية من سورة ق، وحديث في صحيح البخاري، وإحياء علوم الدين للغزالي (كتاب آفات اللسان)، ومشهد بشخصية خيالية.",
+        en: "An article with a verse from Qaf, a hadith in Sahih al-Bukhari, al-Ghazali's Ihya (Book of the Afflictions of the Tongue), and a scene with a fictional character."
+      }
     },
     {
-      id: "ah-r2", minutes: 4, ages: "18+",
+      id: "ah-r2",
+      minutes: 4,
+      ages: "18+",
       title: { ar: "الموعد الذي يتأخر", en: "The deadline that keeps slipping" },
       body: {
         ar: [
           "تعمل هالة مصممة مستقلة. كانت تقبل كل مشروع يُعرض عليها، وتعد كل عميل بموعد قريب لتكسبه، ثم تتأخر. تعتذر بالمرض مرة، وبانقطاع الإنترنت مرة، وبضغط العمل مرات.",
           "وفي يوم كتب لها عميل قديم: «عملك جميل، لكني لا أستطيع أن أبني موعدي على وعدك». وخسرت أكبر عملائها في الشهر نفسه.",
-          "قال النبي صلى الله عليه وآله وسلم: «آيَةُ الْمُنَافِقِ ثَلاَثٌ إِذَا حَدَّثَ كَذَبَ، وَإِذَا وَعَدَ أَخْلَفَ، وَإِذَا اؤْتُمِنَ خَانَ» (البخاري 33). وخلف الموعد في العمل ليس أمرًا صغيرًا: هو وعد يُخلف، وأمانة وقت لا تُؤدّى، وعذر قد يكون كذبًا.",
+          "قال النبي صلى الله عليه وآله وسلم: «آيَةُ الْمُنَافِقِ ثَلاَثٌ إِذَا حَدَّثَ كَذَبَ، وَإِذَا وَعَدَ أَخْلَفَ، وَإِذَا اؤْتُمِنَ خَانَ» (البخاري 33). وخُلف الموعد في العمل يحمل الثلاث معًا: وعد يُخلَف، وأمانة وقت لا تُؤدّى، وعذر قد يكون كذبًا.",
           "وفي صفات المؤمنين المفلحين: ﴿وَالَّذِينَ هُمْ لِأَمَانَاتِهِمْ وَعَهْدِهِمْ رَاعُونَ﴾ (المؤمنون 23:8). والرعاية حفظ دائم، لا وفاء متقطع حين يسهل.",
-          "غيّرت هالة طريقتها: صارت تحسب الوقت الذي يحتاجه العمل وتزيد عليه، وتعد بموعد تستطيع الوفاء به، وترفض المشروع الذي لا يتسع له وقتها. قلّ عملاؤها الجدد أولًا، ثم صار عملاؤها يعودون إليها، ويدلّون غيرهم عليها."
+          "جلست هالة ليلة مع تقويمها، وحسبت كم يأخذ كل عمل حقًّا، وزادت عليه يومين. ولم تعد تعد إلا بموعد تقدر عليه، ولو خسرت به المشروع.",
+          "وفي الشهر التالي اتصل بها صاحب متجر يريد شعارًا خلال أسبوع. نظرت في التقويم، فرأت مشروعين قبله، فقالت: «أستطيع أن أسلّمه بعد ثلاثة أسابيع، لا قبل ذلك». سكت الرجل قليلًا، ثم قال: «هذا أول موعد يعطينيه أحد وأصدّقه». وسلّمته الشعار قبل الموعد بيومين."
         ],
         en: [
           "Hala works as a freelance designer. She used to accept every project offered, promise every client an early date to win them, then run late. One time she blamed illness, another time the internet, many times the workload.",
           "One day an old client wrote to her: «Your work is beautiful, but I can't build my deadline on your promise.» In the same month she lost her biggest client.",
-          "The Prophet, peace and blessings be upon him and his family, said: «The signs of a hypocrite are three: when he speaks he lies, when he promises he breaks it, and when he is trusted he betrays» (Bukhari 33). A missed deadline at work is no small thing: it is a broken promise, a trust of time not rendered, and an excuse that may be a lie.",
+          "The Prophet, peace and blessings be upon him and his family, said: «The sign of a hypocrite is three: when he speaks he lies, when he promises he breaks it, and when he is trusted he betrays» (Bukhari 33). A missed deadline at work can carry all three at once: a promise broken, a trust of time not rendered, and an excuse that may be a lie.",
           "Among the qualities of the successful believers, meaning: those who look after their trusts and their promises (al-Mu'minun 23:8). Looking after means constant care, not keeping faith now and then when it is easy.",
-          "Hala changed her approach: she now estimates the time a job needs and adds to it, promises a date she can keep, and turns down projects her schedule can't hold. At first she had fewer new clients; then her clients began coming back to her, and sending others her way."
+          "Hala sat one night with her calendar and worked out how long each job really takes, then added two days. From then on she promised only dates she could keep, even if it cost her the project.",
+          "The next month a shop owner called wanting a logo within a week. She looked at the calendar, saw two projects ahead of his, and said: «I can deliver it in three weeks, not before.» The man was quiet for a moment, then said: «That's the first deadline anyone has given me that I actually believe.» She delivered the logo two days early."
         ]
       },
       quote: {
         ar: "﴿وَالَّذِينَ هُمْ لِأَمَانَاتِهِمْ وَعَهْدِهِمْ رَاعُونَ﴾",
         en: "Meaning (not a translation): Those who look after their trusts and their promises.",
-        ref: "المؤمنون 23:8", checked: "tanzil quran-simple, with diacritics (api.alquran.cloud)", verify: true
+        ref: "المؤمنون 23:8",
+        checked: "tanzil quran-simple, with diacritics (api.alquran.cloud)",
+        verify: true
       },
-      source: { ar: "قصة مؤلفة بشخصيات خيالية، مع حديث في صحيح البخاري وآية من سورة المؤمنون.", en: "An original story with fictional characters, with a hadith in Sahih al-Bukhari and a verse from al-Mu'minun." }
+      source: {
+        ar: "قصة مؤلفة بشخصيات خيالية، مع حديث في صحيح البخاري وآية من سورة المؤمنون.",
+        en: "An original story with fictional characters, with a hadith in Sahih al-Bukhari and a verse from al-Mu'minun."
+      }
     },
     {
-      id: "ah-r3", minutes: 4, ages: "18+",
+      id: "ah-r3",
+      minutes: 4,
+      ages: "18+",
       title: { ar: "«فَأَعْطِ كُلَّ ذِي حَقٍّ حَقَّهُ»", en: "«Give each one its due»" },
       body: {
         ar: [
@@ -2187,240 +2234,346 @@ window.AKHLAQ_CONTENT_ADULT.stages.human = {
           "كان أبو الدرداء يصوم النهار ويقوم الليل كله. فبات سلمان عنده، وأمره أن يأكل وينام، ثم قاما يصليان في آخر الليل، وقال له: «إِنَّ لِرَبِّكَ عَلَيْكَ حَقًّا، وَلِنَفْسِكَ عَلَيْكَ حَقًّا، وَلأَهْلِكَ عَلَيْكَ حَقًّا، فَأَعْطِ كُلَّ ذِي حَقٍّ حَقَّهُ». فذكر أبو الدرداء ذلك للنبي صلى الله عليه وآله وسلم، فقال: «صَدَقَ سَلْمَانُ» (البخاري 1968).",
           "أداء الواجب عند الكبار ميزان بين حقوق كثيرة: حق الله في العبادة، وحق العمل في الإتقان، وحق الجسد في النوم والطعام، وحق الزوج والأولاد في الوقت والرعاية. ومن أعطى حقًّا واحدًا كل وقته ضيّع غيره، ولو كان الحق الذي أعطاه عبادة.",
           "وفي القرآن أمر جامع في معاملة الزوجة: ﴿وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ﴾ (النساء 4:19). والمعروف يشمل الوقت والكلمة والاهتمام، لا النفقة وحدها. والحقوق بين الزوجين متبادلة، فقد قال تعالى: ﴿وَلَهُنَّ مِثْلُ الَّذِي عَلَيْهِنَّ بِالْمَعْرُوفِ﴾ (البقرة 2:228).",
-          "خطوات عملية: اكتب أصحاب الحقوق عليك في ورقة: ربك، ونفسك، وأهلك، وعملك، ووالديك. وانظر من منهم يأخذ أقل من حقه هذا الشهر، وأعطه ساعة إضافية هذا الأسبوع."
+          "خطوات عملية: اكتب أصحاب الحقوق عليك في ورقة: ربك، ونفسك، وأهلك، وعملك، ووالديك. وانظر من منهم يأخذ أقل من حقه هذا الشهر، وأعطه ساعة إضافية هذا الأسبوع.",
+          "كتب عمرو الورقة ليلة الخميس، فرأى أن العمل يأخذ مساءه كله، وأن أمه لم تسمع صوته منذ أسبوعين. وفي الجمعة أغلق حاسوب العمل بعد العصر، واتصل بأمه، وخرج بأولاده إلى الحديقة، ثم صلّى المغرب معهم في المسجد القريب."
         ],
         ar_f: [
           "آخى النبي صلى الله عليه وآله وسلم بين سلمان الفارسي وأبي الدرداء رضي الله عنهما. فزار سلمان أخاه، فرأى زوجته أم الدرداء في ثياب مهملة، فسألها عن شأنها، فقالت: أخوك أبو الدرداء ليس له حاجة في الدنيا.",
           "كان أبو الدرداء يصوم النهار ويقوم الليل كله. فبات سلمان عنده، وأمره أن يأكل وينام، ثم قاما يصليان في آخر الليل، وقال له: «إِنَّ لِرَبِّكَ عَلَيْكَ حَقًّا، وَلِنَفْسِكَ عَلَيْكَ حَقًّا، وَلأَهْلِكَ عَلَيْكَ حَقًّا، فَأَعْطِ كُلَّ ذِي حَقٍّ حَقَّهُ». فذكر أبو الدرداء ذلك للنبي صلى الله عليه وآله وسلم، فقال: «صَدَقَ سَلْمَانُ» (البخاري 1968).",
           "أداء الواجب عند الكبار ميزان بين حقوق كثيرة: حق الله في العبادة، وحق العمل في الإتقان، وحق الجسد في النوم والطعام، وحق الزوج والأولاد في الوقت والرعاية. ومن أعطى حقًّا واحدًا كل وقته ضيّع غيره، ولو كان الحق الذي أعطاه عبادة.",
           "وفي القرآن أمر جامع في معاملة الزوجة: ﴿وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ﴾ (النساء 4:19). والمعروف يشمل الوقت والكلمة والاهتمام، لا النفقة وحدها. والحقوق بين الزوجين متبادلة، فقد قال تعالى: ﴿وَلَهُنَّ مِثْلُ الَّذِي عَلَيْهِنَّ بِالْمَعْرُوفِ﴾ (البقرة 2:228).",
-          "خطوات عملية: اكتبي أصحاب الحقوق عليك في ورقة: ربك، ونفسك، وأهلك، وعملك، ووالديك. وانظري من منهم يأخذ أقل من حقه هذا الشهر، وأعطيه ساعة إضافية هذا الأسبوع."
+          "خطوات عملية: اكتبي أصحاب الحقوق عليك في ورقة: ربك، ونفسك، وأهلك، وعملك، ووالديك. وانظري من منهم يأخذ أقل من حقه هذا الشهر، وأعطيه ساعة إضافية هذا الأسبوع.",
+          "كتب عمرو الورقة ليلة الخميس، فرأى أن العمل يأخذ مساءه كله، وأن أمه لم تسمع صوته منذ أسبوعين. وفي الجمعة أغلق حاسوب العمل بعد العصر، واتصل بأمه، وخرج بأولاده إلى الحديقة، ثم صلّى المغرب معهم في المسجد القريب."
         ],
         en: [
           "The Prophet, peace and blessings be upon him and his family, made Salman al-Farisi and Abu al-Darda brothers, may Allah be pleased with them both. Salman visited his brother and saw his wife, Umm al-Darda, in neglected clothes. He asked what was the matter, and she said: your brother Abu al-Darda has no interest in this world.",
           "Abu al-Darda fasted every day and prayed all night. Salman stayed the night with him, told him to eat and to sleep, then they both rose to pray in the last part of the night, and Salman said to him: «Your Lord has a right over you, your self has a right over you, and your family has a right over you, so give each one its due.» Abu al-Darda mentioned this to the Prophet, who said: «Salman has spoken the truth» (Bukhari 1968).",
           "For adults, doing what is due is a balance between many rights: Allah's right in worship, work's right to be done well, the body's right to sleep and food, and the right of spouse and children to time and care. Whoever gives one right all their time neglects the others, even if the right they gave it to is worship.",
           "The Quran gives a comprehensive command about living with one's wife, meaning: live with them in kindness (an-Nisa 4:19). Kindness covers time, words and attention, not only provision. Rights between spouses run both ways; Allah says, meaning: and women have rights like those owed by them, in kindness (al-Baqara 2:228).",
-          "Practical steps: write down on paper those who have rights over you: your Lord, yourself, your family, your work, your parents. See which of them is getting less than its due this month, and give it an extra hour this week."
+          "Practical steps: write down on paper those who have rights over you: your Lord, yourself, your family, your work, your parents. See which of them is getting less than its due this month, and give it an extra hour this week.",
+          "Amr wrote the list on Thursday night and saw that work was taking all his evenings, and that his mother had not heard his voice in two weeks. On Friday he shut the work laptop after the afternoon prayer, called his mother, took his children to the park, and prayed maghrib with them at the nearby mosque."
         ]
       },
       quote: {
         ar: "«إِنَّ لِرَبِّكَ عَلَيْكَ حَقًّا، وَلِنَفْسِكَ عَلَيْكَ حَقًّا، وَلأَهْلِكَ عَلَيْكَ حَقًّا، فَأَعْطِ كُلَّ ذِي حَقٍّ حَقَّهُ»",
         en: "Meaning: Your Lord has a right over you, your self has a right over you, and your family has a right over you, so give each one its due.",
-        ref: "صحيح البخاري 1968، عن أبي جحيفة", checked: "hadith-api (fawazahmed0)", verify: true
+        ref: "صحيح البخاري 1968، عن أبي جحيفة",
+        checked: "hadith-api (fawazahmed0)",
+        verify: true
       },
-      source: { ar: "حديث في صحيح البخاري، مع آيتين من سورتي النساء والبقرة.", en: "A hadith in Sahih al-Bukhari, with verses from an-Nisa and al-Baqara." }
+      source: {
+        ar: "حديث في صحيح البخاري، مع آيتين من سورتي النساء والبقرة، ومشهد بشخصية خيالية.",
+        en: "A hadith in Sahih al-Bukhari, with verses from an-Nisa and al-Baqara, and a scene with a fictional character."
+      }
     },
     {
-      id: "ah-r4", minutes: 4, ages: "18+",
+      id: "ah-r4",
+      minutes: 4,
+      ages: "18+",
       title: { ar: "اعتذار بلا «لكن»", en: "An apology without «but»" },
       body: {
         ar: [
           "يعتذر كثير منا اعتذارًا يحمل دفاعًا: «آسف، لكنك استفززتني»، «أعتذر إن كنت فهمت كلامي خطأ». وهذا الاعتذار يعيد الخطأ إلى الطرف الآخر، فيزيد الجرح بدل أن يداويه.",
-          "وفي القرآن نموذج الاعتذار الأول. أخطأ آدم وحواء، فلم يقولا: أغوانا الشيطان، ولم يلم أحدهما الآخر، بل قالا: ﴿رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ﴾ (الأعراف 7:23). ثم جاء القبول: ﴿فَتَلَقَّىٰ آدَمُ مِنْ رَبِّهِ كَلِمَاتٍ فَتَابَ عَلَيْهِ ۚ إِنَّهُ هُوَ التَّوَّابُ الرَّحِيمُ﴾ (البقرة 2:37).",
+          "وفي القرآن نموذج الاعتذار الأول. أخطأ آدم وحواء، فقالا معًا، ولم يُلقيا اللوم على أحد: ﴿رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ﴾ (الأعراف 7:23). ثم جاء القبول: ﴿فَتَلَقَّىٰ آدَمُ مِنْ رَبِّهِ كَلِمَاتٍ فَتَابَ عَلَيْهِ ۚ إِنَّهُ هُوَ التَّوَّابُ الرَّحِيمُ﴾ (البقرة 2:37).",
           "والاعتذار الصادق إلى الناس فيه ثلاثة أشياء: أن تسمّي الخطأ («رفعت صوتي عليك»)، وأن تقرّ بأثره («وأعرف أن ذلك جرحك»)، وأن تصلح ما تستطيع («ولن أكلمك هكذا مرة أخرى»).",
           "وأصعب الاعتذار ما يكون للأقرب: للزوج، وللولد، وللوالدين. نظن أن المكانة تضيع بالاعتذار، والحقيقة أن الأولاد يتعلمون الرجوع عن الخطأ حين يرون آباءهم وأمهاتهم يرجعون.",
-          "خطوات عملية: إذا أخطأت فلا تؤجل الاعتذار حتى تبرد المسألة، فالتأجيل يجعلها تتجذّر. قل الجملة كاملة دون «لكن». ولا تطلب من الآخر أن يسامحك فورًا، بل دع له وقته."
+          "خطوات عملية: إذا أخطأت فلا تؤجل الاعتذار حتى تبرد المسألة، فالتأجيل يجعلها تتجذّر. قل الجملة كاملة دون «لكن». ولا تطلب من الآخر أن يسامحك فورًا، بل دع له وقته.",
+          "عاد حسام من عمله متعبًا، فوجد كوبًا مكسورًا على أرض المطبخ، فصاح بابنه الأكبر أمام إخوته. وبعد دقائق قالت الصغيرة إنها هي التي أسقطته. وفي المساء طرق حسام باب غرفة ابنه، وجلس على طرف السرير، وقال: «صرخت عليك أمام إخوتك في أمر لم تفعله، وأعرف أن ذلك أحرجك. أنا آسف». نظر إليه الولد طويلًا، ثم أفسح له مكانًا بجانبه."
         ],
         ar_f: [
           "يعتذر كثير منا اعتذارًا يحمل دفاعًا: «آسف، لكنك استفززتني»، «أعتذر إن كنت فهمت كلامي خطأ». وهذا الاعتذار يعيد الخطأ إلى الطرف الآخر، فيزيد الجرح بدل أن يداويه.",
-          "وفي القرآن نموذج الاعتذار الأول. أخطأ آدم وحواء، فلم يقولا: أغوانا الشيطان، ولم يلم أحدهما الآخر، بل قالا: ﴿رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ﴾ (الأعراف 7:23). ثم جاء القبول: ﴿فَتَلَقَّىٰ آدَمُ مِنْ رَبِّهِ كَلِمَاتٍ فَتَابَ عَلَيْهِ ۚ إِنَّهُ هُوَ التَّوَّابُ الرَّحِيمُ﴾ (البقرة 2:37).",
+          "وفي القرآن نموذج الاعتذار الأول. أخطأ آدم وحواء، فقالا معًا، ولم يُلقيا اللوم على أحد: ﴿رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ﴾ (الأعراف 7:23). ثم جاء القبول: ﴿فَتَلَقَّىٰ آدَمُ مِنْ رَبِّهِ كَلِمَاتٍ فَتَابَ عَلَيْهِ ۚ إِنَّهُ هُوَ التَّوَّابُ الرَّحِيمُ﴾ (البقرة 2:37).",
           "والاعتذار الصادق إلى الناس فيه ثلاثة أشياء: أن تسمّي الخطأ («رفعت صوتي عليك»)، وأن تقرّي بأثره («وأعرف أن ذلك جرحك»)، وأن تصلحي ما تستطيعين («ولن أكلمك هكذا مرة أخرى»).",
           "وأصعب الاعتذار ما يكون للأقرب: للزوج، وللولد، وللوالدين. نظن أن المكانة تضيع بالاعتذار، والحقيقة أن الأولاد يتعلمون الرجوع عن الخطأ حين يرون آباءهم وأمهاتهم يرجعون.",
-          "خطوات عملية: إذا أخطأتِ فلا تؤجلي الاعتذار حتى تبرد المسألة، فالتأجيل يجعلها تتجذّر. قولي الجملة كاملة دون «لكن». ولا تطلبي من الآخر أن يسامحك فورًا، بل دعي له وقته."
+          "خطوات عملية: إذا أخطأتِ فلا تؤجلي الاعتذار حتى تبرد المسألة، فالتأجيل يجعلها تتجذّر. قولي الجملة كاملة دون «لكن». ولا تطلبي من الآخر أن يسامحك فورًا، بل دعي له وقته.",
+          "عاد حسام من عمله متعبًا، فوجد كوبًا مكسورًا على أرض المطبخ، فصاح بابنه الأكبر أمام إخوته. وبعد دقائق قالت الصغيرة إنها هي التي أسقطته. وفي المساء طرق حسام باب غرفة ابنه، وجلس على طرف السرير، وقال: «صرخت عليك أمام إخوتك في أمر لم تفعله، وأعرف أن ذلك أحرجك. أنا آسف». نظر إليه الولد طويلًا، ثم أفسح له مكانًا بجانبه."
         ],
         en: [
           "Many of us apologise with a defence inside: «Sorry, but you provoked me», «I apologise if you misunderstood me». Such an apology hands the fault back to the other person and deepens the wound instead of healing it.",
-          "The Quran holds the first model of apology. Adam and Hawwa went wrong, and they did not say «Satan led us astray», nor did either blame the other. They said, meaning: our Lord, we have wronged ourselves, and if You do not forgive us and have mercy on us, we will surely be among the losers (al-A'raf 7:23). Then came the acceptance, meaning: Adam received words from his Lord, and He turned to him; He is the Ever-Relenting, the Merciful (al-Baqara 2:37).",
+          "The Quran holds the first model of apology. Adam and Hawwa went wrong, and together, laying the blame on no one, they said, meaning: our Lord, we have wronged ourselves, and if You do not forgive us and have mercy on us, we will surely be among the losers (al-A'raf 7:23). Then came the acceptance, meaning: Adam received words from his Lord, and He turned to him; He is the Ever-Relenting, the Merciful (al-Baqara 2:37).",
           "A sincere apology to people has three parts: naming the mistake («I raised my voice at you»), acknowledging its effect («and I know it hurt you»), and repairing what you can («and I won't speak to you like that again»).",
           "The hardest apologies are to those closest: a spouse, a child, a parent. We think we lose standing by apologising, when in truth children learn to turn back from mistakes by watching their fathers and mothers turn back.",
-          "Practical steps: when you are wrong, don't put off apologising until things cool down, for delay lets it take root. Say the whole sentence without «but». And don't ask the other person to forgive you at once; give them their time."
+          "Practical steps: when you are wrong, don't put off apologising until things cool down, for delay lets it take root. Say the whole sentence without «but». And don't ask the other person to forgive you at once; give them their time.",
+          "Hussam came home tired from work, found a broken cup on the kitchen floor, and shouted at his eldest son in front of his siblings. A few minutes later the youngest said she was the one who had dropped it. That evening Hussam knocked on his son's door, sat on the edge of the bed, and said: «I shouted at you in front of your brothers and sisters over something you didn't do, and I know it embarrassed you. I'm sorry.» The boy looked at him for a long moment, then moved over to make room beside him."
         ]
       },
       quote: {
         ar: "﴿رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ﴾",
         en: "Meaning (not a translation): Our Lord, we have wronged ourselves, and if You do not forgive us and have mercy on us, we will surely be among the losers.",
-        ref: "الأعراف 7:23", checked: "tanzil quran-simple, with diacritics (api.alquran.cloud)", verify: true
+        ref: "الأعراف 7:23",
+        checked: "tanzil quran-simple, with diacritics (api.alquran.cloud)",
+        verify: true
       },
-      source: { ar: "مقالة مع آيتين من سورتي الأعراف والبقرة.", en: "An article with verses from al-A'raf and al-Baqara." }
+      source: {
+        ar: "مقالة مع آيتين من سورتي الأعراف والبقرة، ومشهد بشخصيات خيالية.",
+        en: "An article with verses from al-A'raf and al-Baqara, and a scene with fictional characters."
+      }
     },
     {
-      id: "ah-r5", minutes: 4, ages: "18+",
-      title: { ar: "الدَّين المؤجل", en: "The postponed debt" },
+      id: "ah-r5",
+      minutes: 4,
+      ages: "18+",
+      title: { ar: "هاتف يوسف", en: "Yusuf's phone" },
       body: {
         ar: [
-          "اقترض منصور من صديقه مبلغًا حين ضاقت به الحال، ووعده أن يردّه بعد ثلاثة أشهر. ومرت الأشهر الثلاثة، وتحسنت حاله، واشترى هاتفًا جديدًا وسافر مع أسرته، والدين في مكانه.",
-          "لم يطالبه صديقه حياءً. لكنه صار يتجنب لقاءه، وصارت المودة بينهما ثقيلة. ثم علم منصور من صديق ثالث أن صاحب الدين يحتاج المال لعلاج أمه.",
-          "قال النبي صلى الله عليه وآله وسلم: «مَطْلُ الْغَنِيِّ ظُلْمٌ» (البخاري 2287). والمطل أن يؤخر القادرُ ما عليه وهو يستطيع أداءه. سمّاه النبي ظلمًا، ولو كان صاحب الدين صديقًا لا يطالب.",
-          "وفي الجهة الأخرى أدب للدائن: ﴿وَإِنْ كَانَ ذُو عُسْرَةٍ فَنَظِرَةٌ إِلَىٰ مَيْسَرَةٍ ۚ وَأَنْ تَصَدَّقُوا خَيْرٌ لَكُمْ﴾ (البقرة 2:280). فالمعسر يُمهَل، والقادر يؤدي. ومن عجز حقًّا فليصارح صاحب الحق ولا يختفِ عنه.",
-          "ذهب منصور إلى صديقه في اليوم نفسه، وردّ له المال كله، واعتذر عن التأخير. وقال له صديقه: لم يكن المال ما أحزنني. ثم عادت جلستهما الأسبوعية كما كانت."
-        ],
-        en: [
-          "Mansour borrowed money from a friend when times were hard, and promised to repay it in three months. The three months passed, his situation improved, he bought a new phone and travelled with his family, and the debt stayed where it was.",
-          "His friend was too shy to ask. But he began avoiding him, and their friendship grew heavy. Then Mansour learned from a third friend that the lender needed the money for his mother's treatment.",
-          "The Prophet, peace and blessings be upon him and his family, said: «Delay by one who is able to pay is injustice» (Bukhari 2287). Delay here means someone able to pay holding back what he owes. The Prophet called it injustice, even when the lender is a friend who never asks.",
-          "On the other side there is a courtesy owed by the lender, meaning: if the debtor is in hardship, then grant him time until ease; and to give it as charity is better for you (al-Baqara 2:280). The one in hardship is given time, and the one who can pay pays. Whoever truly cannot should speak openly to the lender, not disappear.",
-          "Mansour went to his friend that same day, repaid all the money and apologised for the delay. His friend said: it wasn't the money that saddened me. Then their weekly visit went back to how it had been."
-        ]
-      },
-      quote: {
-        ar: "«مَطْلُ الْغَنِيِّ ظُلْمٌ»",
-        en: "Meaning: Delay by one who is able to pay is injustice.",
-        ref: "صحيح البخاري 2287، عن أبي هريرة", checked: "hadith-api (fawazahmed0)", verify: true
-      },
-      source: { ar: "قصة مؤلفة بشخصيات خيالية، مع حديث في صحيح البخاري وآية من سورة البقرة.", en: "An original story with fictional characters, with a hadith in Sahih al-Bukhari and a verse from al-Baqara." }
-    },
-    {
-      id: "ah-r6", minutes: 5, ages: "18+",
-      title: { ar: "التوبة: علم، وحال، وفعل", en: "Repentance: knowledge, state and action" },
-      body: {
-        ar: [
-          "يظن بعض الناس أن التوبة كلمة تُقال: «أستغفر الله» ثم يمضي. ويظن آخرون أن من أذنب كثيرًا فات وقته. والقرآن يدعو المؤمنين جميعًا إلى التوبة: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا تُوبُوا إِلَى اللَّهِ تَوْبَةً نَصُوحًا﴾ (التحريم 66:8).",
-          "وفي «إحياء علوم الدين» (كتاب التوبة) يشرح الغزالي التوبة شرحًا دقيقًا، فيقول: «إن التوبة عبارة عن معنى ينتظم ويلتئم من ثلاثة أمور مرتبة: علم، وحال، وفعل».",
-          "العلم: أن يعرف الإنسان ضرر الذنب، وأنه حجاب بينه وبين ربه. فإذا عرف ذلك حقًّا جاءت الحال، وهي الندم: ألم في القلب على ما فات. ثم يثمر الندم فعلًا في ثلاثة أزمنة: يترك الذنب الآن، ويعزم ألا يعود إليه، ويتدارك ما مضى بقضاء ما فاته وردّ الحقوق إلى أهلها.",
-          "وبهذا الترتيب يُفهم لماذا لا تكفي الكلمة وحدها: من لم يعرف ضرر الذنب لم يندم، ومن لم يندم لم يترك. ومن كان ذنبه في حق إنسان، كغيبة أو مال أو ظلم، فتوبته لا تتم إلا بإصلاح ما بينه وبين ذلك الإنسان.",
-          "خطوات عملية: اختر ذنبًا واحدًا تعود إليه كثيرًا. اكتب ما يضرك منه في دينك وأهلك وعملك. ثم اسأل: ما الذي يسبقه عادة؟ وغيّر ذلك. وإن عدت إليه فتب مرة أخرى، فباب التوبة لا يُغلق بالتكرار، والله تعالى يقول عن نفسه: ﴿إِنَّهُ هُوَ التَّوَّابُ الرَّحِيمُ﴾."
+          "اشترى خالد لابنه الأكبر يوسف هاتفًا جديدًا يوم ظهرت نتيجته بتفوق، وقال على مائدة العشاء: «هذا لمن يتعب». وكان ابنه الأوسط سامي قد نجح بدرجات أقل بعد سنة صعبة مع القراءة، يذاكر فيها كل ليلة ساعة أطول من أخيه.",
+          "لم يقل سامي شيئًا. لكنه صار يترك كتبه مغلقة على المكتب، وإذا سُئل عن المدرسة قال: «أنا لست مثل يوسف». وفي ليلة سمع خالد ابنته الصغيرة تسأل أمها همسًا: «هل يحب بابا يوسف أكثر منا؟»",
+          "وفي صحيح البخاري أن النعمان بن بشير رضي الله عنهما حدّث أن أباه أعطاه عطية، فقالت أمه عمرة بنت رواحة رضي الله عنها: لا أرضى حتى تُشهد رسول الله صلى الله عليه وآله وسلم. فأتاه أبوه، فسأله: «أَعْطَيْتَ سَائِرَ وَلَدِكَ مِثْلَ هَذَا؟». قال: لا. قال: «فَاتَّقُوا اللَّهَ، وَاعْدِلُوا بَيْنَ أَوْلاَدِكُمْ». فرجع فردّ عطيته (البخاري 2587).",
+          "والعدل بين الأولاد أوسع من الهدايا. يكون في المديح الذي يُقال أمام الإخوة، وفي المقارنة التي تجرح، وفي الوقت: من يجلس معه الأب، ومن تسأله الأم عن يومه. والولد يقيس محبة أبويه بما يرى إخوته يُعطَون، قبل ما يُعطى هو.",
+          "خطوات عملية: إذا أعطيت أحد أولادك شيئًا فاسأل نفسك: ماذا يرى إخوته؟ امدح كل ولد على جهده هو، ولا تقارنه بأخيه. واجعل لكل واحد منهم هذا الأسبوع وقتًا معك وحده، ولو ربع ساعة.",
+          "في يوم الجمعة أخذ خالد سامي وحده إلى المكتبة، وتركه يختار كتابين، وقال له في الطريق: «رأيتك تذاكر كل ليلة، وأعرف كم تتعب». وفي المساء جمع أولاده الثلاثة، وقال إن كل من يُتم كتابًا هذا الشهر يختار معه نزهة يوم السبت. ونام سامي تلك الليلة وكتاب المكتبة مفتوح على صدره."
         ],
         ar_f: [
-          "يظن بعض الناس أن التوبة كلمة تُقال: «أستغفر الله» ثم يمضي. ويظن آخرون أن من أذنب كثيرًا فات وقته. والقرآن يدعو المؤمنين جميعًا إلى التوبة: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا تُوبُوا إِلَى اللَّهِ تَوْبَةً نَصُوحًا﴾ (التحريم 66:8).",
-          "وفي «إحياء علوم الدين» (كتاب التوبة) يشرح الغزالي التوبة شرحًا دقيقًا، فيقول: «إن التوبة عبارة عن معنى ينتظم ويلتئم من ثلاثة أمور مرتبة: علم، وحال، وفعل».",
-          "العلم: أن يعرف الإنسان ضرر الذنب، وأنه حجاب بينه وبين ربه. فإذا عرف ذلك حقًّا جاءت الحال، وهي الندم: ألم في القلب على ما فات. ثم يثمر الندم فعلًا في ثلاثة أزمنة: يترك الذنب الآن، ويعزم ألا يعود إليه، ويتدارك ما مضى بقضاء ما فاته وردّ الحقوق إلى أهلها.",
-          "وبهذا الترتيب يُفهم لماذا لا تكفي الكلمة وحدها: من لم يعرف ضرر الذنب لم يندم، ومن لم يندم لم يترك. ومن كان ذنبه في حق إنسان، كغيبة أو مال أو ظلم، فتوبته لا تتم إلا بإصلاح ما بينه وبين ذلك الإنسان.",
-          "خطوات عملية: اختاري ذنبًا واحدًا تعودين إليه كثيرًا. اكتبي ما يضرك منه في دينك وأهلك وعملك. ثم اسألي: ما الذي يسبقه عادة؟ وغيّري ذلك. وإن عدتِ إليه فتوبي مرة أخرى، فباب التوبة لا يُغلق بالتكرار، والله تعالى يقول عن نفسه: ﴿إِنَّهُ هُوَ التَّوَّابُ الرَّحِيمُ﴾."
+          "اشترى خالد لابنه الأكبر يوسف هاتفًا جديدًا يوم ظهرت نتيجته بتفوق، وقال على مائدة العشاء: «هذا لمن يتعب». وكان ابنه الأوسط سامي قد نجح بدرجات أقل بعد سنة صعبة مع القراءة، يذاكر فيها كل ليلة ساعة أطول من أخيه.",
+          "لم يقل سامي شيئًا. لكنه صار يترك كتبه مغلقة على المكتب، وإذا سُئل عن المدرسة قال: «أنا لست مثل يوسف». وفي ليلة سمع خالد ابنته الصغيرة تسأل أمها همسًا: «هل يحب بابا يوسف أكثر منا؟»",
+          "وفي صحيح البخاري أن النعمان بن بشير رضي الله عنهما حدّث أن أباه أعطاه عطية، فقالت أمه عمرة بنت رواحة رضي الله عنها: لا أرضى حتى تُشهد رسول الله صلى الله عليه وآله وسلم. فأتاه أبوه، فسأله: «أَعْطَيْتَ سَائِرَ وَلَدِكَ مِثْلَ هَذَا؟». قال: لا. قال: «فَاتَّقُوا اللَّهَ، وَاعْدِلُوا بَيْنَ أَوْلاَدِكُمْ». فرجع فردّ عطيته (البخاري 2587).",
+          "والعدل بين الأولاد أوسع من الهدايا. يكون في المديح الذي يُقال أمام الإخوة، وفي المقارنة التي تجرح، وفي الوقت: من يجلس معه الأب، ومن تسأله الأم عن يومه. والولد يقيس محبة أبويه بما يرى إخوته يُعطَون، قبل ما يُعطى هو.",
+          "خطوات عملية: إذا أعطيتِ أحد أولادك شيئًا فاسألي نفسك: ماذا يرى إخوته؟ امدحي كل ولد على جهده هو، ولا تقارنيه بأخيه. واجعلي لكل واحد منهم هذا الأسبوع وقتًا معكِ وحده، ولو ربع ساعة.",
+          "في يوم الجمعة أخذ خالد سامي وحده إلى المكتبة، وتركه يختار كتابين، وقال له في الطريق: «رأيتك تذاكر كل ليلة، وأعرف كم تتعب». وفي المساء جمع أولاده الثلاثة، وقال إن كل من يُتم كتابًا هذا الشهر يختار معه نزهة يوم السبت. ونام سامي تلك الليلة وكتاب المكتبة مفتوح على صدره."
         ],
         en: [
-          "Some people think repentance is a word one says, «I seek Allah's forgiveness», and moves on. Others think that whoever has sinned a great deal has missed their chance. The Quran calls all believers to repentance, meaning: O you who believe, turn to Allah in sincere repentance (at-Tahrim 66:8).",
-          "In the Ihya 'Ulum al-Din (Book of Repentance), al-Ghazali explains repentance precisely: «Repentance is a meaning that is ordered and made whole from three things in sequence: knowledge, state and action.»",
-          "Knowledge: knowing the harm of the sin, that it is a veil between a person and their Lord. When that is truly known, the state follows, which is remorse: pain in the heart over what has passed. Remorse then bears fruit in action across three times: leaving the sin now, resolving not to return to it, and making up for the past by doing what was missed and returning rights to their owners.",
-          "This order shows why the word alone is not enough: whoever does not know the sin's harm does not feel remorse, and whoever feels no remorse does not leave it. And whoever's sin was against a person, such as backbiting, money or injustice, has not completed their repentance until they set right what lies between them and that person.",
-          "Practical steps: choose one sin you keep returning to. Write down how it harms your religion, your family and your work. Then ask: what usually comes just before it? Change that. If you return to it, repent again, for the door of repentance is not shut by repetition, and Allah says of Himself, meaning: He is the Ever-Relenting, the Merciful."
+          "Khalid bought his eldest son Yusuf a new phone the day his top results came out, and said at the dinner table: «This is for whoever works hard.» His middle son Sami had passed with lower grades after a hard year with reading, a year in which he studied an hour longer than his brother every night.",
+          "Sami said nothing. But he began leaving his books closed on the desk, and when asked about school he said: «I'm not like Yusuf.» One night Khalid heard his little daughter whisper to her mother: «Does Baba love Yusuf more than us?»",
+          "In Sahih al-Bukhari, an-Nu'man ibn Bashir, may Allah be pleased with them both, related that his father gave him a gift, and his mother, Amra bint Rawaha, may Allah be pleased with her, said: I will not be content until you have the Messenger of Allah, peace and blessings be upon him and his family, witness it. His father went to him, and he asked: «Have you given the rest of your children the like of this?» He said: No. He said: «Be mindful of Allah, and be fair between your children.» So he went back and took the gift back (Bukhari 2587).",
+          "Fairness between children reaches beyond gifts. It lives in the praise spoken in front of siblings, in the comparison that wounds, and in time: whom the father sits with, whom the mother asks about their day. A child measures his parents' love by what he sees his siblings given before what he is given himself.",
+          "Practical steps: when you give one of your children something, ask yourself: what do the others see? Praise each child for his own effort, and do not compare him with his brother. This week, give each of them some time alone with you, even a quarter of an hour.",
+          "On Friday Khalid took Sami alone to the library, let him choose two books, and said to him on the way: «I've seen you studying every night, and I know how hard you work.» That evening he gathered his three children and said that whoever finished a book this month would choose a Saturday outing with him. Sami fell asleep that night with the library book open on his chest."
         ]
       },
       quote: {
-        ar: "«إن التوبة عبارة عن معنى ينتظم ويلتئم من ثلاثة أمور مرتبة: علم، وحال، وفعل»",
-        en: "Meaning: Repentance is a meaning that is ordered and made whole from three things in sequence: knowledge, state and action.",
-        ref: "إحياء علوم الدين، كتاب التوبة", checked: "ar.wikisource.org (مجلة الرسالة، نقلًا عن إحياء علوم الدين)", verify: true
+        ar: "«فَاتَّقُوا اللَّهَ، وَاعْدِلُوا بَيْنَ أَوْلاَدِكُمْ»",
+        en: "Meaning: Be mindful of Allah, and be fair between your children.",
+        ref: "صحيح البخاري 2587، عن النعمان بن بشير",
+        checked: "hadith-api (fawazahmed0)",
+        verify: true
       },
-      source: { ar: "إحياء علوم الدين للغزالي (كتاب التوبة)، مع آية من سورة التحريم.", en: "Al-Ghazali's Ihya 'Ulum al-Din (Book of Repentance), with a verse from at-Tahrim." }
+      source: { ar: "قصة مؤلفة بشخصيات خيالية، مع حديث في صحيح البخاري.", en: "An original story with fictional characters, with a hadith in Sahih al-Bukhari." }
     },
     {
-      id: "ah-r7", summit: true, minutes: 3, ages: "18+",
+      id: "ah-r6",
+      minutes: 5,
+      ages: "18+",
+      title: { ar: "النفس اللوامة: دقيقتان قبل النوم", en: "The self-reproaching soul: two minutes before sleep" },
+      body: {
+        ar: [
+          "استلقى طارق على فراشه بعد يوم طويل، والهاتف في يده. وقبل أن يفتح المقاطع مرّ يومه أمامه: كلمة حادة قالها لزميله وليد في الاجتماع، ووعد لابنته بأن يقرأ لها قصة ثم نسيه، وصلاة العصر صلّاها في آخر وقتها وذهنه في العمل. وشعر بشيء في داخله يلومه.",
+          "هذا الصوت الذي يلوم صاحبه أقسم الله به: ﴿وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ﴾ (القيامة 75:2). هو بداية الإصلاح، إذا عرف صاحبه ماذا يصنع به قبل أن يغطيه بالمقاطع والنوم.",
+          "وفي «إحياء علوم الدين» (كتاب التوبة) يقول الغزالي: «إن التوبة عبارة عن معنى ينتظم ويلتئم من ثلاثة أمور مرتبة: علم، وحال، وفعل». العلم أن يعرف الإنسان ضرر الذنب. والحال ندم يؤلم القلب على ما فات. والفعل ثمرة الندم في ثلاثة أزمنة: يترك الذنب الآن، ويعزم ألا يعود إليه، ويتدارك ما مضى بقضاء ما فاته وردّ الحقوق إلى أهلها. فاللوم الذي يقف عند الحزن يبقى حزنًا، واللوم الذي يصير فعلًا هو التوبة.",
+          "ويكفي لهذا وقت قصير ثابت. قال النبي صلى الله عليه وآله وسلم: «أَحَبُّ الأَعْمَالِ أَدْوَمُهَا إِلَى اللَّهِ، وَإِنْ قَلَّ» (البخاري 6464). دقيقتان كل ليلة أنفع من ليلة محاسبة طويلة يتبعها شهر من النسيان.",
+          "خطوات عملية: قبل أن تفتح الهاتف في فراشك اسأل نفسك ثلاثة أسئلة: من آذيت اليوم بكلمة أو فعل؟ وأي وعد لم أفِ به؟ وأي حق لله أخّرته؟ ثم اختر أمرًا واحدًا تصلحه غدًا، واستغفر. وإن عدت إلى الذنب نفسه فتب مرة أخرى، وانظر فيما يسبقه عادة فغيّره، فباب التوبة لا يُغلق بالتكرار.",
+          "وضع طارق الهاتف على الطاولة مقلوبًا، وكتب على ورقة صغيرة: «وليد. القصة». وفي الصباح بدأ الاجتماع بكلمة لزميله لم يسمعها غيرهما. وفي المساء جلس على طرف سرير ابنته يقرأ لها، حتى نامت قبل أن تنتهي القصة."
+        ],
+        ar_f: [
+          "استلقى طارق على فراشه بعد يوم طويل، والهاتف في يده. وقبل أن يفتح المقاطع مرّ يومه أمامه: كلمة حادة قالها لزميله وليد في الاجتماع، ووعد لابنته بأن يقرأ لها قصة ثم نسيه، وصلاة العصر صلّاها في آخر وقتها وذهنه في العمل. وشعر بشيء في داخله يلومه.",
+          "هذا الصوت الذي يلوم صاحبه أقسم الله به: ﴿وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ﴾ (القيامة 75:2). هو بداية الإصلاح، إذا عرف صاحبه ماذا يصنع به قبل أن يغطيه بالمقاطع والنوم.",
+          "وفي «إحياء علوم الدين» (كتاب التوبة) يقول الغزالي: «إن التوبة عبارة عن معنى ينتظم ويلتئم من ثلاثة أمور مرتبة: علم، وحال، وفعل». العلم أن يعرف الإنسان ضرر الذنب. والحال ندم يؤلم القلب على ما فات. والفعل ثمرة الندم في ثلاثة أزمنة: يترك الذنب الآن، ويعزم ألا يعود إليه، ويتدارك ما مضى بقضاء ما فاته وردّ الحقوق إلى أهلها. فاللوم الذي يقف عند الحزن يبقى حزنًا، واللوم الذي يصير فعلًا هو التوبة.",
+          "ويكفي لهذا وقت قصير ثابت. قال النبي صلى الله عليه وآله وسلم: «أَحَبُّ الأَعْمَالِ أَدْوَمُهَا إِلَى اللَّهِ، وَإِنْ قَلَّ» (البخاري 6464). دقيقتان كل ليلة أنفع من ليلة محاسبة طويلة يتبعها شهر من النسيان.",
+          "خطوات عملية: قبل أن تفتحي الهاتف في فراشك اسألي نفسك ثلاثة أسئلة: من آذيت اليوم بكلمة أو فعل؟ وأي وعد لم أفِ به؟ وأي حق لله أخّرته؟ ثم اختاري أمرًا واحدًا تصلحينه غدًا، واستغفري. وإن عدتِ إلى الذنب نفسه فتوبي مرة أخرى، وانظري فيما يسبقه عادة فغيّريه، فباب التوبة لا يُغلق بالتكرار.",
+          "وضع طارق الهاتف على الطاولة مقلوبًا، وكتب على ورقة صغيرة: «وليد. القصة». وفي الصباح بدأ الاجتماع بكلمة لزميله لم يسمعها غيرهما. وفي المساء جلس على طرف سرير ابنته يقرأ لها، حتى نامت قبل أن تنتهي القصة."
+        ],
+        en: [
+          "Tariq lay down on his bed after a long day, phone in hand. Before he opened the videos, his day passed before him: a sharp word to his colleague Walid in the meeting, a promise to read his daughter a story that he forgot, and the afternoon prayer prayed at the very end of its time with his mind on work. He felt something inside him reproach him.",
+          "Allah swears by this voice that reproaches its owner, meaning: and I swear by the self-reproaching soul (al-Qiyama 75:2). It is where repair begins, if its owner knows what to do with it before covering it with videos and sleep.",
+          "In the Ihya 'Ulum al-Din (Book of Repentance), al-Ghazali says: «Repentance is a meaning that is ordered and made whole from three things in sequence: knowledge, state and action.» Knowledge is to know the harm of the sin. The state is remorse that pains the heart over what is past. Action is the fruit of remorse in three times: leaving the sin now, resolving not to return to it, and making up for the past by fulfilling what was missed and returning rights to their owners. Reproach that stops at sadness stays sadness; reproach that becomes action is repentance.",
+          "A short, steady time is enough for this. The Prophet, peace and blessings be upon him and his family, said: «The deeds most loved by Allah are those done most constantly, even if they are few» (Bukhari 6464). Two minutes every night do more good than one long night of self-accounting followed by a month of forgetting.",
+          "Practical steps: before you open your phone in bed, ask yourself three questions: whom did I hurt today by a word or a deed? Which promise did I not keep? Which right of Allah did I delay? Then choose one thing to put right tomorrow, and ask forgiveness. If you return to the same sin, repent again, and look at what usually comes before it and change that, for the door of repentance is not shut by repetition.",
+          "Tariq put the phone face down on the table and wrote on a small piece of paper: «Walid. The story.» In the morning he opened the meeting with a word to his colleague that no one else heard. In the evening he sat on the edge of his daughter's bed reading to her, until she fell asleep before the story ended."
+        ]
+      },
+      quote: {
+        ar: "﴿وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ﴾",
+        en: "Meaning (not a translation): And I swear by the self-reproaching soul.",
+        ref: "القيامة 75:2",
+        checked: "tanzil quran-simple, with diacritics (api.alquran.cloud)",
+        verify: true
+      },
+      source: {
+        ar: "قصة مؤلفة بشخصيات خيالية، مع آية من سورة القيامة، وحديث في صحيح البخاري، وإحياء علوم الدين للغزالي (كتاب التوبة).",
+        en: "An original story with fictional characters, with a verse from al-Qiyama, a hadith in Sahih al-Bukhari, and al-Ghazali's Ihya 'Ulum al-Din (Book of Repentance)."
+      }
+    },
+    {
+      id: "ah-r7",
+      summit: true,
+      minutes: 3,
+      ages: "18+",
       title: { ar: "القمة: يد لم تضرب أحدًا", en: "The summit: a hand that struck no one" },
       body: {
         ar: [
-          "قالت السيدة عائشة: «مَا ضَرَبَ رَسُولُ اللَّهِ» صلى الله عليه وآله وسلم «شَيْئًا قَطُّ بِيَدِهِ وَلاَ امْرَأَةً وَلاَ خَادِمًا إِلاَّ أَنْ يُجَاهِدَ فِي سَبِيلِ اللَّهِ وَمَا نِيلَ مِنْهُ شَىْءٌ قَطُّ فَيَنْتَقِمَ مِنْ صَاحِبِهِ إِلاَّ أَنْ يُنْتَهَكَ شَىْءٌ مِنْ مَحَارِمِ اللَّهِ فَيَنْتَقِمَ لِلَّهِ عَزَّ وَجَلَّ» (صحيح مسلم 2328).",
+          "قالت السيدة عائشة رضي الله عنها: «مَا ضَرَبَ رَسُولُ اللَّهِ» صلى الله عليه وآله وسلم «شَيْئًا قَطُّ بِيَدِهِ وَلاَ امْرَأَةً وَلاَ خَادِمًا إِلاَّ أَنْ يُجَاهِدَ فِي سَبِيلِ اللَّهِ وَمَا نِيلَ مِنْهُ شَىْءٌ قَطُّ فَيَنْتَقِمَ مِنْ صَاحِبِهِ إِلاَّ أَنْ يُنْتَهَكَ شَىْءٌ مِنْ مَحَارِمِ اللَّهِ فَيَنْتَقِمَ لِلَّهِ عَزَّ وَجَلَّ» (صحيح مسلم 2328).",
           "في هذا الخبر أعلى صور كفّ الأذى. في البيت، حيث لا يراه الناس، لم تمتد يده إلى زوجة ولا خادم. وفي حق نفسه، حين يُؤذى، لم ينتقم لنفسه قط. وكان غضبه لحرمات الله وحدها.",
           "وهذا ميزان للكبار خاصة، لأن الكبير يملك سلطة: على زوجته وأولاده، وعلى من يعمل عنده، وعلى من هو أضعف منه. وكفّ الأذى يُمتحن حيث تكون اليد قادرة.",
-          "سؤال للتأمل: من الأضعف منك في حياتك؟ وهل يسلم من يدك ولسانك وأنت غاضب؟"
+          "سؤال للتأمل: من الأضعف منك في حياتك؟ وهل يسلم من يدك ولسانك وأنت غاضب؟",
+          "في ورشة صغيرة أفسد عامل جديد لوحًا من الخشب الغالي. التفت إليه صاحب الورشة، وكان معروفًا بحدة لسانه، ورفع اللوح بيده، ثم وضعه على الطاولة بهدوء، وقال: «تعال، أريك كيف نقيس مرتين قبل أن نقطع»."
+        ],
+        ar_f: [
+          "قالت السيدة عائشة رضي الله عنها: «مَا ضَرَبَ رَسُولُ اللَّهِ» صلى الله عليه وآله وسلم «شَيْئًا قَطُّ بِيَدِهِ وَلاَ امْرَأَةً وَلاَ خَادِمًا إِلاَّ أَنْ يُجَاهِدَ فِي سَبِيلِ اللَّهِ وَمَا نِيلَ مِنْهُ شَىْءٌ قَطُّ فَيَنْتَقِمَ مِنْ صَاحِبِهِ إِلاَّ أَنْ يُنْتَهَكَ شَىْءٌ مِنْ مَحَارِمِ اللَّهِ فَيَنْتَقِمَ لِلَّهِ عَزَّ وَجَلَّ» (صحيح مسلم 2328).",
+          "في هذا الخبر أعلى صور كفّ الأذى. في البيت، حيث لا يراه الناس، لم تمتد يده إلى زوجة ولا خادم. وفي حق نفسه، حين يُؤذى، لم ينتقم لنفسه قط. وكان غضبه لحرمات الله وحدها.",
+          "وهذا ميزان للكبار خاصة، لأن الكبير يملك سلطة: على زوجته وأولاده، وعلى من يعمل عنده، وعلى من هو أضعف منه. وكفّ الأذى يُمتحن حيث تكون اليد قادرة.",
+          "سؤال للتأمل: من الأضعف منكِ في حياتك؟ وهل يسلم من يدكِ ولسانكِ وأنتِ غاضبة؟",
+          "في ورشة صغيرة أفسد عامل جديد لوحًا من الخشب الغالي. التفت إليه صاحب الورشة، وكان معروفًا بحدة لسانه، ورفع اللوح بيده، ثم وضعه على الطاولة بهدوء، وقال: «تعال، أريك كيف نقيس مرتين قبل أن نقطع»."
         ],
         en: [
-          "Lady Aisha said: «The Messenger of Allah, peace and blessings be upon him and his family, never struck anything with his hand, neither a woman nor a servant, except when striving in the path of Allah; and nothing was ever done to harm him for which he took revenge on its doer, unless something Allah made sacred was violated, and then he took revenge for Allah, the Mighty and Majestic» (Sahih Muslim 2328).",
+          "Lady Aisha, may Allah be pleased with her, said: «The Messenger of Allah, peace and blessings be upon him and his family, never struck anything with his hand, neither a woman nor a servant, except when striving in the path of Allah; and nothing was ever done to harm him for which he took revenge on its doer, unless something Allah made sacred was violated, and then he took revenge for Allah, the Mighty and Majestic» (Sahih Muslim 2328).",
           "This report holds the highest form of keeping harm away. At home, where no one sees, his hand never reached for a wife or a servant. In his own right, when harmed, he never took revenge for himself. His anger was for what Allah made sacred, and nothing else.",
           "This is a measure for adults especially, because an adult holds power: over a spouse and children, over those who work for them, over anyone weaker. Keeping harm away is tested where the hand is able.",
-          "A question to reflect on: who in your life is weaker than you? And are they safe from your hand and your tongue when you are angry?"
+          "A question to reflect on: who in your life is weaker than you? And are they safe from your hand and your tongue when you are angry?",
+          "In a small workshop a new worker ruined a costly board of wood. The owner, known for his sharp tongue, turned to him and lifted the board in his hand, then laid it calmly on the bench and said: «Come, let me show you how we measure twice before we cut.»"
         ]
       },
       quote: {
         ar: "«وَمَا نِيلَ مِنْهُ شَىْءٌ قَطُّ فَيَنْتَقِمَ مِنْ صَاحِبِهِ إِلاَّ أَنْ يُنْتَهَكَ شَىْءٌ مِنْ مَحَارِمِ اللَّهِ فَيَنْتَقِمَ لِلَّهِ عَزَّ وَجَلَّ»",
         en: "Meaning: Nothing was ever done to harm him for which he took revenge on its doer, unless something Allah made sacred was violated, and then he took revenge for Allah.",
-        ref: "صحيح مسلم 2328 (ترقيم sunnah.com: الكتاب 43، الحديث 108)، عن عائشة", checked: "hadith-api (fawazahmed0)", verify: true
+        ref: "صحيح مسلم 2328 (ترقيم sunnah.com: الكتاب 43، الحديث 108)، عن عائشة",
+        checked: "hadith-api (fawazahmed0)",
+        verify: true
       },
-      source: { ar: "حديث في صحيح مسلم.", en: "A hadith in Sahih Muslim." }
+      source: { ar: "حديث في صحيح مسلم، ومشهد بشخصيات خيالية.", en: "A hadith in Sahih Muslim, and a scene with fictional characters." }
     },
     {
-      id: "ah-r8", companions: true, minutes: 5, ages: "18+",
+      id: "ah-r8",
+      companions: true,
+      minutes: 5,
+      ages: "18+",
       title: { ar: "كعب بن مالك: نجّاني الصدق", en: "Ka'b ibn Malik: truthfulness saved me" },
       body: {
         ar: [
           "تخلّف كعب بن مالك رضي الله عنه عن غزوة تبوك دون عذر. كان يقول كل يوم: أتجهز غدًا، حتى سار الجيش ولم يلحق به. ولما عاد النبي صلى الله عليه وآله وسلم جاءه المتخلفون يعتذرون ويحلفون، فقبل منهم علانيتهم، ووكل سرائرهم إلى الله.",
-          "وجاء كعب، وكان قادرًا على أن يعتذر كما اعتذروا، فقد قال عن نفسه: «وَلَقَدْ أُعْطِيتُ جَدَلاً». لكنه قال للنبي صلى الله عليه وآله وسلم: «لاَ وَاللَّهِ مَا كَانَ لِي مِنْ عُذْرٍ، وَاللَّهِ مَا كُنْتُ قَطُّ أَقْوَى وَلاَ أَيْسَرَ مِنِّي حِينَ تَخَلَّفْتُ عَنْكَ». فقال النبي: «أَمَّا هَذَا فَقَدْ صَدَقَ».",
+          "وجاء كعب، وكان قادرًا على أن يعتذر كما اعتذروا، فقد قال عن نفسه: «وَلَقَدْ أُعْطِيتُ جَدَلاً». لكنه قال للنبي صلى الله عليه وآله وسلم: «لاَ وَاللَّهِ مَا كَانَ لِي مِنْ عُذْرٍ، وَاللَّهِ مَا كُنْتُ قَطُّ أَقْوَى وَلاَ أَيْسَرَ مِنِّي حِينَ تَخَلَّفْتُ عَنْكَ». فقال النبي صلى الله عليه وآله وسلم: «أَمَّا هَذَا فَقَدْ صَدَقَ».",
           "ثم نُهي الناس عن كلامه هو وصاحبيه، ومرت أيام ثقيلة «حَتَّى كَمَلَتْ لَنَا خَمْسُونَ لَيْلَةً»، ثم نزلت توبة الله عليهم: ﴿وَعَلَى الثَّلَاثَةِ الَّذِينَ خُلِّفُوا حَتَّىٰ إِذَا ضَاقَتْ عَلَيْهِمُ الْأَرْضُ بِمَا رَحُبَتْ﴾ إلى قوله: ﴿ثُمَّ تَابَ عَلَيْهِمْ لِيَتُوبُوا ۚ إِنَّ اللَّهَ هُوَ التَّوَّابُ الرَّحِيمُ﴾ (التوبة 9:118).",
-          "فقال كعب للنبي صلى الله عليه وآله وسلم: «إِنَّ اللَّهَ إِنَّمَا نَجَّانِي بِالصِّدْقِ، وَإِنَّ مِنْ تَوْبَتِي أَنْ لاَ أُحَدِّثَ إِلاَّ صِدْقًا مَا بَقِيتُ» (البخاري 4418).",
-          "في قصة كعب درجات هذه المرحلة كلها: أخطأ في أداء الواجب، ثم رجع عن خطئه بالاعتراف الصادق، ثم جعل من توبته عهدًا ألا يؤذي بكذب أبدًا. ولم يكن الصدق سهلًا، فقد كلّفه خمسين ليلة. وكان العذر الكاذب أسهل، لكنه لا ينجي."
+          "ولما جاءه البشير بالتوبة نزع له ثوبيه فكساه إياهما، وقال: «وَاللَّهِ مَا أَمْلِكُ غَيْرَهُمَا يَوْمَئِذٍ». ثم قال للنبي صلى الله عليه وآله وسلم: «إِنَّ اللَّهَ إِنَّمَا نَجَّانِي بِالصِّدْقِ، وَإِنَّ مِنْ تَوْبَتِي أَنْ لاَ أُحَدِّثَ إِلاَّ صِدْقًا مَا بَقِيتُ» (البخاري 4418).",
+          "كان العذر الكاذب أسهل عليه يوم جاء المعتذرون، وكلّفه الصدق خمسين ليلة. وحين حدّث بقصته بعد ذلك قال: «مَا تَعَمَّدْتُ مُنْذُ ذَكَرْتُ ذَلِكَ لِرَسُولِ اللَّهِ» صلى الله عليه وآله وسلم «إِلَى يَوْمِي هَذَا كَذِبًا»."
         ],
         en: [
           "Ka'b ibn Malik, may Allah be pleased with him, stayed behind from the expedition of Tabuk without excuse. Every day he said: I'll get ready tomorrow, until the army had gone and he never caught up. When the Prophet, peace and blessings be upon him and his family, returned, those who had stayed behind came to him with excuses and oaths. He accepted what they showed outwardly and left their inner selves to Allah.",
-          "Ka'b came too. He could have made excuses as they did; he said of himself: «I have been given a gift for argument.» But he said to the Prophet: «No, by Allah, I had no excuse. By Allah, I was never stronger nor better off than when I stayed behind from you.» The Prophet said: «As for this one, he has told the truth.»",
+          "Ka'b came too. He could have made excuses as they did; he said of himself: «I have been given a gift for argument.» But he said to the Prophet, peace and blessings be upon him and his family: «No, by Allah, I had no excuse. By Allah, I was never stronger nor better off than when I stayed behind from you.» The Prophet said: «As for this one, he has told the truth.»",
           "Then people were told not to speak to him and his two companions, and heavy days went by «until fifty nights were complete for us». Then Allah's acceptance of their repentance came down, meaning: and to the three who were left behind, until the earth, vast as it is, closed in on them... then He turned to them so that they might turn back; Allah is the Ever-Relenting, the Merciful (at-Tawba 9:118).",
-          "Ka'b said to the Prophet: «Allah saved me only through truthfulness, and part of my repentance is that I will speak nothing but the truth for as long as I live» (Bukhari 4418).",
-          "Ka'b's story holds every degree of this stage: he fell short in a duty, then turned back from his mistake with an honest admission, then made his repentance a lifelong pledge never to harm with a lie. Truthfulness was not easy; it cost him fifty nights. A false excuse would have been easier, but it would not have saved him."
+          "When the man bringing the good news of his repentance reached him, Ka'b took off his two garments and clothed him in them, saying: «By Allah, I owned nothing else that day.» Then he said to the Prophet, peace and blessings be upon him and his family: «Allah saved me only through truthfulness, and part of my repentance is that I will speak nothing but the truth for as long as I live» (Bukhari 4418).",
+          "A false excuse would have been easier on the day the others came with theirs; truthfulness cost him fifty nights. When he later told his story, he said: «I have not deliberately told a lie from the day I said that to the Messenger of Allah,» peace and blessings be upon him and his family, «until this day of mine.»"
         ]
       },
       quote: {
         ar: "«إِنَّ اللَّهَ إِنَّمَا نَجَّانِي بِالصِّدْقِ، وَإِنَّ مِنْ تَوْبَتِي أَنْ لاَ أُحَدِّثَ إِلاَّ صِدْقًا مَا بَقِيتُ»",
         en: "Meaning: Allah saved me only through truthfulness, and part of my repentance is that I will speak nothing but the truth for as long as I live.",
-        ref: "صحيح البخاري 4418، عن كعب بن مالك", checked: "hadith-api (fawazahmed0)", verify: true
+        ref: "صحيح البخاري 4418، عن كعب بن مالك",
+        checked: "hadith-api (fawazahmed0)",
+        verify: true
       },
       source: { ar: "حديث كعب بن مالك في صحيح البخاري، مع آية من سورة التوبة.", en: "The hadith of Ka'b ibn Malik in Sahih al-Bukhari, with a verse from at-Tawba." }
     }
   ],
   quiz: [
     {
-      id: "ah-q1", readingId: "ah-r1", type: "comprehension", correct: 1,
-      q: { ar: "بماذا تختلف الكلمة على الشاشة عن الكلمة في المجلس بحسب المقالة؟", en: "According to the article, how does a word on a screen differ from a word in company?" },
+      id: "ah-q1",
+      readingId: "ah-r1",
+      type: "comprehension",
+      correct: 1,
+      q: {
+        ar: "بماذا تختلف الكلمة على الشاشة عن الكلمة في المجلس بحسب المقالة؟",
+        en: "According to the article, how does a word on a screen differ from a word in company?"
+      },
       options: [
         { ar: "بأنها أخف أثرًا", en: "It has a lighter effect" },
         { ar: "بأنها تبقى، وتصل إلى من لا تعرفه", en: "It stays, and reaches people you don't know" },
         { ar: "بأنها لا تُحاسَب", en: "It is not held to account" }
       ],
-      why: { ar: "ما يُكتب يبقى ويصل بعيدًا، وكل قول محفوظ: ﴿مَا يَلْفِظُ مِنْ قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ﴾.", en: "What is written stays and travels far, and every word is recorded." }
+      why: {
+        ar: "ما يُكتب يبقى ويصل بعيدًا، وكل قول محفوظ: ﴿مَا يَلْفِظُ مِنْ قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ﴾.",
+        en: "What is written stays and travels far, and every word is recorded."
+      }
     },
     {
-      id: "ah-q2", readingId: "ah-r1", type: "situation", correct: 2,
+      id: "ah-q2",
+      readingId: "ah-r1",
+      type: "situation",
+      correct: 2,
       q: {
         ar: "رأيت منشورًا لشخص تختلف معه بشدة، وكتبت ردًّا حادًّا. ما الأقرب إلى كفّ الأذى؟",
         ar_f: "رأيتِ منشورًا لشخص تختلفين معه بشدة، وكتبتِ ردًّا حادًّا. ما الأقرب إلى كفّ الأذى؟",
         en: "You see a post by someone you strongly disagree with, and you have written a sharp reply. What is closest to keeping harm away?"
       },
       options: [
-        { ar: "أنشره، فرأيي صحيح", en: "Post it; my opinion is right" },
-        { ar: "أنشره باسم مستعار", en: "Post it under a fake name" },
-        { ar: "أقرؤه مرتين وأسأل: هل أقوله في وجهه؟ فإن لم يكن نافعًا فلا أنشره", en: "Read it twice and ask: would I say this to their face? If it does no good, don't post it" }
+        { ar: "أنشره، فرأيي صحيح وهو يستحق الرد", en: "Post it; my view is right and he deserves the reply" },
+        { ar: "أنشره باسم مستعار حتى لا أُعرف", en: "Post it under a fake name so I'm not known" },
+        { ar: "أقرؤه مرتين وأسأل: هل أقوله في وجهه؟", en: "Read it twice and ask: would I say this to his face?" }
       ],
-      why: { ar: "لا تكتب وأنت غاضب، ويكفيك أحيانًا ألا تكتب شيئًا.", en: "Don't write while angry; sometimes it is enough to write nothing." }
+      why: {
+        ar: "هذا ما تنصح به المقالة وما فعله مازن: القراءة الثانية تكشف ما كتبه الغضب، ويكفيك أحيانًا ألا تكتب شيئًا.",
+        en: "This is what the article advises and what Mazen did: the second reading shows what anger wrote, and sometimes it is enough to write nothing."
+      }
     },
     {
-      id: "ah-q3", readingId: "ah-r2", type: "comprehension", correct: 0,
-      q: { ar: "ما الذي غيّرته هالة في طريقة عملها؟", en: "What did Hala change in the way she works?" },
+      id: "ah-q3",
+      readingId: "ah-r2",
+      type: "comprehension",
+      correct: 2,
+      q: { ar: "ماذا قالت هالة لصاحب المتجر الذي أراد شعاره خلال أسبوع؟", en: "What did Hala tell the shop owner who wanted his logo within a week?" },
       options: [
-        { ar: "صارت تعد بموعد تستطيع الوفاء به، وترفض ما لا يتسع له وقتها", en: "She promises dates she can keep, and turns down what her schedule can't hold" },
-        { ar: "صارت تعمل الليل كله", en: "She started working all night" },
-        { ar: "صارت تعتذر بأعذار أفضل", en: "She started giving better excuses" }
+        { ar: "إنها تسلّمه في أسبوع إن دفع أكثر", en: "That she would deliver in a week if he paid more" },
+        { ar: "إنها لا تقبل مشاريع جديدة هذا الشهر", en: "That she was taking no new projects this month" },
+        { ar: "إنها تسلّمه بعد ثلاثة أسابيع، لا قبل ذلك", en: "That she would deliver in three weeks, not before" }
       ],
-      why: { ar: "الوفاء يبدأ قبل الوعد: أن تعد بما تقدر عليه.", en: "Keeping a promise begins before making it: promise what you can do." }
+      why: {
+        ar: "الوفاء يبدأ قبل الوعد: أن تعد بما تقدر عليه، فيصدّقك الناس.",
+        en: "Keeping a promise begins before making it: promise what you can do, and people believe you."
+      }
     },
     {
-      id: "ah-q4", readingId: "ah-r2", type: "comprehension", correct: 2,
-      q: { ar: "ما علامات المنافق الثلاث في حديث البخاري 33؟", en: "What are the three signs of a hypocrite in Bukhari 33?" },
+      id: "ah-q4",
+      readingId: "ah-r2",
+      type: "comprehension",
+      correct: 1,
+      q: { ar: "لماذا ترك العميل القديم هالة بحسب رسالته؟", en: "According to his message, why did the old client leave Hala?" },
       options: [
-        { ar: "الكسل، والغضب، والبخل", en: "Laziness, anger and stinginess" },
-        { ar: "كثرة الكلام، والضحك، والنوم", en: "Talking, laughing and sleeping too much" },
-        { ar: "الكذب في الحديث، وإخلاف الوعد، وخيانة الأمانة", en: "Lying when speaking, breaking promises, and betraying trust" }
+        { ar: "لأن عملها لم يعد يعجبه كما كان", en: "Because he no longer liked her work as before" },
+        { ar: "لأنه لا يستطيع أن يبني موعده على وعدها", en: "Because he could not build his deadline on her promise" },
+        { ar: "لأنه وجد مصممًا أرخص منها", en: "Because he found a cheaper designer" }
       ],
-      why: { ar: "«إِذَا حَدَّثَ كَذَبَ، وَإِذَا وَعَدَ أَخْلَفَ، وَإِذَا اؤْتُمِنَ خَانَ».", en: "«When he speaks he lies, when he promises he breaks it, and when he is trusted he betrays.»" }
+      why: {
+        ar: "كتب لها: «عملك جميل»، فالإتقان وحده لم يحفظ العميل، والوعد المخلف أضاعه.",
+        en: "He wrote «your work is beautiful»: skill alone did not keep the client, and the broken promises lost him."
+      }
     },
     {
-      id: "ah-q5", readingId: "ah-r3", type: "comprehension", correct: 1,
-      q: { ar: "ماذا قال النبي صلى الله عليه وآله وسلم حين أُخبر بكلام سلمان لأبي الدرداء؟", en: "What did the Prophet say when told what Salman said to Abu al-Darda?" },
+      id: "ah-q5",
+      readingId: "ah-r3",
+      type: "comprehension",
+      correct: 1,
+      q: {
+        ar: "ماذا قال النبي صلى الله عليه وآله وسلم حين أُخبر بكلام سلمان لأبي الدرداء؟",
+        en: "What did the Prophet, peace and blessings be upon him and his family, say when told what Salman said to Abu al-Darda?"
+      },
       options: [
         { ar: "بل الأفضل أن يقوم الليل كله", en: "Rather, it is better to pray all night" },
         { ar: "«صَدَقَ سَلْمَانُ»", en: "«Salman has spoken the truth»" },
         { ar: "لا تتدخل في شأن أخيك", en: "Don't interfere in your brother's affairs" }
       ],
-      why: { ar: "لربك عليك حق، ولنفسك حق، ولأهلك حق: فأعطِ كل ذي حق حقه.", en: "Your Lord has a right over you, your self has a right, your family has a right: give each its due." }
+      why: {
+        ar: "لربك عليك حق، ولنفسك حق، ولأهلك حق: فأعطِ كل ذي حق حقه.",
+        en: "Your Lord has a right over you, your self has a right, your family has a right: give each its due."
+      }
     },
     {
-      id: "ah-q6", readingId: "ah-r4", type: "comprehension", correct: 0,
+      id: "ah-q6",
+      readingId: "ah-r4",
+      type: "comprehension",
+      correct: 1,
       q: { ar: "ما الأشياء الثلاثة في الاعتذار الصادق بحسب المقالة؟", en: "What are the three parts of a sincere apology, according to the article?" },
       options: [
+        { ar: "الاعتذار، وشرح الظروف، وطلب المسامحة فورًا", en: "Apologising, explaining the circumstances, and asking for forgiveness at once" },
         { ar: "تسمية الخطأ، والإقرار بأثره، وإصلاح ما يُستطاع", en: "Naming the mistake, acknowledging its effect, and repairing what one can" },
-        { ar: "الاعتذار، ثم الشرح، ثم «لكن»", en: "Apologising, then explaining, then «but»" },
-        { ar: "الهدية، والصمت، والانتظار", en: "A gift, silence and waiting" }
+        { ar: "الاعتراف، ثم هدية، ثم انتظار أن تبرد المسألة", en: "Admitting it, then a gift, then waiting for things to cool down" }
       ],
-      why: { ar: "الاعتذار بلا «لكن» يداوي الجرح، والاعتذار الذي يحمل دفاعًا يزيده.", en: "An apology without «but» heals the wound; an apology with a defence inside deepens it." }
+      why: {
+        ar: "الاعتذار بلا «لكن» يداوي الجرح، والاعتذار الذي يحمل دفاعًا يزيده.",
+        en: "An apology without «but» heals the wound; an apology with a defence inside deepens it."
+      }
     },
     {
-      id: "ah-q7", readingId: "ah-r4", type: "situation", correct: 1,
+      id: "ah-q7",
+      readingId: "ah-r4",
+      type: "situation",
+      correct: 1,
       q: {
         ar: "رفعت صوتك على ابنك أمام إخوته لأمر لم يكن خطأه. ماذا تفعل؟",
         ar_f: "رفعتِ صوتك على ابنك أمام إخوته لأمر لم يكن خطأه. ماذا تفعلين؟",
@@ -2434,58 +2587,120 @@ window.AKHLAQ_CONTENT_ADULT.stages.human = {
       why: { ar: "الأولاد يتعلمون الرجوع عن الخطأ حين يرون آباءهم وأمهاتهم يرجعون.", en: "Children learn to turn back from mistakes by watching their parents turn back." }
     },
     {
-      id: "ah-q8", readingId: "ah-r5", type: "comprehension", correct: 2,
-      q: { ar: "ما معنى «مَطْلُ الْغَنِيِّ ظُلْمٌ»؟", en: "What does «delay by one who is able to pay is injustice» mean?" },
+      id: "ah-q8",
+      readingId: "ah-r5",
+      type: "comprehension",
+      correct: 1,
+      q: {
+        ar: "بماذا سأل النبي صلى الله عليه وآله وسلم والد النعمان قبل أن يأمره بالعدل؟",
+        en: "What did the Prophet, peace and blessings be upon him and his family, ask an-Nu'man's father before telling him to be fair?"
+      },
       options: [
-        { ar: "أن الاقتراض حرام", en: "That borrowing is forbidden" },
-        { ar: "أن الغني لا يقترض", en: "That the rich never borrow" },
-        { ar: "أن من قدر على أداء دينه فأخّره فقد ظلم", en: "That whoever is able to repay a debt and delays it has done wrong" }
+        { ar: "هل استشرت أم النعمان قبل العطية؟", en: "Did you consult an-Nu'man's mother before the gift?" },
+        { ar: "هل أعطيت سائر ولدك مثل هذا؟", en: "Have you given the rest of your children the like of this?" },
+        { ar: "هل تقدر على هذه العطية من مالك؟", en: "Can your wealth bear this gift?" }
       ],
-      why: { ar: "سمّاه النبي ظلمًا، ولو كان صاحب الدين لا يطالب.", en: "The Prophet called it injustice, even when the lender does not ask." }
+      why: {
+        ar: "سؤال واحد عن الإخوة، فلما قال «لا» أمره بالعدل، فردّ العطية.",
+        en: "One question, about the siblings. When he said «no», he was told to be fair, and he took the gift back."
+      }
     },
     {
-      id: "ah-q9", readingId: "ah-r6", type: "comprehension", correct: 0,
+      id: "ah-q9",
+      readingId: "ah-r6",
+      type: "comprehension",
+      correct: 1,
       q: { ar: "ما الأمور الثلاثة التي تنتظم منها التوبة عند الغزالي؟", en: "For al-Ghazali, what three things make up repentance?" },
       options: [
+        { ar: "ندم، واستغفار، وعزم", en: "Remorse, seeking forgiveness, and resolve" },
         { ar: "علم، وحال، وفعل", en: "Knowledge, state and action" },
-        { ar: "صوم، وصدقة، وحج", en: "Fasting, charity and pilgrimage" },
-        { ar: "كلمة، ودمعة، وصمت", en: "A word, a tear and silence" }
+        { ar: "قول، ونية، وعمل", en: "Word, intention and deed" }
       ],
       why: { ar: "يعرف ضرر الذنب، فيندم، فيترك ويعزم ويصلح ما مضى.", en: "One knows the sin's harm, feels remorse, then leaves it, resolves, and repairs the past." }
     },
     {
-      id: "ah-q10", readingId: "ah-r6", type: "situation", correct: 1,
+      id: "ah-q10",
+      readingId: "ah-r6",
+      type: "situation",
+      correct: 1,
       q: {
         ar: "تبت من الغيبة، ثم وقعت فيها مرة أخرى في مجلس. ما الأقرب إلى ما في المقالة؟",
         ar_f: "تبتِ من الغيبة، ثم وقعتِ فيها مرة أخرى في مجلس. ما الأقرب إلى ما في المقالة؟",
         en: "You repented of backbiting, then fell into it again at a gathering. What is closest to the article?"
       },
       options: [
-        { ar: "أيأس، فلا فائدة من التوبة", en: "Despair; repentance is pointless" },
-        { ar: "أتوب مرة أخرى، وأنظر فيما يسبقها عادة فأغيّره، وأذكر الغائب بخير", en: "Repent again, look at what usually comes before it and change that, and speak well of the person" },
-        { ar: "أنتظر حتى أتأكد أني لن أعود، ثم أتوب", en: "Wait until I'm sure I won't return to it, then repent" }
+        { ar: "أيأس، فقد عدت إليه بعد التوبة", en: "Despair, since I went back to it after repenting" },
+        { ar: "أتوب مرة أخرى، وأغيّر ما يسبقه عادة", en: "Repent again, and change what usually comes before it" },
+        { ar: "أؤجل التوبة حتى أتأكد أني لن أعود", en: "Put off repenting until I'm sure I won't go back" }
       ],
-      why: { ar: "باب التوبة لا يُغلق بالتكرار. وتغيير ما يسبق الذنب جزء من الفعل الذي تثمره التوبة.", en: "The door of repentance is not shut by repetition. Changing what precedes the sin is part of the action repentance bears." }
+      why: {
+        ar: "باب التوبة لا يُغلق بالتكرار، وتغيير ما يسبق الذنب من الفعل الذي تثمره التوبة.",
+        en: "The door of repentance is not shut by repetition, and changing what precedes the sin is part of the action repentance bears."
+      }
     },
     {
-      id: "ah-q11", readingId: "ah-r7", type: "comprehension", correct: 2,
-      q: { ar: "متى كان النبي صلى الله عليه وآله وسلم ينتقم بحسب حديث السيدة عائشة؟", en: "According to Lady Aisha's report, when did the Prophet take revenge?" },
+      id: "ah-q11",
+      readingId: "ah-r7",
+      type: "comprehension",
+      correct: 2,
+      q: {
+        ar: "متى كان النبي صلى الله عليه وآله وسلم ينتقم بحسب حديث السيدة عائشة؟",
+        en: "According to Lady Aisha's report, when did the Prophet, peace and blessings be upon him and his family, take revenge?"
+      },
       options: [
         { ar: "إذا أوذي في نفسه", en: "When he was harmed personally" },
         { ar: "إذا أخطأ أهل بيته", en: "When his household made a mistake" },
-        { ar: "إذا انتُهكت حرمات الله، فينتقم لله", en: "When something Allah made sacred was violated, and then for Allah" }
+        { ar: "إذا انتُهكت حرمة من حرمات الله", en: "When something Allah made sacred was violated" }
       ],
       why: { ar: "لم ينتقم لنفسه قط. كفّ الأذى عنده في أعلى صوره.", en: "He never took revenge for himself: keeping harm away in its highest form." }
     },
     {
-      id: "ah-q12", readingId: "ah-r8", type: "comprehension", correct: 1,
+      id: "ah-q12",
+      readingId: "ah-r8",
+      type: "comprehension",
+      correct: 1,
       q: { ar: "ما الذي نجّى كعب بن مالك رضي الله عنه بحسب قوله؟", en: "According to his own words, what saved Ka'b ibn Malik?" },
       options: [
         { ar: "قدرته على الجدل", en: "His skill in argument" },
         { ar: "الصدق", en: "Truthfulness" },
-        { ar: "عذر قبله النبي صلى الله عليه وآله وسلم", en: "An excuse the Prophet accepted" }
+        { ar: "عذر قبله منه النبي صلى الله عليه وآله وسلم", en: "An excuse the Prophet, peace and blessings be upon him and his family, accepted" }
       ],
-      why: { ar: "«إِنَّ اللَّهَ إِنَّمَا نَجَّانِي بِالصِّدْقِ». كان قادرًا على العذر، واختار الاعتراف.", en: "«Allah saved me only through truthfulness.» He could have made excuses, and chose to admit." }
+      why: {
+        ar: "«إِنَّ اللَّهَ إِنَّمَا نَجَّانِي بِالصِّدْقِ». كان قادرًا على العذر، واختار الاعتراف.",
+        en: "«Allah saved me only through truthfulness.» He could have made excuses, and chose to admit."
+      }
+    },
+    {
+      id: "ah-q13",
+      readingId: "ah-r5",
+      type: "comprehension",
+      correct: 0,
+      q: { ar: "ماذا فعل خالد مع ابنه سامي يوم الجمعة؟", en: "What did Khalid do with his son Sami on Friday?" },
+      options: [
+        { ar: "أخذه وحده إلى المكتبة، ومدح تعبه", en: "Took him alone to the library and praised his effort" },
+        { ar: "اشترى له هاتفًا مثل هاتف أخيه", en: "Bought him a phone like his brother's" },
+        { ar: "جعل يوسف يذاكر معه كل ليلة", en: "Had Yusuf study with him every night" }
+      ],
+      why: {
+        ar: "الهاتف الثاني يسوّي الهدايا، والوقت والكلمة يصلان إلى ما جرحته المقارنة.",
+        en: "A second phone evens out the gifts; time and a word reach what the comparison wounded."
+      }
+    },
+    {
+      id: "ah-q14",
+      readingId: "ah-r6",
+      type: "comprehension",
+      correct: 2,
+      q: { ar: "ماذا فعل طارق حين لامته نفسه على يومه؟", en: "What did Tariq do when his own soul reproached him for his day?" },
+      options: [
+        { ar: "فتح المقاطع حتى يخف عنه ثقل اليوم", en: "Opened the videos to lighten the weight of the day" },
+        { ar: "قرر أن يحاسب نفسه ساعة كاملة كل ليلة", en: "Decided to hold himself to account for a full hour every night" },
+        { ar: "قلب الهاتف، وكتب ما سيصلحه في الغد", en: "Turned the phone over and wrote down what he would fix tomorrow" }
+      ],
+      why: {
+        ar: "اللوم الذي يصير فعلًا صغيرًا ثابتًا هو التوبة، وأحب الأعمال إلى الله أدومها وإن قل.",
+        en: "Reproach that becomes a small, steady act is repentance, and the deeds most loved by Allah are the most constant, even if few."
+      }
     }
   ],
   tasks: [
@@ -2498,9 +2713,18 @@ window.AKHLAQ_CONTENT_ADULT.stages.human = {
   selfcheck: [
     { id: "ah-s1", q: { ar: "هل يسلم الناس مما أقول وأكتب؟", en: "Are people safe from what I say and write?" } },
     { id: "ah-s2", q: { ar: "هل أؤدي عملي بإتقان ولو لم يرني أحد؟", en: "Do I do my work well even when no one sees?" } },
-    { id: "ah-s3", q: { ar: "هل أعطي كل ذي حق حقه: ربي، ونفسي، وأهلي، وعملي؟", en: "Do I give each its due: my Lord, myself, my family, my work?" } },
+    {
+      id: "ah-s3",
+      q: {
+        ar: "هل أعطي كل ذي حق حقه: ربي، وأهلي، وعملي، وأعدل بين أولادي في الكلمة والعطية؟",
+        en: "Do I give each its due, my Lord, my family, my work, and am I fair between my children in word and gift?"
+      }
+    },
     { id: "ah-s4", q: { ar: "هل أعتذر حين أخطئ، دون «لكن»؟", en: "Do I apologise when I'm wrong, without «but»?" } },
-    { id: "ah-s5", q: { ar: "هل أردّ الديون والأمانات في وقتها؟", en: "Do I return debts and trusts on time?" } }
+    {
+      id: "ah-s5",
+      q: { ar: "هل أراجع يومي قبل النوم، وأصلح في الغد أمرًا واحدًا وجدته؟", en: "Do I review my day before sleep, and put right one thing I found the next day?" }
+    }
   ]
 };
 
