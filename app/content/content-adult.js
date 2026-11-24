@@ -2732,21 +2732,39 @@ window.AKHLAQ_CONTENT_ADULT.stages.human = {
 window.AKHLAQ_CONTENT_ADULT.stages.sabiq = {
   name: { ar: "السابق بالخيرات", en: "Racing to good" },
   short: {
-    ar: "سلوك المبادرة بالخير: يسبق إلى الخير قبل أن يُطلب منه، في بيته وحيّه ومسجده، ويأخذ بيد غيره ليصعد معه، ويعرف أن سبقه بإذن الله وفضله. وهو بداية الترقي، ودرجات يتفاوت الناس فيها تفاوتًا كبيرًا.",
-    en: "The behaviour of taking the lead in good: hurrying to good before being asked, at home, in the neighbourhood and in the mosque, taking others by the hand to climb together, and knowing that one's lead is by Allah's leave and grace. It is where the ascent begins, with degrees in which people differ greatly."
+    ar: "سلوك السبق إلى الخير: يبادر بالخير قبل أن يُطلب منه، ويتقن عمله حيث لا يراه أحد، ويخفي ما استطاع من عمله، ويداوم على القليل بعد أن تهدأ الحماسة الأولى، ويأخذ بيد غيره ليصعد معه. ويعرف أن سبقه بإذن الله وفضله، فيزداد تواضعًا كلما زاد عمله.",
+    en: "The behaviour of racing to good: doing good before being asked, doing one's work well where no one sees it, hiding what one can of one's deeds, keeping up the little after the first fervour has gone, and taking others by the hand to climb together. One knows that any lead is by Allah's leave and grace, and grows humbler as the deeds grow."
   },
   signs: [
-    { ar: "رؤية ما يحتاج إلى عمل في البيت أو الحي أو المسجد، وعمله قبل أن يُطلب.", en: "Seeing what needs doing at home, in the neighbourhood or the mosque, and doing it before being asked." },
-    { ar: "جار يُسأل عنه إذا غاب، ويُعان إذا احتاج.", en: "A neighbour asked after when absent, and helped when in need." },
-    { ar: "صدقة خفية لا يعرفها إلا الله.", en: "Hidden charity that only Allah knows of." },
-    { ar: "علم أو مهارة تُعلَّم لمن يحتاج إليها دون مقابل.", en: "Knowledge or a skill taught, free, to someone who needs it." },
-    { ar: "ساعات تطوع ثابتة، مع الأهل أو الأصحاب، والفرح إذا سبق غيرك إلى الخير.", en: "Regular hours of volunteering with family or friends, and joy when someone else gets to the good first." }
+    {
+      ar: "حاجة تُرى في البيت أو العمل أو المسجد، فتُقضى قبل أن يطلبها أحد.",
+      en: "A need seen at home, at work or in the mosque, and met before anyone asks."
+    },
+    { ar: "عمل يُتقن في الجزء الذي لا يفحصه أحد.", en: "Work done well in the part no one checks." },
+    {
+      ar: "صدقة أو خدمة لا يعرفها إلا الله، ورغبة في نشرها تُترك.",
+      en: "A charity or a service only Allah knows of, and the urge to post about it, left alone."
+    },
+    {
+      ar: "ركعتان في آخر الليل، أو ورد صغير، يبقى بعد أن تذهب الحماسة.",
+      en: "Two rak'as late at night, or a small daily portion, that remains after the enthusiasm has gone."
+    },
+    {
+      ar: "علم يُعلَّم دون مقابل، وفرح صادق إذا سبقك غيرك إلى الخير.",
+      en: "Knowledge taught for nothing in return, and real joy when someone else gets to the good first."
+    }
   ],
   climb: [
     { ar: "أجعل لي كل يوم عملًا خفيًّا لا يعرفه إلا الله.", en: "Each day I keep one hidden deed that only Allah knows." },
-    { ar: "أسأل عن جاري، وأبدأه بالسلام والهدية.", en: "I ask after my neighbour, and greet them first and bring a gift." },
+    {
+      ar: "أختار عبادة صغيرة أقدر عليها في أتعب أيامي، وأداوم عليها.",
+      en: "I choose a small act of worship I can manage on my most tiring day, and keep it up."
+    },
     { ar: "أعين غيري على الخير بالكلمة الطيبة لا باللوم.", en: "I help others toward good with kind words, not blame." },
-    { ar: "لا أغترّ بعملي، فالسبق بإذن الله، وأنا أحتاج الهداية كل يوم.", en: "I am not deceived by my deeds: any lead is by Allah's leave, and I need guidance every day." }
+    {
+      ar: "لا أغترّ بعملي، فالسبق بإذن الله، وأنا أحتاج الهداية كل يوم.",
+      en: "I am not deceived by my deeds: any lead is by Allah's leave, and I need guidance every day."
+    }
   ],
   degrees: [
     {
@@ -2788,20 +2806,29 @@ window.AKHLAQ_CONTENT_ADULT.stages.sabiq = {
         en: "Keep a regular hidden charity. Among the seven whom Allah shades in His shade, the Prophet, peace and blessings be upon him and his family, mentioned: «a man who gave charity and hid it so that his left hand does not know what his right hand spends» (Bukhari 1423)."
       },
       q: {
-        id: "as-d1q", type: "situation", readingId: null, correct: 1,
+        id: "as-d1q",
+        type: "situation",
+        readingId: null,
+        correct: 1,
         q: {
           ar: "لاحظت أن إشارة المرور قرب مدرسة الحي معطلة منذ أسبوع، والأطفال يعبرون بصعوبة. ما الأقرب إلى المبادرة بالخير؟",
           ar_f: "لاحظتِ أن إشارة المرور قرب مدرسة الحي معطلة منذ أسبوع، والأطفال يعبرون بصعوبة. ما الأقرب إلى المبادرة بالخير؟",
           en: "You notice the traffic light near the neighbourhood school has been broken for a week, and the children struggle to cross. What is closest to taking the lead in good?"
         },
         options: [
-          { ar: "أنتظر حتى تصلحها البلدية", en: "Wait for the council to fix it" },
-          { ar: "أبلّغ الجهة المسؤولة اليوم، وأتفق مع بعض الجيران على مساعدة الأطفال في العبور حتى تُصلح", en: "Report it today, and arrange with some neighbours to help the children cross until it is fixed" },
-          { ar: "أنشر صورة غاضبة على الإنترنت", en: "Post an angry photo online" }
+          {
+            ar: "أكتب منشورًا في مجموعة الحي عن الخطر حتى يتحرك أحد",
+            en: "Write a post in the neighbourhood group about the danger so that someone acts"
+          },
+          {
+            ar: "أبلّغ الجهة المسؤولة اليوم، وأتفق مع بعض الجيران على مساعدة الأطفال في العبور حتى تُصلح",
+            en: "Report it today, and arrange with some neighbours to help the children cross until it is fixed"
+          },
+          { ar: "أوصي أولادي بالحذر عند العبور، فهذا ما في يدي", en: "Tell my own children to take care crossing; that much is in my hands" }
         ],
         why: {
-          ar: "المبادر لا ينتظر أن يُكلَّف. والمبادرة النافعة عمل، لا شكوى.",
-          en: "One who takes the lead doesn't wait to be told. Useful initiative is action, not complaint."
+          ar: "المبادر يبلّغ اليوم، ويقف مع أطفال الحي كلهم حتى تُصلح الإشارة، فالحاجة حاجتهم جميعًا.",
+          en: "One who takes the lead reports it today and stands with all the neighbourhood's children until the light is fixed, for the need belongs to all of them."
         }
       }
     },
@@ -2844,60 +2871,80 @@ window.AKHLAQ_CONTENT_ADULT.stages.sabiq = {
         en: "Keep a steady project of good with your family or friends, and remember the words of the Prophet, peace and blessings be upon him and his family: «Whoever guides to good has a reward like that of the one who does it» (Sahih Muslim 1893)."
       },
       q: {
-        id: "as-d2q", type: "situation", readingId: null, correct: 1,
+        id: "as-d2q",
+        type: "situation",
+        readingId: null,
+        correct: 1,
         q: {
           ar: "سبقك زميلك في المسجد إلى فكرة درس أسبوعي للشباب كنت تفكر فيها، ونال الثناء عليها. ماذا تفعل؟",
           ar_f: "سبقتكِ صديقتك إلى فكرة حلقة أسبوعية للفتيات كنتِ تفكرين فيها، ونالت الثناء عليها. ماذا تفعلين؟",
           en: "Someone at the mosque beats you to the idea of a weekly class for young people that you had in mind, and is praised for it. What do you do?"
         },
         options: [
-          { ar: "أبتعد عن الدرس، فالفكرة كانت فكرتي", ar_f: "أبتعد عن الحلقة، فالفكرة كانت فكرتي", en: "Keep away from the class; the idea was mine" },
+          {
+            ar: "أتركه له، وأبحث عن مشروع آخر لم يسبقني إليه أحد",
+            ar_f: "أتركها لها، وأبحث عن مشروع آخر لم يسبقني إليه أحد",
+            en: "Leave it to them, and look for another project no one has got to first"
+          },
           { ar: "أشكره، وأعرض أن أعينه فيه", ar_f: "أشكرها، وأعرض أن أعينها فيها", en: "Thank them and offer to help with it" },
-          { ar: "أبدأ درسًا آخر في الوقت نفسه لأثبت أنني أفضل", ar_f: "أبدأ حلقة أخرى في الوقت نفسه لأثبت أنني أفضل", en: "Start another class at the same time to prove I'm better" }
+          {
+            ar: "أحضر مرة، ثم أرسل إليه قائمة بما ينقص درسه",
+            ar_f: "أحضر مرة، ثم أرسل إليها قائمة بما ينقص حلقتها",
+            en: "Attend once, then send them a list of what their class is missing"
+          }
         ],
         why: {
-          ar: "التنافس في الخير لا يجعل الآخر خصمًا. ومن أعان على خير شارك في أجره.",
-          en: "Competing in good does not make the other a rival. Whoever helps with a good shares in its reward."
+          ar: "في سباق الخير يصير من سبقك شريكًا، والعون على خير بدأه غيرك سبقٌ آخر إليه.",
+          en: "In the race to good, the one who got there first becomes a partner, and helping with a good someone else began is another way of reaching it first."
         }
       }
     }
   ],
   readings: [
     {
-      id: "as-r1", minutes: 4, ages: "18+",
-      title: { ar: "جار لا نعرف اسمه", en: "A neighbour whose name we don't know" },
+      id: "as-r1",
+      minutes: 4,
+      ages: "18+",
+      title: { ar: "الجزء الذي لا يفحصه أحد", en: "The part no one checks" },
       body: {
         ar: [
-          "في عمارة من ثمانية طوابق قد يعيش الناس سنوات دون أن يعرف أحدهم اسم جاره. يلتقون في المصعد، ويتبادلون التحية بإيماءة، ثم يغلق كل منهم بابه. وقد يمرض الجار أو يحزن أو يرحل، ولا يعلم به من يسكن خلف الجدار.",
-          "وقالت السيدة عائشة إن النبي صلى الله عليه وآله وسلم قال: «مَا زَالَ يُوصِينِي جِبْرِيلُ بِالْجَارِ حَتَّى ظَنَنْتُ أَنَّهُ سَيُوَرِّثُهُ» (البخاري 6014). وصية تتكرر حتى يظن النبي أن الجار سيصير من الورثة.",
-          "وللجار حقان: حق لا يتم الإيمان إلا به، وهو ألا يُؤذى، فقد قال صلى الله عليه وآله وسلم: «لاَ يَدْخُلُ الْجَنَّةَ مَنْ لاَ يَأْمَنُ جَارُهُ بَوَائِقَهُ» (صحيح مسلم 46). وحق يسبق إليه السابقون، وهو الإكرام: أن تبدأه بالسلام، وتسأل عنه إذا غاب، وتعينه إذا احتاج.",
-          "والمبادرة مع الجار سهلة إذا بدأت صغيرة: طبق من طعامك في أول رمضان، أو بطاقة ترحيب لجار جديد، أو رقم هاتفك لجار مسن يعيش وحده.",
-          "خطوات عملية: تعرّف هذا الأسبوع إلى اسم جار واحد لا تعرفه. وإذا طبخت شيئًا طيبًا فأرسل منه طبقًا. وإن كان في عمارتك من يعيش وحده فاترك له رقمك، وقل له: إن احتجت شيئًا فاتصل بي."
+          "في كل عمل جزء يراه الناس وجزء لا يراه أحد: اللحام تحت الطلاء، والسطر الأخير في التقرير، والمريض الأخير في نوبة الليل، والسؤال الذي يسأله طالب ضعيف قبل الجرس بدقيقة. ويُعرف الإنسان في الجزء الثاني أكثر مما يُعرف في الأول.",
+          "سأل جبريل عليه السلام النبيَّ صلى الله عليه وآله وسلم عن الإحسان، فقال: «أَنْ تَعْبُدَ اللَّهَ كَأَنَّكَ تَرَاهُ، فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاكَ» (البخاري 50). والعمل الذي يُبتغى به وجه الله عبادة، فيدخله الإحسان كما يدخل الصلاة: أن تعمل وأنت تعلم أن الله يرى الجزء الذي لا يفحصه أحد.",
+          "ويبدأ الإحسان في العمل بعشر دقائق زائدة: مراجعة ثانية لما كتبت، وجواب كامل لمن سألك وأنت متعب، وإصلاح عيب صغير كان يمكن أن يمرّ. وهذه الدقائق هي المسافة بين من يؤدي ما عليه ومن يسبق إلى الخير. وأولى الناس بها أهل بيتك: الطبق الذي تعدّه لأولادك، والإصلاح الذي يُؤجَّل في البيت لأن الضيوف لا يرونه.",
+          "خطوات عملية: اختر في عملك هذا الأسبوع الجزء الذي لا يراجعه أحد، وأتقنه كما لو كان سيُعرض على الجميع. وإذا أنهيت عملًا فاسأل: لو كان هذا لأبي أو لولدي، هل أسلّمه هكذا؟",
+          "كان كريم يصلح أنابيب الماء في بيوت الحي. وفي شقة امرأة مسنة انتهى من الإصلاح قبل العصر، ثم رأى خلف الخزانة وصلة قديمة تقطر قطرة كل دقيقة. لم تكن في الطلب، ولن تراها صاحبة البيت. أخرج عدّته مرة أخرى، وجثا على ركبتيه نصف ساعة، ثم مسح الأرض بخرقته، وقال لها وهو يخرج: «الأجرة كما اتفقنا»."
         ],
         ar_f: [
-          "في عمارة من ثمانية طوابق قد يعيش الناس سنوات دون أن يعرف أحدهم اسم جاره. يلتقون في المصعد، ويتبادلون التحية بإيماءة، ثم يغلق كل منهم بابه. وقد يمرض الجار أو يحزن أو يرحل، ولا يعلم به من يسكن خلف الجدار.",
-          "وقالت السيدة عائشة إن النبي صلى الله عليه وآله وسلم قال: «مَا زَالَ يُوصِينِي جِبْرِيلُ بِالْجَارِ حَتَّى ظَنَنْتُ أَنَّهُ سَيُوَرِّثُهُ» (البخاري 6014). وصية تتكرر حتى يظن النبي أن الجار سيصير من الورثة.",
-          "وللجار حقان: حق لا يتم الإيمان إلا به، وهو ألا يُؤذى، فقد قال صلى الله عليه وآله وسلم: «لاَ يَدْخُلُ الْجَنَّةَ مَنْ لاَ يَأْمَنُ جَارُهُ بَوَائِقَهُ» (صحيح مسلم 46). وحق يسبق إليه السابقون، وهو الإكرام: أن تبدئيه بالسلام، وتسألي عنه إذا غاب، وتعينيه إذا احتاج.",
-          "والمبادرة مع الجار سهلة إذا بدأت صغيرة: طبق من طعامك في أول رمضان، أو بطاقة ترحيب لجارة جديدة، أو رقم هاتفك لجارة مسنة تعيش وحدها.",
-          "خطوات عملية: تعرّفي هذا الأسبوع إلى اسم جارة واحدة لا تعرفينها. وإذا طبختِ شيئًا طيبًا فأرسلي منه طبقًا. وإن كان في عمارتك من تعيش وحدها فاتركي لها رقمك، وقولي لها: إن احتجتِ شيئًا فاتصلي بي."
+          "في كل عمل جزء يراه الناس وجزء لا يراه أحد: اللحام تحت الطلاء، والسطر الأخير في التقرير، والمريض الأخير في نوبة الليل، والسؤال الذي يسأله طالب ضعيف قبل الجرس بدقيقة. ويُعرف الإنسان في الجزء الثاني أكثر مما يُعرف في الأول.",
+          "سأل جبريل عليه السلام النبيَّ صلى الله عليه وآله وسلم عن الإحسان، فقال: «أَنْ تَعْبُدَ اللَّهَ كَأَنَّكَ تَرَاهُ، فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاكَ» (البخاري 50). والعمل الذي يُبتغى به وجه الله عبادة، فيدخله الإحسان كما يدخل الصلاة: أن تعمل وأنت تعلم أن الله يرى الجزء الذي لا يفحصه أحد.",
+          "ويبدأ الإحسان في العمل بعشر دقائق زائدة: مراجعة ثانية لما كتبت، وجواب كامل لمن سألك وأنت متعب، وإصلاح عيب صغير كان يمكن أن يمرّ. وهذه الدقائق هي المسافة بين من يؤدي ما عليه ومن يسبق إلى الخير. وأولى الناس بها أهل بيتك: الطبق الذي تعدّه لأولادك، والإصلاح الذي يُؤجَّل في البيت لأن الضيوف لا يرونه.",
+          "خطوات عملية: اختاري في عملك هذا الأسبوع الجزء الذي لا يراجعه أحد، وأتقنيه كما لو كان سيُعرض على الجميع. وإذا أنهيتِ عملًا فاسألي: لو كان هذا لأبي أو لولدي، هل أسلّمه هكذا؟",
+          "كان كريم يصلح أنابيب الماء في بيوت الحي. وفي شقة امرأة مسنة انتهى من الإصلاح قبل العصر، ثم رأى خلف الخزانة وصلة قديمة تقطر قطرة كل دقيقة. لم تكن في الطلب، ولن تراها صاحبة البيت. أخرج عدّته مرة أخرى، وجثا على ركبتيه نصف ساعة، ثم مسح الأرض بخرقته، وقال لها وهو يخرج: «الأجرة كما اتفقنا»."
         ],
         en: [
-          "In an eight-storey building people may live for years without knowing their neighbours' names. They meet in the lift, nod a greeting, and each closes their door. A neighbour may fall ill, grieve or move away, and the person behind the wall never knows.",
-          "Lady Aisha reported that the Prophet, peace and blessings be upon him and his family, said: «Jibril kept enjoining me to treat the neighbour well until I thought he would make him an heir» (Bukhari 6014). Counsel repeated until the Prophet thought the neighbour would be counted among the heirs.",
-          "A neighbour has two rights. One without which faith is incomplete: not to be harmed. He said: «He will not enter Paradise whose neighbour is not safe from his harm» (Sahih Muslim 46). And one that those who race to good hurry toward: honour. Greeting them first, asking after them when they are away, helping when they are in need.",
-          "Taking the lead with a neighbour is easy when it starts small: a plate of your food at the start of Ramadan, a welcome card for a new neighbour, your phone number for an elderly neighbour who lives alone.",
-          "Practical steps: this week, learn the name of one neighbour you don't know. When you cook something good, send a plate. If someone in your building lives alone, leave them your number and say: if you need anything, call me."
+          "Every job has a part people see and a part no one sees: the weld under the paint, the last line of the report, the last patient of the night shift, the question a struggling student asks a minute before the bell. A person is known by the second part more than by the first.",
+          "Jibril, peace be upon him, asked the Prophet, peace and blessings be upon him and his family, about ihsan, and he said: «That you worship Allah as though you see Him, and if you do not see Him, He sees you» (Bukhari 50). Work done for Allah's sake is worship, and ihsan enters it as it enters prayer: you work knowing that Allah sees the part no one inspects.",
+          "Ihsan at work begins with ten extra minutes: a second look at what you wrote, a full answer to someone who asks while you are tired, a small fault fixed that could have slipped through. Those minutes are the distance between doing what is owed and racing to good. Your own household has the first claim on them: the dish you make for your children, the repair at home that keeps being put off because guests never see it.",
+          "Practical steps: this week, pick the part of your work that no one reviews, and do it as well as if it were going to be shown to everyone. When you finish a job, ask: if this were for my father or my child, would I hand it over like this?",
+          "Karim fixed water pipes in the neighbourhood's homes. In an elderly woman's flat he finished the repair before Asr, then noticed behind the cupboard an old joint dripping once a minute. It was not on the job, and she would never see it. He took out his tools again, knelt there for half an hour, wiped the floor with his rag, and said as he left: «The fee is what we agreed.»"
         ]
       },
       quote: {
-        ar: "«مَا زَالَ يُوصِينِي جِبْرِيلُ بِالْجَارِ حَتَّى ظَنَنْتُ أَنَّهُ سَيُوَرِّثُهُ»",
-        en: "Meaning: Jibril kept enjoining me to treat the neighbour well until I thought he would make him an heir.",
-        ref: "صحيح البخاري 6014، عن عائشة", checked: "hadith-api (fawazahmed0)", verify: true
+        ar: "«أَنْ تَعْبُدَ اللَّهَ كَأَنَّكَ تَرَاهُ، فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاكَ»",
+        en: "Meaning: That you worship Allah as though you see Him, and if you do not see Him, He sees you.",
+        ref: "صحيح البخاري 50، عن أبي هريرة",
+        checked: "hadith-api (fawazahmed0)",
+        verify: true
       },
-      source: { ar: "مقالة مع حديثين في صحيحي البخاري ومسلم (مسلم 46، ترقيم sunnah.com: الكتاب 1، الحديث 79).", en: "An article with hadiths in Sahih al-Bukhari and Sahih Muslim (Muslim 46, sunnah.com: book 1, hadith 79)." }
+      source: {
+        ar: "مقالة مع حديث في صحيح البخاري، ومشهد بشخصية خيالية.",
+        en: "An article with a hadith in Sahih al-Bukhari, and a scene with a fictional character."
+      }
     },
     {
-      id: "as-r2", minutes: 4, ages: "18+",
+      id: "as-r2",
+      minutes: 4,
+      ages: "18+",
       title: { ar: "من يفتح باب المسجد", en: "The one who opens the mosque door" },
       body: {
         ar: [
@@ -2905,32 +2952,42 @@ window.AKHLAQ_CONTENT_ADULT.stages.sabiq = {
           "روى أبو هريرة رضي الله عنه أن رجلًا أسود، أو امرأة سوداء، كان يَقُمّ المسجد، أي ينظفه، فمات. فسأل النبي صلى الله عليه وآله وسلم عنه، فقالوا: مات. فقال: «أَفَلاَ كُنْتُمْ آذَنْتُمُونِي بِهِ دُلُّونِي عَلَى قَبْرِهِ»، فأتى قبره فصلى عليه (البخاري 458).",
           "لم يعدّه الناس شأنًا يُخبر به النبي، وعدّه النبي صلى الله عليه وآله وسلم شأنًا يُخرج إليه. خدمة المسجد عند الله أكبر مما تبدو عند الناس، وقد قال تعالى: ﴿إِنَّمَا يَعْمُرُ مَسَاجِدَ اللَّهِ مَنْ آمَنَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ﴾ (التوبة 9:18).",
           "وعمارة المسجد اليوم أبواب كثيرة: ترتيب، وتنظيف، وإصلاح عطل، وتعليم الصغار، وزيارة المصلي الذي غاب، وتبرع بما يحتاجه المسجد من مال أو مهارة.",
-          "خطوات عملية: اسأل إمام مسجدك أو القائم عليه: ما الذي يحتاجه المسجد ولا يقوم به أحد؟ واختر منه عملًا تستطيع المداومة عليه، ولو ساعة في الشهر. وإذا عرفت خادم المسجد فاعرف اسمه، واشكره، وادعُ له."
+          "خطوات عملية: اسأل إمام مسجدك أو القائم عليه: ما الذي يحتاجه المسجد ولا يقوم به أحد؟ واختر منه عملًا تستطيع المداومة عليه، ولو ساعة في الشهر. وإذا عرفت خادم المسجد فاعرف اسمه، واشكره، وادعُ له.",
+          "بعد صلاة العشاء في ليلة ممطرة بقي في المسجد رجل واحد يجمع المصاحف عن الرفوف المبتلة، ويمسح الماء عند الباب. سأله شاب يحمل مفاتيح سيارته عن اسمه، فقال: سالم. أخذ الشاب الممسحة من يده، وقال: «اذهب أنت يا عم سالم، الليلة دوري». ومسح الماء حتى الباب، ثم أطفأ الأنوار وخرج."
         ],
         ar_f: [
           "في كل حي إنسان لا ينتبه إليه أحد: يفتح باب المسجد قبل الفجر، ويشغّل التدفئة في الشتاء، ويرتب المصاحف بعد الصلاة، ويملأ قوارير الماء. يعرفه المصلون بوجهه، وقليل منهم يعرف اسمه.",
           "روى أبو هريرة رضي الله عنه أن رجلًا أسود، أو امرأة سوداء، كان يَقُمّ المسجد، أي ينظفه، فمات. فسأل النبي صلى الله عليه وآله وسلم عنه، فقالوا: مات. فقال: «أَفَلاَ كُنْتُمْ آذَنْتُمُونِي بِهِ دُلُّونِي عَلَى قَبْرِهِ»، فأتى قبره فصلى عليه (البخاري 458).",
           "لم يعدّه الناس شأنًا يُخبر به النبي، وعدّه النبي صلى الله عليه وآله وسلم شأنًا يُخرج إليه. خدمة المسجد عند الله أكبر مما تبدو عند الناس، وقد قال تعالى: ﴿إِنَّمَا يَعْمُرُ مَسَاجِدَ اللَّهِ مَنْ آمَنَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ﴾ (التوبة 9:18).",
           "وعمارة المسجد اليوم أبواب كثيرة: ترتيب، وتنظيف، وإصلاح عطل، وتعليم الصغار، وزيارة المصلية التي غابت، وتبرع بما يحتاجه المسجد من مال أو مهارة.",
-          "خطوات عملية: اسألي القائمين على مصلى النساء في مسجدك: ما الذي يحتاجه المسجد ولا يقوم به أحد؟ واختاري منه عملًا تستطيعين المداومة عليه، ولو ساعة في الشهر. وإذا عرفتِ من تخدم المسجد فاعرفي اسمها، واشكريها، وادعي لها."
+          "خطوات عملية: اسألي القائمين على مصلى النساء في مسجدك: ما الذي يحتاجه المسجد ولا يقوم به أحد؟ واختاري منه عملًا تستطيعين المداومة عليه، ولو ساعة في الشهر. وإذا عرفتِ من تخدم المسجد فاعرفي اسمها، واشكريها، وادعي لها.",
+          "بعد صلاة العشاء في ليلة ممطرة بقي في المسجد رجل واحد يجمع المصاحف عن الرفوف المبتلة، ويمسح الماء عند الباب. سأله شاب يحمل مفاتيح سيارته عن اسمه، فقال: سالم. أخذ الشاب الممسحة من يده، وقال: «اذهب أنت يا عم سالم، الليلة دوري». ومسح الماء حتى الباب، ثم أطفأ الأنوار وخرج."
         ],
         en: [
           "In every neighbourhood there is someone nobody notices: they open the mosque door before Fajr, switch on the heating in winter, tidy the copies of the Quran after prayer, refill the water bottles. The worshippers know their face; few know their name.",
           "Abu Hurayra, may Allah be pleased with him, reported that a black man, or a black woman, used to sweep the mosque, and died. The Prophet, peace and blessings be upon him and his family, asked about him, and they said: he died. He said: «Why did you not tell me? Show me his grave.» He went to the grave and prayed over him (Bukhari 458).",
           "People did not think it worth telling the Prophet about; the Prophet thought it worth going out for. Serving the mosque is greater with Allah than it looks to people. Allah says, meaning: the mosques of Allah are maintained only by those who believe in Allah and the Last Day (at-Tawba 9:18).",
           "Maintaining a mosque today has many doors: tidying, cleaning, fixing what is broken, teaching children, visiting a worshipper who has been absent, giving the mosque money or a skill it needs.",
-          "Practical steps: ask your mosque's imam or caretaker what the mosque needs that no one is doing. Choose one thing you can keep up, even one hour a month. And if you know who serves the mosque, learn their name, thank them, and pray for them."
+          "Practical steps: ask your mosque's imam or caretaker what the mosque needs that no one is doing. Choose one thing you can keep up, even one hour a month. And if you know who serves the mosque, learn their name, thank them, and pray for them.",
+          "After Isha on a rainy night one man stayed behind in the mosque, moving the Qurans off the damp shelves and mopping the water by the door. A young man with his car keys in his hand asked his name. «Salim,» he said. The young man took the mop from him and said: «You go home, Uncle Salim. Tonight it's my turn.» He mopped the water as far as the door, switched off the lights, and left."
         ]
       },
       quote: {
         ar: "«أَفَلاَ كُنْتُمْ آذَنْتُمُونِي بِهِ دُلُّونِي عَلَى قَبْرِهِ»",
         en: "Meaning: Why did you not tell me? Show me his grave.",
-        ref: "صحيح البخاري 458، عن أبي هريرة", checked: "hadith-api (fawazahmed0)", verify: true
+        ref: "صحيح البخاري 458، عن أبي هريرة",
+        checked: "hadith-api (fawazahmed0)",
+        verify: true
       },
-      source: { ar: "مقالة مع حديث في صحيح البخاري وآية من سورة التوبة.", en: "An article with a hadith in Sahih al-Bukhari and a verse from at-Tawba." }
+      source: {
+        ar: "مقالة مع حديث في صحيح البخاري وآية من سورة التوبة، ومشهد بشخصية خيالية.",
+        en: "An article with a hadith in Sahih al-Bukhari and a verse from at-Tawba, and a scene with a fictional character."
+      }
     },
     {
-      id: "as-r3", minutes: 4, ages: "18+",
+      id: "as-r3",
+      minutes: 4,
+      ages: "18+",
       title: { ar: "ساعة بعد العصر", en: "An hour after Asr" },
       body: {
         ar: [
@@ -2938,89 +2995,120 @@ window.AKHLAQ_CONTENT_ADULT.stages.sabiq = {
           "جلس معهم يومًا، ثم صار يجلس كل يوم. وبعد سنة صار في المسجد درس منتظم للرياضيات وتلاوة القرآن، يأتيه ثلاثون ولدًا، ومعه شابان من تلاميذه القدامى يعينانه.",
           "قال النبي صلى الله عليه وآله وسلم: «خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ» (البخاري 5027). وتعليم القرآن رأس التعليم، وكل علم نافع يعلّمه المسلم لغيره بنية صالحة من الخير الذي يسبق إليه.",
           "وفي صحيح مسلم أن رجلًا جاء النبي صلى الله عليه وآله وسلم يطلب دابة يُحمل عليها، فقال: «مَا عِنْدِي». فقال رجل: يا رسول الله، أنا أدلّه على من يحمله. فقال: «مَنْ دَلَّ عَلَى خَيْرٍ فَلَهُ مِثْلُ أَجْرِ فَاعِلِهِ» (صحيح مسلم 1893). فمن لم يملك ما يُعطي، فليدلّ على من يملك.",
-          "خطوات عملية: اكتب ثلاثة أشياء تعرفها جيدًا: لغة، أو مهارة في عملك، أو سورة تتقن تلاوتها. واسأل: من حولي يحتاج إلى واحد منها؟ ثم ابدأ بساعة واحدة في الأسبوع."
+          "خطوات عملية: اكتب ثلاثة أشياء تعرفها جيدًا: لغة، أو مهارة في عملك، أو سورة تتقن تلاوتها. واسأل: من حولي يحتاج إلى واحد منها؟ ثم ابدأ بساعة واحدة في الأسبوع.",
+          "وفي الشتاء الثاني أصاب فؤادًا ألم في ركبته، فصار يصعد درج المسجد درجة بعد درجة. اقترح عليه أحد الشابين أن يرتاح شهرًا، فقال: «اشرح لهم أنت هذا الشهر، وأنا أجلس في الصف الأخير أسمع». وفي آخر الشهر كان في الصف الأخير، والشاب يشرح، والأولاد يلتفتون إليه كل حين ليروا هل يبتسم."
         ],
         ar_f: [
           "تقاعد الأستاذ فؤاد بعد ثلاثين سنة في تدريس الرياضيات. وفي الشهر الأول بعد التقاعد شعر بفراغ ثقيل، حتى رأى في المسجد أولادًا يراجعون واجباتهم بصعوبة بعد صلاة العصر، ولا أحد يساعدهم.",
           "جلس معهم يومًا، ثم صار يجلس كل يوم. وبعد سنة صار في المسجد درس منتظم للرياضيات وتلاوة القرآن، يأتيه ثلاثون ولدًا، ومعه شابان من تلاميذه القدامى يعينانه.",
           "قال النبي صلى الله عليه وآله وسلم: «خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ» (البخاري 5027). وتعليم القرآن رأس التعليم، وكل علم نافع يعلّمه المسلم لغيره بنية صالحة من الخير الذي يسبق إليه.",
           "وفي صحيح مسلم أن رجلًا جاء النبي صلى الله عليه وآله وسلم يطلب دابة يُحمل عليها، فقال: «مَا عِنْدِي». فقال رجل: يا رسول الله، أنا أدلّه على من يحمله. فقال: «مَنْ دَلَّ عَلَى خَيْرٍ فَلَهُ مِثْلُ أَجْرِ فَاعِلِهِ» (صحيح مسلم 1893). فمن لم يملك ما يُعطي، فليدلّ على من يملك.",
-          "خطوات عملية: اكتبي ثلاثة أشياء تعرفينها جيدًا: لغة، أو مهارة في عملك، أو سورة تتقنين تلاوتها. واسألي: من حولي يحتاج إلى واحد منها؟ ثم ابدئي بساعة واحدة في الأسبوع."
+          "خطوات عملية: اكتبي ثلاثة أشياء تعرفينها جيدًا: لغة، أو مهارة في عملك، أو سورة تتقنين تلاوتها. واسألي: من حولي يحتاج إلى واحد منها؟ ثم ابدئي بساعة واحدة في الأسبوع.",
+          "وفي الشتاء الثاني أصاب فؤادًا ألم في ركبته، فصار يصعد درج المسجد درجة بعد درجة. اقترح عليه أحد الشابين أن يرتاح شهرًا، فقال: «اشرح لهم أنت هذا الشهر، وأنا أجلس في الصف الأخير أسمع». وفي آخر الشهر كان في الصف الأخير، والشاب يشرح، والأولاد يلتفتون إليه كل حين ليروا هل يبتسم."
         ],
         en: [
           "Mr Fuad retired after thirty years of teaching mathematics. In his first month of retirement he felt a heavy emptiness, until he saw boys in the mosque struggling with their homework after the Asr prayer, with no one to help.",
           "He sat with them one day, then every day. A year later the mosque had a regular class in mathematics and Quran recitation, attended by thirty children, with two young men, his former pupils, helping him.",
           "The Prophet, peace and blessings be upon him and his family, said: «The best of you is the one who learns the Quran and teaches it» (Bukhari 5027). Teaching the Quran heads all teaching, and any useful knowledge a Muslim teaches others with good intention belongs to the good one races toward.",
           "In Sahih Muslim, a man came to the Prophet asking for a mount to carry him, and he said: «I have none.» Another man said: Messenger of Allah, I will direct him to someone who can carry him. He said: «Whoever guides to good has a reward like that of the one who does it» (Sahih Muslim 1893). Whoever has nothing to give can point to someone who has.",
-          "Practical steps: write down three things you know well: a language, a skill from your work, a surah you recite well. Ask: who around me needs one of these? Then start with one hour a week."
+          "Practical steps: write down three things you know well: a language, a skill from your work, a surah you recite well. Ask: who around me needs one of these? Then start with one hour a week.",
+          "In the second winter Fuad's knee began to hurt, and he climbed the mosque stairs one step at a time. One of the two young men suggested he rest for a month. He said: «You explain to them this month, and I'll sit in the back row and listen.» At the end of the month he was in the back row, the young man was explaining, and every so often the children turned round to see whether he was smiling."
         ]
       },
       quote: {
         ar: "«خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ»",
         en: "Meaning: The best of you is the one who learns the Quran and teaches it.",
-        ref: "صحيح البخاري 5027، عن عثمان بن عفان", checked: "hadith-api (fawazahmed0)", verify: true
+        ref: "صحيح البخاري 5027، عن عثمان بن عفان",
+        checked: "hadith-api (fawazahmed0)",
+        verify: true
       },
-      source: { ar: "قصة مؤلفة بشخصيات خيالية، مع حديثين في صحيحي البخاري ومسلم (مسلم 1893، ترقيم sunnah.com: الكتاب 33، الحديث 195).", en: "An original story with fictional characters, with hadiths in Sahih al-Bukhari and Sahih Muslim (Muslim 1893, sunnah.com: book 33, hadith 195)." }
+      source: {
+        ar: "قصة مؤلفة بشخصيات خيالية، مع حديثين في صحيحي البخاري ومسلم (مسلم 1893، ترقيم sunnah.com: الكتاب 33، الحديث 195).",
+        en: "An original story with fictional characters, with hadiths in Sahih al-Bukhari and Sahih Muslim (Muslim 1893, sunnah.com: book 33, hadith 195)."
+      }
     },
     {
-      id: "as-r4", minutes: 3, ages: "18+",
+      id: "as-r4",
+      minutes: 5,
+      ages: "18+",
       title: { ar: "عند الصيدلية", en: "At the pharmacy" },
       body: {
         ar: [
           "وقف حامد في الصيدلية خلف امرأة مسنة، سمعها تسأل الصيدلي عن ثمن دوائها، ثم تعيد علبة منه إلى الرف لأن ما معها لا يكفي.",
           "خرجت المرأة. فدفع حامد ثمن العلبة، وطلب من الصيدلي أن يتصل بها ويقول إن الدواء صار متوفرًا بسعر أقل، دون أن يذكر اسمه. ثم اتفق معه أن يترك عنده مبلغًا كل شهر لمن يعجز عن دوائه.",
-          "ذكر النبي صلى الله عليه وآله وسلم في السبعة الذين يظلهم الله في ظله يوم لا ظل إلا ظله: «وَرَجُلٌ تَصَدَّقَ بِصَدَقَةٍ فَأَخْفَاهَا حَتَّى لاَ تَعْلَمَ شِمَالُهُ مَا تُنْفِقُ يَمِينُهُ» (البخاري 1423).",
-          "وفي إخفاء الصدقة حفظ لأمرين: قلب المعطي من أن يطلب ثناء الناس، وكرامة الآخذ من أن يُرى محتاجًا. ولذلك كانت الصدقة الخفية من أعلى الخير: لا يعرفها إلا الله، ولا يُنتظر عليها إلا أجره."
+          "ذكر النبي صلى الله عليه وآله وسلم في السبعة الذين يظلهم الله في ظله يوم لا ظل إلا ظله: «وَرَجُلٌ تَصَدَّقَ بِصَدَقَةٍ فَأَخْفَاهَا حَتَّى لاَ تَعْلَمَ شِمَالُهُ مَا تُنْفِقُ يَمِينُهُ» (البخاري 1423). وفي إخفاء الصدقة حفظ لأمرين: قلب المعطي من أن يطلب ثناء الناس، وكرامة الآخذ من أن يُرى محتاجًا. ولذلك كانت الصدقة الخفية من أعلى الخير: لا يعرفها إلا الله، ولا يُنتظر عليها إلا أجره.",
+          "وفي سورة الإنسان وصف لقوم يطعمون الطعام وهم يحبونه، مسكينًا ويتيمًا وأسيرًا، ويقولون: ﴿إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ اللَّهِ لَا نُرِيدُ مِنْكُمْ جَزَاءً وَلَا شُكُورًا﴾ (الإنسان 76:9). ورُوي عن ابن عباس رضي الله عنهما أنها نزلت في علي وفاطمة عليهما السلام وأهل بيتهما: صاموا ثلاثة أيام وفاءً بنذر نذروه لشفاء الحسن والحسين عليهما السلام، وكانوا كل مساء يعطون فطورهم لمن وقف بالباب، مسكين في الليلة الأولى، ويتيم في الثانية، وأسير في الثالثة، ويبيتون على الماء. لا جزاء ولا شكر: يخلو القلب حتى من انتظار الكلمة الطيبة.",
+          "ثم يأتي امتحان أدق من الإخفاء نفسه. في المساء أمسك حامد هاتفه، وبدأ يكتب منشورًا عن «موقف مؤثر في الصيدلية» دون أن يذكر نفسه، ثم انتبه إلى أن من يعرفه سيفهم من كان هناك. قال النبي صلى الله عليه وآله وسلم: «مَنْ سَمَّعَ سَمَّعَ اللَّهُ بِهِ، وَمَنْ يُرَائِي يُرَائِي اللَّهُ بِهِ» (البخاري 6499). وفي كتاب ذم الجاه والرياء من «إحياء علوم الدين» يفرّق الغزالي بين رياء جليّ يبعث على العمل، ورياء خفيّ يسكن القلب ويظهر في سرور صاحبه إذا اطّلع الناس على عمله.",
+          "قرأ حامد ما كتبه مرة أخرى، ثم مسحه حرفًا حرفًا. وفي أول الشهر التالي مرّ بالصيدلية، وترك المبلغ عند الصيدلي في ظرف أبيض، ولم يسأله هل عادت المرأة."
         ],
         en: [
           "Hamid stood in the pharmacy behind an elderly woman. He heard her ask the pharmacist the price of her medicine, then put one box back on the shelf because she did not have enough.",
           "The woman left. Hamid paid for the box and asked the pharmacist to call her and say the medicine had become available at a lower price, without mentioning his name. Then he arranged to leave a sum with him every month for anyone who could not afford their medicine.",
-          "Among the seven whom Allah will shade in His shade on the day when there is no shade but His, the Prophet, peace and blessings be upon him and his family, mentioned: «a man who gave charity and hid it so that his left hand does not know what his right hand spends» (Bukhari 1423).",
-          "Hiding charity protects two things: the giver's heart from seeking people's praise, and the receiver's dignity from being seen in need. That is why hidden charity is among the highest good: only Allah knows it, and nothing is awaited for it but His reward."
+          "Among the seven whom Allah will shade in His shade on the day when there is no shade but His, the Prophet, peace and blessings be upon him and his family, mentioned: «a man who gave charity and hid it so that his left hand does not know what his right hand spends» (Bukhari 1423). Hiding charity protects two things: the giver's heart from seeking people's praise, and the receiver's dignity from being seen in need. That is why hidden charity is among the highest good: only Allah knows it, and nothing is awaited for it but His reward.",
+          "Surat al-Insan describes people who give food, though they love it, to the poor, the orphan and the captive, saying, meaning: we feed you only for the sake of Allah; we want from you neither reward nor thanks (al-Insan 76:9). It is narrated from Ibn Abbas, may Allah be pleased with them both, that it was revealed about Ali and Fatima, peace be upon them, and their household: they fasted three days to fulfil a vow made for the recovery of al-Hasan and al-Husayn, peace be upon them, and each evening they gave their meal to whoever stood at the door, a poor man on the first night, an orphan on the second, a captive on the third, and spent the night on water. Neither reward nor thanks: the heart empty even of waiting for a kind word.",
+          "Then comes a test finer than hiding itself. That evening Hamid picked up his phone and began writing a post about «a moving moment at the pharmacy» without mentioning himself, then realised that anyone who knew him would guess who had been there. The Prophet, peace and blessings be upon him and his family, said: «Whoever seeks to be heard of, Allah will make him heard of; and whoever shows off, Allah will show him up» (Bukhari 6499). In the Book of Condemning Status and Showing Off in the Ihya 'Ulum al-Din, al-Ghazali distinguishes an open showing off that drives the deed from a hidden one that lives in the heart and shows itself in one's pleasure when people learn of the deed.",
+          "Hamid read what he had written once more, then deleted it letter by letter. At the start of the next month he stopped at the pharmacy, left the money with the pharmacist in a white envelope, and did not ask whether the woman had come back."
         ]
       },
       quote: {
         ar: "«وَرَجُلٌ تَصَدَّقَ بِصَدَقَةٍ فَأَخْفَاهَا حَتَّى لاَ تَعْلَمَ شِمَالُهُ مَا تُنْفِقُ يَمِينُهُ»",
         en: "Meaning: A man who gave charity and hid it so that his left hand does not know what his right hand spends.",
-        ref: "صحيح البخاري 1423، عن أبي هريرة", checked: "hadith-api (fawazahmed0)", verify: true
+        ref: "صحيح البخاري 1423، عن أبي هريرة",
+        checked: "hadith-api (fawazahmed0)",
+        verify: true
       },
-      source: { ar: "قصة مؤلفة بشخصيات خيالية، مع حديث في صحيح البخاري.", en: "An original story with fictional characters, with a hadith in Sahih al-Bukhari." }
+      source: {
+        ar: "قصة مؤلفة بشخصيات خيالية، مع حديثين في صحيح البخاري، وآية من سورة الإنسان، وإحياء علوم الدين للغزالي (كتاب ذم الجاه والرياء). وخبر نزول الآيات في أهل البيت عليهم السلام، بالنذر والأيام الثلاثة، يُروى عن ابن عباس، ذكره الثعلبي ونقله البغوي في «معالم التنزيل» والقرطبي في «الجامع لأحكام القرآن» عند الآيات 76:7-9؛ وروى الواحدي في «أسباب النزول» (844) خبرًا أقصر عن عطاء عن ابن عباس أنها نزلت في علي عليه السلام.",
+        en: "An original story with fictional characters, with two hadiths in Sahih al-Bukhari, a verse from al-Insan, and al-Ghazali's Ihya (Book of Condemning Status and Showing Off). The report that these verses were revealed about the Ahl al-Bayt, peace be upon them, with the vow and the three days, is narrated from Ibn Abbas; al-Tha'labi gives it, and al-Baghawi (Ma'alim al-Tanzil) and al-Qurtubi (al-Jami' li-Ahkam al-Quran) cite it at 76:7-9. Al-Wahidi's «Asbab al-Nuzul» (844) gives a shorter report from Ata from Ibn Abbas that they were revealed about Ali, peace be upon him."
+      }
     },
     {
-      id: "as-r5", minutes: 4, ages: "18+",
-      title: { ar: "ساعتان في الشهر", en: "Two hours a month" },
+      id: "as-r5",
+      minutes: 5,
+      ages: "18+",
+      title: { ar: "الليلة الرابعة", en: "The fourth night" },
       body: {
         ar: [
-          "يقول كثير منا: أحب أن أتطوع، لكن ليس عندي وقت. ثم يمضي الشهر وفيه ساعات كثيرة ضاعت بين الشاشات. والتطوع لا يحتاج إلى تفرغ، بل إلى ساعة ثابتة يُتّفق عليها ولا تُترك.",
-          "والقرآن يجعل التعاون على الخير أمرًا: ﴿وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ ۖ وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ﴾ (المائدة 5:2). والتعاون عمل جماعة: يجمع كل واحد ما عنده إلى ما عند غيره.",
-          "وجعل النبي صلى الله عليه وآله وسلم أبواب الصدقة واسعة: «كُلُّ سُلاَمَى مِنَ النَّاسِ عَلَيْهِ صَدَقَةٌ كُلَّ يَوْمٍ تَطْلُعُ فِيهِ الشَّمْسُ»، وذكر منها: «وَالْكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ... وَيُمِيطُ الأَذَى عَنِ الطَّرِيقِ صَدَقَةٌ» (البخاري 2989). فكل عضو في الجسد عليه شكر، وكل خدمة للناس من هذا الشكر.",
-          "أبواب التطوع قريبة: توزيع طعام في رمضان، وزيارة مرضى في مستشفى، وتنظيف حديقة الحي، ومساعدة جمعية تعتني بالأيتام، ونقل كبير في السن إلى موعده عند الطبيب.",
-          "خطوات عملية: اختر مع أهلك أو أصحابك عملًا تطوعيًّا واحدًا، وحدّدوا له ساعتين ثابتتين في الشهر، واكتبوه في التقويم كما تكتبون موعد العمل. وخذ أولادك معك إن استطعت، فهم يتعلمون الخير بالمشاركة قبل أن يتعلموه بالكلام."
+          "يبدأ كثير منا قيام الليل بحماسة كبيرة، في أول رمضان أو بعد درس مؤثر: منبّه قبل الفجر بساعة، وصفحات طويلة. وفي الليلة الرابعة يرنّ المنبّه والجسد متعب من يوم عمل، والصغير استيقظ مرتين، فيُطفأ المنبّه، ثم يُطفأ في الليلة التالية أسرع.",
+          "قالت عائشة رضي الله عنها إن النبي صلى الله عليه وآله وسلم كان يقوم من الليل حتى تتفطر قدماه، فسألته: لِمَ تصنع هذا وقد غفر الله لك ما تقدم من ذنبك وما تأخر؟ فقال: «أَفَلاَ أُحِبُّ أَنْ أَكُونَ عَبْدًا شَكُورًا» (البخاري 4837). قيامه شكر لنعمة يعرفها. وروت عنه أيضًا: «أَحَبَّ الأَعْمَالِ أَدْوَمُهَا إِلَى اللَّهِ، وَإِنْ قَلَّ» (البخاري 6464).",
+          "وفي بيت علي وفاطمة عليهما السلام درس في التعب نفسه. اشتكت فاطمة عليها السلام ما تلقى من أثر الرحى في يدها، فذهبت تسأل أباها خادمًا. فأتاهما ليلًا وقد أخذا مضاجعهما، فقعد بينهما حتى وجد علي برد قدميه على صدره، وقال: «أَلاَ أُعَلِّمُكُمَا خَيْرًا مِمَّا سَأَلْتُمَانِي»، فعلّمهما التكبير والتسبيح والتحميد عند النوم، وقال: «فَهْوَ خَيْرٌ لَكُمَا مِنْ خَادِمٍ» (البخاري 3705).",
+          "قال علي عليه السلام: «فَمَا تَرَكْتُهَا بَعْدُ». قيل له: ولا ليلة صفين؟ قال: «وَلاَ لَيْلَةَ صِفِّينَ» (البخاري 5362). ذِكر يُقال في دقائق، بقي معه في ليلة من أثقل ليالي عمره. وهذه هي المجاهدة بعد الحماسة: عمل صغير على قدر أتعب الأيام، يبقى حين يذهب كل شيء آخر، ﴿وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا ۚ وَإِنَّ اللَّهَ لَمَعَ الْمُحْسِنِينَ﴾ (العنكبوت 29:69).",
+          "خطوات عملية: اختر لقيام الليل قدرًا تقدر عليه في أتعب أيامك، ولو ركعتين قبل أن تنام، وداوم عليه أربعين ليلة قبل أن تزيد. وإذا فاتتك ليلة فابدأ التي بعدها كما بدأت أول مرة، ولا تجعل ما فات حجة لترك ما بقي.",
+          "رنّ منبّه سلمى في الثالثة والنصف، وكانت قد نامت بعد منتصف الليل عند سرير ابنها المحموم. مدّت يدها لتطفئه كما فعلت أمس، ثم تذكرت ما اتفقت عليه مع نفسها: ركعتان فقط. توضأت بماء بارد أيقظها، وصلّت الركعتين قرب السرير، تضع يدها بين حين وآخر على جبين الصغير. ثم كبّرت وسبّحت وحمدت، ونامت قبل الأذان بقليل."
         ],
         ar_f: [
-          "يقول كثير منا: أحب أن أتطوع، لكن ليس عندي وقت. ثم يمضي الشهر وفيه ساعات كثيرة ضاعت بين الشاشات. والتطوع لا يحتاج إلى تفرغ، بل إلى ساعة ثابتة يُتّفق عليها ولا تُترك.",
-          "والقرآن يجعل التعاون على الخير أمرًا: ﴿وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ ۖ وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ﴾ (المائدة 5:2). والتعاون عمل جماعة: يجمع كل واحد ما عنده إلى ما عند غيره.",
-          "وجعل النبي صلى الله عليه وآله وسلم أبواب الصدقة واسعة: «كُلُّ سُلاَمَى مِنَ النَّاسِ عَلَيْهِ صَدَقَةٌ كُلَّ يَوْمٍ تَطْلُعُ فِيهِ الشَّمْسُ»، وذكر منها: «وَالْكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ... وَيُمِيطُ الأَذَى عَنِ الطَّرِيقِ صَدَقَةٌ» (البخاري 2989). فكل عضو في الجسد عليه شكر، وكل خدمة للناس من هذا الشكر.",
-          "أبواب التطوع قريبة: توزيع طعام في رمضان، وزيارة مرضى في مستشفى، وتنظيف حديقة الحي، ومساعدة جمعية تعتني بالأيتام، ونقل كبيرة في السن إلى موعدها عند الطبيب.",
-          "خطوات عملية: اختاري مع أهلك أو صديقاتك عملًا تطوعيًّا واحدًا، وحدّدوا له ساعتين ثابتتين في الشهر، واكتبوه في التقويم كما تكتبون موعد العمل. وخذي أولادك معك إن استطعتِ، فهم يتعلمون الخير بالمشاركة قبل أن يتعلموه بالكلام."
+          "يبدأ كثير منا قيام الليل بحماسة كبيرة، في أول رمضان أو بعد درس مؤثر: منبّه قبل الفجر بساعة، وصفحات طويلة. وفي الليلة الرابعة يرنّ المنبّه والجسد متعب من يوم عمل، والصغير استيقظ مرتين، فيُطفأ المنبّه، ثم يُطفأ في الليلة التالية أسرع.",
+          "قالت عائشة رضي الله عنها إن النبي صلى الله عليه وآله وسلم كان يقوم من الليل حتى تتفطر قدماه، فسألته: لِمَ تصنع هذا وقد غفر الله لك ما تقدم من ذنبك وما تأخر؟ فقال: «أَفَلاَ أُحِبُّ أَنْ أَكُونَ عَبْدًا شَكُورًا» (البخاري 4837). قيامه شكر لنعمة يعرفها. وروت عنه أيضًا: «أَحَبَّ الأَعْمَالِ أَدْوَمُهَا إِلَى اللَّهِ، وَإِنْ قَلَّ» (البخاري 6464).",
+          "وفي بيت علي وفاطمة عليهما السلام درس في التعب نفسه. اشتكت فاطمة عليها السلام ما تلقى من أثر الرحى في يدها، فذهبت تسأل أباها خادمًا. فأتاهما ليلًا وقد أخذا مضاجعهما، فقعد بينهما حتى وجد علي برد قدميه على صدره، وقال: «أَلاَ أُعَلِّمُكُمَا خَيْرًا مِمَّا سَأَلْتُمَانِي»، فعلّمهما التكبير والتسبيح والتحميد عند النوم، وقال: «فَهْوَ خَيْرٌ لَكُمَا مِنْ خَادِمٍ» (البخاري 3705).",
+          "قال علي عليه السلام: «فَمَا تَرَكْتُهَا بَعْدُ». قيل له: ولا ليلة صفين؟ قال: «وَلاَ لَيْلَةَ صِفِّينَ» (البخاري 5362). ذِكر يُقال في دقائق، بقي معه في ليلة من أثقل ليالي عمره. وهذه هي المجاهدة بعد الحماسة: عمل صغير على قدر أتعب الأيام، يبقى حين يذهب كل شيء آخر، ﴿وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا ۚ وَإِنَّ اللَّهَ لَمَعَ الْمُحْسِنِينَ﴾ (العنكبوت 29:69).",
+          "خطوات عملية: اختاري لقيام الليل قدرًا تقدرين عليه في أتعب أيامك، ولو ركعتين قبل أن تنامي، وداومي عليه أربعين ليلة قبل أن تزيدي. وإذا فاتتك ليلة فابدئي التي بعدها كما بدأتِ أول مرة، ولا تجعلي ما فات حجة لترك ما بقي.",
+          "رنّ منبّه سلمى في الثالثة والنصف، وكانت قد نامت بعد منتصف الليل عند سرير ابنها المحموم. مدّت يدها لتطفئه كما فعلت أمس، ثم تذكرت ما اتفقت عليه مع نفسها: ركعتان فقط. توضأت بماء بارد أيقظها، وصلّت الركعتين قرب السرير، تضع يدها بين حين وآخر على جبين الصغير. ثم كبّرت وسبّحت وحمدت، ونامت قبل الأذان بقليل."
         ],
         en: [
-          "Many of us say: I'd love to volunteer, but I have no time. Then the month goes by with many hours lost among screens. Volunteering doesn't need free days; it needs one fixed hour that is agreed on and kept.",
-          "The Quran makes cooperation in good a command, meaning: help one another in righteousness and piety, and do not help one another in sin and aggression (al-Ma'ida 5:2). Cooperation is group work: each person adds what they have to what others have.",
-          "The Prophet, peace and blessings be upon him and his family, made the doors of charity wide: «Every joint of a person owes a charity every day the sun rises», and among them he named: «a good word is charity... and removing something harmful from the road is charity» (Bukhari 2989). Every part of the body owes thanks, and every service to people is part of that thanks.",
-          "The doors of volunteering are close: handing out food in Ramadan, visiting patients in hospital, cleaning the neighbourhood park, helping an association that cares for orphans, driving an elderly person to a doctor's appointment.",
-          "Practical steps: with your family or friends, choose one volunteering activity, set two fixed hours a month for it, and put it in the calendar as you would a work appointment. Take your children along if you can; they learn good by sharing in it before they learn it from words."
+          "Many of us start praying at night with great enthusiasm, at the beginning of Ramadan or after a moving talk: an alarm an hour before Fajr, long pages of Quran. On the fourth night the alarm rings, the body is tired from a day's work, the little one has woken twice, and the alarm is switched off. The next night it is switched off faster.",
+          "A'isha, may Allah be pleased with her, said that the Prophet, peace and blessings be upon him and his family, would stand in prayer at night until his feet cracked. She asked him: why do you do this when Allah has forgiven you your past and future sins? He said: «Should I not love to be a grateful servant?» (Bukhari 4837). His night prayer was gratitude for a blessing he knew. She also reported from him: «The deeds most loved by Allah are the most constant, even if few» (Bukhari 6464).",
+          "The house of Ali and Fatima, peace be upon them, holds a lesson about this very tiredness. Fatima, peace be upon her, complained of what the hand mill did to her hand, and went to ask her father for a servant. He came to them at night when they had already gone to bed, and sat between them until Ali felt the coolness of his feet on his chest, and said: «Shall I not teach you something better than what you asked me for?» He taught them to say Allahu akbar, subhan Allah and al-hamdu lillah at bedtime, and said: «It is better for you than a servant» (Bukhari 3705).",
+          "Ali, peace be upon him, said: «I have never left it since.» Someone asked: not even on the night of Siffin? He said: «Not even on the night of Siffin» (Bukhari 5362). A remembrance said in a few minutes stayed with him on one of the heaviest nights of his life. This is striving after the enthusiasm has gone: a small deed sized to your most tiring day, which stays when everything else falls away. Allah says, meaning: those who strive for Us, We will surely guide them to Our ways, and Allah is with those who do good (al-'Ankabut 29:69).",
+          "Practical steps: choose an amount of night prayer you can manage on your most tiring day, even two rak'as before you sleep, and keep it up for forty nights before adding to it. If you miss a night, begin the next one as you began the first time, and do not let what you missed become a reason to drop what is left.",
+          "Salma's alarm rang at half past three. She had fallen asleep after midnight beside her feverish son's bed. She reached out to switch it off as she had the day before, then remembered what she had agreed with herself: two rak'as, nothing more. She made wudu with cold water that woke her, prayed the two rak'as beside the bed, now and then laying her hand on the little one's forehead, then said her Allahu akbar, subhan Allah and al-hamdu lillah, and slept again a little before the adhan."
         ]
       },
       quote: {
-        ar: "﴿وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ ۖ وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ﴾",
-        en: "Meaning (not a translation): Help one another in righteousness and piety, and do not help one another in sin and aggression.",
-        ref: "المائدة 5:2", checked: "tanzil quran-simple, with diacritics (api.alquran.cloud)", verify: true
+        ar: "«فَمَا تَرَكْتُهَا بَعْدُ... وَلاَ لَيْلَةَ صِفِّينَ»",
+        en: "Meaning: I have never left it since... not even on the night of Siffin.",
+        ref: "صحيح البخاري 5362، عن علي عليه السلام",
+        checked: "hadith-api (fawazahmed0)",
+        verify: true
       },
-      source: { ar: "مقالة مع آية من سورة المائدة وحديث في صحيح البخاري.", en: "An article with a verse from al-Ma'ida and a hadith in Sahih al-Bukhari." }
+      source: {
+        ar: "مقالة مع أحاديث في صحيح البخاري (4837، 6464، 3705، 5362) وآية من سورة العنكبوت، ومشهد بشخصية خيالية.",
+        en: "An article with hadiths in Sahih al-Bukhari (4837, 6464, 3705, 5362) and a verse from al-'Ankabut, and a scene with a fictional character."
+      }
     },
     {
-      id: "as-r6", minutes: 5, ages: "18+",
+      id: "as-r6",
+      minutes: 5,
+      ages: "18+",
       title: { ar: "سابق بإذن الله", en: "Ahead, by Allah's leave" },
       body: {
         ar: [
@@ -3028,62 +3116,81 @@ window.AKHLAQ_CONTENT_ADULT.stages.sabiq = {
           "وفي الآية كلمتان تحرسان السابق من أخطر ما يصيبه، وهو العُجب: «بِإِذْنِ اللَّهِ»، و«ذَٰلِكَ هُوَ الْفَضْلُ الْكَبِيرُ». السبق نفسه إذن من الله وفضل منه، لا ملك للسابق يفخر به على من خلفه.",
           "ومن علامات العجب أن ينظر الإنسان إلى من دونه في الخير نظرة استعلاء، أو أن يحب أن يُعرف بعمله، أو أن يظن أنه وصل فيتوقف. والسابق الحقيقي يرى ما بقي عليه أكثر مما قطع، ويخاف أن يتغير قلبه، فقد قال النبي صلى الله عليه وآله وسلم: «بَادِرُوا بِالأَعْمَالِ فِتَنًا كَقِطَعِ اللَّيْلِ الْمُظْلِمِ» (صحيح مسلم 118).",
           "والقرآن يأمر بالسباق صراحة: ﴿فَاسْتَبِقُوا الْخَيْرَاتِ﴾ (البقرة 2:148). لكنه سباق لا خاسر فيه: من سبقك لم يأخذ مكانك، ومن أعنته شاركته في أجره. ولذلك يفرح السابق إذا سبقه غيره.",
-          "خطوات عملية: إذا عملت خيرًا فقل: الحمد لله الذي وفّقني، ولا تحدّث به إلا لحاجة. وإذا رأيت من هو دونك في الخير فادعُ له ولا تحتقره، فلعله يسبقك غدًا. واسأل الله الثبات كل يوم، فالقلوب تتقلب."
+          "خطوات عملية: إذا عملت خيرًا فقل: الحمد لله الذي وفّقني، ولا تحدّث به إلا لحاجة. وإذا رأيت من هو دونك في الخير فادعُ له ولا تحتقره، فلعله يسبقك غدًا. واسأل الله الثبات كل يوم، فالقلوب تتقلب.",
+          "صار مراد يصلي الفجر في المسجد كل يوم منذ سنة. وفي صباح رأى جاره الشاب يدخل بعد الإقامة مسرعًا بثياب العمل، فخطرت له كلمة عن «الذين لا يأتون إلا متأخرين»، فأمسكها. وبعد الصلاة عرف أن الشاب يعمل في نوبة ليلية في مستشفى، ويأتي من عمله إلى المسجد قبل أن ينام. فدعا له في سجوده ذلك اليوم، وصار يترك له مكانًا بجانبه في الصف."
         ],
         ar_f: [
           "في سورة فاطر آية ترسم المراتب كلها: ﴿فَمِنْهُمْ ظَالِمٌ لِنَفْسِهِ وَمِنْهُمْ مُقْتَصِدٌ وَمِنْهُمْ سَابِقٌ بِالْخَيْرَاتِ بِإِذْنِ اللَّهِ ۚ ذَٰلِكَ هُوَ الْفَضْلُ الْكَبِيرُ﴾ (فاطر 35:32). ظالم لنفسه بما يقع فيه، ومقتصد يؤدي ما عليه ويكفّ أذاه، وسابق يزيد على الواجب.",
           "وفي الآية كلمتان تحرسان السابق من أخطر ما يصيبه، وهو العُجب: «بِإِذْنِ اللَّهِ»، و«ذَٰلِكَ هُوَ الْفَضْلُ الْكَبِيرُ». السبق نفسه إذن من الله وفضل منه، لا ملك للسابق يفخر به على من خلفه.",
           "ومن علامات العجب أن ينظر الإنسان إلى من دونه في الخير نظرة استعلاء، أو أن يحب أن يُعرف بعمله، أو أن يظن أنه وصل فيتوقف. والسابق الحقيقي يرى ما بقي عليه أكثر مما قطع، ويخاف أن يتغير قلبه، فقد قال النبي صلى الله عليه وآله وسلم: «بَادِرُوا بِالأَعْمَالِ فِتَنًا كَقِطَعِ اللَّيْلِ الْمُظْلِمِ» (صحيح مسلم 118).",
           "والقرآن يأمر بالسباق صراحة: ﴿فَاسْتَبِقُوا الْخَيْرَاتِ﴾ (البقرة 2:148). لكنه سباق لا خاسر فيه: من سبقك لم يأخذ مكانك، ومن أعنته شاركته في أجره. ولذلك يفرح السابق إذا سبقه غيره.",
-          "خطوات عملية: إذا عملتِ خيرًا فقولي: الحمد لله الذي وفّقني، ولا تحدّثي به إلا لحاجة. وإذا رأيتِ من هي دونك في الخير فادعي لها ولا تحتقريها، فلعلها تسبقك غدًا. واسألي الله الثبات كل يوم، فالقلوب تتقلب."
+          "خطوات عملية: إذا عملتِ خيرًا فقولي: الحمد لله الذي وفّقني، ولا تحدّثي به إلا لحاجة. وإذا رأيتِ من هي دونك في الخير فادعي لها ولا تحتقريها، فلعلها تسبقك غدًا. واسألي الله الثبات كل يوم، فالقلوب تتقلب.",
+          "صار مراد يصلي الفجر في المسجد كل يوم منذ سنة. وفي صباح رأى جاره الشاب يدخل بعد الإقامة مسرعًا بثياب العمل، فخطرت له كلمة عن «الذين لا يأتون إلا متأخرين»، فأمسكها. وبعد الصلاة عرف أن الشاب يعمل في نوبة ليلية في مستشفى، ويأتي من عمله إلى المسجد قبل أن ينام. فدعا له في سجوده ذلك اليوم، وصار يترك له مكانًا بجانبه في الصف."
         ],
         en: [
           "A verse in Surat Fatir maps all the stages, meaning: among them is one who wrongs himself, one who is moderate, and one who races ahead in good deeds by Allah's leave; that is the great favour (Fatir 35:32). One who wrongs himself by what he falls into, a moderate one who does what is owed and keeps harm away, and one who races beyond what is required.",
           "Two phrases in the verse guard the one who races ahead from the worst thing that can befall him, self-admiration: «by Allah's leave», and «that is the great favour». The lead itself is Allah's leave and His favour, not a possession to boast of over those behind.",
           "Signs of self-admiration include looking down on those less advanced in good, loving to be known for one's deeds, or thinking one has arrived and stopping. The one truly ahead sees more road still to go than road travelled, and fears a change of heart. The Prophet, peace and blessings be upon him and his family, said: «Hasten to good deeds before trials like pieces of a dark night» (Sahih Muslim 118).",
           "The Quran commands the race plainly, meaning: race to good things (al-Baqara 2:148). But it is a race with no losers: whoever gets ahead of you has not taken your place, and whoever you help, you share in their reward. That is why the one ahead is glad when someone else gets ahead.",
-          "Practical steps: when you do some good, say: praise be to Allah who enabled me, and speak of it only when there is a need. When you see someone less advanced in good, pray for them and don't look down on them; they may be ahead of you tomorrow. And ask Allah for steadfastness every day, for hearts turn."
+          "Practical steps: when you do some good, say: praise be to Allah who enabled me, and speak of it only when there is a need. When you see someone less advanced in good, pray for them and don't look down on them; they may be ahead of you tomorrow. And ask Allah for steadfastness every day, for hearts turn.",
+          "For a year now Murad had prayed Fajr in the mosque every day. One morning he saw his young neighbour hurry in after the iqama, still in work clothes, and a remark came to him about «people who only ever turn up late». He held it back. After the prayer he learned that the young man worked night shifts at a hospital and came straight from work to the mosque before going to sleep. Murad prayed for him in his prostrations that day, and began keeping a place for him beside him in the row."
         ]
       },
       quote: {
         ar: "﴿فَمِنْهُمْ ظَالِمٌ لِنَفْسِهِ وَمِنْهُمْ مُقْتَصِدٌ وَمِنْهُمْ سَابِقٌ بِالْخَيْرَاتِ بِإِذْنِ اللَّهِ ۚ ذَٰلِكَ هُوَ الْفَضْلُ الْكَبِيرُ﴾",
         en: "Meaning (not a translation): Among them is one who wrongs himself, one who is moderate, and one who races ahead in good deeds by Allah's leave; that is the great favour.",
-        ref: "فاطر 35:32", checked: "tanzil quran-simple, with diacritics (api.alquran.cloud)", verify: true
+        ref: "فاطر 35:32",
+        checked: "tanzil quran-simple, with diacritics (api.alquran.cloud)",
+        verify: true
       },
-      source: { ar: "مقالة مع آيتين من سورتي فاطر والبقرة، وحديث في صحيح مسلم (118، ترقيم sunnah.com: الكتاب 1، الحديث 220).", en: "An article with verses from Fatir and al-Baqara, and a hadith in Sahih Muslim (118, sunnah.com: book 1, hadith 220)." }
+      source: {
+        ar: "مقالة مع آيتين من سورتي فاطر والبقرة، وحديث في صحيح مسلم (118، ترقيم sunnah.com: الكتاب 1، الحديث 220)، ومشهد بشخصية خيالية.",
+        en: "An article with verses from Fatir and al-Baqara, and a hadith in Sahih Muslim (118, sunnah.com: book 1, hadith 220), and a scene with a fictional character."
+      }
     },
     {
-      id: "as-r7", summit: true, minutes: 3, ages: "18+",
+      id: "as-r7",
+      summit: true,
+      minutes: 4,
+      ages: "18+",
       title: { ar: "القمة: أجود من الريح المرسلة", en: "The summit: more generous than the sent wind" },
       body: {
         ar: [
           "قال ابن عباس رضي الله عنهما: «كَانَ رَسُولُ اللَّهِ» صلى الله عليه وآله وسلم «أَجْوَدَ النَّاسِ، وَكَانَ أَجْوَدُ مَا يَكُونُ فِي رَمَضَانَ حِينَ يَلْقَاهُ جِبْرِيلُ، وَكَانَ يَلْقَاهُ فِي كُلِّ لَيْلَةٍ مِنْ رَمَضَانَ فَيُدَارِسُهُ الْقُرْآنَ، فَلَرَسُولُ اللَّهِ» صلى الله عليه وآله وسلم «أَجْوَدُ بِالْخَيْرِ مِنَ الرِّيحِ الْمُرْسَلَةِ» (البخاري 6).",
           "الريح المرسلة لا تنتظر من يطلبها، ولا تختار أرضًا دون أرض، وتصل إلى البعيد قبل القريب. وهذه صورة المبادرة في أعلى درجاتها: خير يسبق السؤال، ويعم الناس.",
           "وفي الخبر سرّ هذا الجود: كان أجود ما يكون حين يدارسه جبريل القرآن. فكلما قرب القلب من كلام الله اتسعت اليد بالعطاء. والسبق إلى الخير ثمرة قرب، قبل أن يكون جهدًا.",
-          "سؤال للتأمل: ما الخير الذي تعطيه إذا طُلب منك فقط؟ وكيف يكون لو سبقت به الطلب؟"
+          "سؤال للتأمل: ما الخير الذي تعطيه إذا طُلب منك فقط؟ وكيف يكون لو سبقت به الطلب؟",
+          "في ليلة من رمضان أنهت هدى وردها من القرآن، وتذكّرت زميلة في العمل قالت عرضًا إن إيجار بيتها تأخر. لم تطلب الزميلة شيئًا، ولم تكن صديقة قريبة. وفي الصباح أرسلت إليها هدى المبلغ مع رسالة من سطر واحد: «قرض بلا موعد، تردّينه حين يتيسر، ولا يعلم به أحد»."
         ],
         ar_f: [
           "قال ابن عباس رضي الله عنهما: «كَانَ رَسُولُ اللَّهِ» صلى الله عليه وآله وسلم «أَجْوَدَ النَّاسِ، وَكَانَ أَجْوَدُ مَا يَكُونُ فِي رَمَضَانَ حِينَ يَلْقَاهُ جِبْرِيلُ، وَكَانَ يَلْقَاهُ فِي كُلِّ لَيْلَةٍ مِنْ رَمَضَانَ فَيُدَارِسُهُ الْقُرْآنَ، فَلَرَسُولُ اللَّهِ» صلى الله عليه وآله وسلم «أَجْوَدُ بِالْخَيْرِ مِنَ الرِّيحِ الْمُرْسَلَةِ» (البخاري 6).",
           "الريح المرسلة لا تنتظر من يطلبها، ولا تختار أرضًا دون أرض، وتصل إلى البعيد قبل القريب. وهذه صورة المبادرة في أعلى درجاتها: خير يسبق السؤال، ويعم الناس.",
           "وفي الخبر سرّ هذا الجود: كان أجود ما يكون حين يدارسه جبريل القرآن. فكلما قرب القلب من كلام الله اتسعت اليد بالعطاء. والسبق إلى الخير ثمرة قرب، قبل أن يكون جهدًا.",
-          "سؤال للتأمل: ما الخير الذي تعطينه إذا طُلب منك فقط؟ وكيف يكون لو سبقتِ به الطلب؟"
+          "سؤال للتأمل: ما الخير الذي تعطينه إذا طُلب منك فقط؟ وكيف يكون لو سبقتِ به الطلب؟",
+          "في ليلة من رمضان أنهت هدى وردها من القرآن، وتذكّرت زميلة في العمل قالت عرضًا إن إيجار بيتها تأخر. لم تطلب الزميلة شيئًا، ولم تكن صديقة قريبة. وفي الصباح أرسلت إليها هدى المبلغ مع رسالة من سطر واحد: «قرض بلا موعد، تردّينه حين يتيسر، ولا يعلم به أحد»."
         ],
         en: [
           "Ibn Abbas, may Allah be pleased with them both, said: «The Messenger of Allah, peace and blessings be upon him and his family, was the most generous of people, and he was most generous in Ramadan when Jibril met him. Jibril met him every night of Ramadan and studied the Quran with him. The Messenger of Allah was more generous in good than the sent wind» (Bukhari 6).",
           "The sent wind does not wait to be asked, does not choose one land over another, and reaches the far before the near. This is initiative at its highest: good that comes before the request, and reaches everyone.",
           "The report also holds the secret of this generosity: he was most generous when Jibril studied the Quran with him. The nearer the heart comes to Allah's words, the wider the hand opens. Racing to good is the fruit of nearness before it is effort.",
-          "A question to reflect on: what good do you give only when asked? What would it be like if you gave it before the asking?"
+          "A question to reflect on: what good do you give only when asked? What would it be like if you gave it before the asking?",
+          "One night in Ramadan Huda finished her portion of the Quran and remembered a colleague who had mentioned in passing that her rent was overdue. The colleague had asked for nothing, and they were not close friends. In the morning Huda sent her the money with a one-line message: «A loan with no date. Repay it when things ease, and no one will know.»"
         ]
       },
       quote: {
         ar: "«أَجْوَدُ بِالْخَيْرِ مِنَ الرِّيحِ الْمُرْسَلَةِ»",
         en: "Meaning: More generous in good than the sent wind.",
-        ref: "صحيح البخاري 6، عن ابن عباس", checked: "hadith-api (fawazahmed0)", verify: true
+        ref: "صحيح البخاري 6، عن ابن عباس",
+        checked: "hadith-api (fawazahmed0)",
+        verify: true
       },
-      source: { ar: "حديث في صحيح البخاري.", en: "A hadith in Sahih al-Bukhari." }
+      source: { ar: "حديث في صحيح البخاري، ومشهد بشخصية خيالية.", en: "A hadith in Sahih al-Bukhari, and a scene with a fictional character." }
     },
     {
-      id: "as-r8", companions: true, minutes: 4, ages: "18+",
+      id: "as-r8",
+      companions: true,
+      minutes: 5,
+      ages: "18+",
       title: { ar: "أبو بكر وعمر: «لاَ أُسَابِقُكَ إِلَى شَىْءٍ أَبَدًا»", en: "Abu Bakr and Umar: «I will never race you to anything»" },
       body: {
         ar: [
@@ -3091,113 +3198,171 @@ window.AKHLAQ_CONTENT_ADULT.stages.sabiq = {
           "فسأله النبي صلى الله عليه وآله وسلم: «مَا أَبْقَيْتَ لأَهْلِكَ؟». قال: مثله. وأتى أبو بكر رضي الله عنه بكل ما عنده، فسأله: «مَا أَبْقَيْتَ لأَهْلِكَ؟». قال: «أَبْقَيْتُ لَهُمُ اللَّهَ وَرَسُولَهُ». فقال عمر: «لاَ أُسَابِقُكَ إِلَى شَىْءٍ أَبَدًا» (سنن أبي داود 1678).",
           "في هذا المشهد سباق حقيقي بين اثنين من خير الناس، ولا حسد فيه. أراد عمر أن يسبق، وهذا من التنافس المحمود. ثم رأى من سبقه، فأقرّ له بالفضل صراحة، ولم يجد في نفسه عليه شيئًا.",
           "وفي سؤال النبي صلى الله عليه وآله وسلم «ما أبقيت لأهلك؟» أدب لكل سابق: الأهل حق لا يُنسى في السباق. وقد قبل من أبي بكر ماله كله لما عرف من يقينه، وقال لكعب بن مالك حين أراد أن يتصدق بماله كله: «أَمْسِكْ عَلَيْكَ بَعْضَ مَالِكَ فَهُوَ خَيْرٌ لَكَ» (البخاري 4418). فلكل سابق مقامه، والعبرة بصدق القلب لا بمقدار ما يُعطى.",
-          "سؤال للتأمل: من تسابقه في الخير؟ وهل تفرح إذا سبقك كما فرح عمر بفضل أبي بكر؟"
+          "سؤال للتأمل: من تسابقه في الخير؟ وهل تفرح إذا سبقك كما فرح عمر بفضل أبي بكر؟",
+          "عُلّقت في المسجد ورقة لمن يتكفّل بإفطار الصائمين في رمضان. كتب طارق اسمه أمام خمسة أيام، ثم رأى أن جاره بلالًا، وهو أقل منه مالًا، كتب اسمه أمام عشرة. أحسّ بوخزة صغيرة، ووقف والقلم في يده. ثم ذهب إليه بعد الصلاة، وسلّم عليه، وقال: «سبقتني يا بلال، فاجعلني معك في أيامك العشرة»."
         ],
         ar_f: [
           "روى عمر بن الخطاب رضي الله عنه أن النبي صلى الله عليه وآله وسلم أمرهم يومًا أن يتصدقوا، ووافق ذلك مالًا عنده، فقال في نفسه: «الْيَوْمَ أَسْبِقُ أَبَا بَكْرٍ إِنْ سَبَقْتُهُ يَوْمًا». فجاء بنصف ماله.",
           "فسأله النبي صلى الله عليه وآله وسلم: «مَا أَبْقَيْتَ لأَهْلِكَ؟». قال: مثله. وأتى أبو بكر رضي الله عنه بكل ما عنده، فسأله: «مَا أَبْقَيْتَ لأَهْلِكَ؟». قال: «أَبْقَيْتُ لَهُمُ اللَّهَ وَرَسُولَهُ». فقال عمر: «لاَ أُسَابِقُكَ إِلَى شَىْءٍ أَبَدًا» (سنن أبي داود 1678).",
           "في هذا المشهد سباق حقيقي بين اثنين من خير الناس، ولا حسد فيه. أراد عمر أن يسبق، وهذا من التنافس المحمود. ثم رأى من سبقه، فأقرّ له بالفضل صراحة، ولم يجد في نفسه عليه شيئًا.",
           "وفي سؤال النبي صلى الله عليه وآله وسلم «ما أبقيت لأهلك؟» أدب لكل سابق: الأهل حق لا يُنسى في السباق. وقد قبل من أبي بكر ماله كله لما عرف من يقينه، وقال لكعب بن مالك حين أراد أن يتصدق بماله كله: «أَمْسِكْ عَلَيْكَ بَعْضَ مَالِكَ فَهُوَ خَيْرٌ لَكَ» (البخاري 4418). فلكل سابق مقامه، والعبرة بصدق القلب لا بمقدار ما يُعطى.",
-          "سؤال للتأمل: من تسابقينها في الخير؟ وهل تفرحين إذا سبقتك كما فرح عمر بفضل أبي بكر؟"
+          "سؤال للتأمل: من تسابقينها في الخير؟ وهل تفرحين إذا سبقتك كما فرح عمر بفضل أبي بكر؟",
+          "عُلّقت في المسجد ورقة لمن يتكفّل بإفطار الصائمين في رمضان. كتب طارق اسمه أمام خمسة أيام، ثم رأى أن جاره بلالًا، وهو أقل منه مالًا، كتب اسمه أمام عشرة. أحسّ بوخزة صغيرة، ووقف والقلم في يده. ثم ذهب إليه بعد الصلاة، وسلّم عليه، وقال: «سبقتني يا بلال، فاجعلني معك في أيامك العشرة»."
         ],
         en: [
           "Umar ibn al-Khattab, may Allah be pleased with him, reported that the Prophet, peace and blessings be upon him and his family, told them one day to give charity, and it happened that Umar had wealth at the time. He said to himself: «Today I will outrun Abu Bakr, if ever I outrun him.» He brought half of his wealth.",
           "The Prophet asked him: «What have you left for your family?» He said: the same amount. Abu Bakr, may Allah be pleased with him, brought everything he had, and the Prophet asked him: «What have you left for your family?» He said: «I have left them Allah and His Messenger.» Umar said: «I will never race you to anything» (Sunan Abi Dawud 1678).",
           "This scene is a true race between two of the best of people, with no envy in it. Umar wanted to get ahead, which is praiseworthy competition. Then he saw who had beaten him, acknowledged his merit openly, and held nothing against him in his heart.",
           "In the Prophet's question, «What have you left for your family?», there is a courtesy for everyone who races: family is a right not forgotten in the race. He accepted all of Abu Bakr's wealth, knowing his certainty, while to Ka'b ibn Malik, who wished to give away all he had, he said: «Keep some of your wealth; that is better for you» (Bukhari 4418). Each who races has their own station, and what counts is the sincerity of the heart, not the size of the gift.",
-          "A question to reflect on: who do you race in good? And are you glad when they get ahead of you, as Umar was glad of Abu Bakr's merit?"
+          "A question to reflect on: who do you race in good? And are you glad when they get ahead of you, as Umar was glad of Abu Bakr's merit?",
+          "A sheet went up in the mosque for those who would sponsor the fast-breaking meal in Ramadan. Tariq wrote his name beside five days, then saw that his neighbour Bilal, who had less money than he did, had written his beside ten. He felt a small sting, and stood there with the pen in his hand. Then after the prayer he went over, greeted him, and said: «You got there before me, Bilal. Let me join you in your ten days.»"
         ]
       },
       quote: {
         ar: "«أَبْقَيْتُ لَهُمُ اللَّهَ وَرَسُولَهُ»",
         en: "Meaning: I have left them Allah and His Messenger.",
-        ref: "سنن أبي داود 1678، عن عمر بن الخطاب", checked: "hadith-api (fawazahmed0)", verify: true
+        ref: "سنن أبي داود 1678، عن عمر بن الخطاب",
+        checked: "hadith-api (fawazahmed0)",
+        verify: true
       },
-      source: { ar: "حديث في سنن أبي داود (1678)، مع جملة من حديث كعب بن مالك في صحيح البخاري (4418).", en: "A hadith in Sunan Abi Dawud (1678), with a phrase from the hadith of Ka'b ibn Malik in Sahih al-Bukhari (4418)." }
+      source: {
+        ar: "حديث في سنن أبي داود (1678)، مع جملة من حديث كعب بن مالك في صحيح البخاري (4418)، ومشهد بشخصية خيالية.",
+        en: "A hadith in Sunan Abi Dawud (1678), with a phrase from the hadith of Ka'b ibn Malik in Sahih al-Bukhari (4418), and a scene with a fictional character."
+      }
     }
   ],
   quiz: [
     {
-      id: "as-q1", readingId: "as-r1", type: "comprehension", correct: 1,
-      q: { ar: "ما الحقان اللذان للجار بحسب المقالة؟", en: "According to the article, what are a neighbour's two rights?" },
+      id: "as-q1",
+      readingId: "as-r1",
+      type: "comprehension",
+      correct: 1,
+      q: { ar: "ماذا فعل كريم بالوصلة التي رآها تقطر خلف الخزانة؟", en: "What did Karim do about the joint he saw dripping behind the cupboard?" },
       options: [
-        { ar: "الهدية والزيارة فقط", en: "Gifts and visits only" },
-        { ar: "ألا يُؤذى، وأن يُكرم ويُسبق إليه بالخير", en: "Not to be harmed, and to be honoured and approached first with good" },
-        { ar: "أن يُعطى من الميراث، وأن يُستشار", en: "To receive inheritance and be consulted" }
+        { ar: "أخبر صاحبة البيت، ونصحها بعامل آخر يصلحها", en: "Told the owner, and advised her to call another plumber" },
+        { ar: "أصلحها، ولم يزد شيئًا على الأجرة", en: "Fixed it, and added nothing to the fee" },
+        { ar: "أصلحها، وزاد أجرة نصف ساعة", en: "Fixed it, and charged for the extra half hour" }
       ],
-      why: { ar: "كفّ الأذى عن الجار شرط الإيمان، وإكرامه باب يسبق إليه السابقون.", en: "Keeping harm from a neighbour is a condition of faith; honouring them is a door those who race to good hurry toward." }
+      why: {
+        ar: "هذا هو الإحسان: أن تتقن الجزء الذي لن يراه أحد، لأن الله يراه.",
+        en: "This is ihsan: doing well the part no one will ever see, because Allah sees it."
+      }
     },
     {
-      id: "as-q2", readingId: "as-r1", type: "situation", correct: 0,
+      id: "as-q2",
+      readingId: "as-r1",
+      type: "situation",
+      correct: 1,
       q: {
-        ar: "انتقلت أسرة جديدة إلى الشقة المقابلة لك، ولم تلتقوا بعد. ما الأقرب إلى المبادرة؟",
-        ar_f: "انتقلت أسرة جديدة إلى الشقة المقابلة لكِ، ولم تلتقوا بعد. ما الأقرب إلى المبادرة؟",
-        en: "A new family moves into the flat opposite yours, and you haven't met. What is closest to taking the lead?"
+        ar: "أنهيت تقريرًا قبل نهاية الدوام، والمدير يقرأ عادة صفحته الأولى وحدها. ما الأقرب إلى الإحسان الذي في المقالة؟",
+        ar_f: "أنهيتِ تقريرًا قبل نهاية الدوام، والمدير يقرأ عادة صفحته الأولى وحدها. ما الأقرب إلى الإحسان الذي في المقالة؟",
+        en: "You have finished a report before the end of the day, and your manager usually reads only the first page. What is closest to the ihsan in the article?"
       },
       options: [
-        { ar: "أطرق بابهم بطبق صغير وأرحب بهم، وأترك لهم رقمي", en: "Knock with a small dish, welcome them, and leave my number" },
-        { ar: "أنتظر حتى يبدؤوا هم بالسلام", en: "Wait for them to greet me first" },
-        { ar: "أسأل الجيران عنهم أولًا", en: "Ask the other neighbours about them first" }
+        { ar: "أسلّمه الآن، فالصفحة الأولى متقنة وهي ما يُقرأ", en: "Hand it in now; the first page is polished and that's what gets read" },
+        { ar: "أراجع صفحاته الأخيرة ثم أسلّمه", en: "Go over the last pages, then hand it in" },
+        { ar: "أسلّمه، وأنبّه إلى أن آخره لم يُراجع", en: "Hand it in, noting that the end hasn't been checked" }
       ],
-      why: { ar: "السابق يبدأ بالسلام والهدية، ولا ينتظر.", en: "One who races to good greets first and brings a gift, without waiting." }
+      why: {
+        ar: "الإحسان عشر دقائق زائدة في الجزء الذي لا يفحصه أحد: «فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاكَ».",
+        en: "Ihsan is ten extra minutes on the part no one checks: «if you do not see Him, He sees you»."
+      }
     },
     {
-      id: "as-q3", readingId: "as-r2", type: "comprehension", correct: 2,
-      q: { ar: "ماذا فعل النبي صلى الله عليه وآله وسلم حين عرف بموت من كان يقمّ المسجد؟", en: "What did the Prophet do when he learned that the one who swept the mosque had died?" },
+      id: "as-q3",
+      readingId: "as-r2",
+      type: "comprehension",
+      correct: 2,
+      q: {
+        ar: "ماذا فعل النبي صلى الله عليه وآله وسلم حين عرف بموت من كان يقمّ المسجد؟",
+        en: "What did the Prophet do when he learned that the one who swept the mosque had died?"
+      },
       options: [
-        { ar: "دعا له في خطبة الجمعة", en: "Prayed for them in the Friday sermon" },
-        { ar: "أمر بتعيين غيره", en: "Ordered someone else to be appointed" },
-        { ar: "عاتبهم لأنهم لم يخبروه، وأتى قبره فصلى عليه", en: "Gently reproached them for not telling him, went to the grave and prayed over them" }
+        { ar: "سأل عن أهله، وأمر لهم بصدقة", en: "Asked after his family and ordered charity for them" },
+        { ar: "دعا له بعد الصلاة، وأمر بتعيين غيره", en: "Prayed for him after the prayer and had someone else appointed" },
+        { ar: "قال: هلّا أخبرتموني، ثم صلّى على قبره", en: "Said: why did you not tell me? Then prayed at his grave" }
       ],
       why: { ar: "خدمة المسجد عند الله أكبر مما تبدو عند الناس.", en: "Serving the mosque is greater with Allah than it looks to people." }
     },
     {
-      id: "as-q4", readingId: "as-r3", type: "comprehension", correct: 0,
-      q: { ar: "ما الذي يعلّمه حديث «مَنْ دَلَّ عَلَى خَيْرٍ» لمن لا يملك ما يعطيه؟", en: "What does the hadith «whoever guides to good» teach someone with nothing to give?" },
+      id: "as-q4",
+      readingId: "as-r3",
+      type: "comprehension",
+      correct: 0,
+      q: {
+        ar: "ما الذي يعلّمه حديث «مَنْ دَلَّ عَلَى خَيْرٍ» لمن لا يملك ما يعطيه؟",
+        en: "What does the hadith «whoever guides to good» teach someone with nothing to give?"
+      },
       options: [
-        { ar: "أن يدلّ على من يملك، فله مثل أجر الفاعل", en: "To point to someone who has, and gain the same reward as the doer" },
-        { ar: "أن يعتذر ويمضي", en: "To apologise and move on" },
-        { ar: "أن يقترض ليعطي", en: "To borrow in order to give" }
+        { ar: "أن يدلّ على من يملك، فله مثل أجر الفاعل", en: "To guide him to someone who has it, and earn the doer's reward" },
+        { ar: "أن يعتذر بلطف، فلا يُكلَّف ما لا يملك", en: "To excuse himself kindly, since no one must give what they lack" },
+        { ar: "أن يقترض ليعطي، فالسبق لا يقبل العذر", en: "To borrow so as to give, since racing to good takes no excuse" }
       ],
       why: { ar: "الدلالة على الخير خير، وأجرها مثل أجر فاعله.", en: "Guiding to good is itself good, with a reward like the doer's." }
     },
     {
-      id: "as-q5", readingId: "as-r3", type: "situation", correct: 1,
+      id: "as-q5",
+      readingId: "as-r3",
+      type: "comprehension",
+      correct: 1,
+      q: { ar: "ماذا فعل فؤاد حين اشتد عليه ألم ركبته في الشتاء الثاني؟", en: "What did Fuad do when his knee got worse in the second winter?" },
+      options: [
+        { ar: "أوقف الدرس شهرًا حتى يُشفى", en: "Stopped the class for a month until he recovered" },
+        { ar: "ترك الشرح للشاب، وجلس في الصف الأخير يسمع", en: "Left the teaching to the young man and sat in the back row listening" },
+        { ar: "نقل الدرس إلى بيته ليبقى هو الذي يشرح", en: "Moved the class to his home so he could keep teaching it" }
+      ],
+      why: {
+        ar: "من يسبق إلى الخير يفرح بمن يحمله بعده، ويرضى أن يجلس في الصف الأخير.",
+        en: "One who races to good is glad of those who carry it on after him, and content to sit in the back row."
+      }
+    },
+    {
+      id: "as-q6",
+      readingId: "as-r4",
+      type: "comprehension",
+      correct: 1,
       q: {
-        ar: "تتقن لغة أجنبية، وفي حيّك شباب يحتاجونها في دراستهم ولا يقدرون على دروس خاصة. ما الأقرب إلى السبق بالخير؟",
-        ar_f: "تتقنين لغة أجنبية، وفي حيّك فتيات يحتجنها في دراستهن ولا يقدرن على دروس خاصة. ما الأقرب إلى السبق بالخير؟",
-        en: "You speak a foreign language well, and young people in your neighbourhood need it for their studies but can't afford private lessons. What is closest to racing to good?"
+        ar: "ما الذي قال المطعمون في سورة الإنسان إنهم لا يريدونه ممن أطعموهم؟",
+        en: "In Surat al-Insan, what did those who gave food say they wanted from the people they fed?"
       },
       options: [
-        { ar: "أنتظر حتى يطلب أحدهم", ar_f: "أنتظر حتى تطلب إحداهن", en: "Wait until one of them asks" },
-        { ar: "أعرض ساعة أسبوعية مجانية في المسجد أو في مركز الحي", en: "Offer a free weekly hour at the mosque or the community centre" },
-        { ar: "أنصحهم بتطبيق على الهاتف وأنتهي", ar_f: "أنصحهن بتطبيق على الهاتف وأنتهي", en: "Recommend a phone app and leave it there" }
+        { ar: "الجزاء وحده، أما الشكر فيقبلونه", en: "No reward, though they would accept thanks" },
+        { ar: "لا جزاء ولا شكر", en: "Neither reward nor thanks" },
+        { ar: "لا جزاء، ويكفيهم الدعاء", en: "No reward; a prayer for them would be enough" }
       ],
-      why: { ar: "تعليم ما تعرفه لمن يحتاج إليه دون مقابل من أوسع أبواب السبق.", en: "Teaching what you know, free, to those who need it is one of the widest doors of racing to good." }
+      why: {
+        ar: "﴿لَا نُرِيدُ مِنْكُمْ جَزَاءً وَلَا شُكُورًا﴾: أعلى الإخفاء أن يخلو القلب حتى من انتظار الكلمة الطيبة.",
+        en: "Neither reward nor thanks: the highest hiding is a heart empty even of waiting for a kind word."
+      }
     },
     {
-      id: "as-q6", readingId: "as-r4", type: "comprehension", correct: 2,
-      q: { ar: "ما الأمران اللذان يحفظهما إخفاء الصدقة بحسب القراءة؟", en: "According to the reading, what two things does hiding charity protect?" },
+      id: "as-q7",
+      readingId: "as-r5",
+      type: "comprehension",
+      correct: 1,
+      q: {
+        ar: "ماذا أعطى النبي صلى الله عليه وآله وسلم عليًّا وفاطمة عليهما السلام حين جاءت تسأله خادمًا؟",
+        en: "What did the Prophet, peace and blessings be upon him and his family, give Ali and Fatima, peace be upon them, when she came asking for a servant?"
+      },
       options: [
-        { ar: "المال والوقت", en: "Money and time" },
-        { ar: "سمعة المعطي ومكانته", en: "The giver's reputation and standing" },
-        { ar: "قلب المعطي من طلب الثناء، وكرامة الآخذ", en: "The giver's heart from seeking praise, and the receiver's dignity" }
+        { ar: "دعاءً يُقال عند الطحن ليخف التعب", en: "A supplication to say while grinding, to ease the tiredness" },
+        { ar: "ذكرًا عند النوم، خيرًا لهما من خادم", en: "A remembrance at bedtime, better for them than a servant" },
+        { ar: "أسيرًا يعينهما بعد أن يُعلّماه", en: "A captive to help them once they had taught him" }
       ],
-      why: { ar: "الصدقة الخفية لا يعرفها إلا الله، فتبقى خالصة ويبقى الآخذ عزيزًا.", en: "Hidden charity is known only to Allah, so it stays pure and the receiver keeps their dignity." }
+      why: {
+        ar: "أعطاهما ما يقوّي القلب على التعب، فداوم عليه علي عليه السلام حتى ليلة صفين.",
+        en: "He gave them what strengthens the heart against tiredness, and Ali, peace be upon him, kept it up even on the night of Siffin."
+      }
     },
     {
-      id: "as-q7", readingId: "as-r5", type: "comprehension", correct: 0,
-      q: { ar: "ماذا يحتاج التطوع بحسب المقالة؟", en: "According to the article, what does volunteering need?" },
-      options: [
-        { ar: "ساعة ثابتة يُتّفق عليها ولا تُترك", en: "A fixed hour that is agreed on and kept" },
-        { ar: "تفرغًا كاملًا", en: "Being completely free" },
-        { ar: "مالًا كثيرًا", en: "A lot of money" }
-      ],
-      why: { ar: "القليل الثابت يبقى، والكثير المؤجل لا يأتي.", en: "A little done steadily lasts; a lot postponed never comes." }
-    },
-    {
-      id: "as-q8", readingId: "as-r6", type: "comprehension", correct: 1,
-      q: { ar: "ما الكلمتان في آية فاطر اللتان تحرسان السابق من العُجب؟", en: "Which two phrases in the verse of Fatir guard the one who races ahead from self-admiration?" },
+      id: "as-q8",
+      readingId: "as-r6",
+      type: "comprehension",
+      correct: 1,
+      q: {
+        ar: "ما الكلمتان في آية فاطر اللتان تحرسان السابق من العُجب؟",
+        en: "Which two phrases in the verse of Fatir guard the one who races ahead from self-admiration?"
+      },
       options: [
         { ar: "«ظَالِمٌ لِنَفْسِهِ» و«مُقْتَصِدٌ»", en: "«wrongs himself» and «moderate»" },
         { ar: "«بِإِذْنِ اللَّهِ» و«ذَٰلِكَ هُوَ الْفَضْلُ الْكَبِيرُ»", en: "«by Allah's leave» and «that is the great favour»" },
@@ -3206,63 +3371,148 @@ window.AKHLAQ_CONTENT_ADULT.stages.sabiq = {
       why: { ar: "السبق إذن من الله وفضل منه، لا ملك للسابق يفخر به.", en: "The lead is Allah's leave and favour, not a possession to boast of." }
     },
     {
-      id: "as-q9", readingId: "as-r6", type: "situation", correct: 2,
+      id: "as-q9",
+      readingId: "as-r6",
+      type: "situation",
+      correct: 2,
       q: {
         ar: "أثنى عليك الناس كثيرًا لأنك تنظّم مشروع خير في الحي، وبدأت تحب هذا الثناء. ما الأقرب إلى ما في المقالة؟",
         ar_f: "أثنى عليكِ الناس كثيرًا لأنكِ تنظّمين مشروع خير في الحي، وبدأتِ تحبين هذا الثناء. ما الأقرب إلى ما في المقالة؟",
         en: "People praise you a lot for organising a charitable project in the neighbourhood, and you have started to enjoy the praise. What is closest to the article?"
       },
       options: [
-        { ar: "أترك المشروع حتى لا أقع في العجب", en: "Leave the project so as not to fall into self-admiration" },
-        { ar: "أزيد من الحديث عنه حتى يشارك الناس", en: "Talk about it more so people join" },
-        { ar: "أحمد الله الذي وفّقني، وأقلّل الحديث عن نفسي، وأُبرز من يعمل معي", en: "Praise Allah who enabled me, speak less about myself, and bring forward those who work with me" }
+        { ar: "أترك المشروع حتى لا يدخلني العجب", en: "Give up the project so that pride doesn't get in" },
+        { ar: "أكثر من الحديث عنه ليشارك الناس", en: "Talk about it more so that people join in" },
+        { ar: "أحمد الله، وأُبرز من يعمل معي", en: "Praise Allah, and bring forward those who work with me" }
       ],
-      why: { ar: "العلاج ليس ترك الخير، بل رده إلى صاحبه: «بِإِذْنِ اللَّهِ».", en: "The cure is not to stop doing good, but to return it to its Owner: «by Allah's leave»." }
+      why: {
+        ar: "يبقى العمل، ويُردّ الفضل إلى صاحبه: «بِإِذْنِ اللَّهِ». وهكذا تقول المقالة: لا تحدّث به إلا لحاجة.",
+        en: "The work goes on and the credit goes back to its Owner: «by Allah's leave». As the article says: speak of it only when there is a need."
+      }
     },
     {
-      id: "as-q10", readingId: "as-r7", type: "comprehension", correct: 0,
+      id: "as-q10",
+      readingId: "as-r7",
+      type: "comprehension",
+      correct: 0,
       q: { ar: "متى كان النبي صلى الله عليه وآله وسلم أجود ما يكون؟", en: "When was the Prophet most generous?" },
       options: [
-        { ar: "في رمضان حين يلقاه جبريل فيدارسه القرآن", en: "In Ramadan, when Jibril met him and studied the Quran with him" },
-        { ar: "في أيام الغنائم", en: "In times of spoils" },
-        { ar: "في السفر", en: "On journeys" }
+        { ar: "في رمضان، حين يلقاه جبريل فيدارسه القرآن", en: "In Ramadan, when Jibril met him to study the Quran" },
+        { ar: "في أيام الغنائم، حين يكثر المال", en: "In times of spoils, when wealth was plentiful" },
+        { ar: "في السفر، حين تكثر حاجة الناس", en: "On journeys, when people's needs were many" }
       ],
       why: { ar: "كلما قرب القلب من كلام الله اتسعت اليد بالعطاء.", en: "The nearer the heart comes to Allah's words, the wider the hand opens." }
     },
     {
-      id: "as-q11", readingId: "as-r8", type: "comprehension", correct: 1,
+      id: "as-q11",
+      readingId: "as-r8",
+      type: "comprehension",
+      correct: 1,
       q: { ar: "ماذا قال عمر رضي الله عنه حين رأى ما جاء به أبو بكر رضي الله عنه؟", en: "What did Umar say when he saw what Abu Bakr had brought?" },
       options: [
         { ar: "سأسبقك في المرة القادمة", en: "I'll beat you next time" },
         { ar: "«لاَ أُسَابِقُكَ إِلَى شَىْءٍ أَبَدًا»", en: "«I will never race you to anything»" },
         { ar: "لقد أسرفت يا أبا بكر", en: "You have gone too far, Abu Bakr" }
       ],
-      why: { ar: "سباق بلا حسد: أراد أن يسبق، ثم أقرّ لمن سبقه بالفضل.", en: "A race without envy: he wanted to get ahead, then acknowledged the merit of the one who did." }
+      why: {
+        ar: "سباق بلا حسد: أراد أن يسبق، ثم أقرّ لمن سبقه بالفضل.",
+        en: "A race without envy: he wanted to get ahead, then acknowledged the merit of the one who did."
+      }
     },
     {
-      id: "as-q12", readingId: "as-r8", type: "comprehension", correct: 2,
-      q: { ar: "ما الأدب الذي في سؤال النبي صلى الله عليه وآله وسلم: «ما أبقيت لأهلك؟»", en: "What courtesy lies in the Prophet's question «What have you left for your family?»" },
+      id: "as-q12",
+      readingId: "as-r8",
+      type: "comprehension",
+      correct: 2,
+      q: {
+        ar: "ما الأدب الذي في سؤال النبي صلى الله عليه وآله وسلم: «ما أبقيت لأهلك؟»",
+        en: "What courtesy lies in the Prophet's question «What have you left for your family?»"
+      },
       options: [
-        { ar: "أن الصدقة لا تكون إلا بالقليل", en: "That charity must always be small" },
+        { ar: "أن الصدقة تكون بالقليل دائمًا", en: "That charity should always be small" },
         { ar: "أن الأهل يُقدَّمون على كل خير", en: "That family comes before every other good" },
-        { ar: "أن الأهل حق لا يُنسى في السباق، ولكل سابق مقامه", en: "That family is a right not forgotten in the race, and each who races has their own station" }
+        { ar: "أن للأهل حقًّا، ولكل سابق مقامه", en: "That family has a right, and each who races has his own station" }
       ],
-      why: { ar: "قبل من أبي بكر ماله كله، وقال لكعب: «أَمْسِكْ عَلَيْكَ بَعْضَ مَالِكَ». العبرة بصدق القلب.", en: "He accepted all of Abu Bakr's wealth, and told Ka'b: «keep some of your wealth». What counts is the sincerity of the heart." }
+      why: {
+        ar: "قبل من أبي بكر ماله كله، وقال لكعب: «أَمْسِكْ عَلَيْكَ بَعْضَ مَالِكَ». العبرة بصدق القلب.",
+        en: "He accepted all of Abu Bakr's wealth, and told Ka'b: «keep some of your wealth». What counts is the sincerity of the heart."
+      }
+    },
+    {
+      id: "as-q13",
+      readingId: "as-r4",
+      type: "comprehension",
+      correct: 2,
+      q: { ar: "ماذا فعل حامد بالمنشور الذي كتبه في المساء؟", en: "What did Hamid do with the post he wrote that evening?" },
+      options: [
+        { ar: "نشره دون أن يذكر نفسه فيه", en: "Posted it without mentioning himself" },
+        { ar: "أرسله إلى صديق واحد يثق به", en: "Sent it to one friend he trusted" },
+        { ar: "مسحه، وعاد في الشهر التالي بالظرف", en: "Deleted it, and came back the next month with the envelope" }
+      ],
+      why: {
+        ar: "ما يُكتب للناس عن عمل خفي يُخرجه من الخفاء، ولو غاب الاسم: «مَنْ سَمَّعَ سَمَّعَ اللَّهُ بِهِ».",
+        en: "Writing for people about a hidden deed brings it out of hiding, even without a name: «whoever seeks to be heard of, Allah will make him heard of»."
+      }
+    },
+    {
+      id: "as-q14",
+      readingId: "as-r5",
+      type: "comprehension",
+      correct: 1,
+      q: {
+        ar: "ماذا فعلت سلمى حين رنّ المنبّه بعد ليلتها عند سرير ابنها؟",
+        en: "What did Salma do when the alarm rang after her night beside her son's bed?"
+      },
+      options: [
+        { ar: "أطفأته، ونوت أن تقوم في الليلة التالية", en: "Switched it off, intending to get up the next night" },
+        { ar: "قامت، وصلّت ركعتين قرب السرير", en: "Got up and prayed two rak'as beside the bed" },
+        { ar: "قامت، وقرأت جزءًا كاملًا كأول ليلة", en: "Got up and read a whole juz', as on the first night" }
+      ],
+      why: {
+        ar: "القليل الذي تقدر عليه في أتعب أيامك هو الذي يبقى: «أَحَبَّ الأَعْمَالِ أَدْوَمُهَا إِلَى اللَّهِ، وَإِنْ قَلَّ».",
+        en: "The little you can manage on your most tiring day is what lasts: «the deeds most loved by Allah are the most constant, even if few»."
+      }
     }
   ],
   tasks: [
     { id: "as-t1", ar: "حاجة رأيتها فقضيتها دون أن يطلبها أحد.", en: "Met a need I saw without anyone asking." },
-    { id: "as-t2", ar: "سؤال عن جار، أو هدية له، أو تعرّف إلى اسمه.", en: "Asked after a neighbour, gave them a gift, or learned their name." },
-    { id: "as-t3", ar: "صدقة خفية لا يعرفها أحد.", en: "A hidden charity no one knows of." },
+    { id: "as-t2", ar: "جزء من عملي لا يراجعه أحد، أتقنته.", en: "A part of my work that no one reviews, done well." },
+    {
+      id: "as-t3",
+      ar: "صدقة خفية لا يعرفها أحد، ولم أحدّث بها ولم أنشرها.",
+      en: "A hidden charity no one knows of, which I neither mentioned nor posted."
+    },
     { id: "as-t4", ar: "خير علّمته لشخص يحتاج إليه.", en: "Taught something good to someone who needed it." },
-    { id: "as-t5", ar: "ساعة تطوع، أو خدمة للمسجد، مع أهلي أو أصحابي.", en: "An hour of volunteering, or service to the mosque, with family or friends." }
+    {
+      id: "as-t5",
+      ar: "ركعتان في الليل، أو ورد صغير، داومت عليه سبعة أيام.",
+      en: "Two rak'as at night, or a small daily portion, kept up for seven days."
+    }
   ],
   selfcheck: [
-    { id: "as-s1", q: { ar: "هل أبادر بالخير قبل أن يُطلب مني؟", en: "Do I start the good before I'm asked?" } },
-    { id: "as-s2", q: { ar: "هل يعرفني جيراني بالخير؟", en: "Do my neighbours know me for good?" } },
-    { id: "as-s3", q: { ar: "هل لي عمل خفي ثابت لا يعرفه إلا الله؟", en: "Do I have a steady hidden deed that only Allah knows?" } },
-    { id: "as-s4", q: { ar: "هل آخذ بيد غيري إلى الخير، وأفرح إذا سبقني؟", en: "Do I take others by the hand toward good, and rejoice when they get ahead of me?" } },
-    { id: "as-s5", q: { ar: "هل أردّ ما أعمله من خير إلى فضل الله، لا إلى نفسي؟", en: "Do I attribute the good I do to Allah's favour, not to myself?" } }
+    {
+      id: "as-s1",
+      q: { ar: "هل أبادر بالخير قبل أن يُطلب مني، في بيتي قبل غيره؟", en: "Do I start the good before I'm asked, at home before anywhere else?" }
+    },
+    { id: "as-s2", q: { ar: "هل أتقن الجزء من عملي الذي لا يفحصه أحد؟", en: "Do I do well the part of my work that no one inspects?" } },
+    {
+      id: "as-s3",
+      q: {
+        ar: "إذا عملت خيرًا، هل أشتاق إلى أن يعرفه الناس، أو أفكر في نشره؟",
+        en: "When I do good, do I long for people to know of it, or think of posting it?"
+      }
+    },
+    {
+      id: "as-s4",
+      q: { ar: "هل لي عمل صغير ثابت بقي بعد أن ذهبت الحماسة الأولى؟", en: "Do I have a small, steady deed that stayed after the first fervour faded?" }
+    },
+    {
+      id: "as-s5",
+      q: {
+        ar: "هل أفرح إذا سبقني غيري إلى الخير، وأدعو لمن أراه دوني بدل أن أنظر إليه من فوق؟",
+        en: "Do I rejoice when someone gets to the good before me, and pray for those I see behind me instead of looking down on them?"
+      }
+    }
   ]
 };
 

@@ -549,133 +549,118 @@
     title: { ar: 'أسماء والورقة المطوية', en: 'Asma and the folded note' },
     chapters: [
       { title: { ar: 'قبل أن يطلب أحد', en: 'Before anyone asks' },
-        body: {
-          ar: [
-            'كانت أسماء في الثانية عشرة، وكانت عندها عادة غريبة لاحظتها أسرتها: ترى العمل قبل أن يراه غيرها. فإذا جاء الضيوف رتبت الأحذية عند الباب قبل أن يدخلوا، وإذا انتهى العشاء حملت الأطباق قبل أن يقوم أحد. وكان أخوها زياد، وهو في التاسعة، يقول عنها: أسماء عندها عين ثالثة للشغل. وكانت أمها تضحك وتقول: بل عندها قلب يرى.',
-            'وفي يوم الجمعة ذهبت الأسرة إلى المسجد الصغير في الحي. وبعد الصلاة خرج الناس، وبقيت السجادات مبعثرة، وبعض المصاحف على الأرض، وكوب ماء فارغ بجانب العمود. ولم يطلب أحد شيئًا من أحد.',
-            'وقفت أسماء عند الباب لحظة، ثم رجعت. رفعت المصاحف ووضعتها على الرف، وجمعت الأكواب الفارغة، ورتبت السجادات الصغيرة صفًا واحدًا. ورآها الحاج أبو سليم، خادم المسجد الكبير في السن، فابتسم ابتسامة متعبة وقال: كنت سأفعل هذا وحدي، وظهري يؤلمني. جزاك الله خيرًا.',
-            'في الطريق سألها زياد: لماذا رجعتِ؟ لم يطلب منك أحد! قالت أسماء: لأنني رأيت. وإذا رأيتُ خيرًا يحتاج أن يُعمل، فأنا أسرع إليه قبل أن يبرد. ألا تعرف الآية: ﴿وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِنْ رَبِّكُمْ﴾ (آل عمران 3:133)؟',
-            'قال زياد: لكنك تتعبين! قالت أسماء ضاحكة: أتعب قليلًا، وأفرح كثيرًا. ثم سكتت وفكّرت: هل كنت أفرح لأن أبا سليم شكرني، أم لأنني عملت الخير؟ ولم تعرف الجواب تلك الليلة، لكن السؤال بقي معها.'
-          ],
-          en: [
-            'Asma was twelve, and she had an odd habit her family had noticed: she saw the work before anyone else did. When guests came she lined up the shoes at the door before they came in, and when dinner was over she carried the plates before anyone got up. Her brother Ziyad, who was nine, used to say: Asma has a third eye for jobs. Their mother would laugh and say: no, she has a heart that sees.',
-            'On Friday the family went to the little mosque in the neighbourhood. After the prayer people left, and the prayer rugs were scattered, some copies of the Quran were on the floor, and an empty cup of water stood by a pillar. Nobody asked anyone for anything.',
-            'Asma stood at the door for a moment, then went back. She lifted the copies of the Quran onto the shelf, gathered the empty cups, and lined up the small rugs in one row. Hajj Abu Salim, the elderly man who looked after the mosque, saw her and gave a tired smile. He said: I was going to do this alone, and my back hurts. May Allah reward you.',
-            'On the way home Ziyad asked her: why did you go back? Nobody asked you to! Asma said: because I saw. When I see good that needs doing, I hurry to it before it goes cold. Don\'t you know the verse, meaning: "Hasten to forgiveness from your Lord" (Al Imran 3:133)?',
-            'Ziyad said: but you get tired! Asma laughed and said: I get a little tired and very happy. Then she fell quiet and thought: was I happy because Abu Salim thanked me, or because I did something good? She did not know the answer that night, but the question stayed with her.'
-          ]
-        },
+        body: { ar: [
+            'كانت أسماء في الثانية عشرة، وعندها عادة لاحظتها أسرتها: ترى العمل قبل أن يراه غيرها. فإذا جاء الضيوف رتبت الأحذية عند الباب قبل أن يدخلوا، وإذا انتهى العشاء حملت الأطباق قبل أن يقوم أحد. وكان أخوها زياد، وهو في التاسعة، يقول عنها: «أسماء عندها عين ثالثة للشغل». فتضحك أمها وتقول: «بل عندها قلب يرى».',
+            'وفي يوم الجمعة ذهبت الأسرة إلى المسجد الصغير في الحي. وبعد الصلاة خرج الناس، وبقيت السجادات الصغيرة مبعثرة، وبعض المصاحف على الأرض، وكوب ماء فارغ بجانب العمود. ولم يطلب أحد شيئًا من أحد.',
+            'وقفت أسماء عند الباب لحظة، ثم رجعت. رفعت المصاحف إلى الرف، وجمعت الأكواب الفارغة، ورتبت السجادات صفًّا واحدًا. ورآها الحاج أبو سليم، خادم المسجد الكبير في السن، فابتسم ابتسامة متعبة وقال: «كنت سأفعل هذا وحدي، وظهري يؤلمني. جزاكِ الله خيرًا».',
+            'وفي الطريق سألها زياد: «لماذا رجعتِ؟ لم يطلب منكِ أحد!». قالت أسماء: «لأنني رأيت. وإذا رأيت خيرًا يحتاج أن يُعمل، أسرعت إليه قبل أن يبرد». وكانت تحفظ الآية منذ الصف الثالث: ﴿وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِنْ رَبِّكُمْ﴾ (آل عمران 3:133).',
+            'قال زياد: «لكنكِ تتعبين!». فضحكت: «أتعب قليلًا، وأفرح كثيرًا». ثم سكتت، وسألت نفسها: هل فرحت لأن أبا سليم شكرني، أم لأنني عملت الخير؟ ولم تجد الجواب تلك الليلة، فكتبت السؤال على ورقة صغيرة، وطوتها، ووضعتها تحت وسادتها.'
+          ], en: [
+            'Asma was twelve, and she had a habit her family had noticed: she saw the work before anyone else did. When guests came she lined up the shoes at the door before they came in, and when dinner was over she carried the plates before anyone got up. Her brother Ziyad, who was nine, used to say: "Asma has a third eye for jobs." And their mother would laugh and say: "No, she has a heart that sees."',
+            'On Friday the family went to the little mosque in the neighbourhood. After the prayer people left, and the small prayer rugs were scattered, some copies of the Quran were on the floor, and an empty cup of water stood by a pillar. Nobody asked anyone for anything.',
+            'Asma stood at the door for a moment, then went back. She lifted the copies of the Quran onto the shelf, gathered the empty cups, and lined up the rugs in one row. Hajj Abu Salim, the elderly man who looked after the mosque, saw her and gave a tired smile. He said: "I was going to do this alone, and my back hurts. May Allah reward you."',
+            'On the way home Ziyad asked her: "Why did you go back? Nobody asked you to!" Asma said: "Because I saw. When I see good that needs doing, I hurry to it before it goes cold." She had known the verse since third grade: "And hasten to forgiveness from your Lord" (Al Imran 3:133, meaning).',
+            'Ziyad said: "But you get tired!" She laughed: "I get a little tired and very happy." Then she fell quiet and asked herself: was I happy because Abu Salim thanked me, or because I did something good? She did not find the answer that night, so she wrote the question on a small piece of paper, folded it, and put it under her pillow.'
+          ] },
         quiz: Q('sabiq', 1, [
           { correct: 0, q: { ar: 'لماذا رجعت أسماء إلى المسجد بعد الصلاة؟', en: 'Why did Asma go back into the mosque after the prayer?' },
-            options: [{ ar: 'لأنها رأت عملًا يحتاج أن يُعمل، فأسرعت إليه', en: 'Because she saw work that needed doing and hurried to it' }, { ar: 'لأن أباها أمرها', en: 'Because her father told her to' }, { ar: 'لأنها نسيت حقيبتها', en: 'Because she forgot her bag' }],
-            why: { ar: 'هذه الدرجة الأولى في الإبهام: مبادرة بالخير قبل الطلب.', en: 'This is the first thumb degree: starting the good before being asked.' } },
-          { correct: 2, q: { ar: 'ما السؤال الذي بقي مع أسماء تلك الليلة؟', en: 'What question stayed with Asma that night?' },
-            options: [{ ar: 'متى صلاة الجمعة القادمة؟', en: 'When is next Friday\'s prayer?' }, { ar: 'لماذا يتعب أبو سليم؟', en: 'Why does Abu Salim get tired?' }, { ar: 'هل فرحت بشكر أبي سليم أم بعمل الخير نفسه؟', en: 'Was she happy because Abu Salim thanked her, or because of the good deed itself?' }],
-            why: { ar: 'السابق يسأل نفسه عن نيته، لا عن عمله فقط.', en: 'Someone racing to good asks about their intention, not only their deed.' } }
+            options: [{ ar: 'لأنها رأت عملًا يحتاج أن يُعمل، فأسرعت إليه', en: 'Because she saw work that needed doing and hurried to it' }, { ar: 'لأن الحاج أبا سليم ناداها لتساعده', en: 'Because Hajj Abu Salim called her to help him' }, { ar: 'لأنها نسيت مصحفها عند العمود', en: 'Because she had left her copy of the Quran by the pillar' }],
+            why: { ar: 'هذه الدرجة الأولى في الإبهام: مبادرة بالخير قبل الطلب.', en: 'This is the first degree of the thumb: starting the good before being asked.' } },
+          { correct: 2, q: { ar: 'ما السؤال الذي كتبته أسماء على الورقة المطوية؟', en: 'What question did Asma write on the folded note?' },
+            options: [{ ar: 'هل يحتاج أبو سليم إلى مساعدة كل جمعة؟', en: 'Does Abu Salim need help every Friday?' }, { ar: 'لماذا لا يرتب الناس المسجد بعد الصلاة؟', en: 'Why do people not tidy the mosque after the prayer?' }, { ar: 'هل فرحت بشكر أبي سليم، أم بعمل الخير نفسه؟', en: 'Was she happy because Abu Salim thanked her, or because of the good deed itself?' }],
+            why: { ar: 'السابق يسأل نفسه عن نيته، لا عن عمله وحده.', en: 'Someone racing to good asks about their intention, and not only about their deed.' } }
         ]) },
 
       { title: { ar: 'الخير الخفي', en: 'The hidden good' },
-        body: {
-          ar: [
-            'حكت أسماء لجدتها عن سؤالها، فقالت الجدة: هذا سؤال الكبار يا أسماء. وأحسن طريقة لتعرفي الجواب أن تفعلي خيرًا لا يعرفه أحد. فإن فرحتِ به وحدكِ، فقد عرفتِ أن فرحكِ لله.',
-            'فأخذت أسماء دفترًا صغيرًا، وصارت تكتب فيه كل مساء خيرًا خفيًّا واحدًا ستفعله غدًا، ثم تطوي الورقة وتخفيها في درج مكتبها. وكانت القاعدة الوحيدة: لا تخبر أحدًا، ولا حتى زياد. وإن سألها أحد عن الأوراق المطوية، تبتسم وتقول: أسرار صغيرة.',
+        body: { ar: [
+            'حكت أسماء لجدتها عن الورقة المطوية، فقالت الجدة: «هذا سؤال الكبار يا أسماء. جرّبي أن تفعلي خيرًا لا يعرفه أحد. فإن فرحتِ به وحدكِ، عرفتِ لمن كان فرحكِ».',
+            'فأخذت أسماء دفترًا صغيرًا، وصارت تكتب فيه كل مساء خيرًا خفيًّا واحدًا ستفعله غدًا، ثم تطوي الورقة وتخفيها في درج مكتبها. والقاعدة الوحيدة: لا تخبر أحدًا، ولا حتى زياد. وإن سألها أحد عن الأوراق المطوية، ابتسمت وقالت: «أسرار صغيرة».',
             'في اليوم الأول وضعت قارورة ماء باردة على باب جارتهم العجوز قبل أن تستيقظ. وفي اليوم الثاني رتبت كتب زياد المبعثرة وهو في المدرسة، فظن أن أمه فعلت ذلك. وفي اليوم الثالث دعت لصديقتها جنى باسمها في صلاة الفجر، لأن جنى كانت حزينة على مرض أبيها.',
-            'وتذكّرت أسماء حديثًا علّمته إياه المعلمة: «كُلُّ مَعْرُوفٍ صَدَقَةٌ». فقالت في نفسها: الدعاء معروف، والماء البارد معروف، والكتب المرتبة معروف. ولا يحتاج المعروف أن يكون كبيرًا، ولا أن يراه أحد. يكفي أن يكون صادقًا، وأن يصل إلى من يحتاجه.',
-            'وبعد أسبوع لاحظت أسماء شيئًا عجيبًا: كانت تفرح بالخير الخفي أكثر من الخير الذي يراه الناس. فلم يكن هناك شكر ولا مدح، بل شعور هادئ في قلبها، كأن سرًّا جميلًا بينها وبين الله. فعرفت جواب سؤالها: الفرح الحقيقي في الخير نفسه، لا في الشكر عليه.'
-          ],
-          en: [
-            'Asma told her grandmother about her question, and her grandmother said: that is a grown-up\'s question, Asma. The best way to find the answer is to do good that nobody knows about. If you are happy with it on your own, then you will know your happiness is for Allah.',
-            'So Asma took a small notebook, and every evening she wrote one hidden good deed she would do the next day, then folded the page and hid it in her desk drawer. There was only one rule: tell nobody, not even Ziyad. If anyone asked about the folded pages, she would smile and say: little secrets.',
+            'وتذكّرت حديثًا علّمتهم إياه المعلمة: «كُلُّ مَعْرُوفٍ صَدَقَةٌ» (صحيح البخاري 6021). فقالت في نفسها: الدعاء معروف، والماء البارد معروف، والكتب المرتبة معروف. وكلها صغيرة، ولا يراها أحد.',
+            'وفي صباح اليوم الثامن رأت من الشباك جارتهم العجوز تفتح الباب، وتأخذ القارورة الباردة، وترفع عينيها إلى السماء وتحرك شفتيها بدعاء لم تسمعه أسماء. فأحست أسماء بفرح هادئ لم يأتها مع أي شكر. وفي المساء أخرجت الورقة من تحت الوسادة، وكتبت تحت السؤال كلمة واحدة: «عرفت». ثم طوتها من جديد.'
+          ], en: [
+            'Asma told her grandmother about the folded note, and her grandmother said: "That is a grown-up\'s question, Asma. Try doing some good that nobody knows about. If you are happy with it on your own, you will know whom your happiness was for."',
+            'So Asma took a small notebook, and every evening she wrote one hidden good deed she would do the next day, then folded the page and hid it in her desk drawer. There was only one rule: tell nobody, not even Ziyad. If anyone asked about the folded pages, she smiled and said: "Little secrets."',
             'On the first day she left a bottle of cold water at their elderly neighbour\'s door before she woke up. On the second day she tidied Ziyad\'s scattered books while he was at school, and he thought their mother had done it. On the third day she prayed for her friend Jana by name at the dawn prayer, because Jana was sad about her father\'s illness.',
-            'Asma remembered a hadith her teacher had taught her, meaning: "Every kindness is charity." She said to herself: a prayer is a kindness, cold water is a kindness, tidy books are a kindness. A kindness does not have to be big, or seen by anyone. It is enough that it is sincere and reaches someone who needs it.',
-            'After a week Asma noticed something wonderful: she was happier with the hidden good than with the good people could see. There was no thanks and no praise, only a quiet feeling in her heart, like a lovely secret between her and Allah. So she knew the answer to her question: the real joy is in the good itself, not in being thanked for it.'
-          ]
-        },
+            'She remembered a hadith their teacher had taught them: "Every kindness is charity" (Sahih al-Bukhari 6021). She said to herself: a prayer is a kindness, cold water is a kindness, tidy books are a kindness. All of them small, and none of them seen.',
+            'On the morning of the eighth day she saw from the window their elderly neighbour open the door, take the cold bottle, raise her eyes to the sky and move her lips in a prayer Asma could not hear. Asma felt a quiet happiness that had never come with any thanks. That evening she took the note from under her pillow and wrote one word under the question: "Now I know." Then she folded it again.'
+          ] },
         quiz: Q('sabiq', 2, [
           { correct: 1, q: { ar: 'ما القاعدة الوحيدة للخير الخفي في دفتر أسماء؟', en: 'What was the only rule for the hidden good in Asma\'s notebook?' },
-            options: [{ ar: 'أن يكون كبيرًا', en: 'That it must be big' }, { ar: 'ألا تخبر به أحدًا', en: 'To tell nobody about it' }, { ar: 'أن تفعله مرة في الشهر', en: 'To do it once a month' }],
+            options: [{ ar: 'أن تكتب كل خير بعد أن تفعله', en: 'To write down each good deed after doing it' }, { ar: 'ألا تخبر به أحدًا، ولا حتى زياد', en: 'To tell nobody, not even Ziyad' }, { ar: 'أن تفعل خيرًا واحدًا كل أسبوع', en: 'To do one good deed every week' }],
             why: { ar: 'الخير الخفي يعلّم القلب أن يعمل لله.', en: 'Hidden good teaches the heart to act for Allah.' } },
-          { correct: 0, q: { ar: 'ما الجواب الذي وجدته أسماء لسؤالها؟', en: 'What answer did Asma find to her question?' },
-            options: [{ ar: 'أن الفرح الحقيقي في الخير نفسه، لا في الشكر عليه', en: 'That the real joy is in the good itself, not in being thanked for it' }, { ar: 'أن الخير يجب أن يراه الناس', en: 'That good must be seen by people' }, { ar: 'أن الدفتر الصغير أجمل من الكبير', en: 'That a small notebook is nicer than a big one' }],
-            why: { ar: '«كل معروف صدقة»، ولو لم يره أحد.', en: '"Every kindness is charity", even if no one sees it.' } }
+          { correct: 0, q: { ar: 'ماذا كتبت أسماء تحت سؤالها في مساء اليوم الثامن؟', en: 'What did Asma write under her question on the evening of the eighth day?' },
+            options: [{ ar: '«عرفت»', en: '"Now I know"' }, { ar: '«لا أعرف بعد»', en: '"I don\'t know yet"' }, { ar: '«أسأل جدتي غدًا»', en: '"I\'ll ask Grandma tomorrow"' }],
+            why: { ar: 'رأت أثر خيرها الخفي ففرحت به وحدها، فعرفت لمن كان فرحها.', en: 'She saw the effect of her hidden good and was happy with it alone, so she knew whom her happiness was for.' } }
         ]) },
 
       { title: { ar: 'سباق مع جنى', en: 'A race with Jana' },
-        body: {
-          ar: [
-            'في المدرسة أعلنت المعلمة عن «أسبوع الخير»: يكتب كل طالب الأعمال الطيبة التي يفعلها، وفي آخر الأسبوع تُعلّق أسماء أكثر الطلاب خيرًا على لوحة الصف. فقالت جنى لأسماء ضاحكة: سأسبقك هذه المرة!',
+        body: { ar: [
+            'في المدرسة أعلنت المعلمة عن «أسبوع الخير»: يكتب كل طالب الأعمال الطيبة التي يفعلها، وفي آخر الأسبوع تُعلّق أسماء أكثر الطلاب خيرًا على لوحة الصف. فقالت جنى لأسماء ضاحكة: «سأسبقكِ هذه المرة!».',
             'وبدأ السباق. ساعدت جنى المعلمة في توزيع الكتب، فساعدت أسماء عامل النظافة في حمل السلال. وأعارت جنى قلمها لزميلة، فأعطت أسماء نصف طعامها لطالب نسي طعامه. وكانت الصديقتان تضحكان، وتكتبان، وتتسابقان، والصف كله يتابعهما.',
-            'لكن في اليوم الرابع لاحظت أسماء أن شيئًا تغيّر في قلبها. صارت تنظر إلى ورقة جنى لتعرف كم كتبت، وصارت تختار الخير الذي يراه الناس، وتترك الخير الخفي لأنه لا يُكتب في الورقة. وفي المساء نظرت إلى دفترها الصغير، فوجدت أنها لم تكتب فيه شيئًا منذ ثلاثة أيام.',
-            'فحكت لجدتها، فقالت الجدة: المسابقة إلى الخير جميلة، وقد مدح الله أهلها فقال: ﴿وَالسَّابِقُونَ السَّابِقُونَ ۝ أُولَٰئِكَ الْمُقَرَّبُونَ﴾ (الواقعة 56:10-11). لكن السباق هنا إلى الله، لا إلى اللوحة. فإذا صار همّك أن تسبقي جنى، فقد نسيتِ إلى أين تركضين.',
-            'في اليوم الخامس لم تكتب أسماء في ورقة المدرسة شيئًا جديدًا. بل كتبت في دفترها الصغير خيرًا خفيًّا: أن تقول للمعلمة إن جنى ساعدت أكثر منها هذا الأسبوع. وفي آخر الأسبوع عُلّق اسم جنى على اللوحة، فصفقت أسماء أعلى من الجميع، وشعرت أنها ربحت شيئًا لا يُعلّق على لوحة.'
-          ],
-          en: [
-            'At school the teacher announced "Kindness Week": every student would write down the good deeds they did, and at the end of the week the names of the kindest students would go up on the class board. Jana said to Asma laughing: I\'m going to beat you this time!',
+            'وفي اليوم الرابع لاحظت أسماء أن شيئًا تغيّر في قلبها. صارت تنظر إلى ورقة جنى لتعرف كم كتبت، وصارت تختار الخير الذي يراه الناس، وتترك الخير الخفي لأنه لا يُكتب في الورقة. وفي المساء فتحت دفترها الصغير، فوجدت أنها لم تكتب فيه شيئًا منذ ثلاثة أيام.',
+            'فحكت لجدتها، فقالت الجدة: «المسابقة إلى الخير جميلة، وقد مدح الله أهلها: ﴿وَالسَّابِقُونَ السَّابِقُونَ ۝ أُولَٰئِكَ الْمُقَرَّبُونَ﴾ (الواقعة 56:10-11). مقربون إلى الله يا أسماء. فإذا صار همّكِ أن تسبقي جنى، فقد نسيتِ إلى أين تركضين».',
+            'في اليوم الخامس لم تكتب أسماء في ورقة المدرسة شيئًا جديدًا. وكتبت في دفترها الصغير خيرًا خفيًّا: أن تقول للمعلمة إن جنى ساعدت أكثر منها هذا الأسبوع. وفي آخر الأسبوع عُلّق اسم جنى على اللوحة، فصفقت أسماء أعلى من الجميع. ولم تعرف جنى لماذا كانت صديقتها أسعد منها.'
+          ], en: [
+            'At school the teacher announced "Kindness Week": every student would write down the good deeds they did, and at the end of the week the names of the kindest students would go up on the class board. Jana said to Asma, laughing: "I\'m going to beat you this time!"',
             'And the race began. Jana helped the teacher hand out books, so Asma helped the caretaker carry the baskets. Jana lent a classmate her pen, so Asma gave half her lunch to a boy who had forgotten his. The two friends laughed, wrote things down and raced each other, with the whole class watching.',
-            'But on the fourth day Asma noticed something had changed in her heart. She had started looking at Jana\'s sheet to see how much she had written, and choosing the good that people could see, leaving out the hidden good because it could not go on the sheet. In the evening she looked at her little notebook and found she had written nothing in it for three days.',
-            'She told her grandmother, who said: racing to good is beautiful, and Allah praised those who do it, saying, meaning: "And the foremost are the foremost; they are the ones brought near" (al-Waqi\'a 56:10-11). But this race is towards Allah, not towards the board. If your aim becomes beating Jana, you have forgotten where you are running to.',
-            'On the fifth day Asma wrote nothing new on the school sheet. Instead she wrote a hidden good deed in her little notebook: to tell the teacher that Jana had helped more than her that week. At the end of the week Jana\'s name went up on the board, and Asma clapped louder than anyone, and felt she had won something that could not be pinned on a board.'
-          ]
-        },
+            'On the fourth day Asma noticed something had changed in her heart. She had started looking at Jana\'s sheet to see how much she had written, and choosing the good that people could see, leaving out the hidden good because it could not go on the sheet. In the evening she opened her little notebook and found she had written nothing in it for three days.',
+            'She told her grandmother, who said: "Racing to good is beautiful, and Allah praised those who do it: And the foremost are the foremost; they are the ones brought near (al-Waqi\'a 56:10-11, meaning). Brought near to Allah, Asma. If your aim becomes beating Jana, you have forgotten where you are running to."',
+            'On the fifth day Asma wrote nothing new on the school sheet. Instead she wrote a hidden good deed in her little notebook: to tell the teacher that Jana had helped more than her that week. At the end of the week Jana\'s name went up on the board, and Asma clapped louder than anyone. Jana never knew why her friend was happier than she was.'
+          ] },
         quiz: Q('sabiq', 3, [
           { correct: 2, q: { ar: 'ما الذي تغيّر في قلب أسماء في اليوم الرابع؟', en: 'What changed in Asma\'s heart on the fourth day?' },
-            options: [{ ar: 'تعبت من الخير', en: 'She got tired of doing good' }, { ar: 'غضبت من المعلمة', en: 'She got angry with the teacher' }, { ar: 'صارت تختار الخير الذي يراه الناس لتسبق جنى، وتركت الخير الخفي', en: 'She began choosing good that people could see, to beat Jana, and dropped the hidden good' }],
+            options: [{ ar: 'ملّت من المسابقة وأرادت أن تتوقف', en: 'She got bored of the contest and wanted to stop' }, { ar: 'صارت تساعد عامل النظافة كل يوم', en: 'She started helping the caretaker every day' }, { ar: 'صارت تختار الخير الذي يُكتب في الورقة', en: 'She started choosing the good that goes on the sheet' }],
             why: { ar: 'السباق إلى الخير قد ينقلب سباقًا إلى المدح.', en: 'A race to good can turn into a race for praise.' } },
-          { correct: 1, q: { ar: 'ماذا قصدت الجدة بقولها «السباق إلى الله، لا إلى اللوحة»؟', en: 'What did Grandmother mean by "the race is towards Allah, not towards the board"?' },
-            options: [{ ar: 'أن المسابقات ممنوعة', en: 'That competitions are forbidden' }, { ar: 'أن غاية السبق رضا الله، لا الفوز على الصديقة', en: 'That the aim of racing is Allah\'s pleasure, not beating your friend' }, { ar: 'أن اللوحة صغيرة', en: 'That the board is small' }],
+          { correct: 1, q: { ar: 'ماذا قصدت الجدة بقولها: «إذا صار همّكِ أن تسبقي جنى، فقد نسيتِ إلى أين تركضين»؟', en: 'What did Grandmother mean by: "If your aim becomes beating Jana, you have forgotten where you are running to"?' },
+            options: [{ ar: 'أن المسابقات في الخير لا تصح', en: 'That contests in doing good are wrong' }, { ar: 'أن غاية السبق القرب من الله، لا الفوز على الصديقة', en: 'That the aim of racing is nearness to Allah, not beating your friend' }, { ar: 'أن اللوحة لا تهم المعلمة كثيرًا', en: 'That the board does not matter much to the teacher' }],
             why: { ar: 'السابقون مقربون إلى الله، لا إلى اللوحة.', en: 'The foremost are brought near to Allah, not to a board.' } }
         ]) },
 
       { title: { ar: 'يد زياد', en: 'Ziyad\'s hand' },
-        body: {
-          ar: [
-            'كان زياد يصرخ كثيرًا حين يغضب، ويرمي ألعابه، ثم يندم. وكانت أسماء تقول له: كفى صراخًا! أنت دائمًا هكذا! فيزداد زياد غضبًا، ويدخل غرفته ويغلق الباب بقوة. وكانت أسماء تظن أنها تساعده، لكن الصراخ كان يكبر ولا يصغر.',
-            'وبعد أيام سمعت أسماء أمها تتحدث مع زياد بعد أن هدأ. لم تلمه أمها، بل جلست بجانبه وقالت: رأيتك اليوم تتوقف مرة قبل أن ترمي اللعبة. هذه درجة جديدة! فابتسم زياد، ورفع رأسه فخورًا.',
-            'فهمت أسماء شيئًا مهمًّا: أن تفعل الخير بنفسك شيء، وأن تأخذ بيد غيرك ليصعد شيء آخر. وأن اللوم يغلق الأبواب، والكلمة الطيبة تفتحها. ففكرت: كيف أعين زياد على الصعود دون أن أشعره أنني أعلى منه؟',
-            'فاقترحت عليه لعبة: كل مساء يحكي كل واحد منهما عن مرة غضب فيها، وكيف تصرف. وبدأت هي أولًا، فحكت له أنها غضبت من جنى في أسبوع الخير. فضحك زياد وقال: أنتِ أيضًا تغضبين؟ قالت: طبعًا! وكلنا نتمرن. فصار زياد يحكي لها كل مساء دون خوف.',
-            'وتذكّرت أسماء آية سمعتها من جدتها: ﴿وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا﴾ (العنكبوت 29:69). وفهمت أن المجاهدة ليست لها وحدها، بل لكل من يحاول. وبعد شهر جاء زياد إليها فرحًا وقال: اليوم أخذ ولد كرتي في الساحة، فتوقفت وتنفست ولم أصرخ! فعانقته أسماء، وكان فرحها بصعوده أكبر من فرحها بأي خير فعلته وحدها.'
-          ],
-          en: [
-            'Ziyad shouted a lot when he was angry and threw his toys, then felt sorry. Asma used to say to him: stop shouting! You\'re always like this! And Ziyad would get angrier, go into his room and slam the door. Asma thought she was helping him, but the shouting grew instead of shrinking.',
-            'One day Asma heard her mother talking to Ziyad after he had calmed down. Her mother did not blame him; she sat beside him and said: I saw you stop once today before you threw the toy. That\'s a new degree! Ziyad smiled and lifted his head proudly.',
-            'Asma understood something important: doing good yourself is one thing, and taking someone else by the hand so they climb is another. Blame closes doors, and a kind word opens them. So she wondered: how can I help Ziyad climb without making him feel I am above him?',
-            'She suggested a game: every evening each of them would tell the other about a time they had got angry and how they had acted. She went first, and told him she had got angry with Jana during Kindness Week. Ziyad laughed and said: you get angry too? She said: of course! We are all practising. After that Ziyad told her every evening without fear.',
-            'Asma remembered a verse she had heard from her grandmother, meaning: "As for those who strive for Us, We will surely guide them to Our ways" (al-Ankabut 29:69). She understood that striving was not only for her, but for everyone who tries. A month later Ziyad came to her happily and said: today a boy took my ball in the playground, and I stopped and breathed and didn\'t shout! Asma hugged him, and her joy at his climb was greater than her joy at any good she had done on her own.'
-          ]
-        },
+        body: { ar: [
+            'كان زياد يصرخ كثيرًا حين يغضب، ويرمي ألعابه، ثم يندم. وكانت أسماء تقول له: «كفى صراخًا! أنت دائمًا هكذا!». فيزداد غضبًا، ويدخل غرفته ويغلق الباب بقوة. وكانت تظن أنها تساعده، والصراخ يكبر ولا يصغر.',
+            'وبعد أيام سمعت أمها تتحدث مع زياد بعد أن هدأ. لم تلمه، وجلست بجانبه وقالت: «رأيتك اليوم تتوقف مرة قبل أن ترمي اللعبة. هذه درجة جديدة!». فابتسم زياد، ورفع رأسه.',
+            'ففكرت أسماء: «أنت دائمًا هكذا» أغلقت الباب، و«رأيتك تتوقف» فتحته. وسألت نفسها: كيف أعين زياد على الصعود، دون أن أشعره أنني فوقه؟',
+            'فاقترحت عليه لعبة: كل مساء يحكي كل واحد منهما عن مرة غضب فيها، وماذا فعل. وبدأت هي، فحكت له أنها غضبت من جنى في أسبوع الخير. فضحك زياد: «أنتِ أيضًا تغضبين؟». قالت: «طبعًا! كلنا نتمرن». فصار يحكي لها كل مساء بلا خوف.',
+            'وكانت جدتها قد قرأت لها: ﴿وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا﴾ (العنكبوت 29:69). وبعد شهر جاء زياد يركض وقال: «اليوم أخذ ولد كرتي في الساحة، فتوقفت وتنفست ولم أصرخ!». فرفعت أسماء يده عاليًا كما يرفع الحكم يد الفائز، ثم أخرجت من الدرج ورقة جديدة، وكتبت فيها: «اليوم صعد زياد»، وطوتها مع أسرارها.'
+          ], en: [
+            'Ziyad shouted a lot when he was angry and threw his toys, then felt sorry. Asma used to say to him: "Stop shouting! You\'re always like this!" And he would get angrier, go into his room and slam the door. She thought she was helping him, and the shouting kept growing instead of shrinking.',
+            'A few days later she heard her mother talking to Ziyad after he had calmed down. She did not blame him; she sat beside him and said: "I saw you stop once today before you threw the toy. That\'s a new degree!" Ziyad smiled and lifted his head.',
+            'Asma thought: "You\'re always like this" shut the door, and "I saw you stop" opened it. And she asked herself: how can I help Ziyad climb without making him feel I am above him?',
+            'She suggested a game: every evening each of them would tell the other about a time they had got angry, and what they did. She went first, and told him she had got angry with Jana during Kindness Week. Ziyad laughed: "You get angry too?" She said: "Of course! We\'re all practising." After that he told her every evening without fear.',
+            'Her grandmother had recited to her: "As for those who strive for Us, We will surely guide them to Our ways" (al-Ankabut 29:69, meaning). A month later Ziyad came running and said: "Today a boy took my ball in the playground, and I stopped and breathed and didn\'t shout!" Asma lifted his hand high, the way a referee lifts the winner\'s hand, then took a new page from the drawer, wrote on it: "Today Ziyad climbed," and folded it in with her secrets.'
+          ] },
         quiz: Q('sabiq', 4, [
           { correct: 0, q: { ar: 'ما الذي تعلّمته أسماء من طريقة أمها مع زياد؟', en: 'What did Asma learn from the way her mother spoke to Ziyad?' },
-            options: [{ ar: 'أن اللوم يغلق الأبواب، والكلمة الطيبة تفتحها', en: 'That blame closes doors, and a kind word opens them' }, { ar: 'أن زياد لا يتغير', en: 'That Ziyad never changes' }, { ar: 'أن الصراخ يعلّم الهدوء', en: 'That shouting teaches calm' }],
+            options: [{ ar: 'أن اللوم يغلق الباب، والكلمة الطيبة تفتحه', en: 'That blame shuts the door, and a kind word opens it' }, { ar: 'أن زياد يحتاج إلى عقاب أشد', en: 'That Ziyad needed a stricter punishment' }, { ar: 'أن تترك زياد وحده حتى يهدأ', en: 'That she should leave Ziyad alone until he calmed down' }],
             why: { ar: 'السابق يعين غيره بالكلمة الطيبة لا باللوم.', en: 'Someone racing to good helps others with kind words, not blame.' } },
           { correct: 2, q: { ar: 'لماذا بدأت أسماء اللعبة بقصة غضبها هي؟', en: 'Why did Asma start the game with a story of her own anger?' },
-            options: [{ ar: 'لتفوز في اللعبة', en: 'To win the game' }, { ar: 'لأنها نسيت قصة زياد', en: 'Because she forgot Ziyad\'s story' }, { ar: 'لكي لا يشعر زياد أنها أعلى منه، وأن الجميع يتمرنون', en: 'So Ziyad would not feel she was above him, and would see that everyone practises' }],
-            why: { ar: 'هذه الدرجة الثانية: مسابقة وعون للغير، بلا تكبر.', en: 'This is the second degree: racing and helping others, without pride.' } }
+            options: [{ ar: 'لتفوز في اللعبة من أول مرة', en: 'To win the game the very first time' }, { ar: 'لأن زياد رفض أن يبدأ', en: 'Because Ziyad refused to go first' }, { ar: 'ليرى زياد أنها تتمرن مثله', en: 'So Ziyad would see she was practising too' }],
+            why: { ar: 'هذه الدرجة الثانية: أن تعين غيرك على الصعود، بلا تكبر.', en: 'This is the second degree: helping others climb, without pride.' } }
         ]) },
 
       { title: { ar: 'النور فوق اليد', en: 'The light above the hand' },
-        body: {
-          ar: [
-            'في ليلة صيفية جلست أسماء مع جدتها على السطح، تنظران إلى النجوم. قالت أسماء: يا جدتي، صرت أبادر بالخير، وأخفيه، وأعين زياد. هل وصلت إلى آخر الطريق؟',
-            'ضحكت الجدة ضحكة طويلة، ثم أمسكت يد أسماء ورفعتها نحو السماء، وقالت: انظري إلى أصابعك. صعدتِ إلى الإبهام، وهذا جميل. لكن هل ترين النور فوق اليد؟ هناك نور الهداية التي أتى بها الأنبياء عليهم السلام، نمشي في ضوئه ما دمنا أحياء.',
-            'ثم قالت: قال الله عن الأنبياء: ﴿أُولَٰئِكَ الَّذِينَ هَدَى اللَّهُ ۖ فَبِهُدَاهُمُ اقْتَدِهْ﴾ (الأنعام 6:90). فهداهم قمة يُهتدى بها. وكلما اقتدينا بخلق من أخلاقهم، رأينا خلقًا آخر أمامنا. فالطريق لا ينتهي، وهذا من رحمة الله.',
-            'سألت أسماء: لكن كيف أعرف الطريق بعد الإبهام؟ قالت الجدة: بالهداية التي تصعد بكِ من البداية. قال الله: ﴿وَالَّذِينَ اهْتَدَوْا زَادَهُمْ هُدًى﴾ (محمد 47:17). كل خطوة تتبعين فيها الهداية، يزيدكِ الله هداية لخطوة بعدها. وأنتِ تحتاجين الهداية كل يوم، كما يحتاجها زياد.',
-            'وقبل أن تنام، كتبت أسماء في دفترها الصغير ورقة جديدة، ولم تكتب فيها خيرًا تفعله، بل دعاء: «اللَّهُمَّ اهْدِنِي لِأَحْسَنِ الْأَخْلَاقِ، لَا يَهْدِي لِأَحْسَنِهَا إِلَّا أَنْتَ، وَاصْرِفْ عَنِّي سَيِّئَهَا، لَا يَصْرِفُ عَنِّي سَيِّئَهَا إِلَّا أَنْتَ» (من حديث في صحيح مسلم). ثم طوتها ووضعتها في الدرج مع الأوراق الأخرى. وعرفت أنها لم تصل إلى آخر الطريق، بل إلى أوله الحقيقي.'
-          ],
-          en: [
-            'On a summer night Asma sat with her grandmother on the roof, looking at the stars. Asma said: Grandma, I start the good myself now, I hide it, and I help Ziyad. Have I reached the end of the path?',
-            'Her grandmother laughed, took Asma\'s hand and lifted it towards the sky, and said: look at your fingers. You have climbed to the thumb, and that is lovely. But do you see the light above the hand? That is the light of guidance the prophets, peace be upon them, brought, and we walk by it as long as we live.',
-            'Then she said: Allah said about the prophets, meaning: "Those are the ones Allah guided, so follow their guidance" (al-An\'am 6:90). Their guidance is a summit that guides the way. Each quality we follow shows us another ahead. The path never ends, and that is part of Allah\'s mercy.',
-            'Asma asked: but how do I know the way after the thumb? Her grandmother said: by the same guidance that has been lifting you from the start. Allah said, meaning: "And those who are guided, He increases them in guidance" (Muhammad 47:17). Every step in which you follow guidance, Allah gives you more guidance for the next step. And you need guidance every day, just as Ziyad does.',
-            'Before she slept, Asma wrote a new page in her little notebook, and this time it was not a good deed to do but a du\'a, meaning: "O Allah, guide me to the best of character, for none guides to the best of it but You, and turn its bad away from me, for none turns its bad away but You" (from a hadith in Sahih Muslim) Then she folded it and put it in the drawer with the other pages. And she knew she had not reached the end of the path, but its true beginning.'
-          ]
-        },
+        body: { ar: [
+            'في ليلة صيفية جلست أسماء مع جدتها على السطح، تنظران إلى النجوم. قالت أسماء: «يا جدتي، إذا وصل الواحد إلى الإبهام، فهل انتهى الطريق؟».',
+            'ضحكت الجدة، ثم أمسكت يد أسماء ورفعتها نحو السماء وقالت: «انظري فوق أصابعكِ. هناك نور الهداية التي أتى بها الأنبياء عليهم السلام. نمشي في ضوئه ما دمنا أحياء».',
+            'ثم قالت: «قال الله عن الأنبياء: ﴿أُولَٰئِكَ الَّذِينَ هَدَى اللَّهُ ۖ فَبِهُدَاهُمُ اقْتَدِهْ﴾ (الأنعام 6:90). وكلما اقتدينا بخلق من أخلاقهم، رأينا خلقًا آخر أمامنا».',
+            'سألت أسماء: «وكيف أعرف الطريق بعد ذلك؟». قالت الجدة: «بالهداية التي حملتكِ من البداية: ﴿وَالَّذِينَ اهْتَدَوْا زَادَهُمْ هُدًى﴾ (محمد 47:17). كل خطوة تتبعين فيها الهداية تفتح لكِ خطوة بعدها. وأنا، في عمري هذا، أطلبها كل يوم».',
+            'وقبل أن تنام، كتبت أسماء في دفترها ورقة جديدة، وكانت هذه المرة دعاءً كان النبي صلى الله عليه وآله وسلم يدعو به إذا قام إلى الصلاة، رواه علي عليه السلام: «وَاهْدِنِي لِأَحْسَنِ الْأَخْلَاقِ، لَا يَهْدِي لِأَحْسَنِهَا إِلَّا أَنْتَ، وَاصْرِفْ عَنِّي سَيِّئَهَا، لَا يَصْرِفُ عَنِّي سَيِّئَهَا إِلَّا أَنْتَ» (صحيح مسلم 771). ثم طوتها، ووضعتها في الدرج مع الأوراق الأخرى، وكتبت على غلاف الدفتر: «الجزء الأول».'
+          ], en: [
+            'On a summer night Asma sat with her grandmother on the roof, looking at the stars. Asma said: "Grandma, when someone reaches the thumb, is the road over?"',
+            'Her grandmother laughed, took Asma\'s hand, lifted it towards the sky and said: "Look above your fingers. There is the light of guidance the prophets, peace be upon them, brought. We walk by it as long as we live."',
+            'Then she said: "Allah said about the prophets: Those are the ones Allah guided, so follow their guidance (al-An\'am 6:90, meaning). Each quality of theirs we follow shows us another one ahead."',
+            'Asma asked: "So how do I find the way after that?" Her grandmother said: "By the same guidance that has carried you from the start: And those who are guided, He increases them in guidance (Muhammad 47:17, meaning). Every step in which you follow guidance opens the next step for you. And I, at my age, ask for it every day."',
+            'Before she slept, Asma wrote a new page in her notebook, and this time it was a supplication the Prophet, peace and blessings be upon him and his family, used to make when he stood for prayer, narrated by Ali, peace be upon him: "Guide me to the best of character, for none guides to the best of it but You, and turn its bad away from me, for none turns its bad away from me but You" (Sahih Muslim 771). Then she folded it, put it in the drawer with the other pages, and wrote on the cover of the notebook: "Part One".'
+          ] },
         quiz: Q('sabiq', 5, [
           { correct: 1, q: { ar: 'ماذا قالت الجدة عن الأنبياء عليهم السلام؟', en: 'What did Grandmother say about the prophets, peace be upon them?' },
-            options: [{ ar: 'إنهم قصة قديمة انتهت', en: 'That they are an old story that is over' }, { ar: 'إن هداهم قمة يُهتدى بها', en: 'That their guidance is a summit that guides the way' }, { ar: 'إنهم لا علاقة لهم بأخلاقنا', en: 'That they have nothing to do with our character' }],
+            options: [{ ar: 'إنهم قوم صالحون عاشوا قبلنا وانتهت قصتهم', en: 'That they were good people who lived before us, and their story is over' }, { ar: 'إن هداهم نور نمشي في ضوئه ونقتدي به', en: 'That their guidance is a light we walk by and follow' }, { ar: 'إن الاقتداء بهم للكبار وحدهم', en: 'That following them is for adults only' }],
             why: { ar: 'الآية تأمر أن نقتدي بهداهم: ﴿فَبِهُدَاهُمُ اقْتَدِهْ﴾.', en: 'The verse tells us to follow their guidance.' } },
-          { correct: 0, q: { ar: 'لماذا عرفت أسماء أنها وصلت إلى «أول الطريق الحقيقي» لا آخره؟', en: 'Why did Asma realise she had reached the path\'s "true beginning", not its end?' },
-            options: [{ ar: 'لأن كل خطوة في الهداية تفتح خطوة بعدها، وهي تحتاج الهداية كل يوم', en: 'Because every step of guidance opens the next, and she needs guidance every day' }, { ar: 'لأنها نسيت ما تعلمته', en: 'Because she forgot what she had learned' }, { ar: 'لأن جدتها غضبت منها', en: 'Because her grandmother was cross with her' }],
-            why: { ar: 'الهداية تُتّبع فيزيدها الله، والطريق لا ينتهي.', en: 'Guidance followed is increased by Allah, and the path never ends.' } }
+          { correct: 0, q: { ar: 'ماذا كتبت أسماء على غلاف دفترها في آخر الكتاب؟', en: 'What did Asma write on the cover of her notebook at the end of the book?' },
+            options: [{ ar: '«الجزء الأول»', en: '"Part One"' }, { ar: '«تمّ بحمد الله»', en: '"Finished, praise be to Allah"' }, { ar: '«أسرار صغيرة»', en: '"Little secrets"' }],
+            why: { ar: 'عرفت أن الطريق لا ينتهي، وأن كل هداية تفتح ما بعدها.', en: 'She knew the road does not end, and that each guidance opens what comes after it.' } }
         ]) }
     ]
   });
@@ -989,36 +974,112 @@
     title: { ar: 'تالا والصندوق الصغير', en: 'Tala and the little box' },
     chapters: [
       { title: { ar: 'صندوق الخير', en: 'The good-deeds box' },
-        body: { ar: ['صنعت تالا صندوقًا صغيرًا من الكرتون، ورسمت عليه قلبًا.', 'قالت: سأضع فيه حبة فاصوليا عن كل خير أفعله.', 'لكن بشرط: لا أنتظر أن يطلب مني أحد.'],
-          en: ['Tala made a little cardboard box and drew a heart on it.', 'She said: I will put a bean in it for every good thing I do.', 'But on one condition: I will not wait for anyone to ask me.'] },
-        quiz: Q('sabiq-kids', 1, [{ correct: 1, q: { ar: 'ماذا تضع تالا في الصندوق؟', en: 'What does Tala put in the box?' },
-          options: [{ ar: 'حلوى', en: 'Sweets' }, { ar: 'حبة فاصوليا عن كل خير', en: 'A bean for every good deed' }, { ar: 'ألعابها', en: 'Her toys' }],
-          why: { ar: 'الصندوق يذكّر تالا أن تسبق إلى الخير.', en: 'The box reminds Tala to race to good.' } }]) },
+        body: { ar: [
+            'صنعت تالا صندوقًا صغيرًا من الكرتون، ورسمت عليه قلبًا أحمر.',
+            'وأعطتها تيتا كيسًا من حبّات الفاصوليا البيضاء.',
+            'قالت تيتا: «كلما رأيتِ خيرًا وفعلتِه قبل أن يطلبه منكِ أحد، ضعي حبة في الصندوق».',
+            'فشمّت القطة الكيس، وعطست: هاتشو!',
+            'ضحكت تالا، ووضعت الصندوق على الرف العالي، بعيدًا عن أنف القطة.'
+          ], en: [
+            'Tala made a little cardboard box and drew a red heart on it.',
+            'Grandma gave her a bag of white beans.',
+            'Grandma said: "Whenever you see something good and do it before anyone asks you, put a bean in the box."',
+            'The cat sniffed the bag and sneezed: atchoo!',
+            'Tala laughed and put the box on the high shelf, far from the cat\'s nose.'
+          ] },
+        quiz: Q('sabiq-kids', 1, [
+          { correct: 2, q: { ar: 'متى تضع تالا حبة في الصندوق؟', en: 'When does Tala put a bean in the box?' },
+            options: [{ ar: 'حين تأكل غداءها كله', en: 'When she eats all her lunch' }, { ar: 'حين تطلب منها ماما المساعدة', en: 'When Mama asks her to help' }, { ar: 'حين تفعل خيرًا قبل أن يطلبه أحد', en: 'When she does something good before anyone asks' }],
+            why: { ar: 'هذا شرط تيتا: أن تسبق تالا إلى الخير قبل أن يُطلب منها.', en: 'That is Grandma\'s rule: Tala races to the good before anyone asks.' } }
+        ]) },
+
       { title: { ar: 'قبل أن تطلب ماما', en: 'Before Mama asks' },
-        body: { ar: ['رأت تالا الصحون على الطاولة بعد الغداء.', 'لم تقل ماما شيئًا بعد.', 'فحملت تالا صحنها وصحن أختها إلى المطبخ، ووضعت حبة في الصندوق.'],
-          en: ['Tala saw the plates on the table after lunch.', 'Mama had not said anything yet.', 'So Tala carried her plate and her sister\'s plate to the kitchen, and put a bean in the box.'] },
-        quiz: Q('sabiq-kids', 2, [{ correct: 0, q: { ar: 'متى حملت تالا الصحون؟', en: 'When did Tala carry the plates?' },
-          options: [{ ar: 'قبل أن تطلب ماما', en: 'Before Mama asked' }, { ar: 'بعد أن صرخت ماما', en: 'After Mama shouted' }, { ar: 'لم تحملها', en: 'She did not carry them' }],
-          why: { ar: 'السابق يرى الخير فيفعله قبل أن يُطلب منه.', en: 'One who races to good sees it and does it before being asked.' } }]) },
-      { title: { ar: 'سباق مع صديقتها', en: 'A race with her friend' },
-        body: { ar: ['في المدرسة سقط قلم المعلمة.', 'ركضت تالا لتلتقطه، وركضت صديقتها هيا أيضًا.', 'فالتقطته هيا أولًا، فضحكت تالا وقالت: سبقتِني إلى الخير يا هيا!', 'وفرحت لها من قلبها.'],
-          en: ['At school, the teacher\'s pen fell.', 'Tala ran to pick it up, and so did her friend Haya.', 'Haya picked it up first, and Tala laughed and said: you beat me to the good deed, Haya!', 'And she was happy for her with all her heart.'] },
-        quiz: Q('sabiq-kids', 3, [{ correct: 2, q: { ar: 'كيف شعرت تالا حين سبقتها هيا؟', en: 'How did Tala feel when Haya got there first?' },
-          options: [{ ar: 'غضبت', en: 'Angry' }, { ar: 'بكت', en: 'She cried' }, { ar: 'فرحت لها', en: 'Happy for her' }],
-          why: { ar: 'في سباق الخير نفرح لمن سبقنا، ولا نغار منه.', en: 'In the race to good we are happy for whoever gets there first, and we are not jealous.' } }]) },
+        body: { ar: [
+            'بعد الغداء جلست ماما على الكنبة وقالت: «آه، ما أتعبني!».',
+            'ونظرت تالا إلى الطاولة: صحون، وملاعق، وقشر برتقال.',
+            'فحملت صحنها وصحن أختها الصغيرة رُبى إلى المطبخ.',
+            'وركضت رُبى وراءها، ترفع ملعقة واحدة وتقول: «وأنا أيضًا!».',
+            'وشربت ماما الشاي وهي جالسة، وابتسمت.',
+            'ووضعت تالا في الصندوق حبة واحدة: تك!'
+          ], en: [
+            'After lunch Mama sat down on the sofa and said: "Oof, I\'m so tired!"',
+            'Tala looked at the table: plates, spoons and orange peel.',
+            'So she carried her own plate and her little sister Ruba\'s plate to the kitchen.',
+            'Ruba ran after her, holding up one spoon and saying: "Me too!"',
+            'Mama drank her tea sitting down, and smiled.',
+            'And Tala put one bean in the box: tick!'
+          ] },
+        quiz: Q('sabiq-kids', 2, [
+          { correct: 0, q: { ar: 'ماذا حملت رُبى الصغيرة إلى المطبخ؟', en: 'What did little Ruba carry to the kitchen?' },
+            options: [{ ar: 'ملعقة واحدة', en: 'One spoon' }, { ar: 'صحنها', en: 'Her plate' }, { ar: 'قشر البرتقال', en: 'The orange peel' }],
+            why: { ar: 'رأت رُبى أختها تسبق إلى الخير، فقلّدتها بما تقدر عليه.', en: 'Ruba saw her sister race to the good, and copied her as far as she could.' } }
+        ]) },
+
+      { title: { ar: 'سباق مع هيا', en: 'A race with Haya' },
+        body: { ar: [
+            'في الصف انقلبت علبة ألوان المعلمة، وتدحرجت الألوان تحت الطاولات.',
+            'قفزت تالا لتجمعها، وقفزت صديقتها هيا أيضًا.',
+            'جمعت هيا سبعة ألوان، وجمعت تالا ثلاثة فقط.',
+            'فصفّقت تالا وقالت: «سبقتِني إلى الخير يا هيا!».',
+            'ثم وجدت اللون الأحمر تحت حقيبتها، فأعطته لهيا وقالت: «ضعيه أنتِ في العلبة».',
+            'وقالت المعلمة: «شكرًا يا بطلتين»، ورسمت على السبورة وجهين يضحكان.'
+          ], en: [
+            'In class the teacher\'s box of crayons tipped over, and the crayons rolled under the tables.',
+            'Tala jumped up to gather them, and so did her friend Haya.',
+            'Haya gathered seven crayons, and Tala only three.',
+            'Tala clapped and said: "You beat me to the good deed, Haya!"',
+            'Then she found the red crayon under her bag, gave it to Haya and said: "You put it in the box."',
+            'The teacher said: "Thank you, my two champions," and drew two laughing faces on the board.'
+          ] },
+        quiz: Q('sabiq-kids', 3, [
+          { correct: 1, q: { ar: 'ماذا فعلت تالا حين جمعت هيا ألوانًا أكثر منها؟', en: 'What did Tala do when Haya gathered more crayons than her?' },
+            options: [{ ar: 'رجعت إلى مقعدها حزينة', en: 'She went back to her seat feeling sad' }, { ar: 'صفّقت لها، وأعطتها اللون الأحمر', en: 'She clapped for her and gave her the red crayon' }, { ar: 'قالت للمعلمة إنها بدأت أولًا', en: 'She told the teacher she had started first' }],
+            why: { ar: 'في سباق الخير نفرح لمن سبقنا.', en: 'In the race to good we are happy for whoever gets there first.' } }
+        ]) },
+
       { title: { ar: 'الحبّات السرّية', en: 'The secret beans' },
-        body: { ar: ['امتلأ الصندوق بالحبّات.', 'سألها أخوها: كم حبة عندك؟ أرني!', 'فابتسمت تالا وقالت: هذا سرّ بيني وبين الله.'],
-          en: ['The box filled up with beans.', 'Her brother asked: how many beans have you got? Show me!', 'Tala smiled and said: that is a secret between me and Allah.'] },
-        quiz: Q('sabiq-kids', 4, [{ correct: 1, q: { ar: 'لماذا لم تُرِ تالا أخاها الحبّات؟', en: 'Why did Tala not show her brother the beans?' },
-          options: [{ ar: 'لأنها نسيت', en: 'She forgot' }, { ar: 'لأن خيرها سرّ بينها وبين الله', en: 'Because her good deeds are a secret between her and Allah' }, { ar: 'لأن الصندوق ضاع', en: 'The box was lost' }],
-          why: { ar: 'الخير الخفي لا نعمله ليرانا الناس.', en: 'Hidden good is not done so that people see us.' } }]) },
+        body: { ar: [
+            'كان آدم، أخو تالا، يصيح كل صباح: «أين خُفّي؟».',
+            'وفي الليل، وآدم نائم، وضعت تالا خُفّيه بجانب سريره، بهدوء.',
+            'وفي الصباح قفز آدم من السرير، فدخلت قدماه في الخُفّين مباشرة!',
+            'قال: «من وضعهما هنا؟». فسكتت تالا، وابتسمت.',
+            'ثم هزّ آدم صندوقها: تك تك تك، وقال: «كم حبة عندكِ؟ أريني!».',
+            'قالت تالا: «هذا سرّ بيني وبين الله»، وأعادت الصندوق إلى الرف.'
+          ], en: [
+            'Every morning Tala\'s brother Adam shouted: "Where are my slippers?"',
+            'At night, while Adam was asleep, Tala quietly put his slippers beside his bed.',
+            'In the morning Adam jumped out of bed, and his feet went straight into his slippers!',
+            'He said: "Who put them here?" Tala said nothing, and smiled.',
+            'Then Adam shook her box: tick tick tick, and said: "How many beans have you got? Show me!"',
+            'Tala said: "That is a secret between me and Allah," and put the box back on the shelf.'
+          ] },
+        quiz: Q('sabiq-kids', 4, [
+          { correct: 2, q: { ar: 'ماذا فعلت تالا بخُفّي آدم في الليل؟', en: 'What did Tala do with Adam\'s slippers at night?' },
+            options: [{ ar: 'خبّأتهما تحت الكنبة', en: 'She hid them under the sofa' }, { ar: 'أعطتهما للقطة تلعب بهما', en: 'She gave them to the cat to play with' }, { ar: 'وضعتهما بجانب سريره وهو نائم', en: 'She put them beside his bed while he slept' }],
+            why: { ar: 'فعلت خيرًا لم يره أحد، ولم تخبر به.', en: 'She did a good deed nobody saw, and told no one.' } }
+        ]) },
+
       { title: { ar: 'اليد كلها', en: 'The whole hand' },
-        body: { ar: ['في الليل رفعت تالا يدها، ونظرت إلى أصابعها الخمسة.', 'رأت أن الإبهام يلمس كل الأصابع، ويساعدها على الإمساك.', 'وقالت: كل يوم أبدأ من جديد، ويصعد قلبي إصبعًا إصبعًا.', 'وأنت أيضًا، ما أول خير ستسبق إليه غدًا؟'],
-          ar_f: ['في الليل رفعت تالا يدها، ونظرت إلى أصابعها الخمسة.', 'رأت أن الإبهام يلمس كل الأصابع، ويساعدها على الإمساك.', 'وقالت: كل يوم أبدأ من جديد، ويصعد قلبي إصبعًا إصبعًا.', 'وأنتِ أيضًا، ما أول خير ستسبقين إليه غدًا؟'],
-          en: ['At night Tala raised her hand and looked at her five fingers.', 'She saw that the thumb touches every finger and helps them hold on.', 'She said: every day I begin again, and my heart climbs finger by finger.', 'And you too: what is the first good thing you will race to tomorrow?'] },
-        quiz: Q('sabiq-kids', 5, [{ correct: 0, q: { ar: 'ماذا يفعل الإبهام في اليد؟', en: 'What does the thumb do for the hand?' },
-          options: [{ ar: 'يلمس كل الأصابع ويساعدها', en: 'It touches every finger and helps them' }, { ar: 'يختبئ', en: 'It hides' }, { ar: 'لا شيء', en: 'Nothing' }],
-          why: { ar: 'السابق بالخيرات يساعد الجميع، ويبدأ الصعود كل يوم من جديد.', en: 'One who races to good helps everyone, and starts the climb anew each day.' } }]) }
+        body: { ar: [
+            'في المساء جلس آدم حزينًا وقال: «أنا ليس عندي صندوق».',
+            'فنظرت تالا إلى يدها: الإبهام يلمس كل الأصابع، ويساعدها على الإمساك.',
+            'فأحضرت كرتونة، وأمسكت يد آدم، ورسما معًا قلبًا أزرق.',
+            'ثم ركض آدم، وحمل كوب الماء إلى تيتا قبل أن تطلبه.',
+            'ووضع أول حبة في صندوقه: تك!',
+            'فرفعت تالا إبهامها له، ورفع آدم إبهامه أيضًا.'
+          ], en: [
+            'In the evening Adam sat down sadly and said: "I haven\'t got a box."',
+            'Tala looked at her hand: the thumb touches every finger and helps them hold on.',
+            'So she fetched a piece of cardboard, held Adam\'s hand, and together they drew a blue heart.',
+            'Then Adam ran and took a glass of water to Grandma before she asked for it.',
+            'He put the first bean in his box: tick!',
+            'Tala gave him a thumbs-up, and Adam put his thumb up too.'
+          ] },
+        quiz: Q('sabiq-kids', 5, [
+          { correct: 0, q: { ar: 'ماذا فعلت تالا حين حزن آدم لأنه ليس عنده صندوق؟', en: 'What did Tala do when Adam was sad because he had no box?' },
+            options: [{ ar: 'صنعت معه صندوقًا، ورسما قلبًا', en: 'She made a box with him, and they drew a heart' }, { ar: 'أعطته صندوقها بما فيه', en: 'She gave him her own box and everything in it' }, { ar: 'قالت له: انتظر حتى تكبر', en: 'She told him to wait until he was bigger' }],
+            why: { ar: 'السابق إلى الخير يمدّ يده لمن بعده، كما يساعد الإبهام كل الأصابع.', en: 'Whoever races to good reaches out to the next one, as the thumb helps every finger.' } }
+        ]) }
     ]
   });
   delete window.AKHLAQ_BQ;
@@ -1541,132 +1602,123 @@
   var Q = window.AKHLAQ_BQ;
   window.AKHLAQ_BOOKS.push({
     id: 'book-sabiq-adult', stage: 'sabiq', ages: '15+',
-    title: { ar: 'السابقون', en: 'Those who race ahead' },
+    title: { ar: 'صناديق الخميس', en: 'Thursday boxes' },
     chapters: [
-      { title: { ar: 'ثلاثة أصناف من المصطفين', en: 'Three kinds among the chosen' },
+      { title: { ar: 'العدّاد', en: 'The counter' },
         body: { ar: [
-            'اسم المرتبة الأخيرة في المسار مأخوذ من آية في سورة فاطر، تذكر الذين أورثهم الله الكتاب من عباده الذين اصطفاهم، ثم تقسمهم: ﴿فَمِنْهُمْ ظَالِمٌ لِنَفْسِهِ وَمِنْهُمْ مُقْتَصِدٌ وَمِنْهُمْ سَابِقٌ بِالْخَيْرَاتِ بِإِذْنِ اللَّهِ﴾ (فاطر 35:32).',
-            'وقد نقل ابن كثير في تفسيره هذه الآية ما معناه أن الظالم لنفسه هو المفرط في بعض الواجبات المرتكب لبعض المحرمات، وأن المقتصد هو المؤدي للواجبات التارك للمحرمات، وقد يترك بعض المستحبات ويقع في بعض المكروهات، وأن السابق بالخيرات هو الذي يفعل الواجبات والمستحبات، ويترك المحرمات والمكروهات وبعض المباحات.',
-            'وفي الآية رحمة واسعة كثيرًا ما ننساها. فالأصناف الثلاثة كلهم من الذين اصطفاهم الله وأورثهم الكتاب، حتى الظالم لنفسه. فلا ينبغي أن ننظر إلى من قصّر نظرة احتقار، ولا أن نعامل الطفل المتعثر كأنه خرج من الطريق. فهو في الطريق، لكنه في أوله. ومن رحمة الله أنه جمعهم في آية واحدة، كأنه يقول لكل واحد منهم: الطريق أمامك، فامشِ فيه بقدر ما تستطيع.',
-            'وفي الآية أيضًا أدب عظيم للسابق نفسه: «بإذن الله». فالسبق ليس شطارة ذاتية يفتخر بها صاحبها، بل توفيق من الله. ولذلك يحتاج السابق إلى التواضع أكثر من غيره، لأنه أقرب الناس إلى خطر العجب. والعجب أن يرى الإنسان عمله ولا يرى من وفقه إليه.',
-            'وهذا ما يحرص عليه المسار حين يصل الطفل إلى الإبهام. فلا نقول له: صرت أفضل من إخوتك. بل نقول: وفقك الله لخير كثير، فاحمده، واسأله أن يثبتك، وأعن غيرك على أن يصعد كما صعدت. فهذا أحب إلى الله.',
-            'والإبهام في اليد يلمس الأصابع كلها ويعينها على الإمساك. وكذلك السابق بالخيرات لا يصعد وحده، بل يمد يده لمن خلفه. ويفرح إذا رآهم يقتربون منه.'
-          ],
-          en: [
-            'The name of the last rank comes from a verse in Surat Fatir that mentions those whom Allah made heirs of the Book among the servants He chose, and then divides them. Meaning (not a translation): among them is one who wrongs himself, among them one who is moderate, and among them one who races ahead in good deeds by Allah\'s permission (Fatir 35:32).',
-            'Ibn Kathir, in his commentary on this verse, relates, in meaning, that the one who wrongs himself falls short in some obligations and commits some prohibitions; the moderate fulfils obligations and avoids prohibitions, though he may leave some recommended acts and do some disliked ones; and the one who races ahead does the obligations and the recommended, and leaves the prohibited, the disliked and some of what is permitted.',
-            'There is wide mercy in the verse that we often forget. All three kinds are among those Allah chose and made heirs of the Book, even the one who wrongs himself. So we should not look down on whoever falls short, nor treat a stumbling child as if they had left the road. They are on the road, at its beginning. Allah\'s mercy gathers them in one verse, as if telling each: the road is before you, so walk it as far as you can.',
-            'The verse also holds a great courtesy for the one who races ahead: "by Allah\'s permission". Racing ahead is not personal cleverness to boast about, but success granted by Allah. So the one who races ahead needs humility more than anyone, being closest to the danger of self-admiration. Self-admiration is seeing one\'s deed and not seeing who granted it.',
-            'This is what the path takes care of when a child reaches the thumb. We do not say: now you are better than your siblings. We say: Allah has granted you much good, so thank Him, ask Him to keep you firm, and help others climb as you climbed. That is dearer to Allah.',
-            'The thumb touches every finger and helps them hold. So too the one who races to good does not climb alone, but reaches out to those behind. They are glad to see them draw near.'
+            'لين في السادسة عشرة، وهي التي بدأت «سلة الخميس». في أول الفصل اتفقت مع صديقتها سما: كل خميس بعد المدرسة يجمعون التبرعات في القاعة الخلفية لمسجد الحي، ويرتبونها في سلال، ويوصلونها قبل المغرب إلى أسر تحفظ أسماءها الخالة سعاد في دفتر صغير. وفتحت لين حسابًا للمبادرة، وكتبت في تعريفه: ﴿فَاسْتَبِقُوا الْخَيْرَاتِ﴾ (البقرة 2:148). وكانت تحب كل شيء فيها: السرعة، والقائمة، والأولاد يحملون أكياس الأرز على أكتافهم، والعدّاد الصغير تحت كل مقطع. وفي ثلاثة أسابيع صارت السلال أربعين، والمتابعون ألفين.',
+            'وفي الخميس الرابع صعدت إلى الطابق الثالث في عمارة بلا مصعد، والسلة في يد والهاتف في الأخرى، تصور الدرج من أجل المقطع. وفتحت أم وسيم الباب، فرأت الهاتف مرفوعًا. فشدّت ابنها الصغير خلفها، وأغلقت الباب حتى لم يبق منه إلا فتحة بقدر السلة، وأخذتها من الفتحة، وقالت للأرض: «جزاكم الله خيرًا». وأنزلت لين الهاتف بعد أن انغلق الباب.',
+            'وفي الليل وصل المقطع، الدرج والسلة بلا باب ولا وجه، إلى ثلاثة آلاف وأربعمئة مشاهدة. وانتبهت لين إلى أنها فتحت العدّاد تلك الليلة أربع عشرة مرة. وتحت الإشعارات كانت رسالة من الخالة سعاد وصلت قبل ثلاث ساعات، ولم تفتحها: «أم وسيم تسأل بخجل: هل في القائمة مكان لأسطوانة غاز؟ عندهم أسبوع لا يطبخون». وتذكّرت لين أن المطبخ خلف الباب كان باردًا، وأنها لم تنظر إليه، لأنها كانت تنظر إلى الشاشة.',
+            'وكل من يقرأ هذه السطور يعرف العدّاد وإن تغيّر اسمه: علامة الإعجاب، و«شوهد من»، والقلب الصغير تحت صورة العمل الطيب. وللعمل الذي يُعمل أمام الكاميرا جزاءان ينتظران صاحبه: جزاء عند الله، وجزاء على الشاشة. والثاني يصل أسرع، ويُعَدّ بالأرقام، ولذلك يملأ العين.',
+            'فدخلت لين إلى إعدادات الحساب، وأخفت عدد المشاهدات. ثم كتبت للخالة سعاد: «الغاز علينا، يصل غدًا قبل المدرسة». وفتحت علبة مدخراتها، وعدّت ما فيها مرتين: يكفي أسطوانة واحدة، ويبقى قليل. ووضعت المبلغ في الجيب الأمامي لحقيبة المدرسة، وأطفأت النور.'
+          ], en: [
+            'Leen is sixteen, and she is the one who started "Thursday Baskets". At the start of term she agreed it with her friend Sama: every Thursday after school they collect donations in the back hall of the neighbourhood mosque, sort them into baskets, and deliver them before maghrib to families whose names Khala Suad keeps in a small notebook. Leen opened an account for the project and put in its bio: "So race to all that is good" (al-Baqara 2:148, meaning). She loved everything about it: the speed, the list, the boys carrying sacks of rice on their shoulders, and the little counter under every clip. In three weeks there were forty baskets and two thousand followers.',
+            'On the fourth Thursday she climbed to the third floor of a building with no lift, the basket in one hand and the phone in the other, filming the stairs for the clip. Umm Wasim opened the door and saw the raised phone. She pulled her little son behind her and closed the door until only a gap the width of the basket was left, took the basket through the gap, and said to the floor: "May Allah reward you." Leen lowered the phone after the door had shut.',
+            'That night the clip, stairs and basket with no door and no face, reached three thousand four hundred views. Leen noticed she had opened the counter fourteen times that evening. Below the notifications was a message from Khala Suad that had arrived three hours earlier and that she had not opened: "Umm Wasim asks, very shyly: is there room on the list for a gas cylinder? They have not cooked for a week." Leen remembered that the kitchen behind the door had been cold, and that she had not looked at it, because she had been looking at the screen.',
+            'Everyone reading these lines knows the counter, whatever it is called: the like, the "seen by", the little heart under the photo of a good deed. A deed done in front of the camera has two rewards waiting for the one who does it: one with Allah, and one on the screen. The second arrives faster and comes in numbers, which is why it fills the eye.',
+            'So Leen went into the account settings and hid the view counts. Then she wrote to Khala Suad: "The gas is on us. It will be there tomorrow before school." She opened her savings tin and counted what was in it twice: enough for one cylinder, with a little left over. She put the money in the front pocket of her school bag, and switched off the light.'
           ] },
         quiz: Q('sabiq-adult', 1, [
-          { correct: 0, q: { ar: 'هل الظالم لنفسه في آية فاطر 35:32 من المصطفين؟', en: 'Is the one who wrongs himself in Fatir 35:32 among the chosen?' },
-            options: [{ ar: 'نعم، الأصناف الثلاثة من الذين اصطفاهم الله', en: 'Yes, all three kinds are among those Allah chose' }, { ar: 'لا، هو خارج الطريق', en: 'No, he is off the road' }, { ar: 'لا تذكره الآية', en: 'The verse does not mention him' }],
-            why: { ar: 'المتعثر في الطريق، لكنه في أوله.', en: 'The one who stumbles is on the road, at its beginning.' } },
-          { correct: 1, q: { ar: 'ماذا تعلمنا كلمة «بإذن الله» في الآية؟', en: 'What do the words "by Allah\'s permission" teach us?' },
-            options: [{ ar: 'أن السبق شطارة ذاتية', en: 'That racing ahead is personal cleverness' }, { ar: 'أن السبق توفيق من الله يحتاج إلى التواضع', en: 'That racing ahead is success from Allah that calls for humility' }, { ar: 'أن السابق أفضل من الجميع', en: 'That the racer is better than everyone' }],
-            why: { ar: 'السابق أقرب الناس إلى خطر العجب، فيحتاج إلى التواضع.', en: 'The racer is closest to self-admiration, so needs humility.' } }
+          { correct: 1, q: { ar: 'ماذا فعلت أم وسيم حين رأت الهاتف مرفوعًا؟', en: 'What did Umm Wasim do when she saw the raised phone?' },
+            options: [{ ar: 'طلبت من لين أن ترسل لها المقطع بعد نشره', en: 'She asked Leen to send her the clip once it was posted' }, { ar: 'شدّت ابنها خلفها، وأخذت السلة من فتحة الباب', en: 'She pulled her son behind her and took the basket through the gap in the door' }, { ar: 'رفضت السلة، وقالت إن غيرها أحوج إليها', en: 'She refused the basket and said others needed it more' }],
+            why: { ar: 'الكاميرا كشفت حاجة أرادت أم وسيم أن تسترها.', en: 'The camera exposed a need Umm Wasim wanted to keep covered.' } },
+          { correct: 2, q: { ar: 'ماذا كانت رسالة الخالة سعاد التي بقيت ثلاث ساعات بلا فتح؟', en: 'What did Khala Suad\'s message say, the one left unopened for three hours?' },
+            options: [{ ar: 'أن القائمة امتلأت ولا مكان لأسر جديدة', en: 'That the list was full, with no room for new families' }, { ar: 'أن إمام المسجد يريد أن يُغلق الحساب', en: 'That the imam wanted the account closed' }, { ar: 'أن أم وسيم تسأل بخجل عن أسطوانة غاز', en: 'That Umm Wasim was shyly asking about a gas cylinder' }],
+            why: { ar: 'كانت عينها على العدّاد، والحاجة الحقيقية في رسالة لم تُفتح.', en: 'Her eyes were on the counter, and the real need was in an unopened message.' } }
         ]) },
-      { title: { ar: 'سباق إلى المغفرة لا على الناس', en: 'A race to forgiveness, not against people' },
+
+      { title: { ar: 'ولا شكورًا', en: 'Nor thanks' },
         body: { ar: [
-            'يأمر القرآن بالمسارعة صراحة: ﴿وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِنْ رَبِّكُمْ﴾ (آل عمران 3:133). ويصف أهل القمة بالسبق: ﴿وَالسَّابِقُونَ السَّابِقُونَ ۝ أُولَٰئِكَ الْمُقَرَّبُونَ﴾ (الواقعة 56:10-11). فالسباق في هذا الدين ليس عيبًا، بل هو مطلوب.',
-            'لكن الآية تحدد وجهة السباق: إلى مغفرة من ربكم. فنحن لا نتسابق على الناس لنهزمهم، بل نتسابق إلى الله لنقترب منه. وهذا فرق كبير في القلب. فالمتسابق على الناس يحزن إذا سبقه غيره، ويفرح إذا تأخروا. أما المتسابق إلى الله فيفرح بكل من يصل، لأن الطريق لا يضيق بالسالكين.',
-            'ولهذا كان من علامات السابق الحقيقي أن يفرح بسبق غيره. فإذا رأى أخاه أسرع منه إلى صدقة أو صلاة أو مساعدة، سُرّ بذلك، وحمد الله، وتعلم منه. وإذا وجد في نفسه شيئًا من الغيرة، عالجه بالدعاء لأخيه.',
-            'ومن أخطر ما يدخل على هذه المرتبة في المدارس والبيوت أن يتحول الخير إلى مسابقة نقاط ولوحات. فيصير الطفل يساعد ليأخذ نجمة، ويتصدق ليرى اسمه في الأعلى. وهذا قد ينفع في البداية، لكنه إن دام أفسد المقصود، لأن القلب يتعلق بالنجمة لا بالله.',
-            'ولذلك يحسن أن نخفف من المقارنة بين الإخوة في الخير. فلا نقول: انظر إلى أخيك كيف يساعد، وأنت لا تفعل. بل نقول: أخوك وجد بابًا للخير، فما الباب الذي ستجده أنت؟ فيصير الخير ميدانًا واسعًا لكل واحد فيه طريق. فهذا يحب أن يساعد بيده، وذاك يحب أن يعطي من ماله القليل، وثالث يحسن الكلمة الطيبة، ورابع يحسن الاستماع. وكلها أبواب إلى الله.',
-            'وفي التطبيق صممنا علامات التقدم لتكون بين الطفل ونفسه، لا لوحة يقارن فيها نفسه بغيره. فيسأل الطفل نفسه: هل أنا اليوم أقرب إلى الخير مني أمس؟ ولا يسأل: هل أنا أفضل من أخي؟'
-          ],
-          en: [
-            'The Quran commands hastening openly. Meaning (not a translation): and hasten to forgiveness from your Lord (Al \'Imran 3:133). It describes the people of the summit by racing ahead. Meaning (not a translation): and those who race ahead, those who race ahead, they are the ones brought near (al-Waqi\'a 56:10-11). Racing, in this religion, is not a fault but something asked of us.',
-            'But the verse fixes the direction of the race: to forgiveness from your Lord. We do not race against people to defeat them; we race towards Allah to draw near to Him. That is a great difference in the heart. Whoever races against people is sad when overtaken and glad when others fall behind. Whoever races towards Allah is glad at everyone who arrives, because the road never grows narrow for its travellers.',
-            'So one sign of the true racer is gladness at another\'s lead. Seeing a brother quicker to charity, prayer or help, they are pleased, praise Allah and learn from him. If they find some jealousy in themselves, they treat it by praying for that brother.',
-            'One of the most dangerous things to enter this rank in schools and homes is turning good into a contest of points and charts. The child helps to get a star, gives to see their name at the top. This may help at the start, but if it lasts it spoils the aim, because the heart attaches to the star, not to Allah.',
-            'So it is good to lessen comparison between siblings in doing good. We do not say: look how your brother helps, and you don\'t. We say: your brother found a door to good; which door will you find? Then good becomes a wide field where each has a path. One loves to help with their hands, another to give from their little money, a third is good with kind words, a fourth with listening. All are doors to Allah.',
-            'In the app, progress markers are designed to be between the child and themselves, not a chart for comparing with others. The child asks: am I closer to good today than yesterday? Not: am I better than my brother?'
+            'أوصل أبوها الأسطوانة في السابعة صباحًا، وحملها إلى الطابق الثالث، وبقيت لين في السيارة. ولم يعرف أحد. وفي المدرسة اكتشفت لين شيئًا غريبًا في نفسها: كانت تريد أن يعرف أحد. كتب ولد في مجموعة الصف: «سلة الخميس أسطورة»، فكتبت تحته: «وأمس اشترينا لعائلة...»، ثم مسحتها حرفًا حرفًا.',
+            'وفي المساء نشرت سما مقطعًا لها وهي تحمل ثلاثة أكياس أرز دفعة واحدة، بالحركة البطيئة، وعليه موسيقى وكلمة: «من لا يتعب لا يصل». فوصل إلى تسعة آلاف، وتحته: «سما البطلة»، و«قدوتنا». وأحسّت لين بلسعة صغيرة: هي التي بدأت، وهي التي كتبت القائمة الأولى. ووجدت نفسها تفتح مقطع سما مرة بعد مرة، تعدّ مشاهداته كما كانت تعدّ مشاهداتها. وكانت تحفظ الآية: ﴿وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِنْ رَبِّكُمْ﴾ (آل عمران 3:133). والمسارعة فيها إلى الأمام، إلى المغفرة، وهي كانت تنظر إلى الجانب.',
+            'ويوم الجمعة قرأت معلمة الحلقة من سورة الإنسان: ﴿وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا ۝ إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ اللَّهِ لَا نُرِيدُ مِنْكُمْ جَزَاءً وَلَا شُكُورًا﴾ (الإنسان 76:8-9). وحكت أنه يُروى عن ابن عباس أن هذه الآيات نزلت في علي وفاطمة عليهما السلام وأهل بيتهما: صاموا ثلاثة أيام، وكانوا كل مساء يعطون طعام إفطارهم لمن طرق الباب، مسكينًا ثم يتيمًا ثم أسيرًا، ويفطرون على الماء. وبقيت لين عند الكلمة الأخيرة: ولا شكورًا. ولا حتى كلمة شكر. وهي لم تحتمل مقطعًا بلا رقم.',
+            'والكبير يعرف هذا السباق الذي ينحرف إلى الجانب: الزميل الذي نُسب إليه المشروع، والأخت التي مُدحت طبختها أكثر، والجار الذي ذُكر اسمه في كلمة الشكر. وفي قوله تعالى ﴿فَاسْتَبِقُوا الْخَيْرَاتِ﴾ ما يُسبَق إليه هو الخيرات نفسها، أمام العين، والذي يركض بجانبنا يركض إليها أيضًا.',
+            'ويوم الخميس، قبل أن يبدأ العمل، أعطت لين سما كلمة سر الحساب، وقالت: «أنتِ تصورين أحسن مني. خذي الحساب، بلا وجوه وبلا أبواب. وأنا آخذ المخزن». ففتحت سما عينيها: «المخزن؟ لا أحد يدخل المخزن». قالت لين: «أحب الترتيب». وقالتها وهي غير متأكدة أنها تحبه. ثم دفعت باب المخزن، فطنّ المصباح فوق الرفوف، واشتعل.'
+          ], en: [
+            'Her father delivered the cylinder at seven in the morning and carried it up to the third floor, while Leen stayed in the car. Nobody knew. At school Leen discovered something odd in herself: she wanted somebody to know. A boy in the class group wrote: "Thursday Baskets are legends." Under it she typed: "And yesterday we bought a family...", then deleted it letter by letter.',
+            'That evening Sama posted a clip of herself carrying three sacks of rice at once, in slow motion, with music and a caption: "No pain, no arrival." It reached nine thousand, and under it: "Sama the hero," "Our role model." Leen felt a small sting: she was the one who had started it, she had written the first list. She found herself opening Sama\'s clip again and again, counting its views the way she used to count her own. She knew the verse: "And hasten to forgiveness from your Lord" (Al Imran 3:133, meaning). The hastening in it runs forward, towards forgiveness, and she had been looking sideways.',
+            'On Friday the teacher of her Quran circle recited from Surat al-Insan: "And they give food, despite their love for it, to the poor, the orphan and the captive: we feed you only for the sake of Allah; we want from you no reward and no thanks" (al-Insan 76:8-9, meaning). She told them it is narrated from Ibn Abbas that these verses came down about Ali and Fatima, peace be upon them, and their household: they fasted three days, and each evening gave the food for breaking their fast to whoever knocked at the door, a poor man, then an orphan, then a captive, and broke their fast on water. Leen stayed with the last words: no thanks. Not even a word of thanks. And she could not bear a clip without a number.',
+            'Adults know this race that veers sideways: the colleague who got the credit for the project, the sister whose cooking was praised more, the neighbour whose name was mentioned in the thank-you speech. In the words "So race to all that is good", what we race to is the good itself, ahead of us, and whoever runs beside us is running towards it too.',
+            'On Thursday, before the work began, Leen gave Sama the account password and said: "You film better than I do. Take the account, with no faces and no doors. I\'ll take the storeroom." Sama\'s eyes went wide: "The storeroom? Nobody goes in the storeroom." Leen said: "I like sorting things." She said it without being sure she did. Then she pushed open the storeroom door, and the bulb above the shelves buzzed and came on.'
           ] },
         quiz: Q('sabiq-adult', 2, [
-          { correct: 2, q: { ar: 'إلى أين يكون السباق في آية آل عمران 3:133؟', en: 'Where is the race directed in Al \'Imran 3:133?' },
-            options: [{ ar: 'إلى المركز الأول في الصف', en: 'To first place in class' }, { ar: 'على الإخوة', en: 'Against siblings' }, { ar: 'إلى مغفرة من الله', en: 'To forgiveness from Allah' }],
-            why: { ar: 'نتسابق إلى الله لا على الناس.', en: 'We race towards Allah, not against people.' } },
-          { correct: 0, q: { ar: 'ما علامة السابق الحقيقي بحسب هذا الفصل؟', en: 'What is a sign of the true racer, according to this chapter?' },
-            options: [{ ar: 'أن يفرح بسبق غيره', en: 'Being glad when others get ahead' }, { ar: 'أن يحزن إذا سبقه أحد', en: 'Being sad when overtaken' }, { ar: 'أن يجمع أكثر النجوم', en: 'Collecting the most stars' }],
-            why: { ar: 'طريق الله لا يضيق بالسالكين.', en: 'The road to Allah never grows narrow for its travellers.' } }
+          { correct: 0, q: { ar: 'ماذا قالت لين لسما وهي تعطيها الحساب؟', en: 'What did Leen say to Sama as she handed her the account?' },
+            options: [{ ar: '«بلا وجوه وبلا أبواب، وأنا آخذ المخزن»', en: '"No faces and no doors, and I\'ll take the storeroom"' }, { ar: '«انشري مقطعي القديم مع مقطعكِ الجديد»', en: '"Post my old clip along with your new one"' }, { ar: '«احذفي مقطع الأرز، فهو للمدح لا للخير»', en: '"Delete the rice clip, it is for praise, not for good"' }],
+            why: { ar: 'تركت الضوء لصاحبتها ولم تحكم على نيتها، واختارت العمل الذي لا يراه أحد.', en: 'She left the spotlight to her friend without judging her intention, and chose the work nobody sees.' } },
+          { correct: 2, q: { ar: 'ماذا يُروى في نزول آيات سورة الإنسان، كما حكت المعلمة؟', en: 'What is narrated about the verses of Surat al-Insan, as the teacher told it?' },
+            options: [{ ar: 'أن قومًا أطعموا الفقراء يوم العيد، فشكرتهم المدينة كلها', en: 'That some people fed the poor on Eid, and the whole city thanked them' }, { ar: 'أن رجلًا تصدق بماله كله في يوم واحد، ثم أخفى ذلك', en: 'That a man gave away all his wealth in a single day, then hid it' }, { ar: 'أن عليًّا وفاطمة عليهما السلام أعطوا إفطارهم ثلاث ليال، وأفطروا على الماء', en: 'That Ali and Fatima, peace be upon them, gave away their iftar three evenings and broke their fast on water' }],
+            why: { ar: 'أعطوا ما يحبون، ولم يريدوا جزاءً ولا شكورًا.', en: 'They gave what they loved and wanted neither reward nor thanks.' } }
         ]) },
-      { title: { ar: 'الخير الخفي', en: 'Hidden good' },
+
+      { title: { ar: 'المخزن', en: 'The storeroom' },
         body: { ar: [
-            'إذا كانت المسارعة هي الجناح الأول للسابق، فالإخلاص هو الجناح الثاني. وقد عقد الغزالي في «إحياء علوم الدين» كتابًا سماه «النية والإخلاص والصدق»، يشرح فيه بالمعنى أن العمل الخالص هو الذي خلص باعثه من كل شائبة، فلا يكون الدافع إليه إلا التقرب إلى الله.',
-            'وقبله كتب الحارث المحاسبي في «الرعاية لحقوق الله» كثيرًا عن الرياء وأبوابه الخفية، وكيف يدخل على العامل وهو لا يشعر. فقد يبدأ الإنسان العمل لله، ثم يحب أن يراه الناس، ثم يزينه لهم، ثم ينقص منه حين يغيبون. وهذا التدرج الخفي هو ما يحتاج السابق إلى مراقبته.',
-            'ولهذا كان من أنفع ما يتدرب عليه الشاب في هذه المرتبة أن يكون له خير لا يعرفه أحد. صدقة صغيرة لا يخبر بها، ودعاء لصديق في ظهر الغيب، ومساعدة لجار دون أن يذكر اسمه. فهذا الخير الخفي يحمي القلب، لأنه لا ينتظر عليه مدحًا ولا شكرًا من أحد. إلا من الله.',
-            'وليس معنى هذا أن كل خير ظاهر رياء. فبعض الخير يحتاج أن يُرى ليقتدي به الناس، كالأب الذي يتصدق أمام أبنائه ليعلمهم. والمعيار ليس أن يُرى العمل أو لا يُرى، بل لماذا نعمله، ولمن.',
-            'ومن الأسئلة اللطيفة التي يمكن أن نعلّمها للأطفال: لو لم يرني أحد، هل كنت سأفعله؟ وهذا السؤال لا يُراد به التشكيك في كل عمل، بل تنقية القلب شيئًا فشيئًا. فإذا وجد الطفل أنه يفعل الخير ليُمدح، لا نوبخه، بل نفرح بصدقه مع نفسه، ونقول له: جدد نيتك، واجعلها لله، وأكمل عملك.',
-            'وحين يتعود الطفل على صندوق خير سري بينه وبين الله، يجد لذة لا يجدها في المدح، ويعرف أن الله يرى ما لا يراه الناس. ويكفيه ذلك.'
-          ],
-          en: [
-            'If hastening is the racer\'s first wing, sincerity is the second. Al-Ghazali devoted a book of "Ihya\' \'Ulum al-Din" to "Intention, Sincerity and Truthfulness", explaining, in meaning, that a sincere deed is one whose motive is purified of every admixture, so that nothing drives it but drawing near to Allah.',
-            'Before him, al-Harith al-Muhasibi wrote at length in "al-Ri\'aya li-Huquq Allah" about showing off and its hidden doors, and how it enters a person unawares. One may begin a deed for Allah, then like being seen, then polish it for people, then lessen it when they are gone. This hidden slide is what the racer must watch.',
-            'So one of the most useful things a young person can practise at this rank is having good that no one knows: a small charity never mentioned, a prayer for a friend in their absence, help for a neighbour without giving one\'s name. This hidden good protects the heart, because it waits for no praise or thanks from anyone.',
-            'This does not mean all visible good is showing off. Some good needs to be seen so people follow it, like a father who gives charity in front of his children to teach them. The measure is not whether a deed is seen, but why we do it, and for whom.',
-            'A gentle question we can teach children: if no one saw me, would I still do it? It is not meant to cast doubt on every deed, but to purify the heart little by little. If a child finds they do good to be praised, we do not scold them; we are glad at their honesty and say: renew your intention, make it for Allah, and carry on.',
-            'When a child gets used to a secret box of good between them and Allah, they find a sweetness they do not find in praise, and learn that Allah sees what people do not.'
+            'المخزن غرفة ضيقة خلف القاعة، رائحتها كرتون وعدس، وفيها رفوف عليها كل ما يتبرع به الحي مختلطًا: أرز، وزيت، ومعلبات مضغوطة الجوانب، وبسكويت، وكيس حفاضات لا يعرف أحد من أين جاء. وعمل لين أن تفرز، وتقرأ التواريخ، وتملأ الصناديق بحسب الدفتر: الأسرة ذات الستة أفراد زيتان، والأسرة التي فيها رضيع علبة حليب. والخالة سعاد ضعيفة البصر، تثق بها، ولا تفتح صندوقًا بعدها.',
+            'وفي خميسها الثاني في المخزن وجدت كرتونة كاملة من علب معجون الطماطم، انتهى تاريخها قبل أسبوعين. ولو رمتها نقص تسعة صناديق. والعلب تبدو سليمة، والتاريخ رقم صغير على قاع العلبة، ولن يقلب أحد العلبة. ووصلت رسالة سما: «خلصتِ؟ نريد نصور الصناديق مصفوفة قبل المغرب». ووقفت لين والعلبة في يدها، وقالت في نفسها: لن يعرف أحد.',
+            'وكانت تحفظ حديث شداد بن أوس رضي الله عنه: «إِنَّ اللَّهَ كَتَبَ الْإِحْسَانَ عَلَى كُلِّ شَيْءٍ» (صحيح مسلم 1955). على كل شيء: حتى قاع العلبة، وحتى الصندوق الذي لا يفتحه أحد بعدها. ثم سألت نفسها سؤالًا أبسط: لو كان هذا الصندوق ذاهبًا إلى جدتي؟',
+            'والكبير يعرف الإحسان الذي لا يفتشه أحد: الصفحة الأخيرة من التقرير، وزاوية الغرفة خلف الباب، والطعام الذي يُطبخ لضيف لن يعرف الفرق. وفي هذا الجزء الخفي من العمل يعرف صاحبه لمن يعمل.',
+            'فوضعت الكرتونة جانبًا، وكتبت عليها بخط كبير: «منتهية، لا تُوزَّع». وعبرت الشارع إلى دكان أبي جميل، وقالت: «أحتاج تسع علب معجون طماطم، وأدفع الخميس القادم». فنظر إليها أبو جميل من فوق نظارته، ووضع في الكيس عشر علب، وقال: «العاشرة من عندي، ولا تخبري أحدًا». ورجعت فرتبت الصناديق: الثقيل في الأسفل، وما يقرب تاريخه في الأعلى وعليه ورقة صغيرة بخط كبير: «يُستعمل أولًا». وحين دخلت سما لتصور، قالت: «ما شاء الله! من رتب هكذا؟». فمسحت لين يديها في بنطالها وقالت: «رتبت نفسها».'
+          ], en: [
+            'The storeroom is a narrow room behind the hall that smells of cardboard and lentils, with shelves holding everything the neighbourhood donates, all mixed up: rice, oil, dented tins, biscuits, and a bag of nappies nobody knows the origin of. Leen\'s job is to sort, read the dates, and fill the boxes according to the notebook: a family of six gets two bottles of oil, a family with a baby gets a tin of milk. Khala Suad\'s eyesight is weak; she trusts Leen and never opens a box after her.',
+            'On her second Thursday in the storeroom she found a whole carton of tins of tomato paste whose date had passed two weeks earlier. If she threw them out, nine boxes would go short. The tins looked fine, the date was a small number on the bottom of each tin, and nobody turns a tin over. A message came from Sama: "Done? We want to film the boxes lined up before maghrib." Leen stood with a tin in her hand and said to herself: nobody will know.',
+            'She knew the hadith of Shaddad ibn Aws, may Allah be pleased with him: "Allah has prescribed excellence (ihsan) in everything" (Sahih Muslim 1955). In everything: even the bottom of a tin, even a box nobody opens after her. Then she asked herself a simpler question: what if this box were going to my grandmother?',
+            'Adults know the excellence nobody inspects: the last page of the report, the corner of the room behind the door, the food cooked for a guest who would never notice the difference. In that hidden part of the work, a person finds out whom they are working for.',
+            'So she set the carton aside and wrote on it in big letters: "Expired, do not hand out." She crossed the street to Abu Jamil\'s shop and said: "I need nine tins of tomato paste, and I\'ll pay next Thursday." Abu Jamil looked at her over his glasses, put ten tins in the bag and said: "The tenth is from me, and don\'t tell anyone." She went back and arranged the boxes: heavy things at the bottom, anything with a close date on top with a small note in big letters: "Use first." When Sama came in to film, she said: "Masha\'Allah! Who sorted it like this?" Leen wiped her hands on her jeans and said: "It sorted itself."'
           ] },
         quiz: Q('sabiq-adult', 3, [
-          { correct: 1, q: { ar: 'ما العمل الخالص بحسب الغزالي في كتاب «النية والإخلاص والصدق»؟', en: 'What is a sincere deed according to al-Ghazali in "Intention, Sincerity and Truthfulness"?' },
-            options: [{ ar: 'العمل الذي يراه الناس', en: 'A deed people see' }, { ar: 'العمل الذي خلص باعثه من كل شائبة', en: 'A deed whose motive is purified of every admixture' }, { ar: 'العمل الكبير فقط', en: 'Only a big deed' }],
-            why: { ar: 'الإخلاص أن يكون الدافع التقرب إلى الله وحده.', en: 'Sincerity is that the motive is nearness to Allah alone.' } },
-          { correct: 2, q: { ar: 'هل كل خير ظاهر رياء بحسب هذا الفصل؟', en: 'According to this chapter, is all visible good showing off?' },
-            options: [{ ar: 'نعم دائمًا', en: 'Yes, always' }, { ar: 'نعم إذا رآه الأطفال', en: 'Yes, if children see it' }, { ar: 'لا، المعيار لماذا نعمله ولمن', en: 'No, the measure is why we do it and for whom' }],
-            why: { ar: 'بعض الخير يُظهر ليُقتدى به.', en: 'Some good is shown so others may follow.' } }
+          { correct: 0, q: { ar: 'ماذا وجدت لين في خميسها الثاني في المخزن؟', en: 'What did Leen find on her second Thursday in the storeroom?' },
+            options: [{ ar: 'علب معجون طماطم انتهى تاريخها قبل أسبوعين', en: 'Tins of tomato paste two weeks past their date' }, { ar: 'أكياس أرز مثقوبة أكلت منها الفئران', en: 'Sacks of rice with holes gnawed by mice' }, { ar: 'تبرعًا معه ورقة تطلب صورة للعائلة التي تستلمه', en: 'A donation with a note asking for a photo of the family who received it' }],
+            why: { ar: 'العيب كان حيث لا ينظر أحد: رقم صغير على قاع العلبة.', en: 'The fault was where nobody looks: a small number on the bottom of a tin.' } },
+          { correct: 1, q: { ar: 'كيف أكملت لين الصناديق التسعة الناقصة؟', en: 'How did Leen make up the nine boxes that were short?' },
+            options: [{ ar: 'أخذت علبة من كل صندوق من صناديق الأسر الأخرى', en: 'She took a tin from each of the other families\' boxes' }, { ar: 'اشترتها من دكان أبي جميل على أن تدفع الخميس القادم', en: 'She bought them at Abu Jamil\'s shop, to pay next Thursday' }, { ar: 'طلبت من سما أن تنشر نداء تبرع في الحساب', en: 'She asked Sama to post an appeal for donations on the account' }],
+            why: { ar: 'دفعت من مصروفها لتصل الصناديق كما تحب أن تصل إلى جدتها.', en: 'She paid from her own pocket so the boxes would arrive as she would want them to reach her grandmother.' } }
         ]) },
-      { title: { ar: 'النور فوق اليد', en: 'The light above the hand' },
+
+      { title: { ar: 'الخميس السابع', en: 'The seventh Thursday' },
         body: { ar: [
-            'فوق السابقين نور: نور الهداية التي أتى بها الأنبياء عليهم السلام. وقد قال الله تعالى بعد أن ذكر جماعة من الأنبياء: ﴿أُولَٰئِكَ الَّذِينَ هَدَى اللَّهُ ۖ فَبِهُدَاهُمُ اقْتَدِهْ﴾ (الأنعام 6:90). فهدي الأنبياء في المسار قمة يُهتدى بها، نمشي في ضوئها ونقتدي بها.',
-            'وهذا مهم جدًّا في التربية، لأن بعض الأطفال المتحمسين قد يظنون أنهم إذا وصلوا إلى الإبهام فقد بلغوا النهاية. والحقيقة أن الإبهام بداية طريق جديد، طريق لا ينتهي ما دام الإنسان حيًّا. وكلما ارتقى الإنسان فيه رأى أمامه درجة أعلى.',
-            'ومن أجمل الأمثلة التي نحكيها في هذا الباب ما رواه البخاري (3705) عن علي عليه السلام: أن فاطمة عليها السلام اشتكت ما تلقى من أثر الرحى في يدها، فجاءت تطلب خادمًا. فأتاهما النبي صلى الله عليه وآله وسلم وقد أخذا مضاجعهما، فعلّمهما تسبيحًا وتحميدًا وتكبيرًا عند النوم، وقال بالمعنى إنه خير لهما من خادم.',
-            'ففي بيت هو من أشرف البيوت، كانت اليد تتعب من العمل، والقلب يُوجَّه إلى الذكر. وهذا يعلم أبناءنا أن القمة ليست في الراحة، بل في القلب الذي يجد في الله ما يغنيه. وأن أهل البيت عليهم السلام، وهم أقرب الناس إلى النبي، عاشوا التعب والصبر، فلم يكن قربهم إعفاء من العمل، بل نورًا فيه.',
-            'وحين نتأمل هذه القمة، نعرف أن طريقنا طويل، فلا نتكبر بما وصلنا إليه، ولا نيأس من بعده. ونردد الدعاء النبوي: «اللَّهُمَّ اهْدِنِي لِأَحْسَنِ الْأَخْلَاقِ، لَا يَهْدِي لِأَحْسَنِهَا إِلَّا أَنْتَ، وَاصْرِفْ عَنِّي سَيِّئَهَا، لَا يَصْرِفُ عَنِّي سَيِّئَهَا إِلَّا أَنْتَ» (من حديث في صحيح مسلم).',
-            'فالأخلاق الحسنة في آخر الأمر هداية من الله، نطلبها منه كل يوم، ونسعى إليها كل يوم.'
-          ],
-          en: [
-            'Above those who race ahead is a light: the light of guidance the prophets, peace be upon them, brought. After naming a group of prophets, Allah says, in meaning (not a translation): those are the ones Allah guided, so follow their guidance (al-An\'am 6:90). In the path, the guidance of the prophets is a summit that guides the way: we walk in its light and follow it.',
-            'This matters in upbringing, because some enthusiastic children may think that reaching the thumb means reaching the end. In truth the thumb is the start of a new road, one that does not end while a person lives. The higher one climbs, the higher the next step appears.',
-            'One of the finest examples here is what al-Bukhari (3705) relates from Ali, peace be upon him: Fatima, peace be upon her, complained of what the hand mill did to her hand and came asking for a servant. The Prophet, peace and blessings be upon him and his family, came to them as they lay down to sleep and taught them glorification, praise and magnification of Allah at bedtime, saying, in meaning, that it was better for them than a servant.',
-            'In one of the noblest of homes, the hand grew tired from work and the heart was turned to remembrance. This teaches our children that the summit is not comfort, but a heart that finds in Allah what suffices it. And that the Ahl al-Bayt, peace be upon them, the closest people to the Prophet, lived with fatigue and patience: their nearness was not exemption from work, but light within it.',
-            'When we reflect on this summit, we know our road is long, so we are neither proud of what we reached nor despairing of what lies beyond. And we repeat the prophetic supplication, in meaning: O Allah, guide me to the best of character, for none guides to the best of it but You, and turn its bad away from me, for none turns its bad away but You (from a hadith in Sahih Muslim).',
-            'Good character, in the end, is guidance from Allah: we ask Him for it every day and strive for it every day.'
+            'ثم جاء موسم الامتحانات. صار المتطوعون اثني عشر، ثم خمسة، ثم اثنين. سما عندها مسابقة الرياضيات، والأولاد عندهم الدوري، والحساب ساكت منذ أسبوعين. وفي ليلة الأربعاء كانت السماء تمطر، وامتحان الكيمياء يوم الأحد، ولين تكتب في مجموعة المتطوعين: «نتوقف حتى تنتهي الامتحانات؟». وبقي إبهامها فوق زر الإرسال.',
+            'وكان في دفتر الخالة سعاد واحد وثلاثون اسمًا. وتذكرت لين مطبخ أم وسيم البارد، فلم ترسل. وفي الخميس لم يأتِ إلى المخزن غيرها وغير أخيها حمزة، وهو في الثامنة، وقد جاء مقابل لوح شوكولاتة. وعملا ثلاث ساعات فيما كان يُعمل في ساعة. وكتب حمزة أرقام الصناديق بقلم عريض، فكتب السبعة مقلوبة في كل مرة، ورفض أن يصححها: «هكذا أجمل». وذهب حماس أول الفصل كله، وبقي الدفتر.',
+            'وفي الليل رأت أمها يديها: حمراوين من الشريط اللاصق، وفي إصبعين جرح صغير من حواف الكرتون. فجلست بجانبها وحكت لها ما رواه علي عليه السلام: أن فاطمة عليها السلام اشتكت ما تلقى من أثر الرحى في يدها، فذهبت تطلب من النبي صلى الله عليه وآله وسلم خادمًا. فجاءهما وقد أخذا مضاجعهما، فجلس بينهما وقال: «أَلَا أُعَلِّمُكُمَا خَيْرًا مِمَّا سَأَلْتُمَانِي؟ إِذَا أَخَذْتُمَا مَضَاجِعَكُمَا تُكَبِّرَا أَرْبَعًا وَثَلَاثِينَ، وَتُسَبِّحَا ثَلَاثًا وَثَلَاثِينَ، وَتَحْمَدَا ثَلَاثَةً وَثَلَاثِينَ، فَهُوَ خَيْرٌ لَكُمَا مِنْ خَادِمٍ» (صحيح البخاري 3705). فعدّتها لين على أصابعها المجروحة تحت الغطاء، ونامت قبل أن تكمل التكبير.',
+            'واستيقظت قبل الفجر بساعة لتراجع الكيمياء. وقبل أن تفتح الكتاب صلّت ركعتين، تترنح من النعاس. وكانت تعرف ما روته عائشة رضي الله عنها: أن النبي صلى الله عليه وآله وسلم كان يقوم من الليل حتى تتفطر قدماه، فسألته لماذا يصنع هذا وقد غفر الله له، فقال: «أَفَلَا أُحِبُّ أَنْ أَكُونَ عَبْدًا شَكُورًا» (صحيح البخاري 4837). وفهمت لين في تلك العتمة شيئًا لم تفهمه في أول الفصل: ذلك النور بعيد أمامها، وركعتاها الصغيرتان خطوة في ضوئه، ومن يمشي شكرًا لا ينتظر أن يصفق له أحد.',
+            'والكبير يعرف اليوم الرابع: الحمية، وورد القرآن، والتطوع الذي بدأ بحماس كبير، ثم صار في أسبوعه الخامس واجبًا ثقيلًا لا يراه أحد. وفي هذا الأسبوع يُختبر العمل: هل كان للحماس، أم لمن عُمل من أجله؟',
+            'وفي الصباح فتحت لين المجموعة، ومسحت الرسالة التي لم ترسلها، وكتبت مكانها: «الخميس القادم: من يقدر على ساعة واحدة فقط؟». وبعد دقيقة ردّت سما: «أنا. ساعة». ثم ولد من الصف: «وأنا. وأحضر أخي».'
+          ], en: [
+            'Then exam season came. The volunteers went down to twelve, then five, then two. Sama had the maths competition, the boys had the league, and the account had been quiet for two weeks. On Wednesday night it was raining, the chemistry exam was on Sunday, and Leen was typing in the volunteers\' group: "Shall we stop until the exams are over?" Her thumb stayed hovering over the send button.',
+            'There were thirty-one names in Khala Suad\'s notebook. Leen remembered Umm Wasim\'s cold kitchen, and did not send it. On Thursday nobody came to the storeroom but her and her brother Hamza, who is eight and came in exchange for a chocolate bar. They worked three hours on what used to take one. Hamza wrote the box numbers with a thick marker, wrote every seven backwards, and refused to fix them: "It looks better like this." The excitement of the start of term was all gone, and the notebook remained.',
+            'That night her mother saw her hands: red from the packing tape, with a small cut on two fingers from the edges of the cardboard. She sat beside her and told her what Ali, peace be upon him, narrated: that Fatima, peace be upon her, complained of what the hand mill did to her hand, and went to ask the Prophet, peace and blessings be upon him and his family, for a servant. He came to them when they had already lain down, sat between them and said: "Shall I not teach you something better than what you asked me for? When you lie down to sleep, say Allahu akbar thirty-four times, subhan Allah thirty-three times and al-hamdu lillah thirty-three times; that is better for you than a servant" (Sahih al-Bukhari 3705). Leen counted them on her cut fingers under the blanket, and fell asleep before she finished the takbir.',
+            'She woke an hour before fajr to revise chemistry. Before opening the book she prayed two rak\'as, swaying with sleep. She knew what Aisha, may Allah be pleased with her, narrated: that the Prophet, peace and blessings be upon him and his family, would stand in prayer at night until his feet cracked, and when she asked him why he did this when Allah had forgiven him, he said: "Should I not love to be a grateful servant?" (Sahih al-Bukhari 4837). In that darkness Leen understood something she had not understood at the start of term: that light is far ahead of her, her two small rak\'as are a step in it, and whoever walks out of gratitude is not waiting for anyone to clap.',
+            'Adults know the fourth day: the diet, the daily portion of Quran, the volunteering that began with great excitement and by its fifth week has become a heavy duty nobody sees. That is the week a deed is tested: was it for the excitement, or for the One it was done for?',
+            'In the morning Leen opened the group, deleted the message she had never sent, and wrote in its place: "Next Thursday: who can manage just one hour?" A minute later Sama replied: "Me. One hour." Then a boy from her class: "Me too. I\'ll bring my brother."'
           ] },
         quiz: Q('sabiq-adult', 4, [
-          { correct: 0, q: { ar: 'ما مكان الأنبياء في المسار؟', en: 'What is the place of the prophets in the path?' },
-            options: [{ ar: 'نور، وهداهم قمة يُهتدى بها', en: 'A light, and their guidance is a summit that guides the way' }, { ar: 'قصص للتسلية فقط', en: 'Stories for entertainment only' }, { ar: 'لا يذكرهم المسار', en: 'The path does not mention them' }],
-            why: { ar: 'الآية تأمر بالاقتداء بهداهم.', en: 'The verse commands following their guidance.' } },
-          { correct: 2, q: { ar: 'ماذا علّم النبي صلى الله عليه وآله وسلم فاطمة وعليًّا عليهما السلام بدل الخادم؟', en: 'What did the Prophet teach Fatima and Ali instead of a servant?' },
-            options: [{ ar: 'أن يناما مبكرًا', en: 'To sleep early' }, { ar: 'أن يتركا العمل', en: 'To stop working' }, { ar: 'تسبيحًا وتحميدًا وتكبيرًا عند النوم', en: 'Glorification, praise and magnification at bedtime' }],
-            why: { ar: 'القمة قلب يجد في الله ما يغنيه.', en: 'The summit is a heart that finds sufficiency in Allah.' } }
+          { correct: 2, q: { ar: 'ماذا حكت الأم للين حين رأت يديها؟', en: 'What did her mother tell Leen when she saw her hands?' },
+            options: [{ ar: 'أن تلبس قفازين في المرة القادمة، وتترك الشريط لحمزة', en: 'That she should wear gloves next time and leave the tape to Hamza' }, { ar: 'أن تترك المخزن حتى تنتهي الامتحانات، فالدراسة أولى', en: 'That she should leave the storeroom until the exams were over, since study comes first' }, { ar: 'حديث فاطمة عليها السلام والرحى، والتسبيح الذي هو خير من خادم', en: 'The hadith of Fatima, peace be upon her, the hand mill, and the glorification better than a servant' }],
+            why: { ar: 'في بيت النبوة تعبت اليد من العمل، وكان الذكر عونها.', en: 'In the Prophet\'s household the hand grew tired from work, and remembrance was its help.' } },
+          { correct: 0, q: { ar: 'ماذا كتبت لين في المجموعة مكان الرسالة التي لم ترسلها؟', en: 'What did Leen write in the group in place of the message she never sent?' },
+            options: [{ ar: '«الخميس القادم: من يقدر على ساعة واحدة فقط؟»', en: '"Next Thursday: who can manage just one hour?"' }, { ar: '«نتوقف حتى تنتهي الامتحانات، ونرجع أقوى»', en: '"We\'ll stop until the exams are over, and come back stronger"' }, { ar: '«الخميس القادم ملغى بسبب المطر»', en: '"Next Thursday is cancelled because of the rain"' }],
+            why: { ar: 'طلبت القليل الذي يدوم، بدل أن تطلب الكثير أو تتوقف.', en: 'She asked for a little that could last, instead of asking for a lot or stopping.' } }
         ]) },
-      { title: { ar: 'مع الطفل: النفس المطمئنة', en: 'With the child: the soul at peace' },
+
+      { title: { ar: 'ثم تولّى إلى الظل', en: 'Then he turned to the shade' },
         body: { ar: [
-            'في آخر سورة الفجر نداء رقيق: ﴿يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ۝ ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَرْضِيَّةً﴾ (الفجر 89:27-28). وهذا النداء هو الغاية التي يمشي إليها المسار كله: نفس هدأت بعد غفلتها وشرهها واندفاعها، واطمأنت إلى ربها.',
-            'والطمأنينة ليست كمالًا بلا خطأ، بل سكون القلب بعد الرجوع. فالطفل الذي يخطئ ثم يعتذر ويصلح، فيه شيء من الطمأنينة. والشاب الذي يغضب ثم يستعيذ ويهدأ، يذوق طعمها. والمسار ليس سلمًا يُصعد مرة واحدة، بل يد نفتحها كل صباح ونبدأ من جديد.',
-            'ولهذا نوصي الوالدين ألا يجعلوا المراتب محطات نهائية. فقد يصل الطفل إلى الإبهام في أسبوع، ثم يعود إلى الوسطى في يوم صعب. وهذا طبيعي، وهو ما يحدث لنا نحن الكبار. والمهم ألا يشعر الطفل بأنه سقط، بل بأنه يتعلم. ويمكن أن نقول له في تلك الأيام: لقد صعدت من قبل، وتعرف الطريق، وغدًا تصعد من جديد بإذن الله.',
-            'وفي هذه المرتبة يحسن أن نعطي الطفل دورًا في مساعدة غيره على الصعود. فيحكي لأخيه الصغير قصة من قصص المسار، أو يساعده على تذكر خطوته، أو يدعو له. فالسابق الحقيقي يمد يده لمن خلفه، كما يمد الإبهام قوته لكل الأصابع. وهذا العطاء يحفظه من العجب، لأنه ينشغل بغيره عن نفسه.',
-            'وأجمل ما نتركه لأطفالنا في هذا الطريق ليس الجوائز ولا المراتب، بل صورة بيت يحب الخير ويفرح به، ويستر الخطأ ويصلحه، ويرى في كل يوم فرصة جديدة. وهذه الصورة تبقى في قلب الطفل بعد أن ينسى أسماء المراتب كلها، وتعود إليه حين يصير هو أبًا أو أمًّا، فيبني بيتًا يشبهها.',
-            'فإذا كبر الطفل وتذكر يده وأصابعها الخمسة، تذكر معها أن الإنسان يستطيع دائمًا أن يرتقي، وأن باب الله مفتوح لمن أراد الرجوع.'
-          ],
-          en: [
-            'At the end of Surat al-Fajr is a tender call. Meaning (not a translation): O soul at peace, return to your Lord, well pleased and well pleasing (al-Fajr 89:27-28). This call is the goal the whole path walks towards: a soul that has calmed after heedlessness, greed and impulsiveness, and found rest in its Lord.',
-            'Peace is not perfection without error, but the stillness of the heart after returning. A child who errs, apologises and repairs has some of this peace. A young person who gets angry, seeks refuge and calms down tastes it. The path is not a ladder climbed once, but a hand we open each morning to begin again.',
-            'So we advise parents not to treat the ranks as final stations. A child may reach the thumb in a week, then return to the middle finger on a hard day. This is natural, and it happens to us adults. What matters is that the child does not feel they fell, but that they are learning. On such days we can say: you have climbed before, you know the road, and tomorrow you will climb again, Allah willing.',
-            'At this rank it helps to give the child a role in helping others climb: telling a younger sibling one of the path\'s stories, helping them remember their step, praying for them. The true racer reaches out to those behind, as the thumb lends its strength to every finger. This giving protects them from self-admiration, because they are busy with others rather than themselves.',
-            'The finest thing we leave our children on this road is not prizes or ranks, but the picture of a home that loves good and delights in it, covers mistakes and mends them, and sees each day as a new chance. This picture stays in the child\'s heart after the names of the ranks are forgotten, and returns when they become a parent and build a home like it.',
-            'When the child grows up and remembers their hand and its five fingers, they will remember with it that a person can always rise, and that Allah\'s door is open to whoever wishes to return.'
+            'في آخر الفصل وصل حساب سما إلى مديرة المدرسة. فأعلنت في طابور الصباح أن لين ستُكرَّم يوم الخميس بشهادة «مؤسِّسة المبادرة»، وأن صفحة أخبار المدينة تريد مقابلة معها بعد المدرسة، وصورة «مع عائلة تستلم سلتها». وصفق الطابور، وكتب أحدهم في المجموعة: «لين المؤسِّسة!». وأحسّت لين بالدفء القديم يصعد إلى وجهها، دفء العدّاد، وأحسّت معه بخوف لم تعرفه في الخريف.',
+            'وكانت المعلمة قد قرأت لهم في الحلقة: ﴿وَالَّذِينَ يُؤْتُونَ مَا آتَوْا وَقُلُوبُهُمْ وَجِلَةٌ أَنَّهُمْ إِلَىٰ رَبِّهِمْ رَاجِعُونَ﴾ (المؤمنون 23:60)، وحكت أن عائشة رضي الله عنها سألت النبي صلى الله عليه وآله وسلم: أهم الذين يشربون الخمر ويسرقون؟ فقال: «لَا يَا بِنْتَ الصِّدِّيقِ، وَلَكِنَّهُمُ الَّذِينَ يَصُومُونَ وَيُصَلُّونَ وَيَتَصَدَّقُونَ وَهُمْ يَخَافُونَ أَنْ لَا يُقْبَلَ مِنْهُمْ، أُولَئِكَ الَّذِينَ يُسَارِعُونَ فِي الْخَيْرَاتِ وَهُمْ لَهَا سَابِقُونَ» (سنن الترمذي 3175). فالسابقون في هذا الحديث يعملون وقلوبهم وجلة. وفهمت لين أخيرًا لماذا جاءها الخوف مع الدفء.',
+            'وفي الليلة السابقة للتكريم كانت تقرأ وردها من سورة القصص، فوقفت عند موسى عليه السلام عند ماء مدين: رأى امرأتين تحبسان غنمهما حتى ينصرف الرعاة، وأبوهما شيخ كبير. ﴿فَسَقَىٰ لَهُمَا ثُمَّ تَوَلَّىٰ إِلَى الظِّلِّ فَقَالَ رَبِّ إِنِّي لِمَا أَنْزَلْتَ إِلَيَّ مِنْ خَيْرٍ فَقِيرٌ﴾ (القصص 28:24). سقى، ثم تولّى إلى الظل، ورفع حاجته إلى الله. وعرفت لين أن هذا النور بعيد عنها بُعد السماء، وأن الطريق إليه يبدأ بخطوة واحدة نحو الظل.',
+            'وفي طابور الخميس أخذت لين الشهادة، وقالت في المكبر جملة واحدة: «هذه الصناديق صنعها كثيرون: الخالة سعاد التي تحفظ الأسماء، وسما التي تصور، والشباب الذين حملوا الأكياس، وأبو جميل الذي يعطينا بالدَّين، وأخي حمزة الذي يكتب السبعة بالمقلوب». فضحك الطابور. وبعد المدرسة، حين وصل الصحفي، قالت له: «سما تجيبك عن كل شيء، فالحساب حسابها. وصورة العائلة لا، من فضلك. صوّر الأيدي على الصناديق إن شئت». ثم مشت إلى المسجد، لأن اليوم خميس.',
+            'وفي المخزن كان المصباح يطنّ كعادته. واهتز الهاتف في جيبها مرة، ومرتين، وعشرًا: المقابلة نُشرت. فوضعته في كرتونة المعجون الفارغة على الرف العالي. وفتحت دفتر الخالة سعاد: أربعة وثلاثون اسمًا، وفي آخرها اسم جديد بخط مرتجف. وأخذت الصندوق الأول، وقالت بصوت لا يسمعه غيرها: «رَبِّ إِنِّي لِمَا أَنْزَلْتَ إِلَيَّ مِنْ خَيْرٍ فَقِيرٌ». ثم بدأت تملؤه.'
+          ], en: [
+            'At the end of term Sama\'s account reached the head teacher. At morning assembly she announced that Leen would be honoured on Thursday with a certificate as "founder of the project", that the city news page wanted to interview her after school, and to take a photo "with a family receiving its basket". The assembly clapped, and someone wrote in the group: "Leen the founder!" Leen felt the old warmth rise into her face, the warmth of the counter, and with it a fear she had not known in the autumn.',
+            'Her teacher had recited to them in the circle: "And those who give what they give while their hearts are fearful that they will return to their Lord" (al-Muminun 23:60, meaning), and told them that Aisha, may Allah be pleased with her, asked the Prophet, peace and blessings be upon him and his family: are they the ones who drink wine and steal? He said: "No, daughter of al-Siddiq; they are the ones who fast, pray and give charity, and fear that it will not be accepted from them. Those are the ones who hasten to good deeds, and they are foremost in them" (Sunan al-Tirmidhi 3175). The ones who race ahead, in this hadith, work with fearful hearts. And Leen finally understood why the fear had come with the warmth.',
+            'On the night before the ceremony she was reading her daily portion of Surat al-Qasas, and stopped at Musa, peace be upon him, at the water of Madyan: he saw two women holding back their flock until the shepherds had gone, and their father was a very old man. "So he watered their flock for them, then turned away to the shade and said: My Lord, I am truly in need of whatever good You send down to me" (al-Qasas 28:24, meaning). He watered, then turned to the shade, and raised his need to Allah. Leen knew that this light was as far from her as the sky, and that the road towards it begins with one step towards the shade.',
+            'At Thursday\'s assembly Leen took the certificate and said one sentence into the microphone: "Many people made these boxes: Khala Suad, who keeps the names, Sama, who films, the boys who carried the sacks, Abu Jamil, who gives us credit, and my brother Hamza, who writes his sevens backwards." The assembly laughed. After school, when the reporter arrived, she told him: "Sama will answer everything, the account is hers. And no photo of a family, please. Photograph the hands on the boxes if you like." Then she walked to the mosque, because it was Thursday.',
+            'In the storeroom the bulb was buzzing as usual. The phone in her pocket vibrated once, twice, ten times: the interview had gone up. She put it in the empty tomato paste carton on the top shelf. She opened Khala Suad\'s notebook: thirty-four names, and at the end a new one in shaky handwriting. She took the first box and said, in a voice only she could hear: "My Lord, I am truly in need of whatever good You send down to me." Then she began to fill it.'
           ] },
         quiz: Q('sabiq-adult', 5, [
-          { correct: 1, q: { ar: 'ما الطمأنينة بحسب هذا الفصل؟', en: 'What is peace of soul according to this chapter?' },
-            options: [{ ar: 'كمال بلا خطأ أبدًا', en: 'Perfection without any error' }, { ar: 'سكون القلب بعد الرجوع', en: 'The stillness of the heart after returning' }, { ar: 'الوصول إلى آخر مرتبة مرة واحدة', en: 'Reaching the last rank once and for all' }],
-            why: { ar: 'من أخطأ ثم رجع ذاق الطمأنينة.', en: 'Whoever errs and returns tastes peace.' } },
-          { correct: 0, q: { ar: 'ماذا لو عاد الطفل من الإبهام إلى الوسطى في يوم صعب؟', en: 'What if a child goes back from the thumb to the middle finger on a hard day?' },
-            options: [{ ar: 'هذا طبيعي، وهو يتعلم', en: 'It is natural; they are learning' }, { ar: 'فشل المسار كله', en: 'The whole path has failed' }, { ar: 'يُعاقب', en: 'They are punished' }],
-            why: { ar: 'المسار يد نفتحها كل صباح ونبدأ من جديد.', en: 'The path is a hand we open each morning to begin again.' } }
+          { correct: 1, q: { ar: 'ماذا قالت لين للصحفي عن صورة العائلة؟', en: 'What did Leen tell the reporter about the photo of a family?' },
+            options: [{ ar: 'أن يصور عائلة أم وسيم، لأنها تعرفها', en: 'To photograph Umm Wasim\'s family, since she knew them' }, { ar: 'لا صورة للعائلة، وليصور الأيدي على الصناديق', en: 'No photo of a family; he could photograph the hands on the boxes' }, { ar: 'أن يصورها وحدها مع الشهادة بدل العائلة', en: 'To photograph her alone with the certificate instead' }],
+            why: { ar: 'تذكرت باب أم وسيم، فحفظت وجوه الأسر من الكاميرا.', en: 'She remembered Umm Wasim\'s door, and kept the families\' faces away from the camera.' } },
+          { correct: 0, q: { ar: 'ماذا فعل موسى عليه السلام بعد أن سقى للمرأتين، كما قرأت لين؟', en: 'What did Musa, peace be upon him, do after watering the flock for the two women, as Leen read?' },
+            options: [{ ar: 'تولّى إلى الظل، ورفع حاجته إلى الله', en: 'He turned to the shade and raised his need to Allah' }, { ar: 'انتظر أباهما ليشكره على ما صنع', en: 'He waited for their father to thank him for what he had done' }, { ar: 'بقي يسقي غنم الرعاة كلهم حتى المساء', en: 'He stayed watering all the shepherds\' flocks until evening' }],
+            why: { ar: 'سقى ولم ينتظر شكرًا، فصار نورًا تمشي لين في ضوئه نحو الظل.', en: 'He watered and waited for no thanks, and became a light by which Leen walks towards the shade.' } }
         ]) }
     ]
   });
@@ -2220,133 +2272,127 @@ window.AKHLAQ_BQ = function (bid, ci, list) {
     title: { ar: 'دانة والخبز عند الباب', en: 'Dana and the bread at the door' },
     chapters: [
       { title: { ar: 'الأحذية المبعثرة', en: 'The scattered shoes' },
-        body: {
-          ar: [
+        body: { ar: [
             'كانت دانة في الثانية عشرة، وكانت تذهب مع أمها إلى المسجد كل يوم جمعة. وفي كل مرة كانت ترى الشيء نفسه عند باب مصلى النساء: أحذية كثيرة مبعثرة على الأرض، فوق بعضها، وبعضها أمام الباب تمامًا.',
-            'وكانت النساء يخرجن بعد الصلاة فيتعثرن، ويبحثن عن أحذيتهن طويلًا. ورأت دانة مرة امرأة كبيرة تكاد تسقط، فأمسكتها بنت أخرى في آخر لحظة. وكانت كل واحدة تقول: لماذا لا يرتب أحد هذه الأحذية؟ ثم تمشي. ولم تكن واحدة منهن تفكر أنها تستطيع أن تكون هي هذا الأحد.',
+            'وكانت النساء يخرجن بعد الصلاة فيتعثرن، ويبحثن عن أحذيتهن طويلًا. ورأت دانة مرة امرأة كبيرة تكاد تسقط، فأمسكتها بنت أخرى في آخر لحظة. وكانت كل واحدة تقول: «لماذا لا يرتب أحد هذه الأحذية؟»، ثم تمشي. ولم تفكر واحدة منهن أنها تستطيع أن تكون هي هذا الأحد.',
             'وفي الجمعة التالية خرجت دانة من الصلاة قبل أن ينتهي الدعاء بقليل، وجلست عند الباب. وبدأت ترتب الأحذية زوجًا زوجًا على الرفوف، الكبيرة في الأسفل، والصغيرة في الأعلى، وتترك الممر فارغًا. تعمل بسرعة، وفي هدوء.',
-            'لم يرها أحد، لأن النساء كن ما زلن في الداخل. وحين خرجن وجدن الأحذية مرتبة والممر واسعًا. فقالت إحداهن: ما شاء الله، من رتبها؟ وقالت أخرى: لعله عامل المسجد. ولم تقل دانة شيئًا، بل ابتسمت ولبست حذاءها.',
-            'وفي الطريق سألتها أمها: لماذا خرجتِ قبلنا؟ فاحمرّ وجه دانة وقالت: سر صغير يا أمي. فلم تسألها الأم مرة أخرى، لكنها رأت الرفوف المرتبة، وفهمت.',
-            'وكانت دانة تشعر بفرح لم تعرفه من قبل. لم يشكرها أحد، ولم يعرف أحد. لكنها شعرت أن الله رأى، وأن هذا يكفي. ونوت أن تعود إلى الرفوف كل جمعة.'
-          ],
-          en: [
+            'لم يرها أحد، لأن النساء كن ما زلن في الداخل. وحين خرجن وجدن الأحذية مرتبة والممر واسعًا. فقالت إحداهن: «ما شاء الله، من رتبها؟». وقالت أخرى: «لعله عامل المسجد». ولم تقل دانة شيئًا، وابتسمت ولبست حذاءها.',
+            'وفي الطريق سألتها أمها: «لماذا خرجتِ قبلنا؟». فاحمرّ وجه دانة وقالت: «سر صغير يا أمي». فلم تسألها الأم مرة أخرى، لكنها كانت قد رأت الرفوف المرتبة، وفهمت.',
+            'وكانت دانة تشعر بفرح لم تعرفه من قبل، فرح لا يعرفه أحد غيرها. وفي البيت وضعت في حقيبة الجمعة قطعة قماش صغيرة، تمسح بها الرفوف في المرة القادمة.'
+          ], en: [
             'Dana was twelve and went with her mother to the masjid every Friday. Each time she saw the same thing at the door of the women\'s prayer hall: lots of shoes scattered on the floor, piled on each other, some right in front of the door.',
-            'After the prayer the women came out stumbling and searching a long time for their shoes. Once Dana saw an elderly woman nearly fall, caught at the last moment by another girl. Each woman said: why doesn\'t someone tidy these shoes? Then walked on. None of them thought she could be that someone herself.',
+            'After the prayer the women came out stumbling and searching a long time for their shoes. Once Dana saw an elderly woman nearly fall, caught at the last moment by another girl. Each woman said: "Why doesn\'t someone tidy these shoes?" and walked on. None of them thought she could be that someone herself.',
             'The next Friday Dana left the prayer a little before the supplication ended and sat by the door. She began arranging the shoes pair by pair on the racks, big ones below, small ones above, leaving the way clear. She worked quickly and quietly.',
-            'No one saw her, because the women were still inside. When they came out they found the shoes in order and the way wide. One said: masha\'Allah, who tidied them? Another said: maybe the caretaker. Dana said nothing, but smiled and put on her shoes.',
-            'On the way home her mother asked: why did you leave before us? Dana\'s face went red: a little secret, Mum. Her mother did not ask again, but she had seen the tidy racks, and she understood.',
-            'Dana felt a joy she had never known. No one thanked her, and no one knew. But she felt that Allah had seen, and that this was enough. And she resolved to return to the racks every Friday.'
+            'No one saw her, because the women were still inside. When they came out they found the shoes in order and the way wide. One said: "Masha\'Allah, who tidied them?" Another said: "Maybe the caretaker." Dana said nothing; she smiled and put on her shoes.',
+            'On the way home her mother asked: "Why did you leave before us?" Dana\'s face went red: "A little secret, Mum." Her mother did not ask again, but she had seen the tidy racks, and she understood.',
+            'Dana felt a joy she had never known, a joy nobody else knew about. At home she put a small cloth in her Friday bag, to wipe the racks next time.'
           ] },
         quiz: Q('sabiq-2', 1, [
           { correct: 2, q: { ar: 'ماذا فعلت دانة عند باب مصلى النساء؟', en: 'What did Dana do at the door of the women\'s hall?' },
-            options: [{ ar: 'اشتكت إلى الإمام', en: 'Complained to the imam' }, { ar: 'أخذت حذاءها ومشت', en: 'Took her shoes and left' }, { ar: 'رتبت الأحذية قبل أن يخرج أحد', en: 'Arranged the shoes before anyone came out' }],
+            options: [{ ar: 'كتبت ورقة تطلب من النساء ترتيب أحذيتهن', en: 'She wrote a note asking the women to tidy their shoes' }, { ar: 'أخذت حذاءها قبل الزحام ومشت', en: 'She took her shoes before the crowd and left' }, { ar: 'رتبت الأحذية قبل أن يخرج أحد', en: 'She arranged the shoes before anyone came out' }],
             why: { ar: 'رأت الحاجة فسبقت إليها، ولم تنتظر أن يطلب أحد.', en: 'She saw the need and raced to it without waiting to be asked.' } },
-          { correct: 0, q: { ar: 'لماذا شعرت دانة بالفرح مع أن أحدًا لم يشكرها؟', en: 'Why was Dana happy though no one thanked her?' },
-            options: [{ ar: 'لأنها شعرت أن الله رأى، وهذا يكفي', en: 'She felt Allah had seen, and that was enough' }, { ar: 'لأنها أخذت جائزة', en: 'She won a prize' }, { ar: 'لأنها خرجت مبكرًا', en: 'She left early' }],
-            why: { ar: 'الخير الخفي فرحه بين العبد وربه.', en: 'The joy of hidden good is between a servant and their Lord.' } }
+          { correct: 0, q: { ar: 'ماذا وضعت دانة في حقيبة الجمعة؟', en: 'What did Dana put in her Friday bag?' },
+            options: [{ ar: 'قطعة قماش تمسح بها الرفوف', en: 'A cloth to wipe the racks with' }, { ar: 'حذاءً احتياطيًّا لأمها', en: 'A spare pair of shoes for her mother' }, { ar: 'ورقة تكتب عليها: رتبوا أحذيتكم', en: 'A sign saying: tidy your shoes' }],
+            why: { ar: 'نوت أن تعود، واستعدت للمرة القادمة دون أن يطلب منها أحد.', en: 'She meant to come back, and got ready for next time without anyone asking.' } }
         ]) },
+
       { title: { ar: 'المصباح الصغير', en: 'The little lamp' },
-        body: {
-          ar: [
-            'في آخر مصلى النساء كانت تجلس كل جمعة الحاجة نفيسة، جارتهم العجوز، تقرأ القرآن من مصحف كبير الخط. وكان المصباح فوق مكانها قد احترق منذ أسابيع، فكانت تقرّب المصحف من عينيها كثيرًا، وتتعب. وكانت تمسح عينيها بين الحين والحين، ثم تعود إلى القراءة، ولا تشتكي لأحد.',
-            'لاحظت دانة ذلك، وفكرت: لو أخبرت الإمام، قد يأخذ إصلاحه وقتًا طويلًا. ثم تذكرت أن في غرفتها مصباحًا صغيرًا يعمل بالبطارية، كانت تقرأ به في الليل. فقررت أن تحضره. وفكرت: أنا أقرأ به القصص، وهي تقرأ به كلام الله، فهي أحق به مني.',
-            'وفي الجمعة التالية وصلت إلى المسجد قبل الجميع مع أمها، ووضعت المصباح بجانب مكان الحاجة نفيسة، ووضعت تحته ورقة كتبت فيها بخط جميل: لمن يقرأ القرآن هنا. ولم تكتب اسمها.',
+        body: { ar: [
+            'في آخر مصلى النساء كانت تجلس كل جمعة الحاجة نفيسة، جارتهم العجوز، تقرأ القرآن من مصحف كبير الخط. وكان المصباح فوق مكانها قد احترق منذ أسابيع، فصارت تقرّب المصحف من عينيها كثيرًا، وتتعب. وكانت تمسح عينيها بين الحين والحين، ثم تعود إلى القراءة، ولا تشتكي لأحد.',
+            'لاحظت دانة ذلك، وفكرت: لو أخبرت الإمام، قد يأخذ إصلاحه وقتًا طويلًا. ثم تذكرت أن في غرفتها مصباحًا صغيرًا يعمل بالبطارية، تقرأ به في الليل. وقالت في نفسها: «أنا أقرأ به القصص، وهي تقرأ به كلام الله، فهي أحق به مني».',
+            'وفي الجمعة التالية وصلت إلى المسجد قبل الجميع مع أمها، ووضعت المصباح بجانب مكان الحاجة نفيسة، ووضعت تحته ورقة كتبت فيها بخط جميل: «لمن يقرأ القرآن هنا». ولم تكتب اسمها.',
             'وحين جاءت الحاجة نفيسة رأت المصباح والورقة، فأضاءته، وابتسمت ابتسامة واسعة. وقرأت ذلك اليوم صفحات كثيرة دون أن تقرّب المصحف من عينيها. ودانة تراها من بعيد، وقلبها يرقص.',
-            'وبعد الصلاة سمعت الحاجة نفيسة تقول لامرأة بجانبها: لا أعرف من وضع هذا المصباح، لكن الله يعرف. اللهم اجزه خيرًا، ونوّر قلبه كما نوّر لي صفحتي.',
-            'فشعرت دانة بشيء دافئ يملأ صدرها. لم يكن أحد يعرف أن الدعاء لها، إلا هي والله. وفكرت: هذا أجمل من أي شكر. ونوت أن تشتري بطاريات جديدة من مصروفها كلما ضعف الضوء.'
-          ],
-          en: [
+            'وبعد الصلاة سمعت الحاجة نفيسة تقول لامرأة بجانبها: «لا أعرف من وضع هذا المصباح، لكن الله يعرف. اللهم اجزه خيرًا، ونوّر قلبه كما نوّر لي صفحتي».',
+            'فأحست دانة بشيء دافئ يملأ صدرها. لم يكن أحد يعرف أن الدعاء لها، إلا هي والله. وفي الطريق إلى البيت دخلت الدكان، وعدّت مصروفها، واشترت أربع بطاريات احتياطًا.'
+          ], en: [
             'At the back of the women\'s hall every Friday sat Hajja Nafisa, their elderly neighbour, reading the Quran from a large-print mushaf. The lamp above her place had burned out weeks ago, so she held the mushaf very close to her eyes and grew tired. Now and then she wiped her eyes, then went back to reading, complaining to no one.',
-            'Dana noticed and thought: if I tell the imam, fixing it may take a long time. Then she remembered a small battery lamp in her room that she used for reading at night. She decided to bring it. She thought: I read stories by it, and she would read the words of Allah; she has more right to it than I do.',
-            'The next Friday she reached the masjid before everyone with her mother, set the lamp beside Hajja Nafisa\'s place, and put a note under it in neat writing: for whoever reads the Quran here. She did not write her name.',
+            'Dana noticed and thought: if I tell the imam, fixing it may take a long time. Then she remembered a small battery lamp in her room that she read by at night. She said to herself: "I read stories by it, and she reads the words of Allah. She has more right to it than I do."',
+            'The next Friday she reached the masjid before everyone with her mother, set the lamp beside Hajja Nafisa\'s place, and put a note under it in neat writing: "For whoever reads the Quran here." She did not write her name.',
             'When Hajja Nafisa came she saw the lamp and the note, switched it on, and smiled widely. That day she read many pages without holding the mushaf close to her eyes. Dana watched from afar, her heart dancing.',
-            'After the prayer she heard Hajja Nafisa tell the woman beside her: I don\'t know who put this lamp here, but Allah knows. O Allah, reward them with good, and light their heart as they lit my page.',
-            'Dana felt something warm fill her chest. No one knew the prayer was for her, except her and Allah. She thought: this is lovelier than any thanks. And she resolved to buy new batteries from her pocket money whenever the light grew weak.'
+            'After the prayer she heard Hajja Nafisa tell the woman beside her: "I don\'t know who put this lamp here, but Allah knows. O Allah, reward them with good, and light their heart as they lit my page."',
+            'Dana felt something warm fill her chest. No one knew the prayer was for her, except her and Allah. On the way home she went into the corner shop, counted her pocket money, and bought four spare batteries.'
           ] },
         quiz: Q('sabiq-2', 2, [
           { correct: 1, q: { ar: 'ماذا كتبت دانة على الورقة تحت المصباح؟', en: 'What did Dana write on the note under the lamp?' },
-            options: [{ ar: 'اسمها كاملًا', en: 'Her full name' }, { ar: 'لمن يقرأ القرآن هنا', en: 'For whoever reads the Quran here' }, { ar: 'لا تلمسوا هذا', en: 'Do not touch' }],
-            why: { ar: 'لم تكتب اسمها، لأن خيرها لله لا للناس.', en: 'She left out her name, because her good was for Allah, not people.' } },
+            options: [{ ar: '«هدية من دانة»', en: '"A gift from Dana"' }, { ar: '«لمن يقرأ القرآن هنا»', en: '"For whoever reads the Quran here"' }, { ar: '«للحاجة نفيسة وحدها»', en: '"For Hajja Nafisa only"' }],
+            why: { ar: 'لم تكتب اسمها، لأن خيرها لله لا للناس.', en: 'She left out her name, because her good was for Allah, not for people.' } },
           { correct: 2, q: { ar: 'بماذا دعت الحاجة نفيسة لمن وضع المصباح؟', en: 'What did Hajja Nafisa pray for whoever left the lamp?' },
-            options: [{ ar: 'أن يصير مشهورًا', en: 'That they become famous' }, { ar: 'أن يأتي ليأخذه', en: 'That they come back for it' }, { ar: 'أن يجزيه الله خيرًا وينوّر قلبه', en: 'That Allah reward them and light their heart' }],
-            why: { ar: 'دعاء من لا يعرفك في ظهر الغيب أجمل من الشكر.', en: 'A prayer from someone who does not know you is lovelier than thanks.' } }
+            options: [{ ar: 'أن تعرف من هو لتشكره', en: 'That she would find out who it was, to thank them' }, { ar: 'أن يُصلَح المصباح القديم قريبًا', en: 'That the old lamp would soon be fixed' }, { ar: 'أن يجزيه الله خيرًا وينوّر قلبه', en: 'That Allah reward them and light their heart' }],
+            why: { ar: 'دعاء من لا يعرفكِ في ظهر الغيب أجمل من الشكر.', en: 'A prayer from someone who does not know you is lovelier than thanks.' } }
         ]) },
+
       { title: { ar: 'سباق مع يزن', en: 'A race with Yazan' },
-        body: {
-          ar: [
-            'كان ليزن، ابن عم دانة، عينان لا يفوتهما شيء. وفي إحدى الجمع رآها وهي ترتب الأحذية، فقال لها بعد الصلاة ضاحكًا: عرفت سرك! فخافت دانة أن يخبر الجميع، وقالت: أرجوك لا تقل لأحد.',
-            'قال يزن: لن أقول. لكن عندي فكرة أفضل: سأرتب أحذية الرجال! وفي الجمعة التالية رأته دانة من بعيد يرتب الرفوف عند باب الرجال، ويمسح الغبار عنها بمنديل.',
-            'وفي الأسبوع الذي بعده جمع يزن المصاحف المتروكة على الأرض ورتبها على الرفوف. فشعرت دانة بشيء صغير في صدرها يقول: لقد سبقني! وكادت تحزن، لأنها كانت أول من بدأ. ثم خجلت من هذا الشعور، وعرفت أنه لا يليق بمن يعمل لله.',
-            'لكنها تذكرت ما قرأه أبوها في البيت: ﴿وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِنْ رَبِّكُمْ﴾. وقال لها يومها: السباق هنا إلى الله، لا على الناس. ومن سبقك إلى الخير فقد زاد الخير في الدنيا، فافرحي له.',
-            'فذهبت إلى يزن وقالت: فكرة المصاحف رائعة! غدًا أرتب مصاحف النساء أيضًا. ففرح يزن وقال: إذن صرنا فريقًا سريًّا. وضحكا معًا، واتفقا ألا يخبرا أحدًا. وصار الفريق السري يلتقي بعد كل جمعة دقائق قليلة، يتبادلان فيها أفكارًا جديدة: سجاد يحتاج تنظيفًا، وبرادة ماء فارغة، وكراسي للكبار عند الباب.',
-            'وفهمت دانة شيئًا جديدًا: أن السباق إلى الخير لا خاسر فيه. فكل من يصل يفرح، ومن يفرح لغيره يصل أسرع. وصارت تدعو ليزن في صلاتها، دون أن تخبره.'
-          ],
-          en: [
-            'Dana\'s cousin Yazan had eyes that missed nothing. One Friday he saw her arranging the shoes, and after the prayer he laughed and said: I know your secret! Dana was afraid he would tell everyone and said: please don\'t tell anyone.',
-            'Yazan said: I won\'t. But I have a better idea: I\'ll arrange the men\'s shoes! The next Friday Dana saw him from afar arranging the racks at the men\'s door and wiping the dust off them with a tissue.',
-            'The week after, Yazan gathered the mushafs left on the floor and arranged them on the shelves. Dana felt a small voice in her chest saying: he got ahead of me! She almost felt sad, because she had been the first to start. Then she felt ashamed of the feeling, knowing it did not suit someone working for Allah.',
-            'But she remembered what her father had recited at home. Meaning (not a translation): and hasten to forgiveness from your Lord. He had told her that day: the race here is towards Allah, not against people. Whoever gets ahead of you in good has added good to the world, so be glad for them.',
-            'So she went to Yazan and said: the mushaf idea is wonderful! Tomorrow I\'ll arrange the women\'s mushafs too. Yazan was delighted and said: then we\'re a secret team. They laughed together and agreed to tell no one. The secret team met for a few minutes after every Friday, swapping new ideas: a carpet that needed cleaning, an empty water cooler, chairs for the elderly by the door.',
-            'Dana understood something new: the race to good has no losers. Everyone who arrives is glad, and whoever is glad for others arrives sooner. She began praying for Yazan in her prayers without telling him.'
+        body: { ar: [
+            'كان ليزن، ابن عم دانة، عينان لا يفوتهما شيء. وفي إحدى الجمع رآها وهي ترتب الأحذية، فقال لها بعد الصلاة ضاحكًا: «عرفت سرّكِ!». فخافت دانة أن يخبر الجميع، وقالت: «أرجوك لا تقل لأحد».',
+            'قال يزن: «لن أقول. لكن عندي فكرة أفضل: سأرتب أحذية الرجال!». وفي الجمعة التالية رأته دانة من بعيد يرتب الرفوف عند باب الرجال، ويمسح الغبار عنها بمنديل.',
+            'وفي الأسبوع الذي بعده جمع يزن المصاحف المتروكة على الأرض ورتبها على الرفوف. فسمعت دانة صوتًا صغيرًا في صدرها يقول: «لقد سبقني!». وكادت تحزن، لأنها كانت أول من بدأ. ثم خجلت من هذا الشعور.',
+            'وتذكرت ما قرأه أبوها في البيت: ﴿وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِنْ رَبِّكُمْ﴾ (آل عمران 3:133). وقال لها يومها: «السباق هنا إلى الله. ومن سبقكِ إلى الخير فقد زاد الخير في الدنيا، فافرحي له».',
+            'فذهبت إلى يزن وقالت: «فكرة المصاحف رائعة! غدًا أرتب مصاحف النساء أيضًا». ففرح يزن وقال: «إذن صرنا فريقًا سريًّا». وضحكا، واتفقا ألا يخبرا أحدًا. وصار الفريق السري يلتقي بعد كل جمعة دقائق قليلة، يتبادلان فيها أفكارًا جديدة: سجاد يحتاج تنظيفًا، وبرادة ماء فارغة، وكراسي للكبار عند الباب.',
+            'وفي سجود العصر ذلك اليوم دعت دانة ليزن باسمه، ولم تخبره.'
+          ], en: [
+            'Dana\'s cousin Yazan had eyes that missed nothing. One Friday he saw her arranging the shoes, and after the prayer he laughed and said: "I know your secret!" Dana was afraid he would tell everyone and said: "Please don\'t tell anyone."',
+            'Yazan said: "I won\'t. But I have a better idea: I\'ll arrange the men\'s shoes!" The next Friday Dana saw him from afar arranging the racks at the men\'s door and wiping the dust off them with a tissue.',
+            'The week after, Yazan gathered the mushafs left on the floor and arranged them on the shelves. Dana heard a small voice in her chest saying: "He got ahead of me!" She almost felt sad, because she had been the first to start. Then she felt ashamed of the feeling.',
+            'She remembered what her father had recited at home: "And hasten to forgiveness from your Lord" (Al Imran 3:133, meaning). He had told her that day: "The race here is towards Allah. Whoever gets ahead of you in good has added good to the world, so be glad for them."',
+            'So she went to Yazan and said: "The mushaf idea is wonderful! Tomorrow I\'ll arrange the women\'s mushafs too." Yazan was delighted and said: "Then we\'re a secret team." They laughed and agreed to tell no one. The secret team met for a few minutes after every Friday, swapping new ideas: a carpet that needed cleaning, an empty water cooler, chairs for the elderly by the door.',
+            'In her prostration at asr that day Dana prayed for Yazan by name, and did not tell him.'
           ] },
         quiz: Q('sabiq-2', 3, [
           { correct: 0, q: { ar: 'ماذا شعرت دانة أولًا حين سبقها يزن؟', en: 'What did Dana feel at first when Yazan got ahead?' },
-            options: [{ ar: 'كادت تحزن لأنه سبقها', en: 'She almost felt sad that he got ahead' }, { ar: 'غضبت وصرخت', en: 'She got angry and shouted' }, { ar: 'لم تهتم', en: 'She did not care' }],
+            options: [{ ar: 'كادت تحزن لأنه سبقها', en: 'She almost felt sad that he had got ahead' }, { ar: 'غضبت وقالت إنه سرق فكرتها', en: 'She got angry and said he had stolen her idea' }, { ar: 'فرحت في الحال ولم تشعر بشيء آخر', en: 'She was glad at once and felt nothing else' }],
             why: { ar: 'حتى في الخير قد تدخل الغيرة، فنعالجها بالفرح للآخر.', en: 'Even in good, envy can creep in; we treat it by being glad for the other.' } },
-          { correct: 1, q: { ar: 'إلى أين يكون السباق بحسب أبي دانة؟', en: 'Where is the race directed, according to Dana\'s father?' },
-            options: [{ ar: 'على الناس', en: 'Against people' }, { ar: 'إلى الله', en: 'Towards Allah' }, { ar: 'إلى الجوائز', en: 'Towards prizes' }],
-            why: { ar: 'الآية تأمر بالمسارعة إلى مغفرة من الله.', en: 'The verse commands hastening to forgiveness from Allah.' } }
+          { correct: 1, q: { ar: 'ماذا فعلت دانة بعد أن تذكرت كلام أبيها؟', en: 'What did Dana do after she remembered her father\'s words?' },
+            options: [{ ar: 'طلبت من يزن أن يترك المصاحف لها', en: 'She asked Yazan to leave the mushafs to her' }, { ar: 'ذهبت إلى يزن ومدحت فكرته، واقترحت أن تكمّلها', en: 'She went to Yazan, praised his idea and offered to add to it' }, { ar: 'توقفت عن ترتيب الأحذية', en: 'She stopped arranging the shoes' }],
+            why: { ar: 'من فرح لغيره صار شريكه في الخير.', en: 'Whoever is glad for another becomes their partner in good.' } }
         ]) },
+
       { title: { ar: 'الخبز عند الباب', en: 'The bread at the door' },
-        body: {
-          ar: [
-            'في الشتاء مرضت الحاجة نفيسة، وصارت لا تخرج من بيتها. وكانت تعيش وحدها، وأولادها في مدينة بعيدة. لا يأتون إلا في العيد. ولاحظت دانة أن نافذتها تبقى مغلقة، وأن أحدًا لا يدخل بيتها ولا يخرج.',
-            'فقالت لأمها: يا أمي، هل يمكن أن نشتري لها الخبز كل صباح؟ قالت الأم: فكرة جميلة، لكن الحاجة نفيسة عزيزة النفس، قد تخجل إن عرفت. فاتفقتا على شيء: تضع دانة الخبز في كيس معلق على مقبض بابها، وتطرق مرة واحدة، ثم تمشي.',
-            'وكانت دانة تستيقظ قبل المدرسة بربع ساعة، وتأخذ الخبز الساخن من المخبز، وتعلقه، وتطرق، وتمشي بسرعة إلى زاوية الشارع. ومن هناك كانت ترى الباب يُفتح، ويدًا نحيلة تأخذ الكيس.',
-            'وبعد أسبوع سمعت الحاجة نفيسة تقول للبائع في المخبز: جزاك الله خيرًا يا بني على الخبز كل صباح. فقال البائع مندهشًا: أي خبز يا حاجة؟ أنا لا أرسل شيئًا! فسكتت الحاجة، ونظرت حولها طويلًا. ثم ابتسمت ابتسامة صغيرة، كأنها فهمت شيئًا.',
-            'وكانت دانة قد سمعت هذا وهي واقفة في الصف خلفها، فخفضت رأسها وخرجت بسرعة، وقلبها يدق. لم تكن تريد أن تُعرف. وفي البيت قالت لها أمها: الله يرى، وهو يكفي، وهو الذي يجزي.',
-            'وتذكرت دانة آية سمعتها في درس المسجد: ﴿وَالسَّابِقُونَ السَّابِقُونَ ۝ أُولَٰئِكَ الْمُقَرَّبُونَ﴾. وفكرت: ربما يكون القرب من الله هو هذا الشعور الدافئ الذي يأتي بعد كل كيس خبز.'
-          ],
-          en: [
-            'In winter Hajja Nafisa fell ill and stopped leaving her house. She lived alone; her children were in a faraway city. They only came at Eid. Dana noticed that her window stayed shut and that no one went in or out.',
-            'She said: Mum, could we buy her bread every morning? Her mother said: a lovely idea, but Hajja Nafisa is proud; she may feel embarrassed if she knows. So they agreed: Dana would hang the bread in a bag on her door handle, knock once, and walk away.',
-            'Dana woke a quarter of an hour before school, bought warm bread at the bakery, hung it, knocked, and walked quickly to the corner. From there she saw the door open and a thin hand take the bag.',
-            'A week later she heard Hajja Nafisa tell the baker: may Allah reward you, son, for the bread every morning. The baker said in surprise: what bread, Hajja? I don\'t send anything! The Hajja fell silent and looked around for a long time. Then she gave a small smile, as if she had understood something.',
-            'Dana had heard this standing in the queue behind her. She lowered her head and slipped out quickly, her heart pounding. She did not want to be known. At home her mother told her: Allah sees, He is enough, and He is the one who rewards.',
-            'Dana remembered a verse she had heard in a lesson at the masjid. Meaning (not a translation): and those who race ahead, those who race ahead, they are the ones brought near. She thought: perhaps nearness to Allah is this warm feeling that comes after every bag of bread.'
+        body: { ar: [
+            'في الشتاء مرضت الحاجة نفيسة، وصارت لا تخرج من بيتها. وكانت تعيش وحدها، وأولادها في مدينة بعيدة، لا يأتون إلا في العيد. ولاحظت دانة أن نافذتها تبقى مغلقة، وأن أحدًا لا يدخل بيتها ولا يخرج.',
+            'فقالت لأمها: «يا أمي، هل يمكن أن نشتري لها الخبز كل صباح؟». قالت الأم: «فكرة جميلة، والحاجة نفيسة عزيزة النفس، قد تخجل إن عرفت». فاتفقتا: تضع دانة الخبز في كيس معلق على مقبض بابها، وتطرق مرة واحدة، ثم تمشي.',
+            'وكانت دانة تستيقظ قبل موعدها بربع ساعة، في برد الشتاء، وتأخذ الخبز الساخن من المخبز، وتعلقه، وتطرق، وتمشي بسرعة إلى زاوية الشارع. ومن هناك كانت ترى الباب يُفتح، ويدًا نحيلة تأخذ الكيس.',
+            'وبعد أسبوع سمعت الحاجة نفيسة تقول للبائع في المخبز: «جزاك الله خيرًا يا بني على الخبز كل صباح». فقال البائع مندهشًا: «أي خبز يا حاجة؟ أنا لا أرسل شيئًا!». فسكتت الحاجة، ونظرت حولها طويلًا، ثم ابتسمت ابتسامة صغيرة، كأنها فهمت شيئًا.',
+            'وكانت دانة قد سمعت هذا وهي واقفة في الصف خلفها، فخفضت رأسها وخرجت بسرعة، وقلبها يدق. وفي البيت قالت لها أمها: «الله يرى، وهو يكفي، وهو الذي يجزي».',
+            'وفي صباح الغد استيقظت دانة قبل موعدها بربع ساعة، كعادتها، ولبست معطفها، وعلّقت الكيس على الباب، وطرقت مرة واحدة.'
+          ], en: [
+            'In winter Hajja Nafisa fell ill and stopped leaving her house. She lived alone; her children were in a faraway city and only came at Eid. Dana noticed that her window stayed shut and that no one went in or out.',
+            'She said to her mother: "Mum, could we buy her bread every morning?" Her mother said: "A lovely idea, and Hajja Nafisa is proud; she may feel embarrassed if she knows." So they agreed: Dana would hang the bread in a bag on her door handle, knock once, and walk away.',
+            'Dana woke a quarter of an hour early, in the winter cold, bought warm bread at the bakery, hung it, knocked, and walked quickly to the corner. From there she saw the door open and a thin hand take the bag.',
+            'A week later she heard Hajja Nafisa tell the baker: "May Allah reward you, son, for the bread every morning." The baker said in surprise: "What bread, Hajja? I don\'t send anything!" The Hajja fell silent, looked around for a long time, then gave a small smile, as if she had understood something.',
+            'Dana had heard this standing in the queue behind her. She lowered her head and slipped out quickly, her heart pounding. At home her mother told her: "Allah sees, He is enough, and He is the one who rewards."',
+            'The next morning Dana woke a quarter of an hour early, as usual, put on her coat, hung the bag on the door, and knocked once.'
           ] },
         quiz: Q('sabiq-2', 4, [
           { correct: 2, q: { ar: 'لماذا كانت دانة تطرق مرة واحدة ثم تمشي؟', en: 'Why did Dana knock once and walk away?' },
-            options: [{ ar: 'لأنها كانت متأخرة', en: 'She was late' }, { ar: 'لأنها خافت من الحاجة', en: 'She was afraid of the Hajja' }, { ar: 'حتى لا تخجل الحاجة نفيسة ولا يُعرف الخير', en: 'So Hajja Nafisa would not feel embarrassed and the good stay hidden' }],
+            options: [{ ar: 'لأنها كانت متأخرة عن المدرسة', en: 'Because she was late for school' }, { ar: 'لأن أمها منعتها من الدخول', en: 'Because her mother told her not to go in' }, { ar: 'حتى لا تخجل الحاجة نفيسة', en: 'So that Hajja Nafisa would not feel embarrassed' }],
             why: { ar: 'الخير الخفي يحفظ كرامة من نعطيه.', en: 'Hidden good protects the dignity of the one we give to.' } },
-          { correct: 0, q: { ar: 'ماذا قالت الأم لدانة بعد ما حدث في المخبز؟', en: 'What did her mother tell Dana after the bakery?' },
-            options: [{ ar: 'الله يرى، وهو يكفي، وهو الذي يجزي', en: 'Allah sees, He is enough, and He rewards' }, { ar: 'أخبري الحاجة الآن', en: 'Tell the Hajja now' }, { ar: 'توقفي عن الخبز', en: 'Stop the bread' }],
+          { correct: 0, q: { ar: 'ماذا قالت الأم لدانة بعد ما حدث في المخبز؟', en: 'What did her mother tell Dana after what happened at the bakery?' },
+            options: [{ ar: '«الله يرى، وهو يكفي، وهو الذي يجزي»', en: '"Allah sees, He is enough, and He is the one who rewards"' }, { ar: '«أخبري الحاجة الآن حتى لا تشكر البائع»', en: '"Tell the Hajja now, so she stops thanking the baker"' }, { ar: '«غيّري المخبز حتى لا يعرفكِ أحد»', en: '"Use another bakery so nobody recognises you"' }],
             why: { ar: 'السابق لا ينتظر شكر الناس.', en: 'One who races ahead does not wait for people\'s thanks.' } }
         ]) },
+
       { title: { ar: 'النور فوق اليد', en: 'The light above the hand' },
-        body: {
-          ar: [
-            'في الربيع شُفيت الحاجة نفيسة، وعادت إلى المسجد. وفي أول جمعة جلست بجانب دانة، وقالت لها بصوت منخفض: يا دانة، أريد أن أقول لك شيئًا. أنا لا أعرف من كان يضع الخبز على بابي، لكني دعوت له كل صباح.',
-            'ثم وضعت يدها على يد دانة وقالت: ودعوت أيضًا أن يجعل الله من يفعل هذا من السابقين. فلم تقل دانة شيئًا. لكنها شعرت أن الحاجة نفيسة تعرف، وأنها اختارت ألا تقول، لتحفظ السر كما حفظته دانة.',
-            'وبعد صلاة العشاء جلست دانة مع أبيها، وسألته: يا أبي، إذا وصلت إلى الإبهام، فماذا بعده؟ هل انتهى الطريق؟ فرفع أبوها يده، وأشار فوق الإبهام وقال: فوق الإبهام نور، وهو هدي الأنبياء عليهم السلام.',
-            'ثم قرأ: ﴿لَقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ﴾. وقال: هدي النبي صلى الله عليه وآله وسلم نور نمشي في ضوئه طول عمرنا. وكلما اقتربنا رأينا كم بقي لنا. وهذا ليس حزنًا، بل هو جمال الطريق.',
-            'وعلمها أبوها دعاء تقوله كل صباح: «اللَّهُمَّ اهْدِنِي لِأَحْسَنِ الْأَخْلَاقِ، لَا يَهْدِي لِأَحْسَنِهَا إِلَّا أَنْتَ، وَاصْرِفْ عَنِّي سَيِّئَهَا، لَا يَصْرِفُ عَنِّي سَيِّئَهَا إِلَّا أَنْتَ».',
-            'وفي تلك الليلة نظرت دانة إلى يدها، إصبعًا إصبعًا. تذكرت أيام الغفلة والرغبة والغضب، ورأت أن كل إصبع كان درجة، وأن الطريق لا ينتهي. ونامت وهي تفكر: غدًا خبز، وغدًا أحذية، وغدًا شيء جديد لا يعرفه أحد.'
-          ],
-          en: [
-            'In spring Hajja Nafisa recovered and came back to the masjid. On the first Friday she sat beside Dana and said quietly: Dana, I want to tell you something. I don\'t know who left bread on my door, but I prayed for them every morning.',
-            'Then she laid her hand on Dana\'s and said: and I prayed that Allah make whoever did it one of those who race ahead. Dana said nothing. But she felt that Hajja Nafisa knew, and had chosen not to say, to keep the secret as Dana had kept it.',
-            'That evening Dana sat with her father and asked: Dad, if I reach the thumb, what comes after? Is the road over? Her father raised his hand, pointed above the thumb and said: above the thumb is a light: the guidance of the prophets, peace be upon them.',
-            'Then he recited. Meaning (not a translation): in the Messenger of Allah you have an excellent example. He said: the guidance of the Prophet, peace and blessings be upon him and his family, is a light we walk by all our lives. The closer we come, the more we see how far there is to go. That is not sadness; it is the beauty of the road.',
-            'He taught her a supplication to say every morning. Meaning: "O Allah, guide me to the best of character, for none guides to the best of it but You, and turn its bad away from me, for none turns its bad away but You."',
-            'That night Dana looked at her hand, finger by finger. She remembered the days of heedlessness, wanting and anger, and saw that each finger had been a step, and that the road does not end. She fell asleep thinking: tomorrow bread, tomorrow shoes, tomorrow something new that no one knows.'
+        body: { ar: [
+            'في الربيع شُفيت الحاجة نفيسة، وعادت إلى المسجد. وفي أول جمعة جلست بجانب دانة، وقالت لها بصوت منخفض: «يا دانة، أريد أن أقول لكِ شيئًا. أنا لا أعرف من كان يضع الخبز على بابي، لكني دعوت له كل صباح».',
+            'ثم وضعت يدها على يد دانة وقالت: «ودعوت أيضًا أن يجعل الله من يفعل هذا من السابقين». فلم تقل دانة شيئًا. لكنها أحست أن الحاجة نفيسة تعرف، وأنها اختارت ألا تقول، لتحفظ السر كما حفظته دانة.',
+            'وبعد صلاة العشاء جلست دانة مع أبيها، وسألته: «يا أبي، إذا وصل الواحد إلى الإبهام، فماذا بعده؟ هل انتهى الطريق؟». فرفع أبوها يده، وأشار فوق الإبهام وقال: «فوق الإبهام نور، وهو هدي الأنبياء عليهم السلام».',
+            'ثم قرأ: ﴿لَقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ﴾ (الأحزاب 33:21). وقال: «هدي النبي صلى الله عليه وآله وسلم نور نمشي في ضوئه طول عمرنا. وكلما اقتربنا رأينا كم بقي لنا، وهذا من جمال الطريق».',
+            'وعلّمها أبوها دعاءً كان النبي صلى الله عليه وآله وسلم يدعو به إذا قام إلى الصلاة، رواه علي عليه السلام: «وَاهْدِنِي لِأَحْسَنِ الْأَخْلَاقِ، لَا يَهْدِي لِأَحْسَنِهَا إِلَّا أَنْتَ، وَاصْرِفْ عَنِّي سَيِّئَهَا، لَا يَصْرِفُ عَنِّي سَيِّئَهَا إِلَّا أَنْتَ» (صحيح مسلم 771).',
+            'وفي تلك الليلة نظرت دانة إلى يدها، إصبعًا إصبعًا. تذكرت أيام الغفلة والرغبة والغضب، ورأت أن كل إصبع كان درجة. ونامت وهي تفكر: غدًا خبز، وغدًا أحذية، وغدًا شيء جديد لا يعرفه أحد.'
+          ], en: [
+            'In spring Hajja Nafisa recovered and came back to the masjid. On the first Friday she sat beside Dana and said quietly: "Dana, I want to tell you something. I don\'t know who left bread on my door, but I prayed for them every morning."',
+            'Then she laid her hand on Dana\'s and said: "And I prayed that Allah make whoever did it one of those who race ahead." Dana said nothing. But she felt that Hajja Nafisa knew, and had chosen not to say, to keep the secret as Dana had kept it.',
+            'That evening after isha Dana sat with her father and asked: "Dad, when someone reaches the thumb, what comes after? Is the road over?" Her father raised his hand, pointed above the thumb and said: "Above the thumb is a light: the guidance of the prophets, peace be upon them."',
+            'Then he recited: "In the Messenger of Allah you have an excellent example" (al-Ahzab 33:21, meaning). He said: "The guidance of the Prophet, peace and blessings be upon him and his family, is a light we walk by all our lives. The closer we come, the more we see how far there is to go, and that is part of the beauty of the road."',
+            'Her father taught her a supplication the Prophet, peace and blessings be upon him and his family, used to make when he stood for prayer, narrated by Ali, peace be upon him: "Guide me to the best of character, for none guides to the best of it but You, and turn its bad away from me, for none turns its bad away from me but You" (Sahih Muslim 771).',
+            'That night Dana looked at her hand, finger by finger. She remembered the days of heedlessness, wanting and anger, and saw that each finger had been a step. She fell asleep thinking: tomorrow bread, tomorrow shoes, tomorrow something new that no one knows.'
           ] },
         quiz: Q('sabiq-2', 5, [
           { correct: 1, q: { ar: 'ماذا قال الأب عما فوق الإبهام؟', en: 'What did her father say is above the thumb?' },
-            options: [{ ar: 'لا شيء، انتهى الطريق', en: 'Nothing; the road is over' }, { ar: 'نور هو هدي الأنبياء عليهم السلام', en: 'A light: the guidance of the prophets, peace be upon them' }, { ar: 'إصبع سادس', en: 'A sixth finger' }],
-            why: { ar: 'النور فوق الإبهام هو نور الهداية التي أتى بها الأنبياء عليهم السلام، وبنورهم ورسالاتهم يُهتدى.', en: 'The light above the thumb is the light of guidance the prophets, peace be upon them, brought; by their light and their messages we are guided.' } },
+            options: [{ ar: 'جائزة لمن أكمل الأصابع كلها', en: 'A prize for whoever completes all the fingers' }, { ar: 'نور هو هدي الأنبياء عليهم السلام', en: 'A light: the guidance of the prophets, peace be upon them' }, { ar: 'درجة أخيرة يصل إليها من يجتهد', en: 'A last rank that whoever strives will reach' }],
+            why: { ar: 'النور فوق الإبهام هو نور الهداية التي أتى بها الأنبياء عليهم السلام، نمشي في ضوئه ولا ينتهي.', en: 'The light above the thumb is the guidance the prophets, peace be upon them, brought; we walk by it, and it does not run out.' } },
           { correct: 0, q: { ar: 'لماذا لم تقل الحاجة نفيسة إنها تعرف السر؟', en: 'Why did Hajja Nafisa not say she knew the secret?' },
-            options: [{ ar: 'لتحفظ السر كما حفظته دانة', en: 'To keep the secret as Dana had kept it' }, { ar: 'لأنها نسيت', en: 'She forgot' }, { ar: 'لأنها غضبت', en: 'She was angry' }],
+            options: [{ ar: 'لتحفظ السر كما حفظته دانة', en: 'To keep the secret as Dana had kept it' }, { ar: 'لأنها لم تعرف من كان يضع الخبز', en: 'Because she did not know who left the bread' }, { ar: 'لأنها أرادت أن تسأل أم دانة أولًا', en: 'Because she wanted to ask Dana\'s mother first' }],
             why: { ar: 'ستر الخير الخفي أدب جميل من الطرفين.', en: 'Keeping hidden good hidden is a fine courtesy on both sides.' } }
         ]) }
     ]
@@ -2398,8 +2444,8 @@ window.AKHLAQ_FAMILY({
   },
   'book-sabiq': {
     q: [
-      { ar: 'لماذا كانت أسماء تطوي أوراقها ولا تخبر أحدًا؟', en: 'Why did Asma fold her notes and tell no one?' },
-      { ar: 'ماذا تعلمت أسماء من السباق مع جنى؟ هل السباق إلى الخير يشبه أي سباق آخر؟', en: 'What did Asma learn from the race with Jana? Is the race to good like any other race?' },
+      { ar: 'كتبت أسماء سؤالها على ورقة وطوتها: هل فرحت بالشكر أم بالخير نفسه؟ ماذا كتبت تحته بعد أسبوع، ولماذا؟', en: 'Asma wrote her question on a note and folded it: was she happy with the thanks, or with the good itself? What did she write under it a week later, and why?' },
+      { ar: 'صفقت أسماء لجنى أعلى من الجميع. متى سبقنا أحد إلى خير، فاستطعنا أن نفرح له؟', en: 'Asma clapped for Jana louder than anyone. When did someone beat us to a good deed, and we managed to be glad for them?' },
       { ar: 'ما الخير الذي يمكن أن نفعله هذا الأسبوع قبل أن يطلبه منا أحد؟', en: 'What good could we do this week before anyone asks us?' }
     ],
     act: { ar: 'خير سري: يكتب كل واحد منا اسم فرد آخر في العائلة على ورقة مطوية، ويفعل له خيرًا خفيًّا طوال الأسبوع، ونكشف الأسماء يوم الجمعة.', en: 'Secret good: each of us draws another family member\'s name on a folded slip and does them hidden kindnesses all week; we reveal the names on Friday.' }
@@ -2442,11 +2488,11 @@ window.AKHLAQ_FAMILY({
   },
   'book-sabiq-kids': {
     q: [
-      { ar: 'ماذا تضع تالا في صندوقها؟', en: 'What does Tala put in her box?' },
-      { ar: 'لماذا فرحت تالا حين سبقتها هيا؟', en: 'Why was Tala happy when Haya got there first?' },
-      { ar: 'ما أول خير نستطيع أن نفعله غدًا قبل أن يطلبه أحد؟', en: 'What is the first good thing we can do tomorrow before anyone asks?' }
+      { ar: 'متى تضع تالا حبة في صندوقها؟ وما الخير الذي نستطيع أن نفعله غدًا قبل أن يطلبه أحد؟', en: 'When does Tala put a bean in her box? What good thing can we do tomorrow before anyone asks?' },
+      { ar: 'ماذا فعلت تالا حين جمعت هيا ألوانًا أكثر منها؟ ومتى سبقنا أحد إلى خير ففرحنا له؟', en: 'What did Tala do when Haya gathered more crayons than her? When did someone beat us to a good deed, and we were happy for them?' },
+      { ar: 'ماذا فعلت تالا لآدم في الليل دون أن يراها؟ ومن في بيتنا نستطيع أن نفعل له خيرًا خفيًّا غدًا؟', en: 'What did Tala do for Adam at night without him seeing? Who at home could we do a hidden kindness for tomorrow?' }
     ],
-    act: { ar: 'صندوق الخير العائلي: نصنع صندوقًا من الكرتون، ويضع فيه كل واحد حبة عن كل خير فعله قبل أن يُطلب منه، دون أن يخبر أحدًا، ونفتحه معًا آخر الأسبوع.', en: 'The family good-deeds box: we make a cardboard box, and each puts in a bean for every good thing done before being asked, telling no one; we open it together at the end of the week.' }
+    act: { ar: 'صندوق الخير العائلي: نصنع صناديق صغيرة من الكرتون، ويساعد الكبير الصغير في صنع صندوقه. ويضع كل واحد حبة عن كل خير فعله قبل أن يُطلب منه، دون أن يخبر أحدًا، ونرفع الإبهام لكل من وضع حبته الأولى.', en: 'The family good-deeds boxes: we make little cardboard boxes, and the older ones help the younger ones make theirs. Each puts in a bean for every good thing done before being asked, telling no one, and we give a thumbs-up to everyone who drops in their first bean.' }
   }
 });
 
@@ -2486,11 +2532,11 @@ window.AKHLAQ_FAMILY({
   },
   'book-sabiq-adult': {
     q: [
-      { ar: 'كيف نشجع الخير في بيتنا دون أن نحوله إلى نقاط ولوحات ومقارنة؟', en: 'How can we encourage good at home without turning it into points, charts and comparison?' },
-      { ar: 'ما الذي يعنيه لنا أن تتعب يد فاطمة عليها السلام من العمل، ويُوجَّه قلبها إلى الذكر؟', en: 'What does it mean to us that Fatima\'s hand, peace be upon her, grew tired from work while her heart was turned to remembrance?' },
-      { ar: 'لو لم يرنا أحد، أي خير كنا سنستمر فيه؟', en: 'If no one saw us, which good would we keep doing?' }
+      { ar: 'فتحت لين العدّاد أربع عشرة مرة، ولم تفتح رسالة الخالة سعاد. ما العدّاد في يوم كل واحد منا، كبارًا وصغارًا؟ وأي رسالة حقيقية قد تكون تحته الآن؟', en: 'Leen opened the counter fourteen times and never opened Khala Suad\'s message. What is the counter in each of our days, adults and young people alike? And what real message might be sitting under it right now?' },
+      { ar: 'أعطت لين سما الحساب، وأخذت المخزن. ما العمل في بيتنا أو مسجدنا أو مدرستنا الذي لا يراه أحد، ويحتاج من يأخذه؟', en: 'Leen gave Sama the account and took the storeroom. What work at home, at the mosque or at school goes unseen, and needs someone to take it on?' },
+      { ar: 'في الخميس السابع لم يبق إلا لين وحمزة. ما الخير الذي بدأناه بحماس ثم تركناه؟ وما «الساعة الواحدة» التي نقدر عليها منه؟', en: 'On the seventh Thursday only Leen and Hamza were left. What good did we start with excitement and then drop? What is the "one hour" of it we could still manage?' }
     ],
-    act: { ar: 'تسبيح النوم: نجتمع هذا الأسبوع ليلة أو ليلتين قبل النوم، فنسبح ونحمد ونكبر معًا، ثم يدعو كل واحد لغيره بالاسم.', en: 'Bedtime glorification: once or twice this week we gather before sleep to glorify, praise and magnify Allah together, then each prays for someone else by name.' }
+    act: { ar: 'خير بلا عدّاد: يختار كل واحد منا هذا الأسبوع عملًا صغيرًا لأهل البيت أو لجار، يتكرر كل يوم، لا يُصوَّر ولا يُحكى. وقبل النوم نعدّ معًا على الأصابع التسبيح الذي علّمه النبي صلى الله عليه وآله وسلم عليًّا وفاطمة عليهما السلام. والكبار يبدؤون.', en: 'Good with no counter: this week each of us picks a small task for the household or a neighbour, repeated every day, never photographed or talked about. Before sleep we count together on our fingers the glorification the Prophet, peace and blessings be upon him and his family, taught Ali and Fatima, peace be upon them. The adults go first.' }
   }
 });
 

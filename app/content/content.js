@@ -5,7 +5,7 @@
  * Names always describe behaviour, never the person. All children in stories are fictional.
  */
 window.AKHLAQ_CONTENT = {
-  version: "0.27.0-draft-2026-11-24",
+  version: "0.28.0-draft-2026-11-24",
   stages: {},
   virtues: []
 };
@@ -3907,7 +3907,7 @@ window.AKHLAQ_DEG('sabiq', [
       options: [{ ar: "أنتظر حتى يطلب مني أحد", en: "Wait until someone asks me" }, { ar: "أحملها إلى المطبخ بهدوء", en: "Quietly carry them to the kitchen" }, { ar: "أحملها وأطلب من الجميع أن يشكروني", en: "Carry them and ask everyone to thank me" }],
       why: { ar: "السابق يرى الخير ويسبق إليه، ولا ينتظر شكرًا.", en: "Someone racing to good sees it and gets there first, without waiting to be thanked." } } },
 
-  { looks: { ar: "سباق إلى الخير، ويد ممدودة لغيره ليصعد معه. وهنا الباب إلى اليد اليمنى المقترحة، والنور فوقها: نور الهداية التي أتى بها الأنبياء عليهم السلام، وبنورهم ورسالاتهم يُهتدى.", en: "Racing to good, with a hand held out so others can climb too. This is the door to the proposed right hand, with the light above it: the light of guidance the prophets, peace be upon them, brought; by their light and their messages we are guided." },
+  { looks: { ar: "سباق إلى الخير، ويد ممدودة لغيره ليصعد معه. وهنا الباب إلى اليد اليمنى، والنور فوقها: نور الهداية التي أتى بها الأنبياء عليهم السلام، وبنورهم ورسالاتهم يُهتدى.", en: "Racing to good, with a hand held out so others can climb too. This is the door to the right hand, with the light above it: the light of guidance the prophets, peace be upon them, brought; by their light and their messages we are guided." },
     story: { ar: ["تعلّم خالد أن يقول «بسم الله» قبل الأكل، فصار يذكّر أخاه الصغير بلطف كل يوم.", "وفي يوم نسي خالد نفسه، فقال له أخوه الصغير: بسم الله يا خالد!", "ضحك خالد وقال: صرتَ تسبقني! وفرح، لأن الخير الذي علّمه صار يعود إليه."],
       en: ["Khalid learned to say «Bismillah» before eating, and began gently reminding his little brother every day.", "One day Khalid forgot himself, and his little brother said: Bismillah, Khalid!", "Khalid laughed and said: now you're ahead of me! And he was glad, because the good he had taught was coming back to him."] },
     step: { ar: "إلى القمة: اختر خلقًا واحدًا من أخلاق النبي صلى الله عليه وآله وسلم، وعِشه يومًا كاملًا، وتذكّر أنك تحتاج الهداية كل يوم.", ar_f: "إلى القمة: اختاري خلقًا واحدًا من أخلاق النبي صلى الله عليه وآله وسلم، وعيشيه يومًا كاملًا، وتذكّري أنك تحتاجين الهداية كل يوم.", en: "Towards the summit: choose one quality of the Prophet, peace and blessings be upon him and his family, live it for a whole day, and remember that you need guidance every day." },
@@ -5217,5 +5217,261 @@ window.AKHLAQ_CONTENT.choices = [
         { ar: 'هاتفه، فقد أخذه أبوه يوم المباراة', en: 'His phone, which his father took on match day' },
         { ar: 'مكانه في الرحلة، فأخذه نزار', en: 'His place on the trip, which Nizar took' }],
       why: { ar: 'انسحب من الرحلة أمام المجموعة، وسمع «وعد لطفل؟»، وأخذ نزار المكان الأخير.', en: 'He pulled out in front of the group, heard "a promise to a kid?", and Nizar took the last place.' } }
+  );
+})();
+
+/* ───────────── مراجعة الكتابة، 24 نوفمبر 2026: المرحلة الخامسة (الإبهام) ─────────────
+ * المعيار: دليل الكتابة حسب العمر. هذه الجولة تحلّ محلّ ما سبقها في الحقول المذكورة هنا وحدها، وتبقى المعرّفات كما هي:
+ * - درجة «مسابقة وعون للغير»: خيارات سؤالها معقولة ومتقاربة الطول.
+ * - sabiq-r1 (4-8): مشهد بحوار ونهاية بفعل بدل سطر العبرة؛ وsabiq-q1 وq2 يختبران تفاصيلها.
+ * - sabiq-r2: الشكر والمسارعة بالإثبات؛ وsabiq-q3 بخيارات معقولة، وsabiq-q4 صار يختبر القراءة بدل موقف الأكواب المكرر.
+ * - sabiq-r3: «عليه السلام» لأيوب ويوسف؛ وsabiq-q5 بخيارات معقولة، وsabiq-q6 يختبر آية النساء بدل موقف فيه لقب جارح.
+ * - sabiq-r4: أمثلة من يوم القارئ؛ وsabiq-q7 بخيارات متقاربة.
+ * - sabiq-r5 (15+): بعالم المراهق: اليوم الرابع حين تذهب الحماسة، والتواضع في الفعل؛ وsabiq-q8 من مشهدها، وجديد sabiq-q14.
+ * - sabiq-r6 (4-8): sabiq-q9 وq10 صارا من القصة نفسها.
+ * - sabiq-r7: الذي أسرع هو النبي صلى الله عليه وآله وسلم كما في البخاري 851، والترضي عن عقبة وعائشة، وخاتمة عملية؛ وخيارات q11 وq12 معقولة.
+ * - sabiq-r8: لفظ «أكرمي ضيف رسول الله»، والترضي عن المرأة، وخاتمة بمشهد؛ وخيارات q13 معقولة.
+ * - ch-sabiq-1: نتيجة الخيار الأول بمشهد بدل النفي، والخاتمة بالإثبات.
+ * - جديد: sabiq-r9 (15+) قصة «لقطة أخرى» (الخير أمام الكاميرا والخير الذي لا يراه أحد)، وسؤالاها sabiq-q15 وsabiq-q16.
+ * التحقق: فاطر 35:32، الواقعة 56:10-11، آل عمران 3:133، محمد 47:17، الأنعام 6:90، الأحزاب 33:21، النساء 4:69، العنكبوت 29:69،
+ * الفجر 89:27-28، الحشر 59:9 على تنزيل (quran-simple عبر api.alquran.cloud)؛ البخاري 851 و1423 و3798 و4837 و6021 على hadith-api.
+ */
+(function () {
+  var S = window.AKHLAQ_CONTENT.stages.sabiq;
+  var R = function (id) { return S.readings.filter(function (r) { return r.id === id; })[0]; };
+  var Q = function (id) { return S.quiz.filter(function (q) { return q.id === id; })[0]; };
+
+  /* درجة «مسابقة وعون للغير» */
+  var d1 = S.degrees[1];
+  d1.q.options = [{ ar: 'أعلّمه بلطف، وأفرح حين يسبقني', en: 'Teach him gently, and be glad when he gets ahead of me' },
+    { ar: 'أفعل الخير وحدي، فهو ما زال صغيرًا', en: 'Do the good on my own; he is still little' },
+    { ar: 'أصحّح له أمام الجميع كلما أخطأ', en: 'Correct him in front of everyone whenever he slips' }];
+  d1.q.correct = 0;
+
+  /* sabiq-r1: 4-8، مشهد وحوار ونهاية بفعل */
+  var r1 = R('sabiq-r1');
+  r1.body = {
+    ar: ['الخالة سعاد جارة مريم، وهي مريضة في سريرها منذ أيام.',
+      'ومن نافذتها ترى مريم حديقة الخالة: أوراق صفراء في كل مكان، والزهور مائلة من العطش.',
+      'يوم الجمعة استيقظت مريم قبل الجميع. لبست حذاءها بهدوء، وأخذت المكنسة الصغيرة.',
+      'خشش، خشش. جمعت الأوراق كومة كبيرة. ثم ملأت الإبريق، وسقت الزهور واحدة واحدة.',
+      'وفتحت الخالة سعاد نافذتها، فرأت الحديقة نظيفة والزهور واقفة. فرفعت يديها وقالت: «اللهم أكرم من فعل هذا». ولم تعرف من هو.',
+      'وفي الجمعة التالية فتح أخوها الصغير عمر عينيه وقال: «إلى أين؟». قالت مريم هامسة: «تعال، واحمل الإبريق».',
+      'فحمل عمر الإبريق بيديه الاثنتين، وانحنى على أول زهرة، وقال لها: «اشربي».'],
+    en: ['Auntie Suad is Maryam\'s neighbour, and she has been ill in bed for days.',
+      'From her window Maryam can see Auntie Suad\'s garden: yellow leaves everywhere, and the flowers drooping with thirst.',
+      'On Friday Maryam woke before everyone. She slipped on her shoes quietly and took the little broom.',
+      'Swish, swish. She swept the leaves into a big pile. Then she filled the watering can and watered the flowers one by one.',
+      'Auntie Suad opened her window and saw the garden clean and the flowers standing up. She raised her hands and said: "O Allah, honour whoever did this." She never knew who it was.',
+      'The next Friday her little brother Omar opened his eyes and said: "Where are you going?" Maryam whispered: "Come on, and carry the watering can."',
+      'So Omar carried the watering can with both hands, bent over the first flower, and told it: "Drink up."']
+  };
+  var q1 = Q('sabiq-q1');
+  q1.q = { ar: 'ماذا قالت الخالة سعاد حين رأت حديقتها نظيفة؟', en: 'What did Auntie Suad say when she saw her garden clean?' };
+  q1.options = [{ ar: '«من دخل حديقتي دون إذن؟»', en: '"Who came into my garden without asking?"' },
+    { ar: '«شكرًا يا مريم، رأيتك من النافذة»', en: '"Thank you, Maryam, I saw you from the window"' },
+    { ar: '«اللهم أكرم من فعل هذا»', en: '"O Allah, honour whoever did this"' }];
+  q1.correct = 2;
+  q1.why = { ar: 'دعت الخالة سعاد لمن نظّف حديقتها، ولم تعرف أنها مريم.', en: 'Auntie Suad prayed for whoever had cleaned her garden, without knowing it was Maryam.' };
+  var q2 = Q('sabiq-q2');
+  q2.q = { ar: 'من جاء مع مريم في الجمعة التالية؟', en: 'Who came with Maryam the next Friday?' };
+  q2.options = [{ ar: 'أخوها عمر، وحمل الإبريق', en: 'Her brother Omar, carrying the watering can' },
+    { ar: 'الخالة سعاد، وجمعت معها الأوراق', en: 'Auntie Suad, who swept the leaves with her' },
+    { ar: 'أمها، وسقت معها الزهور', en: 'Her mother, who watered the flowers with her' }];
+  q2.correct = 0;
+  q2.why = { ar: 'أخذت مريم أخاها معها، فسقى أول زهرة بيديه الاثنتين.', en: 'Maryam brought her brother along, and he watered the first flower with both hands.' };
+
+  /* sabiq-r2: الشكر والمسارعة بالإثبات */
+  var r2 = R('sabiq-r2');
+  r2.body.ar[0] = 'في سورة فاطر ذكر الله ثلاثة أقسام من الناس، وأعلاها «سابق بالخيرات بإذن الله». و«بإذن الله» تعلّمنا أن السبق نفسه هداية من الله نشكره عليها.';
+  r2.body.ar_f[0] = r2.body.ar[0];
+  r2.body.en[0] = 'In Surat Fatir, Allah mentions three groups of people, the highest being those "racing to good deeds by Allah\'s permission". "By Allah\'s permission" teaches us that the racing itself is guidance from Allah, which we thank Him for.';
+  r2.body.ar[2] = 'وأمرنا الله بالمسارعة: ﴿وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِنْ رَبِّكُمْ﴾ (آل عمران 3:133). والمسارعة أن تسبق نفسك إلى الخير قبل أن يسبقك الكسل: تقوم إلى الصلاة مع الأذان، وتحمل الكوب حين تراه.';
+  r2.body.ar_f[2] = 'وأمرنا الله بالمسارعة: ﴿وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِنْ رَبِّكُمْ﴾ (آل عمران 3:133). والمسارعة أن تسبقي نفسك إلى الخير قبل أن يسبقك الكسل: تقومين إلى الصلاة مع الأذان، وتحملين الكوب حين ترينه.';
+  r2.body.en[2] = 'Allah tells us to hurry (Al Imran 3:133), meaning: hasten to forgiveness from your Lord. Hurrying means getting to the good before laziness gets to you: getting up for prayer with the call, picking up the cup the moment you see it.';
+  var q3 = Q('sabiq-q3');
+  q3.options = [{ ar: 'أن السبق هداية من الله نشكره عليها', en: 'Racing ahead is guidance from Allah, and we thank Him for it' },
+    { ar: 'أن نستأذن أهلنا قبل كل خير', en: 'We ask our parents\' permission before every good deed' },
+    { ar: 'أن السبق يأتي وحده دون جهد منا', en: 'Racing ahead comes by itself, with no effort from us' }];
+  q3.correct = 0;
+  var q4 = Q('sabiq-q4');
+  q4.type = 'comprehension';
+  q4.q = { ar: 'ما المسارعة كما تشرحها القراءة؟', en: 'What is hurrying, as the reading explains it?' };
+  q4.options = [{ ar: 'أن تركض بقدميك إلى المسجد', en: 'Running to the mosque on your feet' },
+    { ar: 'أن تسبق الكسل إلى الخير', en: 'Getting to the good before laziness does' },
+    { ar: 'أن تنهي الخير بسرعة لتلعب', en: 'Finishing the good quickly so you can play' }];
+  q4.correct = 1;
+  q4.why = { ar: 'المسارعة أن تقوم إلى الخير حين تراه، قبل أن يسبقك الكسل.', ar_f: 'المسارعة أن تقومي إلى الخير حين ترينه، قبل أن يسبقك الكسل.', en: 'Hurrying is getting up for the good when you see it, before laziness gets there first.' };
+
+  /* sabiq-r3: «عليه السلام» للنبيين، وسؤالان من القراءة */
+  var r3 = R('sabiq-r3');
+  r3.body.ar[4] = 'جرّب هذا الأسبوع: اختر خلقًا واحدًا من نبي: صبر أيوب عليه السلام، أو صدق يوسف عليه السلام، أو رحمة النبي محمد صلى الله عليه وآله وسلم بالصغار، وطبّقه يومًا كاملًا.';
+  r3.body.ar_f[4] = 'جرّبي هذا الأسبوع: اختاري خلقًا واحدًا من نبي: صبر أيوب عليه السلام، أو صدق يوسف عليه السلام، أو رحمة النبي محمد صلى الله عليه وآله وسلم بالصغار، وطبّقيه يومًا كاملًا.';
+  r3.body.en[4] = 'Try this week: choose one quality of a prophet, such as the patience of Ayyub, peace be upon him, the honesty of Yusuf, peace be upon him, or the gentleness of the Prophet Muhammad, peace and blessings be upon him and his family, with children, and live it for a whole day.';
+  var q5 = Q('sabiq-q5');
+  q5.options = [{ ar: 'أن يقصّ أخبارهم على قومه', en: 'To tell their stories to his people' },
+    { ar: 'أن يقتدي بهداهم', en: 'To follow their guidance' },
+    { ar: 'أن يدعو لهم بالرحمة', en: 'To pray for mercy for them' }];
+  q5.correct = 1;
+  var q6 = Q('sabiq-q6');
+  q6.type = 'comprehension';
+  q6.q = { ar: 'بماذا وعدت آية النساء من يطيع الله ورسوله؟', en: 'What does the verse of an-Nisa promise those who obey Allah and His Messenger?' };
+  q6.options = [{ ar: 'أن يصير نبيًّا مثلهم', en: 'That they will become prophets like them' },
+    { ar: 'أن يكون في رفقة النبيين والصالحين', en: 'That they will be in the company of the prophets and the righteous' },
+    { ar: 'أن يحفظ أسماء الأنبياء كلها', en: 'That they will know all the prophets\' names by heart' }];
+  q6.correct = 1;
+  q6.why = { ar: 'الأنبياء عليهم السلام نور نمشي في ضوئه، والجائزة أن نكون معهم: ﴿وَحَسُنَ أُولَٰئِكَ رَفِيقًا﴾ (النساء 4:69).', en: 'The prophets, peace be upon them, are a light we walk by, and the reward is to be with them: what fine companions they are (an-Nisa 4:69).' };
+
+  /* sabiq-r4: أمثلة من يوم القارئ */
+  var r4 = R('sabiq-r4');
+  r4.body.ar[2] = 'الخطة: كل مساء اكتب عملًا خفيًّا واحدًا ستفعله غدًا: ملء قارورة أخيك بالماء قبل المدرسة، أو طيّ سجادة صلاة جدتك، أو دعاء لصديق باسمه.';
+  r4.body.ar_f[2] = 'الخطة: كل مساء اكتبي عملًا خفيًّا واحدًا ستفعلينه غدًا: ملء قارورة أخيك بالماء قبل المدرسة، أو طيّ سجادة صلاة جدتك، أو دعاء لصديقتك باسمها.';
+  r4.body.en[2] = 'The plan: every evening, write one hidden good deed you will do tomorrow: filling your brother\'s water bottle before school, folding your grandmother\'s prayer mat, praying for a friend by name.';
+  var q7 = Q('sabiq-q7');
+  q7.options = [{ ar: 'أكتبه في دفتري، ولا أخبر به أحدًا', en: 'Note it in my notebook and tell no one' },
+    { ar: 'أخبر صديقي المقرّب وحده', ar_f: 'أخبر صديقتي المقرّبة وحدها', en: 'Tell only my closest friend' },
+    { ar: 'أنشره ليقلّدني الآخرون', en: 'Post it so others copy me' }];
+  q7.correct = 0;
+
+  /* sabiq-r5: 15+، اليوم الرابع */
+  var r5 = R('sabiq-r5');
+  r5.body = {
+    ar: ['اليوم الأول من أي عزيمة سهل. تضبط المنبّه قبل أذان الفجر بربع ساعة لتصلي ركعتين في آخر الليل، فتقوم قبل أن يرن، وتشعر أنك صرت شخصًا جديدًا. واليوم الثاني والثالث يمضيان بالحماسة نفسها تقريبًا.',
+      'ثم يأتي اليوم الرابع. نمت متأخرًا بعد مقطع جرّ مقطعًا، والغرفة باردة، والبطانية دافئة، والحماسة التي حملتك ثلاثة أيام اختفت. بقي المنبّه وحده، وصوت في رأسك يقول: «اليوم فقط، وغدًا تعود».',
+      'في ذلك الصباح تبدأ المجاهدة التي ذكرها القرآن: ﴿وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا﴾ (العنكبوت 29:69). المجاهدة جهد النفس اليومي: أن تقوم إلى الخير وهي تريد الراحة، ولا يدفعك إليه إلا أنك قررت.',
+      'والسبل في الآية جمع: من يثبت على طريق من الخير يُفتح له طريق آخر. الذي يثبت على ركعتين في آخر الليل قد يجد نفسه بعد شهر يقرأ صفحة بعدهما، دون أن يكتب ذلك في قائمة عزائمه.',
+      'وفي الطريق امتحان أخفى من البرد: أن تمرّ بباب أخيك النائم فتشعر أنك أفضل منه. لذلك وصفت آية فاطر السابق بأنه سابق ﴿بِإِذْنِ اللَّهِ﴾ (فاطر 35:32). القيام هدية وصلتك، ومن يعرف أنها هدية يغلق باب أخيه بهدوء حتى لا يوقظه، ويدعو له في سجوده.',
+      'وآخر الطريق نداء رقيق: ﴿يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ۝ ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَرْضِيَّةً﴾ (الفجر 89:27-28). النفس التي كانت تقاوم في اليوم الرابع تسكن مع الأيام، ويصير الخير راحتها.',
+      'خطوة عملية: اختر خيرًا صغيرًا واحدًا، واكتب على ورقة: «اليوم الرابع». وحين يأتي اليوم الذي لا تريده فيه، افعله في أصغر صورة ممكنة، ركعتين خفيفتين أو صفحة واحدة، ولا تتركه.'],
+    en: ['Day one of any resolution is easy. You set the alarm a quarter of an hour before the dawn call to pray two rak\'as at the end of the night, you are up before it rings, and you feel like a new person. Days two and three go by on almost the same energy.',
+      'Then comes day four. You slept late after one clip led to another, the room is cold, the blanket is warm, and the enthusiasm that carried you for three days has gone. Only the alarm is left, and a voice in your head saying: "Just today. Back to it tomorrow."',
+      'That morning is where the striving the Quran speaks of begins (al-\'Ankabut 29:69), meaning: those who strive for Us, We will surely guide them to Our paths. Striving is the daily effort of the self: getting up to do good while it wants rest, with nothing pushing you but the fact that you decided.',
+      'The word "paths" is plural: whoever keeps to one path of good finds another opening. Someone who keeps up two rak\'as at the end of the night may find, a month later, that they read a page after them too, without ever putting it on a list of resolutions.',
+      'On the way there is a test quieter than the cold: walking past your sleeping brother\'s door and feeling you are better than him. That is why the verse of Fatir describes the one racing ahead as racing "by Allah\'s permission" (Fatir 35:32). Getting up is a gift that reached you, and someone who knows it is a gift closes their brother\'s door softly so as not to wake him, and prays for him in prostration.',
+      'At the end of the road the Quran calls tenderly (al-Fajr 89:27-28), meaning: O soul at peace, return to your Lord, well pleased and pleasing. The self that resisted on day four settles with the days, and good becomes its rest.',
+      'A practical step: choose one small good deed and write on a piece of paper: "Day four". When the day comes that you do not want to, do it in the smallest form possible, two short rak\'as or a single page, and do not drop it.']
+  };
+  r5.body.ar_f = ['اليوم الأول من أي عزيمة سهل. تضبطين المنبّه قبل أذان الفجر بربع ساعة لتصلّي ركعتين في آخر الليل، فتقومين قبل أن يرن، وتشعرين أنكِ صرتِ شخصًا جديدًا. واليوم الثاني والثالث يمضيان بالحماسة نفسها تقريبًا.',
+    'ثم يأتي اليوم الرابع. نمتِ متأخرة بعد مقطع جرّ مقطعًا، والغرفة باردة، والبطانية دافئة، والحماسة التي حملتكِ ثلاثة أيام اختفت. بقي المنبّه وحده، وصوت في رأسك يقول: «اليوم فقط، وغدًا تعودين».',
+    'في ذلك الصباح تبدأ المجاهدة التي ذكرها القرآن: ﴿وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا﴾ (العنكبوت 29:69). المجاهدة جهد النفس اليومي: أن تقومي إلى الخير ونفسكِ تريد الراحة، ولا يدفعكِ إليه إلا أنكِ قررتِ.',
+    r5.body.ar[3],
+    'وفي الطريق امتحان أخفى من البرد: أن تمرّي بباب أختك النائمة فتشعري أنكِ أفضل منها. لذلك وصفت آية فاطر السابق بأنه سابق ﴿بِإِذْنِ اللَّهِ﴾ (فاطر 35:32). القيام هدية وصلتكِ، ومن تعرف أنها هدية تغلق باب أختها بهدوء حتى لا توقظها، وتدعو لها في سجودها.',
+    r5.body.ar[5],
+    'خطوة عملية: اختاري خيرًا صغيرًا واحدًا، واكتبي على ورقة: «اليوم الرابع». وحين يأتي اليوم الذي لا تريدينه فيه، افعليه في أصغر صورة ممكنة، ركعتين خفيفتين أو صفحة واحدة، ولا تتركيه.'];
+  var q8 = Q('sabiq-q8');
+  q8.q = { ar: 'في القراءة، ماذا يفعل من يعرف أن قيامه في الليل هدية من الله؟', ar_f: 'في القراءة، ماذا تفعل من تعرف أن قيامها في الليل هدية من الله؟', en: 'In the reading, what does someone do who knows that getting up at night is a gift from Allah?' };
+  q8.options = [{ ar: 'يوقظ أخاه ليريه كيف يقوم مبكرًا', ar_f: 'توقظ أختها لتريها كيف تقوم مبكرًا', en: 'Wakes their brother to show him how to get up early' },
+    { ar: 'يغلق باب أخيه بهدوء، ويدعو له', ar_f: 'تغلق باب أختها بهدوء، وتدعو لها', en: 'Closes their brother\'s door softly, and prays for him' },
+    { ar: 'يخبر أهله في الصباح كم ركعة صلّى', ar_f: 'تخبر أهلها في الصباح كم ركعة صلّت', en: 'Tells the family in the morning how many rak\'as they prayed' }];
+  q8.correct = 1;
+  q8.why = { ar: 'السبق «بإذن الله» هدية تُشكر، فيظهر التواضع في الفعل: باب يُغلق بهدوء، ودعاء في السجود.', en: 'Racing ahead "by Allah\'s permission" is a gift to be thankful for, so humility shows in the action: a door closed softly, a prayer in prostration.' };
+  S.quiz.push({ id: 'sabiq-q14', readingId: 'sabiq-r5', type: 'comprehension', correct: 2,
+    q: { ar: 'ماذا تقترح القراءة لليوم الذي لا تريد فيه الخير الذي بدأته؟', ar_f: 'ماذا تقترح القراءة لليوم الذي لا تريدين فيه الخير الذي بدأتِه؟', en: 'What does the reading suggest for the day you do not want to do the good you started?' },
+    options: [{ ar: 'أن ترتاح منه حتى تعود الحماسة', ar_f: 'أن ترتاحي منه حتى تعود الحماسة', en: 'Take a break from it until the enthusiasm returns' },
+      { ar: 'أن تبدأ من جديد يوم الأحد القادم', ar_f: 'أن تبدئي من جديد يوم الأحد القادم', en: 'Start again fresh next Sunday' },
+      { ar: 'أن تفعله في أصغر صورة ولا تتركه', ar_f: 'أن تفعليه في أصغر صورة ولا تتركيه', en: 'Do it in its smallest form, and not drop it' }],
+    why: { ar: 'اليوم الرابع هو المجاهدة نفسها: ركعتان خفيفتان أو صفحة واحدة، والطريق باقٍ.', en: 'Day four is the striving itself: two short rak\'as or a single page, and the road stays open.' } });
+
+  /* sabiq-r6: سؤالان من القصة نفسها */
+  var q9 = Q('sabiq-q9');
+  q9.type = 'comprehension';
+  q9.q = { ar: 'ماذا وجد أبو نور حين عاد إلى البيت؟', en: 'What did Noor\'s father find when he came home?' };
+  q9.options = [{ ar: 'نورًا تنتظره عند الباب', en: 'Noor waiting for him at the door' },
+    { ar: 'حذاءه مرتّبًا ينتظره', en: 'His shoes waiting for him, tidy' },
+    { ar: 'ورقة عليها اسم نور', en: 'A note with Noor\'s name on it' }];
+  q9.correct = 1;
+  q9.why = { ar: 'رتّبت نور الأحذية صفًّا جميلًا، فوجد أبوها حذاءه ينتظره.', en: 'Noor lined the shoes up neatly, so her father found his shoes waiting for him.' };
+  var q10 = Q('sabiq-q10');
+  q10.type = 'comprehension';
+  q10.q = { ar: 'لماذا ابتسمت نور، مع أن أباها لم يعرف من رتّب الأحذية؟', en: 'Why did Noor smile, even though her father did not know who had tidied the shoes?' };
+  q10.options = [{ ar: 'لأنها ستخبره في الصباح', en: 'Because she would tell him in the morning' },
+    { ar: 'لأن أمها رأتها ترتّبها', en: 'Because her mother had seen her do it' },
+    { ar: 'لأن الله يعرف', en: 'Because Allah knows' }];
+  q10.correct = 2;
+  q10.why = { ar: 'فعلتها نور «لأن الله يحب ذلك»، وفرحت لأن الله يعرف.', en: 'Noor did it "because Allah loves it", and was glad because Allah knows.' };
+
+  /* sabiq-r7: القمة، والذي أسرع هو النبي صلى الله عليه وآله وسلم */
+  var r7 = R('sabiq-r7');
+  r7.body.ar[1] = 'قال عقبة بن الحارث رضي الله عنه: صلّيت العصر خلف النبي صلى الله عليه وآله وسلم في المدينة. فلما سلّم قام مسرعًا، يتخطى الناس إلى بيته، ففزع الناس من سرعته.';
+  r7.body.ar[2] = 'ثم خرج إليهم، فرأى العجب في وجوههم، فقال: «ذكرت شيئًا من تبر عندنا، فكرهت أن يحبسني، فأمرت بقسمته». والتبر قطع من الذهب. لم ينتظر الغد، ولم ينتظر أن يذكّره أحد.';
+  r7.body.ar[3] = 'وكان صلى الله عليه وآله وسلم يقوم الليل حتى تتفطر قدماه، فسألته السيدة عائشة رضي الله عنها: لم تصنع هذا يا رسول الله وقد غفر الله لك؟ فقال: «أفلا أحب أن أكون عبدًا شكورًا».';
+  r7.body.ar[4] = 'والقمة أمامنا نور نمشي إليه. جرّب هذا الأسبوع: إذا خطر لك خير صغير، فافعله في الدقيقة نفسها قبل أن يبرد: الصدقة التي نويتها، والاتصال بجدتك، والكوب الذي تراه على الطاولة. وإذا صليت ركعتين في الليل، فاجعلهما شكرًا.';
+  r7.body.ar_f = r7.body.ar.slice();
+  r7.body.ar_f[4] = 'والقمة أمامنا نور نمشي إليه. جرّبي هذا الأسبوع: إذا خطر لكِ خير صغير، فافعليه في الدقيقة نفسها قبل أن يبرد: الصدقة التي نويتِها، والاتصال بجدتك، والكوب الذي ترينه على الطاولة. وإذا صليتِ ركعتين في الليل، فاجعليهما شكرًا.';
+  r7.body.en[1] = 'Uqba ibn al-Harith, may Allah be pleased with him, said: I prayed the afternoon prayer behind the Prophet, peace and blessings be upon him and his family, in Madina. As soon as he finished the prayer, he got up quickly and made his way past the people to his home, and they were alarmed at his hurry.';
+  r7.body.en[2] = 'Then he came back out, saw the surprise on their faces, and said, meaning: "I remembered some gold we had, and did not want it to hold me back, so I ordered it to be shared out." He did not wait for tomorrow, or for anyone to remind him.';
+  r7.body.en[3] = 'He used to stand in prayer at night until his feet cracked, and Lady Aisha, may Allah be pleased with her, asked him: why do you do this, Messenger of Allah, when Allah has forgiven you? He said, meaning: "Should I not love to be a grateful servant?"';
+  r7.body.en[4] = 'The summit is a light ahead of us that we walk towards. Try this week: when a small good thing comes to mind, do it that same minute, before it goes cold: the charity you intended, the call to your grandmother, the cup you see on the table. And if you pray two rak\'as at night, let them be a thank-you.';
+  var q11 = Q('sabiq-q11');
+  q11.options = [{ ar: 'ليأمر بقسمة ذهب كان في بيته', en: 'To have some gold at home shared out' },
+    { ar: 'ليحضر طعامًا لضيف ينتظره', en: 'To fetch food for a guest who was waiting' },
+    { ar: 'ليطمئن على أحد أهله المرضى', en: 'To check on someone in his family who was ill' }];
+  q11.correct = 0;
+  var q12 = Q('sabiq-q12');
+  q12.options = [{ ar: 'إنه يريد أن يكون قدوة لأصحابه', en: 'That he wanted to be an example to his Companions' },
+    { ar: 'إنه يحب أن يكون عبدًا شكورًا', en: 'That he loved to be a grateful servant' },
+    { ar: 'إنه يرجو أن يبلغ درجة أعلى', en: 'That he hoped to reach a higher rank' }];
+  q12.correct = 1;
+
+  /* sabiq-r8: لفظ الحديث، وخاتمة بمشهد */
+  var r8 = R('sabiq-r8');
+  r8.body.ar[1] = 'فذهب به إلى امرأته رضي الله عنها، وقال: أكرمي ضيف رسول الله صلى الله عليه وآله وسلم. فقالت: ما عندنا إلا قوت صبياني. فاتفقا على خطة: تهيئ الطعام، وتنيّم الصبيان، ثم تقوم كأنها تصلح السراج فتطفئه.';
+  r8.body.ar[3] = 'ونزل فيهما: ﴿وَيُؤْثِرُونَ عَلَىٰ أَنْفُسِهِمْ وَلَوْ كَانَ بِهِمْ خَصَاصَةٌ﴾ (الحشر 59:9). ونام الضيف شبعان تلك الليلة، ولم يعرف أنه أكل عشاء الصبيان، ولا أن السراج أُطفئ من أجله.';
+  r8.body.en[1] = 'He took him home to his wife, may Allah be pleased with her, and said: honour the guest of the Messenger of Allah, peace and blessings be upon him and his family. She said: we have nothing but my children\'s food. So they made a plan: she would prepare the food, put the children to sleep, then get up as if to fix the lamp and put it out.';
+  r8.body.en[3] = 'And about them it was revealed, meaning: "They prefer others over themselves, even though they are in need" (al-Hashr 59:9). The guest slept with a full stomach that night, never knowing he had eaten the children\'s supper, or that the lamp had been put out for his sake.';
+  var q13 = Q('sabiq-q13');
+  q13.options = [{ ar: 'حتى لا يرى الضيف أنهما لا يأكلان', en: 'So the guest would not see that they were not eating' },
+    { ar: 'حتى ينام الصبيان ولا يطلبوا الطعام', en: 'So the children would sleep and not ask for food' },
+    { ar: 'حتى يبقى زيت السراج لليلة أخرى', en: 'To save the lamp oil for another night' }];
+  q13.correct = 0;
+
+  /* ch-sabiq-1: نتيجة بمشهد، وخاتمة بالإثبات */
+  var ch = window.AKHLAQ_CONTENT.choices.filter(function (c) { return c.id === 'ch-sabiq-1'; })[0];
+  ch.opts[0].out = { ar: 'لعب حمزة وفاز فريقه بهدفين. وحين رنّ الجرس رأى أنسًا يدخل الصف وحده كما خرج، ونصف شطيرته ما زال في يده.', en: 'Hamza played, and his team won by two goals. When the bell rang, he saw Anas walk back into class alone, just as he had come out, half his sandwich still in his hand.' };
+  ch.end = { ar: 'أكثر الخير قريب: يكفي أن نراه قبل غيرنا، ثم نمشي إليه.', en: 'Most good is close at hand: it is enough to see it first, then walk toward it.' };
+
+  /* sabiq-r9: 15+، جديدة */
+  S.readings.push({
+    id: 'sabiq-r9', minutes: 5, ages: '15+',
+    title: { ar: 'لقطة أخرى', en: 'One more take' },
+    body: {
+      ar: ['صباح السبت، وأعضاء نادي التطوع في المدرسة يوزعون سلال الطعام في الحي. سلمى تحمل السلال، وصديقتها رنا تحمل الهاتف.',
+        'صعدتا إلى الطابق الرابع، إلى باب العم صابر، رجل كبير يسكن وحده، ومدّت سلمى إليه السلة. قالت رنا: «انتظري، الضوء سيئ. أعيدي». ثم: «ابتسمي أكثر». ثم: «مرة أخيرة، السلة لم تظهر».',
+        'وفي اللقطة الرابعة كان العم صابر ما زال واقفًا، يمد يده إلى سلة لا تصل، وعيناه في الأرض.',
+        'نشرت سلمى الصورة في المساء. وصلت إلى مئتين واثني عشر إعجابًا، وكتبت معلمة العلوم تحتها: «قدوة!». وصارت سلمى تفتح الهاتف كل ربع ساعة لترى الرقم. وكان في صدرها شيء دافئ، وشيء آخر ثقيل لا تعرف اسمه.',
+        'وفي الليل كبّرت الصورة لترى ابتسامتها، فرأت عيني العم صابر. كانتا في الأرض.',
+        'السبت التالي مرضت رنا، وأُلغي توزيع النادي. فاشترت سلمى من مصروفها كيس خبز وعلبة تمر، وأخذت معها أخاها الصغير معاذ يحمل علبة التمر، وصعدا إلى العم صابر بلا ناد ولا كاميرا. المصعد معطّل، والطابق الرابع بعيد.',
+        'في الطابق الثالث وقفت تلتقط أنفاسها، ووجدت يدها تُخرج الهاتف من جيبها وحدها: صورة سريعة مع الكيس، للحساب فقط. ثم أعادته إلى جيبها، وأكملت الصعود.',
+        'فتح العم صابر الباب، ونظر هذه المرة في وجهها. قال: «أنتِ بنت الصورة؟ تفضلا، الشاي جاهز». وعلى الشرفة حدّثهما عن نباتات زوجته رحمها الله، ثلاثة أصص لم يسقها أحد منذ أتعبه ظهره. فملأت سلمى الإبريق وسقتها.',
+        'وفي النزول تذكرت حديثًا للنبي صلى الله عليه وآله وسلم قرأته عليهم المعلمة، عن سبعة يظلهم الله في ظله، منهم: «ورجل تصدق بصدقة فأخفاها حتى لا تعلم شماله ما تنفق يمينه». فضحكت وحدها على الدرج: في السبت الماضي عرف الحي كله ما أنفقت يمينها، وعرفه معه مئتان واثنا عشر إعجابًا.',
+        'وفي البيت فتحت حسابها، ونظرت طويلًا إلى صورة السبت الماضي، ثم أخفتها. كان الرقم ما زال يشدّها، فقلبت الهاتف على وجهه، وكتبت في ورقة على مكتبها: «الثلاثاء: شاي عند العم صابر. الأصيص الثالث يحتاج ماء أكثر».'],
+      en: ['Saturday morning, and the school volunteering club is handing out food baskets around the neighbourhood. Salma carries the baskets; her friend Rana carries the phone.',
+        'They climbed to the fourth floor, to the door of Uncle Saber, an old man who lives alone, and Salma held out the basket. Rana said: "Wait, the light\'s bad. Again." Then: "Smile more." Then: "One last time, the basket didn\'t show."',
+        'On the fourth take Uncle Saber was still standing there, reaching for a basket that never arrived, his eyes on the floor.',
+        'Salma posted the photo that evening. It reached two hundred and twelve likes, and the science teacher commented: "A role model!" Salma kept opening her phone every quarter of an hour to check the number. There was something warm in her chest, and something else, heavy, that she had no name for.',
+        'That night she zoomed in to look at her smile, and saw Uncle Saber\'s eyes instead. They were on the floor.',
+        'The next Saturday Rana was ill and the club\'s round was cancelled. So Salma bought a bag of bread and a box of dates with her pocket money and took her little brother Muadh along to carry the dates. The two of them went up to Uncle Saber, with no club and no camera. The lift was broken, and the fourth floor was a long way up.',
+        'On the third floor she stopped to catch her breath, and found her hand taking the phone out of her pocket by itself: a quick photo with the bag, just for the account. Then she put it back and kept climbing.',
+        'Uncle Saber opened the door, and this time he looked at her face. He said: "You\'re the girl from the photo? Come in, both of you, the tea\'s ready." On the balcony he told them about his late wife\'s plants, may Allah have mercy on her: three pots nobody had watered since his back gave out. So Salma filled the jug and watered them.',
+        'On the way down she remembered a hadith of the Prophet, peace and blessings be upon him and his family, that their teacher had read to them, about seven people Allah shades in His shade, among them, meaning: "a man who gave in charity and hid it, so that his left hand did not know what his right hand gave." She laughed to herself on the stairs: last Saturday the whole neighbourhood knew what her right hand gave, and so did two hundred and twelve likes.',
+        'At home she opened her account, looked for a long time at last Saturday\'s photo, then hid it. The number still tugged at her, so she turned the phone face down and wrote on a note on her desk: "Tuesday: tea at Uncle Saber\'s. The third pot needs more water."']
+    },
+    ask: { ar: 'متى فعلتَ خيرًا ثم انتظرت أن يراه أحد؟ وماذا تغيّر فيه حين رآه الناس؟', ar_f: 'متى فعلتِ خيرًا ثم انتظرتِ أن يراه أحد؟ وماذا تغيّر فيه حين رآه الناس؟', en: 'When have you done something good and then waited for someone to see it? What changed in it once people saw?' },
+    quote: { ar: '«وَرَجُلٌ تَصَدَّقَ بِصَدَقَةٍ فَأَخْفَاهَا حَتَّى لاَ تَعْلَمَ شِمَالُهُ مَا تُنْفِقُ يَمِينُهُ»', en: 'Meaning: A man who gave in charity and hid it, so that his left hand did not know what his right hand gave.', ref: 'صحيح البخاري 1423، عن أبي هريرة رضي الله عنه', checked: 'hadith-api (fawazahmed0)', verify: true },
+    source: { ar: 'قصة مؤلفة، أبطالها خياليون، وفيها حديث من صحيح البخاري.', en: 'An original story with fictional characters, with a hadith from Sahih al-Bukhari.' }
+  });
+  S.quiz.push(
+    { id: 'sabiq-q15', readingId: 'sabiq-r9', type: 'comprehension', correct: 0,
+      q: { ar: 'ماذا رأت سلمى حين كبّرت الصورة في الليل؟', en: 'What did Salma see when she zoomed in on the photo that night?' },
+      options: [{ ar: 'عيني العم صابر في الأرض', en: 'Uncle Saber\'s eyes on the floor' },
+        { ar: 'أن السلة لم تظهر في اللقطة', en: 'That the basket did not show in the shot' },
+        { ar: 'تعليق المعلمة تحت الصورة', en: 'The teacher\'s comment under the photo' }],
+      why: { ar: 'كانت تبحث عن ابتسامتها، فرأت ما كلّفته اللقطات الأربع للعم صابر.', en: 'She was looking for her own smile, and saw what the four takes had cost Uncle Saber.' } },
+    { id: 'sabiq-q16', readingId: 'sabiq-r9', type: 'comprehension', correct: 2,
+      q: { ar: 'ماذا فعلت سلمى بالهاتف على درج الطابق الثالث؟', en: 'What did Salma do with her phone on the third-floor stairs?' },
+      options: [{ ar: 'صوّرت نفسها مع الكيس للحساب', en: 'Took a photo of herself with the bag for the account' },
+        { ar: 'اتصلت برنا لتخبرها أين هي', en: 'Called Rana to tell her where she was' },
+        { ar: 'أخرجته، ثم أعادته إلى جيبها', en: 'Took it out, then put it back in her pocket' }],
+      why: { ar: 'شدّتها الصورة مرة أخرى، فصعدت بلا لقطة، ونظر إليها العم صابر هذه المرة.', en: 'The photo pulled at her again; she climbed on without a shot, and this time Uncle Saber looked at her.' } }
   );
 })();
