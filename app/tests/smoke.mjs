@@ -857,6 +857,7 @@ async function ideaFlows(browser, base, content, AV) {
     await page.click('#sheet [data-act="bkyes"]'); await page.waitForTimeout(1300);
     let r = await getS(page);
     ok(r.notes.length === 2 && r.notes[0].tx === "صفحة\nفي النسخة" && r.notes[1].tx.length === 8000 && r.bless[0].n === "n1" && r.chal.length === 2 && r.chal[0].done === true && r.khabia.length === 1 && !/[<>]/.test(JSON.stringify(r)), "bk: restoring brings everything back, checked");
+    await page.evaluate(() => localStorage.setItem("tazkiya-sync", JSON.stringify({ email: "a@example.com", cursor: "9.9", base: { "p1|note|n1": 1 }, gone: [], fresh: [], prof: {}, linked: true, at: 1 })));
     // a backup made by the first journal (two scrolls) is moved to version 2 on restore
     const old = JSON.parse(JSON.stringify(out)), o1 = old.states.p1; ["notes", "bless", "chal", "khabia", "twV"].forEach(k => delete o1[k]);
     o1.twMig = true; o1.good = [{ id: "g1", t: Date.now(), tx: "حسنة قديمة" }]; o1.bad = [{ id: "s1", t: Date.now(), tx: "سطر قديم", st: true }];
@@ -865,6 +866,8 @@ async function ideaFlows(browser, base, content, AV) {
     await page.click('#sheet [data-act="bkyes"]'); await page.waitForTimeout(1300);
     r = await getS(page);
     ok(r.twV === 2 && r.bless.length === 1 && r.bless[0].tx === "حسنة قديمة" && r.chal.length === 1 && r.chal[0].tx === "سطر قديم" && !("good" in r) && !("bad" in r), "bk: a backup from the first journal is moved to version 2");
+    { const sy = await page.evaluate(() => JSON.parse(localStorage.getItem("tazkiya-sync") || "{}"));
+      ok(sy.email === "a@example.com" && sy.linked === false && sy.cursor === "0" && !Object.keys(sy.base || {}).length, "bk: after a restore on a signed-in device, the next sync pulls the account's copy first (و1)"); }
     ok(!page.errs.length, "bk: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
   await step("tadwin: closing the year", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
@@ -1291,20 +1294,43 @@ async function ideaFlows(browser, base, content, AV) {
     const old = { "akhlaq-app-v1:profiles": { active: "p1", list: ["p1", "p2"] }, "akhlaq-app-v1": { mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, intro: true, lang: "ar", name: "ليلى", read: { "zombie-r1": 1763800000000 }, tasks: { "zombie-t1": "ok" } },
       "akhlaq-app-v1:p2": { mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, intro: true, lang: "ar", edition: "adult", name: "Sam" }, "tazkiya-family": { pact: { v: "human:0", from: "2026-11-20", to: "2026-11-27" }, past: [], seen: [] }, "tazkiya-fx": { snd: false, hap: true, amb: "rain", vol: 40 } };
     const { ctx, page } = await hostCtx(([o, n]) => { const s1 = (host, data) => { if (location.hostname !== host || sessionStorage.getItem("seeded")) return; sessionStorage.setItem("seeded", "1"); for (const k in data) localStorage.setItem(k, JSON.stringify(data[k])); }; s1("tazkiya.pages.dev", o); s1("tazkiya.family", n); },
-      [old, { "akhlaq-app-v1": { mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, intro: true, lang: "ar", name: "Other", read: { "pig-r1": 1763800000000 } } }]);
+      [old, {}]); // the new address is empty: since the security review (و1), a move never lands on a device with progress
     await page.goto("https://tazkiya.pages.dev/#/"); await page.waitForTimeout(1300);
     ok(new URL(page.url()).hostname === "tazkiya.pages.dev" && await has(page, '#sheet.movefull [data-act="movego"]') && /انتقلت تزكية إلى tazkiya\.family/.test(await txt(page, "#sheet")) && /moved to tazkiya\.family/.test(await txt(page, "#sheet")),
       "move: with progress, the former address shows the full-screen sheet in both languages");
     await Promise.all([page.waitForURL(/^https:\/\/tazkiya\.family\//, { timeout: 8000 }), page.click('#sheet [data-act="movego"]')]); await page.waitForTimeout(1300);
     ok(!/move=/.test(page.url()) && new URL(page.url()).hash === "#/", "move: the fragment is cleared from the address at once (" + page.url().slice(0, 50) + ")");
     const sh = await txt(page, "#sheet");
-    ok(/ليلى/.test(sh) && /Sam/.test(sh) && /تقدّم محفوظ من قبل/.test(sh), "move: the new address shows the names and asks before replacing its own progress");
+    ok(/ليلى/.test(sh) && /Sam/.test(sh) && await has(page, '#sheet [data-act="bkyes"]'), "move: the new address shows the names and asks before taking them");
     await page.click('#sheet [data-act="bkyes"]'); await page.waitForTimeout(1600);
     const st = await page.evaluate(() => ({ p: JSON.parse(localStorage.getItem("akhlaq-app-v1:profiles") || "{}"), a: JSON.parse(localStorage.getItem("akhlaq-app-v1") || "{}"), b: JSON.parse(localStorage.getItem("akhlaq-app-v1:p2") || "{}"), f: JSON.parse(localStorage.getItem("tazkiya-family") || "{}"), fx: JSON.parse(localStorage.getItem("tazkiya-fx") || "{}"), url: location.href }));
     ok(st.p.list && st.p.list.length === 2 && st.a.name === "ليلى" && st.a.read && st.a.read["zombie-r1"] && !st.a.read["pig-r1"] && st.b.name === "Sam" && st.b.edition === "adult", "move: both profiles arrive with their names and progress");
     ok(st.f.pact && st.f.pact.v === "human:0" && st.fx.amb === "rain" && st.fx.snd === false, "move: the family record and the sound settings come too");
     ok(!/move=/.test(st.url), "move: no fragment after the import");
     ok(!page.errs.length, "move: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+    await ctx.close(); });
+  // security review و1 (24 Nov 2026): a #move= link sent by anyone cannot replace a device's progress
+  await step("move: refused over progress", async () => {
+    const b64 = x => Buffer.from(x).toString("base64").replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+    const frag = "j." + b64(JSON.stringify({ app: "tazkiya", v: 1, profiles: { active: "p1", list: ["p1"] }, states: { p1: { mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, name: "Sender" } } }));
+    const { ctx, page } = await hostCtx(seed, ["tazkiya.family", { "akhlaq-app-v1": { mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, intro: true, tour: true, lang: "ar", name: "Mine", read: { "zombie-r1": 1763800000000 } } }]);
+    await page.goto("https://tazkiya.family/#move=" + frag); await page.waitForTimeout(1400);
+    const r = await page.evaluate(() => ({ h: location.hash, ask: !!document.querySelector('#sheet [data-act="bkyes"]'), toast: (document.querySelector(".toast") || {}).innerText || "", name: JSON.parse(localStorage.getItem("akhlaq-app-v1") || "{}").name }));
+    ok(r.h === "#/" && !r.ask && r.name === "Mine" && /تقدّم محفوظ/.test(r.toast), "move: on a device with progress the link is refused, nothing replaced, and it says why");
+    ok(!page.errs.length, "move (refused): no script errors (" + page.errs.slice(0, 1).join("") + ")");
+    await ctx.close(); });
+  // security review و2 and و3: JavaScript names and malformed escapes in the address are missing pages, not a blank screen
+  await step("routes: odd addresses", async () => {
+    const { ctx, page } = await hostCtx();
+    for (const h of ["#/stage/constructor", "#/stage/__proto__", "#/quiz/toString", "#/read/hasOwnProperty/x", "#/%", "#/stage/%E0%A4%A"]) {
+      await page.goto("https://tazkiya.family/?intro=0&n=" + encodeURIComponent(h) + h); await page.waitForTimeout(700);
+      const r = await page.evaluate(() => ({ miss: !!document.querySelector("#view .missing"), tabs: !!document.querySelector("#tabs a") }));
+      ok(r.miss && r.tabs, `routes: ${h} shows the missing page with the tabs`);
+    }
+    await page.goto("https://tazkiya.family/?intro=0&n=t#/tasks/constructor"); await page.waitForTimeout(700);
+    ok(await page.evaluate(() => document.body.dataset.route) === "tasks" && !page.errs.length, "routes: #/tasks/constructor opens the tasks tab");
+    await page.goto("https://tazkiya.family/?intro=0&sel=constructor#/"); await page.waitForTimeout(700);
+    ok(await has(page, "#view .hand") && !page.errs.length, "routes: ?sel=constructor opens the home page (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
   await step("move: a bad fragment", async () => {
     const b64 = x => Buffer.from(x).toString("base64").replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");

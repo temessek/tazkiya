@@ -792,9 +792,11 @@
     moveInAsk: ["انقل هذا التقدّم إلى هنا؟", "Bring this progress here?"],
     moveInOver: ["في هذا الموقع تقدّم محفوظ من قبل، والنقل يحلّ محله.", "This site already has saved progress; the move replaces it."],
     moveInYes: ["انقل التقدّم", "Move the progress"],
+    moveHere: ["في هذا الجهاز تقدّم محفوظ، فلم يُنقل شيء فوقه. لنقل تقدّم آخر: احفظ نسخة احتياطية في الجهاز الآخر، ثم استعدها هنا من الإعدادات.", "This device already has saved progress, so nothing was moved over it. To bring other progress: save a backup on the other device, then restore it here from Settings."],
     moveBad: ["تعذّرت قراءة التقدّم المنقول. افتح العنوان القديم واحفظ نسخة احتياطية، ثم استعدها هنا من الإعدادات.", "The moved progress could not be read. Open the old address and save a backup, then restore it here from Settings."]
   });
   Object.assign(UF, { moveBig: "تقدّمك أكبر من أن ينتقل داخل الرابط. احفظي نسخة احتياطية، ثم افتحي الموقع الجديد واستعيديها من الإعدادات.",
+    moveHere: "في هذا الجهاز تقدّم محفوظ، فلم يُنقل شيء فوقه. لنقل تقدّم آخر: احفظي نسخة احتياطية في الجهاز الآخر، ثم استعيديها هنا من الإعدادات.",
     moveBad: "تعذّرت قراءة التقدّم المنقول. افتحي العنوان القديم واحفظي نسخة احتياطية، ثم استعيديها هنا من الإعدادات." });
   Object.assign(UF, { chTry: "جرّبي الاختيار الآخر", chOn: "تابعي إلى الخاتمة", chAgain: "اقرئي القصة من أولها" });
   Object.assign(UA, {
@@ -863,6 +865,7 @@
   const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const fmt = (pair, o) => { let s = Array.isArray(pair) ? pair[L() === "ar" ? 0 : 1] : pair; Object.keys(o).forEach(k => { s = s.split("{" + k + "}").join(o[k]); }); return s; };
   const nm = id => t(C.stages[id].name);
+  const isStage = id => typeof id === "string" && ORDER.includes(id) && Object.prototype.hasOwnProperty.call(C.stages, id);
   const fing = id => { const f = fingerOf(id); return f ? t(FINGER[f]) : u("rightHandWord"); };
   const BK = () => (L() === "ar" ? "→" : "←");
   function move(a, b, n) { const k = Math.max(0, Math.min(n, S.mix[a])); S.mix[a] -= k; S.mix[b] += k; return k; }
@@ -2500,6 +2503,8 @@
     } catch (e) { return null; }
   }
   async function moveIn(s) {
+    // security review و1 (24 Nov 2026): anyone can send a #move= link, so it is taken only on a device with nothing to lose
+    if (SYNC || syncLoad() || P.list.some(id => hasProgress(id === P.active ? S : loadOf(id)))) { toast(u("moveHere"), 9000); return; }
     const d = await moveDecode(s);
     if (!d) { toast(u("moveBad"), 7000); return; }
     bkAskSheet(d, true);
@@ -3153,12 +3158,16 @@
 
   /* ---------- router ---------- */
   function route() {
-    const p = (location.hash.replace(/^#\/?/, "") || "").split("/").map(decodeURIComponent);
+    // a malformed %-escape is a missing page, not a crash (security review و3, 24 Nov 2026)
+    const p = (location.hash.replace(/^#\/?/, "") || "").split("/").map(x => { try { return decodeURIComponent(x); } catch (e) { return null; } });
+    if (p.includes(null)) return { name: "missing" };
     if (!p[0]) return { name: "home" };
+    // only the five stage keys reach a stage view: names such as "constructor" or "__proto__" are not stages (و2)
+    if (["stage", "read", "quiz", "sign", "card", "deg"].includes(p[0]) && !isStage(p[1])) return { name: "missing" };
     if (p[0] === "stage") return p[2] === "work" ? { name: "stage", id: p[1], door: "work", sec: p[3] ? "tr-" + p[3] : null } : { name: "stage", id: p[1], door: "learn", sec: p[2] ? "sec-" + p[2] : null };
     if (p[0] === "read") return { name: "read", id: p[1], rid: p[2] };
     if (p[0] === "quiz") return { name: "quiz", id: p[1], rid: p[2] || null };
-    if (p[0] === "tasks" && C.stages[p[1]]) { // the former stage-tasks page (until 23 Nov 2026) is now the stage's work door
+    if (p[0] === "tasks" && isStage(p[1])) { // the former stage-tasks page (until 23 Nov 2026) is now the stage's work door
       try { history.replaceState(history.state, "", workUrl(p[1]) + (p[2] ? "/" + p[2] : "")); } catch (e) {}
       return { name: "stage", id: p[1], door: "work", sec: p[2] ? "tr-" + p[2] : null };
     }
@@ -3528,6 +3537,8 @@
       case "bkimport": { const f = document.getElementById("bkFile"); if (f) f.click(); break; }
       case "bkyes": { const d = pendingImport; if (!d) break; pendingImport = null;
         if (!restoreBackup(d)) { closeSheet(); toast(u("bkFail"), 5000); break; }
+        // signed in: the restored copy must not delete what the account holds, so the next sync pulls the account first (و1)
+        { const sy = SYNC || syncLoad(); if (sy) { SYNC = Object.assign(sy, { cursor: "0", base: {}, gone: [], fresh: [], prof: {}, linked: false, at: 0 }); syncStore(); } }
         location.replace(location.pathname + "#/"); location.reload(); break; }
       case "histback": if (history.length > 1) history.back(); else location.hash = "#/"; break;
       case "install": if (installEv) { const ie = installEv; installEv = null; try { ie.prompt(); } catch (e) {} closeSheet(); render(true); } break;
@@ -3642,7 +3653,7 @@
     if (MOVE_IN) { S.intro = true; save(); moveIn(MOVE_IN); }
     else if (window.TZ_MOVE) moveSheet();
     else if (params.get("restore") === "1") { S.intro = true; save(); settingsSheet(); }
-    else if (sel && G[sel] && route().name === "home" && fingerOf(sel)) { homeSel = "L:" + fingerOf(sel); homeDeg = params.get("deg") ? +params.get("deg") : -1; render(); stageSheet(sel, homeDeg); }
+    else if (sel && isStage(sel) && route().name === "home" && fingerOf(sel)) { homeSel = "L:" + fingerOf(sel); homeDeg = params.get("deg") ? +params.get("deg") : -1; render(); stageSheet(sel, homeDeg); }
     else if (sel === "summit") summitSheet();
     else if (params.get("intro") === "0") { S.intro = true; if (params.get("tour") !== "1") S.tour = true; save(); }
     else if (!S.intro && route().name === "home") introSheet();
