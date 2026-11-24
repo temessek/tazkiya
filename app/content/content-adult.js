@@ -793,7 +793,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
         en: [
           "Tariq came home from work at six and lay on the sofa until dinner. His wife Layla worked as he did and got home an hour after him.",
           "One night he heard his son tell his sister: Dad doesn't help at home because he gets tired at work. Tariq was silent for a long time, remembering that their mother got tired at work too.",
-          "The next day he went into the kitchen and asked Layla: what can I do? Washing the dishes after dinner became his job, and the children dry them with him."
+          "The next day he went into the kitchen and asked Layla: what can I do? Washing the dishes after dinner became his job, and the children dried them with him."
         ]
       },
       step: {
@@ -842,18 +842,20 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
       title: { ar: "سلة المشتريات", en: "The shopping basket" },
       body: {
         ar: [
-          "تعمل دينا مصممة، ودخلها جيد. وفي آخر كل يوم تفتح تطبيقات التسوق لتسترخي: حقيبة، ثم عطر، ثم قطعة للبيت. تصل الطرود كل أسبوع، وبعضها يبقى في علبته.",
-          "ومع ذلك تشعر دائمًا أن شيئًا ينقصها. كلما اشترت شيئًا رأت ما هو أجمل منه، وكلما امتلأت خزانتها قلّ رضاها عمّا فيها.",
-          "وصف النبي صلى الله عليه وآله وسلم هذه الحال وصفًا دقيقًا: «لَوْ كَانَ لاِبْنِ آدَمَ وَادِيَانِ مِنْ مَالٍ لاَبْتَغَى ثَالِثًا، وَلاَ يَمْلأُ جَوْفَ ابْنِ آدَمَ إِلاَّ التُّرَابُ، وَيَتُوبُ اللَّهُ عَلَى مَنْ تَابَ» (البخاري 6436). وبيّن أين يكون الغنى: «لَيْسَ الْغِنَى عَنْ كَثْرَةِ الْعَرَضِ، وَلَكِنَّ الْغِنَى غِنَى النَّفْسِ» (البخاري 6446).",
-          "جرّبت دينا ثلاثة أشياء: حذفت تطبيقين من هاتفها، وجعلت لكل شراء غير ضروري مهلة ثلاثة أيام، وصارت كلما أرادت شيئًا جديدًا أخرجت من بيتها شيئًا لا تستعمله وأعطته لمن يحتاج إليه.",
-          "بعد شهرين صار ما في بيتها أقل، ورضاها عنه أكثر. وصار يبقى في حسابها آخر الشهر مبلغ تتصدق منه. قالت لأختها: لم أكن أشتري الأشياء، كنت أشتري لحظة الشراء."
+          "تعمل دينا مصممة، ودخلها جيد. وفي آخر كل يوم، حين تهدأ الرسائل، تفتح تطبيقات التسوق لتسترخي: حقيبة، ثم عطر، ثم قطعة للبيت. تصل الطرود كل أسبوع، وبعضها يبقى في علبته عند باب الغرفة.",
+          "وكلما وصل طرد رأت على الشاشة ما هو أجمل منه. امتلأت الخزانة، وبقي في صدرها مكان فارغ لا تملؤه العلب.",
+          "وفي ليلة أرادت أن تعرف متى تشتري، فراجعت طلبات شهر كامل. وجدت أكثرها في ليالٍ بعينها: بعد اجتماع متعب، أو مكالمة ثقيلة، أو يوم مرّ ولم يشكرها فيه أحد على عملها. كانت تشتري لتسكّن شيئًا آخر.",
+          "وفي الحديث صورة هذا الجوع الذي لا يشبع: «لَوْ كَانَ لاِبْنِ آدَمَ وَادِيَانِ مِنْ مَالٍ لاَبْتَغَى ثَالِثًا، وَلاَ يَمْلأُ جَوْفَ ابْنِ آدَمَ إِلاَّ التُّرَابُ، وَيَتُوبُ اللَّهُ عَلَى مَنْ تَابَ» (البخاري 6436). وفي حديث آخر موضع الغنى: «لَيْسَ الْغِنَى عَنْ كَثْرَةِ الْعَرَضِ، وَلَكِنَّ الْغِنَى غِنَى النَّفْسِ» (البخاري 6446).",
+          "جرّبت دينا ثلاثة أشياء: حذفت تطبيقين من هاتفها، وجعلت لكل شراء غير ضروري مهلة ثلاثة أيام، وصارت كلما أرادت شيئًا جديدًا أخرجت من بيتها شيئًا لا تستعمله وأعطته لمن يحتاج إليه. وفي الليالي الثقيلة صارت تتصل بأختها قبل أن تفتح التطبيق.",
+          "بعد شهرين صار ما في بيتها أقل، ورضاها عنه أكثر، وبقي في حسابها آخر الشهر مبلغ تتصدق منه. وفي إحدى تلك المكالمات قالت لأختها: لم أكن أشتري الأشياء، كنت أشتري لحظة الشراء."
         ],
         en: [
-          "Dina works as a designer and earns well. At the end of each day she opens shopping apps to unwind: a bag, then a perfume, then something for the house. Parcels arrive every week, and some stay in their boxes.",
-          "Yet she always feels something is missing. Whenever she buys something she sees something lovelier, and the fuller her wardrobe grows the less content she is with it.",
-          "The Prophet, peace and blessings be upon him and his family, described this state precisely, meaning: if the son of Adam had two valleys of wealth he would seek a third, and nothing fills the son of Adam's belly but dust, and Allah turns to whoever turns to Him (Bukhari 6436). And he showed where wealth truly lies: «Wealth is not an abundance of goods; wealth is the richness of the soul» (Bukhari 6446).",
-          "Dina tried three things: she deleted two apps from her phone, gave every non-essential purchase three days' grace, and whenever she wanted something new she took something she no longer used out of her home and gave it to someone who needed it.",
-          "Two months later she owned less and was more content with it. At the end of each month there was money left in her account to give in charity. She told her sister: I wasn't buying things; I was buying the moment of buying."
+          "Dina works as a designer and earns well. At the end of each day, once the messages die down, she opens shopping apps to unwind: a bag, then a perfume, then something for the house. Parcels arrive every week, and some stay in their boxes by the bedroom door.",
+          "Every time a parcel arrived, the screen showed her something lovelier. The wardrobe filled up, and a space in her chest stayed empty that no box could fill.",
+          "One night she wanted to know when she bought, so she went through a whole month of orders. Most of them fell on certain nights: after a draining meeting, a heavy phone call, or a day that went by without anyone thanking her for her work. She was buying to quiet something else.",
+          "A hadith pictures this hunger that is never full, meaning: if the son of Adam had two valleys of wealth he would seek a third, and nothing fills the son of Adam's belly but dust, and Allah turns to whoever turns to Him (Bukhari 6436). Another shows where wealth lies: «Wealth is not an abundance of goods; wealth is the richness of the soul» (Bukhari 6446).",
+          "Dina tried three things: she deleted two apps from her phone, gave every non-essential purchase three days' grace, and whenever she wanted something new she took something she no longer used out of her home and gave it to someone who needed it. On the heavy nights she began calling her sister before opening the app.",
+          "Two months later she owned less and was more content with it, and at the end of each month there was money left in her account to give in charity. In one of those calls she told her sister: I wasn't buying things; I was buying the moment of buying."
         ]
       },
       quote: {
@@ -872,6 +874,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
           "والقرآن يضع للطعام قاعدة قصيرة: ﴿وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ﴾ (الأعراف 7:31). الطعام نعمة، والإسراف فيه يحوّل النعمة عبئًا.",
           "وبيّن النبي صلى الله عليه وآله وسلم المقدار: «مَا مَلأَ آدَمِيٌّ وِعَاءً شَرًّا مِنْ بَطْنٍ بِحَسْبِ ابْنِ آدَمَ أُكُلاَتٌ يُقِمْنَ صُلْبَهُ فَإِنْ كَانَ لاَ مَحَالَةَ فَثُلُثٌ لِطَعَامِهِ وَثُلُثٌ لِشَرَابِهِ وَثُلُثٌ لِنَفَسِهِ» (جامع الترمذي 2380، وقال: حسن صحيح).",
           "والمقصود أن يبقى في الجسد متّسع: للنَّفَس، وللخفة، وللقيام إلى الصلاة دون ثقل. والحساب الدقيق للأثلاث أقل أهمية من هذا المتّسع.",
+          "ومحاسبة البطن تبدأ بسؤال قبل اللقمة: أجائع أنا، أم متعب، أم ضَجِر؟ كثير مما يؤكل في آخر الليل جواب عن تعب النهار: يطلب الجسد النوم، فنعطيه طعامًا.",
           "خطوات عملية: ابدأ بطبق صغير، وكُل ببطء، واشرب الماء قبل الطعام، وانتظر دقائق قبل أن تقوم إلى الطبق الثاني. فإن لم تعد إليه فقد عرفت أنك كنت شبعان."
         ],
         ar_f: [
@@ -879,6 +882,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
           "والقرآن يضع للطعام قاعدة قصيرة: ﴿وَكُلُوا وَاشْرَبُوا وَلَا تُسْرِفُوا ۚ إِنَّهُ لَا يُحِبُّ الْمُسْرِفِينَ﴾ (الأعراف 7:31). الطعام نعمة، والإسراف فيه يحوّل النعمة عبئًا.",
           "وبيّن النبي صلى الله عليه وآله وسلم المقدار: «مَا مَلأَ آدَمِيٌّ وِعَاءً شَرًّا مِنْ بَطْنٍ بِحَسْبِ ابْنِ آدَمَ أُكُلاَتٌ يُقِمْنَ صُلْبَهُ فَإِنْ كَانَ لاَ مَحَالَةَ فَثُلُثٌ لِطَعَامِهِ وَثُلُثٌ لِشَرَابِهِ وَثُلُثٌ لِنَفَسِهِ» (جامع الترمذي 2380، وقال: حسن صحيح).",
           "والمقصود أن يبقى في الجسد متّسع: للنَّفَس، وللخفة، وللقيام إلى الصلاة دون ثقل. والحساب الدقيق للأثلاث أقل أهمية من هذا المتّسع.",
+          "ومحاسبة البطن تبدأ بسؤال قبل اللقمة: أجائعة أنا، أم متعبة، أم ضَجِرة؟ كثير مما يؤكل في آخر الليل جواب عن تعب النهار: يطلب الجسد النوم، فنعطيه طعامًا.",
           "خطوات عملية: ابدئي بطبق صغير، وكُلي ببطء، واشربي الماء قبل الطعام، وانتظري دقائق قبل أن تقومي إلى الطبق الثاني. فإن لم تعودي إليه فقد عرفتِ أنكِ كنتِ شبعى."
         ],
         en: [
@@ -886,6 +890,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
           "The Quran gives food a short rule, meaning: eat and drink, and do not waste; He does not love the wasteful (al-A'raf 7:31). Food is a blessing, and excess turns the blessing into a burden.",
           "The Prophet, peace and blessings be upon him and his family, set the measure, meaning: no human fills a vessel worse than his belly; a few morsels to keep his back straight are enough for the son of Adam, and if he must, then a third for his food, a third for his drink and a third for his breath (Jami' at-Tirmidhi 2380, graded hasan sahih by him).",
           "The point is to leave room in the body: room to breathe, to feel light, to stand for prayer without heaviness. Counting the thirds exactly matters less than keeping that room.",
+          "Taking the stomach to account begins with a question before the first bite: am I hungry, or tired, or bored? Much of what is eaten late at night is an answer to the day's tiredness: the body asks for sleep, and we give it food.",
           "Practical steps: start with a small plate, eat slowly, drink water before eating, and wait a few minutes before going back for a second plate. If you don't go back, you have learned that you were already full."
         ]
       },
@@ -905,14 +910,14 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
           "لم تقصد أن تظلمه، هكذا قالت لنفسها. كانت الترقية قريبة، وأرادت أن يرى المدير عملها واضحًا. وفي الاجتماع العام شكرها المدير أمام الجميع، وسامي جالس في آخر القاعة صامتًا.",
           "في الطريق إلى البيت تذكرت حديثًا تحفظه منذ صغرها: «لا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ» (البخاري 13). سألت نفسها: لو سهرتُ أنا ليلتين، وأخذ غيري الشكر، ماذا كنت سأشعر؟",
           "في الصباح كتبت إلى المدير رسالة قصيرة: «الأرقام والتحليل في العرض من عمل سامي، وهو أحق بالشكر عليها». ثم ذهبت إلى سامي واعتذرت إليه.",
-          "تأخرت ترقيتها شهرين، وجاءت. وصار سامي أول من تستشيره في كل عرض بعدها، وصار المدير يثق بكلامها حين تمدح أحدًا، لأنه عرف أنها لا تأخذ ما ليس لها."
+          "تأخرت ترقيتها شهرين، وجاءت. وصار سامي أول من تستشيره في كل عرض بعدها. وصار المدير، إذا أثنت رنا على أحد، يكتب اسمه في دفتره."
         ],
         en: [
           "Rana prepared a presentation for a major client with her colleague Sami. Sami stayed up two nights on the figures and the analysis; she wrote and designed the slides. When she sent it to the manager, she put only her own name beneath it.",
           "She didn't mean to wrong him, she told herself. A promotion was coming, and she wanted the manager to see her work clearly. At the general meeting the manager thanked her in front of everyone, while Sami sat silent at the back of the room.",
           "On the way home she remembered a hadith she had known since childhood: «None of you believes until he loves for his brother what he loves for himself» (Bukhari 13). She asked herself: if I had stayed up two nights and someone else got the thanks, how would I feel?",
           "In the morning she wrote the manager a short message: «The figures and analysis in the presentation are Sami's work, and the thanks for them are his.» Then she went to Sami and apologised.",
-          "Her promotion came two months later than it might have. Sami became the first person she consulted on every presentation after that, and the manager came to trust her praise of others, because he knew she did not take what was not hers."
+          "Her promotion came two months later than it might have. Sami became the first person she consulted on every presentation after that. And whenever Rana praised someone, the manager wrote that person's name in his notebook."
         ]
       },
       quote: {
@@ -927,25 +932,25 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
       title: { ar: "الأريكة والمطبخ", en: "The sofa and the kitchen" },
       body: {
         ar: [
-          "كثير من الخلاف في البيوت لا يبدأ بكلمة جارحة، بل بتعب يحمله واحد ويستريح منه الآخر. يتراكم التعب أيامًا، ثم يخرج في جملة غاضبة عن شيء صغير، فيتعجب الطرف الآخر من الغضب.",
-          "والكسل في البيت لا يظهر دائمًا في صورة النوم. قد يظهر في الانشغال بالهاتف والأولاد يسألون، وفي «سأفعلها لاحقًا» التي يفعلها غيرك، وفي ترك الحديث مع الطرف الآخر عن يومه لأنك متعب.",
+          "كثير من الخلاف في البيوت يبدأ قبل أي كلمة جارحة، بتعب يحمله واحد ويستريح منه الآخر. يتراكم التعب أيامًا، ثم يخرج في جملة غاضبة عن شيء صغير، فيتعجب الطرف الآخر من الغضب.",
+          "وللكسل في البيت صور أخفى من النوم: الانشغال بالهاتف والأولاد يسألون، و«سأفعلها لاحقًا» التي يفعلها غيرك، وترك السؤال عن يوم الطرف الآخر لأنك متعب. ومحاسبة آخر اليوم تكشفها بسؤال واحد: من تعب الليلة لأرتاح أنا؟",
           "وقد جعل النبي صلى الله عليه وآله وسلم البيت ميزان الخيرية: «خَيْرُكُمْ خَيْرُكُمْ لأَهْلِهِ وَأَنَا خَيْرُكُمْ لأَهْلِي» (جامع الترمذي 3895). الخير الذي يراه الناس في العمل والمسجد يُختبر في المطبخ وغرفة الأولاد.",
           "خطوات عملية: اجلسا مرة واحدة واكتبا أعمال البيت كلها، ثم اختر منها عملًا ثابتًا يكون لك. اجعل للأولاد نصيبًا بحسب أعمارهم. واسأل الطرف الآخر مرة في الأسبوع: ما الذي يثقل عليك هذه الأيام؟ واسمع الجواب دون أن تدافع عن نفسك.",
-          "والمقصود ليس قسمة حسابية دقيقة، فلكل بيت ظروفه. المقصود ألا يستريح أحد على تعب غيره وهو يقدر أن يعينه."
+          "ولكل بيت ظروفه وقسمته، والميزان فيها واحد: ألا يستريح أحد على تعب غيره وهو يقدر أن يعينه."
         ],
         ar_f: [
-          "كثير من الخلاف في البيوت لا يبدأ بكلمة جارحة، بل بتعب يحمله واحد ويستريح منه الآخر. يتراكم التعب أيامًا، ثم يخرج في جملة غاضبة عن شيء صغير، فيتعجب الطرف الآخر من الغضب.",
-          "والكسل في البيت لا يظهر دائمًا في صورة النوم. قد يظهر في الانشغال بالهاتف والأولاد يسألون، وفي «سأفعلها لاحقًا» التي يفعلها غيرك، وفي ترك الحديث مع الطرف الآخر عن يومه لأنك متعبة.",
+          "كثير من الخلاف في البيوت يبدأ قبل أي كلمة جارحة، بتعب يحمله واحد ويستريح منه الآخر. يتراكم التعب أيامًا، ثم يخرج في جملة غاضبة عن شيء صغير، فيتعجب الطرف الآخر من الغضب.",
+          "وللكسل في البيت صور أخفى من النوم: الانشغال بالهاتف والأولاد يسألون، و«سأفعلها لاحقًا» التي يفعلها غيرك، وترك السؤال عن يوم الطرف الآخر لأنك متعبة. ومحاسبة آخر اليوم تكشفها بسؤال واحد: من تعب الليلة لأرتاح أنا؟",
           "وقد جعل النبي صلى الله عليه وآله وسلم البيت ميزان الخيرية: «خَيْرُكُمْ خَيْرُكُمْ لأَهْلِهِ وَأَنَا خَيْرُكُمْ لأَهْلِي» (جامع الترمذي 3895). الخير الذي يراه الناس في العمل والمسجد يُختبر في المطبخ وغرفة الأولاد.",
           "خطوات عملية: اجلسا مرة واحدة واكتبا أعمال البيت كلها، ثم اختاري منها عملًا ثابتًا يكون لك. اجعلي للأولاد نصيبًا بحسب أعمارهم. واسألي الطرف الآخر مرة في الأسبوع: ما الذي يثقل عليك هذه الأيام؟ واسمعي الجواب دون أن تدافعي عن نفسك.",
-          "والمقصود ليس قسمة حسابية دقيقة، فلكل بيت ظروفه. المقصود ألا يستريح أحد على تعب غيره وهو يقدر أن يعينه."
+          "ولكل بيت ظروفه وقسمته، والميزان فيها واحد: ألا يستريح أحد على تعب غيره وهو يقدر أن يعينه."
         ],
         en: [
-          "Many quarrels at home don't begin with a hurtful word, but with tiredness that one person carries while the other rests. It builds up for days, then comes out in an angry sentence about something small, and the other is surprised by the anger.",
-          "Laziness at home doesn't always look like sleep. It can look like being busy on the phone while the children ask for you, like the «I'll do it later» that someone else ends up doing, like not asking your spouse about their day because you are tired.",
+          "Many quarrels at home begin before any hurtful word, with tiredness that one person carries while the other rests. It builds up for days, then comes out in an angry sentence about something small, and the other is surprised by the anger.",
+          "Laziness at home takes quieter forms than sleep: being busy on the phone while the children ask for you, the «I'll do it later» that someone else ends up doing, not asking your spouse about their day because you are tired. An end-of-day review uncovers them with one question: who was tired tonight so that I could rest?",
           "The Prophet, peace and blessings be upon him and his family, made the home the measure of goodness: «The best of you are the best to their families, and I am the best of you to my family» (Jami' at-Tirmidhi 3895). The goodness people see at work and in the mosque is tested in the kitchen and the children's room.",
           "Practical steps: sit down together once and list all the housework, then pick one fixed job to be yours. Give the children a share according to their ages. Once a week, ask your spouse: what is weighing on you these days? Listen to the answer without defending yourself.",
-          "The aim is not an exact split; every home has its circumstances. The aim is that no one rests on another's tiredness when they could help."
+          "Every home has its own circumstances and its own split, and one measure for all of them: that no one rests on another's tiredness when they could help."
         ]
       },
       quote: {
@@ -957,36 +962,42 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
     },
     {
       id: "ap-r5", minutes: 4, ages: "18+",
-      title: { ar: "الطابور والطريق", en: "The queue and the road" },
+      title: { ar: "سيارة ابن الخال", en: "The cousin's new car" },
       body: {
         ar: [
-          "في الطريق يظهر من الإنسان ما لا يظهر في المجلس: من يزاحم عند الإشارة، ومن يقف في مكان ذوي الإعاقة لأنه «دقيقة واحدة»، ومن يغلق مخرج جاره، ومن يتجاوز الطابور في المخبز لأنه مستعجل.",
-          "نهى النبي صلى الله عليه وآله وسلم عن الجلوس في الطرقات، فقال الصحابة إنها مجالسهم لا بد لهم منها، فقال: «فَإِذَا أَبَيْتُمْ إِلاَّ الْمَجَالِسَ فَأَعْطُوا الطَّرِيقَ حَقَّهَا». قالوا: وما حق الطريق؟ قال: «غَضُّ الْبَصَرِ، وَكَفُّ الأَذَى، وَرَدُّ السَّلاَمِ، وَأَمْرٌ بِالْمَعْرُوفِ، وَنَهْىٌ عَنِ الْمُنْكَرِ» (البخاري 2465).",
-          "وطريقنا اليوم أوسع من طريقهم وأسرع، وحقه أوسع أيضًا. كفّ الأذى فيه أن تقف حيث لا تعطّل أحدًا، وألا تستعمل البوق في الليل، وألا تقطع على غيرك طريقه لتسبقه بثوانٍ.",
-          "والطابور صورة صغيرة من العدل: كل من فيه وقته ثمين مثل وقتك، وحاجته مثل حاجتك. ومن تجاوزه أخذ من وقت الناس ما ليس له، ولو كان دقائق.",
-          "خطوات عملية: اخرج قبل موعدك بدقائق حتى لا يدفعك الاستعجال إلى المزاحمة، وقف في آخر الصف ولو رأيت فرجة، ودع سيارة تدخل أمامك مرة في كل مشوار."
+          "اشترى عادل سيارته قبل ثلاث سنوات، وكان راضيًا بها. وفي عشاء العائلة ركن ابن خاله سيارة جديدة أمام البيت، ودار الحديث حولها نصف السهرة. وفي طريق العودة بدت سيارة عادل أضيق قليلًا، وصوت محركها أعلى مما كان في الصباح.",
+          "بقيت السيارة كما هي، وتغيّر الميزان الذي يزن به ما عنده: صار يقيسه على ما عند غيره. وصار يفتح صفحات أصحابه على الهاتف فيرى سفرًا وبيوتًا وموائد، ثم يغلقها وفي صدره ثقل لا يعرف اسمه، ويجد صبره على أولاده في المساء أقصر.",
+          "والقرآن يردّ العين إلى نصيبها: ﴿وَلَا تَتَمَنَّوْا مَا فَضَّلَ اللَّهُ بِهِ بَعْضَكُمْ عَلَىٰ بَعْضٍ﴾، ثم يفتح في الآية نفسها بابًا لا يزاحم فيه أحد أحدًا: ﴿وَاسْأَلُوا اللَّهَ مِنْ فَضْلِهِ﴾ (النساء 4:32).",
+          "وفي السنة علاج يُعمل به في اللحظة نفسها: «إِذَا نَظَرَ أَحَدُكُمْ إِلَى مَنْ فُضِّلَ عَلَيْهِ فِي الْمَالِ وَالْخَلْقِ، فَلْيَنْظُرْ إِلَى مَنْ هُوَ أَسْفَلَ مِنْهُ» (البخاري 6490). نظرة ثانية بعد الأولى، تعيد الميزان إلى مكانه.",
+          "وللمقارنة وجه محمود: أن تتمنى مثل ما عند غيرك من الخير لتعمل مثله. قال النبي صلى الله عليه وآله وسلم: «لاَ حَسَدَ إِلاَّ فِي اثْنَتَيْنِ رَجُلٌ آتَاهُ اللَّهُ مَالاً فَسُلِّطَ عَلَى هَلَكَتِهِ فِي الْحَقِّ، وَرَجُلٌ آتَاهُ اللَّهُ الْحِكْمَةَ، فَهْوَ يَقْضِي بِهَا وَيُعَلِّمُهَا» (البخاري 73). والمال الذي يستحق أن يُتمنّى في الحديث مال يُنفق في الحق.",
+          "جرّب عادل أمرين: كلما أغلق صفحة أحد أصحابه كتب في هاتفه ثلاث نعم عنده كان قد كفّ عن رؤيتها، وكلما أعجبه شيء عند أحد دعا له بالبركة فيه. وبعد أسابيع سأل ابن خاله عن سيارته الجديدة، وفرح له، ثم عاد بأولاده إلى البيت في سيارته، وهم يغنّون في المقعد الخلفي.",
+          "سؤال للمحاسبة: آخر مرة تصفّحت فيها حياة غيرك، هل خرجت شاكرًا أم متحسّرًا؟ وما النعمة التي عندك ولم تذكرها اليوم؟"
         ],
         ar_f: [
-          "في الطريق يظهر من الإنسان ما لا يظهر في المجلس: من يزاحم عند الإشارة، ومن يقف في مكان ذوي الإعاقة لأنه «دقيقة واحدة»، ومن يغلق مخرج جاره، ومن يتجاوز الطابور في المخبز لأنه مستعجل.",
-          "نهى النبي صلى الله عليه وآله وسلم عن الجلوس في الطرقات، فقال الصحابة إنها مجالسهم لا بد لهم منها، فقال: «فَإِذَا أَبَيْتُمْ إِلاَّ الْمَجَالِسَ فَأَعْطُوا الطَّرِيقَ حَقَّهَا». قالوا: وما حق الطريق؟ قال: «غَضُّ الْبَصَرِ، وَكَفُّ الأَذَى، وَرَدُّ السَّلاَمِ، وَأَمْرٌ بِالْمَعْرُوفِ، وَنَهْىٌ عَنِ الْمُنْكَرِ» (البخاري 2465).",
-          "وطريقنا اليوم أوسع من طريقهم وأسرع، وحقه أوسع أيضًا. كفّ الأذى فيه أن تقفي حيث لا تعطّلين أحدًا، وألا تستعملي البوق في الليل، وألا تقطعي على غيرك طريقه لتسبقيه بثوانٍ.",
-          "والطابور صورة صغيرة من العدل: كل من فيه وقته ثمين مثل وقتك، وحاجته مثل حاجتك. ومن تجاوزه أخذ من وقت الناس ما ليس له، ولو كان دقائق.",
-          "خطوات عملية: اخرجي قبل موعدك بدقائق حتى لا يدفعك الاستعجال إلى المزاحمة، وقفي في آخر الصف ولو رأيتِ فرجة، ودعي سيارة تدخل أمامك مرة في كل مشوار."
+          "اشترى عادل سيارته قبل ثلاث سنوات، وكان راضيًا بها. وفي عشاء العائلة ركن ابن خاله سيارة جديدة أمام البيت، ودار الحديث حولها نصف السهرة. وفي طريق العودة بدت سيارة عادل أضيق قليلًا، وصوت محركها أعلى مما كان في الصباح.",
+          "بقيت السيارة كما هي، وتغيّر الميزان الذي يزن به ما عنده: صار يقيسه على ما عند غيره. وصار يفتح صفحات أصحابه على الهاتف فيرى سفرًا وبيوتًا وموائد، ثم يغلقها وفي صدره ثقل لا يعرف اسمه، ويجد صبره على أولاده في المساء أقصر.",
+          "والقرآن يردّ العين إلى نصيبها: ﴿وَلَا تَتَمَنَّوْا مَا فَضَّلَ اللَّهُ بِهِ بَعْضَكُمْ عَلَىٰ بَعْضٍ﴾، ثم يفتح في الآية نفسها بابًا لا يزاحم فيه أحد أحدًا: ﴿وَاسْأَلُوا اللَّهَ مِنْ فَضْلِهِ﴾ (النساء 4:32).",
+          "وفي السنة علاج يُعمل به في اللحظة نفسها: «إِذَا نَظَرَ أَحَدُكُمْ إِلَى مَنْ فُضِّلَ عَلَيْهِ فِي الْمَالِ وَالْخَلْقِ، فَلْيَنْظُرْ إِلَى مَنْ هُوَ أَسْفَلَ مِنْهُ» (البخاري 6490). نظرة ثانية بعد الأولى، تعيد الميزان إلى مكانه.",
+          "وللمقارنة وجه محمود: أن تتمني مثل ما عند غيرك من الخير لتعملي مثله. قال النبي صلى الله عليه وآله وسلم: «لاَ حَسَدَ إِلاَّ فِي اثْنَتَيْنِ رَجُلٌ آتَاهُ اللَّهُ مَالاً فَسُلِّطَ عَلَى هَلَكَتِهِ فِي الْحَقِّ، وَرَجُلٌ آتَاهُ اللَّهُ الْحِكْمَةَ، فَهْوَ يَقْضِي بِهَا وَيُعَلِّمُهَا» (البخاري 73). والمال الذي يستحق أن يُتمنّى في الحديث مال يُنفق في الحق.",
+          "جرّب عادل أمرين: كلما أغلق صفحة أحد أصحابه كتب في هاتفه ثلاث نعم عنده كان قد كفّ عن رؤيتها، وكلما أعجبه شيء عند أحد دعا له بالبركة فيه. وبعد أسابيع سأل ابن خاله عن سيارته الجديدة، وفرح له، ثم عاد بأولاده إلى البيت في سيارته، وهم يغنّون في المقعد الخلفي.",
+          "سؤال للمحاسبة: آخر مرة تصفّحتِ فيها حياة غيرك، هل خرجتِ شاكرة أم متحسّرة؟ وما النعمة التي عندكِ ولم تذكريها اليوم؟"
         ],
         en: [
-          "On the road a person shows what never shows in company: who pushes in at the lights, who parks in a disabled space because it's «just a minute», who blocks a neighbour's driveway, who skips the queue at the bakery because they're in a hurry.",
-          "The Prophet, peace and blessings be upon him and his family, forbade sitting in the streets. The Companions said these were their meeting places and they could not do without them. He said: «If you insist on sitting there, then give the road its right.» They asked: what is the road's right? He said: «Lowering the gaze, keeping harm away, returning greetings, enjoining good and forbidding wrong» (Bukhari 2465).",
-          "Our roads today are wider and faster than theirs, and their right is wider too. Keeping harm away means stopping where you hold no one up, not using the horn at night, and not cutting across someone to get ahead by a few seconds.",
-          "A queue is a small picture of justice: everyone in it values their time as you do yours, and needs what they came for as you do. Whoever skips it takes people's time that isn't theirs, even if only minutes.",
-          "Practical steps: leave a few minutes early so that hurry does not push you to shove; stand at the back of the line even if you see a gap; and let one car in ahead of you on every trip."
+          "Adel bought his car three years ago and was happy with it. At a family dinner his cousin parked a new car outside the house, and half the evening's talk circled around it. On the drive home Adel's car seemed a little smaller, and its engine louder than it had been that morning.",
+          "The car was the same; the scale he weighed his life on had changed. He now measured what he had against what others had. He began opening his friends' pages on his phone and seeing trips, houses and dinners, then closing them with a weight in his chest he had no name for, and a shorter patience with his children in the evening.",
+          "The Quran turns the eye back to its own share, meaning: do not covet what Allah has given some of you over others; and in the same verse it opens a door where no one crowds anyone: ask Allah of His bounty (an-Nisa' 4:32).",
+          "The Sunnah gives a cure to use in the very moment, meaning: when one of you looks at someone given more than him in wealth and in looks, let him look at someone below him (Bukhari 6490). A second look after the first sets the scale right again.",
+          "Comparison has a praiseworthy face: to wish for the good another has so that you may do as they do. The Prophet, peace and blessings be upon him and his family, said, in meaning: there is no envy except in two cases: a man Allah has given wealth who spends it on what is right, and a man Allah has given wisdom who judges by it and teaches it (Bukhari 73). The wealth worth wishing for in this hadith is wealth spent on what is right.",
+          "Adel tried two things: each time he closed a friend's page he wrote on his phone three blessings of his own that he had stopped seeing, and each time he admired something someone had, he prayed for blessing on them in it. A few weeks later he asked his cousin about the new car and was glad for him, then drove his children home in his own, with them singing in the back seat.",
+          "A question for self-review: the last time you scrolled through other people's lives, did you come away grateful or regretful? And which blessing of yours have you not remembered today?"
         ]
       },
       quote: {
-        ar: "«غَضُّ الْبَصَرِ، وَكَفُّ الأَذَى، وَرَدُّ السَّلاَمِ، وَأَمْرٌ بِالْمَعْرُوفِ، وَنَهْىٌ عَنِ الْمُنْكَرِ»",
-        en: "Meaning (the road's right): Lowering the gaze, keeping harm away, returning greetings, enjoining good and forbidding wrong.",
-        ref: "صحيح البخاري 2465، عن أبي سعيد الخدري", checked: "hadith-api (fawazahmed0)", verify: true
+        ar: "«إِذَا نَظَرَ أَحَدُكُمْ إِلَى مَنْ فُضِّلَ عَلَيْهِ فِي الْمَالِ وَالْخَلْقِ، فَلْيَنْظُرْ إِلَى مَنْ هُوَ أَسْفَلَ مِنْهُ»",
+        en: "Meaning: When one of you looks at someone given more than him in wealth and in looks, let him look at someone below him.",
+        ref: "صحيح البخاري 6490، عن أبي هريرة", checked: "hadith-api (fawazahmed0)", verify: true
       },
-      source: { ar: "مقالة مع حديث في صحيح البخاري.", en: "An article with a hadith in Sahih al-Bukhari." }
+      source: { ar: "قصة مؤلفة بشخصيات خيالية، مع آية من سورة النساء وحديثين في صحيح البخاري.", en: "An original story with fictional characters, with a verse from an-Nisa' and two hadiths in Sahih al-Bukhari." }
     },
     {
       id: "ap-r6", minutes: 5, ages: "18+",
@@ -994,15 +1005,15 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
       body: {
         ar: [
           "في «إحياء علوم الدين» كتاب كامل عنوانه «كتاب كسر الشهوتين»: شهوة البطن، وشهوة الفرج. ويبدأ الغزالي كلامه في شهوة البطن بقوله: «فأعظم المهلكات لابن آدم شهوة البطن، فبها أخرج آدم عليه السلام وحواء من دار القرار إلى دار الذل والافتقار».",
-          "ويبيّن الغزالي أن شهوة البطن لا تبقى وحدها: من أطاع بطنه احتاج إلى المال الذي يشبعه، ثم إلى ما يجلب المال، فتجرّه شهوة صغيرة إلى شهوات أكبر منها. ولهذا جعلها أول ما يُعالج.",
-          "والعلاج عنده ليس في ترك الطعام ولا في تعذيب الجسد. المحمود في أكثر الناس الاعتدال: أن يأكل فلا يحس بثقل الشبع، ولا يضعفه الجوع عن عبادته وعمله.",
+          "ويسمّي الغزالي البطن «ينبوع الشهوات ومنبت الأدواء والآفات»، ويبيّن أن شهوته تجرّ ما بعدها: من أطاع بطنه احتاج إلى المال الذي يشبعه، ثم إلى ما يجلب المال، فتجرّه شهوة صغيرة إلى شهوات أكبر منها. ولهذا جعلها أول ما يُعالج.",
+          "وميزان العلاج عنده الوسط، فهو يقرر في الكتاب نفسه أن «المطلوب الأقصى في جميع الأمور والأخلاق: الوسط». والوسط في الطعام أن يأكل الإنسان فلا يحس بثقل الشبع، ولا يضعفه الجوع عن عبادته وعمله.",
           "ومن طرق تدريب النفس التي يذكرها: التدرّج في تقليل ما زاد عن الحاجة، وتأخير الأكل حتى يصدق الجوع، والصوم الذي يعلّم النفس أنها تستطيع أن تقول لا.",
           "وفي حياتنا اليوم تظهر الشهوتان في صور كثيرة: طعام حاضر في كل وقت، وإعلانات تعدك باللذة، وشاشات تعرض ما لا يحل النظر إليه. والطريق واحد: أن تملك النفس قرارها، فتأخذ ما يحل وما يكفي، وتترك الباقي. وأيسر بداية: صيام الاثنين والخميس، أو أحدهما."
         ],
         en: [
           "The Ihya 'Ulum al-Din has a whole book titled «The Book of Breaking the Two Appetites»: the appetite of the stomach and the appetite of the private parts. Al-Ghazali opens his discussion of the stomach with: «The greatest of the things that destroy the son of Adam is the appetite of the stomach; through it Adam, peace be upon him, and Hawwa were sent out from the abode of permanence to the abode of lowliness and need.»",
-          "Al-Ghazali shows that the stomach's appetite does not stay alone: whoever obeys his stomach needs the money to satisfy it, then whatever brings money, so a small appetite drags him to larger ones. That is why he makes it the first thing to treat.",
-          "His cure is neither giving up food nor tormenting the body. For most people the praiseworthy way is moderation: to eat so as not to feel the heaviness of fullness, nor be weakened by hunger from worship and work.",
+          "Al-Ghazali calls the stomach «the wellspring of the appetites and the breeding ground of ailments and ills», and shows that its appetite pulls others behind it: whoever obeys his stomach needs the money to satisfy it, then whatever brings money, so a small appetite drags him to larger ones. That is why he makes it the first thing to treat.",
+          "The measure of his cure is the middle way. In the same book he states that «the furthest aim in all matters and traits of character is the middle». In food, the middle is to eat so as not to feel the heaviness of fullness, nor be weakened by hunger from worship and work.",
           "Among the ways of training the self he mentions: gradually cutting what goes beyond need, delaying eating until hunger is real, and fasting, which teaches the self that it can say no.",
           "In our lives today both appetites appear in many forms: food available at every hour, advertisements promising pleasure, screens showing what is not lawful to look at. The path is one: for the self to own its decisions, taking what is lawful and enough and leaving the rest. The easiest start is fasting on Mondays and Thursdays, or one of them."
         ]
@@ -1012,28 +1023,28 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
         en: "Meaning: The greatest of the things that destroy the son of Adam is the appetite of the stomach; through it Adam and Hawwa were sent out from the abode of permanence to the abode of lowliness and need.",
         ref: "إحياء علوم الدين، كتاب كسر الشهوتين", checked: "ar.wikisource.org (إحياء علوم الدين)", verify: true
       },
-      source: { ar: "إحياء علوم الدين للغزالي (كتاب كسر الشهوتين)، مع خلاصة لمنهجه في العلاج.", en: "Al-Ghazali's Ihya 'Ulum al-Din (Book of Breaking the Two Appetites), with a summary of his method of cure." }
+      source: { ar: "إحياء علوم الدين للغزالي (كتاب كسر الشهوتين، ومنه «بيان اختلاف حكم الجوع وفضيلته واختلاف أحوال الناس فيه»)، مع خلاصة لمنهجه في العلاج.", en: "Al-Ghazali's Ihya 'Ulum al-Din (Book of Breaking the Two Appetites, including the section on the differing rulings and merit of hunger), with a summary of his method of cure." }
     },
     {
       id: "ap-r7", summit: true, minutes: 3, ages: "18+",
       title: { ar: "القمة: بيت لم يشبع من خبز البُرّ", en: "The summit: a house that never had its fill of wheat bread" },
       body: {
         ar: [
-          "قالت السيدة عائشة: «مَا شَبِعَ آلُ مُحَمَّدٍ» صلى الله عليه وآله وسلم «مُنْذُ قَدِمَ الْمَدِينَةَ مِنْ طَعَامِ الْبُرِّ ثَلاَثَ لَيَالٍ تِبَاعًا، حَتَّى قُبِضَ» (البخاري 5416).",
-          "ولم يكن ذلك لأن العطاء لا يصل إلى يده. فقد كان صلى الله عليه وآله وسلم يعطي من يسأله، حتى قال جابر رضي الله عنه إنه ما سُئل شيئًا قط فقال: لا (البخاري 6034). كانت اليد تعطي، والقلب غنيّ عمّا تعطيه.",
-          "في هذا الخبر ميزان لمن يملأ بيته وبطنه وخزانته: الشبع الدائم لا يزيد صاحبه قربًا ولا راحة، والغنى الحقيقي في قلب يكتفي ويعطي.",
+          "قالت السيدة عائشة رضي الله عنها: «مَا شَبِعَ آلُ مُحَمَّدٍ» صلى الله عليه وآله وسلم «مُنْذُ قَدِمَ الْمَدِينَةَ مِنْ طَعَامِ الْبُرِّ ثَلاَثَ لَيَالٍ تِبَاعًا، حَتَّى قُبِضَ» (البخاري 5416).",
+          "وفي البيت نفسه يد لا تردّ سائلًا. قال جابر رضي الله عنه: «مَا سُئِلَ النَّبِيُّ» صلى الله عليه وآله وسلم «عَنْ شَىْءٍ قَطُّ فَقَالَ لاَ» (البخاري 6034). ما يصل إلى اليد يمضي منها إلى من يحتاج إليه، والقلب غنيّ عمّا تعطيه.",
+          "في الخبرين معًا ميزان لكل بيت امتلأت خزائنه: القرب والراحة في قلب يكتفي بالقليل، ويد تعطي الكثير.",
           "سؤال للتأمل: ما الشيء الذي تأخذ منه أكثر مما تحتاج؟ وماذا يتغير لو أخذت منه ما يكفيك، وأعطيت الباقي؟"
         ],
         ar_f: [
-          "قالت السيدة عائشة: «مَا شَبِعَ آلُ مُحَمَّدٍ» صلى الله عليه وآله وسلم «مُنْذُ قَدِمَ الْمَدِينَةَ مِنْ طَعَامِ الْبُرِّ ثَلاَثَ لَيَالٍ تِبَاعًا، حَتَّى قُبِضَ» (البخاري 5416).",
-          "ولم يكن ذلك لأن العطاء لا يصل إلى يده. فقد كان صلى الله عليه وآله وسلم يعطي من يسأله، حتى قال جابر رضي الله عنه إنه ما سُئل شيئًا قط فقال: لا (البخاري 6034). كانت اليد تعطي، والقلب غنيّ عمّا تعطيه.",
-          "في هذا الخبر ميزان لمن يملأ بيته وبطنه وخزانته: الشبع الدائم لا يزيد صاحبه قربًا ولا راحة، والغنى الحقيقي في قلب يكتفي ويعطي.",
+          "قالت السيدة عائشة رضي الله عنها: «مَا شَبِعَ آلُ مُحَمَّدٍ» صلى الله عليه وآله وسلم «مُنْذُ قَدِمَ الْمَدِينَةَ مِنْ طَعَامِ الْبُرِّ ثَلاَثَ لَيَالٍ تِبَاعًا، حَتَّى قُبِضَ» (البخاري 5416).",
+          "وفي البيت نفسه يد لا تردّ سائلًا. قال جابر رضي الله عنه: «مَا سُئِلَ النَّبِيُّ» صلى الله عليه وآله وسلم «عَنْ شَىْءٍ قَطُّ فَقَالَ لاَ» (البخاري 6034). ما يصل إلى اليد يمضي منها إلى من يحتاج إليه، والقلب غنيّ عمّا تعطيه.",
+          "في الخبرين معًا ميزان لكل بيت امتلأت خزائنه: القرب والراحة في قلب يكتفي بالقليل، ويد تعطي الكثير.",
           "سؤال للتأمل: ما الشيء الذي تأخذين منه أكثر مما تحتاجين؟ وماذا يتغير لو أخذتِ منه ما يكفيك، وأعطيتِ الباقي؟"
         ],
         en: [
-          "Lady Aisha said: «The family of Muhammad, peace and blessings be upon him and his family, never ate their fill of wheat bread for three nights in a row from the time he came to Medina until he passed away» (Bukhari 5416).",
-          "It was not that gifts never reached his hand. He gave to whoever asked him, so that Jabir, may Allah be pleased with him, said he was never asked for anything and answered no (Bukhari 6034). The hand gave, and the heart had no need of what it gave.",
-          "This report holds a measure for anyone filling their home, stomach and wardrobe: constant fullness brings its owner neither nearness nor rest; true wealth lies in a heart that is content and gives.",
+          "Lady Aisha, may Allah be pleased with her, said: «The family of Muhammad, peace and blessings be upon him and his family, never ate their fill of wheat bread for three nights in a row from the time he came to Medina until he passed away» (Bukhari 5416).",
+          "In that same house was a hand that turned no one away. Jabir, may Allah be pleased with him, said: «The Prophet, peace and blessings be upon him and his family, was never asked for anything and said no» (Bukhari 6034). Whatever reached the hand passed on from it to whoever needed it, and the heart had no need of what it gave.",
+          "Together the two reports hold a measure for every home whose cupboards are full: nearness and rest lie in a heart content with little, and a hand that gives much.",
           "A question to reflect on: what do you take more of than you need? And what would change if you took just enough of it, and gave the rest?"
         ]
       },
@@ -1051,22 +1062,22 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
         ar: [
           "روى أنس رضي الله عنه أن عبد الرحمن بن عوف رضي الله عنه قدم المدينة مهاجرًا لا مال معه، فآخى النبي صلى الله عليه وآله وسلم بينه وبين سعد بن الربيع الأنصاري رضي الله عنه، وكان سعد ذا غنى.",
           "فقال سعد لأخيه الجديد: «أُقَاسِمُكَ مَالِي نِصْفَيْنِ، وَأُزَوِّجُكَ». فأجابه عبد الرحمن: «بَارَكَ اللَّهُ لَكَ فِي أَهْلِكَ وَمَالِكَ، دُلُّونِي عَلَى السُّوقِ» (البخاري 2049). فذهب إلى السوق، فما رجع حتى ربح شيئًا من أقط وسمن، وجاء به إلى أهل منزله.",
-          "في هذا المشهد علاج سمات هذه المرحلة كلها. سعد يقدّم أخاه على نفسه في أحب ما يملك، وهذا ضد «أنا أولًا». وعبد الرحمن يُعرض عن مال حاضر لا تعب فيه، وهذا ضد الشره. ثم يطلب السوق ليعمل بيده، وهذا ضد الكسل.",
-          "ولم يرَ أحدهما في موقف الآخر عيبًا: الكرم لم يُذلّ عبد الرحمن، والعفة لم تجرح سعدًا. دعا له بالبركة، وانصرف إلى رزقه.",
+          "في هذا المشهد علاج سمات المرحلة الثلاث: سعد يقدّم أخاه على نفسه في أحب ما يملك، فيقابل «أنا أولًا» بالإيثار. وعبد الرحمن يُعرض عن مال حاضر لا تعب فيه، فيقابل الشره بالعفة. ثم يطلب السوق ليأكل من عمل يده، فيقابل الكسل بالسعي.",
+          "وحفظ كل منهما كرامة صاحبه: عرض سعد عرض من يعطي بلا منّ، وردّ عبد الرحمن بالدعاء لأخيه في أهله وماله، ثم انصرف إلى رزقه.",
           "سؤال للتأمل: أين تقف أنت اليوم من هذا المشهد؟ هل تعطي من مالك ووقتك كما أعطى سعد؟ وهل تكفّ يدك عمّا لا تحتاج إليه، وتسعى في رزقك كما فعل عبد الرحمن؟"
         ],
         ar_f: [
           "روى أنس رضي الله عنه أن عبد الرحمن بن عوف رضي الله عنه قدم المدينة مهاجرًا لا مال معه، فآخى النبي صلى الله عليه وآله وسلم بينه وبين سعد بن الربيع الأنصاري رضي الله عنه، وكان سعد ذا غنى.",
           "فقال سعد لأخيه الجديد: «أُقَاسِمُكَ مَالِي نِصْفَيْنِ، وَأُزَوِّجُكَ». فأجابه عبد الرحمن: «بَارَكَ اللَّهُ لَكَ فِي أَهْلِكَ وَمَالِكَ، دُلُّونِي عَلَى السُّوقِ» (البخاري 2049). فذهب إلى السوق، فما رجع حتى ربح شيئًا من أقط وسمن، وجاء به إلى أهل منزله.",
-          "في هذا المشهد علاج سمات هذه المرحلة كلها. سعد يقدّم أخاه على نفسه في أحب ما يملك، وهذا ضد «أنا أولًا». وعبد الرحمن يُعرض عن مال حاضر لا تعب فيه، وهذا ضد الشره. ثم يطلب السوق ليعمل بيده، وهذا ضد الكسل.",
-          "ولم يرَ أحدهما في موقف الآخر عيبًا: الكرم لم يُذلّ عبد الرحمن، والعفة لم تجرح سعدًا. دعا له بالبركة، وانصرف إلى رزقه.",
+          "في هذا المشهد علاج سمات المرحلة الثلاث: سعد يقدّم أخاه على نفسه في أحب ما يملك، فيقابل «أنا أولًا» بالإيثار. وعبد الرحمن يُعرض عن مال حاضر لا تعب فيه، فيقابل الشره بالعفة. ثم يطلب السوق ليأكل من عمل يده، فيقابل الكسل بالسعي.",
+          "وحفظ كل منهما كرامة صاحبه: عرض سعد عرض من يعطي بلا منّ، وردّ عبد الرحمن بالدعاء لأخيه في أهله وماله، ثم انصرف إلى رزقه.",
           "سؤال للتأمل: أين تقفين أنتِ اليوم من هذا المشهد؟ هل تعطين من مالك ووقتك كما أعطى سعد؟ وهل تكفّين يدك عمّا لا تحتاجين إليه، وتسعين في رزقك كما فعل عبد الرحمن؟"
         ],
         en: [
           "Anas, may Allah be pleased with him, reported that Abd al-Rahman ibn Awf, may Allah be pleased with him, arrived in Medina as an emigrant with nothing. The Prophet, peace and blessings be upon him and his family, made him a brother of Sa'd ibn al-Rabi' al-Ansari, may Allah be pleased with him, who was a man of means.",
           "Sa'd said to his new brother: «I will divide my wealth with you in two halves, and arrange a marriage for you.» Abd al-Rahman answered: «May Allah bless you in your family and your wealth; show me the market» (Bukhari 2049). He went to the market, and did not return until he had earned some dried curd and ghee, which he brought to the people of his house.",
-          "This scene holds the cure for every trait of this stage. Sa'd puts his brother before himself in what he holds dearest: the opposite of «me first». Abd al-Rahman turns away from wealth that is there for the taking without effort: the opposite of greed. Then he asks for the market so he can work with his own hands: the opposite of laziness.",
-          "Neither saw any fault in the other's stance: the generosity did not humiliate Abd al-Rahman, and the restraint did not wound Sa'd. He prayed for blessing on him, and went off to earn his living.",
+          "This scene holds the cure for all three traits of this stage. Sa'd puts his brother before himself in what he holds dearest, answering «me first» with selflessness. Abd al-Rahman turns away from wealth there for the taking without effort, answering greed with restraint. Then he asks for the market so he can live from the work of his own hands, answering laziness with striving.",
+          "Each kept the other's dignity whole: Sa'd offered as one who gives without reminding, and Abd al-Rahman replied with a prayer for his brother's family and wealth, then went off to earn his living.",
           "A question to reflect on: where do you stand in this scene today? Do you give of your money and time as Sa'd gave? And do you hold back from what you don't need, and work for your living as Abd al-Rahman did?"
         ]
       },
@@ -1081,13 +1092,13 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
   quiz: [
     {
       id: "ap-q1", readingId: "ap-r1", type: "comprehension", correct: 1,
-      q: { ar: "أين يكون الغنى بحسب الحديث الذي في قصة دينا؟", en: "According to the hadith in Dina's story, where does wealth lie?" },
+      q: { ar: "ماذا وجدت دينا حين راجعت طلبات شهر كامل؟", en: "What did Dina find when she went through a whole month of orders?" },
       options: [
-        { ar: "في كثرة ما يملكه الإنسان", en: "In how much a person owns" },
-        { ar: "في غنى النفس", en: "In the richness of the soul" },
-        { ar: "في الدخل الشهري الجيد", en: "In a good monthly income" }
+        { ar: "أن أكثرها كان في أيام العروض والتخفيضات الكبيرة", en: "That most of them fell on days of big offers and sales" },
+        { ar: "أن أكثرها كان في ليالٍ متعبة: بعد اجتماع أو مكالمة ثقيلة", en: "That most fell on draining nights: after a meeting or a heavy call" },
+        { ar: "أن أكثرها كان هدايا اشترتها لأختها وصديقاتها", en: "That most of them were gifts she had bought for her sister and friends" }
       ],
-      why: { ar: "«لَيْسَ الْغِنَى عَنْ كَثْرَةِ الْعَرَضِ، وَلَكِنَّ الْغِنَى غِنَى النَّفْسِ».", en: "«Wealth is not an abundance of goods; wealth is the richness of the soul.»" }
+      why: { ar: "كانت تشتري لتسكّن شيئًا آخر. ومعرفة متى تشتهي النفس أول المحاسبة.", en: "She was buying to quiet something else. Knowing when the self craves is where self-review begins." }
     },
     {
       id: "ap-q2", readingId: "ap-r1", type: "situation", correct: 0,
@@ -1098,18 +1109,18 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
       },
       options: [
         { ar: "أحذف التطبيقات، وأجعل لكل شراء غير ضروري مهلة أيام", en: "Delete the apps and give every non-essential purchase a few days' wait" },
-        { ar: "أشتري مرة في الأسبوع بدل كل يوم، وأشتري أكثر", en: "Buy once a week instead of every day, but buy more" },
-        { ar: "أترك الأمر، فمالي حلال وأنا حر فيه", en: "Leave it; my money is lawful and I can do as I like" }
+        { ar: "أُبقي التطبيقات، وأضع لنفسي حدًّا شهريًّا لا أتجاوزه", en: "Keep the apps and set myself a monthly limit I won't go over" },
+        { ar: "أجمع مشترياتي كلها في طلب واحد آخر كل أسبوع", en: "Gather all my purchases into one order at the end of each week" }
       ],
-      why: { ar: "تغيير المكان والمهلة قبل الشراء يكسر حلقة الشراء للترويح، ويترك في المال مكانًا للصدقة.", en: "Changing the setting and waiting before buying break the cycle of shopping to unwind, and leave room in the budget for charity." }
+      why: { ar: "تغيير المكان والمهلة قبل الشراء يكسران حلقة الشراء للترويح، ويتركان في المال مكانًا للصدقة.", en: "Changing the setting and waiting before buying break the cycle of shopping to unwind, and leave room in the budget for charity." }
     },
     {
       id: "ap-q3", readingId: "ap-r2", type: "comprehension", correct: 2,
-      q: { ar: "ما المقصود من حديث الأثلاث في الطعام؟", en: "What is the point of the hadith of the thirds in eating?" },
+      q: { ar: "ما المقصود من حديث الأثلاث في الطعام، بحسب المقالة؟", en: "According to the article, what is the point of the hadith of the thirds?" },
       options: [
-        { ar: "أن يحسب الإنسان طعامه بالميزان", en: "That one should weigh one's food" },
-        { ar: "أن يأكل وجبة واحدة في اليوم", en: "That one should eat one meal a day" },
-        { ar: "أن يبقى في الجسد متّسع للنَّفَس والخفة والعبادة", en: "That there should be room left in the body for breath, lightness and worship" }
+        { ar: "أن يقسم الإنسان طعامه وشرابه بالميزان الدقيق", en: "That one should measure food and drink out exactly" },
+        { ar: "أن يكتفي الإنسان بوجبة واحدة كبيرة في اليوم", en: "That one should make do with one large meal a day" },
+        { ar: "أن يبقى في الجسد متّسع للنَّفَس والخفة والصلاة", en: "That room is left in the body for breath, lightness and prayer" }
       ],
       why: { ar: "المتّسع أهم من الحساب الدقيق: لا يملأ الإنسان بطنه حتى يثقل.", en: "The room matters more than exact counting: do not fill the stomach until it is heavy." }
     },
@@ -1139,13 +1150,13 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
     },
     {
       id: "ap-q6", readingId: "ap-r4", type: "comprehension", correct: 1,
-      q: { ar: "ما الميزان الذي وضعه النبي صلى الله عليه وآله وسلم للخيرية في حديث الترمذي؟", en: "What measure of goodness did the Prophet give in the hadith in at-Tirmidhi?" },
+      q: { ar: "بحسب المقالة، كيف يبدأ كثير من الخلاف في البيوت؟", en: "According to the article, how do many quarrels at home begin?" },
       options: [
-        { ar: "كثرة العبادة في المسجد", en: "Much worship in the mosque" },
-        { ar: "أن يكون الإنسان خيرًا لأهله", en: "Being good to one's family" },
-        { ar: "النجاح في العمل", en: "Success at work" }
+        { ar: "بكلمة جارحة تقال في لحظة غضب ثم تُنسى", en: "With a hurtful word said in anger and then forgotten" },
+        { ar: "بتعب يحمله واحد ويستريح منه الآخر حتى يتراكم", en: "With tiredness one carries while the other rests, until it builds up" },
+        { ar: "بخلاف على المال والمصروف في آخر الشهر", en: "With a disagreement over money at the end of the month" }
       ],
-      why: { ar: "«خَيْرُكُمْ خَيْرُكُمْ لأَهْلِهِ»: البيت أول ما يُختبر فيه الخلق.", en: "«The best of you are the best to their families»: the home is the first place character is tested." }
+      why: { ar: "التعب المتراكم يخرج في جملة غاضبة عن شيء صغير، فيتعجب الطرف الآخر من الغضب.", en: "Built-up tiredness comes out in an angry sentence about something small, and the other is surprised by the anger." }
     },
     {
       id: "ap-q7", readingId: "ap-r4", type: "situation", correct: 2,
@@ -1155,65 +1166,89 @@ window.AKHLAQ_CONTENT_ADULT.stages.pig = {
         en: "You notice your spouse has started getting angry over small things. Which step does the article suggest?"
       },
       options: [
-        { ar: "أتجنب الكلام حتى يهدأ", en: "Avoid talking until things calm down" },
-        { ar: "أشرح أنني متعب أيضًا", ar_f: "أشرح أنني متعبة أيضًا", en: "Explain that I am tired too" },
-        { ar: "أسأل: ما الذي يثقل عليك هذه الأيام؟ وأسمع، وآخذ عملًا ثابتًا في البيت", en: "Ask what is weighing on them these days, listen, and take on a fixed job at home" }
+        { ar: "أتجنب الكلام معه أيامًا حتى يهدأ وحده", en: "Avoid talking for a few days until things calm down by themselves" },
+        { ar: "أشرح له بهدوء أنني متعب أيضًا من العمل", ar_f: "أشرح له بهدوء أنني متعبة أيضًا من العمل", en: "Calmly explain that I am tired from work too" },
+        { ar: "أسأله عمّا يثقل عليه، وأسمع، وآخذ عملًا ثابتًا", en: "Ask what is weighing on them, listen, and take on a fixed job" }
       ],
       why: { ar: "الغضب من الصغير كثيرًا ما يكون تعبًا متراكمًا. والسؤال والمشاركة يخففانه قبل أن يصير خلافًا.", en: "Anger over small things is often built-up tiredness. Asking and sharing the load ease it before it becomes a quarrel." }
     },
     {
-      id: "ap-q8", readingId: "ap-r5", type: "comprehension", correct: 0,
-      q: { ar: "أيٌّ مما يلي من حق الطريق في حديث البخاري؟", en: "Which of these is among the road's rights in the hadith in al-Bukhari?" },
+      id: "ap-q8", readingId: "ap-r5", type: "comprehension", correct: 1,
+      q: { ar: "بعد عشاء العائلة بدت سيارة عادل «أضيق». ما الذي تغيّر؟", en: "After the family dinner Adel's car seemed «smaller». What had changed?" },
       options: [
-        { ar: "كفّ الأذى", en: "Keeping harm away" },
-        { ar: "السرعة في الوصول", en: "Getting there quickly" },
-        { ar: "الوقوف أقرب ما يكون إلى الباب", en: "Parking as close to the door as possible" }
+        { ar: "ظهر في محركها عطل لم ينتبه له من قبل", en: "A fault had appeared in the engine that he hadn't noticed before" },
+        { ar: "الميزان الذي يزن به ما عنده: صار يقيسه على غيره", en: "The scale he weighed his life on: he measured it against others" },
+        { ar: "سخر ابن خاله من سيارته القديمة أمام العائلة", en: "His cousin had mocked his old car in front of the family" }
       ],
-      why: { ar: "حق الطريق: غض البصر، وكف الأذى، ورد السلام، والأمر بالمعروف، والنهي عن المنكر.", en: "The road's right: lowering the gaze, keeping harm away, returning greetings, enjoining good and forbidding wrong." }
+      why: { ar: "بقيت السيارة كما هي، وتغيّرت العين التي تنظر إليها.", en: "The car stayed the same; the eye looking at it had changed." }
     },
     {
       id: "ap-q9", readingId: "ap-r6", type: "comprehension", correct: 1,
       q: { ar: "لماذا جعل الغزالي شهوة البطن أول ما يُعالج؟", en: "Why did al-Ghazali make the stomach's appetite the first thing to treat?" },
       options: [
-        { ar: "لأن الطعام مذموم في ذاته", en: "Because food is blameworthy in itself" },
+        { ar: "لأنها أكثر الشهوات انتشارًا بين الناس", en: "Because it is the most widespread appetite among people" },
         { ar: "لأنها تجرّ إلى شهوات أكبر منها، كالحرص على المال", en: "Because it drags a person into larger appetites, such as craving money" },
-        { ar: "لأنها أسهل الشهوات", en: "Because it is the easiest appetite" }
+        { ar: "لأن علاجها أيسر، فيبدأ المرء بالأيسر", en: "Because it is the easiest to cure, so one starts with the easiest" }
       ],
-      why: { ar: "من أطاع بطنه احتاج إلى ما يشبعه، ثم إلى ما يجلبه، فتكبر الشهوة الصغيرة.", en: "Whoever obeys his stomach needs what satisfies it, then what brings that, and the small appetite grows." }
+      why: { ar: "البطن عنده «ينبوع الشهوات»: من أطاع بطنه احتاج إلى ما يشبعه، ثم إلى ما يجلبه، فتكبر الشهوة الصغيرة.", en: "For him the stomach is «the wellspring of the appetites»: whoever obeys it needs what satisfies it, then what brings that, and the small appetite grows." }
     },
     {
       id: "ap-q10", readingId: "ap-r7", type: "comprehension", correct: 2,
-      q: { ar: "ماذا يدل عليه خبر بيت النبي صلى الله عليه وآله وسلم الذي لم يشبع من خبز البُرّ؟", en: "What does the report of the Prophet's household never having its fill of wheat bread show?" },
+      q: { ar: "أي صورتين يضعهما خبر القمة في بيت النبي صلى الله عليه وآله وسلم؟", en: "Which two pictures does the summit reading set in the Prophet's house, peace and blessings be upon him and his family?" },
       options: [
-        { ar: "أنه لم يكن يصل إليه مال", en: "That no wealth ever reached him" },
-        { ar: "أن الطعام الطيب حرام", en: "That good food is forbidden" },
-        { ar: "أن الغنى في القلب الذي يكتفي ويعطي", en: "That wealth lies in a heart that is content and gives" }
+        { ar: "مائدة وافرة كل ليلة، ويد تطعم كل من يدخل", en: "A full table every night, and a hand that fed everyone who came in" },
+        { ar: "صيام أكثر الأيام، ويد تدّخر لأهلها ما يكفيهم", en: "Fasting most days, and a hand that saved enough for the family" },
+        { ar: "بيت لم يشبع من خبز البُرّ، ويد لا تردّ سائلًا", en: "A house never full of wheat bread, and a hand that refused no one" }
       ],
-      why: { ar: "كان يعطي من يسأله، ولم يكن الشبع غايته. الغنى غنى القلب.", en: "He gave to whoever asked, and fullness was never his aim. Wealth is the heart's wealth." }
+      why: { ar: "قلب يكتفي بالقليل، ويد تعطي ما يصل إليها: الغنى غنى القلب.", en: "A heart content with little, and a hand that gives whatever reaches it: wealth is the heart's wealth." }
     },
     {
       id: "ap-q11", readingId: "ap-r8", type: "comprehension", correct: 0,
-      q: { ar: "بماذا أجاب عبد الرحمن بن عوف حين عرض عليه سعد نصف ماله؟", en: "How did Abd al-Rahman ibn Awf answer when Sa'd offered him half his wealth?" },
+      q: { ar: "بماذا أجاب عبد الرحمن بن عوف رضي الله عنه حين عرض عليه سعد نصف ماله؟", en: "How did Abd al-Rahman ibn Awf, may Allah be pleased with him, answer when Sa'd offered him half his wealth?" },
       options: [
         { ar: "دعا له بالبركة، وطلب أن يدلّوه على السوق", en: "He prayed for blessing on him and asked to be shown the market" },
-        { ar: "قبل المال، ووعده أن يردّه", en: "He accepted the money and promised to repay it" },
-        { ar: "طلب المال كله", en: "He asked for all of it" }
+        { ar: "قبل نصف المال قرضًا حتى يقف على قدميه", en: "He took the half as a loan until he was on his feet" },
+        { ar: "شكره، وطلب أن يعمل عنده في تجارته", en: "He thanked him and asked to work for him in his trade" }
       ],
       why: { ar: "«بَارَكَ اللَّهُ لَكَ فِي أَهْلِكَ وَمَالِكَ، دُلُّونِي عَلَى السُّوقِ»: عفة عن الأخذ، وسعي إلى العمل.", en: "«May Allah bless you in your family and your wealth; show me the market»: restraint from taking, and going out to work." }
     },
     {
       id: "ap-q12", readingId: "ap-r5", type: "situation", correct: 1,
       q: {
-        ar: "تأخرت عن موعد، ورأيت فرجة تتيح لك تجاوز صف السيارات عند الإشارة. ما الأقرب إلى حق الطريق؟",
-        ar_f: "تأخرتِ عن موعد، ورأيتِ فرجة تتيح لك تجاوز صف السيارات عند الإشارة. ما الأقرب إلى حق الطريق؟",
-        en: "You are late for an appointment and see a gap that would let you skip the line of cars at the lights. What is closest to the road's right?"
+        ar: "أغلقت صفحة صديق على الهاتف، وفي صدرك ثقل مما رأيت من سفره وبيته. أي خطوة تشبه ما فعله عادل؟",
+        ar_f: "أغلقتِ صفحة صديقة على الهاتف، وفي صدرك ثقل مما رأيتِ من سفرها وبيتها. أي خطوة تشبه ما فعله عادل؟",
+        en: "You close a friend's page on your phone with a weight in your chest from their trips and home. Which step is like what Adel did?"
       },
       options: [
-        { ar: "أدخل منها، فأنا متأخر", ar_f: "أدخل منها، فأنا متأخرة", en: "Take it; I'm late" },
-        { ar: "أبقى في دوري، وأخبر من ينتظرني أنني سأتأخر قليلًا", en: "Keep my place, and let the person waiting know I'll be a little late" },
-        { ar: "أستعمل البوق حتى يفسحوا لي", en: "Use the horn until they make way" }
+        { ar: "أحذفه من قائمتي حتى لا أرى صوره بعد اليوم", ar_f: "أحذفها من قائمتي حتى لا أرى صورها بعد اليوم", en: "Remove them from my list so I don't see their pictures again" },
+        { ar: "أكتب ثلاث نعم عندي، وأدعو له بالبركة", ar_f: "أكتب ثلاث نعم عندي، وأدعو لها بالبركة", en: "Write down three blessings of mine, and pray for blessing on them" },
+        { ar: "أبدأ ادخارًا جادًّا حتى أسافر مثله في الصيف", ar_f: "أبدأ ادخارًا جادًّا حتى أسافر مثلها في الصيف", en: "Start saving seriously so I can travel like them next summer" }
       ],
-      why: { ar: "استعجالك لا يجعل وقتك أثمن من وقت غيرك. وكفّ الأذى من حق الطريق.", en: "Your hurry does not make your time worth more than others'. Keeping harm away is the road's right." }
+      why: { ar: "النظرة الثانية إلى ما عندك تعيد الميزان، والدعاء لصاحب النعمة يطفئ الحسرة قبل أن تكبر.", en: "A second look at what you have sets the scale right, and praying for the one who has the blessing puts out regret before it grows." }
+    },
+    {
+      id: "ap-q13", readingId: "ap-r2", type: "situation", correct: 0,
+      q: {
+        ar: "عدت في الحادية عشرة ليلًا بعد يوم طويل، ووقفت أمام الثلاجة بلا جوع حقيقي. ما الذي تقترحه المقالة؟",
+        ar_f: "عدتِ في الحادية عشرة ليلًا بعد يوم طويل، ووقفتِ أمام الثلاجة بلا جوع حقيقي. ما الذي تقترحه المقالة؟",
+        en: "You get home at eleven at night after a long day and stand at the fridge without real hunger. What does the article suggest?"
+      },
+      options: [
+        { ar: "أسأل نفسي: أجائع أنا أم متعب؟ وأنام إن كان تعبًا", ar_f: "أسأل نفسي: أجائعة أنا أم متعبة؟ وأنام إن كان تعبًا", en: "Ask myself: am I hungry or tired? And sleep, if it's tiredness" },
+        { ar: "آكل شيئًا خفيفًا بدل الحلوى، حتى لا أثقل قبل النوم", en: "Eat something light instead of dessert, so I don't sleep heavy" },
+        { ar: "أشرب كوبين من الماء، ثم آكل ما أريد بلا حرج", en: "Drink two glasses of water, then eat what I like without guilt" }
+      ],
+      why: { ar: "كثير مما يؤكل في آخر الليل جواب عن تعب النهار: يطلب الجسد النوم، فنعطيه طعامًا.", en: "Much of what is eaten late at night answers the day's tiredness: the body asks for sleep, and we give it food." }
+    },
+    {
+      id: "ap-q14", readingId: "ap-r8", type: "comprehension", correct: 2,
+      q: { ar: "بماذا رجع عبد الرحمن بن عوف رضي الله عنه من السوق؟", en: "What did Abd al-Rahman ibn Awf, may Allah be pleased with him, come back from the market with?" },
+      options: [
+        { ar: "بمال اقترضه من تاجر ليبدأ به تجارته", en: "Money he had borrowed from a merchant to start trading" },
+        { ar: "بنصف مال سعد بعد أن ألحّ عليه أن يأخذه", en: "Half of Sa'd's wealth, after Sa'd insisted he take it" },
+        { ar: "بشيء من أقط وسمن ربحه من تجارته", en: "Some dried curd and ghee he had earned by trading" }
+      ],
+      why: { ar: "قليل من كسب يده أحبّ إليه من كثير حاضر بلا تعب.", en: "A little earned by his own hand was dearer to him than plenty that came without effort." }
     }
   ],
   tasks: [
@@ -3011,19 +3046,22 @@ window.AKHLAQ_CONTENT_ADULT.choices = [
     id: "ach-pig-1", stage: "pig", trait: 0, age: "18+",
     title: { ar: "اجتماع المكافأة", en: "The bonus meeting" },
     intro: {
-      ar: ["أنهى فريق هدى مشروعًا كبيرًا قبل موعده. قادت هدى العمل، أما الفكرة التي أنقذت المشروع في الأسبوع الأخير فجاءت من زميلها الجديد كريم.", "دعا المدير هدى وحدها إلى اجتماع قصير، وقال: «عمل ممتاز. سأرفع اسمك للترقية هذا العام. حدّثيني كيف فعلتِ ذلك».", "كريم لن يحضر الاجتماع، ولن يعرف أحد ما سيُقال فيه."],
-      en: ["Huda's team finished a big project ahead of schedule. Huda led the work, but the idea that saved the project in its last week came from her new colleague, Karim.", "The manager called Huda alone into a short meeting: “Excellent work. I'm putting your name forward for promotion this year. Tell me how you did it.”", "Karim won't be in the meeting, and no one will know what is said there."]
+      ar: ["في آخر السنة دعا المدير زيادًا إلى مكتبه، وقال: «مكافأة الفريق هذا العام مبلغ واحد. أنت قائد الفريق، فوزّعه عليكم أنتم الأربعة، وأرسل لي الأرقام غدًا».", "في السيارة حسب زياد القسط المتأخر على سيارته، فوجد أن نصيبًا كبيرًا من المكافأة يسدّه. ثم تذكّر أن نسرين عملت عطلات الأسبوع كلها في الشهر الأخير، وأن فارسًا الجديد سهر معها ليلتين.", "الجدول لن يراه أحد غير المدير."],
+      en: ["At the end of the year the manager called Ziad into his office: “This year the team's bonus is one sum. You lead the team, so divide it among the four of you and send me the figures tomorrow.”", "In the car Ziad worked out his overdue car instalment and found that a large share of the bonus would cover it. Then he remembered that Nisreen had worked every weekend of the last month, and that Fares, the new one, had stayed up two nights with her.", "No one but the manager will see the sheet."]
     },
-    q: { ar: "لو كنتَ مكان هدى، ماذا تفعل؟", ar_f: "لو كنتِ مكان هدى، ماذا تفعلين؟", en: "If you were Huda, what would you do?" },
+    q: { ar: "لو كنتَ مكان زياد، ماذا تفعل؟", ar_f: "لو كنتِ مكان زياد، ماذا تفعلين؟", en: "If you were Ziad, what would you do?" },
     opts: [
-      { t: { ar: "أعرض المشروع كله على أنه عملي، فأنا قائدة الفريق.", en: "Present the whole project as my work. I led the team, after all." }, weak: true,
-        out: { ar: "خرجت هدى بوعد الترقية. وبعد شهر سمع كريم المدير يثني على «فكرة هدى» في اجتماع عام، فصمت، ومن يومها صار يحتفظ بأفكاره لنفسه.", en: "Huda left with the promise of a promotion. A month later Karim heard the manager praise “Huda's idea” in a team meeting and said nothing. From then on he kept his ideas to himself." },
-        why: { ar: "ما تأخذه من حق غيرك يُنقص من فريقك ومن نفسك.", en: "Whatever you take from another's due is taken from your team, and from yourself." } },
-      { t: { ar: "أذكر دور كريم باسمه، وأقترح أن يُشكر أمام الفريق.", en: "Name Karim's part and suggest he be thanked in front of the team." },
-        out: { ar: "تعجّب المدير، ثم دوّن اسم كريم. وفي الاجتماع العام شُكر الاثنان، وصار كريم بعدها أول من يأتي هدى بكل فكرة جديدة.", en: "The manager looked surprised, then wrote Karim's name down. In the team meeting both were thanked, and afterwards Karim was the first to bring Huda each new idea." },
-        why: { ar: "التنافس في الخير أن تسبق غيرك إلى الإنصاف، لا إلى المديح.", en: "Competing in good means racing others to fairness, not to praise." } }
+      { t: { ar: "أجعل لنفسي النصيب الأكبر، فأنا أحمل مسؤولية الفريق كله.", en: "Give myself the largest share. I carry the whole team's responsibility." }, weak: true,
+        out: { ar: "أرسل زياد الجدول، فوافق عليه المدير دون تعليق. وفي عشاء الفريق شكرته نسرين بحرارة على المكافأة، فابتسم، ونادى النادل يطلب الحساب قبل أن تكمل كلامها.", en: "Ziad sent the sheet and the manager approved it without comment. At the team dinner Nisreen thanked him warmly for the bonus; he smiled, and called the waiter for the bill before she could finish." },
+        why: { ar: "النفس تعرف ما أخذت، ولو لم يعرفه أحد غيرها.", en: "The self knows what it took, even when no one else does." } },
+      { t: { ar: "أقسم المبلغ بالتساوي، فهذا أبعد عن الكلام.", en: "Split it equally. That leaves nothing to talk about." }, weak: true,
+        out: { ar: "مرّ التوزيع بلا كلام. وبعد أسبوعين طلب زياد من نسرين أن تعمل عطلة أخرى، فاعتذرت بأدب، وكانت تلك أول مرة تعتذر فيها.", en: "The split passed without a word. Two weeks later Ziad asked Nisreen to work another weekend. She declined politely, for the first time." },
+        why: { ar: "المساواة أسهل من العدل. والعدل أن يأخذ كل واحد بقدر ما بذل.", en: "Equality is easier than fairness. Fairness gives each person the measure of what they gave." } },
+      { t: { ar: "أكتب المعيار قبل الأسماء: الساعات والمهام، وأطبّقه على نفسي أولًا.", en: "Write the criteria before the names, hours and tasks, and apply them to myself first." },
+        out: { ar: "خرج نصيب زياد أصغر مما حسبه في السيارة، وخرج نصيب نسرين أكبر. أرسل الجدول وتحته المعيار في سطر واحد، وانتظر قسط السيارة شهرًا آخر. وفي الأسبوع التالي طلب منه المدير ذلك السطر ليعمل به مع الفرق الأخرى.", en: "Ziad's share came out smaller than he had worked out in the car, and Nisreen's larger. He sent the sheet with the criteria in one line beneath it, and the car instalment waited another month. The following week the manager asked him for that line, to use with the other teams." },
+        why: { ar: "القسمة التي تبدأ بالمعيار قبل الأسماء تحمي القاسم من ميل نفسه.", en: "A division that starts with criteria before names protects the one dividing from his own leanings." } }
     ],
-    end: { ar: "النفس تحب أن تأخذ أكثر مما تستحق وقبل غيرها، في المال والمديح والفرص. وكلمة إنصاف واحدة في غرفة مغلقة تكشف ما في القلب.", en: "The self likes to take more than its due, and before others, in money, praise and opportunity. One fair word in a closed room shows what is in the heart." }
+    end: { ar: "حين يكون القلم في يدك تميل القسمة إلى نفسك ميلًا خفيًّا. والتنافس في الخير أن تسبق غيرك إلى الإنصاف وأنت قادر على غيره.", ar_f: "حين يكون القلم في يدكِ تميل القسمة إلى نفسكِ ميلًا خفيًّا. والتنافس في الخير أن تسبقي غيرك إلى الإنصاف وأنتِ قادرة على غيره.", en: "When the pen is in your hand, the division leans quietly toward you. Competing in good means reaching fairness first, while you could have done otherwise." }
   },
   {
     id: "ach-monkey-1", stage: "monkey", trait: 2, age: "18+",

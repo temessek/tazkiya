@@ -5,7 +5,7 @@
  * Names always describe behaviour, never the person. All children in stories are fictional.
  */
 window.AKHLAQ_CONTENT = {
-  version: "0.24.0-draft-2026-11-24",
+  version: "0.25.0-draft-2026-11-24",
   stages: {},
   virtues: []
 };
@@ -4270,5 +4270,285 @@ window.AKHLAQ_CONTENT.choices = [
         { ar: 'أرسل إلى هادي حلّ المسألة صورة وأكمل يومه', en: 'Sent Hadi a photo of the solution and got on with his day' },
         { ar: 'أغلق المجموعة وجلس يشرح المسألة لهادي', en: 'Closed the group and sat down to explain the question to Hadi' }],
       why: { ar: 'اليقظة هنا حضور لصديقه هو: دفتر مفتوح، وجلسة على الدرج، وموعد للغد.', en: 'Waking up here meant being there for his friend himself: an open notebook, a seat on the steps, a plan for tomorrow.' } }
+  );
+})();
+
+/* ───────────── مراجعة الكتابة، 24 نوفمبر 2026: المرحلة الثانية (البنصر) ─────────────
+ * المعيار: دليل الكتابة حسب العمر. هذه الجولة تحلّ محلّ ما سبقها في الحقول المذكورة هنا وحدها، وتبقى المعرّفات كما هي:
+ * - قصة سمة «أنا أولًا»: صار للحظة التحول سبب في القصة (الطفلة تعدّ على أصابعها وهي تنتظر).
+ * - قصة سمة «الشره»: لم تعد تقف عند القطعة المحروقة؛ يرى آدم وجه أخته فيصلح ما فعل، بدعابة من الموقف.
+ * - سؤالا الموقف في السمتين الأوليين: خيارات متقاربة الطول، فلا يُعرف الجواب من طوله.
+ * - pig-r1 (4-8): جمل قصيرة وحوار ودعابة، وحذف خاتمة الشرح («لم تكن سلمى سيئة...»)؛ وسؤالاها pig-q1 وpig-q2 يختبران القصة الجديدة.
+ * - pig-r2: مصدر خبر نزول آيات سورة الإنسان في أهل البيت عليهم السلام بمراجعه بدل ملاحظة «يُوثَّق قبل النشر».
+ * - pig-r3 (4-8): مشهد قصير بلا فقرة شرح، و«رضي الله عنه» لعمر بن أبي سلمة، وخاتمة بكلمته هو «فما زالت تلك طِعمتي بعد».
+ * - pig-r4: مثال من البيت للتمرين، وpig-q8 صار يختبر التمرين نفسه.
+ * - pig-r5 (15+): بصوت المراهق وعالمه (قائمة الأمنيات وإشعار العرض)، وبلا «ليس... بل»، والآية تُذكر بموضعها في سورة يوسف دون نسبة قائلها.
+ * - pig-q10 صار يختبر قصة pig-r6. pig-r7 وpig-r8: الخاتمة بالإثبات بدل النفي الدفاعي، وأسئلتهما pig-q11 وpig-q12 بخيارات معقولة.
+ * - جديد: pig-q13 (لقراءة pig-r5)، وpig-r9 (15+) قصة «الحساب بالتساوي» وسؤالاها pig-q14 وpig-q15.
+ * التحقق: المطففين 83:26، الحشر 59:9، الإنسان 76:8، يوسف 12:53، النازعات 79:40-41 على تنزيل (quran-simple عبر api.alquran.cloud)؛
+ * البخاري 5376 و1277 و5810 و3705 و5362، ومسلم (hadith-api ara-muslim 6774 و5269) على hadith-api.
+ */
+(function () {
+  var P = window.AKHLAQ_CONTENT.stages.pig;
+  var R = function (id) { return P.readings.filter(function (r) { return r.id === id; })[0]; };
+  var Q = function (id) { return P.quiz.filter(function (q) { return q.id === id; })[0]; };
+
+  /* سمة «أنا أولًا» */
+  var d0 = P.degrees[0];
+  d0.story = {
+    ar: ['كانت سارة على الأرجوحة، تطير إلى الأمام وإلى الخلف، وتضحك.',
+      'جاءت طفلة صغيرة بضفيرتين، ووقفت تنتظر، وعيناها تذهبان مع الأرجوحة وتعودان.',
+      'قالت سارة في نفسها: «أنا جئت أولًا!»، وطارت مرة أخرى.',
+      'ثم سمعت الطفلة تعدّ على أصابعها بصوت خافت: «واحد... اثنان... ثلاثة...».',
+      'أوقفت سارة الأرجوحة بقدميها، ونزلت، وقالت: «تفضّلي، وأنا أدفعك».',
+      'وطارت الصغيرة عاليًا، وضحكت سارة أكثر مما ضحكت وهي على الأرجوحة.'],
+    en: ['Sara was on the swing, flying forwards and backwards and laughing.',
+      'A little girl with two plaits came and stood waiting, her eyes going with the swing and coming back.',
+      'Sara thought: "I came first!" and flew up again.',
+      'Then she heard the little girl counting quietly on her fingers: "One... two... three..."',
+      'Sara stopped the swing with her feet, got off and said: "Your turn. I\'ll push you."',
+      'The little girl flew up high, and Sara laughed more than she had laughed on the swing.']
+  };
+  d0.q.options = [{ ar: 'أنزل وأقول له: تفضّل', en: 'Get off and say: your turn' },
+    { ar: 'أصرخ: أنا جئت أولًا!', en: 'Shout: I came first!' },
+    { ar: 'أغمض عينيّ كأني لم أره', en: 'Shut my eyes as if I hadn\'t seen him' }];
+  d0.q.correct = 0;
+
+  /* سمة «الشره» */
+  var d1 = P.degrees[1];
+  d1.story = {
+    ar: ['جاءت الفطائر ساخنة من الفرن، فركض آدم وأخذ أكبرها.',
+      'ثم أخذ الثانية قبل أن تجلس أخته هدى.',
+      'نظرت هدى إلى الصحن، فلم يبقَ إلا قطعة صغيرة محروقة.',
+      'نظر آدم إلى وجهها، ثم إلى الفطيرتين في يديه.',
+      'فوضع الكبيرة في صحن هدى، وأعاد الثانية لأبيه، وأخذ هو المحروقة.',
+      'وقال وهو يقضمها: «أنا أحب الطرف المقرمش!». فضحكت هدى.'],
+    en: ['The pastries came hot out of the oven. Adam ran and grabbed the biggest one.',
+      'Then he took a second before his sister Huda had even sat down.',
+      'Huda looked at the plate: only one small burnt piece was left.',
+      'Adam looked at her face, then at the two pastries in his hands.',
+      'He put the big one on Huda\'s plate, put the second back for Dad, and took the burnt one himself.',
+      'Taking a bite, he said: "I like the crunchy edge!" And Huda laughed.']
+  };
+  d1.q.options = [{ ar: 'آخذ أكبر قطعة قبلها', en: 'Take the biggest piece before her' },
+    { ar: 'آخذ قطعتين وأخبئ واحدة', en: 'Take two and hide one' },
+    { ar: 'أنتظر حتى تجلس هي', en: 'Wait until she sits down' }];
+  d1.q.correct = 2;
+
+  /* pig-r1: 4-8 */
+  var r1 = R('pig-r1');
+  r1.body = {
+    ar: ['عادت سلمى من المدرسة، ورمت حقيبتها، وقفزت على الكرسي الكبير المريح.',
+      '«أنا جائعة! أريد الطعام الآن!»',
+      'فُتح الباب، ودخل جدها من السوق، وفي كل يد ثلاثة أكياس.',
+      'وقف عند الباب يلتقط أنفاسه، ويمسح جبينه.',
+      'نظرت سلمى إلى يديه، فإذا هما حمراوان من ثقل الأكياس.',
+      'قالت: «يا جدي، هل اشتريت السوق كله؟». ضحك جدها: «نصفه فقط».',
+      'قفزت سلمى عن الكرسي، وأخذت كيسين من يده.',
+      '«اجلس هنا يا جدي، على الكرسي الكبير، وأنا أرتب الأغراض».',
+      'جلس جدها وقال: «بارك الله فيكِ يا سلمى».',
+      'ونسيت سلمى جوعها، حتى وضعت آخر تفاحة في مكانها.'],
+    en: ['Salma came home from school, dropped her bag and jumped into the big comfy chair.',
+      '"I\'m hungry! I want food now!"',
+      'The door opened and her grandfather came in from the market, three bags in each hand.',
+      'He stood by the door, catching his breath and wiping his forehead.',
+      'Salma looked at his hands. They were red from the heavy bags.',
+      '"Grandpa, did you buy the whole market?" Her grandfather laughed: "Only half of it."',
+      'Salma jumped off the chair and took two bags from his hand.',
+      '"Sit here, Grandpa, in the big chair, and I\'ll put the shopping away."',
+      'Her grandfather sat down and said: "May Allah bless you, Salma."',
+      'And Salma forgot all about being hungry until the last apple was in its place.']
+  };
+  delete r1.body.ar_f;
+  var q1 = Q('pig-q1');
+  q1.q = { ar: 'ماذا رأت سلمى في يدي جدها؟', en: 'What did Salma see on her grandfather\'s hands?' };
+  q1.options = [{ ar: 'كانتا حمراوين من ثقل الأكياس', en: 'They were red from the heavy bags' },
+    { ar: 'كان فيهما كيس حلوى لها', en: 'They held a bag of sweets for her' },
+    { ar: 'كانتا مبتلتين من المطر', en: 'They were wet from the rain' }];
+  q1.correct = 0;
+  q1.why = { ar: 'رأت سلمى أثر التعب في يدي جدها، فعرفت من هو أتعب منها.', en: 'Salma saw the tiredness on her grandfather\'s hands, and knew who was more tired than she was.' };
+  var q2 = Q('pig-q2');
+  q2.q = { ar: 'أين أجلست سلمى جدها؟', en: 'Where did Salma sit her grandfather down?' };
+  q2.options = [{ ar: 'على كرسي المطبخ', en: 'On the kitchen chair' },
+    { ar: 'على الكرسي الكبير', en: 'In the big chair' },
+    { ar: 'على الدرج عند الباب', en: 'On the step by the door' }];
+  q2.correct = 1;
+  q2.why = { ar: 'قامت عن أريح مكان في البيت، وأعطته لمن تعب أكثر منها.', en: 'She got up from the comfiest seat in the house and gave it to the one more tired than her.' };
+
+  /* pig-r2: مصدر خبر أهل البيت عليهم السلام */
+  R('pig-r2').source = {
+    ar: 'القرآن الكريم، الإنسان 76:8 والحشر 59:9. وخبر نزول آيات سورة الإنسان في أهل البيت عليهم السلام يُروى عن ابن عباس، ذكره الثعلبي وغيره من المفسرين، ونقله البغوي في «معالم التنزيل» والقرطبي في «الجامع لأحكام القرآن» عند تفسير الآيات 76:7-9.',
+    en: 'The Quran, al-Insan 76:8 and al-Hashr 59:9. The report that the verses of Surat al-Insan came down about the Ahl al-Bayt, peace be upon them, is narrated from Ibn Abbas; al-Tha\'labi and other commentators mention it, and al-Baghawi (Ma\'alim al-Tanzil) and al-Qurtubi (al-Jami\' li-Ahkam al-Quran) record it on verses 76:7-9.'
+  };
+
+  /* pig-r3: 4-8 */
+  var r3 = R('pig-r3');
+  r3.body = {
+    ar: ['كان عمر بن أبي سلمة رضي الله عنه غلامًا صغيرًا، يعيش في بيت النبي صلى الله عليه وآله وسلم.',
+      'جلس يومًا يأكل معه من صحن واحد كبير.',
+      'ويد عمر الصغيرة تتنقل في الصحن: من هنا، ومن هناك، ومن الطرف البعيد.',
+      'لم يغضب النبي صلى الله عليه وآله وسلم، ولم يُبعد الصحن.',
+      'قال له بلطف: «يا غلام، سمِّ الله، وكُل بيمينك، وكُل مما يليك».',
+      'اسم الله أولًا، واليد اليمنى، والجهة القريبة منك. وما بقي في الصحن يبقى لغيرك.',
+      'وحين كبر عمر كان يحكي القصة ويقول: «فما زالت تلك طِعمتي بعد»، أي: بقيتُ آكل هكذا من يومها.'],
+    en: ['Umar ibn Abi Salama, may Allah be pleased with him, was a young boy who lived in the house of the Prophet, peace and blessings be upon him and his family.',
+      'One day he sat eating with him from one big dish.',
+      'Umar\'s little hand went all over the dish: from here, from there, and from the far side.',
+      'The Prophet, peace and blessings be upon him and his family, did not get angry, and he did not move the dish away.',
+      'He told him gently: "Young boy, say Allah\'s name, eat with your right hand, and eat from what is in front of you."',
+      'Allah\'s name first, the right hand, and the side near you. What is left in the dish stays for everyone else.',
+      'When Umar grew up he would tell this story and say, meaning: "That stayed my way of eating ever after."']
+  };
+  delete r3.body.ar_f;
+  r3.source = { ar: 'رواه البخاري (5376) ومسلم عن عمر بن أبي سلمة رضي الله عنه.', en: 'Narrated by al-Bukhari (5376) and Muslim from Umar ibn Abi Salama, may Allah be pleased with him.' };
+
+  /* pig-r4: مثال من البيت، والسؤال يختبر التمرين */
+  var r4 = R('pig-r4');
+  r4.minutes = 3;
+  r4.body = {
+    ar: ['صفحة عملية. وجد علماء النفس أن القدرة على تأجيل الرغبة قليلًا مهارة تُتعلَّم، وأنها تساعد الإنسان في الدراسة والصداقة والحياة كلها.',
+      'التمرين له خطوتان. الأولى: «انتظر». حين تشتهي شيئًا، عُدّ إلى عشرة قبل أن تأخذه.',
+      'الثانية: «انظر». وأنت تعد، انظر حولك: هل يحتاج أحد هذا الشيء أكثر مني؟ هل أخذ الجميع؟ هل هناك من هو متعب؟',
+      'مثال: وصلت إلى البيت علبة حلوى، والكل يحبها. عددتَ إلى عشرة، ونظرت حولك، فرأيت أخاك الصغير يقف على أطراف أصابعه ليرى ما في العلبة. أعطيته أولًا، ثم أخذت قطعتك. القطعة نفسها، والقرار قرارك.',
+      'بعد العد، قرر. أحيانًا ستأخذ، وأحيانًا ستعطي. المهم أنك صرت أنت من يقرر، لا رغبتك.'],
+    en: ['A practical page. Psychologists have found that being able to delay a want a little is a learnable skill, and that it helps in study, friendship and all of life.',
+      'The exercise has two steps. First: "Wait." When you want something, count to ten before taking it.',
+      'Second: "Look." While you count, look around: does anyone need this more than me? Has everyone had some? Is anyone tired?',
+      'For example: a box of sweets arrives at home, and everyone loves them. You count to ten and look around, and you see your little brother on tiptoe, trying to see inside the box. You give him one first, then take yours. The same sweet, and the decision was yours.',
+      'After counting, decide. Sometimes you will take, sometimes you will give. What matters is that you decide, not your craving.']
+  };
+  r4.body.ar_f = ['صفحة عملية. وجد علماء النفس أن القدرة على تأجيل الرغبة قليلًا مهارة تُتعلَّم، وأنها تساعد الإنسان في الدراسة والصداقة والحياة كلها.',
+    'التمرين له خطوتان. الأولى: «انتظر». حين تشتهين شيئًا، عُدّي إلى عشرة قبل أن تأخذيه.',
+    'الثانية: «انظر». وأنتِ تعدّين، انظري حولك: هل يحتاج أحد هذا الشيء أكثر مني؟ هل أخذ الجميع؟ هل هناك من هو متعب؟',
+    'مثال: وصلت إلى البيت علبة حلوى، والكل يحبها. عددتِ إلى عشرة، ونظرتِ حولك، فرأيتِ أخاكِ الصغير يقف على أطراف أصابعه ليرى ما في العلبة. أعطيتِه أولًا، ثم أخذتِ قطعتك. القطعة نفسها، والقرار قراركِ.',
+    'بعد العد، قرري. أحيانًا ستأخذين، وأحيانًا ستعطين. المهم أنكِ صرتِ أنتِ من تقرر، لا رغبتك.'];
+  var q8 = Q('pig-q8');
+  q8.type = 'comprehension';
+  q8.q = { ar: 'في الخطوة الثانية «انظر»، ماذا تسأل نفسك وأنت تعدّ؟',
+    ar_f: 'في الخطوة الثانية «انظر»، ماذا تسألين نفسك وأنتِ تعدّين؟',
+    en: 'In the second step, "Look", what do you ask yourself while you count?' };
+  q8.options = [{ ar: 'كم قطعة ستبقى لي في الآخر؟', en: 'How many pieces will be left for me at the end?' },
+    { ar: 'هل يحتاج أحد هذا أكثر مني؟', en: 'Does anyone need this more than me?' },
+    { ar: 'هل يراني أحد وأنا آخذ؟', en: 'Can anyone see me taking it?' }];
+  q8.correct = 1;
+  q8.why = { ar: 'تنظر لترى غيرك: من يحتاج، ومن لم يأخذ بعد، ومن هو متعب.', ar_f: 'تنظرين لتري غيرك: من يحتاج، ومن لم يأخذ بعد، ومن هو متعب.', en: 'You look in order to see others: who needs it, who has not had any yet, who is tired.' };
+
+  /* pig-r5: 15+، بصوت المراهق وعالمه */
+  var r5 = R('pig-r5');
+  r5.body = {
+    ar: ['الحادية عشرة ليلًا. إشعار: «الحذاء الذي في قائمة أمنياتك نزل سعره، والعرض ينتهي بعد ساعتين». وقبله بدقيقة نشر صديقك صورة حذائه الجديد.',
+      'حذاؤك عمره أربعة أشهر، ولا عيب فيه. ومع ذلك تشعر أنك تحتاج الجديد، الآن، قبل أن تنتهي الساعتان.',
+      'يسمّي علماء النفس ما يحدث بعد الشراء «التكيّف مع المتعة»: فرحة اليوم الأول عالية، وبعد أسبوع يصير الشيء الجديد عاديًا، وتعود العين إلى القائمة. لذلك تبدو الرغبة سباقًا بلا خط نهاية: كلما وصلتَ، تحرّك الخط.',
+      'وفي سورة يوسف: ﴿إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ إِلَّا مَا رَحِمَ رَبِّي﴾ (يوسف 12:53). و«أمّارة» صيغة مبالغة: تأمر ثم تعيد الأمر، كإشعار يصل كل ساعة. والسؤال الذي تتركه الآية لك: من يقود عندي، أنا أم الإشعار التالي؟',
+      'والقرآن يصف الطريق الآخر: ﴿وَأَمَّا مَنْ خَافَ مَقَامَ رَبِّهِ وَنَهَى النَّفْسَ عَنِ الْهَوَىٰ ۝ فَإِنَّ الْجَنَّةَ هِيَ الْمَأْوَىٰ﴾ (النازعات 79:40-41). «نهى النفس» فعل يقوم به صاحبها: يسمع الرغبة كاملة، ويعرف ما يريده هو، ثم يقرر.',
+      'جرّب أسبوعًا: كل شراء غير ضروري ينتظر في السلة يومًا كاملًا قبل أن تدفع. اكتم إشعارات العروض. وأعطِ مرة واحدة شيئًا تحبه. وفي آخر الأسبوع انظر إلى السلة: كم شيئًا بقيت تريده بعد يوم من الانتظار؟'],
+    en: ['Eleven at night. A notification: "The trainers on your wishlist just dropped in price. The offer ends in two hours." A minute earlier, your friend posted a photo of his new pair.',
+      'Your trainers are four months old and there is nothing wrong with them. Still, you feel you need the new ones, now, before the two hours run out.',
+      'Psychologists call what happens after buying "hedonic adaptation": the first day\'s thrill is high, a week later the new thing is ordinary, and your eyes go back to the list. That is why wanting feels like a race with no finish line: every time you arrive, the line moves.',
+      'Surat Yusuf says, meaning: the self keeps urging towards evil, except where my Lord has mercy (Yusuf 12:53). The Arabic word for "keeps urging" is an intensive form: it commands, then commands again, like a notification arriving every hour. The question the verse leaves you: who is leading here, me or the next notification?',
+      'The Quran describes the other road, meaning: as for the one who feared standing before his Lord and held the self back from its whims, Paradise is the refuge (an-Nazi\'at 79:40-41). Holding the self back is something its owner does: hear the want in full, know what you yourself want, then decide.',
+      'Try it for a week: anything you do not need waits in the basket for a full day before you pay. Mute the sale notifications. Give away, once, something you love. At the end of the week, look at the basket: how many things do you still want after a day of waiting?']
+  };
+  r5.body.ar_f = r5.body.ar.slice();
+  r5.body.ar_f[0] = 'الحادية عشرة ليلًا. إشعار: «الحذاء الذي في قائمة أمنياتك نزل سعره، والعرض ينتهي بعد ساعتين». وقبله بدقيقة نشرت صديقتك صورة حذائها الجديد.';
+  r5.body.ar_f[1] = 'حذاؤكِ عمره أربعة أشهر، ولا عيب فيه. ومع ذلك تشعرين أنكِ تحتاجين الجديد، الآن، قبل أن تنتهي الساعتان.';
+  r5.body.ar_f[2] = 'يسمّي علماء النفس ما يحدث بعد الشراء «التكيّف مع المتعة»: فرحة اليوم الأول عالية، وبعد أسبوع يصير الشيء الجديد عاديًا، وتعود العين إلى القائمة. لذلك تبدو الرغبة سباقًا بلا خط نهاية: كلما وصلتِ، تحرّك الخط.';
+  r5.body.ar_f[5] = 'جرّبي أسبوعًا: كل شراء غير ضروري ينتظر في السلة يومًا كاملًا قبل أن تدفعي. اكتمي إشعارات العروض. وأعطي مرة واحدة شيئًا تحبينه. وفي آخر الأسبوع انظري إلى السلة: كم شيئًا بقيتِ تريدينه بعد يوم من الانتظار؟';
+
+  /* pig-q10: يختبر قصة pig-r6 */
+  var q10 = Q('pig-q10');
+  q10.type = 'comprehension';
+  q10.q = { ar: 'لماذا أعطت ليلى ريمَ تفاحة؟', en: 'Why did Layla give Reem an apple?' };
+  q10.options = [{ ar: 'طلبت منها المعلمة أن تعطيها', en: 'The teacher told her to give her one' },
+    { ar: 'نظرت إلى وجهها فرأتها جائعة', en: 'She looked at her face and saw she was hungry' },
+    { ar: 'كانت التفاحة صغيرة لا تريدها', en: 'The apple was small and she didn\'t want it' }];
+  q10.correct = 1;
+  q10.why = { ar: 'نظرت ليلى إلى وجه صديقتها قبل أن تأكل، فرأت حاجتها.', en: 'Layla looked at her friend\'s face before eating, and saw what she needed.' };
+
+  /* pig-r7: القمة */
+  var r7 = R('pig-r7');
+  r7.body = {
+    ar: ['في عطاء النبي صلى الله عليه وآله وسلم نرى الصورة التي نمشي نحوها.',
+      'جاءت امرأة ببُردة نسجتها بيدها، وقالت: نسجتُها لأكسوك إياها. فأخذها النبي صلى الله عليه وآله وسلم وهو محتاج إليها، ولبسها.',
+      'فرآها عليه رجل من الحاضرين، فقال: ما أحسنها! اكسُنيها. فقال: «نعم». ثم طواها وأرسلها إليه.',
+      'فقال الناس للرجل: لبسها النبي صلى الله عليه وآله وسلم محتاجًا إليها، ثم سألته إياها، وأنت تعلم أنه لا يردّ أحدًا.',
+      'سمات البنصر أن نقول «لي» قبل أن نرى غيرنا. والقمة أن تعطي الشيء الذي تحتاجه أنت، لأنك رأيت حاجة أخيك. وأول الطريق شيء صغير تحبه، تعطيه بوجه راضٍ.'],
+    en: ['In the giving of the Prophet, peace and blessings be upon him and his family, we see the picture we walk towards.',
+      'A woman brought him a cloak she had woven with her own hands and said: I wove it to clothe you in it. The Prophet, peace and blessings be upon him and his family, took it, needing it, and wore it.',
+      'A man among those present saw it on him and said: How beautiful it is! Give it to me to wear. He said, "Yes." Then he folded it and sent it to him.',
+      'The people said to the man: The Prophet wore it because he needed it, and then you asked him for it, knowing that he never turns anyone away.',
+      'The ring-finger trait is saying "mine" before we see anyone else. The summit is giving the very thing you need, because you saw your brother\'s or sister\'s need. The road starts with one small thing you love, given gladly.']
+  };
+  r7.body.ar_f = r7.body.ar.slice();
+  r7.body.ar_f[4] = 'سمات البنصر أن نقول «لي» قبل أن نرى غيرنا. والقمة أن تعطي الشيء الذي تحتاجينه أنتِ، لأنكِ رأيتِ حاجة أختك. وأول الطريق شيء صغير تحبينه، تعطينه بوجه راضٍ.';
+  r7.source = { ar: 'حديث في صحيح البخاري (1277 و5810)، يرويه سهل بن سعد رضي الله عنه.', en: 'A hadith in Sahih al-Bukhari (1277 and 5810), narrated by Sahl ibn Sa\'d, may Allah be pleased with him.' };
+  var q11 = Q('pig-q11');
+  q11.options = [{ ar: 'كانت عنده بردة أخرى أجمل منها', en: 'He had another, finer cloak' },
+    { ar: 'طلب الرجل أن يشتريها بثمنها', en: 'The man offered to buy it at its price' },
+    { ar: 'كان محتاجًا إليها، وأعطاها لمن طلبها', en: 'He needed it, and gave it to the one who asked' }];
+  q11.correct = 2;
+  q11.why = { ar: 'لبسها وهو محتاج إليها، ثم أعطاها في يومها لمن طلبها.', en: 'He wore it because he needed it, then gave it away that same day to the one who asked.' };
+
+  /* pig-r8: الخاتمة بالإثبات، وكلمة علي عليه السلام */
+  var r8 = R('pig-r8');
+  r8.body.ar[3] = 'طلبت السيدة فاطمة عليها السلام عونًا على تعب حقيقي، فأعطاها أبوها صلى الله عليه وآله وسلم عونًا يبقى معها: قلبًا يذكر الله فيقوى على التعب. وقال علي عليه السلام بعد ذلك: فما تركتُها بعدُ. فقيل له: ولا ليلة صفّين؟ (وهي ليلة معركة شديدة). قال: ولا ليلة صفّين.';
+  r8.body.en[3] = 'Lady Fatima, peace be upon her, asked for help with a real tiredness, and her father, peace and blessings be upon him and his family, gave her a help that would stay: a heart that remembers Allah and grows strong against tiredness. Ali, peace be upon him, said later: I never left it after that. Someone asked: Not even on the night of Siffin? (a night of fierce battle). He said: Not even on the night of Siffin.';
+  if (r8.body.ar_f) r8.body.ar_f[3] = r8.body.ar[3];
+  r8.source = { ar: 'حديث في صحيح البخاري (3705 و5362)، يرويه علي عليه السلام.', en: 'A hadith in Sahih al-Bukhari (3705 and 5362), narrated by Ali, peace be upon him.' };
+  var q12 = Q('pig-q12');
+  q12.options = [{ ar: 'أن ينتظرا خادمًا من السبي القادم', en: 'To wait for a servant from the next captives' },
+    { ar: 'التكبير والتسبيح والتحميد عند النوم', en: 'Saying Allahu akbar, Subhan Allah and al-hamdu lillah at bedtime' },
+    { ar: 'أن يقتسما عمل البيت بينهما', en: 'To share the housework between them' }];
+  q12.correct = 1;
+
+  /* pig-q13: سؤال لقراءة pig-r5 */
+  P.quiz.push(
+    { id: 'pig-q13', readingId: 'pig-r5', type: 'situation', correct: 1,
+      q: { ar: 'إشعار في الليل: عرض على شيء في قائمة أمنياتك، وينتهي بعد ساعتين. أي خطوة تشبه ما تقترحه القراءة؟', en: 'A notification at night: a deal on something in your wishlist, ending in two hours. Which step matches what the reading suggests?' },
+      options: [{ ar: 'أشتريه الآن قبل أن ينتهي العرض', en: 'Buy it now before the deal ends' },
+        { ar: 'أتركه في السلة يومًا كاملًا ثم أقرر', en: 'Leave it in the basket a full day, then decide' },
+        { ar: 'أحذف كل تطبيقات التسوق الليلة', en: 'Delete every shopping app tonight' }],
+      why: { ar: 'يوم الانتظار يفصل بين الرغبة والقرار، فيبقى القرار لصاحبه.', en: 'A day of waiting puts space between the want and the decision, so the decision stays yours.' } }
+  );
+
+  /* pig-r9: 15+، جديدة */
+  P.readings.push({
+    id: 'pig-r9', minutes: 4, ages: '15+',
+    title: { ar: 'الحساب بالتساوي', en: 'Split evenly' },
+    body: {
+      ar: ['في قائمة أمنيات رنا شيء واحد منذ شهر: سماعات بيضاء، وتحتها سطر صغير يعدّ ما بقي: «ينقصك 40».',
+        'بعد تسليم المشروع طلبت المجموعة بيتزا إلى بيت جود: ثماني قطع، وأربع صديقات. لم تكن رنا قد أكلت منذ الصباح، فأخذت قطعة، ثم ثانية، ثم ثالثة، وهلا منحنية على الحاسوب تكتب ملخص العرض.',
+        'حين التفتت هلا إلى العلبة كانت فيها قطعة واحدة. قالت: «لا بأس، لست جائعة كثيرًا»، وأكلتها بسرعة، ورجعت إلى الملخص.',
+        'في المساء كتبت جود في المجموعة: «الحساب 120، كل واحدة 30. حوّلن لي». وبعد دقيقة وصلت رسالة هلا: «حوّلت». ورنا تعرف أن هلا تجمع مصروفها منذ أسابيع لرحلة المدرسة.',
+        'فتحت رنا تطبيق التحويل، وفوقه إعلان صغير: «السماعات البيضاء: العرض ينتهي الليلة».',
+        'قالت في نفسها: ثلاث قطع لي، وقطعة واحدة لهلا، والمبلغ نفسه. ثم قالت: لا أحد انتبه، ولا أحد سيسأل. وبقي إبهامها فوق الرقم 30 وقتًا طويلًا.',
+        'ثم مسحته وكتبت 45، وأرسلت إلى جود وحدها: «أكلت ثلاث قطع. أعيدي إلى هلا 15، ولا تقولي لها من أين».',
+        'وقبل أن تنام فتحت قائمة الأمنيات، فإذا السطر الصغير قد صار: «ينقصك 55». ووصلت رسالة من هلا: «أعادت لي جود 15، تقول إن في الحساب خطأ». فردّت رنا بقلب، وأطفأت الشاشة.'],
+      en: ['Rana\'s wishlist has had one thing on it for a month: white headphones, with a small line underneath counting what is left: "You need 40 more."',
+        'After they handed in the project, the group ordered pizza to Jood\'s house: eight slices, four friends. Rana had not eaten since the morning, so she took a slice, then a second, then a third, while Hala was bent over the laptop writing up the presentation summary.',
+        'When Hala turned to the box there was one slice in it. "It\'s fine, I\'m not that hungry," she said, ate it quickly and went back to the summary.',
+        'That evening Jood wrote in the group: "The bill is 120, that\'s 30 each. Send it to me." A minute later Hala\'s message arrived: "Sent." And Rana knew Hala had been saving her pocket money for weeks for the school trip.',
+        'Rana opened the payment app. Above it sat a small ad: "White headphones: offer ends tonight."',
+        'She thought: three slices for me, one for Hala, and the same amount. Then she thought: nobody noticed, and nobody is going to ask. Her thumb stayed over the 30 for a long time.',
+        'Then she deleted it, typed 45, and wrote to Jood alone: "I had three slices. Give Hala back 15, and don\'t tell her where it came from."',
+        'Before sleeping she opened the wishlist. The small line now read: "You need 55 more." A message came from Hala: "Jood gave me back 15, she says there was a mistake in the bill." Rana replied with a heart and turned off the screen.']
+    },
+    ask: { ar: 'حين يُقسَم شيء بين أصحابك، من ينتبه عندكم لنصيب كل واحد؟', ar_f: 'حين يُقسَم شيء بين صاحباتك، من تنتبه عندكنّ لنصيب كل واحدة؟', en: 'When something is shared out among your friends, who notices everyone\'s share?' },
+    quote: null,
+    source: { ar: 'قصة مؤلفة، أبطالها خياليون.', en: 'An original story with fictional characters.' }
+  });
+  P.quiz.push(
+    { id: 'pig-q14', readingId: 'pig-r9', type: 'comprehension', correct: 0,
+      q: { ar: 'لماذا بقي إبهام رنا فوق الرقم 30 وقتًا طويلًا؟', en: 'Why did Rana\'s thumb stay over the 30 for so long?' },
+      options: [{ ar: 'الزيادة ستؤخر السماعات التي تريدها', en: 'Paying more would push back the headphones she wanted' },
+        { ar: 'لم تتذكر كم قطعة أكلت بالضبط', en: 'She couldn\'t remember exactly how many slices she ate' },
+        { ar: 'خافت أن تنزعج جود من الحساب', en: 'She was afraid Jood would mind the change' }],
+      why: { ar: 'للأمانة هنا ثمن حقيقي: كل زيادة تُبعد السماعات قليلًا، ورنا تعرف ذلك وهي تكتب الرقم.', en: 'Honesty has a real price here: every extra amount pushes the headphones a little further away, and Rana knows it as she types the number.' } },
+    { id: 'pig-q15', readingId: 'pig-r9', type: 'comprehension', correct: 2,
+      q: { ar: 'كيف أصلحت رنا الحساب؟', en: 'How did Rana put the bill right?' },
+      options: [{ ar: 'اعتذرت في المجموعة أمام الصديقات كلهن', en: 'Apologised in the group in front of everyone' },
+        { ar: 'دعت هلا إلى بيتزا أخرى يوم السبت', en: 'Invited Hala for another pizza on Saturday' },
+        { ar: 'دفعت ثمن قطعها، وأعادت جود الفرق لهلا', en: 'Paid for her slices, and Jood gave Hala the difference' }],
+      why: { ar: 'أصلحت الحساب بصمت: دفعت ما أكلت، ووصل إلى هلا حقها دون أن تُحرَج.', en: 'She fixed the bill quietly: she paid for what she ate, and Hala got her share back without being embarrassed.' } }
   );
 })();
