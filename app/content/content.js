@@ -5,7 +5,7 @@
  * Names always describe behaviour, never the person. All children in stories are fictional.
  */
 window.AKHLAQ_CONTENT = {
-  version: "0.23.0-draft-2026-11-22",
+  version: "0.24.0-draft-2026-11-24",
   stages: {},
   virtues: []
 };
@@ -4105,3 +4105,170 @@ window.AKHLAQ_CONTENT.choices = [
     end: { ar: "أكثر الخير لا يحتاج إلى مال ولا إلى قوة. يحتاج إلى أن نراه قبل غيرنا، ثم نمشي إليه.", en: "Most good needs no money and no strength. It needs us to see it first, then walk toward it." }
   }
 ];
+
+/* ───────────── مراجعة الكتابة، 24 نوفمبر 2026: المرحلة الأولى (الخنصر) ─────────────
+ * المعيار: دليل الكتابة حسب العمر (الصغار، والفتيان، والمراهقون، والكبار).
+ * هذه الجولة تحلّ محلّ ما سبقها في الحقول المذكورة هنا وحدها، وتبقى المعرّفات كما هي:
+ * - قصة سمة «العادة العمياء»: صار للحظة التحول سبب في القصة نفسها (ملاحظة المعلمة على الدفتر).
+ * - zombie-r1 (4-8): جمل قصيرة وحوار ودعابة، والعبرة في آخر فعل بلا فقرة شرح.
+ * - zombie-r2 وzombie-r3 وzombie-r8: الخاتمة بصيغة الإثبات، والسلوك يُسمّى بدل الشخص.
+ * - zombie-r5 (15+): بصوت المراهق وعالمه (المجموعة والتمرير في الليل)، والآيتان كما في تنزيل.
+ * - zombie-r9 (15+، جديدة): قصة «رسالة في منتصف الليل» (سؤال في مجموعة الصف لم يُجب عنه)، وسؤالاها zombie-q14 وzombie-q15.
+ * - الأسئلة zombie-q1 وq7 وq8 وq9 صارت تختبر قصتها نفسها.
+ * التحقق: البقرة 2:74، الحديد 57:16، المؤمنون 23:3 على تنزيل (quran-simple عبر api.alquran.cloud)؛ البخاري 6407 و6203،
+ * ومسلم (hadith-api ara-muslim 6966، حديث حنظلة) على hadith-api.
+ */
+(function () {
+  var Z = window.AKHLAQ_CONTENT.stages.zombie;
+  var R = function (id) { return Z.readings.filter(function (r) { return r.id === id; })[0]; };
+  var Q = function (id) { return Z.quiz.filter(function (q) { return q.id === id; })[0]; };
+
+  /* سمة «العادة العمياء» */
+  Z.degrees[2].story = {
+    ar: ['كل يوم بعد المدرسة، كان عمر يرمي حقيبته ويجلس أمام الشاشة حتى العشاء.',
+      'وكل ليلة يتذكر واجبه متأخرًا، فيكتبه وهو نعسان، والحروف تميل على السطر.',
+      'وفي الصباح أعاد إليه المعلم دفتره، وكتب تحت الواجب: «أعرف أن خطك أجمل من هذا يا عمر».',
+      'فلما رجع من المدرسة ورفع الحقيبة ليرميها كعادته، توقف عند الباب وسأل نفسه: لماذا أفعل هذا كل يوم؟',
+      'ثم وضع الحقيبة على المكتب، وكتب واجبه أولًا، ونام تلك الليلة مبكرًا، ودفتره المرتّب ينتظر الصباح.'],
+    en: ['Every day after school, Omar dropped his bag and sat in front of the screen until dinner.',
+      'And every night he remembered his homework too late and wrote it half asleep, the letters sliding off the line.',
+      'In the morning the teacher handed back his notebook with a note under the homework: "I know your writing is better than this, Omar."',
+      'When he got home and lifted his bag to drop it as usual, he stopped at the door and asked himself: why do I do this every day?',
+      'Then he put the bag on his desk, did his homework first, and went to bed early that night, his tidy notebook waiting for the morning.']
+  };
+
+  /* zombie-r1: 4-8 */
+  var r1 = R('zombie-r1');
+  r1.body = {
+    ar: ['استيقظ سامي يوم العطلة، وأمسك الجهاز قبل أن يغسل وجهه.',
+      'نادته أمه: «يا سامي، الفطور!». قال: «حاضر»، ولم يتحرك.',
+      'جاء أخوه الصغير يحمل كرته الحمراء: «تلعب معي؟». قال سامي: «بعد قليل»، ولم يرفع عينيه.',
+      'ثم قفزت القطة، وجلست على الشاشة كلها! ضحك سامي، ورفع رأسه أخيرًا.',
+      'نظر من النافذة، فإذا الشمس في وسط السماء. قال: «أين ذهب الصباح؟».',
+      'وسأل نفسه: «ماذا فعلتُ اليوم؟». ففكّر، ولم يجد شيئًا يحكيه.',
+      'فوضع الجهاز على الرف، وقال: «بسم الله»، وركض إلى أخيه: «أين الكرة الحمراء؟».'],
+    en: ['Sami woke up on a holiday and grabbed the tablet before he had washed his face.',
+      'His mother called: "Sami, breakfast!" He said, "Coming," and did not move.',
+      'His little brother came carrying his red ball: "Will you play with me?" Sami said, "In a minute," and did not look up.',
+      'Then the cat jumped up and sat on the whole screen! Sami laughed, and at last he lifted his head.',
+      'He looked out of the window. The sun was high in the sky. "Where did the morning go?" he said.',
+      'He asked himself, "What did I do today?" He thought, and found nothing to tell.',
+      'So he put the tablet on the shelf, said "Bismillah", and ran to his brother: "Where\'s the red ball?"']
+  };
+  delete r1.body.ar_f;
+  var q1 = Q('zombie-q1');
+  q1.q = { ar: 'ما الذي جعل سامي يرفع رأسه عن الجهاز أخيرًا؟', en: 'What finally made Sami lift his head from the tablet?' };
+  q1.options = [{ ar: 'نداء أمه للفطور', en: 'His mother calling him to breakfast' },
+    { ar: 'أخوه حين جاء بالكرة الحمراء', en: 'His brother coming with the red ball' },
+    { ar: 'القطة حين جلست على الشاشة', en: 'The cat sitting on the screen' }];
+  q1.correct = 2;
+  q1.why = { ar: 'نادته أمه وجاءه أخوه وهو لا يرفع عينيه، ثم أضحكته القطة فرأى الصباح قد مضى.', en: 'His mother called and his brother came while he kept his eyes down; then the cat made him laugh, and he saw the morning had gone.' };
+
+  /* zombie-r2: الخاتمة بالإثبات */
+  var r2 = R('zombie-r2');
+  r2.body.ar[3] = 'والآية تحكي انتقالًا: كان ميتًا فأحياه الله. وهذا الانتقال ممكن لكل قلب في أي يوم، وأوله أن تمشي وراء النور خطوة بعد خطوة.';
+  r2.body.en[3] = 'The verse tells of a crossing: he was dead, and Allah gave him life. That crossing is open to every heart on any day, and it begins when you follow the light, one step after another.';
+  delete r2.body.ar_f;
+
+  /* zombie-r3: السلوك يُسمّى */
+  var r3 = R('zombie-r3');
+  r3.body.ar[2] = 'كل ذكر صغير نفَس للقلب. وبلا ذكر يصير اليوم كيوم الزومبي: حركة كثيرة، وحياة قليلة.';
+  r3.body.en[2] = 'Each small remembrance is a breath for the heart. Without remembrance a day turns into a living-dead day: plenty of movement, very little life.';
+  if (r3.body.ar_f) r3.body.ar_f[2] = r3.body.ar[2];
+
+  /* zombie-r4: السؤال يختبر التمرين نفسه */
+  var q7 = Q('zombie-q7');
+  q7.type = 'comprehension';
+  q7.q = { ar: 'في «تمرين الدقيقة الحاضرة»، ماذا تفعل بعد أن تسمّي ثلاثة أشياء تراها وشيئين تسمعهما؟',
+    ar_f: 'في «تمرين الدقيقة الحاضرة»، ماذا تفعلين بعد أن تسمّي ثلاثة أشياء ترينها وشيئين تسمعينهما؟',
+    en: 'In the present-minute exercise, what do you do after naming three things you see and two things you hear?' };
+  q7.options = [{ ar: 'أفتح الجهاز لأرتاح قليلًا', en: 'Turn on the tablet for a little rest' },
+    { ar: 'أشكر الله على شيء واحد', en: 'Thank Allah for one thing' },
+    { ar: 'أعيد العدّ من البداية', en: 'Start counting again from the beginning' }];
+  q7.correct = 1;
+  q7.why = { ar: 'آخر التمرين شكر: ترى النعمة، ثم تشكر الله عليها.', ar_f: 'آخر التمرين شكر: ترين النعمة، ثم تشكرين الله عليها.', en: 'The exercise ends in thanks: you see the blessing, then you thank Allah for it.' };
+
+  /* zombie-r5: 15+، بصوت المراهق وعالمه */
+  var r5 = R('zombie-r5');
+  r5.body = {
+    ar: ['الساعة الواحدة بعد منتصف الليل. في المجموعة مئتا رسالة لم تُقرأ، ومقطع يتبعه مقطع، والإبهام يمرّر وحده. وغدًا اختبار.',
+      'الغفلة في هذا العمر لا تشبه النوم. أنت مستيقظ جدًّا، ترى كل شيء وتعلّق على كل شيء، وسؤال واحد لا يجد وقته: إلى أين أمضي أنا؟',
+      'في سورة البقرة وصف لقلوب قست بعد أن رأت الآيات: ﴿فَهِيَ كَالْحِجَارَةِ أَوْ أَشَدُّ قَسْوَةً﴾ (البقرة 2:74). والحجر يتكوّن طبقة فوق طبقة، وكذلك القسوة: تأجيل صغير، ثم تأجيل.',
+      'وفي سورة الحديد سؤال: ﴿أَلَمْ يَأْنِ لِلَّذِينَ آمَنُوا أَنْ تَخْشَعَ قُلُوبُهُمْ لِذِكْرِ اللَّهِ﴾ (الحديد 57:16). سؤال موجَّه إلى المؤمنين أنفسهم، والجواب متروك لكل واحد.',
+      'وكثير من التطبيقات مصمَّم ليبقيك أطول وقت ممكن: تمرير بلا آخر، وتشغيل تلقائي، وإشعار يصل في اللحظة التي تناسبهم. فاليقظة اليوم قرار يُتخذ عن وعي، مرة بعد مرة.',
+      'جرّب أسبوعًا: الهاتف خارج الغرفة في الليل، وأول دقيقة في الصباح لذكر قبل أي إشعار، وسؤال قبل النوم: ما الذي قرّبني اليوم من الله، وما الذي أبعدني؟'],
+    en: ['One in the morning. Two hundred unread messages in the group, one clip after another, and a thumb scrolling on its own. There is a test tomorrow.',
+      'Heedlessness at this age looks nothing like sleep. You are very awake: you see everything and comment on everything, and one question never gets its turn: where am I actually going?',
+      'Surat al-Baqara describes hearts that hardened after seeing signs, meaning: they became like stone, or even harder (al-Baqara 2:74). Stone forms layer upon layer, and so does hardness: one small delay, then another.',
+      'Surat al-Hadid asks, meaning: has the time not come for those who believe that their hearts humble themselves at the remembrance of Allah? (al-Hadid 57:16). It is a question put to believers themselves, and the answer is left to each one.',
+      'Many apps are designed to keep you as long as possible: endless scrolling, autoplay, a notification that lands at the moment that suits them. So being awake today is a decision made on purpose, again and again.',
+      'Try it for a week: the phone outside the room at night, the first minute of the morning for remembrance before any notification, and one question before sleep: what brought me closer to Allah today, and what took me further away?']
+  };
+  r5.body.ar_f = r5.body.ar.slice();
+  r5.body.ar_f[1] = 'الغفلة في هذا العمر لا تشبه النوم. أنتِ مستيقظة جدًّا، ترين كل شيء وتعلّقين على كل شيء، وسؤال واحد لا يجد وقته: إلى أين أمضي أنا؟';
+  r5.body.ar_f[5] = 'جرّبي أسبوعًا: الهاتف خارج الغرفة في الليل، وأول دقيقة في الصباح لذكر قبل أي إشعار، وسؤال قبل النوم: ما الذي قرّبني اليوم من الله، وما الذي أبعدني؟';
+  var q8 = Q('zombie-q8');
+  q8.q = { ar: 'الساعة الواحدة ليلًا، والمجموعة لا تهدأ، وغدًا اختبار. أي خطوة تشبه ما تقترحه القراءة؟', en: 'It is one in the morning, the group will not stop, and there is a test tomorrow. Which step matches what the reading suggests?' };
+  q8.options = [{ ar: 'أقرأ الرسائل كلها كي لا يفوتني شيء، ثم أنام', en: 'Read every message so I miss nothing, then sleep' },
+    { ar: 'أكتم المجموعة الليلة، وأضع الهاتف خارج الغرفة', en: 'Mute the group tonight and put the phone outside the room' },
+    { ar: 'أحذف التطبيقات كلها الليلة، ثم أعيدها غدًا', en: 'Delete every app tonight and reinstall them tomorrow' }];
+  q8.correct = 1;
+  q8.why = { ar: 'الخطوة الصغيرة الثابتة تصمد، والقرار الضخم في منتصف الليل ينهار في الصباح.', en: 'A small steady step holds; a huge midnight decision collapses by morning.' };
+
+  /* zombie-r6: السؤال يختبر القصة */
+  var q9 = Q('zombie-q9');
+  q9.type = 'comprehension';
+  q9.q = { ar: 'ماذا رأى آدم حين رفع عينيه؟', en: 'What did Adam see when he lifted his eyes?' };
+  q9.options = [{ ar: 'الطائر الأصفر وجدته والسماء الزرقاء', en: 'The yellow bird, his grandmother and the blue sky' },
+    { ar: 'قطة تنام على السور', en: 'A cat asleep on the wall' },
+    { ar: 'صديقه يلعب في الحديقة', en: 'His friend playing in the park' }];
+  q9.correct = 0;
+  q9.why = { ar: 'كان ذلك كله هناك من قبل، ورآه آدم حين رفع عينيه.', en: 'All of it was there before; Adam saw it once he lifted his eyes.' };
+
+  /* zombie-r8: الخاتمة بالإثبات */
+  var r8 = R('zombie-r8');
+  r8.body.ar[3] = 'انتبه حنظلة لغفلته، وهذه أول اليقظة: القلب الحي يلاحظ متى يغيب، ثم يرجع. والمطلوب أن نعود كلما انتبهنا، ساعةً بعد ساعة.';
+  r8.body.en[3] = 'Hanzala noticed his own heedlessness, and that is where waking begins: a living heart notices when it drifts, then comes back. What is asked of us is to return whenever we notice, one hour after another.';
+  if (r8.body.ar_f) r8.body.ar_f[3] = r8.body.ar[3];
+
+  /* zombie-r9: 15+، جديدة */
+  Z.readings.push({
+    id: 'zombie-r9', minutes: 3, ages: '15+',
+    title: { ar: 'رسالة في منتصف الليل', en: 'A message at midnight' },
+    body: {
+      ar: ['كان زياد متصلًا تلك الليلة حتى الواحدة: مقاطع، وصور، وضحك في مجموعة الصف لا ينقطع.',
+        'في الصباح جلس هادي في المقعد المجاور، وعيناه حمراوان، وأمامه ورقة اختبار الإعادة في الرياضيات. وحين جُمعت الأوراق كانت المسألة الرابعة في ورقته فارغة.',
+        'في الفسحة قال هادي بصوت خافت: «سهرتُ عليها حتى الثالثة، ولم أفهمها».',
+        'فتح زياد المجموعة وصعد بإصبعه إلى الأعلى، فوق النكات والملصقات، حتى وجدها: رسالة من هادي، الساعة 12:47: «أحد يقدر يشرح لي المسألة الرابعة؟ الإعادة غدًا».',
+        'لا رد واحد. وتحتها مباشرة، بعد دقيقة، صورة مضحكة أرسلها زياد نفسه. وزياد حلّ تلك المسألة قبل أسبوع.',
+        'قال في نفسه: كنتُ هنا. كنتُ متصلًا طوال الليل. وأحسّ بشيء ثقيل لا يعرف أين يضعه.',
+        'فكّر أن يكتب في المجموعة اعتذارًا يراه الجميع، ثم أغلقها. أخرج دفتره، وجلس بجانب هادي على درج الملعب، وقال: «ورقة ثانية؟ أريك كيف تُحلّ».',
+        'وفي تلك الليلة، قبل أن يفتح مجموعة الصف، فتح محادثة هادي وكتب: «المسألة الخامسة أسهل. نحلّها غدًا في الفسحة؟».'],
+      en: ['Ziyad was online that night until one: clips, pictures, and nonstop laughing in the class group.',
+        'In the morning Hadi sat in the next seat, his eyes red, the maths resit paper in front of him. When the papers were collected, question four on his sheet was blank.',
+        'At break Hadi said quietly: "I stayed up till three on it and still didn\'t get it."',
+        'Ziyad opened the group and scrolled up, past the jokes and the stickers, until he found it: a message from Hadi at 12:47: "Can anyone explain question four? The resit is tomorrow."',
+        'Not one reply. Right under it, a minute later, a funny picture Ziyad himself had sent. Ziyad had solved that question a week ago.',
+        'He thought: I was here. I was online the whole night. Something heavy settled in him and he didn\'t know where to put it.',
+        'He thought of writing an apology in the group for everyone to see, then closed it. He took out his notebook, sat beside Hadi on the playground steps and said: "Got a spare sheet? I\'ll show you how it works."',
+        'That night, before opening the class group, he opened Hadi\'s chat and wrote: "Question five is easier. Shall we do it at break tomorrow?"']
+    },
+    ask: { ar: 'متى كنتَ متصلًا وغائبًا في الوقت نفسه؟', ar_f: 'متى كنتِ متصلة وغائبة في الوقت نفسه؟', en: 'When have you been online and absent at the same time?' },
+    quote: null,
+    source: { ar: 'قصة مؤلفة، أبطالها خياليون.', en: 'An original story with fictional characters.' }
+  });
+  Z.quiz.push(
+    { id: 'zombie-q14', readingId: 'zombie-r9', type: 'comprehension', correct: 0,
+      q: { ar: 'ماذا طلب هادي في المجموعة تلك الليلة؟', en: 'What did Hadi ask for in the group that night?' },
+      options: [{ ar: 'أن يشرح له أحد المسألة الرابعة قبل اختبار الإعادة', en: 'Someone to explain question four before the resit' },
+        { ar: 'أن يرسل له أحد صور الدرس الذي فاته', en: 'Someone to send him photos of the lesson he missed' },
+        { ar: 'أن يخبر أحد المعلم بأنه مريض', en: 'Someone to tell the teacher he was ill' }],
+      why: { ar: 'سؤال واحد صادق ضاع بين مئات الرسائل، والجميع متصل.', en: 'One honest request was lost among hundreds of messages while everyone was online.' } },
+    { id: 'zombie-q15', readingId: 'zombie-r9', type: 'comprehension', correct: 2,
+      q: { ar: 'ماذا فعل زياد حين وجد الرسالة؟', en: 'What did Ziyad do when he found the message?' },
+      options: [{ ar: 'كتب اعتذارًا طويلًا في المجموعة ليراه الجميع', en: 'Wrote a long apology in the group for everyone to see' },
+        { ar: 'أرسل إلى هادي حلّ المسألة صورة وأكمل يومه', en: 'Sent Hadi a photo of the solution and got on with his day' },
+        { ar: 'أغلق المجموعة وجلس يشرح المسألة لهادي', en: 'Closed the group and sat down to explain the question to Hadi' }],
+      why: { ar: 'اليقظة هنا حضور لصديقه هو: دفتر مفتوح، وجلسة على الدرج، وموعد للغد.', en: 'Waking up here meant being there for his friend himself: an open notebook, a seat on the steps, a plan for tomorrow.' } }
+  );
+})();

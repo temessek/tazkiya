@@ -68,14 +68,14 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
       },
       story: {
         ar: [
-          "خرج أحمد من صلاة العشاء، فسأله ابنه الصغير: أي سورة قرأ الإمام يا أبي؟",
+          "خرج أحمد من صلاة العشاء، فسأله ابنه الصغير وهو يمسك يده: أي سورة قرأ الإمام يا أبي؟",
           "فكّر قليلًا فلم يتذكر. كان في الصف الأول، وذهنه طوال الصلاة في اجتماع الغد.",
-          "في الطريق قال لابنه: سأتعلم معنى ما أحفظ من السور، لعلّي أسمعه حين يُتلى. وفي الليلة التالية وضع هاتفه في جيبه قبل أن يدخل المسجد، ووقف لحظة قبل التكبير."
+          "في الليلة التالية ترك هاتفه في السيارة، ووقف قبل التكبير لحظة ينظر إلى موضع سجوده. وعند باب المسجد سبق ابنه بالجواب: قرأ الإمام سورة الضحى."
         ],
         en: [
-          "Ahmad came out of the Isha prayer and his young son asked: which surah did the imam recite, Dad?",
+          "Ahmad came out of the Isha prayer, and his young son, holding his hand, asked: which surah did the imam recite, Dad?",
           "He thought for a moment and could not remember. He had been in the front row, his mind on tomorrow's meeting the whole prayer.",
-          "On the way home he told his son: I will learn the meaning of the surahs I know, so that I hear them when they are recited. The next night he put his phone away before entering the mosque, and paused for a moment before the takbir."
+          "The next night he left his phone in the car, and before the takbir he stood a moment looking at the place where he would prostrate. At the mosque door he answered before his son could ask: the imam recited ad-Duha."
         ]
       },
       step: {
@@ -107,13 +107,13 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
           en: "You finish the Dhuhr prayer at your desk and remember nothing of it, because your mind was on your email. Which step is closest to the cure?"
         },
         options: [
-          { ar: "أؤخر الصلاة إلى البيت حتى أتفرغ لها", en: "Delay the prayer until I'm home and free for it" },
+          { ar: "أؤخر الصلاة القادمة إلى البيت، حيث أكون أفرغ لها", en: "Put off the next prayer until I'm home and freer for it" },
           { ar: "قبل الصلاة القادمة أبعد الهاتف، وأقف لحظة أتذكر بين يدي من أقف", en: "Before the next prayer, put the phone away and pause to remember before Whom I stand" },
-          { ar: "لا بأس، المهم أني صليت", en: "Never mind, what matters is that I prayed" }
+          { ar: "أعيد الصلاة نفسها الآن، لعلي أحضر فيها هذه المرة", en: "Repeat the same prayer now, hoping to be present this time" }
         ],
         why: {
-          ar: "الحضور يبدأ قبل التكبير: لحظة تُفرغ فيها يديك وقلبك مما كنت فيه. وتأخير الصلاة عن وقتها لا يعالج الغفلة.",
-          en: "Presence starts before the takbir: a moment in which you empty your hands and heart of what you were doing. Delaying the prayer past its time does not cure heedlessness."
+          ar: "الحضور يبدأ قبل التكبير: لحظة تُفرغ فيها يديك وقلبك مما كنت فيه، وتستقبل بها الصلاة القادمة في وقتها.",
+          en: "Presence starts before the takbir: a moment in which you empty your hands and heart of what you were doing, and meet the next prayer in its time."
         }
       }
     },
@@ -168,9 +168,9 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
           en: "In your annual review your manager says your reports are late. He said the same last year. What takes you out of the closed ear?"
         },
         options: [
-          { ar: "أشرح له أسباب التأخير وأنتهي", en: "Explain the reasons for the delay and leave it there" },
-          { ar: "أكتب ملاحظته، وأختار خطوة أبدأ بها هذا الأسبوع، وأسأله بعد شهر", en: "Write his remark down, pick one step to start this week, and ask him again in a month" },
-          { ar: "أقول: معك حق، ثم أنسى", en: "Say «you're right», then forget" }
+          { ar: "أشرح له أسباب التأخير بالتفصيل، حتى يفهم ظروفي", en: "Explain the reasons for the delay in detail, so he understands my situation" },
+          { ar: "أكتب ملاحظته، وأبدأ بخطوة هذا الأسبوع، وأسأله بعد شهر", en: "Write his remark down, start one step this week, and ask him again in a month" },
+          { ar: "أشكره بحرارة، وأعده أن تتحسن تقاريري من الآن", en: "Thank him warmly and promise that my reports will improve from now on" }
         ],
         why: {
           ar: "النصيحة التي تُكتب ويُعمل بها خطوةً خطوة تنتقل من الأذن إلى السلوك.",
@@ -193,12 +193,12 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
         ar: [
           "كانت هدى تعود من عملها متعبة، فتستلقي وتفتح الهاتف «خمس دقائق» قبل أن تبدأ أمور البيت.",
           "وكانت الدقائق الخمس تصير ساعة كل يوم، فتلوم نفسها في الليل، ثم تعيدها في الغد.",
-          "فغيّرت المكان قبل أن تغيّر النية: صارت تترك الهاتف عند الباب، وتجلس عشر دقائق مع كوب شاي وأذكار المساء. وبعد شهر قالت: لم أكن أحتاج الهاتف، كنت أحتاج أن أرتاح."
+          "فغيّرت المكان قبل أن تعتمد على العزيمة: صارت تترك الهاتف عند الباب، وتجلس عشر دقائق مع كوب شاي وأذكار المساء. وبعد شهر قالت لزوجها وهي تصبّ الشاي: هذه هي الدقائق الخمس التي كنت أبحث عنها."
         ],
         en: [
           "Huda came home from work tired, lay down and opened her phone «for five minutes» before starting on the house.",
           "The five minutes became an hour every day. She blamed herself at night, then did it again the next day.",
-          "So she changed the place before changing the intention: she left the phone by the door and sat for ten minutes with a cup of tea and the evening adhkar. A month later she said: I never needed the phone; I needed to rest."
+          "So she changed the place before relying on willpower: she left the phone by the door and sat for ten minutes with a cup of tea and the evening adhkar. A month later, pouring the tea, she told her husband: these are the five minutes I was looking for."
         ]
       },
       step: {
@@ -225,18 +225,18 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
       q: {
         id: "az-d3q", type: "situation", readingId: null, correct: 1,
         q: {
-          ar: "كل مساء تعد نفسك أن تنام مبكرًا، ثم تجد نفسك بعد منتصف الليل أمام الشاشة. ما أنفع خطوة أولى؟",
-          ar_f: "كل مساء تعدين نفسك أن تنامي مبكرًا، ثم تجدين نفسك بعد منتصف الليل أمام الشاشة. ما أنفع خطوة أولى؟",
-          en: "Every evening you promise yourself an early night, then find yourself in front of a screen after midnight. What is the most useful first step?"
+          ar: "كل يوم أحد تؤجل التقرير الثقيل نفسه، وتفتح بدلًا منه البريد والأخبار. ما أنفع خطوة أولى؟",
+          ar_f: "كل يوم أحد تؤجلين التقرير الثقيل نفسه، وتفتحين بدلًا منه البريد والأخبار. ما أنفع خطوة أولى؟",
+          en: "Every Sunday you put off the same heavy report and open your email and the news instead. What is the most useful first step?"
         },
         options: [
-          { ar: "أعد نفسي وعدًا أقوى الليلة", en: "Make myself a firmer promise tonight" },
-          { ar: "أضع الشاحن خارج غرفة النوم، وأجعل مكان الشاشة أذكار النوم أو صفحة من كتاب", en: "Put the charger outside the bedroom, and put the bedtime adhkar or a page of a book where the screen was" },
-          { ar: "أترك الهاتف أسبوعًا كاملًا دفعة واحدة", en: "Give up the phone for a whole week at once" }
+          { ar: "أعد نفسي أن أنهيه كله دفعة واحدة يوم الخميس", en: "Promise myself to finish all of it in one go on Thursday" },
+          { ar: "ألاحظ ما يسبق التأجيل، وأبدأ بربع ساعة منه في الوقت نفسه كل يوم", en: "Notice what comes before the putting off, and start with a quarter of an hour of it at that same time each day" },
+          { ar: "أنتظر حتى أجد في نفسي رغبة حقيقية في البدء", en: "Wait until I feel a real wish to begin" }
         ],
         why: {
-          ar: "العادة تُغلب بمكان يتغير وعادة تحل محلها، لا بوعد يتجدد كل ليلة ولا بقرار ضخم ينهار بعد يومين.",
-          en: "A habit is beaten by a changed setting and a habit that takes its place, not by a promise renewed every night or a huge decision that collapses after two days."
+          ar: "العادة تُعرف بما يسبقها، وتُغلب بفعل صغير يأخذ مكانها في الوقت نفسه. والرغبة تأتي في الغالب بعد البدء.",
+          en: "A habit is known by what comes before it, and beaten by a small act that takes its place at the same moment. The wish to work usually comes after you begin."
         }
       }
     }
@@ -251,14 +251,14 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
           "حين يرفع رأسه تكون الساعة الواحدة بعد منتصف الليل. لا يذكر ما شاهد، ولا يشعر أنه ارتاح. ينام متأخرًا، وتفوته صلاة الفجر، ويبدأ يومه متعبًا يلوم نفسه.",
           "وفي ليلة سألته ابنته: متى قرأت آخر كتاب يا أبي؟ فلم يجد جوابًا. وفهم أن سؤالها عن الوقت أكثر منه عن الكتب: أين ذهبت الساعات التي يقول إنه لا يملكها؟",
           "في القرآن تحذير دقيق من هذه الحال: ﴿وَلَا تَكُونُوا كَالَّذِينَ نَسُوا اللَّهَ فَأَنْسَاهُمْ أَنْفُسَهُمْ﴾ (الحشر 59:19). من نسي الله نسي نفسه أيضًا: ينسى ما يريد، وما يحتاج، ومن ينتظره.",
-          "لم يقرر كريم أن يترك الهاتف. قرر شيئًا أصغر: يبقى الشاحن في الصالة، ويقرأ قبل النوم عشر صفحات. تعثّر في الأسبوع الأول ثلاث ليالٍ. وفي الشهر الثاني صلّى الفجر في وقته أكثر الأيام، وأنهى أول كتاب منذ سنوات."
+          "قرر كريم شيئًا صغيرًا: يبقى الشاحن في الصالة، ويقرأ قبل النوم عشر صفحات. تعثّر في الأسبوع الأول ثلاث ليالٍ. وفي الشهر الثاني صار يصلّي الفجر في وقته أكثر الأيام. وذات ليلة دخلت ابنته فوجدته يطوي آخر صفحة من كتاب، فجلست بجانبه تسأله عنه."
         ],
         en: [
           "Karim works as an accountant at a large company. He gets home at seven, has dinner with his family, then lies down to rest a little. He opens his phone on a news item, then a clip, then another clip.",
           "When he looks up it is one in the morning. He cannot remember what he watched, and he does not feel rested. He sleeps late, misses the Fajr prayer, and begins his day tired and blaming himself.",
           "One night his daughter asked him: when did you last read a book, Dad? He had no answer. He understood that her question was about time more than about books: where had the hours gone that he kept saying he did not have?",
           "The Quran warns of exactly this state, meaning: do not be like those who forgot Allah, so He made them forget themselves (al-Hashr 59:19). Whoever forgets Allah forgets himself too: what he wants, what he needs, and who is waiting for him.",
-          "Karim did not decide to give up his phone. He decided something smaller: the charger stays in the living room, and he reads ten pages before sleep. In the first week he slipped three nights. By the second month he was praying Fajr on time most days, and had finished his first book in years."
+          "Karim decided on something small: the charger stays in the living room, and he reads ten pages before sleep. In the first week he slipped three nights. By the second month he was praying Fajr on time most days. One night his daughter came in and found him turning the last page of a book, and she sat beside him to ask what it was about."
         ]
       },
       quote: {
@@ -334,13 +334,13 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
         ar: [
           "عند ريم دفتر أنيق تكتب فيه كل درس تحضره وكل محاضرة تسمعها: عن الصبر، وبرّ الوالدين، وحفظ اللسان، وقيام الليل. امتلأ الدفتر في ثلاث سنوات.",
           "وفي يوم أرادت أن تنصح صديقتها، ففتحت الدفتر تبحث عن كلمة في الصبر، ثم توقفت عند سؤال: كم نصيحة من هذه الصفحات عملتُ بها؟",
-          "في القرآن وصف لمن ينتفع بما يسمع: ﴿الَّذِينَ يَسْتَمِعُونَ الْقَوْلَ فَيَتَّبِعُونَ أَحْسَنَهُ ۚ أُولَٰئِكَ الَّذِينَ هَدَاهُمُ اللَّهُ﴾ (الزمر 39:18). الاستماع وحده لا يكفي، والهداية تأتي مع الاتّباع.",
+          "في القرآن وصف لمن ينتفع بما يسمع: ﴿الَّذِينَ يَسْتَمِعُونَ الْقَوْلَ فَيَتَّبِعُونَ أَحْسَنَهُ ۚ أُولَٰئِكَ الَّذِينَ هَدَاهُمُ اللَّهُ﴾ (الزمر 39:18). فالهداية في الآية لمن سمع ثم اتّبع.",
           "فغيّرت ريم طريقتها: تكتب في الأسبوع نصيحة واحدة في رأس صفحة جديدة، وتحتها سبعة أسطر، تكتب في كل سطر ما فعلته بها في ذلك اليوم. صار الدفتر أبطأ امتلاءً، وصارت هي أسرع تغيّرًا."
         ],
         en: [
           "Reem has an elegant notebook where she writes down every lesson she attends and every lecture she hears: on patience, honouring parents, guarding the tongue, the night prayer. In three years the notebook filled up.",
           "One day she wanted to advise a friend and opened the notebook to find something on patience. Then she stopped at a question: how many of these pages have I acted on?",
-          "The Quran describes those who benefit from what they hear, meaning: those who listen to speech and follow the best of it; they are the ones Allah has guided (az-Zumar 39:18). Listening alone is not enough; guidance comes with following.",
+          "The Quran describes those who benefit from what they hear, meaning: those who listen to speech and follow the best of it; they are the ones Allah has guided (az-Zumar 39:18). In the verse, guidance belongs to those who hear and then follow.",
           "So Reem changed her method: each week she writes one piece of advice at the top of a new page, with seven lines beneath it, and on each line she writes what she did with it that day. The notebook now fills more slowly, and she changes more quickly."
         ]
       },
@@ -358,21 +358,21 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
         ar: [
           "أكثر ما نفعله في اليوم لا نقرره: نمسك الهاتف حين نملّ، ونؤجل حين نقلق، ونأكل حين نتعب. تبدأ العادة اختيارًا، ثم تتكرر حتى تصير هي التي تختار.",
           "وقد عرّف مسكويه الخُلُق بأنه «حالٌ للنفس داعيةٌ لها إلى أفعالها من غير فكرٍ ولا رويّة» (تهذيب الأخلاق، المقالة الثانية)، وذكر أن منه ما يكون بالطبع، ومنه ما يُكتسب بالعادة والتدرّب حتى يصير خُلقًا. وهذا خبر طيب: ما صنعته العادة تستطيع العادة أن تغيّره.",
-          "وفي «إحياء علوم الدين» (كتاب رياضة النفس) يقرر الغزالي أن الأخلاق تقبل التغيير بالمجاهدة، وأن طريقها أن يتكلّف الإنسان الأفعال التي تصدر عن الخلق المطلوب، ويداوم عليها حتى تصير له طبعًا. فالبخيل يتكلّف البذل، والغافل يتكلّف الذكر، حتى يسهل.",
+          "وفي «إحياء علوم الدين» (كتاب رياضة النفس) يقرر الغزالي أن الأخلاق تقبل التغيير بالمجاهدة، وأن طريقها أن يتكلّف الإنسان الأفعال التي تصدر عن الخلق المطلوب، ويداوم عليها حتى تصير له طبعًا. ومثاله عنده: من أراد خُلق الجود تكلّف بذل المال حتى يصير الجود طبعه. وعلى مثاله يتكلّف الذكرَ من طالت غفلته، حتى يسهل عليه.",
           "والقرآن يضع القاعدة الكبرى: ﴿إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا مَا بِأَنْفُسِهِمْ﴾ (الرعد 13:11). التغيير يبدأ من الداخل، ويظهر في الأفعال الصغيرة المتكررة.",
           "طريقة عملية: اختر عادة واحدة لا كل العادات. لاحظ ما يسبقها (الملل، التعب، إشعار)، وضع في مكانها فعلًا صالحًا صغيرًا في الوقت نفسه، وغيّر المكان حين تستطيع: الهاتف خارج الغرفة، والمصحف على الطاولة. ثم داوم، فالقليل الدائم أقوى من الكثير المنقطع."
         ],
         ar_f: [
           "أكثر ما نفعله في اليوم لا نقرره: نمسك الهاتف حين نملّ، ونؤجل حين نقلق، ونأكل حين نتعب. تبدأ العادة اختيارًا، ثم تتكرر حتى تصير هي التي تختار.",
           "وقد عرّف مسكويه الخُلُق بأنه «حالٌ للنفس داعيةٌ لها إلى أفعالها من غير فكرٍ ولا رويّة» (تهذيب الأخلاق، المقالة الثانية)، وذكر أن منه ما يكون بالطبع، ومنه ما يُكتسب بالعادة والتدرّب حتى يصير خُلقًا. وهذا خبر طيب: ما صنعته العادة تستطيع العادة أن تغيّره.",
-          "وفي «إحياء علوم الدين» (كتاب رياضة النفس) يقرر الغزالي أن الأخلاق تقبل التغيير بالمجاهدة، وأن طريقها أن يتكلّف الإنسان الأفعال التي تصدر عن الخلق المطلوب، ويداوم عليها حتى تصير له طبعًا. فالبخيل يتكلّف البذل، والغافل يتكلّف الذكر، حتى يسهل.",
+          "وفي «إحياء علوم الدين» (كتاب رياضة النفس) يقرر الغزالي أن الأخلاق تقبل التغيير بالمجاهدة، وأن طريقها أن يتكلّف الإنسان الأفعال التي تصدر عن الخلق المطلوب، ويداوم عليها حتى تصير له طبعًا. ومثاله عنده: من أراد خُلق الجود تكلّف بذل المال حتى يصير الجود طبعه. وعلى مثاله يتكلّف الذكرَ من طالت غفلته، حتى يسهل عليه.",
           "والقرآن يضع القاعدة الكبرى: ﴿إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا مَا بِأَنْفُسِهِمْ﴾ (الرعد 13:11). التغيير يبدأ من الداخل، ويظهر في الأفعال الصغيرة المتكررة.",
           "طريقة عملية: اختاري عادة واحدة لا كل العادات. لاحظي ما يسبقها (الملل، التعب، إشعار)، وضعي في مكانها فعلًا صالحًا صغيرًا في الوقت نفسه، وغيّري المكان حين تستطيعين: الهاتف خارج الغرفة، والمصحف على الطاولة. ثم داومي، فالقليل الدائم أقوى من الكثير المنقطع."
         ],
         en: [
           "Most of what we do in a day we never decide: we reach for the phone when bored, put things off when anxious, eat when tired. A habit begins as a choice, then repeats until it does the choosing.",
           "Miskawayh defined character as «a state of the soul that moves it to its actions without thought or deliberation» (Tahdhib al-Akhlaq, second discourse), and noted that some of it is natural and some is acquired by habit and training until it becomes character. That is good news: what habit has made, habit can change.",
-          "In the Ihya (Book of Disciplining the Soul), al-Ghazali holds that character can be changed by striving, and that the way is to take on, with effort, the actions that flow from the character you want, and keep at them until they become natural. The miser makes himself give, the heedless makes himself remember, until it comes easily.",
+          "In the Ihya (Book of Disciplining the Soul), al-Ghazali holds that character can be changed by striving, and that the way is to take on, with effort, the actions that flow from the character you want, and keep at them until they become natural. His example: whoever wants the trait of generosity makes himself give money until generosity becomes his nature. In the same way, someone long absent from remembrance makes himself remember, until it comes easily.",
           "The Quran sets the great rule, meaning: Allah does not change the condition of a people until they change what is in themselves (ar-Ra'd 13:11). Change begins inside and shows in small, repeated actions.",
           "A practical way: choose one habit, not all of them. Notice what comes before it (boredom, tiredness, a notification), put a small good act in its place at the same time, and change the setting when you can: the phone out of the room, the mushaf on the table. Then keep going, for a little done constantly is stronger than a lot done and dropped."
         ]
@@ -413,15 +413,15 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
       title: { ar: "القمة: في مهنة أهله", en: "The summit: at the service of his household" },
       body: {
         ar: [
-          "سُئلت السيدة عائشة: ما كان النبي صلى الله عليه وآله وسلم يصنع في بيته؟ فقالت: «كَانَ يَكُونُ فِي مِهْنَةِ أَهْلِهِ (تَعْنِي خِدْمَةَ أَهْلِهِ) فَإِذَا حَضَرَتِ الصَّلاَةُ خَرَجَ إِلَى الصَّلاَةِ» (البخاري 676).",
+          "سُئلت السيدة عائشة رضي الله عنها: ما كان النبي صلى الله عليه وآله وسلم يصنع في بيته؟ فقالت: «كَانَ يَكُونُ فِي مِهْنَةِ أَهْلِهِ (تَعْنِي خِدْمَةَ أَهْلِهِ) فَإِذَا حَضَرَتِ الصَّلاَةُ خَرَجَ إِلَى الصَّلاَةِ» (البخاري 676).",
           "في هذا الخبر القصير صورة الحضور الكامل: في البيت حاضر مع أهله، يخدمهم بيده، وفي الصلاة حاضر مع ربه. البيت لا يأخذه من الصلاة، والعبادة لا تأخذه من أهله.",
-          "والغافل يتوزّع على غير مكانه: يفكر في العمل وهو في البيت، وفي البيت وهو في الصلاة. أما هدي النبي صلى الله عليه وآله وسلم فأن يكون الإنسان كله حيث هو.",
+          "وفي الغفلة يتوزّع الإنسان على غير مكانه: يفكر في العمل وهو في البيت، وفي البيت وهو في الصلاة. أما هدي النبي صلى الله عليه وآله وسلم فأن يكون الإنسان كله حيث هو.",
           "سؤال للتأمل: في أي مكان من يومك يحضر جسدك وحده؟ وما الخطوة التي تعيد إليه قلبك؟"
         ],
         en: [
-          "Lady Aisha was asked what the Prophet, peace and blessings be upon him and his family, did at home. She said: «He would be at the service of his household, and when the time of prayer came he went out to the prayer» (Bukhari 676).",
+          "Lady Aisha, may Allah be pleased with her, was asked what the Prophet, peace and blessings be upon him and his family, did at home. She said: «He would be at the service of his household, and when the time of prayer came he went out to the prayer» (Bukhari 676).",
           "This short report holds a picture of full presence: at home, present with his family, serving them with his own hands; at prayer, present with his Lord. Home did not take him from the prayer, and worship did not take him from his family.",
-          "The heedless person is spread across places other than where they are: thinking of work at home, and of home in the prayer. The way of the Prophet, peace and blessings be upon him and his family, is for a person to be wholly where they are.",
+          "In heedlessness a person is spread across places other than where they are: thinking of work at home, and of home in the prayer. The way of the Prophet, peace and blessings be upon him and his family, is for a person to be wholly where they are.",
           "A question to reflect on: where in your day is only your body present? And what step brings your heart back there?"
         ]
       },
@@ -440,21 +440,21 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
           "كان حنظلة الأسيدي رضي الله عنه من كتّاب النبي صلى الله عليه وآله وسلم. لقيه أبو بكر رضي الله عنه يومًا فسأله: كيف أنت يا حنظلة؟ فقال: «نَافَقَ حَنْظَلَةُ».",
           "وشرح سبب خوفه: يكونون عند النبي صلى الله عليه وآله وسلم يذكّرهم بالنار والجنة حتى كأنهم يرونهما، فإذا خرجوا «عَافَسْنَا الأَزْوَاجَ وَالأَوْلاَدَ وَالضَّيْعَاتِ فَنَسِينَا كَثِيرًا»، أي انشغلوا بالأزواج والأولاد والأرزاق. فقال أبو بكر إنه يجد مثل ذلك.",
           "فذهبا إلى النبي صلى الله عليه وآله وسلم، وأخبره حنظلة، فقال: «وَالَّذِي نَفْسِي بِيَدِهِ إِنْ لَوْ تَدُومُونَ عَلَى مَا تَكُونُونَ عِنْدِي وَفِي الذِّكْرِ لَصَافَحَتْكُمُ الْمَلاَئِكَةُ عَلَى فُرُشِكُمْ وَفِي طُرُقِكُمْ، وَلَكِنْ يَا حَنْظَلَةُ سَاعَةً وَسَاعَةً»، ثلاث مرات (صحيح مسلم 2750).",
-          "هذا حديث الكبار: زوج وأولاد وعمل ومال، ومشاغل تأخذ القلب. ولم يطلب النبي صلى الله عليه وآله وسلم من حنظلة أن يترك بيته وعمله، وطمأنه أن للقلب ساعات. والفرق بين حنظلة والغافل أن حنظلة لاحظ غفلته وخاف منها ورجع، والغافل لا يلاحظ.",
-          "فلتكن لك ساعتك: وقت ثابت في يومك، ولو قصيرًا، للذكر والقرآن والمحاسبة، تعود إليه من بين المشاغل كما يعود المسافر إلى بيته."
+          "يعرف هذا الحديثَ كلُّ من له زوج وأولاد وعمل ومال: مشاغل حلال تأخذ القلب. وأبقى النبي صلى الله عليه وآله وسلم حنظلة في بيته وعمله، وطمأنه أن للقلب ساعات. وما فعله حنظلة أول الطريق: لاحظ تغيّر قلبه، وخاف عليه، وذهب يسأل.",
+          "فلتكن لك ساعتك: وقت ثابت في يومك، ولو قصيرًا، للذكر والقرآن والمحاسبة، يُرجَع إليه من بين المشاغل كما يرجع المسافر إلى بيته."
         ],
         en: [
           "Hanzala al-Usayyidi, may Allah be pleased with him, was one of the Prophet's scribes. Abu Bakr, may Allah be pleased with him, met him one day and asked: how are you, Hanzala? He said: «Hanzala has become a hypocrite.»",
           "He explained his fear: they would be with the Prophet, peace and blessings be upon him and his family, who reminded them of the Fire and Paradise until it was as if they saw them; then they went out «and busied ourselves with wives, children and livelihoods, and forgot much». Abu Bakr said he found the same in himself.",
-          "They went to the Prophet, and Hanzala told him. He said, in meaning: «By the One in whose hand is my soul, if you remained as you are with me and in remembrance, the angels would shake your hands on your beds and in your streets. But, Hanzala, a time and a time», three times (Sahih Muslim 2750).",
-          "This is a hadith for adults: spouse, children, work and money, and concerns that take hold of the heart. The Prophet did not ask Hanzala to leave his home and work; he reassured him that the heart has its hours. What separates Hanzala from the heedless is that he noticed his heedlessness, feared it, and came back. The heedless do not notice.",
+          "They went to the Prophet, peace and blessings be upon him and his family, and Hanzala told him. He said, in meaning: «By the One in whose hand is my soul, if you remained as you are with me and in remembrance, the angels would shake your hands on your beds and in your streets. But, Hanzala, a time and a time», three times (Sahih Muslim 2750).",
+          "Anyone with a spouse, children, work and money knows this hadith: lawful concerns that take hold of the heart. The Prophet kept Hanzala in his home and his work, and reassured him that the heart has its hours. What Hanzala did is the start of the road: he noticed his heart had changed, feared for it, and went to ask.",
           "So keep your own hour: a fixed time in your day, however short, for remembrance, Quran and self-review, to come back to from among your concerns as a traveller comes home."
         ]
       },
       quote: {
         ar: "«يَا حَنْظَلَةُ سَاعَةً وَسَاعَةً»",
         en: "Meaning: Hanzala, a time for this and a time for that.",
-        ref: "صحيح مسلم 2750 (ترقيم sunnah.com: الكتاب 50، الحديث 14)، عن حنظلة الأسيدي", checked: "hadith-api (fawazahmed0)", verify: true
+        ref: "صحيح مسلم 2750 (ترقيم sunnah.com: الكتاب 50، الحديث 14)، عن حنظلة الأسيدي", checked: "hadith-api (fawazahmed0), ara-muslim 6966", verify: true
       },
       source: { ar: "حديث في صحيح مسلم.", en: "A hadith in Sahih Muslim." }
     }
@@ -465,8 +465,8 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
       q: { ar: "ما الذي جعل كريمًا يتوقف ويراجع لياليه؟", en: "What made Karim stop and look at his nights?" },
       options: [
         { ar: "سؤال ابنته: متى قرأت آخر كتاب؟", en: "His daughter's question: when did you last read a book?" },
-        { ar: "تحذير من مديره في العمل", en: "A warning from his manager at work" },
-        { ar: "نفاد بطارية الهاتف", en: "His phone battery running out" }
+        { ar: "فوات صلاة الفجر عليه مرة بعد مرة", en: "Missing the Fajr prayer time after time" },
+        { ar: "ملاحظة من مديره عن تعبه في العمل", en: "A remark from his manager about how tired he looked at work" }
       ],
       why: { ar: "سؤال بسيط من ابنته كشف له أين تذهب ساعاته. واليقظة كثيرًا ما تبدأ بسؤال صادق.", en: "A simple question from his daughter showed him where his hours were going. Waking often begins with an honest question." }
     },
@@ -478,41 +478,41 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
         en: "Every night you tell yourself: just five minutes on the phone, and an hour goes by. Which step is like what Karim did?"
       },
       options: [
-        { ar: "أحذف كل التطبيقات الليلة", en: "Delete every app tonight" },
-        { ar: "أضع الشاحن خارج غرفة النوم، وأقرأ صفحات قليلة قبل النوم", en: "Put the charger outside the bedroom and read a few pages before sleep" },
-        { ar: "أسهر الليلة وأعوّض النوم في العطلة", en: "Stay up tonight and catch up on sleep at the weekend" }
+        { ar: "أحذف التطبيقات كلها الليلة، وأبدأ صفحة جديدة من الغد", en: "Delete every app tonight and start afresh tomorrow" },
+        { ar: "أترك الشاحن في الصالة، وأقرأ صفحات قليلة قبل النوم", en: "Leave the charger in the living room and read a few pages before sleep" },
+        { ar: "أضبط منبّهين للفجر، حتى لا تفوتني الصلاة مهما سهرت", en: "Set two alarms for Fajr, so I don't miss it however late I stay up" }
       ],
-      why: { ar: "خطوة صغيرة في المكان والعادة تثبت، والقرار الضخم ينهار سريعًا.", en: "A small step in the setting and the habit lasts; a huge decision collapses quickly." }
+      why: { ar: "خطوة كريم الصغيرة غيّرت المكان والعادة معًا، فثبتت. والمنبّه الإضافي يعالج الأثر ويترك السبب في مكانه.", en: "Karim's small step changed the setting and the habit together, so it held. An extra alarm treats the effect and leaves the cause where it was." }
     },
     {
       id: "az-q3", readingId: "az-r2", type: "comprehension", correct: 0,
       q: { ar: "ما الأشياء الصغيرة الثلاثة التي جرّبتها سلوى في عملها؟", en: "What three small things did Salwa try at work?" },
       options: [
         { ar: "جملة نية، ومهمة واحدة في كل مرة، ودقيقة صمت بين المهام", en: "A sentence of intention, one task at a time, and a minute of silence between tasks" },
-        { ar: "ساعات عمل أطول، وقهوة أكثر، وإجازة", en: "Longer hours, more coffee and a holiday" },
-        { ar: "ترك العمل، والبحث عن عمل جديد، والسفر", en: "Quitting, looking for a new job, and travelling" }
+        { ar: "قائمة مهام صباحية، وإغلاق البريد، واستراحة غداء أطول", en: "A morning to-do list, closing her email, and a longer lunch break" },
+        { ar: "جملة نية، والرد على كل رسالة فورًا، وتأجيل الاجتماعات", en: "A sentence of intention, answering every message at once, and postponing meetings" }
       ],
       why: { ar: "النية والتركيز والوقفة القصيرة تعيد الإنسان حاضرًا في عمله.", en: "Intention, focus and a short pause bring a person back to being present at work." }
     },
     {
       id: "az-q4", readingId: "az-r2", type: "comprehension", correct: 1,
-      q: { ar: "ما الذي يجعل يوم العمل عبادة بحسب حديث «إنما الأعمال بالنيات»؟", en: "According to the hadith «actions are only by intentions», what turns a workday into worship?" },
+      q: { ar: "ماذا اكتشفت سلوى في طريق عودتها إلى البيت؟", en: "What did Salwa discover on her way home?" },
       options: [
-        { ar: "كثرة ساعات العمل", en: "Working many hours" },
-        { ar: "النية التي يعمل بها الإنسان", en: "The intention with which a person works" },
-        { ar: "نوع الوظيفة", en: "The kind of job" }
+        { ar: "أنها نسيت اجتماعًا مهمًا كان في جدول يومها منذ الصباح", en: "That she had forgotten an important meeting on her schedule" },
+        { ar: "أنها لا تذكر شيئًا واحدًا أتقنته، مع انشغالها طوال اليوم", en: "That she could not recall one thing she did well, though she was busy all day" },
+        { ar: "أن رسائل كثيرة بقيت في بريدها دون رد حتى المساء", en: "That many messages were still sitting unanswered in her inbox" }
       ],
-      why: { ar: "لكل امرئ ما نوى: العمل نفسه يرتفع أو ينزل بنيته.", en: "Each person has what they intended: the same work rises or falls by its intention." }
+      why: { ar: "كانت مشغولة طوال اليوم، ولم تحضر لحظة منه. ومن هذه الملاحظة بدأت جملة النية والمهمة الواحدة.", en: "She was busy all day and present for not a moment of it. From that noticing came the sentence of intention and the single task." }
     },
     {
       id: "az-q5", readingId: "az-r3", type: "comprehension", correct: 0,
-      q: { ar: "ما أول المعاني الستة التي تحيا بها الصلاة عند الغزالي؟", en: "For al-Ghazali, what is the first of the six meanings that give a prayer its life?" },
+      q: { ar: "إلى أي سببين يردّ الغزالي شرود القلب في الصلاة؟", en: "To which two causes does al-Ghazali trace the heart's wandering in prayer?" },
       options: [
-        { ar: "حضور القلب", en: "Presence of heart" },
-        { ar: "طول القراءة", en: "Long recitation" },
-        { ar: "رفع الصوت", en: "Raising the voice" }
+        { ar: "شاغل من الخارج يأخذ السمع والبصر، وهمّ من الداخل يملأ القلب", en: "Something outside that takes the ears and eyes, and a worry inside that fills the heart" },
+        { ar: "طول القراءة في الصلاة، وقلة النوم في الليلة السابقة", en: "Long recitation in the prayer, and too little sleep the night before" },
+        { ar: "ضعف حفظ السور، وسرعة الإمام في الركوع والسجود", en: "Weak memorisation of surahs, and an imam who rushes the bowing and prostration" }
       ],
-      why: { ar: "حضور القلب أن يكون القلب مع ما يفعله اللسان والجسد، وعليه تُبنى بقية المعاني.", en: "Presence of heart is the heart being with what the tongue and body are doing, and the other meanings are built on it." }
+      why: { ar: "لكل سبب علاجه: يُقطع الشاغل الخارجي، ويُعالج الداخلي بفهم ما يقال وتخفيف تعلّق القلب بما يشغله.", en: "Each cause has its cure: the outside distraction is cut off, and the inside one is treated by understanding what is said and loosening the heart's hold on what occupies it." }
     },
     {
       id: "az-q6", readingId: "az-r3", type: "situation", correct: 1,
@@ -532,9 +532,9 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
       id: "az-q7", readingId: "az-r4", type: "comprehension", correct: 0,
       q: { ar: "ماذا غيّرت ريم في دفترها؟", en: "What did Reem change in her notebook?" },
       options: [
-        { ar: "صارت تكتب نصيحة واحدة في الأسبوع، وتسجّل ما فعلته بها كل يوم", en: "She writes one piece of advice a week and records what she did with it each day" },
-        { ar: "صارت تكتب أكثر في كل محاضرة", en: "She writes more in every lecture" },
-        { ar: "تركت الكتابة نهائيًا", en: "She stopped writing altogether" }
+        { ar: "صارت تكتب نصيحة واحدة في الأسبوع، وتحتها ما فعلته بها كل يوم", en: "She writes one piece of advice a week, with what she did with it each day beneath" },
+        { ar: "صارت تلخّص كل محاضرة في سطر، لتراجع الدفتر كله بسرعة", en: "She sums up each lecture in one line, to review the whole notebook quickly" },
+        { ar: "صارت تكتب النصائح على بطاقات صغيرة، وتعلّقها في غرفتها", en: "She writes the advice on small cards and pins them up in her room" }
       ],
       why: { ar: "العبرة بالعمل بالنصيحة، لا بكثرة ما يُكتب عنها.", en: "What counts is acting on advice, not how much is written about it." }
     },
@@ -542,9 +542,9 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
       id: "az-q8", readingId: "az-r5", type: "comprehension", correct: 1,
       q: { ar: "ما الخبر الطيب في كلام مسكويه عن الخُلُق؟", en: "What is the good news in Miskawayh's words on character?" },
       options: [
-        { ar: "أن الأخلاق كلها فطرية لا تتغير", en: "That all character is inborn and cannot change" },
+        { ar: "أن الخُلُق كله طبع ثابت، فيكفي أن يعرف الإنسان طبعه", en: "That all character is fixed nature, so it is enough to know your own" },
         { ar: "أن من الخُلُق ما يُكتسب بالعادة والتدرّب، فيمكن تغييره", en: "That some character is acquired by habit and training, so it can be changed" },
-        { ar: "أن العادات لا علاقة لها بالأخلاق", en: "That habits have nothing to do with character" }
+        { ar: "أن الخُلُق يتغير وحده مع تقدم العمر والتجربة", en: "That character changes by itself with age and experience" }
       ],
       why: { ar: "ما صنعته العادة تستطيع العادة أن تغيّره، بالمجاهدة والمداومة.", en: "What habit has made, habit can change, through striving and constancy." }
     },
@@ -556,9 +556,9 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
         en: "You pick up your phone whenever you feel bored at work. Which approach matches the article?"
       },
       options: [
-        { ar: "أعد نفسي ألا ألمسه أبدًا", en: "Promise myself never to touch it" },
-        { ar: "ألاحظ لحظة الملل، وأضع مكان الهاتف فعلًا صغيرًا ثابتًا، كالقيام لشرب الماء مع ذكر", en: "Notice the moment of boredom and put a small fixed act in place of the phone, like getting up for water with a remembrance" },
-        { ar: "أستسلم، فالعادة أقوى مني", en: "Give in; the habit is stronger than me" }
+        { ar: "أعد نفسي كل صباح ألا ألمسه أبدًا في ساعات العمل", en: "Promise myself each morning never to touch it during work hours" },
+        { ar: "ألاحظ لحظة الملل، وأضع مكانه فعلًا صغيرًا كشرب الماء مع ذكر", en: "Notice the moment of boredom and put a small act in the phone's place, like getting water with a remembrance" },
+        { ar: "أعالج الملل نفسه، فأطلب من مديري عملًا أكثر تحديًا", en: "Treat the boredom itself by asking my manager for more challenging work" }
       ],
       why: { ar: "عادة واحدة، وما يسبقها، وبديل صغير في الوقت نفسه: هكذا تتغير العادات.", en: "One habit, what comes before it, and a small replacement at the same moment: that is how habits change." }
     },
@@ -566,31 +566,51 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
       id: "az-q10", readingId: "az-r6", type: "comprehension", correct: 0,
       q: { ar: "لماذا صارت مريم تحكي لأمها وحدها؟", en: "Why did Maryam start telling only her mother?" },
       options: [
-        { ar: "لأن أباها كان يسمعها بلا حضور، وعيناه في الهاتف", en: "Because her father listened without being present, his eyes on his phone" },
-        { ar: "لأن أباها رفض أن يسمعها", en: "Because her father refused to listen to her" },
-        { ar: "لأنها انتقلت إلى مدرسة أخرى", en: "Because she moved to another school" }
+        { ar: "لأن أباها كان يسمعها وعيناه في الهاتف، فلم يحفظ ما قالت", en: "Because her father listened with his eyes on his phone, and kept nothing of what she said" },
+        { ar: "لأن أباها كان يقاطعها ليصحّح طريقة كلامها", en: "Because her father kept interrupting to correct the way she spoke" },
+        { ar: "لأن أمها طلبت منها ألا تشغل أباها وقت العشاء", en: "Because her mother asked her not to bother her father at dinner" }
       ],
       why: { ar: "الحاضر بالجسد وحده يغيب عمن حوله، والأولاد يلاحظون ذلك قبل الكبار.", en: "Someone present only in body is absent to those around them, and children notice it before adults do." }
     },
     {
       id: "az-q11", readingId: "az-r7", type: "comprehension", correct: 0,
-      q: { ar: "ماذا قالت السيدة عائشة عن النبي صلى الله عليه وآله وسلم في بيته؟", en: "What did Lady Aisha say about the Prophet at home?" },
+      q: { ar: "ماذا قالت السيدة عائشة رضي الله عنها عن النبي صلى الله عليه وآله وسلم في بيته؟", en: "What did Lady Aisha, may Allah be pleased with her, say about the Prophet, peace and blessings be upon him and his family, at home?" },
       options: [
         { ar: "كان في مهنة أهله، فإذا حضرت الصلاة خرج إليها", en: "He was at the service of his household, and when prayer came he went out to it" },
-        { ar: "كان يقضي وقته في البيت منفردًا", en: "He spent his time at home alone" },
-        { ar: "كان لا يدخل البيت إلا للنوم", en: "He came home only to sleep" }
+        { ar: "كان يجلس فيه للناس يعلّمهم ويقضي حوائجهم", en: "He sat there receiving people, teaching them and seeing to their needs" },
+        { ar: "كان يخلو فيه للعبادة، ويترك شؤون البيت لأهله", en: "He withdrew there for worship and left the household's affairs to his family" }
       ],
       why: { ar: "حاضر مع أهله في البيت، وحاضر مع ربه في الصلاة.", en: "Present with his family at home, and present with his Lord in prayer." }
     },
     {
       id: "az-q12", readingId: "az-r8", type: "comprehension", correct: 1,
-      q: { ar: "ما الذي ميّز حنظلة رضي الله عنه من الغافل؟", en: "What set Hanzala, may Allah be pleased with him, apart from the heedless?" },
+      q: { ar: "ماذا فعل حنظلة رضي الله عنه حين وجد قلبه يتغير بعد مجلس النبي صلى الله عليه وآله وسلم؟", en: "What did Hanzala, may Allah be pleased with him, do when he found his heart changing after sitting with the Prophet, peace and blessings be upon him and his family?" },
       options: [
-        { ar: "أنه لم ينشغل بأهله وعمله أبدًا", en: "He was never busy with his family and work" },
-        { ar: "أنه لاحظ غفلته وخاف منها ورجع", en: "He noticed his heedlessness, feared it, and came back" },
-        { ar: "أنه ترك عمله ليتفرغ للذكر", en: "He left his work to devote himself to remembrance" }
+        { ar: "كتم الأمر في نفسه، وانتظر أيامًا حتى يعود إليه صفاء قلبه", en: "Kept it to himself and waited some days for his heart's clarity to return" },
+        { ar: "خاف على نفسه، وذهب مع أبي بكر يسأل النبي صلى الله عليه وآله وسلم", en: "Feared for himself, and went with Abu Bakr to ask the Prophet" },
+        { ar: "ترك ضيعته وأهله أيامًا، وانقطع في المسجد ليتفرغ للذكر", en: "Left his estate and family for some days and stayed in the mosque to devote himself to remembrance" }
       ],
-      why: { ar: "القلب الحي يلاحظ متى يغيب، ويرجع. وهذه أول اليقظة.", en: "A living heart notices when it drifts, and comes back. That is the beginning of waking." }
+      why: { ar: "لاحظ تغيّر قلبه، وخاف عليه، وسأل. والقلب الحي يلاحظ متى يغيب، ويرجع.", en: "He noticed the change in his heart, feared for it, and asked. A living heart notices when it drifts, and comes back." }
+    },
+    {
+      id: "az-q13", readingId: "az-r4", type: "comprehension", correct: 2,
+      q: { ar: "حين فتحت ريم دفترها تبحث عن كلمة في الصبر، أي سؤال أوقفها؟", en: "When Reem opened her notebook looking for something on patience, what question stopped her?" },
+      options: [
+        { ar: "هل تقبل صديقتي النصيحة مني أصلًا؟", en: "Will my friend even accept advice from me?" },
+        { ar: "في أي صفحة كتبتُ درس الصبر؟", en: "On which page did I write the lesson on patience?" },
+        { ar: "كم نصيحة من هذه الصفحات عملتُ بها؟", en: "How many of these pages have I acted on?" }
+      ],
+      why: { ar: "سؤال واحد صادق حوّل الدفتر من سجلّ لما سمعته إلى سجلّ لما فعلته.", en: "One honest question turned the notebook from a record of what she heard into a record of what she did." }
+    },
+    {
+      id: "az-q14", readingId: "az-r8", type: "comprehension", correct: 0,
+      q: { ar: "بماذا أجاب النبي صلى الله عليه وآله وسلم حنظلة رضي الله عنه؟", en: "How did the Prophet, peace and blessings be upon him and his family, answer Hanzala, may Allah be pleased with him?" },
+      options: [
+        { ar: "لو داموا على حالهم عنده لصافحتهم الملائكة، ولكن ساعة وساعة", en: "If they stayed as they were with him the angels would shake their hands, but a time and a time" },
+        { ar: "أن يلزم مجلسه ويترك الضيعات أيامًا حتى يثبت قلبه", en: "That he should stay close to his gatherings and leave his estates until his heart was steady" },
+        { ar: "أن ما يجده نفاق حقًّا، فليتب منه ويكثر من الاستغفار", en: "That what he felt was truly hypocrisy, so he should repent and seek forgiveness often" }
+      ],
+      why: { ar: "أبقاه في بيته وعمله، وجعل للقلب ساعات: ساعة للمشاغل، وساعة يُرجَع فيها إلى الذكر.", en: "He kept him in his home and work and gave the heart its hours: a time for concerns, and a time to return to remembrance." }
     }
   ],
   tasks: [
@@ -2982,10 +3002,10 @@ window.AKHLAQ_CONTENT_ADULT.choices = [
         out: { ar: "قام سامر فوضع الهاتف على الشاحن في الصالة. كانت الغرفة أهدأ مما توقّع، وبدأ أذكاره فنام قبل أن يتمّها، واستيقظ للفجر قبل المنبّه.", en: "Samer got up and left the phone charging in the living room. The room was quieter than he expected; he began his remembrances, fell asleep before finishing them, and woke for Fajr before the alarm." },
         why: { ar: "المسافة بين اليد والهاتف أقوى من أي عزيمة في منتصف الليل.", en: "Distance between hand and phone is stronger than any midnight resolve." } },
       { t: { ar: "أضبط مؤقتًا لعشر دقائق، وأغلق التطبيق حين يرن.", en: "Set a ten-minute timer and close the app when it rings." },
-        out: { ar: "رنّ المؤقت، فتردّد سامر ثم أغلق. لم يكن الأمر سهلًا، لكنه نام قبل الواحدة، وقرّر أن يبقى الهاتف في الغد خارج الغرفة.", en: "The timer rang; Samer hesitated, then closed the app. It wasn't easy, but he slept before one, and decided the phone would stay outside the room the next night." },
+        out: { ar: "رنّ المؤقت، فبقي إبهام سامر فوق الشاشة لحظة، ثم أغلق التطبيق. نام قبل الواحدة، وفي الليلة التالية وضع الهاتف على الشاحن في الصالة قبل أن يطفئ النور.", en: "The timer rang. Samer's thumb hovered over the screen for a moment, then he closed the app. He slept before one, and the next night he left the phone charging in the living room before switching off the light." },
         why: { ar: "حدّ صغير تضعه بنفسك خير من حدّ لا تضعه أبدًا.", en: "A small limit you set yourself beats no limit at all." } }
     ],
-    end: { ar: "الغفلة لا تأتي دفعة واحدة. تأتي مقطعًا بعد مقطع حتى يضيع الليل والفجر، وقرار واحد قبل النوم يحمي يومًا كاملًا.", en: "Heedlessness doesn't arrive all at once. It comes clip by clip until the night and the dawn are gone, and one decision before sleep protects a whole day." }
+    end: { ar: "تأتي الغفلة مقطعًا بعد مقطع حتى يضيع الليل والفجر، ويحمي اليومَ كله قرارٌ واحد قبل النوم.", en: "Heedlessness comes clip by clip until the night and the dawn are gone; one decision before sleep protects the whole day." }
   },
   {
     id: "ach-pig-1", stage: "pig", trait: 0, age: "18+",
