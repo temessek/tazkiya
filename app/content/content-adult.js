@@ -6,7 +6,7 @@
  * IDs start with "az-" / "ap-" / "am-" / "ah-" / "as-" / "ad" so an adult record never mixes with a children's one.
  */
 window.AKHLAQ_CONTENT_ADULT = {
-  version: "0.5.1-adult-draft-2026-11-25",
+  version: "0.5.2-adult-draft-2026-11-25",
   stages: {},
   onboarding: [
     {
@@ -536,7 +536,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.zombie = {
         { ar: "صارت تلخّص كل محاضرة في سطر، لتراجع الدفتر كله بسرعة", en: "She sums up each lecture in one line, to review the whole notebook quickly" },
         { ar: "صارت تكتب النصائح على بطاقات صغيرة، وتعلّقها في غرفتها", en: "She writes the advice on small cards and pins them up in her room" }
       ],
-      why: { ar: "العبرة بالعمل بالنصيحة، لا بكثرة ما يُكتب عنها.", en: "What counts is acting on advice, not how much is written about it." }
+      why: { ar: "صار الدفتر يمتلئ ببطء، لأن كل نصيحة فيه تنتظر أسبوعًا من العمل بها.", en: "The notebook fills slowly now, because each piece of advice waits for a week of acting on it." }
     },
     {
       id: "az-q8", readingId: "az-r5", type: "comprehension", correct: 1,
@@ -1519,7 +1519,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
         ar: [
           "عادت منى من عملها مهمومة، وبدأت تحكي لزوجها زياد عن خلاف مع مديرتها. وقبل أن تكمل الجملة الثانية قال زياد: «لا تهتمي، اكتبي لها رسالة واضحة، أو ابحثي عن عمل آخر».",
           "سكتت منى، ثم قالت: «لم أطلب حلًّا يا زياد، أردت أن تسمعني». واستغرب زياد، فقد ظن أنه يساعدها.",
-          "كثير منا يسمع ليرد، لا ليفهم. يبدأ تحضير الجواب والآخر ما زال يتكلم، فيقاطعه، أو يكمل جملته عنه، أو يقفز إلى نصيحة لم تُطلب. والقرآن يأمر بأحسن القول، ويحذّر مما يفعله الكلام السيئ بين الناس: ﴿وَقُلْ لِعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ ۚ إِنَّ الشَّيْطَانَ يَنْزَغُ بَيْنَهُمْ﴾ (الإسراء 17:53).",
+          "كثير منا يحضّر جوابه وهو يسمع. يبدأ تحضير الجواب والآخر ما زال يتكلم، فيقاطعه، أو يكمل جملته عنه، أو يقفز إلى نصيحة لم تُطلب. والقرآن يأمر بأحسن القول، ويحذّر مما يفعله الكلام السيئ بين الناس: ﴿وَقُلْ لِعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ ۚ إِنَّ الشَّيْطَانَ يَنْزَغُ بَيْنَهُمْ﴾ (الإسراء 17:53).",
           "والمقاطعة من أسرع ما يفتح باب هذا النزغ: يشعر المقاطَع أنه غير مهم، فيرفع صوته، ويتحول الحديث إلى خصام.",
           "خطوات عملية: دع المتكلم ينهي كلامه كله. أعد عليه ما فهمته في جملة: «تقصد أن...». واسأل قبل أن تنصح: «تريد رأيي، أم تريد أن أسمعك؟». وفي الاجتماعات اكتب فكرتك على ورقة بدل أن تقطع بها كلام غيرك.",
           "بعد أيام عادت منى متعبة مرة أخرى. أطفأ زياد الموقد، وجلس قبالتها، وسألها: «تريدين رأيي، أم أسمعك؟». قالت: «اسمعني أولًا». فسمع عشر دقائق لم يقل فيها شيئًا، ثم كانت هي التي سألته عن رأيه."
@@ -1527,7 +1527,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
         ar_f: [
           "عادت منى من عملها مهمومة، وبدأت تحكي لزوجها زياد عن خلاف مع مديرتها. وقبل أن تكمل الجملة الثانية قال زياد: «لا تهتمي، اكتبي لها رسالة واضحة، أو ابحثي عن عمل آخر».",
           "سكتت منى، ثم قالت: «لم أطلب حلًّا يا زياد، أردت أن تسمعني». واستغرب زياد، فقد ظن أنه يساعدها.",
-          "كثير منا يسمع ليرد، لا ليفهم. يبدأ تحضير الجواب والآخر ما زال يتكلم، فيقاطعه، أو يكمل جملته عنه، أو يقفز إلى نصيحة لم تُطلب. والقرآن يأمر بأحسن القول، ويحذّر مما يفعله الكلام السيئ بين الناس: ﴿وَقُلْ لِعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ ۚ إِنَّ الشَّيْطَانَ يَنْزَغُ بَيْنَهُمْ﴾ (الإسراء 17:53).",
+          "كثير منا يحضّر جوابه وهو يسمع. يبدأ تحضير الجواب والآخر ما زال يتكلم، فيقاطعه، أو يكمل جملته عنه، أو يقفز إلى نصيحة لم تُطلب. والقرآن يأمر بأحسن القول، ويحذّر مما يفعله الكلام السيئ بين الناس: ﴿وَقُلْ لِعِبَادِي يَقُولُوا الَّتِي هِيَ أَحْسَنُ ۚ إِنَّ الشَّيْطَانَ يَنْزَغُ بَيْنَهُمْ﴾ (الإسراء 17:53).",
           "والمقاطعة من أسرع ما يفتح باب هذا النزغ: يشعر المقاطَع أنه غير مهم، فيرفع صوته، ويتحول الحديث إلى خصام.",
           "خطوات عملية: دعي المتكلم ينهي كلامه كله. أعيدي عليه ما فهمتِه في جملة: «تقصد أن...». واسألي قبل أن تنصحي: «تريد رأيي، أم تريد أن أسمعك؟». وفي الاجتماعات اكتبي فكرتك على ورقة بدل أن تقطعي بها كلام غيرك.",
           "بعد أيام عادت منى متعبة مرة أخرى. أطفأ زياد الموقد، وجلس قبالتها، وسألها: «تريدين رأيي، أم أسمعك؟». قالت: «اسمعني أولًا». فسمع عشر دقائق لم يقل فيها شيئًا، ثم كانت هي التي سألته عن رأيه."
@@ -1535,7 +1535,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.monkey = {
         en: [
           "Mona came home from work troubled and began telling her husband Ziyad about a disagreement with her manager. Before she had finished her second sentence Ziyad said: «Don't worry about it; write her a clear message, or look for another job.»",
           "Mona fell silent, then said: «I didn't ask for a solution, Ziyad. I wanted you to listen.» Ziyad was surprised; he had thought he was helping.",
-          "Many of us listen in order to reply, not to understand. We start preparing the answer while the other is still talking, so we interrupt, finish their sentence for them, or jump to advice nobody asked for. The Quran commands the best speech and warns of what bad words do between people, meaning: tell My servants to say what is best; Satan sows discord among them (al-Isra 17:53).",
+          "Many of us are preparing our answer while we listen. We start preparing the answer while the other is still talking, so we interrupt, finish their sentence for them, or jump to advice nobody asked for. The Quran commands the best speech and warns of what bad words do between people, meaning: tell My servants to say what is best; Satan sows discord among them (al-Isra 17:53).",
           "Interrupting is one of the quickest ways to open the door to that discord: the person cut off feels unimportant, raises their voice, and the conversation turns into a quarrel.",
           "Practical steps: let the speaker finish everything. Sum up what you understood in one sentence: «You mean that...». Ask before advising: «Do you want my opinion, or do you want me to listen?» In meetings, write your idea on paper instead of cutting into someone else's words with it.",
           "A few days later Mona came home tired again. Ziyad turned off the stove, sat down facing her and asked: «Do you want my opinion, or shall I listen?» She said: «Listen first.» He listened for ten minutes without a word, and in the end it was she who asked what he thought."
@@ -2198,7 +2198,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.human = {
           "تعمل هالة مصممة مستقلة. كانت تقبل كل مشروع يُعرض عليها، وتعد كل عميل بموعد قريب لتكسبه، ثم تتأخر. تعتذر بالمرض مرة، وبانقطاع الإنترنت مرة، وبضغط العمل مرات.",
           "وفي يوم كتب لها عميل قديم: «عملك جميل، لكني لا أستطيع أن أبني موعدي على وعدك». وخسرت أكبر عملائها في الشهر نفسه.",
           "قال النبي صلى الله عليه وآله وسلم: «آيَةُ الْمُنَافِقِ ثَلاَثٌ إِذَا حَدَّثَ كَذَبَ، وَإِذَا وَعَدَ أَخْلَفَ، وَإِذَا اؤْتُمِنَ خَانَ» (البخاري 33). وخُلف الموعد في العمل يحمل الثلاث معًا: وعد يُخلَف، وأمانة وقت لا تُؤدّى، وعذر قد يكون كذبًا.",
-          "وفي صفات المؤمنين المفلحين: ﴿وَالَّذِينَ هُمْ لِأَمَانَاتِهِمْ وَعَهْدِهِمْ رَاعُونَ﴾ (المؤمنون 23:8). والرعاية حفظ دائم، لا وفاء متقطع حين يسهل.",
+          "وفي صفات المؤمنين المفلحين: ﴿وَالَّذِينَ هُمْ لِأَمَانَاتِهِمْ وَعَهْدِهِمْ رَاعُونَ﴾ (المؤمنون 23:8). والرعاية حفظ يدوم في الأيام السهلة والصعبة.",
           "جلست هالة ليلة مع تقويمها، وحسبت كم يأخذ كل عمل حقًّا، وزادت عليه يومين. ولم تعد تعد إلا بموعد تقدر عليه، ولو خسرت به المشروع.",
           "وفي الشهر التالي اتصل بها صاحب متجر يريد شعارًا خلال أسبوع. نظرت في التقويم، فرأت مشروعين قبله، فقالت: «أستطيع أن أسلّمه بعد ثلاثة أسابيع، لا قبل ذلك». سكت الرجل قليلًا، ثم قال: «هذا أول موعد يعطينيه أحد وأصدّقه». وسلّمته الشعار قبل الموعد بيومين."
         ],
@@ -2206,7 +2206,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.human = {
           "Hala works as a freelance designer. She used to accept every project offered, promise every client an early date to win them, then run late. One time she blamed illness, another time the internet, many times the workload.",
           "One day an old client wrote to her: «Your work is beautiful, but I can't build my deadline on your promise.» In the same month she lost her biggest client.",
           "The Prophet, peace and blessings be upon him and his family, said: «The sign of a hypocrite is three: when he speaks he lies, when he promises he breaks it, and when he is trusted he betrays» (Bukhari 33). A missed deadline at work can carry all three at once: a promise broken, a trust of time not rendered, and an excuse that may be a lie.",
-          "Among the qualities of the successful believers, meaning: those who look after their trusts and their promises (al-Mu'minun 23:8). Looking after means constant care, not keeping faith now and then when it is easy.",
+          "Among the qualities of the successful believers, meaning: those who look after their trusts and their promises (al-Mu'minun 23:8). Looking after means care that lasts through easy days and hard ones.",
           "Hala sat one night with her calendar and worked out how long each job really takes, then added two days. From then on she promised only dates she could keep, even if it cost her the project.",
           "The next month a shop owner called wanting a logo within a week. She looked at the calendar, saw two projects ahead of his, and said: «I can deliver it in three weeks, not before.» The man was quiet for a moment, then said: «That's the first deadline anyone has given me that I actually believe.» She delivered the logo two days early."
         ]
@@ -2233,7 +2233,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.human = {
           "آخى النبي صلى الله عليه وآله وسلم بين سلمان الفارسي وأبي الدرداء رضي الله عنهما. فزار سلمان أخاه، فرأى زوجته أم الدرداء في ثياب مهملة، فسألها عن شأنها، فقالت: أخوك أبو الدرداء ليس له حاجة في الدنيا.",
           "كان أبو الدرداء يصوم النهار ويقوم الليل كله. فبات سلمان عنده، وأمره أن يأكل وينام، ثم قاما يصليان في آخر الليل، وقال له: «إِنَّ لِرَبِّكَ عَلَيْكَ حَقًّا، وَلِنَفْسِكَ عَلَيْكَ حَقًّا، وَلأَهْلِكَ عَلَيْكَ حَقًّا، فَأَعْطِ كُلَّ ذِي حَقٍّ حَقَّهُ». فذكر أبو الدرداء ذلك للنبي صلى الله عليه وآله وسلم، فقال: «صَدَقَ سَلْمَانُ» (البخاري 1968).",
           "أداء الواجب عند الكبار ميزان بين حقوق كثيرة: حق الله في العبادة، وحق العمل في الإتقان، وحق الجسد في النوم والطعام، وحق الزوج والأولاد في الوقت والرعاية. ومن أعطى حقًّا واحدًا كل وقته ضيّع غيره، ولو كان الحق الذي أعطاه عبادة.",
-          "وفي القرآن أمر جامع في معاملة الزوجة: ﴿وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ﴾ (النساء 4:19). والمعروف يشمل الوقت والكلمة والاهتمام، لا النفقة وحدها. والحقوق بين الزوجين متبادلة، فقد قال تعالى: ﴿وَلَهُنَّ مِثْلُ الَّذِي عَلَيْهِنَّ بِالْمَعْرُوفِ﴾ (البقرة 2:228).",
+          "وفي القرآن أمر جامع في معاملة الزوجة: ﴿وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ﴾ (النساء 4:19). والمعروف يدخل فيه الوقت والكلمة والاهتمام، مع النفقة. والحقوق بين الزوجين متبادلة، فقد قال تعالى: ﴿وَلَهُنَّ مِثْلُ الَّذِي عَلَيْهِنَّ بِالْمَعْرُوفِ﴾ (البقرة 2:228).",
           "خطوات عملية: اكتب أصحاب الحقوق عليك في ورقة: ربك، ونفسك، وأهلك، وعملك، ووالديك. وانظر من منهم يأخذ أقل من حقه هذا الشهر، وأعطه ساعة إضافية هذا الأسبوع.",
           "كتب عمرو الورقة ليلة الخميس، فرأى أن العمل يأخذ مساءه كله، وأن أمه لم تسمع صوته منذ أسبوعين. وفي الجمعة أغلق حاسوب العمل بعد العصر، واتصل بأمه، وخرج بأولاده إلى الحديقة، ثم صلّى المغرب معهم في المسجد القريب."
         ],
@@ -2241,7 +2241,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.human = {
           "آخى النبي صلى الله عليه وآله وسلم بين سلمان الفارسي وأبي الدرداء رضي الله عنهما. فزار سلمان أخاه، فرأى زوجته أم الدرداء في ثياب مهملة، فسألها عن شأنها، فقالت: أخوك أبو الدرداء ليس له حاجة في الدنيا.",
           "كان أبو الدرداء يصوم النهار ويقوم الليل كله. فبات سلمان عنده، وأمره أن يأكل وينام، ثم قاما يصليان في آخر الليل، وقال له: «إِنَّ لِرَبِّكَ عَلَيْكَ حَقًّا، وَلِنَفْسِكَ عَلَيْكَ حَقًّا، وَلأَهْلِكَ عَلَيْكَ حَقًّا، فَأَعْطِ كُلَّ ذِي حَقٍّ حَقَّهُ». فذكر أبو الدرداء ذلك للنبي صلى الله عليه وآله وسلم، فقال: «صَدَقَ سَلْمَانُ» (البخاري 1968).",
           "أداء الواجب عند الكبار ميزان بين حقوق كثيرة: حق الله في العبادة، وحق العمل في الإتقان، وحق الجسد في النوم والطعام، وحق الزوج والأولاد في الوقت والرعاية. ومن أعطى حقًّا واحدًا كل وقته ضيّع غيره، ولو كان الحق الذي أعطاه عبادة.",
-          "وفي القرآن أمر جامع في معاملة الزوجة: ﴿وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ﴾ (النساء 4:19). والمعروف يشمل الوقت والكلمة والاهتمام، لا النفقة وحدها. والحقوق بين الزوجين متبادلة، فقد قال تعالى: ﴿وَلَهُنَّ مِثْلُ الَّذِي عَلَيْهِنَّ بِالْمَعْرُوفِ﴾ (البقرة 2:228).",
+          "وفي القرآن أمر جامع في معاملة الزوجة: ﴿وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ﴾ (النساء 4:19). والمعروف يدخل فيه الوقت والكلمة والاهتمام، مع النفقة. والحقوق بين الزوجين متبادلة، فقد قال تعالى: ﴿وَلَهُنَّ مِثْلُ الَّذِي عَلَيْهِنَّ بِالْمَعْرُوفِ﴾ (البقرة 2:228).",
           "خطوات عملية: اكتبي أصحاب الحقوق عليك في ورقة: ربك، ونفسك، وأهلك، وعملك، ووالديك. وانظري من منهم يأخذ أقل من حقه هذا الشهر، وأعطيه ساعة إضافية هذا الأسبوع.",
           "كتب عمرو الورقة ليلة الخميس، فرأى أن العمل يأخذ مساءه كله، وأن أمه لم تسمع صوته منذ أسبوعين. وفي الجمعة أغلق حاسوب العمل بعد العصر، واتصل بأمه، وخرج بأولاده إلى الحديقة، ثم صلّى المغرب معهم في المسجد القريب."
         ],
@@ -2249,7 +2249,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.human = {
           "The Prophet, peace and blessings be upon him and his family, made Salman al-Farisi and Abu al-Darda brothers, may Allah be pleased with them both. Salman visited his brother and saw his wife, Umm al-Darda, in neglected clothes. He asked what was the matter, and she said: your brother Abu al-Darda has no interest in this world.",
           "Abu al-Darda fasted every day and prayed all night. Salman stayed the night with him, told him to eat and to sleep, then they both rose to pray in the last part of the night, and Salman said to him: «Your Lord has a right over you, your self has a right over you, and your family has a right over you, so give each one its due.» Abu al-Darda mentioned this to the Prophet, who said: «Salman has spoken the truth» (Bukhari 1968).",
           "For adults, doing what is due is a balance between many rights: Allah's right in worship, work's right to be done well, the body's right to sleep and food, and the right of spouse and children to time and care. Whoever gives one right all their time neglects the others, even if the right they gave it to is worship.",
-          "The Quran gives a comprehensive command about living with one's wife, meaning: live with them in kindness (an-Nisa 4:19). Kindness covers time, words and attention, not only provision. Rights between spouses run both ways; Allah says, meaning: and women have rights like those owed by them, in kindness (al-Baqara 2:228).",
+          "The Quran gives a comprehensive command about living with one's wife, meaning: live with them in kindness (an-Nisa 4:19). Kindness takes in time, words and attention, along with provision. Rights between spouses run both ways; Allah says, meaning: and women have rights like those owed by them, in kindness (al-Baqara 2:228).",
           "Practical steps: write down on paper those who have rights over you: your Lord, yourself, your family, your work, your parents. See which of them is getting less than its due this month, and give it an extra hour this week.",
           "Amr wrote the list on Thursday night and saw that work was taking all his evenings, and that his mother had not heard his voice in two weeks. On Friday he shut the work laptop after the afternoon prayer, called his mother, took his children to the park, and prayed maghrib with them at the nearby mosque."
         ]
@@ -3113,7 +3113,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.sabiq = {
       body: {
         ar: [
           "في سورة فاطر آية ترسم المراتب كلها: ﴿فَمِنْهُمْ ظَالِمٌ لِنَفْسِهِ وَمِنْهُمْ مُقْتَصِدٌ وَمِنْهُمْ سَابِقٌ بِالْخَيْرَاتِ بِإِذْنِ اللَّهِ ۚ ذَٰلِكَ هُوَ الْفَضْلُ الْكَبِيرُ﴾ (فاطر 35:32). ظالم لنفسه بما يقع فيه، ومقتصد يؤدي ما عليه ويكفّ أذاه، وسابق يزيد على الواجب.",
-          "وفي الآية كلمتان تحرسان السابق من أخطر ما يصيبه، وهو العُجب: «بِإِذْنِ اللَّهِ»، و«ذَٰلِكَ هُوَ الْفَضْلُ الْكَبِيرُ». السبق نفسه إذن من الله وفضل منه، لا ملك للسابق يفخر به على من خلفه.",
+          "وفي الآية كلمتان تحرسان السابق من أخطر ما يصيبه، وهو العُجب: «بِإِذْنِ اللَّهِ»، و«ذَٰلِكَ هُوَ الْفَضْلُ الْكَبِيرُ». فالسبق نفسه إذن من الله وفضل منه، يشكره السابق عليه، ولا يرى نفسه فوق من خلفه.",
           "ومن علامات العجب أن ينظر الإنسان إلى من دونه في الخير نظرة استعلاء، أو أن يحب أن يُعرف بعمله، أو أن يظن أنه وصل فيتوقف. والسابق الحقيقي يرى ما بقي عليه أكثر مما قطع، ويخاف أن يتغير قلبه، فقد قال النبي صلى الله عليه وآله وسلم: «بَادِرُوا بِالأَعْمَالِ فِتَنًا كَقِطَعِ اللَّيْلِ الْمُظْلِمِ» (صحيح مسلم 118).",
           "والقرآن يأمر بالسباق صراحة: ﴿فَاسْتَبِقُوا الْخَيْرَاتِ﴾ (البقرة 2:148). لكنه سباق لا خاسر فيه: من سبقك لم يأخذ مكانك، ومن أعنته شاركته في أجره. ولذلك يفرح السابق إذا سبقه غيره.",
           "خطوات عملية: إذا عملت خيرًا فقل: الحمد لله الذي وفّقني، ولا تحدّث به إلا لحاجة. وإذا رأيت من هو دونك في الخير فادعُ له ولا تحتقره، فلعله يسبقك غدًا. واسأل الله الثبات كل يوم، فالقلوب تتقلب.",
@@ -3121,7 +3121,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.sabiq = {
         ],
         ar_f: [
           "في سورة فاطر آية ترسم المراتب كلها: ﴿فَمِنْهُمْ ظَالِمٌ لِنَفْسِهِ وَمِنْهُمْ مُقْتَصِدٌ وَمِنْهُمْ سَابِقٌ بِالْخَيْرَاتِ بِإِذْنِ اللَّهِ ۚ ذَٰلِكَ هُوَ الْفَضْلُ الْكَبِيرُ﴾ (فاطر 35:32). ظالم لنفسه بما يقع فيه، ومقتصد يؤدي ما عليه ويكفّ أذاه، وسابق يزيد على الواجب.",
-          "وفي الآية كلمتان تحرسان السابق من أخطر ما يصيبه، وهو العُجب: «بِإِذْنِ اللَّهِ»، و«ذَٰلِكَ هُوَ الْفَضْلُ الْكَبِيرُ». السبق نفسه إذن من الله وفضل منه، لا ملك للسابق يفخر به على من خلفه.",
+          "وفي الآية كلمتان تحرسان السابق من أخطر ما يصيبه، وهو العُجب: «بِإِذْنِ اللَّهِ»، و«ذَٰلِكَ هُوَ الْفَضْلُ الْكَبِيرُ». فالسبق نفسه إذن من الله وفضل منه، يشكره السابق عليه، ولا يرى نفسه فوق من خلفه.",
           "ومن علامات العجب أن ينظر الإنسان إلى من دونه في الخير نظرة استعلاء، أو أن يحب أن يُعرف بعمله، أو أن يظن أنه وصل فيتوقف. والسابق الحقيقي يرى ما بقي عليه أكثر مما قطع، ويخاف أن يتغير قلبه، فقد قال النبي صلى الله عليه وآله وسلم: «بَادِرُوا بِالأَعْمَالِ فِتَنًا كَقِطَعِ اللَّيْلِ الْمُظْلِمِ» (صحيح مسلم 118).",
           "والقرآن يأمر بالسباق صراحة: ﴿فَاسْتَبِقُوا الْخَيْرَاتِ﴾ (البقرة 2:148). لكنه سباق لا خاسر فيه: من سبقك لم يأخذ مكانك، ومن أعنته شاركته في أجره. ولذلك يفرح السابق إذا سبقه غيره.",
           "خطوات عملية: إذا عملتِ خيرًا فقولي: الحمد لله الذي وفّقني، ولا تحدّثي به إلا لحاجة. وإذا رأيتِ من هي دونك في الخير فادعي لها ولا تحتقريها، فلعلها تسبقك غدًا. واسألي الله الثبات كل يوم، فالقلوب تتقلب.",
@@ -3129,7 +3129,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.sabiq = {
         ],
         en: [
           "A verse in Surat Fatir maps all the stages, meaning: among them is one who wrongs himself, one who is moderate, and one who races ahead in good deeds by Allah's leave; that is the great favour (Fatir 35:32). One who wrongs himself by what he falls into, a moderate one who does what is owed and keeps harm away, and one who races beyond what is required.",
-          "Two phrases in the verse guard the one who races ahead from the worst thing that can befall him, self-admiration: «by Allah's leave», and «that is the great favour». The lead itself is Allah's leave and His favour, not a possession to boast of over those behind.",
+          "Two phrases in the verse guard the one who races ahead from the worst thing that can befall him, self-admiration: «by Allah's leave», and «that is the great favour». The lead itself is Allah’s leave and His favour; the one ahead thanks Him for it and does not look down on those behind.",
           "Signs of self-admiration include looking down on those less advanced in good, loving to be known for one's deeds, or thinking one has arrived and stopping. The one truly ahead sees more road still to go than road travelled, and fears a change of heart. The Prophet, peace and blessings be upon him and his family, said: «Hasten to good deeds before trials like pieces of a dark night» (Sahih Muslim 118).",
           "The Quran commands the race plainly, meaning: race to good things (al-Baqara 2:148). But it is a race with no losers: whoever gets ahead of you has not taken your place, and whoever you help, you share in their reward. That is why the one ahead is glad when someone else gets ahead.",
           "Practical steps: when you do some good, say: praise be to Allah who enabled me, and speak of it only when there is a need. When you see someone less advanced in good, pray for them and don't look down on them; they may be ahead of you tomorrow. And ask Allah for steadfastness every day, for hearts turn.",
@@ -3368,7 +3368,7 @@ window.AKHLAQ_CONTENT_ADULT.stages.sabiq = {
         { ar: "«بِإِذْنِ اللَّهِ» و«ذَٰلِكَ هُوَ الْفَضْلُ الْكَبِيرُ»", en: "«by Allah's leave» and «that is the great favour»" },
         { ar: "«فَاسْتَبِقُوا» و«الْخَيْرَاتِ»", en: "«race» and «good things»" }
       ],
-      why: { ar: "السبق إذن من الله وفضل منه، لا ملك للسابق يفخر به.", en: "The lead is Allah's leave and favour, not a possession to boast of." }
+      why: { ar: "السبق إذن من الله وفضل منه، يشكره عليه صاحبه.", en: "The lead is Allah’s leave and favour, and the one ahead thanks Him for it." }
     },
     {
       id: "as-q9",
@@ -3917,13 +3917,13 @@ window.AKHLAQ_CONTENT_ADULT.choices = [
         "صاح بها، فلم تقف. أمسكها، فأفلتت. فأخذ فأسًا وشقّها نصفين، فقام كل نصف مكنسة كاملة، تحمل دلوًا. صار الماء يجري في الغرف والدرج، والتلميذ يصرخ: «يا معلّمي، الشدّة كبيرة! الأرواح التي دعوتها لا أستطيع أن أصرفها».",
         "ورجع الساحر، فقال كلمة واحدة، فرجعت المكنسة إلى ركنها.",
         "الكلمة الغاضبة عند الكبير تبدأ مثل المكنسة: جملة واحدة، ثم جملة تأتي بأخرى، ثم صوت يعلو فيعلو صوت الطرف الآخر. وكثيرًا ما يعرف الأب أو الأم كيف يبدأ الشجار، ولا يعرف كيف يوقفه.",
-        "ويستعمل الطبيب النفسي الأمريكي دانيال سيغل لذلك صورة باليد: اقبض أصابعك على إبهامك. الإبهام المطويّ هو الجزء الذي ينفعل ويخاف ويدافع، والأصابع فوقه هي الجزء الذي يفكر ويزن الكلام. فإذا اشتد الغضب «انفتحت» الأصابع، وبقي الانفعال وحده يعمل. وهي صورة للتعليم، لا خريطة دقيقة للدماغ، لكنها تشرح لماذا لا تنفع النصيحة في ذروة الغضب. ومدارس «التربية الإيجابية» تعلّمها للأطفال وللآباء معًا، وتقترح أن تُتفق الأسرة في وقت هادئ على «كلمة توقف» وعلى ركن يهدأ فيه من غضب، صغيرًا كان أو كبيرًا، ثم يرجع إلى الحديث."],
+        "ويستعمل الطبيب النفسي الأمريكي دانيال سيغل لذلك صورة باليد: اقبض أصابعك على إبهامك. الإبهام المطويّ هو الجزء الذي ينفعل ويخاف ويدافع، والأصابع فوقه هي الجزء الذي يفكر ويزن الكلام. فإذا اشتد الغضب «انفتحت» الأصابع، وبقي الانفعال وحده يعمل. وهي صورة للتعليم، أبسط من الدماغ نفسه، تشرح لماذا لا تنفع النصيحة في ذروة الغضب. ومدارس «التربية الإيجابية» تعلّمها للأطفال وللآباء معًا، وتقترح أن تُتفق الأسرة في وقت هادئ على «كلمة توقف» وعلى ركن يهدأ فيه من غضب، صغيرًا كان أو كبيرًا، ثم يرجع إلى الحديث."],
       en: ["In a poem by the German poet Goethe, an old sorcerer leaves his house and his apprentice alone in it. The apprentice has heard his master say words that make the broom walk and work. He says the words, and the broom stands up on two legs, takes the bucket, and begins carrying water from the river to the basin.",
         "At first the apprentice is delighted. Then the basin is full, and the broom keeps bringing bucket after bucket. Water spills over the floor. Only now does the apprentice remember that he learned the word for starting, and not the word for stopping.",
         "He shouts at it; it won't stop. He grabs it; it slips away. He takes an axe and splits it in two, and each half stands up a whole broom carrying a bucket. Water runs through the rooms and down the stairs, and the apprentice cries out: “Master, the need is great! The spirits I called up, I cannot now send away.”",
         "The sorcerer comes back, says one word, and the broom returns to its corner.",
         "An adult's angry words start like the broom: one sentence, then a sentence that brings another, then a raised voice that raises the other person's voice. Parents often know how to start a quarrel and not how to stop it.",
-        "The American psychiatrist Daniel Siegel uses a picture made with the hand for this: fold your fingers over your thumb. The tucked thumb is the part that reacts, fears and defends; the fingers over it are the part that thinks and weighs words. When anger peaks, the fingers “flip up”, and the reacting part works alone. It is a teaching picture, not an exact map of the brain, but it explains why advice is useless at the height of anger. Positive Discipline teaches it to children and parents alike, and suggests that the family agree, at a calm time, on a “stop word” and on a corner where anyone who is angry, child or adult, can calm down and then come back to talk."] },
+        "The American psychiatrist Daniel Siegel uses a picture made with the hand for this: fold your fingers over your thumb. The tucked thumb is the part that reacts, fears and defends; the fingers over it are the part that thinks and weighs words. When anger peaks, the fingers “flip up”, and the reacting part works alone. It is a teaching picture, simpler than the brain itself, and it explains why advice is useless at the height of anger. Positive Discipline teaches it to children and parents alike, and suggests that the family agree, at a calm time, on a “stop word” and on a corner where anyone who is angry, child or adult, can calm down and then come back to talk."] },
       tryAr: "جرّب هذا الأسبوع: اتفق مع أسرتك في وقت هادئ على كلمة توقف واحدة، وعلى مكان يهدأ فيه الغاضب، وكن أول من يستعملها.",
       tryArF: "جرّبي هذا الأسبوع: اتفقي مع أسرتكِ في وقت هادئ على كلمة توقف واحدة، وعلى مكان يهدأ فيه الغاضب، وكوني أول من يستعملها.",
       tryEn: "Try this week: at a calm moment, agree with your family on one stop word and one place for whoever is angry to calm down, and be the first to use it." },

@@ -5,7 +5,7 @@
  * Names always describe behaviour, never the person. All children in stories are fictional.
  */
 window.AKHLAQ_CONTENT = {
-  version: "0.30.1-draft-2026-11-25",
+  version: "0.30.2-draft-2026-11-25",
   stages: {},
   virtues: []
 };
@@ -118,7 +118,7 @@ window.AKHLAQ_CONTENT.stages.zombie = {
           "One hour passed, then two. His mother called him for breakfast and he said \"coming\", but he did not move. His little brother came to play, and Sami did not even look up.",
           "When the battery ran out and the screen went dark, Sami looked out of the window. The sun was already high in the sky. He thought: \"Where did the morning go?\"",
           "He sat for a moment and asked himself a question he had never asked before: \"What did I do today?\" He had no answer. So he stood up, said \"Bismillah\", and went to play with his brother.",
-          "At that moment Sami's heart woke up. The tablet was not evil, but Sami had forgotten to be present. Any one of us can wake up at any moment."
+          "At that moment Sami's heart woke up. The tablet had done nothing wrong; Sami had simply forgotten to be present. Any one of us can wake up at any moment."
         ]
       },
       "quote": null,
@@ -415,8 +415,8 @@ window.AKHLAQ_CONTENT.stages.zombie = {
       ],
       "correct": 2,
       "why": {
-        "ar": "الانتباه لا يحتاج لومًا للنفس، بل خطوة صغيرة: توقف وانظر واشكر.",
-        "en": "Waking up does not need blaming yourself, only a small step: stop, look and give thanks."
+        "ar": "يكفي للانتباه خطوة صغيرة: توقف، وانظر حولك، واشكر.",
+        "en": "One small step is enough to wake up: stop, look around, and give thanks."
       }
     }
   ],
@@ -577,13 +577,13 @@ window.AKHLAQ_CONTENT.stages.pig = {
         "ar": [
           "يصف القرآن قومًا من أهل الجنة بأنهم يُطعمون الطعام «على حبه»، أي وهم يحبونه ويشتهونه، ومع ذلك يعطونه للمسكين واليتيم والأسير.",
           "وروى كثير من المفسرين أن هذه الآيات نزلت في أهل البيت عليهم السلام، حين أعطوا طعام إفطارهم لمن طرق بابهم وباتوا صائمين.",
-          "سلوك الخنزير يقول: «طعامي لي». وهذه الآية تعلّمنا العكس: أجمل العطاء أن تعطي ما تحب، لا ما زاد عنك.",
+          "سلوك الخنزير يقول: «طعامي لي». وهذه الآية تعلّمنا العكس: أجمل العطاء أن تعطي الشيء الذي تحبه أنت.",
           "وفي آية أخرى: ﴿وَمَنْ يُوقَ شُحَّ نَفْسِهِ فَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ﴾ (الحشر 59:9). الشح حرص النفس على أن يكون كل شيء لها، ومن نجا منه أفلح."
         ],
         "en": [
           "The Quran describes some people of Paradise who give food \"despite loving it\": they want it themselves, and still give it to the poor, the orphan and the captive.",
           "Many commentators reported that these verses came down about the Ahl al-Bayt, peace be upon them, when they gave their fast-breaking food to those who knocked at their door and spent the night fasting.",
-          "Pig behaviour says: \"My food is mine.\" This verse teaches the opposite: the finest giving is to give what you love, not what you have left over.",
+          "Pig behaviour says: \"My food is mine.\" This verse teaches the opposite: the finest giving is to give the thing you love yourself.",
           "Another verse (al-Hashr 59:9) means: whoever is saved from the stinginess of their own soul, those are the successful. Stinginess is the soul's wish to keep everything for itself; whoever escapes it succeeds."
         ]
       },
@@ -1222,8 +1222,8 @@ window.AKHLAQ_CONTENT.stages.monkey = {
       ],
       "correct": 2,
       "why": {
-        "ar": "القوة الحقيقية قوة على النفس، لا على الناس.",
-        "en": "Real strength is over yourself, not over people."
+        "ar": "القوي من يملك نفسه حين يغضب.",
+        "en": "The strong one is the one who holds himself back when angry."
       }
     },
     {
@@ -1306,8 +1306,8 @@ window.AKHLAQ_CONTENT.stages.monkey = {
       ],
       "correct": 0,
       "why": {
-        "ar": "الهدوء لا يعني الضعف: تبتعد بسلام، وتطلب العون إن احتجت.",
-        "en": "Calm is not weakness: walk away in peace and ask for help if needed."
+        "ar": "تبتعد بسلام، وتطلب العون إن احتجت.",
+        "en": "Walk away in peace, and ask for help if you need it."
       }
     },
     {
@@ -1525,13 +1525,13 @@ window.AKHLAQ_CONTENT.stages.human = {
       "body": {
         "ar": [
           "يقول الله في سورة التين إنه خلق الإنسان «في أحسن تقويم»: أجمل صورة وأحسن هيئة. شكلك جميل كما خلقه الله.",
-          "ثم تقول الآية إن الإنسان قد يُرَدّ «أسفل سافلين». ليس شكله هو الذي يسقط، بل سلوكه حين يترك الهداية.",
+          "ثم تقول الآية إن الإنسان قد يُرَدّ «أسفل سافلين». والذي يسقط سلوكه، حين يترك الهداية.",
           "ثم يأتي الاستثناء: «إلا الذين آمنوا وعملوا الصالحات». بالإيمان والعمل الصالح يبقى الإنسان في مكانه الكريم ويصعد.",
           "وفي سورة فاطر يقسم الله الناس ثلاثة: ظالم لنفسه، ومقتصد، وسابق بالخيرات (فاطر 35:32). المقتصد هو الإنسان المعتدل الذي يؤدي ما عليه. وهذه مرتبة السبابة في التطبيق، وفوقها السابقون."
         ],
         "en": [
           "In Surat at-Tin, Allah says He created the human being \"in the finest form\": the most beautiful shape and stature. Your shape is beautiful as Allah made it.",
-          "Then the verse says a person may be brought down \"to the lowest of the low\". It is not their shape that falls, but their behaviour, when they leave guidance.",
+          "Then the verse says a person may be brought down \"to the lowest of the low\". What falls is their behaviour, when they leave guidance behind.",
           "Then comes the exception: \"except those who believe and do good deeds\". With faith and good deeds a person keeps their honoured place and climbs.",
           "In Surat Fatir (35:32), Allah divides people into three: those who wrong themselves, the moderate, and those who race to good deeds. The moderate one is the balanced human who does what is due. This is the index-finger stage in the app, and above it is Racing to good."
         ]
@@ -1560,13 +1560,13 @@ window.AKHLAQ_CONTENT.stages.human = {
         "ar": [
           "سُئل النبي صلى الله عليه وآله وسلم عن المسلم، فقال إنه من سلم المسلمون من لسانه ويده.",
           "هذه أول درجة في السبابة: ألّا يخاف منك أحد. لا ضرب، ولا دفع، ولا سخرية، ولا كلمة جارحة.",
-          "وقال أيضًا: «أحب الأعمال إلى الله تعالى أدومها وإن قل». الإنسان لا يحتاج أعمالًا ضخمة ليبقى إنسانًا، بل عملًا صغيرًا يداوم عليه.",
+          "وقال أيضًا: «أحب الأعمال إلى الله تعالى أدومها وإن قل». يكفي الإنسانَ عمل صغير يداوم عليه، كل يوم.",
           "اجمع الحديثين: كفّ أذاك، وداوم على خير صغير. هكذا تثبت على السبابة وتتهيأ للإبهام."
         ],
         "en": [
           "The Prophet, peace and blessings be upon him and his family, was asked who a Muslim is. He said it is the one from whose tongue and hand people are safe.",
           "That is the first step on the index finger: nobody is afraid of you. No hitting, no pushing, no mocking, no hurtful words.",
-          "He also said, meaning: the deeds most loved by Allah are the most lasting, even if small. A human does not need huge deeds to stay human, only a small good deed kept up.",
+          "He also said, meaning: the deeds most loved by Allah are the most lasting, even if small. A small good deed kept up every day is enough.",
           "Put the two together: keep your harm away, and keep up a small good. That is how you stay on the index finger and get ready for the thumb."
         ]
       },
@@ -1950,15 +1950,15 @@ window.AKHLAQ_CONTENT.stages.sabiq = {
       "ages": "all",
       "body": {
         "ar": [
-          "في سورة فاطر ذكر الله ثلاثة أقسام من الناس، وأعلاها «سابق بالخيرات بإذن الله». و«بإذن الله» تعلّمنا أن السبق نفسه هداية من الله، لا فخر لنا فيه.",
+          "في سورة فاطر ذكر الله ثلاثة أقسام من الناس، وأعلاها «سابق بالخيرات بإذن الله». و«بإذن الله» تذكّرنا أن السبق نفسه هداية من الله، نشكره عليها.",
           "وفي سورة الواقعة: ﴿وَالسَّابِقُونَ السَّابِقُونَ ۝ أُولَٰئِكَ الْمُقَرَّبُونَ﴾ (الواقعة 56:10-11). السابقون إلى الخير في الدنيا هم السابقون إلى القرب من الله.",
-          "وأمرنا الله بالمسارعة: ﴿وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِنْ رَبِّكُمْ﴾ (آل عمران 3:133). المسارعة ليست ركضًا بالأقدام، بل أن تسبق نفسك إلى الخير قبل أن تتكاسل.",
+          "وأمرنا الله بالمسارعة: ﴿وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِنْ رَبِّكُمْ﴾ (آل عمران 3:133). والمسارعة أن تقوم إلى الخير في اللحظة التي تخطر لك فيها، قبل أن يأتي الكسل.",
           "وكلما اتبعت الهداية زادك الله هدى: ﴿وَالَّذِينَ اهْتَدَوْا زَادَهُمْ هُدًى﴾ (محمد 47:17)."
         ],
         "en": [
-          "In Surat Fatir, Allah mentions three groups of people, the highest being those \"racing to good deeds by Allah's permission\". \"By Allah's permission\" teaches us that the racing itself is guidance from Allah, nothing to boast about.",
+          "In Surat Fatir, Allah mentions three groups of people, the highest being those \"racing to good deeds by Allah's permission\". \"By Allah's permission\" reminds us that the racing itself is guidance from Allah, and we thank Him for it.",
           "In Surat al-Waqi'a (56:10-11), the meaning is: and the foremost, the foremost, they are the ones brought near. Those who are first to good in this life are first in nearness to Allah.",
-          "Allah tells us to hurry (Al Imran 3:133), meaning: hasten to forgiveness from your Lord. Hurrying is not running with your feet; it is getting to the good before laziness gets to you.",
+          "Allah tells us to hurry (Al Imran 3:133), meaning: hasten to forgiveness from your Lord. Hurrying means getting up to do the good the moment it occurs to you, before laziness arrives.",
           "And the more you follow guidance, the more guidance Allah gives (Muhammad 47:17)."
         ]
       },
@@ -2494,15 +2494,15 @@ window.AKHLAQ_CONTENT.virtues = [
     body: {
       ar: [
         'الغفلة عند الكبير لا تبدو موتًا. يعمل ويدرس ويضحك، لكن أيامه تمضي بلا وقفة واحدة يسأل فيها: إلى أين أمضي؟',
-        'تصف آية البقرة قلوبًا قست بعد أن رأت الآيات ﴿فَهِيَ كَالْحِجَارَةِ أَوْ أَشَدُّ قَسْوَةً﴾ (البقرة 2:74). والقسوة لا تأتي دفعة واحدة، بل طبقة فوق طبقة من الإعراض الصغير.',
-        'وتأتي آية الحديد سؤالًا رحيمًا: ﴿أَلَمْ يَأْنِ لِلَّذِينَ آمَنُوا أَنْ تَخْشَعَ قُلُوبُهُمْ لِذِكْرِ اللَّهِ﴾ (الحديد 57:16). ليست حكمًا على أحد، بل دعوة إلى أن يبدأ الآن.',
+        'تصف آية البقرة قلوبًا قست بعد أن رأت الآيات ﴿فَهِيَ كَالْحِجَارَةِ أَوْ أَشَدُّ قَسْوَةً﴾ (البقرة 2:74). والقسوة تأتي طبقة فوق طبقة، من إعراض صغير يتكرر.',
+        'وتأتي آية الحديد سؤالًا رحيمًا: ﴿أَلَمْ يَأْنِ لِلَّذِينَ آمَنُوا أَنْ تَخْشَعَ قُلُوبُهُمْ لِذِكْرِ اللَّهِ﴾ (الحديد 57:16). سؤال يقرؤه المؤمن فيبدأ من الآن.',
         'ويقول باحثو الانتباه اليوم إن كثيرًا من التطبيقات مصمَّمة لتأخذ انتباهنا أطول وقت ممكن. الغفلة صارت صناعة، واليقظة صارت مقاومة واعية.',
         'خطوات عملية: حدّد أوقاتًا بلا شاشة (بعد الفجر وقبل النوم)، واجعل أول ما تفعله صباحًا ذكرًا لا إشعارًا، واسأل كل مساء: ماذا قرّبني اليوم من الله، وماذا أبعدني؟'
       ],
       en: [
         'In an adult, heedlessness does not look like death. They work, study and laugh, yet the days pass without a single pause to ask: where am I going?',
         'A verse in al-Baqara (2:74) describes hearts that hardened after seeing signs, meaning: they became like stone or even harder. Hardness does not come at once; it builds layer by layer from small turnings-away.',
-        'A verse in al-Hadid (57:16) comes as a merciful question, meaning: has the time not come for the believers\' hearts to soften at the remembrance of Allah? It is not a verdict on anyone, but an invitation to begin now.',
+        'A verse in al-Hadid (57:16) comes as a merciful question, meaning: has the time not come for the believers\' hearts to soften at the remembrance of Allah? A believer reads it and begins now.',
         'Attention researchers today say many apps are designed to hold our attention as long as possible. Heedlessness has become an industry, and wakefulness a conscious resistance.',
         'Practical steps: set screen-free times (after Fajr and before sleep), make your first act in the morning a remembrance rather than a notification, and ask every evening: what brought me closer to Allah today, and what took me further away?'
       ]
@@ -2520,7 +2520,7 @@ window.AKHLAQ_CONTENT.virtues = [
     q: { ar: 'تستيقظ وأول ما تمد يدك إليه الهاتف. ما الخطوة الأقرب لليقظة؟', en: 'You wake up and your hand reaches for the phone first. Which step is closest to wakefulness?' },
     options: [ { ar: 'أقرأ الإشعارات كلها ثم أفكر في يومي.', en: 'Read all notifications, then think about my day.' }, { ar: 'أبعد الهاتف عن السرير، وأبدأ صباحي بذكر.', en: 'Keep the phone away from the bed and start the morning with remembrance.' }, { ar: 'أحذف كل التطبيقات مرة واحدة ثم أعيدها غدًا.', en: 'Delete every app at once and reinstall tomorrow.' } ],
     correct: 1,
-    why: { ar: 'اليقظة عادة صغيرة ثابتة، لا قرار ضخم ينهار في اليوم التالي.', en: 'Wakefulness is a small steady habit, not a huge decision that collapses the next day.' }
+    why: { ar: 'إبعاد الهاتف والبدء بذكر خطوة صغيرة تقدر عليها كل صباح، فتبقى معك.', en: 'Moving the phone away and starting with dhikr is a small step you can manage every morning, so it lasts.' }
   });
 
   S.pig.readings.push({
@@ -2533,14 +2533,14 @@ window.AKHLAQ_CONTENT.virtues = [
         'قال يوسف عليه السلام: ﴿إِنَّ النَّفْسَ لَأَمَّارَةٌ بِالسُّوءِ إِلَّا مَا رَحِمَ رَبِّي﴾ (يوسف 12:53). قالها نبيٌّ صدّيق، فلا أحد فوق الحاجة إلى رحمة الله في مجاهدة نفسه.',
         'سلوك الخنزير عند الكبار لا يقف عند الطعام: شراء ما لا نحتاج، ومقارنة أنفسنا بمن يملك أكثر، وتقديم راحتنا على حقوق من حولنا.',
         'يسمي علماء النفس ظاهرة «التكيّف مع المتعة»: كل رغبة نحققها تعود بنا بعد قليل إلى النقطة نفسها، فنطلب أكثر. هذا ما يجعل الشهوة سباقًا بلا خط نهاية.',
-        'والعلاج في القرآن ليس كبت الرغبة بل ترتيبها: ﴿وَأَمَّا مَنْ خَافَ مَقَامَ رَبِّهِ وَنَهَى النَّفْسَ عَنِ الْهَوَىٰ ۝ فَإِنَّ الْجَنَّةَ هِيَ الْمَأْوَىٰ﴾ (النازعات 79:40-41). النهي هنا قيادة: أنت تقود النفس، لا هي تقودك.',
+        'والعلاج في القرآن أن تُرتَّب الرغبة: ﴿وَأَمَّا مَنْ خَافَ مَقَامَ رَبِّهِ وَنَهَى النَّفْسَ عَنِ الْهَوَىٰ ۝ فَإِنَّ الْجَنَّةَ هِيَ الْمَأْوَىٰ﴾ (النازعات 79:40-41). النهي هنا قيادة: أنت الذي تمسك الزمام.',
         'تمرين: قبل أي شراء غير ضروري انتظر يومًا كاملًا. وكل أسبوع أعطِ شيئًا تحبه. ولاحظ كيف يخف ضجيج الرغبة كلما مارست العطاء.'
       ],
       en: [
         'Yusuf, peace be upon him, said (12:53), meaning: the self keeps urging towards evil, except where my Lord has mercy. A truthful prophet said it, so no one is beyond needing Allah\'s mercy in struggling with the self.',
         'In adults, pig behaviour does not stop at food: buying what we do not need, comparing ourselves with those who have more, and putting our comfort ahead of the rights of those around us.',
         'Psychologists call it "hedonic adaptation": each want we satisfy soon returns us to the same point, so we ask for more. That turns desire into a race with no finish line.',
-        'The Quranic remedy is not crushing desire but ordering it (an-Nazi\'at 79:40-41), meaning: as for the one who feared standing before his Lord and held the self back from its whims, Paradise is the refuge. Holding back here is leadership: you lead the self, it does not lead you.',
+        'The Quranic remedy is to put desire in order (an-Nazi\'at 79:40-41), meaning: as for the one who feared standing before his Lord and held the self back from its whims, Paradise is the refuge. Holding back here is leadership: you hold the reins.',
         'Exercise: before any unnecessary purchase, wait a full day. Each week, give away something you love. Notice how the noise of wanting quietens as you practise giving.'
       ]
     },
@@ -2573,7 +2573,7 @@ window.AKHLAQ_CONTENT.virtues = [
         'Pardoning means letting go of your claim in your heart, so you do not carry the anger for days. That is human behaviour.',
         'Doing good means answering harm with kindness. That is the door to Racing to good.',
         'Psychology adds a useful tool called "reappraisal": when angry, ask whether there is another explanation. Were they tired? Did I misunderstand? Reinterpreting puts out much anger before it flares.',
-        'Remember that anger itself is not a flaw; it is a natural feeling. The flaw is letting it drive. Your task is to hold the wheel.'
+        'Anger is a natural feeling, and everyone has it. The trouble starts when it drives. Your task is to hold the wheel.'
       ]
     },
     quote: {
@@ -2592,16 +2592,16 @@ window.AKHLAQ_CONTENT.virtues = [
     ages: '15+',
     body: {
       ar: [
-        'أقسم الله في سورة القيامة بالنفس اللوّامة: ﴿وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ﴾ (القيامة 75:2). وهي النفس التي تراجع صاحبها إذا قصّر. وجودها علامة حياة في القلب، لا علامة فشل.',
+        'أقسم الله في سورة القيامة بالنفس اللوّامة: ﴿وَلَا أُقْسِمُ بِالنَّفْسِ اللَّوَّامَةِ﴾ (القيامة 75:2). وهي النفس التي تراجع صاحبها إذا قصّر. فإذا سمعت هذا الصوت في داخلك، فقلبك حي.',
         'الفرق بين اللوم النافع والضار دقيق. اللوم الضار يقول: «أنا سيئ ولن أتغير». واللوم النافع يقول: «فعلت هذا، وسأصلحه، وغدًا أفعل أحسن».',
-        'وفي الحديث: «وأتبع السيئة الحسنة تمحها، وخالق الناس بخلق حسن» (سنن الترمذي). الخطأ لا يُمحى بالحزن عليه وحده، بل بحسنة بعده.',
+        'وفي الحديث: «وأتبع السيئة الحسنة تمحها، وخالق الناس بخلق حسن» (سنن الترمذي). فإذا أخطأت وحزنت، فاتبع خطأك بحسنة.',
         'ويؤيد علم النفس هذا: من يحاسب نفسه برفق ويخطط لما بعد الخطأ يتغير أكثر ممن يجلد نفسه.',
         'التمرين: كل مساء دقيقة واحدة، ثلاثة أسئلة: ما الذي أحسنت فيه اليوم فأحمد الله؟ ما الذي قصّرت فيه؟ ما الحسنة التي أُتبعه بها غدًا؟'
       ],
       en: [
-        'In Surat al-Qiyama (75:2) Allah swears by the self-reproaching soul: the self that holds its owner to account when they fall short. Its presence is a sign of life in the heart, not a sign of failure.',
+        'In Surat al-Qiyama (75:2) Allah swears by the self-reproaching soul: the self that holds its owner to account when they fall short. If you hear that voice inside you, your heart is alive.',
         'The line between helpful and harmful self-blame is fine. Harmful blame says: "I am bad and I will never change." Helpful blame says: "I did this, I will fix it, and tomorrow I will do better."',
-        'A hadith (Sunan al-Tirmidhi) means: follow a bad deed with a good one and it will erase it, and treat people with good character. A mistake is not erased by sorrow alone, but by a good deed after it.',
+        'A hadith (Sunan al-Tirmidhi) means: follow a bad deed with a good one and it will erase it, and treat people with good character. So when you get something wrong and feel sorry, follow it with a good deed.',
         'Psychology supports this: people who review themselves kindly and plan what to do after a mistake change more than those who punish themselves.',
         'The exercise: one minute each evening, three questions. What did I do well today, so I can praise Allah? Where did I fall short? What good deed will I follow it with tomorrow?'
       ]
@@ -2632,7 +2632,7 @@ window.AKHLAQ_CONTENT.virtues = [
         'يعد الله المجاهدين في سبيله بالهداية: ﴿وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا﴾ (العنكبوت 29:69). المجاهدة هنا جهد النفس اليومي: أن تقوم إلى الخير وهي تريد الراحة.',
         'والسبل جمع: كلما سلكت طريقًا من الخير فُتح لك طريق آخر. هذا هو الصعود الذي يقوم عليه التطبيق: الهداية تُتّبع فيزيدها الله.',
         'وآخر المطاف في القرآن نداء رقيق: ﴿يَا أَيَّتُهَا النَّفْسُ الْمُطْمَئِنَّةُ ۝ ارْجِعِي إِلَىٰ رَبِّكِ رَاضِيَةً مَرْضِيَّةً﴾ (الفجر 89:27-28). النفس التي كانت أمّارة ثم لوّامة صارت مطمئنة.',
-        'وخطر هذه المرحلة العُجب: أن يرى السابق نفسه فوق غيره. لذلك جاء في آية فاطر «بإذن الله»: السبق هداية تُشكر، لا ميزة يُتباهى بها. ومن علامات السابق أنه يأخذ بيد غيره.',
+        'وخطر هذه المرحلة العُجب: أن يرى السابق نفسه فوق غيره. لذلك جاء في آية فاطر «بإذن الله»: السبق هداية من الله يشكره عليها صاحبها. ومن علامات السابق أنه يأخذ بيد غيره.',
         'خطوة عملية: اختر صفة من صفات الأحزاب 35 العشر، واعمل عليها أربعين يومًا، ثم انتقل إلى التي تليها.'
       ],
       en: [
@@ -2698,14 +2698,14 @@ window.AKHLAQ_CONTENT.virtues = [
   ];
   S.pig.parent = {
     ar: [
-      'سمات البنصر هي التمحور حول الرغبة: «أنا أريد» قبل أن يرى الطفل غيره. والطفل في سنواته الأولى يرى نفسه أولًا بطبيعته، فالمطلوب أن نعلّمه أن يرى، لا أن نعيّره.',
+      'سمات البنصر هي التمحور حول الرغبة: «أنا أريد» قبل أن يرى الطفل غيره. والطفل في سنواته الأولى يرى نفسه أولًا بطبيعته، فنعلّمه بصبر أن يرى من حوله.',
       'أشِر إلى البنصر حين ترى السلوك، ثم ساعده أن ينظر: إلى وجه أخيه، أو تعب جدته، أو نصيب غيره.',
       'قل مثلًا: «أخذ أكبر قطعة قبل الجميع من سمات البنصر. انظر حولك: هل أخذ أخوك؟ ماذا تفعل الآن؟».',
       'وتجنّب أن تقول: «أنت خنزير لا تفكر إلا في بطنك». جرّب أن تقول: «أخذتَ القطعة الكبيرة قبل أن يجلس أحد». ستراه أحيانًا يعيدها دون أن تطلب.',
       'وامدحه بالإصبع الأعلى حين يحسن: «هذا الذي فعلته الآن من سمات السبابة».'
     ],
     en: [
-      'Ring-finger traits are being centred on wanting: "I want" before the child sees anyone else. Young children naturally see themselves first, so the aim is to teach them to see, not to shame them.',
+      'Ring-finger traits are being centred on wanting: "I want" before the child sees anyone else. Young children naturally see themselves first, so we patiently teach them to see the people around them.',
       'Point to the ring finger when you see the behaviour, then help them look: at a sibling\'s face, a grandmother\'s tiredness, someone else\'s share.',
       'Say, for example: "Taking the biggest piece before everyone else is a ring-finger trait. Look around: has your brother had some? What will you do now?"',
       'Avoid saying: "You are a pig who only thinks about your stomach." Try saying instead: “You took the big piece before anyone sat down.” Sometimes you’ll see them put it back without being asked.',
@@ -3214,7 +3214,7 @@ window.AKHLAQ_CONTENT.virtues = [
     'zombie-q2.q': 'تلعبين بالجهاز، ونادتك أمك للطعام. ماذا تفعلين؟',
     'zombie-q7.q': 'لاحظتِ أنك قضيتِ وقتًا طويلًا دون أن تنتبهي. ما أول خطوة؟',
     'zombie-q7.o0': 'أحزن وأقول: أنا سيئة.',
-    'zombie-q7.why': 'الانتباه لا يحتاج لومًا للنفس، بل خطوة صغيرة: توقفي وانظري واشكري.',
+    'zombie-q7.why': 'يكفي للانتباه خطوة صغيرة: توقفي، وانظري حولك، واشكري.',
     'zombie-q8.q': 'تستيقظين وأول ما تمدين يدك إليه الهاتف. ما الخطوة الأقرب لليقظة؟',
     'zombie-q9.q': 'تمشين إلى المدرسة، ويلوّح لك جارك. ماذا تفعلين؟',
     'zombie-q10.q': 'ترين السماء ملوّنة وقت المغرب. ماذا تقولين؟',
@@ -3224,11 +3224,11 @@ window.AKHLAQ_CONTENT.virtues = [
     'zombie.parent3': 'وتجنّب أن تقول: «أنتِ زومبي لا تفهمين شيئًا». قل بدلها: «ناديتك ثلاث مرات ولم ترفع عينيك عن الشاشة، وهذه من سمات الخنصر». يسمعها خبرًا عن لحظة مضت، يقدر أن يغيّرها في المرة القادمة.',
 
     /* البنصر */
-    'pig-r2.b2': 'سلوك الخنزير يقول: «طعامي لي». وهذه الآية تعلّمنا العكس: أجمل العطاء أن تعطي ما تحبين، لا ما زاد عنك.',
+    'pig-r2.b2': 'سلوك الخنزير يقول: «طعامي لي». وهذه الآية تعلّمنا العكس: أجمل العطاء أن تعطي الشيء الذي تحبينه أنتِ.',
     'pig-r4.b1': 'التمرين له خطوتان. الأولى: «انتظر». حين تشتهين شيئًا، عُدّي إلى عشرة قبل أن تأخذيه.',
     'pig-r4.b2': 'الثانية: «انظر». وأنتِ تعدّين، انظري حولك: هل يحتاج أحد هذا الشيء أكثر مني؟ هل أخذ الجميع؟ هل هناك من هو متعب؟',
     'pig-r4.b3': 'بعد العد، قرري. أحيانًا ستأخذين القطعة، وأحيانًا ستعطينها لغيركِ. وفي المرتين تكونين أنتِ التي اختارت، بعد أن انتظرت.',
-    'pig-r5.b3': 'والعلاج في القرآن ليس كبت الرغبة بل ترتيبها: ﴿وَأَمَّا مَنْ خَافَ مَقَامَ رَبِّهِ وَنَهَى النَّفْسَ عَنِ الْهَوَىٰ ۝ فَإِنَّ الْجَنَّةَ هِيَ الْمَأْوَىٰ﴾ (النازعات 79:40-41). النهي هنا قيادة: أنتِ تقودين النفس، لا هي تقودك.',
+    'pig-r5.b3': 'والعلاج في القرآن أن تُرتَّب الرغبة: ﴿وَأَمَّا مَنْ خَافَ مَقَامَ رَبِّهِ وَنَهَى النَّفْسَ عَنِ الْهَوَىٰ ۝ فَإِنَّ الْجَنَّةَ هِيَ الْمَأْوَىٰ﴾ (النازعات 79:40-41). النهي هنا قيادة: أنتِ التي تمسكين الزمام.',
     'pig-r5.b4': 'تمرين: قبل أي شراء غير ضروري انتظري يومًا كاملًا. وكل أسبوع أعطي شيئًا تحبينه. ولاحظي كيف يخف ضجيج الرغبة كلما مارستِ العطاء.',
     'pig-r6.ask': 'ما الشيء الذي تحبين أن تشاركيه مع صديقتك؟',
     'pig-q3.why': '«على حبه» أي وهم يحبون الطعام ويشتهونه، ومع ذلك يعطونه لغيرهم.',
@@ -3240,7 +3240,7 @@ window.AKHLAQ_CONTENT.virtues = [
     'pig-q8.q': 'أمك تحمل أكياسًا ثقيلة وأنتِ جالسة تلعبين. ماذا تفعلين؟',
     'pig-q9.q': 'معك كيس حلوى، وأخوك ينظر إليك. ماذا تفعلين؟',
     'pig-q10.q': 'أمك تحمل صحونًا كثيرة إلى المطبخ. ماذا تفعلين؟',
-    'pig.parent0': 'سمات البنصر هي التمحور حول الرغبة: «أنا أريد» قبل أن ترى الطفلة غيرها. والطفلة في سنواتها الأولى ترى نفسها أولًا بطبيعتها، فالمطلوب أن نعلّمها أن ترى، لا أن نعيّرها.',
+    'pig.parent0': 'سمات البنصر هي التمحور حول الرغبة: «أنا أريد» قبل أن ترى الطفلة غيرها. والطفلة في سنواتها الأولى ترى نفسها أولًا بطبيعتها، فنعلّمها بصبر أن ترى من حولها.',
     'pig.parent1': 'أشِر إلى البنصر حين ترى السلوك، ثم ساعدها أن تنظر: إلى وجه أخيها، أو تعب جدتها، أو نصيب غيرها.',
     'pig.parent2': 'قل مثلًا: «أخذ أكبر قطعة قبل الجميع من سمات البنصر. انظري حولك: هل أخذ أخوك؟ ماذا تفعلين الآن؟».',
     'pig.parent3': 'وتجنّب أن تقول: «أنتِ خنزيرة لا تفكرين إلا في بطنك». جرّب أن تقول: «أخذتِ القطعة الكبيرة قبل أن يجلس أحد». ستراها أحيانًا تعيدها دون أن تطلب.',
@@ -3291,7 +3291,7 @@ window.AKHLAQ_CONTENT.virtues = [
     'human.parent3': 'وتجنّب أن تقول: «أخيرًا صرتِ إنسانة!». فهي توحي بأنها لم تكن إنسانة قبل ذلك. وهي إنسانة كريمة من يوم وُلدت. امدح الفعل نفسه: «انتظرتِ دوركِ في الأرجوحة، وهذه من سمات السبابة».',
 
     /* الإبهام */
-    'sabiq-r2.b2': 'وأمرنا الله بالمسارعة: ﴿وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِنْ رَبِّكُمْ﴾ (آل عمران 3:133). المسارعة ليست ركضًا بالأقدام، بل أن تسبقي نفسك إلى الخير قبل أن تتكاسلي.',
+    'sabiq-r2.b2': 'وأمرنا الله بالمسارعة: ﴿وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِنْ رَبِّكُمْ﴾ (آل عمران 3:133). والمسارعة أن تقومي إلى الخير في اللحظة التي يخطر لكِ فيها، قبل أن يأتي الكسل.',
     'sabiq-r3.b4': 'جرّبي هذا الأسبوع: اختاري خلقًا واحدًا من نبي: صبر أيوب، أو صدق يوسف، أو رحمة النبي محمد صلى الله عليه وآله وسلم بالصغار، وطبّقيه يومًا كاملًا.',
     'sabiq-r4.b2': 'الخطة: كل مساء اكتبي عملًا خفيًّا واحدًا ستفعلينه غدًا: ترتيب حذاء أبيك، أو وضع ماء لعطشان، أو دعاء لصديقتك باسمها.',
     'sabiq-r4.b3': 'لا تخبري أحدًا. واكتبي في المساء التالي: هل فعلتُه؟ وماذا شعرتُ؟',
@@ -3522,17 +3522,17 @@ window.AKHLAQ_CONTENT.virtues = [
         ar: ['عدل النبي صلى الله عليه وآله وسلم ورحمته بالصغار ميزان نزن به أفعالنا.',
           'أعطى بشير بن سعد ابنه النعمان عطية، فقالت أمه: لا أرضى حتى تُشهد رسول الله صلى الله عليه وآله وسلم.',
           'فجاء بشير إلى النبي صلى الله عليه وآله وسلم، فسأله: «أعطيت سائر ولدك مثل هذا؟». قال: لا. فقال: «فاتقوا الله واعدلوا بين أولادكم». فرجع بشير وردّ العطية.',
-          'لم يرضَ النبي صلى الله عليه وآله وسلم أن يُظلم طفل واحد في بيته، ولو بهدية. فالعدل ليس للكبار وحدهم، بل حق لكل صغير أيضًا.',
+          'لم يرضَ النبي صلى الله عليه وآله وسلم أن يُظلم طفل واحد في بيته، ولو بهدية. فالعدل حق للصغير كما هو حق للكبير.',
           'السبابة تعني أن يأخذ كل واحد حقه منك. والقمة أن تحرس العدل حتى في الأشياء الصغيرة: في القسمة، وفي الدور، وفي الكلمة الطيبة.'],
         ar_f: ['عدل النبي صلى الله عليه وآله وسلم ورحمته بالصغار ميزان نزن به أفعالنا.',
           'أعطى بشير بن سعد ابنه النعمان عطية، فقالت أمه: لا أرضى حتى تُشهد رسول الله صلى الله عليه وآله وسلم.',
           'فجاء بشير إلى النبي صلى الله عليه وآله وسلم، فسأله: «أعطيت سائر ولدك مثل هذا؟». قال: لا. فقال: «فاتقوا الله واعدلوا بين أولادكم». فرجع بشير وردّ العطية.',
-          'لم يرضَ النبي صلى الله عليه وآله وسلم أن يُظلم طفل واحد في بيته، ولو بهدية. فالعدل ليس للكبار وحدهم، بل حق لكل صغير أيضًا.',
+          'لم يرضَ النبي صلى الله عليه وآله وسلم أن يُظلم طفل واحد في بيته، ولو بهدية. فالعدل حق للصغير كما هو حق للكبير.',
           'السبابة تعني أن يأخذ كل واحد حقه منك. والقمة أن تحرسي العدل حتى في الأشياء الصغيرة: في القسمة، وفي الدور، وفي الكلمة الطيبة.'],
         en: ['The fairness of the Prophet, peace and blessings be upon him and his family, and his mercy to children are a scale for our own deeds.',
           'Bashir ibn Sa\'d gave his son al-Nu\'man a gift, and the boy\'s mother said: I will not be content until you take the Messenger of Allah as witness.',
           'So Bashir came to the Prophet, peace and blessings be upon him and his family, who asked him: "Have you given all your other children the same?" He said no. The Prophet said, meaning: "Then be mindful of Allah and be fair between your children." Bashir went back and took the gift back.',
-          'The Prophet would not accept that a single child be treated unfairly at home, even over a present. Fairness is not only for grown-ups; it is every child\'s right too.',
+          'The Prophet would not accept that a single child be treated unfairly at home, even over a present. Fairness is a child’s right just as it is a grown-up’s.',
           'The index finger means everyone gets their due from you. The summit is guarding fairness even in small things: in sharing, in taking turns, and in kind words.']
       },
       quote: { ar: '«فَاتَّقُوا اللَّهَ، وَاعْدِلُوا بَيْنَ أَوْلاَدِكُمْ»', en: 'Meaning: Be mindful of Allah, and be fair between your children.', ref: 'صحيح البخاري 2587، عن النعمان بن بشير', checked: CHK, verify: true },
@@ -3578,7 +3578,7 @@ window.AKHLAQ_CONTENT.virtues = [
       { id: 'pig-q11', readingId: 'pig-r7', type: 'comprehension', correct: 0,
         q: { ar: 'لماذا كان عطاء البردة عظيمًا؟', en: 'Why was giving away the cloak so great?' },
         options: [{ ar: 'لأن النبي صلى الله عليه وآله وسلم كان محتاجًا إليها ومع ذلك أعطاها', en: 'Because the Prophet needed it and still gave it' }, { ar: 'لأنها كانت قديمة', en: 'Because it was old' }, { ar: 'لأنه كان عنده كثير مثلها', en: 'Because he had many like it' }],
-        why: { ar: 'أعلى العطاء أن تعطي ما تحتاجه وتحبه، لا ما زاد عنك.', en: 'The highest giving is giving what you need and love, not what you have spare.' } }
+        why: { ar: 'أعطى البُردة وهو محتاج إليها ويحبها.', en: 'He gave the cloak while he needed it and liked it.' } }
     ],
     monkey: [
       { id: 'monkey-q11', readingId: 'monkey-r7', type: 'comprehension', correct: 2,
@@ -3642,11 +3642,11 @@ window.AKHLAQ_CONTENT.virtues = [
         ar: ['كانت السيدة فاطمة عليها السلام تطحن بالرحى بيدها حتى أثّرت في يدها. فلما جاء إلى النبي صلى الله عليه وآله وسلم أسرى، ذهبت تسأله خادمًا يعينها، فلم تجده.',
           'فجاءهما النبي صلى الله عليه وآله وسلم في الليل، وقد أخذا مضاجعهما، فأراد علي عليه السلام أن يقوم، فقال: «على مكانكما». وجلس بينهما.',
           'ثم قال: «ألا أعلّمكما خيرًا مما سألتماني؟». وعلّمهما أن يكبّرا أربعًا وثلاثين، ويسبّحا ثلاثًا وثلاثين، ويحمدا ثلاثًا وثلاثين عند النوم، وقال إنه خير لهما من خادم.',
-          'كانت حاجتها حقيقية، وطلبها لم يكن خطأ. لكن البيت النبوي تعلّم أن القلب الذي يذكر الله يقوى على التعب، وأن الراحة ليست أول ما يُطلب. هذا عكس سمات البنصر: لا أن نرفض كل راحة، بل ألا نجعل الراحة سيّدتنا.'],
+          'كانت حاجتها حقيقية، وطلبها لم يكن خطأ. لكن البيت النبوي تعلّم أن القلب الذي يذكر الله يقوى على التعب، وأن الراحة ليست أول ما يُطلب. ونحن نرتاح حين نحتاج، ونبقى نحن الذين نقرر متى نقوم.'],
         en: ['Lady Fatima, peace be upon her, ground grain with a hand-mill until it marked her hand. When some captives were brought to the Prophet, peace and blessings be upon him and his family, she went to ask him for a servant to help her, but did not find him.',
           'The Prophet came to them at night, when they had already gone to bed. Ali, peace be upon him, started to get up, and the Prophet said: "Stay where you are." He sat down between them.',
           'Then he said, meaning: "Shall I not teach you something better than what you asked me for?" He taught them to say Allahu akbar thirty-four times, Subhan Allah thirty-three times and al-hamdu lillah thirty-three times at bedtime, and said it was better for them than a servant.',
-          'Her need was real, and asking was not wrong. But the Prophet\'s household learned that a heart that remembers Allah grows strong against tiredness, and that comfort is not the first thing to ask for. That is the opposite of the ring-finger trait: not refusing all comfort, but never letting comfort be our master.']
+          'Her need was real, and asking was not wrong. But the Prophet\'s household learned that a heart that remembers Allah grows strong against tiredness, and that comfort is not the first thing to ask for. We rest when we need to, and we are still the ones who decide when to get up.']
       },
       quote: { ar: '«أَلاَ أُعَلِّمُكُمَا خَيْرًا مِمَّا سَأَلْتُمَانِي»', en: 'Meaning: Shall I not teach you something better than what you asked me for?', ref: 'صحيح البخاري 3705، عن علي عليه السلام', checked: CHK, verify: true },
       source: { ar: 'حديث في صحيح البخاري، يرويه علي عليه السلام.', en: 'A hadith in Sahih al-Bukhari, narrated by Ali, peace be upon him.' }
@@ -3658,15 +3658,15 @@ window.AKHLAQ_CONTENT.virtues = [
         ar: ['جاء وفد من قبيلة عبد القيس إلى المدينة ليلقوا النبي صلى الله عليه وآله وسلم، وكان فيهم رجل يُعرف بأشجّ عبد القيس رضي الله عنه.',
           'فقال له النبي صلى الله عليه وآله وسلم: «إن فيك خصلتين يحبهما الله: الحلم والأناة».',
           'الحلم أن تملك نفسك حين تغضب، فلا تسبق يدك ولا لسانك. والأناة أن تتمهل ولا تستعجل، فتفكر قبل أن تفعل.',
-          'وهاتان الخصلتان هما عكس سمات الوسطى تمامًا: الاندفاع والعجلة. ولاحظ أن الله «يحبهما»، فالهدوء ليس ضعفًا، بل صفة يحبها الله في عباده.'],
+          'وهاتان الخصلتان هما عكس سمات الوسطى تمامًا: الاندفاع والعجلة. ولاحظ أن الله «يحبهما»، فالهدوء صفة يحبها الله في عباده.'],
         ar_f: ['جاء وفد من قبيلة عبد القيس إلى المدينة ليلقوا النبي صلى الله عليه وآله وسلم، وكان فيهم رجل يُعرف بأشجّ عبد القيس رضي الله عنه.',
           'فقال له النبي صلى الله عليه وآله وسلم: «إن فيك خصلتين يحبهما الله: الحلم والأناة».',
           'الحلم أن تملكي نفسك حين تغضبين، فلا تسبق يدك ولا لسانك. والأناة أن تتمهلي ولا تستعجلي، فتفكري قبل أن تفعلي.',
-          'وهاتان الخصلتان هما عكس سمات الوسطى تمامًا: الاندفاع والعجلة. ولاحظي أن الله «يحبهما»، فالهدوء ليس ضعفًا، بل صفة يحبها الله في عباده.'],
+          'وهاتان الخصلتان هما عكس سمات الوسطى تمامًا: الاندفاع والعجلة. ولاحظي أن الله «يحبهما»، فالهدوء صفة يحبها الله في عباده.'],
         en: ['A delegation from the tribe of Abd al-Qays came to Madina to meet the Prophet, peace and blessings be upon him and his family. Among them was a man known as al-Ashajj of Abd al-Qays, may Allah be pleased with him.',
           'The Prophet said to him, meaning: "You have two qualities that Allah loves: forbearance and deliberateness."',
           'Forbearance is keeping hold of yourself when you are angry, so neither your hand nor your tongue gets ahead of you. Deliberateness is taking your time instead of rushing, so you think before you act.',
-          'These two qualities are the exact opposite of the middle-finger trait: impulsiveness and haste. And notice that Allah "loves" them: calm is not weakness, it is a quality Allah loves in His servants.']
+          'These two qualities are the exact opposite of the middle-finger trait: impulsiveness and haste. And notice that Allah "loves" them: calm is a quality Allah loves in His servants.']
       },
       quote: { ar: '«إِنَّ فِيكَ خَصْلَتَيْنِ يُحِبُّهُمَا اللَّهُ الْحِلْمُ وَالأَنَاةُ»', en: 'Meaning: You have two qualities that Allah loves: forbearance and deliberateness.', ref: 'صحيح مسلم (ترقيم sunnah.com: الكتاب 1، الحديث 25)، عن ابن عباس', checked: CHK, verify: true },
       source: { ar: 'حديث في صحيح مسلم.', en: 'A hadith in Sahih Muslim.' }
@@ -4039,7 +4039,7 @@ window.AKHLAQ_CONTENT.choices = [
         out: { ar: "حملت ليلى الصحن إلى يوسف. تعجّب، ثم قسمها هو نصفين وقال: «تعالي نأكلها معًا». ورأت الجدة ذلك فابتسمت.", en: "Layla carried the plate to Yusuf. He was surprised, then cut it in two himself: “Come, let's eat it together.” Grandma saw and smiled." },
         why: { ar: "من يسبق إلى العطاء يربح مرتين.", en: "Whoever races to give wins twice." } }
     ],
-    end: { ar: "النفس تقول دائمًا: «أنا أولًا». والسباق الحقيقي سباق إلى العطاء، لا إلى الصحن.", en: "The self always says “me first”. The real race is a race to give, not a race to the plate." }
+    end: { ar: "النفس تقول دائمًا: «أنا أولًا». فمن سبق إلى الصحن ثم أعطى، صار سباقه إلى العطاء.", en: "The self always says “me first”. Whoever reaches the plate first and then gives has turned the race into a race to give." }
   },
   {
     id: "ch-monkey-1", stage: "monkey", trait: 2, age: "all",
@@ -6354,7 +6354,7 @@ window.AKHLAQ_CONTENT.choices = [
     { id: "monkey-q26", readingId: "monkey-r15", correct: 0,
       q: { ar: "ماذا تغيّر في ابن الجار بعد أن وجد الرجل فأسه؟", en: "What changed in the neighbour's son after the man found his axe?" },
       options: O([["لا شيء فيه؛ تغيّرت نظرة الرجل", "Nothing in him; the man's way of seeing changed"], ["صار يمشي مشية أخرى", "He started walking differently"], ["اعتذر للرجل", "He apologised to the man"]]),
-      why: { ar: "كان «اللص» في ظن الرجل، لا في الفتى.", en: "The “thief” was in the man's suspicion, not in the boy." } },
+      why: { ar: "الفتى لم يأخذ الفأس. كان الظن في رأس الرجل، فصار يراه في كل حركة.", en: "The boy never took the axe. The suspicion was in the man’s head, so he saw it in every move." } },
     { id: "monkey-q27", readingId: "monkey-r15", correct: 2,
       q: { ar: "ما الذي أوقف يزن قبل أن يرسل الرسالة؟", en: "What stopped Yazan before he sent the message?" },
       options: O([["رأى السمّاعتين مع ماجد", "He saw the earbuds with Majid"], ["نفدت بطارية هاتفه", "His phone battery died"], ["كلّم نفسه باسمه: ماذا رأيت بعينك؟", "He spoke to himself by name: what did you see with your own eyes?"]]),

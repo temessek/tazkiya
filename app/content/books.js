@@ -568,7 +568,7 @@
             why: { ar: 'هذه الدرجة الأولى في الإبهام: مبادرة بالخير قبل الطلب.', en: 'This is the first degree of the thumb: starting the good before being asked.' } },
           { correct: 2, q: { ar: 'ما السؤال الذي كتبته أسماء على الورقة المطوية؟', en: 'What question did Asma write on the folded note?' },
             options: [{ ar: 'هل يحتاج أبو سليم إلى مساعدة كل جمعة؟', en: 'Does Abu Salim need help every Friday?' }, { ar: 'لماذا لا يرتب الناس المسجد بعد الصلاة؟', en: 'Why do people not tidy the mosque after the prayer?' }, { ar: 'هل فرحت بشكر أبي سليم، أم بعمل الخير نفسه؟', en: 'Was she happy because Abu Salim thanked her, or because of the good deed itself?' }],
-            why: { ar: 'السابق يسأل نفسه عن نيته، لا عن عمله وحده.', en: 'Someone racing to good asks about their intention, and not only about their deed.' } }
+            why: { ar: 'فرحت أسماء بشكر أبي سليم، ثم سألت نفسها: لمن كنتُ أعمل؟', en: 'Asma was glad of Abu Salim’s thanks, then asked herself who she had really been working for.' } }
         ]) },
 
       { title: { ar: 'الخير الخفي', en: 'The hidden good' },
@@ -614,7 +614,7 @@
             why: { ar: 'السباق إلى الخير قد ينقلب سباقًا إلى المدح.', en: 'A race to good can turn into a race for praise.' } },
           { correct: 1, q: { ar: 'ماذا قصدت الجدة بقولها: «إذا صار همّكِ أن تسبقي جنى، فقد نسيتِ إلى أين تركضين»؟', en: 'What did Grandmother mean by: "If your aim becomes beating Jana, you have forgotten where you are running to"?' },
             options: [{ ar: 'أن المسابقات في الخير لا تصح', en: 'That contests in doing good are wrong' }, { ar: 'أن غاية السبق القرب من الله، لا الفوز على الصديقة', en: 'That the aim of racing is nearness to Allah, not beating your friend' }, { ar: 'أن اللوحة لا تهم المعلمة كثيرًا', en: 'That the board does not matter much to the teacher' }],
-            why: { ar: 'السابقون مقربون إلى الله، لا إلى اللوحة.', en: 'The foremost are brought near to Allah, not to a board.' } }
+            why: { ar: 'قالت الجدة إن أسماء نسيت إلى أين تركض: صار همّها جنى واللوحة، والسابقون يركضون إلى القرب من الله.', en: 'Grandmother meant Asma had forgotten where she was running: her mind was on Jana and the board, and the foremost run towards nearness to Allah.' } }
         ]) },
 
       { title: { ar: 'يد زياد', en: 'Ziyad\'s hand' },
