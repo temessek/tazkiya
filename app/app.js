@@ -323,6 +323,7 @@
   function cmap(m, val, max, keyRe) { const o = {}; if (!isObj(m)) return o; let k = 0; const keys = Object.keys(m); if (keyRe === DAY_RE) keys.sort().reverse(); /* keep the newest days */ for (const key of keys) { if (k >= max) break; if (!(keyRe || ID_RE).test(key) || BADKEY.has(key)) continue; const v = val(m[key]); if (v !== undefined) { o[key] = v; k++; } } return o; }
   const bool = v => (typeof v === "boolean" ? v : undefined);
   const BADKEY = new Set(["__proto__", "constructor", "prototype"]); // never copied from a backup into a plain object
+  const AV_ALL = ["g", "cat", "lion", "owl", "rabbit", "falcon", "turtle", "boy", "girl", "man", "woman"]; // a profile's chosen picture ("g": the account holder's Google picture)
   const TW_MAX = 1500, TW_LEN = 200, TWID_RE = /^[a-z0-9-]{1,24}$/, NOTE_MAX = 1000, NOTE_LEN = 8000;
   // the free writing keeps its line breaks: other control characters and markup signs go, long runs of empty lines shrink
   const noteTx = v => (typeof v === "string" ? v.replace(/\r\n?/g, "\n").replace(/[\u0000-\u0009\u000b-\u001f<>{}]/g, "").replace(/[ \t]+\n/g, "\n").replace(/\n{4,}/g, "\n\n\n").trim().slice(0, NOTE_LEN) : "");
@@ -359,6 +360,7 @@
     s.start = typeof o.start === "string" && DAY_RE.test(o.start) ? o.start : undefined;
     s.revealDay = typeof o.revealDay === "string" && DAY_RE.test(o.revealDay) ? o.revealDay : undefined;
     s.name = txt(o.name, 20); s.gender = oneOf(o.gender, ["m", "f"], ""); s.age = oneOf(o.age, ["4-8", "9-14", "15+"], "");
+    s.av = oneOf(o.av, AV_ALL, undefined);
     s.edition = oneOf(o.edition, ["kids", "adult"], ""); s.parentG = oneOf(o.parentG, ["m", "f"], "");
     s.map = oneOf(o.map, ["one", "two", "right"], undefined);
     if (typeof o.intro === "boolean") s.intro = o.intro; if (typeof o.tour === "boolean") s.tour = o.tour;
@@ -648,6 +650,7 @@
     twEditSave: ["احفظ التعديل", "Save the change"], twEditCancel: ["إلغاء", "Cancel"],
     twNoteSaved: ["حُفظت في دفترك", "Saved to your notebook"], twNoteEdited: ["حُفظ التعديل", "Change saved"],
     twNb: ["دفتري", "My notebook"], twNbNone: ["ما تكتبه يُحفظ هنا بتاريخه.", "What you write is kept here with its date."],
+    twNbAll: ["دفتري كله ({c})", "My whole notebook ({c})"], twNbSub: ["آخر ما كُتب فيه، بتاريخه.", "The latest pages, with their dates."], twNbN: ["عدد الصفحات: {c}", "Pages: {c}"],
     twOpen: ["افتح", "Open"], twEdited: ["عُدّلت", "edited"], twMoreN: ["اعرض الكل ({c})", "Show all ({c})"],
     twExt: ["استخرج النعم والتحديات", "Find the blessings and challenges"], twExtShort: ["استخرج", "Find"],
     twExtSub: ["يقرأ المساعد ما كتبت، ويقترح عليك سطورًا تختار منها ما تشاء.", "The helper reads what you wrote and suggests a few lines for you to choose from."],
@@ -835,7 +838,8 @@
     accWhy3: ["حساب واحد للوالد، والأبناء ملفات داخله", "One account for the parent, with the children as profiles inside it"],
     gSign: ["تسجيل الدخول باستخدام Google", "Sign in with Google"], accLater: ["المتابعة على هذا الجهاز فقط", "Continue on this device only"],
     accOr: ["أو ابدأ على هذا الجهاز فقط", "Or start on this device only"],
-    peopleT: ["أفراد الأسرة", "Family members"], owner: ["صاحب الحساب", "Account holder"], famAddS: ["إضافة", "Add"], profOf: ["ملف {p}", "{p}'s profile"],
+    peopleT: ["أفراد الأسرة", "Family members"], avT: ["الصورة", "Picture"], avG: ["صورتي في جوجل", "My Google picture"],
+    avcat: ["قطة", "Cat"], avlion: ["شبل", "Lion cub"], avowl: ["بومة", "Owl"], avrabbit: ["أرنب", "Rabbit"], avfalcon: ["صقر", "Falcon"], avturtle: ["سلحفاة", "Turtle"], avman: ["رجل", "Man"], avwoman: ["امرأة", "Woman"], owner: ["صاحب الحساب", "Account holder"], famAddS: ["إضافة", "Add"], profOf: ["ملف {p}", "{p}'s profile"],
     sGender: ["ولد أم بنت", "Boy or girl"], fxSndS: ["أصوات اللمس", "Touch sounds"], fxHapS: ["اهتزاز خفيف", "Light vibration"], moreT: ["المزيد", "More"]
   });
   Object.assign(UF, { accOr: "أو ابدئي على هذا الجهاز فقط" });
@@ -1180,7 +1184,7 @@
   function settingsSheet() {
     const ord = ["p1"].concat(P.list.filter(x => x !== "p1")).filter(x => P.list.includes(x));
     const person = id => { const st = id === P.active ? S : loadOf(id), on = id === P.active;
-      return `<button class="person${on ? " on" : ""}" data-act="prof" data-p="${id}" aria-pressed="${on}"><span class="av">${avatarSvg(st, id)}</span><span class="pn">${esc(nameOf(id, st))}</span>${id === "p1" && ACC.me ? `<small>${esc(u("owner"))}</small>` : ""}</button>`; };
+      return `<button class="person${on ? " on" : ""}" data-act="prof" data-p="${id}" aria-pressed="${on}"><span class="av">${avatarHtml(st, id)}</span><span class="pn">${esc(nameOf(id, st))}</span>${id === "p1" && ACC.me ? `<small>${esc(u("owner"))}</small>` : ""}</button>`; };
     const seg = (act, key, items, cur, cls, extra) => `<div class="segc${cls ? " " + cls : ""}" role="group">${items.map(([v, l, raw]) => { const on = cur === v; return `<button class="${on ? "on" : ""}" data-act="${act}"${extra || ""} data-${key}="${v}" aria-pressed="${on}"${raw ? ' dir="ltr"' : ""}>${raw ? esc(l) : esc(u(l))}</button>`; }).join("")}</div>`;
     const X = window.TZFX, fx = X && (X.hasAudio() || X.canHaptic()) ? X.prefs() : null;
     const sw = (k, label) => `<div class="srow"><span class="sl">${esc(u(label))}</span><button class="sw${fx[k] ? " on" : ""}" role="switch" aria-checked="${!!fx[k]}" aria-label="${esc(u(label))}" data-act="fxset" data-k="${k}" data-v="${fx[k] ? 0 : 1}"><i></i></button></div>`;
@@ -1194,6 +1198,7 @@
       <div class="people">${ord.map(person).join("")}${P.list.length < PMAX ? `<button class="person add" data-act="profadd"><span class="av" aria-hidden="true">+</span><span class="pn">${esc(u("famAddS"))}</span></button>` : ""}</div>
       <h3 class="sg-h">${esc(fmt(u("profOf"), { p: nameOf(P.active, S) }))}</h3>
       <div class="sgroup">
+        <div class="srow col"><span class="sl">${esc(u("avT"))}</span>${avPick()}</div>
         <label class="srow"><span class="sl">${esc(u("profName"))}</span><input id="profName" type="text" maxlength="20" autocomplete="off" value="${esc(S.name || "")}" placeholder="${esc(ADU() ? u("namePhA") : L() === "ar" ? "نور" : "Nour")}"></label>
         <div class="srow"><span class="sl">${esc(u("sGender"))}</span>${seg("setgender", "g", [["m", "boy"], ["f", "girl"]], S.gender)}</div>
         <div class="srow col"><span class="sl">${esc(u("agT"))}</span>${grpSeg("setgrp", GRP(S))}</div>
@@ -1215,6 +1220,14 @@
       </div>
       <p class="sdanger"><button class="linkbtn" data-act="resetask">${esc(u("reset"))}</button>${P.list.length > 1 && P.active !== "p1" ? `<button class="linkbtn" data-act="profdel">${esc(u("famDel"))}</button>` : ""}</p>`, { kind: "settings" });
     sheet.classList.add("tall", "setsheet");
+  }
+  // one tap picks the current profile's picture: its Google picture (the account holder only), two drawn faces, six animals
+  function avPick() {
+    const mine = P.active === "p1" && !!gpic(), ad = S.edition === "adult", faces = ad ? ["man", "woman"] : ["boy", "girl"];
+    const cur = S.av && (S.av !== "g" || mine) ? S.av : mine ? "g" : S.gender ? faces[S.gender === "m" ? 0 : 1] : "";
+    const opts = (mine ? ["g"] : []).concat(faces, AV_ANI);
+    return `<div class="avpick" role="group" aria-label="${esc(u("avT"))}">${opts.map(v => { const on = cur === v, lab = u(v === "g" ? "avG" : v === "boy" || v === "girl" ? v : "av" + v);
+      return `<button class="avo${on ? " on" : ""}" data-act="setav" data-v="${v}" aria-pressed="${on}" aria-label="${esc(lab)}" title="${esc(lab)}"><span class="av">${v === "g" ? avatarSvg({ edition: S.edition, gender: S.gender }, "p1") + gImg() : avatarSvg(S, P.active, v)}</span></button>`; }).join("")}</div>`;
   }
   const subBack = () => `<button class="back sback" data-act="settings">${BK()} ${esc(u("setT"))}</button>`;
   function mapSheet() {
@@ -1243,9 +1256,59 @@
       <div class="bkrow"><button class="btn ghost sm" data-act="accsync">${esc(u("accSyncNow"))}</button><button class="btn ghost sm" data-act="accout">${esc(u("accOut"))}</button></div>
       <p class="acc-links">${priv}<button class="linkbtn" data-act="accdel">${esc(u("accDel"))}</button></p></div>`;
   }
-  // drawn faces for the profiles: girl, boy, woman, man, or a plain friendly face while none is chosen
-  function avatarSvg(st, id) {
-    const ad = (st && st.edition) === "adult", g = st && st.gender, k = Math.max(0, (parseInt(String(id || "p1").slice(1), 10) || 1) - 1) % 4;
+  /* the profiles' pictures (owner request, 24 Nov 2026): a drawn face (girl, boy, woman, man, or a plain friendly face while none
+     is chosen), or one of six friendly animals picked with one tap. The account holder's own profile (p1) shows their Google
+     picture once signed in, over the drawn face, which stays in view if the picture does not load. Only p1 can pick it. */
+  const AV_ANI = ["cat", "lion", "owl", "rabbit", "falcon", "turtle"];
+  let GPIC_BAD = false;
+  const gpic = () => (ACC.me && ACC.me.picture && !GPIC_BAD ? ACC.me.picture : "");
+  const avUsesG = (st, id) => id === "p1" && !!gpic() && (!st || !st.av || st.av === "g");
+  const gImg = () => `<img class="gpic" src="${esc(gpic())}" alt="" referrerpolicy="no-referrer" decoding="async">`;
+  function avatarHtml(st, id) { return avatarSvg(st, id) + (avUsesG(st, id) ? gImg() : ""); }
+  function animalSvg(v) {
+    const L0 = "#2b2f3a", eye = (x, y, r) => `<circle cx="${x}" cy="${y}" r="${r || 2.1}" fill="${L0}"/><circle cx="${x + .7}" cy="${y - .8}" r=".7" fill="#fff"/>`;
+    const smile = (y, w) => `<path d="M${32 - (w || 3.4)} ${y}c1.6 1.9 ${(w || 3.4) * 2 - 3.2} 1.9 ${(w || 3.4) * 2} 0" stroke="${L0}" stroke-width="1.6" fill="none" stroke-linecap="round"/>`;
+    const blush = (y, dx) => `<circle cx="${32 - (dx || 9)}" cy="${y}" r="2.3" fill="#ef8f80" opacity=".45"/><circle cx="${32 + (dx || 9)}" cy="${y}" r="2.3" fill="#ef8f80" opacity=".45"/>`;
+    let bg, p;
+    if (v === "cat") { bg = "#dcebf5";
+      p = `<path d="M15.5 27 18.5 10l11 9.5z M48.5 27 45.5 10l-11 9.5z" fill="#e8964a"/><path d="M19.6 21.5 21 14l5.4 4.8z M44.4 21.5 43 14l-5.4 4.8z" fill="#f4b9a8"/>
+        <ellipse cx="32" cy="36" rx="18.5" ry="16" fill="#e8964a"/><ellipse cx="32" cy="42.5" rx="9.5" ry="7" fill="#f8dcbc"/>
+        <path d="M32 20.5v5.5M26 21.5l1.6 4.4M38 21.5l-1.6 4.4" stroke="#c46f2b" stroke-width="2" stroke-linecap="round"/>
+        <ellipse cx="25" cy="34" rx="2.3" ry="2.9" fill="${L0}"/><ellipse cx="39" cy="34" rx="2.3" ry="2.9" fill="${L0}"/><circle cx="25.8" cy="33" r=".8" fill="#fff"/><circle cx="39.8" cy="33" r=".8" fill="#fff"/>
+        <path d="M29.8 39.4h4.4L32 41.8z" fill="#d9687a"/><path d="M32 41.8v1.4m0 0c-.9 1.2-2.6 1.3-3.6.4m3.6-.4c.9 1.2 2.6 1.3 3.6.4" stroke="${L0}" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+        <path d="M21.5 40.5l-8.5-1.6M21.5 43.5l-8 1.6M42.5 40.5l8.5-1.6M42.5 43.5l8 1.6" stroke="${L0}" stroke-width="1" stroke-linecap="round" opacity=".5"/>`; }
+    else if (v === "lion") { bg = "#e3efd9";
+      const tufts = Array.from({ length: 12 }, (_, i) => { const a = i * Math.PI / 6; return `<circle cx="${(32 + 17 * Math.cos(a)).toFixed(1)}" cy="${(34 + 17 * Math.sin(a)).toFixed(1)}" r="7.2"/>`; }).join("");
+      p = `<g fill="#c8782a">${tufts}<circle cx="32" cy="34" r="17"/></g><circle cx="21.5" cy="23.5" r="4.6" fill="#eab35e"/><circle cx="42.5" cy="23.5" r="4.6" fill="#eab35e"/><circle cx="21.5" cy="23.5" r="2.3" fill="#d4934a"/><circle cx="42.5" cy="23.5" r="2.3" fill="#d4934a"/>
+        <ellipse cx="32" cy="35.5" rx="13.5" ry="12.6" fill="#f0c372"/><ellipse cx="32" cy="41" rx="7.4" ry="5.2" fill="#fbe5b8"/>${eye(26.8, 33.5)}${eye(37.2, 33.5)}
+        <path d="M29.5 38h5l-2.5 2.7z" fill="#7a4a2a"/><path d="M32 40.7v1.3m0 0c-.9 1.1-2.4 1.2-3.3.4m3.3-.4c.9 1.1 2.4 1.2 3.3.4" stroke="#7a4a2a" stroke-width="1.3" fill="none" stroke-linecap="round"/>${blush(39, 9.6)}`; }
+    else if (v === "owl") { bg = "#ece2f4";
+      p = `<path d="M14.5 24 18 11.5l7.5 6.5c4.2-1.6 8.8-1.6 13 0l7.5-6.5 3.5 12.5c2.6 4.6 3.5 10 3 16-1.2 11.5-9.4 18.5-20.5 18.5S12.7 51.5 11.5 40c-.5-6 .4-11.4 3-16z" fill="#8a6446"/>
+        <ellipse cx="32" cy="47" rx="11.5" ry="9.5" fill="#dcbc92"/><path d="M27 45.5q2 2 4 0M33 45.5q2 2 4 0M30 50.5q2 2 4 0" stroke="#a7825c" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+        <circle cx="24.5" cy="31.5" r="7.6" fill="#fff"/><circle cx="39.5" cy="31.5" r="7.6" fill="#fff"/><circle cx="25" cy="32" r="3.6" fill="${L0}"/><circle cx="39" cy="32" r="3.6" fill="${L0}"/><circle cx="26.3" cy="30.6" r="1.2" fill="#fff"/><circle cx="40.3" cy="30.6" r="1.2" fill="#fff"/>
+        <path d="M29.4 37.4h5.2L32 42z" fill="#f0a63a"/>`; }
+    else if (v === "rabbit") { bg = "#f6e2c6";
+      p = `<g transform="rotate(-9 24 17)"><ellipse cx="24" cy="17" rx="5.6" ry="13.5" fill="#efeaf2"/><ellipse cx="24" cy="18" rx="2.6" ry="9.5" fill="#f3b6c6"/></g><g transform="rotate(9 40 17)"><ellipse cx="40" cy="17" rx="5.6" ry="13.5" fill="#efeaf2"/><ellipse cx="40" cy="18" rx="2.6" ry="9.5" fill="#f3b6c6"/></g>
+        <ellipse cx="32" cy="40" rx="16.5" ry="15" fill="#f7f4f8"/>${eye(25.8, 37.5, 2.3)}${eye(38.2, 37.5, 2.3)}<ellipse cx="32" cy="42.6" rx="2.4" ry="1.7" fill="#e58aa0"/>
+        <path d="M32 44.2v1.6m0 0c-1 1.1-2.6 1.2-3.5.3m3.5-.3c1 1.1 2.6 1.2 3.5.3" stroke="${L0}" stroke-width="1.3" fill="none" stroke-linecap="round"/><rect x="30.5" y="46.2" width="3" height="3.4" rx=".7" fill="#fff" stroke="#cfc6d4" stroke-width=".7"/>${blush(43.5, 10)}`; }
+    else if (v === "falcon") { bg = "#dcebf5";
+      p = `<path d="M13 64c-1.5-15 .5-29 9-38.5C28 18.5 37.5 15.5 45 20c6 3.6 8.5 10 8 17-.5 9-2 18-4 27z" fill="#7b6a5a"/>
+        <path d="M22 64c-1.6-10 .4-18.5 7.5-23 6-3.6 12.4-1.6 15.5 4 2.6 4.8 2 12 .5 19z" fill="#f5efe4"/><path d="M28 40l3 3M33 47l3 3M27 52l3 3M37 55l3 3" stroke="#b9a58e" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M31.5 33.5c-3 4.5-3.6 9-2.2 13.5" stroke="#3a3029" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+        <path d="M31 25.5q5.5-3.2 11 0" stroke="#3a3029" stroke-width="2.2" fill="none" stroke-linecap="round"/><circle cx="36.5" cy="29.5" r="4.8" fill="#f2c53d"/><circle cx="36.5" cy="29.5" r="2.7" fill="${L0}"/><circle cx="37.5" cy="28.5" r=".9" fill="#fff"/>
+        <path d="M44 27.5c5.5-.6 9 2.2 8.6 8.6-1.4-2.2-3.4-3-6.2-2.7z" fill="#f2c53d"/><path d="M50.2 33.8c1.4.8 2.2 1.6 2.4 2.3-1-.8-1.9-1.1-3-1.1z" fill="#3a3029"/>`; }
+    else { bg = "#fbe7cf";
+      p = `<rect x="25.5" y="38" width="13" height="12" rx="6" fill="#93c873"/><ellipse cx="32" cy="58" rx="27" ry="15" fill="#5f9145"/>
+        <path d="M14 55q18-14 36 0" stroke="#4a7536" stroke-width="2.2" fill="none"/><path d="M22 60l5-5 5 5 5-5 5 5" stroke="#4a7536" stroke-width="2" fill="none" stroke-linejoin="round"/>
+        <ellipse cx="32" cy="30.5" rx="14.5" ry="13" fill="#9fd27d"/><circle cx="26" cy="28.5" r="3.6" fill="#fff"/><circle cx="38" cy="28.5" r="3.6" fill="#fff"/>${eye(26.4, 29.2, 2.1)}${eye(37.6, 29.2, 2.1)}
+        ${smile(35.5, 4.4)}${blush(34.5, 9.5)}`; }
+    return `<svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" fill="${bg}"/>${p}</svg>`;
+  }
+  function avatarSvg(st, id, pick) {
+    const v = pick || (st && st.av);
+    if (AV_ANI.includes(v)) return animalSvg(v);
+    const face = { boy: [false, "m"], girl: [false, "f"], man: [true, "m"], woman: [true, "f"] }[v];
+    const ad = face ? face[0] : (st && st.edition) === "adult", g = face ? face[1] : st && st.gender, k = Math.max(0, (parseInt(String(id || "p1").slice(1), 10) || 1) - 1) % 4;
     const bg = ["#dbeaf0", "#f6e2c6", "#e0efe3", "#ece2f4"][k];
     const skin = "#f2c6a2", line = "#2b2f3a", hair = "#3b2a22";
     const eyes = y => `<circle cx="27" cy="${y}" r="1.8" fill="${line}"/><circle cx="37" cy="${y}" r="1.8" fill="${line}"/>`;
@@ -1796,7 +1859,9 @@
     }).then(m => {
       if (!m) return;
       if (m.status === 200 && isObj(m.body) && isObj(m.body.account)) {
-        ACC.me = { email: txt(m.body.account.email, 254), adult_at: num(m.body.account.adult_at, 0, 4102444800000) || 0 };
+        const pic = m.body.account.picture;
+        ACC.me = { email: txt(m.body.account.email, 254), adult_at: num(m.body.account.adult_at, 0, 4102444800000) || 0,
+          picture: typeof pic === "string" && pic.length <= 1000 && /^https:\/\/lh3\.googleusercontent\.com\/[^\s"'<>]*$/.test(pic) ? pic : "" };
         if (!SYNC) { SYNC = stored && stored.email === ACC.me.email ? stored : { email: ACC.me.email, cursor: "0", base: {}, gone: [], fresh: [], prof: {}, linked: false, at: 0 }; syncStore(); }
         if (signedIn) toast(u("accIn"), 4000);
         syncSoon(0);
@@ -1847,7 +1912,7 @@
   }
 
   // the free writing: a new page, or an entry of the notebook reopened (TWE: its id; TWX: its text being edited)
-  let TWE = null, TWX = null, TW_LAST = "", NB_OPEN = false, NB_ALL = false, BL_ALL = false, CH_ALL = false, DR_T = 0;
+  let TWE = null, TWX = null, TW_LAST = "", NB_N = 30, BL_ALL = false, CH_ALL = false, DR_T = 0;
   const twAfter = n => `<div class="tw-after" role="status"><p class="tw-ok"><span aria-hidden="true">✓</span> ${esc(u("twNoteSaved"))}</p>${extOn() && n.tx.length >= 10 ? `<button class="btn block ext-btn" data-act="exgo" data-id="${esc(n.id)}"><span aria-hidden="true">✦</span> ${esc(u("twExt"))}</button><p class="sub ext-sub">${esc(u("twExtSub"))}</p>` : ""}</div>`;
   function twWrite() {
     const ed = TWE ? twList("notes").find(e => e.id === TWE) : null; if (!ed) { TWE = null; TWX = null; }
@@ -1858,12 +1923,28 @@
       ${last ? twAfter(last) : ""}</section>`;
   }
   const more = (n, shown, k) => n > shown ? `<button class="linkbtn tw-more" data-act="twall" data-k="${k}">${esc(fmt(u("twMoreN"), { c: n }))}</button>` : "";
+  /* «دفتري» (fixed 24 Nov 2026): it was a closed fold that every redraw and reload closed again, so what was written seemed gone
+     until the fold was opened. Now the latest three pages stay in view under the writing box, with their dates, and
+     «دفتري كله» opens the whole notebook at #/tadwin/nb, month by month. */
+  const nbItem = (e, full) => `<li class="tw-e nb-e${TWE === e.id ? " on" : ""}"><div class="tw-e-top"><span class="tw-d">${esc(fmtDate(e.t))}</span>${e.u ? `<span>· ${esc(u("twEdited"))}</span>` : ""}</div>
+        <p class="nb-tx${full ? " full" : ""}" dir="auto">${esc(e.tx)}</p><div class="nb-acts"><button class="linkbtn" data-act="nbopen" data-id="${esc(e.id)}">${esc(u("twOpen"))}</button>${extOn() && e.tx.length >= 10 ? `<button class="linkbtn" data-act="exgo" data-id="${esc(e.id)}">${esc(u("twExtShort"))}</button>` : ""}<button class="linkbtn tw-del" data-act="twdel" data-k="notes" data-id="${esc(e.id)}">${esc(u("twDel"))}</button></div></li>`;
   function twNotebook() {
-    const all = twList("notes").slice().reverse(), list = NB_ALL ? all : all.slice(0, 5);
-    return `<details class="tw-nb" id="tw-nb"${NB_OPEN ? " open" : ""}><summary><span>${esc(u("twNb"))}</span><b dir="ltr">${all.length}</b></summary>
-      ${all.length ? `<ul class="tw-list nb-list">${list.map(e => `<li class="tw-e nb-e${TWE === e.id ? " on" : ""}"><div class="tw-e-top"><span class="tw-d">${esc(fmtDate(e.t))}</span>${e.u ? `<span>· ${esc(u("twEdited"))}</span>` : ""}</div>
-        <p class="nb-tx" dir="auto">${esc(e.tx)}</p><div class="nb-acts"><button class="linkbtn" data-act="nbopen" data-id="${esc(e.id)}">${esc(u("twOpen"))}</button>${extOn() && e.tx.length >= 10 ? `<button class="linkbtn" data-act="exgo" data-id="${esc(e.id)}">${esc(u("twExtShort"))}</button>` : ""}<button class="linkbtn tw-del" data-act="twdel" data-k="notes" data-id="${esc(e.id)}">${esc(u("twDel"))}</button></div></li>`).join("")}</ul>
-        ${NB_ALL ? "" : more(all.length, list.length, "notes")}` : `<p class="tw-none">${esc(u("twNbNone"))}</p>`}</details>`;
+    const all = twList("notes").slice().sort((a, b) => b.t - a.t), list = all.slice(0, 3);
+    return `<section class="tw-nb" id="tw-nb"><div class="nb-head"><h2 class="h">${esc(u("twNb"))}</h2>${all.length ? `<b class="nb-c" dir="ltr">${all.length}</b>` : ""}</div>
+      ${all.length ? `<p class="sub nb-sub">${esc(u("twNbSub"))}</p><ul class="tw-list nb-list">${list.map(e => nbItem(e)).join("")}</ul>
+        <a class="btn ghost block nb-all" href="#/tadwin/nb">${BOOK_I}<span>${esc(fmt(u("twNbAll"), { c: all.length }))}</span></a>` : `<p class="tw-none">${esc(u("twNbNone"))}</p>`}</section>`;
+  }
+  const BOOK_I = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg>';
+  const fmtMonth = ts => { try { return new Date(ts).toLocaleDateString(L() === "ar" ? "ar-u-nu-latn" : "en-GB", { month: "long", year: "numeric" }); } catch (e) { return ymd(new Date(ts)).slice(0, 7); } };
+  function vNotebook() {
+    const all = twList("notes").slice().sort((a, b) => b.t - a.t), list = all.slice(0, NB_N);
+    let h = "", m = "";
+    list.forEach(e => { const k = fmtMonth(e.t); if (k !== m) { h += `${m ? "</ul>" : ""}<h2 class="nb-month">${esc(k)}</h2><ul class="tw-list nb-list">`; m = k; } h += nbItem(e, true); });
+    if (m) h += "</ul>";
+    return `<div class="wrap tw nbp"><div class="st-back"><a class="back" href="#/tadwin">${BK()} ${esc(u("twWhyBack"))}</a></div>
+      <header class="tw-head"><h1 class="h tw-h">${esc(u("twNb"))}</h1>${all.length ? `<p class="sub center" dir="auto">${esc(fmt(u("twNbN"), { c: all.length }))}</p>` : ""}</header>
+      ${all.length ? h + (all.length > list.length ? `<button class="btn ghost block tw-more" data-act="nbmore">${esc(fmt(u("twMoreN"), { c: all.length }))}</button>` : "") : `<p class="tw-none">${esc(u("twNbNone"))}</p>`}
+      <a class="btn block nb-write" href="#/tadwin">${PEN}<span>${esc(u("twWriteT"))}</span></a></div>`;
   }
   function nbSave() {
     const el = document.getElementById("twNote"), tx = noteTx(el ? el.value : "");
@@ -1918,6 +1999,7 @@
   function vTadwin(r) {
     if (S.parent) return `<div class="wrap tw"><header class="tw-head"><span class="tw-pen" aria-hidden="true">${PEN}</span><h1 class="h tw-h">${esc(u("twT"))}</h1></header><p class="sub center">${esc(u("twOwner"))}</p></div>`;
     if (BURN) return vBurn();
+    if (r.sc === "nb") return vNotebook();
     if (r.sc === "why" || (!S.twIntro && !r.sec)) return vTwWhy(r.sc === "why" && S.twIntro);
     extCheck();
     return `<div class="wrap tw"><header class="tw-head"><h1 class="h tw-h">${esc(u("twT"))}</h1>
@@ -3197,7 +3279,7 @@
     if (p[0] === "record") return { name: "record" };
     if (p[0] === "evening") return { name: "evening" };
     if (p[0] === "seen") return { name: "tadwin", sc: "", sec: "tw-seen" }; // the former page of what the family saw: now among the blessings
-    if (p[0] === "tadwin") return p[1] === "bad" ? { name: "tadwin", sc: "", sec: "tw-chal" } : { name: "tadwin", sc: p[1] === "why" ? "why" : "" }; // /bad: the first journal's second scroll, now the challenges
+    if (p[0] === "tadwin") return p[1] === "bad" ? { name: "tadwin", sc: "", sec: "tw-chal" } : { name: "tadwin", sc: p[1] === "why" ? "why" : p[1] === "nb" ? "nb" : "" }; // /bad: the first journal's second scroll, now the challenges
     if (p[0] === "choice") return { name: "choice", id: p[1] };
     if (p[0] === "book") return p[2] ? { name: "chapter", id: p[1], n: p[2] } : { name: "book", id: p[1] };
     if (p[0] === "sources") return { name: "sources" };
@@ -3361,6 +3443,8 @@
       case "circlenext": circleOff++; render(true); break;
       case "circleprev": circleOff--; render(true); break;
       case "revdone": S.rev = S.rev || {}; S.rev[today()] = true; save(); render(true); break;
+      case "setav": { const v = el.dataset.v; if (v === "g" ? !(P.active === "p1" && gpic()) : !AV_ALL.includes(v)) break;
+        S.av = v; save(); FX("tick"); setBtnFace(); settingsAgain(); break; }
       case "prof": switchProfile(el.dataset.p); if (sheetState && sheetState.kind === "settings") settingsSheet(); break;
       case "profadd": if (P.list.length < PMAX) profAddSheet(); break;
       case "profadded": { const g = GRPS.includes(el.dataset.g) ? el.dataset.g : (el.dataset.e === "adult" ? "adult" : "child"); if (grpBusy > Date.now()) break;
@@ -3481,7 +3565,8 @@
       case "twedit": { const k = el.dataset.k, e = ["bless", "chal", "khabia"].includes(k) && twList(k).find(x => x.id === el.dataset.id); if (!e) break;
         FX("tick"); TWD = { k: k === "khabia" ? "kh" : k === "chal" ? "chal" : e.src === "deed" ? "deed" : "bless", f: e.f || "", id: e.id, tx: e.tx || "" }; twSheet(true); break; }
       case "twf": if (TWD && STAGE_IDS.includes(el.dataset.s)) { TWD.f = TWD.f === el.dataset.s ? "" : el.dataset.s; FX("tick"); const y = sheet.scrollTop; twSheet(); sheet.scrollTop = y; } break;
-      case "twall": if (el.dataset.k === "notes") NB_ALL = true; else if (el.dataset.k === "bless") BL_ALL = true; else if (el.dataset.k === "chal") CH_ALL = true; FX("tick"); render(true); break;
+      case "nbmore": NB_N += 60; FX("tick"); render(true); break;
+      case "twall": if (el.dataset.k === "bless") BL_ALL = true; else if (el.dataset.k === "chal") CH_ALL = true; FX("tick"); render(true); break;
       case "chover": twOver(el.dataset.id); break;
       case "twdel": if (["notes", "bless", "chal", "khabia"].includes(el.dataset.k) && TWID_RE.test(el.dataset.id || "")) { FX("tick"); twDelSheet(el.dataset.k, el.dataset.id); } break;
       case "twdelyes": { const st = sheetState; if (!st || st.kind !== "twdel") break;
@@ -3495,7 +3580,7 @@
       case "adultyes": if (sheetState && sheetState.kind === "adult" && ACC.me) adultYes(el.dataset.id || ""); break;
       case "nbcancel": TWE = null; TWX = null; FX("tick"); render(true); break;
       case "nbopen": { const e = twList("notes").find(x => x.id === el.dataset.id); if (!e) break;
-        TWE = e.id; TWX = null; TW_LAST = ""; FX("tick"); render(true);
+        TWE = e.id; TWX = null; TW_LAST = ""; FX("tick"); if (route().sc === "nb") { location.hash = "#/tadwin"; render(); } else render(true);
         { const w = document.getElementById("tw-write"), ta = document.getElementById("twNote"); if (w) w.scrollIntoView({ block: "start", behavior: "smooth" }); if (ta) ta.focus({ preventScroll: true }); } break; }
       case "exgo": FX("tick"); extStart(el.dataset.id); break;
       case "exon": { if (!EXQ || EXQ.ph !== "list") break; extSync(); const x = (EXQ[el.dataset.k] || [])[+el.dataset.i]; if (!x) break;
@@ -3604,7 +3689,7 @@
   document.addEventListener("input", e => { const el = e.target; if (!el || el.id !== "twNote") return;
     if (TWE) { TWX = el.value; return; }
     S.twDraft = el.value.slice(0, NOTE_LEN); if (!S.twDraft.trim()) delete S.twDraft; clearTimeout(DR_T); DR_T = setTimeout(save, 400); });
-  document.addEventListener("toggle", e => { if (e.target && e.target.id === "tw-nb") NB_OPEN = e.target.open; }, true);
+  document.addEventListener("error", e => { const t = e.target; if (t && t.tagName === "IMG" && t.classList.contains("gpic")) { GPIC_BAD = true; t.remove(); } }, true);
   if (window.visualViewport) { const vv = window.visualViewport, kb = () => document.documentElement.style.setProperty("--kb", Math.max(0, Math.round(innerHeight - vv.height - vv.offsetTop)) + "px"); vv.addEventListener("resize", kb); vv.addEventListener("scroll", kb); }
   document.addEventListener("focusin", e => { if (e.target && e.target.matches && e.target.matches(".sheet input:not([type=range]):not([type=file])")) setTimeout(() => { try { e.target.scrollIntoView({ block: "center" }); } catch (x) {} }, 300); });
   let swY = null;
@@ -3618,8 +3703,8 @@
   const NARROW = window.matchMedia ? matchMedia("(max-width: 340px)") : null;
   function setBtnFace() {
     const sb = document.getElementById("setBtn"); if (!sb) return;
-    const dot = !ACC.me && !SYNC && ACC.google, k = canon([P.active, S.edition, S.gender, dot]);
-    if (sb.dataset.k !== k) { sb.dataset.k = k; sb.innerHTML = `<span class="av">${avatarSvg(S, P.active)}</span>${dot ? '<i class="sdot" aria-hidden="true"></i>' : ""}`; }
+    const dot = !ACC.me && !SYNC && ACC.google, k = canon([P.active, S.edition, S.gender, S.av || "", avUsesG(S, P.active) ? gpic() : "", dot]);
+    if (sb.dataset.k !== k) { sb.dataset.k = k; sb.innerHTML = `<span class="av">${avatarHtml(S, P.active)}</span>${dot ? '<i class="sdot" aria-hidden="true"></i>' : ""}`; }
     sb.setAttribute("aria-label", u("setT")); sb.title = u("setT");
   }
   function langLabel() {

@@ -200,7 +200,7 @@ function chromePath() {
 
 /* ---------------- routes ---------------- */
 function routesFrom(C, books) {
-  const S = Object.keys(C.stages), R = ["#/", "#/tasks", "#/me", "#/evening", "#/record", "#/seen", "#/tadwin", "#/tadwin/why", "#/tadwin/bad", "#/library", "#/about", "#/faq", "#/sources", "#/poster", "#/review", "#/no-such-page"];
+  const S = Object.keys(C.stages), R = ["#/", "#/tasks", "#/me", "#/evening", "#/record", "#/seen", "#/tadwin", "#/tadwin/why", "#/tadwin/nb", "#/tadwin/bad", "#/library", "#/about", "#/faq", "#/sources", "#/poster", "#/review", "#/no-such-page"];
   for (const s of S) {
     const st = C.stages[s];
     R.push(`#/stage/${s}`, `#/stage/${s}/work`, `#/sign/${s}`, `#/card/${s}`, `#/quiz/${s}`);
@@ -653,12 +653,14 @@ async function ideaFlows(browser, base, content, AV) {
     ok(s.notes.length === 1 && s.notes[0].tx === note && /^\d{4}-\d{2}-\d{2}$/.test(s.notes[0].d) && s.notes[0].t > 0 && !("twDraft" in s), "tw: saving keeps the text with its line breaks and its date, and clears the draft");
     ok((await page.inputValue("#twNote")) === "" && /حُفظت في دفترك/.test(await txt(page, ".tw-after")), "tw: the box is ready for a new page, with a quiet «saved»");
     await open(page); await go(page, "#/tadwin");
-    ok((await txt(page, "#tw-nb summary")).includes("1"), "tw: the notebook counts the entry after a reload");
-    await page.click("#tw-nb summary"); await page.waitForTimeout(200);
-    ok(/وساعدني صديقي/.test(await txt(page, "#tw-nb")) && /\d{4}/.test(await txt(page, "#tw-nb .tw-d")), "tw: the notebook shows it with its date");
+    ok((await txt(page, "#tw-nb .nb-c")).includes("1"), "tw: the notebook counts the entry after a reload");
+    ok(await page.locator("#tw-nb .nb-e .nb-tx").first().isVisible() && /وساعدني صديقي/.test(await txt(page, "#tw-nb .nb-tx")) && /\d{4}/.test(await txt(page, "#tw-nb .tw-d")),
+      "tw: after a reload the written page is in view on the Tadwin page with its date, with no tap (bug of 24 Nov 2026)");
+    await go(page, "#/"); await go(page, "#/tadwin");
+    ok(await page.locator("#tw-nb .nb-e .nb-tx").first().isVisible(), "tw: leaving the Tadwin page and coming back, the page is still in view");
     await page.click('#tw-nb [data-act="nbopen"]'); await page.waitForTimeout(400);
     ok((await page.inputValue("#twNote")) === note && await has(page, ".tw-write.editing") && await has(page, '#view [data-act="nbcancel"]'), "tw: an entry reopens in the writing box to be edited");
-    ok(await page.evaluate(() => document.getElementById("tw-nb").open), "tw: the notebook stays open across the redraw");
+    ok(await page.locator("#tw-nb .nb-e.on").isVisible(), "tw: the notebook stays in view across the redraw, the open entry marked");
     await page.fill("#twNote", note + "\nوالحمد لله"); await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(400);
     s = await getS(page); ok(s.notes.length === 1 && /والحمد لله$/.test(s.notes[0].tx) && s.notes[0].u >= s.notes[0].t, "tw: editing changes the same entry and marks when");
     ok((await page.inputValue("#twNote")) === "" && !(await has(page, ".tw-write.editing")), "tw: after the edit the box is a new page again");
@@ -668,6 +670,15 @@ async function ideaFlows(browser, base, content, AV) {
     ok(/دفترك/.test(await txt(page, "#sheet")), "tw: removing an entry asks once");
     await page.click('#sheet [data-act="twdelyes"]'); await page.waitForTimeout(300);
     s = await getS(page); ok(s.notes.length === 1 && /والحمد لله$/.test(s.notes[0].tx), "tw: only the chosen entry is removed");
+    await setS(page, "s.notes = s.notes.concat([1, 2, 3, 4].map(i => ({ id: 'old' + i, t: Date.now() - i * 40 * 86400000, d, tx: 'صفحة قديمة ' + i })));"); await open(page); await go(page, "#/tadwin");
+    ok(await page.locator("#tw-nb .nb-e").count() === 3 && /\(5\)/.test(await txt(page, "#tw-nb .nb-all")), "tw: the Tadwin page shows the latest three pages and a way to the whole notebook");
+    await page.click("#tw-nb .nb-all"); await page.waitForTimeout(400);
+    ok(await page.evaluate(() => location.hash) === "#/tadwin/nb" && await page.locator("#view .nbp .nb-e").count() === 5 && await page.locator("#view .nb-month").count() >= 2
+      && await has(page, '#view .st-back a[href="#/tadwin"]'), "tw: the whole notebook opens on its own page, month by month, with a way back");
+    await page.click('#view .nbp [data-act="nbopen"] >> nth=0'); await page.waitForTimeout(500);
+    ok(await page.evaluate(() => location.hash) === "#/tadwin" && await has(page, ".tw-write.editing"), "tw: an entry opened from the whole notebook comes back to the writing box");
+    await page.click('#view [data-act="nbcancel"]'); await page.waitForTimeout(300);
+    await setS(page, "s.notes = s.notes.filter(e => !/^old/.test(e.id));"); await open(page);
     await setS(page, "s.notes = [{ id: '<x>', t: 5, tx: '<b>hi</b>\\u0001' }, { t: 'x', tx: 'a' }, { id: 'a', t: 1700000000000, tx: 'x'.repeat(9000), d: 'bad' }, { id: 'b', t: 1700000000000, tx: '   ' }, 7]; s.twDraft = '<i>draft</i>';"); await open(page);
     s = await getS(page);
     ok(s.notes.length === 2 && s.notes.every(e => /^[a-z0-9-]{1,24}$/.test(e.id) && /^\d{4}-\d{2}-\d{2}$/.test(e.d)) && !/[<>]/.test(JSON.stringify(s.notes)) && s.notes[1].tx.length === 8000 && !/[<>]/.test(s.twDraft), "tw: stored entries and the draft are checked (id, date, day, text up to 8000)");
@@ -757,7 +768,6 @@ async function ideaFlows(browser, base, content, AV) {
     { const { ctx, page } = await fresh(); await open(page, "&reset=1&ed=adult", 900);
       await setS(page, "s.twIntro = true;"); await open(page, "", 900); await go(page, "#/tadwin");
       await page.fill("#twNote", "اليوم كان يومًا طيبًا مع أهلي"); await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(2900);
-      await page.click("#tw-nb summary"); await page.waitForTimeout(200);
       ok(!(await has(page, '[data-act="exgo"]')), "ext: without a server the extract button stays hidden");
       ok(!page.errs.length, "ext: no script errors without a server (" + page.errs.slice(0, 1).join("") + ")");
       await ctx.close(); }
@@ -793,8 +803,7 @@ async function ideaFlows(browser, base, content, AV) {
       for (const q of ["&lang=ar", "&lang=en"]) {
         await open(page, "&reset=1" + q, 900); await setS(page, "s.twIntro = true; s.age = '9-14'; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'كان يومًا طيبًا في المدرسة' }];"); await open(page, "", 900); await go(page, "#/tadwin", 1200);
         await page.fill("#twNote", "كتبت صفحة جديدة طويلة اليوم"); await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(400);
-        await page.click("#tw-nb summary"); await page.waitForTimeout(200);
-        ok(!(await has(page, '[data-act="exgo"]')) && !(await has(page, ".ext-btn")), `ext: kids (${q}): no extract button anywhere, with a working server`);
+          ok(!(await has(page, '[data-act="exgo"]')) && !(await has(page, ".ext-btn")), `ext: kids (${q}): no extract button anywhere, with a working server`);
         await page.click("#setBtn"); await page.waitForTimeout(500);
         ok(!/(المساعد|الذكاء|journal helper|\bAI\b)/.test(await txt(page, "#sheet")), `ext: kids (${q}): no setting for it`);
         await page.keyboard.press("Escape"); await page.waitForTimeout(200);
@@ -811,7 +820,6 @@ async function ideaFlows(browser, base, content, AV) {
       await ctx.route("**/api/account/adult", r => { adultReqs.push({ h: r.request().headers(), b: r.request().postData() }); return r.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true,"adult_at":1763900000000}' }); });
       await ctx.route("**/api/sync", r => r.fulfill({ status: 200, contentType: "application/json", body: '{"cursor":"1.1","more":false,"profiles":[],"changes":[],"rejected":[]}' }));
       await open(page, "&reset=1&ed=adult", 900); await setS(page, "s.twIntro = true; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'كان يومًا طويلًا في العمل' }];"); await open(page, "", 900); await go(page, "#/tadwin", 1200);
-      await page.click("#tw-nb summary"); await page.waitForTimeout(200);
       ok(await has(page, '#tw-nb [data-act="exgo"]'), "ext: a signed-in adult sees the button before the 18+ statement");
       await page.click('#tw-nb [data-act="exgo"]'); await page.waitForTimeout(400);
       ok(/ثماني عشرة/.test(await txt(page, "#sheet")) && !reqs.length, "ext: the first use asks for the 18+ statement and sends nothing yet");
@@ -824,7 +832,7 @@ async function ideaFlows(browser, base, content, AV) {
     { const { ctx, page } = await freshNoSw(), reqs = [];
       await mock(ctx, reqs, () => ({ status: 401, contentType: "application/json", body: '{"error":"no_session"}' }));
       await open(page, "&reset=1&ed=adult&lang=en", 900); await setS(page, "s.twIntro = true; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'A long day at work, and a kind word.' }];"); await open(page, "", 900); await go(page, "#/tadwin", 1200);
-      await page.click("#tw-nb summary"); await page.waitForTimeout(200); await page.click('#tw-nb [data-act="exgo"]'); await page.waitForTimeout(600);
+      await page.click('#tw-nb [data-act="exgo"]'); await page.waitForTimeout(600);
       ok(/signed in/.test(await txt(page, "#sheet")), "ext: a signed-out answer asks to sign in");
       ok(!page.errs.length, "ext: no script errors (" + page.errs.slice(0, 1).join("") + ")");
       await ctx.close(); }
@@ -834,14 +842,14 @@ async function ideaFlows(browser, base, content, AV) {
       await open(page, "&reset=1&ed=adult", 900);
       await page.evaluate(() => { localStorage.setItem("akhlaq-app-v1:profiles", JSON.stringify({ active: "p2", list: ["p1", "p2"] }));
         localStorage.setItem("akhlaq-app-v1:p2", JSON.stringify({ v: 1, lang: "ar", fs: 19, mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, edition: "adult", intro: true, tour: true, twIntro: true, notes: [{ id: "n1", t: Date.now(), tx: "كتابة فرد آخر من الأسرة" }] })); });
-      await open(page, "", 900); await go(page, "#/tadwin", 1200); await page.click("#tw-nb summary"); await page.waitForTimeout(200);
+      await open(page, "", 900); await go(page, "#/tadwin", 1200);
       ok(!(await has(page, '[data-act="exgo"]')) && !reqs.length, "ext: an adult profile other than the account holder's sees no button");
       await ctx.close(); }
     // nothing found: say so, and invite adding by hand
     { const { ctx, page } = await freshNoSw(), reqs = [];
       await mock(ctx, reqs, () => ({ status: 200, contentType: "application/json", body: '{"blessings":[],"challenges":[]}' }));
       await open(page, "&reset=1&ed=adult", 900); await setS(page, "s.twIntro = true; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'كان يومًا طويلًا في العمل' }];"); await open(page, "", 900); await go(page, "#/tadwin", 1200);
-      await page.click("#tw-nb summary"); await page.waitForTimeout(200); await page.click('#tw-nb [data-act="exgo"]'); await page.waitForTimeout(600);
+      await page.click('#tw-nb [data-act="exgo"]'); await page.waitForTimeout(600);
       ok(/لم يجد المساعد سطورًا/.test(await txt(page, "#sheet")) && /بيدك/.test(await txt(page, "#sheet")), "ext: empty lists say nothing was found and invite adding by hand");
       await ctx.close(); }
   });
@@ -922,7 +930,7 @@ async function ideaFlows(browser, base, content, AV) {
         + " s.chal = [{ id: 'c1', t: Date.now(), tx: 'Supercalifragilistic'.repeat(10), f: 'monkey' }, { id: 'c2', t: Date.now(), tx: 'تحدٍّ', done: true, f: 'pig' }];");
       await open(page, "&burntest=1", 900);
       for (const h of ["#/tadwin", "#/tadwin/why", "#/seen"]) { await go(page, h); const x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText && !x.missing, `tw: 320 ${q} ${h}: ${JSON.stringify(x)}`); }
-      await go(page, "#/tadwin"); await page.click("#tw-nb summary"); await page.waitForTimeout(200); await page.click('#tw-nb [data-act="nbopen"] >> nth=0'); await page.waitForTimeout(300);
+      await go(page, "#/tadwin"); await page.click('#tw-nb [data-act="nbopen"] >> nth=0'); await page.waitForTimeout(300);
       let x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText, `tw: 320 ${q} the notebook open, an entry being edited: ${JSON.stringify(x)}`);
       await page.click('#tw-bless [data-act="twadd"][data-k="bless"]'); await page.waitForTimeout(300);
       x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length, `tw: 320 ${q} the writing sheet: ${JSON.stringify(x)}`);
@@ -943,7 +951,7 @@ async function ideaFlows(browser, base, content, AV) {
     await ctx.route("**/api/me", r => r.fulfill({ status: 200, contentType: "application/json", body: '{"account":{"adult_at":1763900000000}}' }));
     await ctx.route("**/api/extract", r => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ blessings: ["ك".repeat(140), "صديق"], challenges: ["Supercalifragilistic".repeat(7)], care: "What you wrote matters. It may help to talk it through today with someone you trust." }) }));
     await open(page, "&reset=1&ed=adult&lang=en", 900); await setS(page, "s.twIntro = true; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'A long day with my family and friends.' }];"); await open(page, "", 900); await go(page, "#/tadwin", 900);
-    await page.click("#tw-nb summary"); await page.waitForTimeout(200); await page.click('#tw-nb [data-act="exgo"]'); await page.waitForTimeout(700);
+    await page.click('#tw-nb [data-act="exgo"]'); await page.waitForTimeout(700);
     const x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText && (await page.locator("#sheet .ex-list li").count()) === 3, `tw: 320 the extract sheet: ${JSON.stringify(x)}`);
     await ctx.close();
   });
@@ -954,11 +962,15 @@ async function ideaFlows(browser, base, content, AV) {
     page.on("pageerror", e => errs.push(e.message));
     const T = Date.now() - 3600000, prof = [{ pid: "p1", name: "Remote", edition: "adult", burn_at: 0, updated: T }];
     await ctx.route("**/api/health", r => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ ok: true, env: "test", sign_in: { email: false, google: true }, ai: true }) }));
-    await ctx.route("**/api/me", r => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ account: { email: "family@example.com", google: true, adult_at: null }, profiles: prof, profile_max: 4 }) }));
+    const PIC = "https://lh3.googleusercontent.com/a/test-picture=s96-c"; let picOk = true;
+    await ctx.route("**/api/me", r => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ account: { email: "family@example.com", google: true, adult_at: null, picture: PIC }, profiles: prof, profile_max: 4 }) }));
+    const PNG = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==", "base64");
+    await ctx.route("https://lh3.googleusercontent.com/**", r => picOk ? r.fulfill({ status: 200, contentType: "image/png", body: PNG }) : r.fulfill({ status: 404, body: "" }));
     await ctx.route("**/api/auth/logout", r => r.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true}' }));
     await ctx.route("**/api/sync", r => { const b = JSON.parse(r.request().postData() || "{}"); syncs.push({ b, h: r.request().headers() });
       const first = syncs.length === 1;
       const changes = first ? [{ pid: "p1", kind: "blessing", id: "rb1", t: T, u: T, data: { tx: "نعمة من جهاز آخر", src: "hand" } },
+        { pid: "p1", kind: "note", id: "rn1", t: T, u: T, data: { d: new Date(T).toISOString().slice(0, 10), tx: "بسم الله الرحمن الرحيم" } },
         { pid: "p1", kind: "state", id: "main", t: T, u: T, data: { s: { v: 1, mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, name: "Remote", edition: "adult", twIntro: true, read: { "x": true } } } }]
         : (b.changes || []).map(c => Object.assign({}, c));
       return r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ cursor: first ? "1.999" : "2.999", more: false, profiles: prof, changes, rejected: [] }) }); });
@@ -978,7 +990,22 @@ async function ideaFlows(browser, base, content, AV) {
     ok(sent.some(c => c.kind === "note" && c.id === "n1" && c.data.tx === "صفحة كتبتها هنا") && !sent.some(c => c.kind === "state"), "acc: this device's page goes up; the account's progress is kept, not overwritten");
     ok((syncs[1].b.profiles || []).some(p => p.pid === "p1" && p.edition === "adult"), "acc: the profile goes up with its edition");
     const s = await getS(page);
-    ok((s.bless || []).some(e => e.id === "rb1" && e.tx === "نعمة من جهاز آخر") && s.name === "Remote" && s.notes.length === 1, "acc: the account's blessing and progress arrive, this device's page stays");
+    ok((s.bless || []).some(e => e.id === "rb1" && e.tx === "نعمة من جهاز آخر") && s.name === "Remote" && s.notes.length === 2, "acc: the account's blessing, page and progress arrive, this device's page stays");
+    await page.evaluate(() => { location.hash = "#/tadwin"; }); await page.waitForTimeout(400);
+    ok(await page.locator("#tw-nb .nb-e .nb-tx", { hasText: "بسم الله الرحمن الرحيم" }).isVisible() && await page.locator("#tw-nb .nb-e .nb-tx", { hasText: "صفحة كتبتها هنا" }).isVisible(),
+      "acc: a page written on another device is in view on the Tadwin page after sync, with no tap");
+    ok(await page.evaluate(src => { const i = document.querySelector("#setBtn .av img.gpic"); return !!i && i.getAttribute("src") === src && i.complete && i.naturalWidth > 0 && i.referrerPolicy === "no-referrer" && !!document.querySelector("#setBtn .av svg"); }, PIC),
+      "acc: signed in, the account holder's face is their Google picture, the drawn face beneath it");
+    await page.click("#setBtn"); await page.waitForTimeout(500);
+    ok(await has(page, '#sheet .person[data-p="p1"] .av img.gpic') && await page.locator('#sheet .avpick [data-act="setav"]').count() === 9 && await has(page, '#sheet .avpick [data-v="g"].on'),
+      "acc: settings offer the Google picture (chosen), two faces and six animals, in circles");
+    await page.click('#sheet .avpick [data-v="owl"]'); await page.waitForTimeout(300);
+    ok((await getS(page)).av === "owl" && !(await has(page, "#setBtn img.gpic")) && await has(page, '#sheet .avpick [data-v="owl"].on'), "acc: one tap gives the profile the owl, in place of the Google picture");
+    await page.click('#sheet .avpick [data-v="g"]'); await page.waitForTimeout(300);
+    ok((await getS(page)).av === "g" && await has(page, "#setBtn img.gpic"), "acc: one tap brings the Google picture back");
+    await page.keyboard.press("Escape"); await page.waitForTimeout(250);
+    picOk = false; await page.evaluate(() => location.reload()); await page.waitForTimeout(2200);
+    ok(!(await has(page, "#setBtn img.gpic")) && await has(page, "#setBtn .av svg"), "acc: when the Google picture cannot load, the drawn face stays");
     const base0 = await page.evaluate(() => JSON.parse(localStorage.getItem("tazkiya-sync") || "{}"));
     ok(base0.email === "family@example.com" && base0.linked === true && base0.cursor === "2.999", "acc: the sync state is kept on the device");
     // a deleted line goes up as a deletion

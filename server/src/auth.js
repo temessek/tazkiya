@@ -29,7 +29,7 @@ export async function requireSession(req, env) {
   if (!token || !/^[A-Za-z0-9_-]{43}$/.test(token)) throw new HttpError(401, "signed_out");
   const hash = await sha256(token), now = Date.now();
   const s = await env.DB.prepare(
-    "SELECT s.account_id, s.created, s.expires, s.seen, a.email, a.google_sub, a.adult_at FROM sessions s JOIN accounts a ON a.id = s.account_id WHERE s.hash = ?")
+    "SELECT s.account_id, s.created, s.expires, s.seen, a.email, a.google_sub, a.adult_at, a.picture FROM sessions s JOIN accounts a ON a.id = s.account_id WHERE s.hash = ?")
     .bind(hash).first();
   if (!s || s.expires < now || now - s.created > SESSION_MAX_DAYS * DAY) {
     if (s) await env.DB.prepare("DELETE FROM sessions WHERE hash = ?").bind(hash).run();
@@ -41,7 +41,7 @@ export async function requireSession(req, env) {
     await env.DB.prepare("UPDATE sessions SET seen = ?, expires = ? WHERE hash = ?").bind(now, expires, hash).run();
     setCookie = cookie(SESSION_COOKIE, token, Math.max(1, Math.floor((expires - now) / 1000)));
   }
-  return { account: { id: s.account_id, email: s.email, google: !!s.google_sub, adult_at: s.adult_at || null }, hash, setCookie };
+  return { account: { id: s.account_id, email: s.email, google: !!s.google_sub, adult_at: s.adult_at || null, picture: s.picture || null }, hash, setCookie };
 }
 
 export async function logout(req, env) {
@@ -178,10 +178,20 @@ export async function googleCallback(req, env, url) {
     const u = await env.DB.prepare("UPDATE accounts SET google_sub = ? WHERE id = ? AND google_sub IS NULL").bind(claims.sub, acct.id).run();
     if (!acct.google_sub && !(u.meta && u.meta.changes)) return fail();   // linked by another sign-in in the meantime
   }
+  // the account picture: only its address, only on Google's picture host, refreshed (or cleared) at each sign-in
+  await env.DB.prepare("UPDATE accounts SET picture = ? WHERE id = ?").bind(googlePicture(claims.picture), acct.id).run();
   const setCookie = await createSession(env.DB, acct.id);
   const h = new Headers({ location: "/#/signed-in", ...SEC_HEADERS });
   h.append("set-cookie", setCookie); h.append("set-cookie", cookie(OAUTH_COOKIE, "", 0));
   return new Response(null, { status: 302, headers: h });
+}
+
+// Google's "picture" claim, kept only as an https address on lh3.googleusercontent.com (the host the app's CSP allows)
+export function googlePicture(v) {
+  if (typeof v !== "string" || v.length > 1000) return null;
+  let u; try { u = new URL(v); } catch { return null; }
+  if (u.protocol !== "https:" || u.hostname !== "lh3.googleusercontent.com" || u.username || u.password || u.port) return null;
+  return u.href;
 }
 
 function decodeJwtPayload(jwt) {

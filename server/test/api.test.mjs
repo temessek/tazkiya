@@ -364,6 +364,7 @@ test("delete the account: everything goes, the session ends, the same email star
 test("adult attestation: stated once, kept with its time, shown in /me", async () => {
   const c = client(); await signIn(c, mail("attest"));
   assert.equal((await c("GET", "/api/me")).body.account.adult_at, null);
+  assert.equal((await c("GET", "/api/me")).body.account.picture, null, "no picture without a Google sign-in");
   for (const body of [{}, { confirm: "yes" }, { confirm: true, age: 30 }]) assert.equal((await c("POST", "/api/account/adult", body)).body.error, "confirm_required");
   const r = await c("POST", "/api/account/adult", { confirm: true });
   assert.equal(r.status, 200); assert.ok(r.body.adult_at > now() - 60000);

@@ -3,7 +3,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { handle } from "../src/api.js";
-import { googleCallback } from "../src/auth.js";
+import { googleCallback, googlePicture } from "../src/auth.js";
 
 const PROD = { APP_ENV: "production" };
 
@@ -33,17 +33,17 @@ function fakeDb(account) {
         if (sql.startsWith("SELECT id, google_sub FROM accounts WHERE email")) return account;
         return null;
       },
-      run: async () => { log.push(sql); return { meta: { changes: sql.startsWith("UPDATE accounts SET google_sub") && !account.google_sub ? 1 : 0 } }; },
+      run: async () => { log.push(sql); if (sql.startsWith("UPDATE accounts SET picture")) log.pics = (log.pics || []).concat([a[0]]); return { meta: { changes: sql.startsWith("UPDATE accounts SET google_sub") && !account.google_sub ? 1 : 0 } }; },
     }),
   });
   return { log, prepare: sql => stmt(sql), batch: async list => { list.forEach(s => log.push(s.sql)); return list.map(() => ({ meta: {} })); } };
 }
 
 const b64 = o => Buffer.from(JSON.stringify(o)).toString("base64url");
-async function callback(account) {
+async function callback(account, extra = {}) {
   const env = { GOOGLE_CLIENT_ID: "cid.apps.googleusercontent.com", GOOGLE_CLIENT_SECRET: "s", DB: fakeDb(account) };
   const claims = { iss: "https://accounts.google.com", aud: env.GOOGLE_CLIENT_ID, exp: Math.floor(Date.now() / 1000) + 600, nonce: "N1",
-    sub: "google-sub-new", email: "parent@example.com", email_verified: true };
+    sub: "google-sub-new", email: "parent@example.com", email_verified: true, ...extra };
   const realFetch = globalThis.fetch;
   globalThis.fetch = async () => new Response(JSON.stringify({ id_token: `h.${b64(claims)}.sig` }), { headers: { "content-type": "application/json" } });
   try {
@@ -63,4 +63,16 @@ test("Google: an account with this address and no Google identity yet is linked 
   assert.equal(res.headers.get("location"), "/#/signed-in");
   assert.ok(log.some(s => s.startsWith("INSERT INTO sessions")));
   assert.match(res.headers.getSetCookie().join("\n"), /__Host-tz=[A-Za-z0-9_-]{43}; Path=\/; HttpOnly; Secure; SameSite=Lax/);
+});
+
+test("Google: the account picture is stored as its address on Google's picture host, and nothing else", async () => {
+  const pic = "https://lh3.googleusercontent.com/a/ACg8ocK_example=s96-c";
+  const { res, log } = await callback({ id: "acct-3", google_sub: null }, { picture: pic });
+  assert.equal(res.headers.get("location"), "/#/signed-in");
+  assert.deepEqual(log.pics, [pic]);
+  const other = await callback({ id: "acct-4", google_sub: null }, { picture: "https://evil.example/p.png" });
+  assert.deepEqual(other.log.pics, [null], "another host is not kept");
+  for (const v of ["http://lh3.googleusercontent.com/a/x", "https://u:p@lh3.googleusercontent.com/a", "https://lh3.googleusercontent.com:8443/a", "javascript:alert(1)", 7, null, "x".repeat(1001)])
+    assert.equal(googlePicture(v), null, String(v).slice(0, 40));
+  assert.equal(googlePicture(pic), pic);
 });
