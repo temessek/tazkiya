@@ -628,13 +628,13 @@ async function ideaFlows(browser, base, content, AV) {
       if (q.includes("en")) ok(/taught by the pen/.test(t) && /recording/.test(t) && /blessings/.test(t) && /challenges/.test(t), `tw: English meanings of the verses and the new idea (${q})`);
       else ok(/نعم/.test(t) && /(تحديات|مجاهدات)/.test(t) && /(اكتب كما تحكي|اكتب يومك كما جرى)/.test(t), `tw: the intro names free writing, blessings and challenges (${q})`);
       await page.click('#view [data-act="twstart"]'); await page.waitForTimeout(350);
-      const ord = await page.evaluate(() => ["#tw-write", "#tw-nb", "#tw-bless", "#tw-chal", ".sawc"].map(s => { const e = document.querySelector("#view " + s); return e ? e.getBoundingClientRect().top + scrollY : -1; }));
-      ok(ord.every(x => x >= 0) && ord.every((x, i) => !i || x > ord[i - 1]), `tw: write, notebook, blessings, challenges, «رأيتُ خيرًا», in that order (${q}): ${ord.join(",")}`);
+      const ord = await page.evaluate(() => ["#tw-write", "#tw-nb", "#tw-bless", "#tw-chal", ".tw-eve .evelink"].map(s => { const e = document.querySelector("#view " + s); return e ? e.getBoundingClientRect().top + scrollY : -1; }));
+      ok(ord.every(x => x >= 0) && ord.every((x, i) => !i || x > ord[i - 1]), `tw: write, notebook, blessings, challenges, the evening reckoning, in that order (${q}): ${ord.join(",")}`);
       const big = await page.evaluate(() => { const ta = document.getElementById("twNote"); const r = ta.getBoundingClientRect(); return { h: r.height, w: r.width, vw: innerWidth, max: Math.max(...[...document.querySelectorAll("#view .tw-paper > ul > li, #view .card")].map(e => e.getBoundingClientRect().height), 0) }; });
       ok(big.h >= 240 && big.w >= big.vw * 0.8 && big.h > big.max, `tw: the writing box is the largest element (${q}): ${JSON.stringify(big)}`);
       ok((await txt(page, "#tw-chal h2")).includes(ch), `tw: the challenges are called «${ch}» (${q})`);
       ok(!TW_OLD.test(await txt(page, "#view")), `tw: none of the first journal's words on the page (${q})`);
-      ok(await has(page, '.tw-head a[href="#/tadwin/why"]') && await has(page, '#tw-bless .evelink[href="#/evening"]') && await has(page, '#tw-bless [data-act="twadd"][data-k="deed"]') && await has(page, "#tw-bless #tw-seen") && await has(page, '#view [data-act="sawopen"]'), `tw: «why» link, and in the blessings the evening, «اكتب حسنة» and «ما رآه أهلي فيّ» (${q})`);
+      ok(await has(page, '.tw-head a[href="#/tadwin/why"]') && await has(page, '.tw-eve .evelink[href="#/evening"]') && await has(page, '#tw-bless [data-act="sawopen"]') && await has(page, '#tw-bless [data-act="khab"]') && await has(page, '#tw-bless [data-act="twadd"][data-k="deed"]') && await has(page, "#tw-bless #tw-seen") && await has(page, '#view [data-act="sawopen"]'), `tw: «why» link, the evening after the challenges, and in the blessings «حسنة», «خبيئة», «رأيتُ خيرًا» and «ما رآه أهلي فيّ» (${q})`);
       ok(await has(page, '#tabs a[href="#/tadwin"].on'), `tw: the tab is marked current (${q})`);
       await open(page, "", 900); await go(page, "#/tadwin"); ok(!(await has(page, '#view [data-act="twstart"]')), `tw: the intro shows once (${q})`);
       await go(page, "#/tadwin/why"); ok(await has(page, '#view a[href="#/tadwin"].btn'), `tw: and stays reachable from its link (${q})`);
@@ -1056,7 +1056,7 @@ async function ideaFlows(browser, base, content, AV) {
     await open(page, "", 1100);
     ok((await txt(page, ".pact")).includes(at.step.ar) && (await txt(page, ".pact")).includes(at.turnName.ar), "4: an adult profile sees the adult task for the same trait");
     // "I saw good" (in Tadwin since 23 Nov 2026): from the adult profile to the child's
-    await go(page, "#/seen"); await page.click('#view [data-act="sawopen"]'); await page.waitForTimeout(300);
+    await go(page, "#/seen"); await page.keyboard.press("Escape"); await page.waitForTimeout(300); await page.click('#view [data-act="sawopen"]'); await page.waitForTimeout(300);
     await page.click('#sheet [data-act="sawto"][data-p="p1"]'); await page.waitForTimeout(300);
     await page.click('#sheet [data-act="sawv"][data-v="pig:2"]'); await page.waitForTimeout(250);
     await page.fill("#sawTx", `<img src=x onerror="window.__pwn=8">حمل الأكياس معي`); await page.click('#sheet [data-act="sawsend"]'); await page.waitForTimeout(400);
@@ -1067,7 +1067,7 @@ async function ideaFlows(browser, base, content, AV) {
     ok(/رأى فيك أحد الكبار في البيت خيرًا/.test(await txt(page, "#sheet")) && /حمل الأكياس معي/.test(await txt(page, "#sheet")), "4: the child's profile shows it when it opens");
     ok(!(await page.evaluate(() => !!window.__pwn || !!document.querySelector("#sheet img[src='x'], #view img[src='x']"))), "4: the line never runs as markup");
     await page.keyboard.press("Escape"); await go(page, "#/seen");
-    ok(/حمل الأكياس معي/.test(await txt(page, "#view")), "4: it stays in «ما رآه أهلي فيّ»");
+    ok(/حمل الأكياس معي/.test(await txt(page, "#sheet")) && await has(page, "#tw-bless #tw-seen b"), "4: it stays in «ما رآه أهلي فيّ», a badge on the blessings that opens it");
     await open(page, "", 1200); ok(!(await has(page, "#sheet:not([hidden]) .saw-list")), "4: it is shown once");
     // end of the week: how was it, then a new pact; the old one is kept
     await page.evaluate(() => { const f = JSON.parse(localStorage.getItem("tazkiya-family")); f.pact.to = "2020-01-03"; localStorage.setItem("tazkiya-family", JSON.stringify(f)); }); await open(page);
@@ -1085,7 +1085,7 @@ async function ideaFlows(browser, base, content, AV) {
     await ctx.close(); });
   await step("I saw good: one profile", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
     await page.evaluate(() => { localStorage.setItem("akhlaq-app-v1:profiles", JSON.stringify({ active: "p1", list: ["p1"] })); }); await open(page);
-    await go(page, "#/seen"); await page.click('#view [data-act="sawopen"]'); await page.waitForTimeout(300);
+    await go(page, "#/seen"); await page.keyboard.press("Escape"); await page.waitForTimeout(300); await page.click('#view [data-act="sawopen"]'); await page.waitForTimeout(300);
     ok(/أضف ملفًا لفرد من الأسرة/.test(await txt(page, "#sheet")) && await has(page, '#sheet [data-act="profadd"]'), "4: alone on the device, it explains and offers to add a profile");
     await ctx.close(); });
   await step("family backup", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");

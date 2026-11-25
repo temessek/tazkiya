@@ -763,6 +763,19 @@
     twAddCh: "أضيفي مجاهدة", twChNone: "ما تجاهدين فيه نفسكِ تكتبينه هنا، وتعملين عليه يومًا بعد يوم.", twNewCh: "مجاهدة تعملين عليها",
     twFingerCh: "اربطيها بإصبع، فنقترح عليكِ مهمة (إن شئتِ)", yeBurn: "احرقي صفحة المجاهدات",
     yeAsk: "تُمحى صفحة المجاهدات كلها من هذا الجهاز، ولا رجوع فيها. ويبقى دفتركِ ونعمكِ.", khNote: "سطر لكِ وحدكِ، يبقى سرًّا بينكِ وبين الله." });
+  /* the Tadwin page, reordered (owner notes, 25 Nov 2026): write, my notebook, the blessings with small round actions
+     (a blessing, a good deed, a hidden deed, «رأيت خيرًا»), «ما رآه أهلي فيّ» as a badge that opens a sheet, the challenges
+     right under the blessings, and the evening reckoning closing the day */
+  Object.assign(U, {
+    twBlSub: ["اكتب كل خير رأيته في يومك، صغيرًا كان أو كبيرًا، واحمد الله عليه.", "Write down every good thing in your day, small or large, and thank Allah for it."],
+    twQBl: ["نعمة", "Blessing"], twQDeed: ["حسنة", "Good deed"], twQKh: ["خبيئة", "Hidden deed"], twQSaw: ["رأيتُ خيرًا", "I saw good"], twQCh: ["أضف", "Add"],
+    seenPill: ["ما رآه أهلي فيّ", "What my family saw"],
+    eveLinkSub: ["دقيقة في آخر اليوم تنظر فيها إلى يومك بهدوء وإنصاف: تحمد الله على خيره، وتختار شيئًا واحدًا تعود إليه غدًا.", "A minute at the end of the day to look over it calmly and fairly: thank Allah for its good, and pick one thing to come back to tomorrow."]
+  });
+  Object.assign(UF, { twBlSub: "اكتبي كل خير رأيتِه في يومكِ، صغيرًا كان أو كبيرًا، واحمدي الله عليه.", twQSaw: "رأيتُ خيرًا",
+    eveLinkSub: "دقيقة في آخر اليوم تنظرين فيها إلى يومكِ بهدوء وإنصاف: تحمدين الله على خيره، وتختارين شيئًا واحدًا تعودين إليه غدًا." });
+  Object.assign(UAF, { twBlSub: "اكتبي كل خير رأيتِه في يومكِ، صغيرًا كان أو كبيرًا، واحمدي الله عليه.",
+    eveLinkSub: "دقيقة في آخر اليوم تنظرين فيها إلى يومكِ بهدوء وإنصاف: تحمدين الله على خيره، وتختارين شيئًا واحدًا تعودين إليه غدًا." });
   Object.assign(U, {
     chT: ["قصص تختار فيها", "Stories where you choose"], chTag: ["تختار فيها", "You choose"], chOut: ["ما حدث", "What happened"],
     chTry: ["جرّب الاختيار الآخر", "Try the other choice"], chOn: ["تابع إلى الخاتمة", "On to the ending"], chEndT: ["الخاتمة", "The ending"],
@@ -1538,9 +1551,6 @@
   const sawGot = m => { const st = m.from === P.active ? S : loadOf(m.from); return fmt(u(st.gender === "f" ? "sawGotF" : "sawGotM"), { w: sawName(m.from) }); };
   const sawWhat = m => [m.v && traitOf(m.v) ? traitOf(m.v).label : "", m.tx || ""].filter(Boolean).join(" · ");
   const sawMine = () => F.seen.filter(m => m.to === P.active && P.list.includes(m.from));
-  function sawBlock() {
-    return `<section class="sec card sawc"><h2 class="h pact-h">${esc(u("sawT"))}</h2><p class="sub">${esc(u("sawSub"))}</p><button class="btn block ghost" data-act="sawopen">${esc(u("sawBtn"))}</button></section>`;
-  }
   function sawSheet() {
     const others = P.list.filter(id => id !== P.active);
     if (!others.length) { openSheet(`<h2 class="h">${esc(u("sawT"))}</h2><p class="short">${esc(u("sawOne"))}</p>${P.list.length < PMAX ? `<button class="btn block" data-act="profadd">${esc(u("sawAdd"))}</button>` : ""}`, { kind: "saw" }); return; }
@@ -1563,7 +1573,7 @@
   function sawGotSheet(ids) {
     const ms = F.seen.filter(m => ids.includes(m.id) && m.to === P.active);
     openSheet(`<h2 class="h">${esc(u("sawGotT"))}</h2><ul class="saw-list">${ms.map(m => `<li><b>${esc(sawGot(m))}:</b> <bdi>${esc(sawWhat(m))}</bdi></li>`).join("")}</ul>
-      <button class="btn block" data-act="close">${esc(u("sawGotOk"))}</button><a class="linkbtn" href="#/seen" style="display:block;text-align:center">${esc(u("seenT"))}</a>`, { kind: "sawgot", ids });
+      <button class="btn block" data-act="close">${esc(u("sawGotOk"))}</button><button class="linkbtn" type="button" data-act="seenopen" style="display:block;margin:8px auto 0">${esc(u("seenT"))}</button>`, { kind: "sawgot", ids });
   }
   /* ---------- the hidden deed, khabī'a: a written line among «نِعَم الله عليّ», marked 🤲; no points, no mix, no presence,
      seen only by the profile's owner ---------- */
@@ -1979,22 +1989,35 @@
     }
     return `<li class="tw-e${e.done ? " done" : ""}"><div class="tw-e-top"><span class="tw-d">${esc(fmtDate(e.t))}</span>${tag}${f}<span class="tw-ea"><button class="linkbtn" data-act="twedit" data-k="${k}" data-id="${esc(e.id)}">${esc(u("twEdit"))}</button><button class="linkbtn tw-del" data-act="twdel" data-k="${k}" data-id="${esc(e.id)}">${esc(u("twDel"))}</button></span></div><p dir="auto">${esc(e.tx || u("twKhOld"))}</p>${extra}</li>`;
   }
+  // «ما رآه أهلي فيّ»: a small badge beside the blessings' title; the list opens in a sheet
   function twSeen() {
-    const ms = sawMine().slice().reverse();
-    return `<section class="tw-seen" id="tw-seen"><h3 class="h">${esc(u("seenT"))}</h3>${ms.length ? `<ul class="saw-list big">${ms.map(m => `<li><span class="m">${esc(fmtShort(m.t))}</span><b>${esc(sawGot(m))}</b><p>${esc(sawWhat(m))}</p></li>`).join("")}</ul>` : `<p class="sub">${esc(u("seenNone"))}</p>`}</section>`;
+    const n = sawMine().length;
+    return `<button class="tw-seen-pill" id="tw-seen" data-act="seenopen" type="button"><span aria-hidden="true">${EYE_I}</span><span>${esc(u("seenPill"))}</span>${n ? `<b dir="ltr">${n}</b>` : ""}</button>`;
   }
+  function seenSheet() {
+    const ms = sawMine().slice().reverse();
+    openSheet(`<h2 class="h">${esc(u("seenT"))}</h2>${ms.length ? `<ul class="saw-list big">${ms.map(m => `<li><span class="m">${esc(fmtShort(m.t))}</span><b>${esc(sawGot(m))}</b><p>${esc(sawWhat(m))}</p></li>`).join("")}</ul>` : `<p class="short">${esc(u("seenNone"))}</p>`}
+      <button class="btn block ghost" style="margin-top:10px" data-act="close">${esc(u("sawGotOk"))}</button>`, { kind: "seen" });
+  }
+  const svgQ = p => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+  const EYE_I = svgQ('<path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.8"/>');
+  const Q_I = {
+    bless: svgQ('<path d="M12 5v14M5 12h14"/>'),
+    deed: svgQ('<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>'),
+    kh: svgQ('<path d="M7 11V7.5a1.5 1.5 0 0 1 3 0V11"/><path d="M10 10V6a1.5 1.5 0 0 1 3 0v4"/><path d="M13 10V7a1.5 1.5 0 0 1 3 0v6c0 3.9-2.7 7-6 7h-.5A5.5 5.5 0 0 1 5 16.8L4 13.5a1.5 1.5 0 0 1 2.7-1.2L8 14"/>'),
+    saw: EYE_I
+  };
+  const qBtn = (act, k, ic, l) => `<button class="tw-q${k ? " q-" + k : ""}" data-act="${act}"${k && act === "twadd" ? ` data-k="${k}"` : ""} type="button"><span class="qc">${ic}</span><span class="ql">${esc(u(l))}</span></button>`;
   const blItems = () => twList("bless").map(e => ({ e, k: "bless" })).concat(twList("khabia").map(e => ({ e, k: "khabia" }))).sort((a, b) => b.e.t - a.e.t);
   function twBless() {
     const items = blItems(), shown = BL_ALL ? items : items.slice(0, 12);
-    return `<section class="tw-paper good" id="tw-bless"><h2 class="h">${esc(u("twBlT"))}</h2><p class="sub">${esc(u("twBlSub"))}</p>
-      <div class="tw-acts"><button class="btn tw-add" data-act="twadd" data-k="bless">${PEN}<span>${esc(u("twAddBl"))}</span></button><button class="btn ghost tw-deed" data-act="twadd" data-k="deed">${esc(u("twAddDeed"))}</button><button class="btn ghost khbtn" data-act="khab"><span aria-hidden="true">🤲</span> ${esc(u("twKhBtn"))}</button></div>
-      ${items.length ? `<ul class="tw-list">${shown.map(x => twLine(x.e, x.k)).join("")}</ul>${BL_ALL ? "" : more(items.length, shown.length, "bless")}` : `<p class="tw-none">${esc(u("twBlNone"))}</p>`}
-      ${eveLink()}${twSeen()}</section>`;
+    return `<section class="tw-paper good" id="tw-bless"><div class="tw-ph"><h2 class="h">${esc(u("twBlT"))}</h2>${twSeen()}</div><p class="sub">${esc(u("twBlSub"))}</p>
+      <div class="tw-qs" role="group" aria-label="${esc(u("twBlT"))}">${qBtn("twadd", "bless", Q_I.bless, "twQBl")}${qBtn("twadd", "deed", Q_I.deed, "twQDeed")}${qBtn("khab", "kh", Q_I.kh, "twQKh")}${qBtn("sawopen", "saw", Q_I.saw, "twQSaw")}</div>
+      ${items.length ? `<ul class="tw-list">${shown.map(x => twLine(x.e, x.k)).join("")}</ul>${BL_ALL ? "" : more(items.length, shown.length, "bless")}` : `<p class="tw-none">${esc(u("twBlNone"))}</p>`}</section>`;
   }
   function twChal() {
     const items = twList("chal").slice().sort((a, b) => (a.done ? 1 : 0) - (b.done ? 1 : 0) || b.t - a.t), shown = CH_ALL ? items : items.slice(0, 12);
-    return `<section class="tw-paper chal" id="tw-chal"><h2 class="h">${esc(u("twChT"))}</h2><p class="sub">${esc(u("twChSub"))}</p>
-      <div class="tw-acts"><button class="btn tw-add" data-act="twadd" data-k="chal">${PEN}<span>${esc(u("twAddCh"))}</span></button></div>
+    return `<section class="tw-paper chal" id="tw-chal"><div class="tw-ph"><h2 class="h">${esc(u("twChT"))}</h2><button class="tw-q q-ch" data-act="twadd" data-k="chal" type="button" aria-label="${esc(u("twAddCh"))}"><span class="qc">${Q_I.bless}</span><span class="ql">${esc(u("twQCh"))}</span></button></div><p class="sub">${esc(u("twChSub"))}</p>
       ${items.length ? `<ul class="tw-list">${shown.map(e => twLine(e, "chal")).join("")}</ul>${CH_ALL ? "" : more(items.length, shown.length, "chal")}` : `<p class="tw-none">${esc(u("twChNone"))}</p>`}</section>`;
   }
   function vTadwin(r) {
@@ -2006,7 +2029,7 @@
     return `<div class="wrap tw"><header class="tw-head"><h1 class="h tw-h">${esc(u("twT"))}</h1>
       <p class="tw-verse" lang="ar">﴿${esc(V_QALAM)}﴾</p>${L() === "en" ? `<p class="tw-ven">${esc(u("twEn"))}</p>` : ""}
       <p class="tw-ref"><bdi>${esc(refFmt(u("twRef")))}</bdi><a class="linkbtn tw-whyl" href="#/tadwin/why">${esc(u("twWhyLink"))}</a></p></header>
-      ${yeCard()}${twWrite()}${twNotebook()}${twBless()}${twChal()}${sawBlock()}</div>`;
+      ${yeCard()}${twWrite()}${twNotebook()}<div class="tw-day">${twBless()}${twChal()}</div><div class="tw-eve">${eveLink()}</div></div>`;
   }
   function vTwWhy(again) {
     return `<div class="wrap tw tw-why">${again ? `<div class="st-back"><a class="back" href="#/tadwin">${BK()} ${esc(u("twWhyBack"))}</a></div>` : ""}
@@ -3582,6 +3605,7 @@
       case "pacthow": { if (!F.pact || !PACT_HOW.includes(el.dataset.h)) break;
         F.past = F.past.concat([Object.assign({}, F.pact, { how: el.dataset.h })]).slice(-104); delete F.pact; saveFamily(); FX("ok"); render(true); pactSheet(); break; }
       case "sawopen": FX("tick"); SAW = null; sawSheet(); break;
+      case "seenopen": FX("tick"); seenSheet(); break;
       case "sawto": if (P.list.includes(el.dataset.p) && el.dataset.p !== P.active) { SAW = { to: el.dataset.p, v: "" }; FX("tick"); sawSheet(); } break;
       case "sawv": if (SAW && VKEY_RE.test(el.dataset.v)) { SAW.v = SAW.v === el.dataset.v ? "" : el.dataset.v; FX("tick"); const y = sheet.scrollTop; sawSheet(); sheet.scrollTop = y; } break;
       case "sawsend": {
@@ -3769,14 +3793,15 @@
     else if (sheetState && sheetState.kind === "move") moveSheet(sheetState.big);
     else if (sheetState && sheetState.kind === "pact") pactSheet();
     else if (sheetState && sheetState.kind === "saw") sawSheet();
+    else if (sheetState && sheetState.kind === "seen") seenSheet();
     else if (sheetState && sheetState.kind === "sawgot") sawGotSheet(sheetState.ids);
     const ub = document.getElementById("updBar"); if (ub) { ub.remove(); updateBar(); }
   });
   window.addEventListener("hashchange", () => {
-    if (!sheet.hidden) { sheetState = null; sheet.hidden = true; scrim.hidden = true; document.body.classList.remove("sheet-open", "intro-open"); }
+    if (!sheet.hidden) { sheetState = null; sheet.hidden = true; scrim.hidden = true; setInert(false); document.body.classList.remove("sheet-open", "intro-open"); }
     if (route().name !== "tadwin" && BURN) { clearTimeout(BURN_T); BURN = null; }
     ttsStop(); homeSel = null; homeDeg = -1; signIx = 0; aloudOn = false; render(); window.scrollTo(0, 0); view.focus({ preventScroll: true });
-    { const rs = route().sec, el = rs && document.getElementById(rs); if (el) el.scrollIntoView({ block: "start" }); }
+    { const rs = route().sec, el = rs && document.getElementById(rs); if (el) el.scrollIntoView({ block: "start" }); if (el && rs === "tw-seen") seenSheet(); }
     if (pendingSummit) { pendingSummit = false; summitSheet(); }
     if (pendingDeg) { const pd = pendingDeg; pendingDeg = null; openDegOnHand(pd.id, pd.i); }
     if (pendingIntro) { pendingIntro = false; introSheet(); }
