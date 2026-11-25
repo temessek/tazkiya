@@ -295,13 +295,13 @@
     tasksSub: ["ابدأ بقائمة اليوم، ثم ادخل مرحلة من بابيها.", "Start with today's list, then enter a stage through one of its two doors."],
     tStagesT: ["مراحلك", "Your stages"], tStagesSub: ["لكل مرحلة بابان: افهم وتعلّم، ثم إلى العمل.", "Each stage has two doors: understand and learn, then to work."],
     tSuggest: ["مقترحة لك الآن", "Suggested for you now"], todayAll: ["✓ أتممت قائمة اليوم. تابع في المرحلة المقترحة لك.", "✓ Today's list is done. Carry on in the stage suggested for you."],
-    docTag: ["عون شخصي في الأخلاق والقيم والتربية", "personal help in character, values and upbringing"], privacyL: ["الخصوصية", "Privacy"], trainingL: ["التدريب", "Training"], parentsL: ["صفحة الوالدين", "For parents"],
+    docTag: ["عون شخصي في الأخلاق والقيم والتربية", "personal help in character, values and upbringing"], privacyL: ["الخصوصية", "Privacy"], trainingL: ["التدريب", "Training"], trainingK: ["تدريب للكبار", "Training for adults"], parentsL: ["صفحة الوالدين", "For parents"],
     // the platform as it presents itself (23 Nov 2026): personal help in character and values, through learning, practice and training
     platLine: ["منصة تزكية: عون شخصي في الأخلاق والقيم، للتربية والتعليم والتدريب والتطوير.", "The Tazkiya platform: personal help in character and values, for upbringing, learning, training and growth."],
     abPlatT: ["منصة تزكية", "The Tazkiya platform"],
     abPlat1: ["تزكية منصة عون شخصي في الأخلاق والقيم. تقرأ فيها قصة عن الصبر مثلًا، أو آية أو حديثًا فيه، ثم تجرّبه في يومك بمهمة صغيرة، فيتحرك المزيج على يدك إصبعًا بعد إصبع.", "Tazkiya is a platform of personal help in character and values. You might read a story about patience, or a verse or hadith on it, then try it out in your day with a small task, and watch the mix on your hand move finger by finger."],
-    abPlat2: ["وللوالدين والمعلّمين تدريب على منهج سلّم اليد، تقدّمه مؤسسة تمسك للبحوث والنشر والتدريب، وتفاصيله في صفحة الوالدين.", "Parents and teachers can train in the Hand Method with the Temessek Foundation for Research, Publishing and Training; the parents' page has the details."],
-    abPlat2A: ["ومن أراد أن يتعمّق في المنهج، أو يحمله إلى بيته ومدرسته، فله تدريب تقدّمه مؤسسة تمسك للبحوث والنشر والتدريب.", "To go deeper into the method, or to carry it into your home or school, the Temessek Foundation for Research, Publishing and Training offers training."]
+    abPlat2: ["وللكبار تدريب على المنهج، حضوريًّا أو عن بُعد: للوالدين والمعلّمين والمرشدين ومسؤولي الطفولة والمؤسسات، تقدّمه مؤسسة تمسك للبحوث والنشر والتدريب.", "For adults there is training in the method, in person or online: for parents, teachers, counsellors, early-childhood staff and institutions, offered by the Temessek Foundation for Research, Publishing and Training."],
+    abPlat2A: ["ومن أراد أن يتعمّق في المنهج، أو يحمله إلى بيته ومدرسته ومؤسسته، فله تدريب حضوري أو عن بُعد تقدّمه مؤسسة تمسك للبحوث والنشر والتدريب، للوالدين والمعلّمين والمرشدين ومسؤولي الطفولة.", "To go deeper into the method, or to carry it into your home, school or institution, the Temessek Foundation for Research, Publishing and Training offers training in person or online, for parents, teachers, counsellors and early-childhood staff."]
   };
 
   /* ---------- state ---------- */
@@ -783,7 +783,7 @@
   });
   Object.assign(U, {
     shareQr: ["يمسحه هاتف آخر بالكاميرا", "Scan it with another phone's camera"], shareQrAlt: ["رمز QR للرابط {v}", "QR code for {v}"],
-    parT: ["صفحة للوالدين", "A page for parents"], trLink: ["التدريب على منهج سلّم اليد", "Training in the Tazkiya Hand Method"], parSub: ["ما التطبيق، والخصوصية، والتثبيت، والنسخة الاحتياطية", "What it is, privacy, installing, and backups"],
+    parT: ["صفحة للوالدين", "A page for parents"], trLink: ["التدريب على منهج سلّم اليد", "Training in the Tazkiya Hand Method"], trLinkK: ["للكبار: التدريب على المنهج", "For adults: training in the method"], parSub: ["ما التطبيق، والخصوصية، والتثبيت، والنسخة الاحتياطية", "What it is, privacy, installing, and backups"],
     bkFileT: ["نسخة تزكية الاحتياطية", "Tazkiya backup"],
     itpT: ["ثبّت تزكية حتى يبقى تقدّمك", "Install Tazkiya so your progress stays"],
     itpSub: ["سفاري يمسح بيانات المواقع التي لم تُفتح أسبوعًا. على الشاشة الرئيسية يبقى تقدّمك محفوظًا.", "Safari clears the data of sites not opened for a week. On the Home Screen your progress stays saved."],
@@ -2333,7 +2333,7 @@
   function homeFoot() {
     const en = L() === "en" ? "#en" : "", ext = h => `href="${h}${en}" target="_blank" rel="noopener"`;
     return `<footer class="homefoot"><p>${esc(u("platLine"))}</p><nav><a href="#/about">${esc(u("abT"))}</a>
-      ${ADU() ? `<a ${ext("training/")}>${esc(u("trainingL"))}</a>` : `<a ${ext("parents/")}>${esc(u("parentsL"))}</a>`}</nav></footer>`; // the privacy link is the static #sitefoot under it
+      ${ADU() ? `<a ${ext("training/")}>${esc(u("trainingL"))}</a>` : `<a ${ext("parents/")}>${esc(u("parentsL"))}</a><a ${ext("training/")}>${esc(u("trainingK"))}</a>`}</nav></footer>`; // the privacy link is the static #sitefoot under it
   }
   function vHome() {
     if (TOUR) return vTour();
@@ -3266,7 +3266,7 @@
       <p class="sub">${esc(u("abSub"))}</p>
       ${q ? `<figure class="quote"><p class="qar" lang="ar" dir="rtl">${esc(q.ar)}</p>${L() === "en" && q.en ? `<p class="qen">${esc(q.en)}</p>` : ""}<figcaption class="ref"><bdi>${esc(refFmt(q.ref))}</bdi><a class="src-mini" href="#/sources">${esc(u("srcLink"))}</a></figcaption></figure>` : ""}
       <section class="sec about-s"><h2 class="h">${esc(u("abPlatT"))}</h2><p>${esc(u("abPlat1"))}</p><p>${esc(u(ADU() ? "abPlat2A" : "abPlat2"))}</p>
-        ${ADU() ? `<p class="training-link"><a class="btn ghost block" href="training/${L() === "en" ? "#en" : ""}" target="_blank" rel="noopener">${esc(u("trLink"))}</a></p>` : parentsLink()}</section>
+        ${ADU() ? `<p class="training-link"><a class="btn ghost block" href="training/${L() === "en" ? "#en" : ""}" target="_blank" rel="noopener">${esc(u("trLink"))}</a></p>` : `${parentsLink()}<p class="training-link"><a class="btn ghost block" href="training/${L() === "en" ? "#en" : ""}" target="_blank" rel="noopener">${esc(u("trLinkK"))}</a></p>`}</section>
       ${sec("abFrameT", ["abFrame1", "abFrame2"])}
       ${sec("abSummitT", "abSummit")}
       <section class="sec about-s"><h2 class="h">${esc(u("abRuleT"))}</h2><p class="about-rule">${esc(u("abRule"))}</p><p>${esc(u("abRule2"))}</p></section>

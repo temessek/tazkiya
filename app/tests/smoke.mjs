@@ -1192,6 +1192,7 @@ async function ideaFlows(browser, base, content, AV) {
     }
   });
   // the platform (23 Nov 2026): a footer on the home screen with the platform line, About and privacy; training for adults, the parents' page for children
+  // (26 Nov 2026, owner request): the children's edition also reaches the training page, through a link labelled for adults
   await step("platform footer", async () => {
     for (const [q, adult] of [["", false], ["&lang=en", false], ["&ed=adult", true], ["&ed=adult&lang=en", true]]) {
       const { ctx, page } = await fresh(); await open(page, "&reset=1" + q, 800);
@@ -1199,10 +1200,10 @@ async function ideaFlows(browser, base, content, AV) {
       const sf = await page.evaluate(() => { const a = document.querySelector("#sitefoot a"), r = a && a.getBoundingClientRect(); return a ? { h: a.getAttribute("href"), vis: !!a.offsetParent && r.width > 0, t: a.textContent } : null; });
       ok(f && f.h.includes("#/about") && /تزكية|Tazkiya/.test(f.t) && sf && sf.vis && /^\/privacy\//.test(sf.h) && /الخصوصية|Privacy/.test(sf.t), `platform (${q || "kids ar"}): the home footer links About, and the static privacy link shows under it (${f && f.h.join(", ")}; ${sf && sf.h})`);
       await go(page, "#/tasks", 350); ok(!(await page.evaluate(() => { const a = document.querySelector("#sitefoot a"); return !!(a && a.offsetParent); })), `platform (${q || "kids ar"}): the static privacy link stays on the home screen`); await go(page, "#/", 350);
-      ok(f && (adult ? f.h.some(h => /^training\//.test(h)) : !f.h.some(h => /training/.test(h)) && f.h.some(h => /^parents\//.test(h))), `platform (${q || "kids ar"}): training ${adult ? "is linked" : "stays on the parents' page"}`);
+      ok(f && f.h.some(h => /^training\//.test(h)) && (adult || (f.h.some(h => /^parents\//.test(h)) && /للكبار|for adults/i.test(f.t))), `platform (${q || "kids ar"}): training is linked${adult ? "" : ", for adults, beside the parents' page"}`);
       await go(page, "#/about", 450);
       const ab = await page.evaluate(() => [...document.querySelectorAll("#view a")].map(a => a.getAttribute("href")));
-      ok(ab.some(h => /^privacy\//.test(h)) && (adult ? ab.some(h => /^training\//.test(h)) : ab.some(h => /parents\//.test(h)) && !ab.some(h => /^training\//.test(h))), `platform (${q || "kids ar"}): About links privacy and ${adult ? "training" : "the parents' page"}`);
+      ok(ab.some(h => /^privacy\//.test(h)) && ab.some(h => /^training\//.test(h)) && (adult || ab.some(h => /parents\//.test(h))), `platform (${q || "kids ar"}): About links privacy and training${adult ? "" : " and the parents' page"}`);
       ok(!page.errs.length, `platform (${q || "kids ar"}): no script errors`);
       await ctx.close();
     }
@@ -1233,10 +1234,10 @@ async function ideaFlows(browser, base, content, AV) {
   await step("training page", async () => {
     const WA = "https://wa.me/201283229996?text=", root = base.replace(/index\.html$/, "");
     let { ctx, page } = await fresh(); await open(page, "&reset=1");
-    // the children's edition reaches nothing new: no training link on the about page or in the share sheet
-    await go(page, "#/about"); ok(!(await has(page, 'a[href*="training"]')) && await has(page, '#view a[href*="parents/"]'), "training: the children's «عن تزكية» names the training and leads to it through the parents' page, with no direct link (23 Nov 2026)");
+    // the children's edition (26 Nov 2026): «عن تزكية» has the parents' page and one training link labelled for adults; the share sheet stays without it
+    await go(page, "#/about"); ok((await page.locator('#view a[href="training/"]').count()) === 1 && /للكبار/.test(await txt(page, '#view a[href="training/"]')) && await has(page, '#view a[href*="parents/"]'), "training: the children's «عن تزكية» links the parents' page and one training link for adults");
     await page.click("#setBtn"); await page.waitForTimeout(250); await page.click('#sheet [data-act="sharesheet"]'); await page.waitForTimeout(400);
-    ok(!(await has(page, 'a[href*="training"]')) && !/سلّم اليد|Hand Method/.test(await txt(page, "#sheet")), "training: the children's share sheet has no training link");
+    ok(!(await has(page, '#sheet a[href*="training"]')) && !/سلّم اليد|Hand Method/.test(await txt(page, "#sheet")), "training: the children's share sheet has no training link");
     await ctx.close();
     ({ ctx, page } = await fresh()); await open(page, "&reset=1&ed=adult", 900); await go(page, "#/about");
     ok((await page.locator('#view a[href="training/"]').count()) === 1, "training: the adult «عن تزكية» has one quiet training link");
@@ -1246,9 +1247,14 @@ async function ideaFlows(browser, base, content, AV) {
     const pr = await page.goto(root + "parents/"); ok(pr.status() === 200 && (await page.locator('a[href="../training/"]').count()) === 1 && (await page.locator('a[href="../training/#en"]').count()) === 1, "training: the parents page links the training page in both languages");
     const tr = await page.goto(root + "training/"); const tt = await page.evaluate(() => document.body.innerText);
     ok(tr.status() === 200 && /منهج سلّم اليد/.test(tt) && /Tazkiya Hand Method/.test(tt) && /مؤسسة تمسك للبحوث والنشر والتدريب/.test(tt) && /Temessek Foundation/.test(tt), "training: the page answers in Arabic and English, with the foundation in the footer");
+    ok([/المعلمون/, /المرشدون/, /مسؤولو الطفولة/, /التكوين البيداغوجي/, /الوالدان مع أبنائهم/, /Teachers/, /Counsellors/, /Early-childhood staff/, /teacher training and supervisors/, /Parents, with their children/].every(r => r.test(tt)) && /برنامج اليد للوالدين/.test(tt) && /The Hand programme for parents/.test(tt), "training: every audience is named in both languages, and the parents' programme stays");
+    ok(/حضوريًّا\s*نفضّله/.test(tt) && /In person\s*our first choice/.test(tt) && tt.indexOf("نفضّله") < tt.indexOf("يوم حضوري ثم متابعة"), "training: in person comes first and is marked as preferred");
     const was = await page.$$eval("a.wa", xs => xs.map(a => [a.getAttribute("href"), a.target, a.rel, a.closest("[lang]").getAttribute("lang")]));
     const msg = { ar: "السلام عليكم، أودّ التسجيل في برنامج اليد للوالدين من تزكية.", en: "Peace be upon you. I would like to join the Tazkiya Hand programme for parents." };
-    ok(was.length === 2 && was.every(([h, tg, rl, lg]) => h.startsWith(WA) && decodeURIComponent(h.slice(WA.length)) === msg[lg] && tg === "_blank" && /noopener/.test(rl)), "training: one WhatsApp button per language, with the prefilled message in that language");
+    ok(was.length === 2 && was.every(([h, tg, rl, lg]) => h.startsWith(WA) && /مؤسستنا|our institution/.test(decodeURIComponent(h.slice(WA.length))) && tg === "_blank" && /noopener/.test(rl)), "training: one main WhatsApp button per language, for institutions");
+    const was2 = await page.$$eval("a.wa-s", xs => xs.map(a => [a.getAttribute("href"), a.target, a.rel, a.closest("[lang]").getAttribute("lang")]));
+    const dec = was2.map(([h]) => decodeURIComponent(h.slice(WA.length)));
+    ok(was2.length === 10 && was2.every(([h, tg, rl, lg], i) => h.startsWith(WA) && tg === "_blank" && /noopener/.test(rl) && (lg === "ar" ? /[؀-ۿ]/ : /^[ -~]+$/).test(dec[i])) && new Set(dec).size === 10 && dec.includes(msg.ar) && dec.includes(msg.en), "training: each audience has its own prefilled WhatsApp message, in the page's language");
     ok(!(await has(page, "form, input, select, textarea")) && !/[$€£]|\bEGP\b|جنيه|price|سعر/i.test(tt), "training: no form, booking or price");
     ok(await page.evaluate(() => [...document.images].every(i => i.complete && i.naturalWidth > 0)), "training: the hand image and icons load");
     for (const w of [320, 1280]) { await page.setViewportSize({ width: w, height: 800 }); await page.waitForTimeout(150);
