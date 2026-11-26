@@ -3,10 +3,14 @@
  * Files: served from the cache, refreshed in the background; offline, a file asked for with a newer ?v= falls back
  * to the saved copy of the same file. A new version installs quietly and waits: the app shows "a new version is
  * ready" and the user chooses when to switch (SKIP_WAITING), so a page never changes under a reader.
+ * The app's page is saved under "./" only: the live server answers /index.html with a redirect to /, and Safari will not
+ * show a saved page that came through a redirect ("Response served by service worker has redirections"), so on an
+ * iPhone the app failed to open whenever it fell back to its saved page (no network, or a slow one). Every saved page
+ * is also served as a fresh copy without its redirect history (clean), which repairs copies saved by older versions.
  * Release: bump CACHE, and keep the ?v= numbers below equal to those in index.html (the smoke test checks this). */
-const CACHE = "tazkiya-2026-11-26e";
+const CACHE = "tazkiya-2026-11-26f";
 const CORE = [
-  "./", "index.html", "manifest.json", "boot.js?v=1", "styles.css?v=97", "app.js?v=110", "fx.js?v=2", "fallback.js?v=5", "content/content.js?v=37",
+  "./", "manifest.json", "boot.js?v=1", "styles.css?v=97", "app.js?v=110", "fx.js?v=2", "fallback.js?v=5", "content/content.js?v=37",
   "content/content-adult.js", "content/books.js",
   "assets/hand.webp", "assets/right-hand-virtues.webp", "intro.js?v=1",
   "assets/intro/s1-fitra.webp", "assets/intro/s2-toddler.webp", "assets/intro/s3-child.webp", "assets/intro/s4-guide.webp",
@@ -31,6 +35,9 @@ self.addEventListener("activate", e => {
 self.addEventListener("message", e => { if (e.data && e.data.type === "SKIP_WAITING") self.skipWaiting(); });
 
 const scopeUrl = p => new URL(p, self.registration.scope).href;
+const OFFLINE = () => new Response("offline", { status: 503, headers: { "content-type": "text/plain; charset=utf-8" } });
+// a response that came through a redirect cannot answer a page load in Safari: give the same bytes as a new response
+const clean = r => (r && r.redirected ? r.blob().then(b => new Response(b, { status: r.status, statusText: r.statusText, headers: r.headers })) : r);
 
 function pageFromNetwork(req) {
   return new Promise((resolve, reject) => {
@@ -53,13 +60,13 @@ self.addEventListener("fetch", e => {
     const root = new URL(self.registration.scope).pathname;
     if (url.pathname !== root && url.pathname !== root + "index.html") {
       e.respondWith(fetch(req).then(r => { if (r && r.ok && r.type === "basic") { const cp = r.clone(); caches.open(CACHE).then(c => c.put(req, cp)); } return r; })
-        .catch(() => caches.match(req, { cacheName: CACHE }).then(r => r || new Response("offline", { status: 503, headers: { "content-type": "text/plain; charset=utf-8" } }))));
+        .catch(() => caches.match(req, { cacheName: CACHE }).then(clean).then(r => r || OFFLINE())));
       return;
     }
     e.respondWith(pageFromNetwork(req).then(r => {
-      if (r && r.ok && r.type === "basic") { const cp = r.clone(); caches.open(CACHE).then(c => c.put("index.html", cp)); }
+      if (r && r.ok && r.type === "basic" && !r.redirected) { const cp = r.clone(); caches.open(CACHE).then(c => c.put("./", cp)); }
       return r;
-    }).catch(() => caches.match("index.html", { cacheName: CACHE }).then(r => r || caches.match("./")).then(r => r || new Response("offline", { status: 503, headers: { "content-type": "text/plain; charset=utf-8" } }))));
+    }).catch(() => caches.match("./", { cacheName: CACHE }).then(clean).then(r => r || OFFLINE())));
     return;
   }
   e.respondWith(caches.open(CACHE).then(c => c.match(req).then(hit => {

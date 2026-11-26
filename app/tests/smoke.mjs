@@ -1,10 +1,11 @@
 // Akhlaq Path: smoke test and content contract check.
-// Usage (from outputs/app):  node tests/smoke.mjs  [--quick] [--no-shots] [--content-only] [--ideas-only] [--intro-only]
+// Usage (from outputs/app):  node tests/smoke.mjs  [--quick] [--no-shots] [--content-only] [--ideas-only] [--intro-only] [--webkit-only]
 // Serves this folder on a free local port, walks every route x AR/EN x 320/375/1280,
 // and validates content/content.js + content/books.js. Writes tests/out/report.md,
 // tests/out/report.json and screenshots (375 px) to tests/out/shots/. Exit code 1 on any failure.
 // Needs Playwright: a local/global `playwright` or `playwright-core`, or one in the npx cache,
-// plus an installed Chromium (npx playwright install chromium). Not part of the published app.
+// plus an installed Chromium (npx playwright install chromium), and WebKit for the iPhone check (npx playwright install webkit;
+// without it that check is reported as skipped). Not part of the published app.
 
 import http from "node:http";
 import fs from "node:fs";
@@ -158,9 +159,12 @@ function checkAdult(A, C, STAGES, kids, errs, warn, walk) {
 const BUILD_PY = path.resolve(ROOT, "..", "publish", "build_public.py");
 const CSP = (() => { try { const m = fs.readFileSync(BUILD_PY, "utf8").match(/CSP = "; "\.join\(\[([\s\S]*?)\]\)/); return m ? [...m[1].matchAll(/"([^"]+)"/g)].map(x => x[1]).filter(x => !/upgrade-insecure/.test(x)).join("; ") : ""; } catch (e) { return ""; } })();
 const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".mjs": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json", ".webmanifest": "application/manifest+json", ".webp": "image/webp", ".png": "image/png", ".svg": "image/svg+xml", ".woff2": "font/woff2", ".txt": "text/plain; charset=utf-8", ".md": "text/plain; charset=utf-8" };
-function serve() {
+// pretty: answer like the live host (Cloudflare Pages), which sends /index.html (and /x/index.html) to / with a 308
+function serve(opt) {
+  const pretty = !!(opt && opt.pretty);
   const srv = http.createServer((req, res) => {
-    const u = decodeURIComponent(new URL(req.url, "http://x").pathname);
+    const u0 = new URL(req.url, "http://x"), u = decodeURIComponent(u0.pathname);
+    if (pretty && /\/index\.html$/.test(u)) { res.writeHead(308, { location: u0.pathname.replace(/index\.html$/, "") + u0.search, "cache-control": "no-store" }).end(); return; }
     let p = path.normalize(path.join(ROOT, u));
     if (!p.startsWith(ROOT)) { res.writeHead(403).end(); return; }
     if (fs.existsSync(p) && fs.statSync(p).isDirectory()) p = path.join(p, "index.html");
@@ -187,6 +191,26 @@ async function loadChromium() {
   found.sort((a, b) => b.t - a.t);
   for (const f of found) { try { const m = createRequire(path.join(f.dir, "package.json"))(f.dir); if (m.chromium) return m.chromium; } catch (e) {} }
   throw new Error("Playwright not found. Run: npm i -g playwright && npx playwright install chromium");
+}
+async function loadWebkit() {
+  const req = createRequire(import.meta.url), found = [];
+  for (const n of ["playwright", "playwright-core"]) { try { const m = await import(pathToFileURL(req.resolve(n)).href); if (m.webkit) return { webkit: m.webkit, devices: m.devices }; } catch (e) {} }
+  const roots = [];
+  try { roots.push((await import("node:child_process")).execSync("npm root -g", { encoding: "utf8" }).trim()); } catch (e) {}
+  const npx = path.join(process.env.LOCALAPPDATA || path.join(os.homedir(), ".npm"), process.env.LOCALAPPDATA ? "npm-cache/_npx" : "_npx");
+  if (fs.existsSync(npx)) fs.readdirSync(npx).forEach(d => roots.push(path.join(npx, d, "node_modules")));
+  for (const r of roots) { const p = path.join(r, "playwright", "package.json"); if (fs.existsSync(p)) found.push({ dir: path.dirname(p), t: fs.statSync(p).mtimeMs }); }
+  found.sort((a, b) => b.t - a.t);
+  for (const f of found) { try { const m = createRequire(path.join(f.dir, "package.json"))(f.dir); if (m.webkit) return { webkit: m.webkit, devices: m.devices }; } catch (e) {} }
+  return null;
+}
+// the newest installed WebKit build, for a Playwright whose own build is not downloaded
+function webkitPath() {
+  const base = process.env.PLAYWRIGHT_BROWSERS_PATH || path.join(process.env.LOCALAPPDATA || path.join(os.homedir(), ".cache"), "ms-playwright");
+  if (!fs.existsSync(base)) return undefined;
+  const dirs = fs.readdirSync(base).filter(d => /^webkit-\d+$/.test(d)).sort((a, b) => +b.split("-")[1] - +a.split("-")[1]);
+  for (const d of dirs) for (const exe of ["Playwright.exe", "pw_run.sh", "Playwright.app/Contents/MacOS/Playwright"]) { const p = path.join(base, d, exe); if (fs.existsSync(p)) return p; }
+  return undefined;
 }
 function chromePath() {
   const base = process.env.PLAYWRIGHT_BROWSERS_PATH || path.join(process.env.LOCALAPPDATA || path.join(os.homedir(), ".cache"), "ms-playwright");
@@ -254,6 +278,12 @@ async function main() {
   const chromium = await loadChromium();
   let browser;
   try { browser = await chromium.launch(); } catch (e) { browser = await chromium.launch({ executablePath: chromePath() }); }
+  if (ARGS.has("--webkit-only")) { // the iPhone (WebKit) opens alone (development aid)
+    await browser.close(); srv.close();
+    const r = await webkitFlows();
+    console.log(`WebKit (iPhone): ${r.skipped ? "skipped, " + r.skipped : r.passed + " of " + r.total + " passed"}`); r.fails.forEach(f => console.log("FAIL " + f));
+    process.exit(r.fails.length ? 1 : 0);
+  }
   if (ARGS.has("--intro-only")) { // the first-open story alone (development aid)
     const r = await introFlows(browser, base);
     console.log(`Intro: ${r.passed} of ${r.total} passed`); r.fails.forEach(f => console.log("FAIL " + f)); r.notes.forEach(n => console.log("note " + n));
@@ -321,6 +351,8 @@ async function main() {
   ideas.fails.forEach(f => fails.push({ w: 375, lang: "ar", route: "five ideas flow", problems: [f] }));
   const intro = await introFlows(browser, base);
   intro.fails.forEach(f => fails.push({ w: 375, lang: "ar", route: "intro flow", problems: [f] }));
+  const wk = await webkitFlows();
+  wk.fails.forEach(f => fails.push({ w: 390, lang: "ar", route: "WebKit (iPhone) flow", problems: [f] }));
   const stat = staticChecks();
   stat.forEach(f => fails.push({ w: 0, lang: "-", route: "static check", problems: [f] }));
   await browser.close();
@@ -340,6 +372,7 @@ async function main() {
     `Edition flows: ${flows.passed} of ${flows.total} passed (children's content by default, settings switch both ways, ?ed=adult, first-open choice, separate profiles, explicit conversion).`,
     `Intro story (INTRO-ANIMATION.md): ${intro.passed} of ${intro.total} passed (first open, skip, Escape, replay from settings and About, pause, reduced motion, girls' wording, 320/375/landscape x AR/EN x children/adults).`,
     `Five ideas (FIVE-IDEAS.md) and Tadwin (TADWIN-SPEC.md): ${ideas.passed} of ${ideas.total} passed (${ideas.names.join(", ")}).`,
+    `WebKit (iPhone emulation, server redirecting /index.html like the live host): ${wk.skipped ? "SKIPPED (" + wk.skipped + ")" : wk.passed + " of " + wk.total + " passed"} (first open, edition and story, open with no network, relaunch with the service worker installed, Home Screen launch from start_url, blocked storage).`,
     `Security, install and share: ${sec.passed} of ${sec.total} passed (escaping, backup validation, storage full, share links, offline). Static checks (manifest, preview tags, service worker, headers): ${stat.length ? stat.length + " problem(s)" : "OK"}. Pages served with the build's CSP: ${CSP ? "yes" : "NO"}.`,
     "",
     ...content.errs.slice(0, 60).map(e => `- ERROR ${e}`),
@@ -1526,10 +1559,108 @@ async function introFlows(browser, base) {
   return { fails, total, passed: total - fails.length, notes };
 }
 
+/* ---------------- iPhone: WebKit with the service worker installed (26 Nov 2026) ----------------
+ * Reported: on iOS the app opened once and then would not open again. The saved page was /index.html, which the live
+ * host redirects to /, and WebKit refuses a redirected response from a service worker for a page load. This runs WebKit
+ * with iPhone emulation against a server that redirects like the live host, in a persistent profile (closed and
+ * reopened, as a phone does), and opens the app again with the worker installed: online, offline, as a Home Screen
+ * app from the manifest's start_url, and with storage blocked. */
+async function webkitFlows() {
+  const fails = []; let total = 0;
+  const ok = (cond, label) => { total++; if (!cond) fails.push(label); };
+  const step = async (label, fn) => { try { await fn(); } catch (e) { total++; fails.push(label + ": " + e.message.split("\n")[0]); } };
+  const pw = await loadWebkit();
+  if (!pw) return { fails, total, passed: 0, skipped: "Playwright with WebKit not found" };
+  const dev = Object.assign({}, (pw.devices && pw.devices["iPhone 13"]) || { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }, { locale: "ar" });
+  const srv = await serve({ pretty: true }), root = `http://127.0.0.1:${srv.address().port}/`;
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "tazkiya-wk-"));
+  const open = async () => {
+    try { return await pw.webkit.launchPersistentContext(dir, Object.assign({}, dev)); }
+    catch (e) { const exe = webkitPath(); if (!exe) throw e; return pw.webkit.launchPersistentContext(dir, Object.assign({}, dev, { executablePath: exe })); } };
+  const probe = u => /\/api\/health$/.test(u || "");
+  // with no network, a picture that was never saved answers 504 by design (sw.js); those are not counted while offline
+  let off = false; const offline = async v => { off = v; await ctx.setOffline(v); };
+  const watch = page => { const errs = [];
+    page.on("pageerror", e => errs.push(e.message));
+    // WebKit reports the viewport's interactive-widget key, which it does not know, as an error; Safari ignores it harmlessly
+    page.on("console", m => { if (m.type() === "error" && !(off && /status of 504/.test(m.text())) && !probe((m.location() || {}).url) && !/api\/health|"interactive-widget" not recognized/.test(m.text())) errs.push(m.text()); });
+    page.on("response", r => { if (r.status() >= 400 && !(off && r.status() === 504) && !probe(r.url())) errs.push(r.status() + " " + r.url().replace(root, "/")); }); return errs; };
+  const shown = page => page.evaluate(() => { const v = document.getElementById("view");
+    return { ctl: !!(navigator.serviceWorker && navigator.serviceWorker.controller), text: v ? v.innerText.trim().length : 0, boot: !!document.querySelector("#view .boot"),
+      ed: !!document.querySelector('#sheet:not([hidden]) [data-act="introed"]'), film: !!document.querySelector(".film"), tabs: document.querySelectorAll("#tabs a").length }; });
+  const opened = (x, label) => ok(x && x.text > 50 && !x.boot && x.tabs > 0, label + " (" + JSON.stringify(x) + ")");
+  const go = async (page, u, ms) => { await page.goto(u); await page.waitForTimeout(ms || 1200); return shown(page); };
+  let ctx = null;
+  try {
+    try { ctx = await open(); } catch (e) { return { fails, total, passed: 0, skipped: "WebKit could not start: " + e.message.split("\n")[0] }; }
+    let page = ctx.pages()[0] || await ctx.newPage(), errs = watch(page);
+    await step("webkit: first open", async () => {
+      await page.goto(root + "?reset=1#/"); await page.waitForTimeout(800);
+      ok(await page.evaluate(() => navigator.serviceWorker.ready.then(() => true)), "webkit: the service worker installs on the first open");
+      await page.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 8000 }).catch(() => null);
+      ok((await shown(page)).ed, "webkit: the first open asks for the edition");
+      ok(!(await page.evaluate(async () => { for (const k of await caches.keys()) for (const r of await (await caches.open(k)).matchAll()) if (r.redirected) return true; return false; })), "webkit: nothing saved came through a redirect");
+    });
+    // the case that broke on iPhones: the next open answered from the saved page (no network, or a slow one)
+    await step("webkit: open with no network", async () => {
+      await offline(true);
+      for (const u of [root, root + "index.html", root + "#/tasks"]) opened(await go(page, u), "webkit: the app opens offline at " + u.replace(root, "/"));
+      await offline(false);
+    });
+    await step("webkit: edition, then the story", async () => {
+      await go(page, root + "?filmspeed=10#/", 800);
+      await page.click('#sheet [data-act="introed"][data-g="child"]'); await page.waitForTimeout(1400);
+      ok((await shown(page)).film, "webkit: the story opens after the edition is chosen");
+      await page.click(".film-skip"); await page.waitForTimeout(900);
+      ok(await page.locator(".tour").count() === 1, "webkit: the tour follows the story");
+      ok(await page.evaluate(() => { const s = JSON.parse(localStorage.getItem("akhlaq-app-v1") || "{}"); return s.intro === true && s.edition === "kids"; }), "webkit: the first open is recorded");
+    });
+    ok(!errs.length, "webkit: no errors on the first visit (" + errs.slice(0, 3).join(" | ") + ")");
+    await ctx.close(); ctx = null;
+    // reopened like a phone app: a new browser process on the same profile, the worker already installed
+    await step("webkit: second open", async () => {
+      ctx = await open(); page = ctx.pages()[0] || await ctx.newPage(); errs = watch(page);
+      const x = await go(page, root, 1500); ok(x.ctl, "webkit: the second open is served by the installed worker"); opened(x, "webkit: the second open shows the app");
+      ok(!x.ed && !x.film, "webkit: the second open does not repeat the first-open questions");
+      await page.reload(); await page.waitForTimeout(1200); opened(await shown(page), "webkit: a reload shows the app");
+      await offline(true); await page.reload(); await page.waitForTimeout(1200); opened(await shown(page), "webkit: the second open works offline too"); await offline(false);
+      ok(!errs.length, "webkit: no errors on the second open (" + errs.slice(0, 3).join(" | ") + ")");
+      await ctx.close(); ctx = null; });
+    // Home Screen app: display-mode standalone and navigator.standalone, launched at the manifest's start_url
+    await step("webkit: Home Screen launch", async () => {
+      ctx = await open();
+      await ctx.addInitScript(() => { try { Object.defineProperty(Navigator.prototype, "standalone", { get: () => true, configurable: true }); } catch (e) {}
+        const mm = window.matchMedia.bind(window); window.matchMedia = q => mm(/display-mode:\s*standalone/.test(q) ? "(min-width: 0px)" : q); });
+      page = ctx.pages()[0] || await ctx.newPage(); errs = watch(page);
+      const man = JSON.parse(fs.readFileSync(path.join(ROOT, "manifest.json"), "utf8")), start = new URL(man.start_url, root + "manifest.json").href;
+      ok(start.startsWith(new URL(man.scope, root + "manifest.json").href), "webkit: start_url is inside the manifest scope");
+      opened(await go(page, start, 1500), "webkit: the Home Screen app opens at start_url");
+      await offline(true); opened(await go(page, start), "webkit: the Home Screen app opens offline"); await offline(false);
+      ok(!errs.length, "webkit: no errors in the Home Screen app (" + errs.slice(0, 3).join(" | ") + ")");
+      await ctx.close(); ctx = null; });
+    // Safari private mode and blocked storage: localStorage, sessionStorage and IndexedDB throw
+    await step("webkit: blocked storage", async () => {
+      ctx = await open();
+      await ctx.addInitScript(() => { const no = () => { throw new DOMException("The operation is insecure.", "SecurityError"); };
+        for (const k of ["localStorage", "sessionStorage", "indexedDB"]) try { Object.defineProperty(window, k, { get: no, configurable: true }); } catch (e) {} });
+      page = ctx.pages()[0] || await ctx.newPage(); errs = watch(page);
+      const x = await go(page, root + "#/", 1500); ok(x.ed || x.text > 50, "webkit: the app starts with storage blocked (" + JSON.stringify(x) + ")");
+      if (x.ed) { await page.click('#sheet [data-act="introed"][data-g="adult"]'); await page.waitForTimeout(1400); ok((await shown(page)).film, "webkit: with storage blocked the story still follows the edition"); }
+      ok(!errs.length, "webkit: no errors with storage blocked (" + errs.slice(0, 3).join(" | ") + ")");
+      await ctx.close(); ctx = null; });
+  } finally {
+    if (ctx) await ctx.close().catch(() => null);
+    srv.close(); try { fs.rmSync(dir, { recursive: true, force: true }); } catch (e) {}
+  }
+  return { fails, total, passed: total - fails.length };
+}
+
 function staticChecks() {
   const errs = [];
   const rd = f => fs.readFileSync(path.join(ROOT, f), "utf8");
   const html = rd("index.html"), sw = rd("sw.js");
+  // the live host redirects /index.html to /; a saved copy of it is a redirected response, which Safari refuses for a page load
+  if (/"index\.html"/.test((sw.match(/const CORE = \[([\s\S]*?)\];/) || [])[1] || "")) errs.push('sw.js: CORE must not precache "index.html" (the host redirects it; save the page as "./")');
   let man = null; try { man = JSON.parse(rd("manifest.json")); } catch (e) { errs.push("manifest.json is not valid JSON"); }
   if (man) {
     for (const k of ["id", "name", "short_name", "start_url", "scope", "display", "theme_color", "background_color", "lang", "dir", "description"]) if (!man[k]) errs.push(`manifest: missing ${k}`);
