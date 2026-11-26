@@ -1254,7 +1254,7 @@ async function ideaFlows(browser, base, content, AV) {
     ok(was.length === 2 && was.every(([h, tg, rl, lg]) => h.startsWith(WA) && /مؤسستنا|our institution/.test(decodeURIComponent(h.slice(WA.length))) && tg === "_blank" && /noopener/.test(rl)), "training: one main WhatsApp button per language, for institutions");
     const was2 = await page.$$eval("a.wa-s", xs => xs.map(a => [a.getAttribute("href"), a.target, a.rel, a.closest("[lang]").getAttribute("lang")]));
     const dec = was2.map(([h]) => decodeURIComponent(h.slice(WA.length)));
-    ok(was2.length === 10 && was2.every(([h, tg, rl, lg], i) => h.startsWith(WA) && tg === "_blank" && /noopener/.test(rl) && (lg === "ar" ? /[؀-ۿ]/ : /^[ -~]+$/).test(dec[i])) && new Set(dec).size === 10 && dec.includes(msg.ar) && dec.includes(msg.en), "training: each audience has its own prefilled WhatsApp message, in the page's language");
+    ok(was2.length === 12 && was2.every(([h, tg, rl, lg], i) => h.startsWith(WA) && tg === "_blank" && /noopener/.test(rl) && (lg === "ar" ? /[؀-ۿ]/ : /^[ -~]+$/).test(dec[i])) && new Set(dec).size === 12 && dec.includes(msg.ar) && dec.includes(msg.en), "training: each audience has its own prefilled WhatsApp message, in the page's language");
     ok(!(await has(page, "form, input, select, textarea")) && !/[$€£]|\bEGP\b|جنيه|price|سعر/i.test(tt), "training: no form, booking or price");
     ok(await page.evaluate(() => [...document.images].every(i => i.complete && i.naturalWidth > 0)), "training: the hand image and icons load");
     for (const w of [320, 1280]) { await page.setViewportSize({ width: w, height: 800 }); await page.waitForTimeout(150);
