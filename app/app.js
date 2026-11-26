@@ -474,7 +474,7 @@
   function switchProfile(id, after) {
     if (!P.list.includes(id) || id === P.active) return;
     save(); const par = S.parent, lang = S.lang; P.active = id; saveProfiles();
-    S = loadOf(id); S.parent = par; S.lang = lang; QZ = null; homeSel = null; homeDeg = -1; TWD = null; TWE = null; TWX = null; TW_LAST = ""; EXQ = null; clearTimeout(BURN_T); BURN = null; save();
+    S = loadOf(id); S.parent = par; S.lang = lang; RS = null; WDRAFT = null; QZ = null; homeSel = null; homeDeg = -1; TWD = null; TWE = null; TWX = null; TW_LAST = ""; EXQ = null; clearTimeout(BURN_T); BURN = null; save();
     applyEdition(() => { render(true); if (after) after(); else if (sheetState && sheetState.kind === "settings") settingsSheet(); setTimeout(sawCheck, 450); });
   }
   let S = load();
@@ -1092,7 +1092,7 @@
     clearTimeout(closeT); closeT = setTimeout(() => { sheet.hidden = true; sheet.classList.remove("closing"); }, 300);
     const was = sheetState; sheetState = null;
     if (was && was.kind === "intro" && !S.intro) { S.intro = true; save(); }
-    if (was && ["stage", "virtue", "slot", "prophets"].includes(was.kind) && route().name === "home") { homeSel = null; homeDeg = -1; render(true); }
+    if (was && ["stage", "virtue", "slot", "prophets"].includes(was.kind) && handRoute()) { homeSel = null; homeDeg = -1; render(true); }
     if (back) { let lf = lf0 && document.contains(lf0) ? lf0 : (sel0 ? view.querySelector(sel0) : null); (lf || view).focus({ preventScroll: true }); }
   }
   function degList(id, sel) {
@@ -1534,6 +1534,7 @@
     f.seen = (Array.isArray(o.seen) ? o.seen : []).filter(x => isObj(x) && typeof x.from === "string" && PID_RE.test(x.from) && typeof x.to === "string" && PID_RE.test(x.to) && x.from !== x.to && ts(x.t)).slice(-300).map(x => {
       const m = { id: typeof x.id === "string" && /^[a-z0-9]{1,16}$/.test(x.id) ? x.id : ts(x.t).toString(36), from: x.from, to: x.to, t: ts(x.t) };
       if (typeof x.v === "string" && VKEY_RE.test(x.v)) m.v = x.v; const tx = txt(x.tx, 120); if (tx) m.tx = tx; if (ts(x.got)) m.got = ts(x.got);
+      if (typeof x.tk === "string" && ID_RE.test(x.tk) && !BADKEY.has(x.tk)) m.tk = x.tk; // a task a parent witnessed in «مع أولادي» (direction 4)
       return m; }).filter(m => m.v || m.tx);
     return f;
   }
@@ -2484,6 +2485,11 @@
   function vHome() {
     if (TOUR) return vTour();
     if (!ADU()) return vHomeKids();
+    return vWird();
+  }
+  // the adult edition's hand page (#/me): everything the adult home held before direction 4, except the family pact,
+  // which moved to «مع أولادي»
+  function vHandA() {
     const anon = ADU() && !(S.name || "").trim();
     return `<section class="hello"><h1 class="h">${esc(u(anon ? (WELCOME_BACK ? "welcomeBackA" : "helloA") : (WELCOME_BACK ? "welcomeBack" : "hello")))}</h1><p>${esc(u("helloSub"))}</p></section>
       ${homeHands()}
@@ -2495,7 +2501,6 @@
         <div class="mix memix" aria-hidden="true">${ORDER.map(k => `<i style="flex-basis:${S.mix[k]}%;background:${MC(k)}"></i>`).join("")}</div>
         <div class="legend melegend">${ORDER.map(k => `<a href="${workUrl(k)}"><i style="background:${MC(k)}"></i><em>${esc(nm(k))}</em><b>${S.mix[k]}%</b></a>`).join("")}</div>
         ${presenceBlock()}
-        ${pactCard()}
         ${installCard()}
         ${bkCard()}
         ${dashBlock()}
@@ -2513,13 +2518,250 @@
         ${P.list.length > 1 ? `<p class="center profline">${esc(profPhrase(P.active, S))} · <button class="linkbtn" type="button" data-act="settings">${esc(u("famOpen"))}</button></p>` : ""}
       </div>`;
   }
+  /* ---------- the adult edition and the parents' companion (redesign direction 4, approved 26 Nov 2026) ----------
+     Home (#/): «ورد اليوم», one reading in a comfortable column, its comprehension question, and the finger's evening question
+     with a writing space kept in «دفتري» (the journal's notes). The hand moved to its own tab (#/me).
+     «مع أولادي» (#/kids, and a side column on wide screens): for each children's profile on this device, a small hand, what was
+     read this week, the tasks a parent can witness, and a talk for dinner from the finger's parent guidance and self-check.
+     The rules chosen here are listed in the project's decision notes. */
+  Object.assign(UA, {
+    wirdTab: ["ورد اليوم", "Today"], wirdK: ["ورد اليوم", "Today's reading"], wirdFing: ["أصابع اليد", "The fingers"],
+    segMe: ["قراءتي اليوم", "My reading today"], segKids: ["مع أولادي", "With my children"],
+    wirdAll: ["قرأت كل ما في هذا الإصبع.", "You have read everything on this finger."], wirdTo: ["إلى {f}", "On to the {f}"],
+    wirdQ: ["هل وصلتك الفكرة؟", "Did it land?"], wirdRev: ["لمحاسبة المساء", "For tonight's review"],
+    wirdPh: ["اكتب لنفسك", "Write to yourself"], wirdSave: ["احفظها في دفتري", "Save to my notebook"],
+    wirdSaved: ["حُفظت في دفتري", "Saved in my notebook"], wirdEdit: ["حدّثها في دفتري", "Update it in my notebook"],
+    wirdNote: ["تُحفظ في «دفتري» في التدوين، على هذا الجهاز.", "It is kept in “My notebook” in the Journal, on this device."],
+    wirdNb: ["افتح دفتري", "Open my notebook"], wirdEve: ["محاسبة المساء كاملة", "The full evening reckoning"],
+    wirdNext: ["بعده", "Next"], wirdStage: ["كل ما في هذه المرحلة", "Everything on this stage"],
+    kidsT: ["مع أولادي", "With my children"],
+    kidsSub: ["من ملفات أبنائك على هذا الجهاز: ما قرأه كل واحد منهم هذا الأسبوع، وما تشهد عليه، وحديث لمائدة العشاء.", "From your children's profiles on this device: what each read this week, what you can witness, and a talk for dinner."],
+    kFinM: ["إصبعه هذا الأسبوع:", "Finger this week:"], kFinF: ["إصبعها هذا الأسبوع:", "Finger this week:"],
+    kAllM: ["قطع طرق يده كلها", "Has walked every path on the hand"], kAllF: ["قطعت طرق يدها كلها", "Has walked every path on the hand"],
+    kReadM: ["ما قرأه هذا الأسبوع", "What he read this week"], kReadF: ["ما قرأته هذا الأسبوع", "What she read this week"],
+    kReadNoneM: ["لم يقرأ شيئًا هذا الأسبوع بعد.", "Nothing read this week yet."], kReadNoneF: ["لم تقرأ شيئًا هذا الأسبوع بعد.", "Nothing read this week yet."],
+    kAnsM: ["أجاب عن سؤالها", "answered its question"], kAnsF: ["أجابت عن سؤالها", "answered its question"],
+    kNoAnsM: ["لم يُجب عن سؤالها بعد", "question not answered yet"], kNoAnsF: ["لم تُجب عن سؤالها بعد", "question not answered yet"],
+    kWait: ["تنتظر أن تشهد عليها", "Waiting for you to witness"],
+    kDidM: ["أنجزها", "Done"], kDidF: ["أنجزتها", "Done"],
+    kNowM: ["مهمته التالية في البيت", "His next task at home"], kNowF: ["مهمتها التالية في البيت", "Her next task at home"],
+    kSawM: ["رأيته يفعلها", "I saw him do it"], kSawF: ["رأيتها تفعلها", "I saw her do it"], kSeen: ["شهدتَ عليها", "Witnessed"],
+    kNothing: ["لا شيء ينتظر الآن.", "Nothing is waiting now."],
+    kTalk: ["حديث العشاء", "Dinner-table talk"], kAbout: ["عن قصة «{s}»", "About “{s}”"], kAboutF: ["عن {f}", "About the {f}"],
+    kAskM: ["واسأله:", "And ask him:"], kAskF: ["واسألها:", "And ask her:"],
+    kOpenM: ["افتح ملفه", "Open his profile"], kOpenF: ["افتح ملفها", "Open her profile"],
+    kNone: ["لا يوجد على هذا الجهاز ملف لابن أو ابنة بعد.", "There is no child's profile on this device yet."],
+    kNoneSub: ["أضف ملفًا لكل واحد من أبنائك، فتجد هنا يده، وما قرأه في أسبوعه، والمهام التي تشهد عليها، وحديثًا لمائدة العشاء.", "Add a profile for each of your children. Here you will then find their hand, what they read in the week, the tasks you can witness, and a talk for dinner."],
+    kAdd: ["أضف ملف ابن أو ابنة", "Add a child's profile"], kFull: ["على هذا الجهاز أربعة ملفات، وهي الحد.", "This device holds four profiles, which is the limit."],
+    kSawOkM: ["سُجّلت شهادتك، ويراها حين يفتح ملفه", "Noted. He will see it when he opens his profile"],
+    kSawOkF: ["سُجّلت شهادتك، وتراها حين تفتح ملفها", "Noted. She will see it when she opens her profile"],
+    kPactH: ["للأسرة كلها", "For the whole family"]
+  });
+  Object.assign(UAF, {
+    wirdAll: "قرأتِ كل ما في هذا الإصبع.", wirdQ: "هل وصلتكِ الفكرة؟", wirdPh: "اكتبي لنفسك", wirdSave: "احفظيها في دفتري", wirdEdit: "حدّثيها في دفتري", wirdNb: "افتحي دفتري",
+    kidsSub: "من ملفات أبنائكِ على هذا الجهاز: ما قرأه كل واحد منهم هذا الأسبوع، وما تشهدين عليه، وحديث لمائدة العشاء.",
+    kWait: "تنتظر أن تشهدي عليها", kSeen: "شهدتِ عليها", kAskM: "واسأليه:", kAskF: "واسأليها:", kOpenM: "افتحي ملفه", kOpenF: "افتحي ملفها",
+    kNoneSub: "أضيفي ملفًا لكل واحد من أبنائكِ، فتجدين هنا يده، وما قرأه في أسبوعه، والمهام التي تشهدين عليها، وحديثًا لمائدة العشاء.",
+    kAdd: "أضيفي ملف ابن أو ابنة", kSawOkM: "سُجّلت شهادتكِ، ويراها حين يفتح ملفه", kSawOkF: "سُجّلت شهادتكِ، وتراها حين تفتح ملفها"
+  });
+  const HANDH = () => (ADU() ? "#/me" : "#/"); // where the hand lives: the adult home is the reading
+  const handRoute = () => route().name === (ADU() ? "me" : "home");
+  const isToday = v => typeof v === "number" && ymd(new Date(v)) === today();
+  const dayN = () => Math.floor(Date.parse(today()) / 864e5);
+  const hash32 = x => { let h = 0x811c9dc5; for (const c of String(x)) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
+    h ^= h >>> 16; h = Math.imul(h, 0x85ebca6b); h ^= h >>> 13; h = Math.imul(h, 0xc2b2ae35); h ^= h >>> 16; return h >>> 0; }; // FNV-1a, then a full mix
+  let ADF = null; // the finger chosen today with the chips: {d, f}
+  // today's finger: the one chosen with the chips; else the finger of a reading read today; else the finger last worked on
+  // while it still has an unread reading; else the first finger from the little finger up with one
+  function wirdFinger() {
+    if (ADF && ADF.d === today() && isStage(ADF.f)) return ADF.f;
+    let best = null, bt = 0;
+    const see = (v, id) => { if (typeof v === "number" && v > bt) { bt = v; best = id; } };
+    ORDER.forEach(id => C.stages[id].readings.forEach(r => see(S.read[r.id], id)));
+    if (best && isToday(bt)) return best;
+    (S.ev || []).forEach(e => { if (e && isStage(e.s)) see(e.t, e.s); });
+    const open = id => C.stages[id].readings.some(r => !S.read[r.id]);
+    return best && open(best) ? best : (ORDER.find(open) || best || ORDER[0]);
+  }
+  // today's reading on a finger: the one read today (it stays today's), else the first unread in content order
+  function wirdOf(f) {
+    const rs = C.stages[f].readings;
+    const done = rs.filter(r => isToday(S.read[r.id])).sort((a, b) => S.read[b.id] - S.read[a.id]);
+    return done[0] || rs.find(r => !S.read[r.id]) || null;
+  }
+  // the finger's evening question, a different one each day
+  function wirdRevQ(f, d) {
+    const m = Array.isArray(C.muhasaba) ? C.muhasaba.filter(x => x && x.stage === f && x.q) : [];
+    return m.length ? m[Math.floor(Date.parse(d || today()) / 864e5) % m.length] : null;
+  }
+  const wirdNoteId = (f, d) => "wd-" + (d || today()).replace(/-/g, "") + "-" + f;
+  let WDRAFT = null; // {id, v}: what is typed in the evening box and not saved yet, kept across a re-render
+  // a question's options in a fixed order of their own (not the content's, where the right answer often comes first)
+  const optOrder = q => q.options.map((o, i) => i).sort((a, b) => hash32(q.id + ":" + a) - hash32(q.id + ":" + b));
+  const WQ = {}; // the option picked on the home question, by question id, for this session
+  function wirdQBox(f, q) {
+    const ans = S.answered[q.id] !== undefined, pk = WQ[q.id];
+    return `<section class="wbox wq"><h2 class="h">${esc(u("wirdQ"))}</h2><p class="qtext">${esc(t(q.q))}</p>
+      <div class="opts">${optOrder(q).map((i, k) => { const c = !ans ? "" : i === q.correct ? "right" : i === pk ? "wrong" : "dim";
+        return `<button class="opt ${c}" data-act="wq" data-s="${f}" data-q="${esc(q.id)}" data-i="${i}" ${ans ? "disabled" : ""}><span class="l">${(L() === "ar" ? "أبجده" : "ABCDE")[k]}</span><span>${esc(t(q.options[i]))}</span></button>`; }).join("")}</div>
+      ${ans ? `<div class="fb ${S.answered[q.id] ? "ok" : "no"}" role="status"><b>${esc(u(S.answered[q.id] ? "right" : "wrong"))}</b>${q.why ? `<p>${esc(t(q.why))}</p>` : ""}</div>` : ""}</section>`;
+  }
+  function wirdRevBox(f) {
+    const m = wirdRevQ(f); if (!m) return "";
+    const q = t(m.q), id = wirdNoteId(f), note = twList("notes").find(e => e.id === id), cut = note ? note.tx.indexOf("\n\n") : -1;
+    const dr = !!(WDRAFT && WDRAFT.id === id), pre = dr ? WDRAFT.v : note ? (cut > 0 ? note.tx.slice(cut + 2) : note.tx) : "";
+    return `<section class="wbox wrev"><h2 class="h">${esc(u("wirdRev"))}</h2><p class="qtext">${esc(q)}</p>
+      <textarea id="wirdTx" class="wtx"${dr ? ' data-draft="1"' : ""} rows="4" maxlength="4000" dir="auto" placeholder="${esc(u("wirdPh"))}" aria-label="${esc(q)}">${esc(pre)}</textarea>
+      <button class="btn block" data-act="wsave" data-s="${f}" data-d="${today()}">${esc(u(note ? "wirdEdit" : "wirdSave"))}</button>
+      <p class="wfine">${note ? `✓ ${esc(u("wirdSaved"))} · <a href="#/tadwin/nb">${esc(u("wirdNb"))}</a>` : esc(u("wirdNote"))}</p>
+      <a class="linkbtn more" href="#/evening">${esc(u("wirdEve"))} ${BK() === "→" ? "←" : "→"}</a></section>`;
+  }
+  let WIRD_RID = null; // the reading shown on the home page, so the reading timer credits it like the reader does
+  function vWird() {
+    const f = wirdFinger(), st = C.stages[f], r = wirdOf(f);
+    WIRD_RID = r ? r.id : null;
+    const chips = `<div class="wfing" role="group" aria-label="${esc(u("wirdFing"))}">${ORDER.filter(id => fingerOf(id)).map(id => `<button class="${id === f ? "on" : ""}" data-act="wfing" data-s="${id}" aria-pressed="${id === f}"><i style="background:${G[id].color}"></i>${esc(fing(id))}</button>`).join("")}</div>`;
+    let main;
+    if (!r) {
+      const nx = ORDER.find(id => C.stages[id].readings.some(x => !S.read[x.id]));
+      main = `<p class="wk">${esc(u("wirdK"))} · ${esc(fing(f))} · ${esc(nm(f))}</p><h1 class="h">${esc(u("wirdAll"))}</h1>
+        ${nx ? `<button class="btn block" data-act="wfing" data-s="${nx}">${esc(fmt(u("wirdTo"), { f: fing(nx) }))}</button>` : ""}
+        <a class="linkbtn more" href="#/stage/${f}">${esc(u("wirdStage"))} ${BK() === "→" ? "←" : "→"}</a>`;
+    } else {
+      const body = (r.body && t(r.body)) || [], q = r.quote, rs = readSess("r:" + r.id, body); if (S.read[r.id]) rs.done = true;
+      const wq = st.quiz.find(x => x.readingId === r.id), rsl = st.readings, k = rsl.indexOf(r);
+      const nr = rsl.slice(k + 1).concat(rsl.slice(0, k)).find(x => !S.read[x.id]);
+      main = `<div class="wtop"><p class="wk">${esc(u("wirdK"))} · ${esc(fing(f))} · ${esc(nm(f))}</p>
+          <div class="fsz" role="group" aria-label="${esc(u("textSize"))}"><button data-act="fs" data-d="-2" aria-label="A−">A−</button><button data-act="fs" data-d="2" aria-label="A+">A+</button></div></div>
+        <h1 class="h">${esc(t(r.title))}</h1>
+        <p class="wmeta">${r.minutes ? `${esc(String(r.minutes))} ${esc(u("minutes"))}` : ""}</p>
+        <div class="body">${body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
+        ${q ? `<figure class="quote" style="margin-inline:0">${q.ar ? `<p class="qar" lang="ar">${esc(q.ar)}</p>` : ""}${L() === "en" && q.en ? `<p class="qen" lang="en">${esc(q.en)}</p>` : ""}
+          <figcaption class="ref">${q.ref ? `<bdi>${esc(refFmt(q.ref))}</bdi>` : ""}<a class="src-mini" href="#/sources">${esc(u("srcLink"))}</a></figcaption></figure>` : ""}
+        ${r.source ? `<p class="source">${esc(t(r.source))}</p>` : ""}
+        <div class="read-end"></div>${readStat(rs)}
+        ${wq ? wirdQBox(f, wq) : ""}${wirdRevBox(f)}
+        ${nr ? `<a class="card next wnext" href="#/read/${f}/${encodeURIComponent(nr.id)}"><span class="tx"><span class="m">${esc(u("wirdNext"))}</span><b>${esc(t(nr.title))}</b></span><span class="arrow">→</span></a>` : ""}
+        <a class="linkbtn more" href="#/stage/${f}">${esc(u("wirdStage"))} ${BK() === "→" ? "←" : "→"}</a>`;
+    }
+    if (!r) main += wirdRevBox(f);
+    return `<div class="adhome">${adSeg("me")}
+      <div class="adcols"><article class="wird article" style="--fs:${S.fs}px;--c:${G[f].color}">${chips}${main}</article>
+        <aside class="kidsside" aria-label="${esc(u("kidsT"))}"><h2 class="h kside-h">${esc(u("kidsT"))}</h2>${kidsBody()}</aside></div>
+      <div class="wrap">
+        ${!ACC.me && !SYNC && ACC.google && !signLater() ? accCard("home") : ""}
+        ${USING_FALLBACK ? `<p class="center meta" style="margin-top:14px"><span class="ph">${esc(u("fallbackNote"))}</span></p>` : ""}
+        ${homeFoot()}
+        ${P.list.length > 1 ? `<p class="center profline">${esc(profPhrase(P.active, S))} · <button class="linkbtn" type="button" data-act="settings">${esc(u("famOpen"))}</button></p>` : ""}
+      </div></div>`;
+  }
+  // on phones the reading and the children are two views of the home, switched at the top (on wide screens both show)
+  const adSeg = on => `<nav class="adseg" aria-label="${esc(u("wirdTab"))}"><a href="#/" class="${on === "me" ? "on" : ""}"${on === "me" ? ' aria-current="page"' : ""}>${esc(u("segMe"))}</a><a href="#/kids" class="${on === "kids" ? "on" : ""}"${on === "kids" ? ' aria-current="page"' : ""}>${esc(u("segKids"))}</a></nav>`;
+  function vKids() {
+    return `<div class="adhome kidspage">${adSeg("kids")}<div class="wrap kwrap"><h1 class="h kids-h">${esc(u("kidsT"))}</h1>${kidsBody()}</div></div>`;
+  }
+  // a children's profile read with the children's content, as its own home builds it (direction 1), then put back
+  function asKid(st, fn) {
+    const keepS = S, keepED = ED;
+    try { S = st; buildC("kids"); return fn(); } finally { S = keepS; buildC(keepED); }
+  }
+  const kidList = () => P.list.filter(id => id !== P.active).map(id => ({ id, st: loadOf(id) })).filter(x => x.st.edition !== "adult");
+  const kidG = (st, k) => u(k + (st.gender === "f" ? "F" : "M"));
+  const kidT = (st, o) => (o && L() === "ar" && st.gender === "f" && o.ar_f != null ? o.ar_f : t(o)); // a child's own words, in the child's gender
+  const witnessed = (pid, tid) => F.seen.some(m => m.to === pid && m.tk === tid && P.list.includes(m.from));
+  const wday = v => { try { return new Date(v).toLocaleDateString(L() === "ar" ? "ar-u-nu-latn" : "en-GB", { weekday: "long" }); } catch (e) { return fmtShort(v); } };
+  function kidData(st) {
+    return asKid(st, () => {
+      const wk = Date.now() - 7 * 864e5, cf = curFinger(), f = cf || ORDER[ORDER.length - 1];
+      const read = [];
+      ORDER.forEach(id => C.stages[id].readings.forEach(r => { const v = S.read[r.id]; if (typeof v === "number" && v >= wk) {
+        const qs = C.stages[id].quiz.filter(q => q.readingId === r.id);
+        read.push({ id, r, t: v, ans: qs.length ? qs.every(q => S.answered[q.id] !== undefined) : null, art: storyArt(id, r) }); } }));
+      read.sort((a, b) => b.t - a.t);
+      const done = [];
+      ORDER.forEach(id => C.stages[id].tasks.forEach(tk => { const v = (S.taskT || {})[tk.id]; if (S.tasks[tk.id] === "ok" && typeof v === "number" && v >= wk) done.push({ id, tk, t: v }); }));
+      done.sort((a, b) => b.t - a.t);
+      const nxt = cf ? stations(cf).find(s => s.kind === "task" && !s.done) : null;
+      const sc = C.stages[f].selfcheck || [];
+      return { f, all: !cf, read, done, next: nxt ? { id: cf, tk: nxt.tk } : null, parent: C.stages[f].parent, ask: sc.length ? sc[dayN() % sc.length] : null };
+    });
+  }
+  function kidCard(id, st) {
+    const d = kidData(st), f = d.f, fo = FINGERS.find(x => MAPS.one.L[x] === f);
+    const mini = handX({ side: "L", map: MAPS.one.L, chips: false, interactive: false, light: false, degs: false, focusF: fo });
+    const item = (pic, b, sub, right) => `<div class="kitem">${pic ? `<img src="${pic}" alt="" loading="lazy" decoding="async">` : ""}<span class="tx"><b>${esc(b)}</b><span>${esc(sub)}</span></span>${right || ""}</div>`;
+    const sawBtn = (sid, tk) => witnessed(id, tk.id) ? `<span class="kseen">✓ ${esc(u("kSeen"))}</span>`
+      : `<button class="small-btn dark ksaw" data-act="kidsaw" data-p="${id}" data-s="${sid}" data-t="${esc(tk.id)}">${esc(kidG(st, "kSaw"))}</button>`;
+    const waits = [];
+    if (d.next && !d.done.some(x => x.tk.id === d.next.tk.id)) waits.push(item("", t(d.next.tk), kidG(st, "kNow"), sawBtn(d.next.id, d.next.tk)));
+    d.done.slice(0, 4).forEach(x => waits.push(item("", t(x.tk), kidG(st, "kDid") + " · " + wday(x.t), sawBtn(x.id, x.tk))));
+    const par = d.parent ? t(d.parent) : null, pp = Array.isArray(par) ? par : par ? [par] : [];
+    const story = d.read.find(x => x.id === f);
+    const talk = pp.length || d.ask ? `<h4 class="ksec">${esc(u("kTalk"))}</h4><div class="ktalk"><p class="kt-h h">${esc(story ? fmt(u("kAbout"), { s: t(story.r.title) }) : fmt(u("kAboutF"), { f: fing(f) }))}</p>
+        ${pp[1] || pp[0] ? `<p>${esc(pp[1] || pp[0])}</p>` : ""}${pp[2] ? `<p class="say">${esc(pp[2])}</p>` : ""}
+        ${d.ask ? `<p class="ask"><b>${esc(kidG(st, "kAsk"))}</b> ${esc(kidT(st, d.ask.q))}</p>` : ""}</div>` : "";
+    return `<section class="kid" style="--c:${G[f].color}">
+      <div class="kid-h"><div class="kid-tx"><h3 class="h">${esc(nameOf(id, st))}</h3>
+          <p>${d.all ? esc(kidG(st, "kAll")) : `${esc(kidG(st, "kFin"))} <b>${esc(fing(f))}</b><br>${esc(nm(f))}`}</p>
+          <button class="linkbtn" type="button" data-act="prof" data-p="${id}">${esc(kidG(st, "kOpen"))}</button></div>
+        <div class="kid-hand" aria-hidden="true"><div class="famhand">${mini}</div></div></div>
+      <div class="mix kmix" aria-hidden="true">${ORDER.map(k => `<i style="flex-basis:${st.mix[k]}%;background:${G[k].color}"></i>`).join("")}</div>
+      <p class="kpct">${ORDER.map(k => `<span><i style="background:${G[k].color}"></i>${esc(fing(k))} <b dir="ltr">${st.mix[k]}%</b></span>`).join("")}</p>
+      <h4 class="ksec">${esc(kidG(st, "kRead"))}</h4>
+      ${d.read.length ? d.read.slice(0, 4).map(x => item(x.art, t(x.r.title), wday(x.t) + (x.ans === null ? "" : " · " + kidG(st, x.ans ? "kAns" : "kNoAns")))).join("") : `<p class="kempty">${esc(kidG(st, "kReadNone"))}</p>`}
+      <h4 class="ksec">${esc(u("kWait"))}</h4>
+      ${waits.length ? waits.join("") : `<p class="kempty">${esc(u("kNothing"))}</p>`}
+      ${talk}</section>`;
+  }
+  function kidsBody() {
+    const ks = kidList();
+    const none = `<section class="kid knone"><h3 class="h">${esc(u("kNone"))}</h3><p>${esc(u("kNoneSub"))}</p>
+      ${P.list.length < PMAX ? `<button class="btn block" data-act="profadd">${esc(u("kAdd"))}</button>` : `<p class="kempty">${esc(u("kFull"))}</p>`}</section>`;
+    return `<p class="ksub">${esc(u("kidsSub"))}</p>${ks.length ? ks.map(k => kidCard(k.id, k.st)).join("") : none}
+      <h3 class="ksec kpact-h">${esc(u("kPactH"))}</h3>${pactCard()}`;
+  }
+  // «رأيته يفعلها»: the parent-mode confirmation (tconfirm) applied to the child's own profile: a task not yet marked is
+  // marked and lifts the child's mix as a confirmed task does; one the child marked already only gains the witness.
+  // The witness reaches the child as a line of «رأيت خيرًا» (the family's saw-good messages), in the child's language.
+  function kidSaw(pid, sid, tid) {
+    if (!P.list.includes(pid) || pid === P.active || !isStage(sid) || !ID_RE.test(tid || "")) return;
+    const kst = loadOf(pid); if (kst.edition === "adult") return;
+    let line = "", ok = false;
+    asKid(kst, () => {
+      const tk = C.stages[sid].tasks.find(x => String(x.id) === tid); if (!tk) return;
+      ok = true; line = txt(t(tk), 120);
+      if (S.tasks[tk.id] !== "ok") {
+        S.tasks[tk.id] = "ok"; (S.taskT = S.taskT || {})[tk.id] = Date.now(); ev({ k: "task", s: sid });
+        scoreTask(sid).forEach(m => log(Object.assign({ why: u("taskWord") }, m)));
+      }
+    });
+    if (!ok) return;
+    MEM[pid] = kst; try { localStorage.setItem(keyOf(pid), JSON.stringify(kst)); } catch (e) { storeFail(e); }
+    if (!witnessed(pid, tid)) { F.seen.push({ id: Date.now().toString(36), from: P.active, to: pid, t: Date.now(), tk: tid, tx: line }); F.seen = F.seen.slice(-300); saveFamily(); }
+    syncSoon(); FX("done"); render(true); toast(kidG(kst, "kSawOk"));
+  }
+  function wirdSave(f, d) {
+    d = DAY_RE.test(d || "") ? d : today();
+    const el = document.getElementById("wirdTx"), m = isStage(f) && wirdRevQ(f, d); if (!el || !m) return;
+    const ans = noteTx(el.value); if (!ans) { el.focus(); return; }
+    const tx = noteTx(t(m.q) + "\n\n" + ans), id = wirdNoteId(f, d), now = Date.now(), e = twList("notes").find(x => x.id === id);
+    WDRAFT = null; el.removeAttribute("data-draft"); el.defaultValue = el.value; // saved: no longer a draft
+    if (e) { if (e.tx !== tx) { e.tx = tx; e.u = now; } } else S.notes = twList("notes").concat([{ id, t: now, d: today(), tx }]).slice(-NOTE_MAX);
+    save(); FX("ok"); render(true); toast(u("wirdSaved"));
+  }
+  function wirdAnswer(f, qid, i) {
+    const q = isStage(f) && C.stages[f].quiz.find(x => String(x.id) === qid); if (!q || S.answered[q.id] !== undefined) return;
+    const ok = i === q.correct; WQ[q.id] = i; FX(ok ? "ok" : "no");
+    S.answered[q.id] = ok; (S.ansT = S.ansT || {})[q.id] = Date.now(); ev({ k: "q", s: f, ok });
+    const mv = scoreQuiz(f, ok); mv.forEach(m => log(Object.assign({ why: u("quizWord") }, m))); save(); render(true); if (ok) climb(mv);
+  }
   function agesHtml(a) { const l = agesLabel(a); return /\d/.test(l) ? `<bdi dir="ltr">${esc(l)}</bdi>` : `<bdi>${esc(l)}</bdi>`; }
   function agesLabel(a) { return a === "all" || !a ? u("agesAll") : a; }
   function vStage(id) {
     const st = C.stages[id]; if (!st) return vMissing();
     // children's and teens' edition (direction 1): the page opens on the finger's path; everything it held before follows it
     const kp = !ADU() && fingerOf(id);
-    let h = `<div class="stage-top${kp ? " kpath" : ""}"><div class="st-back"><a class="back" href="#/">${BK()} ${esc(u("meTab"))}</a></div>
+    let h = `<div class="stage-top${kp ? " kpath" : ""}"><div class="st-back"><a class="back" href="${HANDH()}">${BK()} ${esc(u("meTab"))}</a></div>
       <div class="stage-hero">${hand({ chips: false, focus: id, interactive: false })}</div>
       <div class="stage-title">${stageHead(id)}${doors(id, "learn")}
         ${kp ? "" : stepStrip(id)}</div></div>
@@ -2691,7 +2933,7 @@
   const minRead = w => Math.max(6, Math.round(w / 4));
   function readSess(key, body) { if (!RS || RS.key !== key) RS = { key, words: wordsOf(body), secs: 0, end: false, done: false }; return RS; }
   const readStat = rs => `<p class="readstat ${rs.done ? "ok" : ""}" id="readStat">${esc(u(rs.done ? "readOk" : "readWait"))}</p>`;
-  function readKey() { const r = route(); return r.name === "read" ? "r:" + r.rid : r.name === "chapter" ? (() => { const b = bookOf(r.id); return b ? "c:" + chKey(b, Math.max(1, Math.min(+r.n || 1, b.chapters.length))) : null; })() : null; }
+  function readKey() { const r = route(); if (r.name === "home" && ADU() && !TOUR && WIRD_RID) return "r:" + WIRD_RID; return r.name === "read" ? "r:" + r.rid : r.name === "chapter" ? (() => { const b = bookOf(r.id); return b ? "c:" + chKey(b, Math.max(1, Math.min(+r.n || 1, b.chapters.length))) : null; })() : null; }
   function creditRead() {
     RS.done = true; const k = RS.key.slice(0, 1), id = RS.key.slice(2); S.readSecs = S.readSecs || {};
     if (k === "r") { if (!S.read[id]) { S.read[id] = Date.now(); S.readSecs[id] = RS.secs; ev({ k: "read" }); } }
@@ -3136,7 +3378,7 @@
         <div class="mix" aria-hidden="true">${ORDER.map(k => `<i style="flex-basis:${S.mix[k]}%;background:${G[k].color}"></i>`).join("")}</div>
         <div class="legend">${ORDER.map(k => `<span><i style="background:${G[k].color}"></i><em>${esc(nm(k))}</em><b>${S.mix[k]}%</b></span>`).join("")}</div>
         ${(() => { const nr = nextReading(id, rid); return nr ? `<a class="btn block" style="margin-top:18px" href="#/read/${id}/${encodeURIComponent(nr.id)}">${esc(u("nextRead"))}: ${esc(t(nr.title))}</a>` : `<a class="btn block" style="margin-top:18px" href="#/tasks">${esc(u("toMission"))}</a>`; })()}
-        <div class="row" style="margin-top:10px"><button class="btn ghost" data-act="qagain">${esc(u("again"))}</button><a class="btn ghost" href="#/">${esc(u("meTab"))}</a></div></div>`;
+        <div class="row" style="margin-top:10px"><button class="btn ghost" data-act="qagain">${esc(u("again"))}</button><a class="btn ghost" href="${HANDH()}">${esc(u("meTab"))}</a></div></div>`;
     }
     const q = list[QZ.i], ans = QZ.picked != null, ok = ans && QZ.picked === q.correct;
     const sitType = q.type === "situation";
@@ -3589,7 +3831,7 @@
     const qs = revQs(), m = C.muhasaba || {}, done = S.rev && S.rev[today()];
     const intro = m && !Array.isArray(m) && m.intro ? t(m.intro) : u("revSub");
     return `<div class="review"><div class="wrap">
-      <a class="back" href="#/">${BK()} ${esc(u("meTab"))}</a>
+      <a class="back" href="${HANDH()}">${BK()} ${esc(u("meTab"))}</a>
       <h1 class="h">${esc(m && !Array.isArray(m) && m.title ? t(m.title) : u("revT"))} </h1>
       <p class="rev-sub">${esc(intro)}</p>
       ${(() => { const it = revItems(); if (!it || !it.some(x => x.stage && C.stages[x.stage])) return `<ol class="rev-q">${qs.map(q => `<li>${esc(q)}</li>`).join("")}</ol>`;
@@ -3632,6 +3874,7 @@
     if (p[0] === "sources") return { name: "sources" };
     if (p[0] === "about") return { name: "about" };
     if (p[0] === "deg") return { name: "deg", id: p[1], i: p[2] };
+    if (p[0] === "kids") return { name: "kids" }; // the adult edition's «مع أولادي» (direction 4)
     if (p[0] === "me") return { name: "me" }; // the children's home before direction 1, on a page of its own
     if (p[0] === "signed-in" || p[0] === "signin") return { name: "home" }; // back from Google sign-in (accInit)
     return { name: "missing" };
@@ -3641,6 +3884,7 @@
     hand: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14H9.5M20 11H8M19 8h-9M17 17H10M10 8 8.5 5.5C8 4.6 6.8 4.6 6.4 5.5L5 9c-.8 2-.8 4 0 6l.5 1.2C6.3 18 8 19 10 19h4"/></svg>',
     tasks: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="m3.5 6 1.2 1.2L7 5M3.5 12l1.2 1.2L7 11M3.5 18l1.2 1.2L7 17"/></svg>',
     tadwin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.1-4.6L15.6 4.9a2.1 2.1 0 0 1 3 0l.5.5a2.1 2.1 0 0 1 0 3L8.6 18.9z"/><path d="M13.6 6.9l3.5 3.5"/><path d="M13 20h7"/></svg>',
+    wird: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5z"/><path d="M12 6.5V19"/></svg>',
     me: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v8.5l6 6"/></svg>'
   };
   function ensureBooks() {
@@ -3674,6 +3918,8 @@
   }
   function render(keepScroll) {
     const r = route();
+    { // an unsaved evening answer on the adult home survives the re-render (direction 4)
+      const w = document.getElementById("wirdTx"), b = w && view.querySelector('[data-act="wsave"]'); if (b) WDRAFT = w.value !== w.defaultValue || w.dataset.draft ? { id: wirdNoteId(b.dataset.s, b.dataset.d), v: w.value } : null; }
     if (["library", "book", "chapter", "stage", "me", "record"].includes(r.name) || (r.name === "home" && Object.keys(S.bookRead || {}).length)) ensureBooks();
     document.documentElement.lang = L(); document.documentElement.dir = L() === "ar" ? "rtl" : "ltr";
     document.title = r.name === "home" ? u("brand") + ": " + u("docTag") : u("brand"); document.body.dataset.route = r.name;
@@ -3686,14 +3932,15 @@
     const shb = document.getElementById("shareBtn"); if (shb) { shb.setAttribute("aria-label", u("shareT")); shb.title = u("shareT"); }
     document.getElementById("langBtn").setAttribute("lang", L() === "ar" ? "en" : "ar");
     { const ab = document.getElementById("ageBtn"); if (ab) { const w = u(GRPK[GRP(S)]); ab.innerHTML = `<span>${esc(w)}</span><svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`; ab.setAttribute("aria-label", u("agT") + ": " + w); ab.title = u("agT"); } }
-    const tab = r.name === "tasks" || (r.name === "stage" && r.door === "work") ? "tasks" : r.name === "tadwin" ? "tadwin" : "hand";
+    const tab = r.name === "tasks" || (r.name === "stage" && r.door === "work") ? "tasks" : r.name === "tadwin" ? "tadwin" : ADU() && (r.name === "home" || r.name === "kids") ? "wird" : "hand";
     document.getElementById("tabs").setAttribute("aria-label", u("navMain"));
-    document.getElementById("tabs").innerHTML = [["hand", "#/", "meTab"], ["tasks", "#/tasks", "tasksTab"], ["tadwin", "#/tadwin", "twTab"]]
+    document.getElementById("tabs").innerHTML = (ADU() ? [["wird", "#/", "wirdTab"], ["hand", "#/me", "meTab"]] : [["hand", "#/", "meTab"]]).concat([["tasks", "#/tasks", "tasksTab"], ["tadwin", "#/tadwin", "twTab"]])
       .map(([k, h, l]) => `<a href="${h}" class="${tab === k ? "on" : ""}" ${tab === k ? 'aria-current="page"' : ""}>${ICON[k]}<span>${esc(u(l))}</span></a>`).join("");
     let h;
     switch (r.name) {
       case "home": h = vHome(); break;
-      case "me": h = ADU() || TOUR ? vHome() : vMe(); break;
+      case "me": h = TOUR ? vHome() : ADU() ? vHandA() : vMe(); break;
+      case "kids": h = ADU() && !TOUR ? vKids() : vHome(); break;
       case "task": h = vTask(r.id, r.tid); break;
       case "stage": h = r.door === "work" ? vWork(r.id) : vStage(r.id); break;
       case "read": h = vReader(r.id, r.rid); break;
@@ -3738,9 +3985,9 @@
         break;
       } else {
         const side = el.dataset.side || "L", f = el.dataset.f, tg = ((MAPS[MODE()][side]) || MAPS.one.L)[f];
-        if (route().name === "me" && G[tg]) { location.hash = workUrl(tg); return; }
+        if (route().name === "me" && !ADU() && G[tg]) { location.hash = workUrl(tg); return; }
         homeSel = side + ":" + f; homeDeg = -1; FX("step", G[tg] ? ORDER.indexOf(tg) : 4);
-        if (route().name === "home") render(true);
+        if (handRoute()) render(true); // the adult edition's hand is on #/me (direction 4)
         if (G[tg]) stageSheet(tg, -1); else if (tg === "slot") slotSheet(); else if (tg === "prophets") prophetsSheet(); else virtueSheet(String(tg).slice(2), f);
         break;
       }
@@ -3751,7 +3998,7 @@
       case "filmplay": closeSheet(); playFilm(false); break;
       case "deg": {
         const side = el.dataset.side || "L", id = el.dataset.s, f = (function () { const m = (MAPS[MODE()][side]) || MAPS.one.L; return FINGERS.find(k => m[k] === id); })();
-        homeSel = side + ":" + f; homeDeg = +el.dataset.i; FX("step", Math.max(0, ORDER.indexOf(id))); if (route().name === "home") render(true); stageSheet(id, homeDeg); break;
+        homeSel = side + ":" + f; homeDeg = +el.dataset.i; FX("step", Math.max(0, ORDER.indexOf(id))); if (handRoute()) render(true); stageSheet(id, homeDeg); break;
       }
       case "settings": settingsSheet(); break;
       case "mapsheet": mapSheet(); break;
@@ -3795,6 +4042,10 @@
       case "revdone": S.rev = S.rev || {}; S.rev[today()] = true; save(); render(true); break;
       case "setav": { const v = el.dataset.v; if (v === "g" ? !(P.active === "p1" && gpic()) : !AV_ALL.includes(v)) break;
         S.av = v; save(); FX("tick"); setBtnFace(); settingsAgain(); break; }
+      case "wfing": if (isStage(el.dataset.s)) { ADF = { d: today(), f: el.dataset.s }; FX("tick"); render(); window.scrollTo(0, 0); } break;
+      case "wq": wirdAnswer(el.dataset.s, el.dataset.q, +el.dataset.i); break;
+      case "wsave": wirdSave(el.dataset.s, el.dataset.d); break;
+      case "kidsaw": kidSaw(el.dataset.p, el.dataset.s, el.dataset.t); break;
       case "prof": switchProfile(el.dataset.p); if (sheetState && sheetState.kind === "settings") settingsSheet(); break;
       case "profadd": if (P.list.length < PMAX) profAddSheet(); break;
       case "profadded": { const g = GRPS.includes(el.dataset.g) ? el.dataset.g : (el.dataset.e === "adult" ? "adult" : "child"); if (grpBusy > Date.now()) break;
@@ -3849,7 +4100,7 @@
       case "aloudprev": if (view.querySelector(".sbook")) { bookTurn(-1); break; } ttsStop(); aloudIx--; render(true); break;
       case "bksay": if (speaking) { ttsStop(); render(true); } else bookSpeak(true); break;
       case "bkstart": ttsStop(); QZ = null; aloudIx = 0; bkDir = -1; render(); window.scrollTo(0, 0); break;
-      case "deggo": pendingDeg = { id: el.dataset.s, i: +el.dataset.i }; if (route().name === "home") { const pd = pendingDeg; pendingDeg = null; openDegOnHand(pd.id, pd.i); } else location.hash = "#/"; break;
+      case "deggo": pendingDeg = { id: el.dataset.s, i: +el.dataset.i }; if (handRoute()) { const pd = pendingDeg; pendingDeg = null; openDegOnHand(pd.id, pd.i); } else location.hash = HANDH(); break;
       case "resetask": openSheet(`<h2 class="h">${esc(u("reset"))}</h2><p class="short">${esc(u("resetAsk"))}</p>
         <div class="row"><button class="btn ghost" data-act="close">${esc(u("resetNo"))}</button><button class="btn" data-act="resetyes">${esc(u("resetYes"))}</button></div>`, { kind: "reset" }); break;
       case "resetyes": {
@@ -4122,10 +4373,11 @@
   function boot() {
     render(); accInit();
     const sel = params.get("sel");
+    if (sel && isStage(sel) && ADU() && route().name === "home") { try { history.replaceState(null, "", location.pathname + location.search + "#/me"); } catch (e) {} render(); } // direction 4: the adult hand is on #/me
     if (MOVE_IN) { S.intro = true; save(); moveIn(MOVE_IN); }
     else if (window.TZ_MOVE) moveSheet();
     else if (params.get("restore") === "1") { S.intro = true; save(); settingsSheet(); }
-    else if (sel && isStage(sel) && route().name === "home" && fingerOf(sel)) { homeSel = "L:" + fingerOf(sel); homeDeg = params.get("deg") ? +params.get("deg") : -1; render(); stageSheet(sel, homeDeg); }
+    else if (sel && isStage(sel) && handRoute() && fingerOf(sel)) { homeSel = "L:" + fingerOf(sel); homeDeg = params.get("deg") ? +params.get("deg") : -1; render(); stageSheet(sel, homeDeg); }
     else if (sel === "summit") summitSheet();
     else if (params.get("intro") === "0") { S.intro = true; if (params.get("tour") !== "1") S.tour = true; save(); }
     else if (!S.intro && route().name === "home") introSheet();

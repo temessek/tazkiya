@@ -1605,3 +1605,76 @@ ol.path::before { content: ""; position: absolute; inset-block: 24px; inset-inli
   .bk-ctrl { bottom: 0; }
   .rd-art { height: 260px; }
 }
+
+/* direction 4: the adult edition. Home is «ورد اليوم» (a reading in a comfortable column, one question, the evening question);
+   «مع أولادي» is a second view on phones and a side column from 900 px */
+.adseg { display: flex; gap: 4px; margin: 12px 14px 0; padding: 4px; border-radius: 16px; background: rgba(36,54,75,.07); }
+.adseg a { flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; min-height: 44px; border-radius: 12px; text-decoration: none; color: var(--muted); font-size: 15px; text-align: center; line-height: 1.3; padding: 4px 6px; }
+.adseg a.on { background: #fffaf3; color: var(--ink); font-weight: 600; box-shadow: 0 2px 8px -4px rgba(36,54,75,.4); }
+.adcols { max-width: 760px; margin: 0 auto; }
+.kidsside { display: none; }
+.wird { padding: 16px 18px 8px; }
+.wfing { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 16px; }
+.wfing button { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 4px 12px; border-radius: 99px; border: 1.5px solid var(--line); background: #fffaf3; font-size: 13.5px; cursor: pointer; color: var(--ink); }
+.wfing button i { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.wfing button.on { border-color: var(--ink); font-weight: 600; }
+.wtop { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.wk { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.55; min-width: 0; }
+.wird > .h, .wird .wtop + .h { font-size: 36px; line-height: 1.25; margin: 6px 0 4px; overflow-wrap: anywhere; }
+[lang="en"] .wird .wtop + .h, [lang="en"] .wird > .h { font-size: 38px; }
+.wmeta { margin: 0 0 6px; font-size: 14px; color: var(--muted); }
+.wird .body p { line-height: 2; }
+[lang="en"] .wird .body p { font-family: Georgia, "Cormorant Garamond", serif; line-height: 1.75; }
+.wbox { background: #fffaf3; border: 1px solid var(--line); border-radius: 20px; padding: 16px; margin: 18px 0 0; }
+.wbox > .h { font-size: 22px; margin: 0 0 4px; }
+.wbox .qtext { font-size: 17.5px; margin: 4px 0 12px; }
+.wtx { display: block; width: 100%; min-height: 110px; border: 1.5px solid var(--line); border-radius: 14px; padding: 12px; font: inherit; font-size: 16px; line-height: 1.7; background: var(--card); color: var(--ink); resize: vertical; margin: 0 0 10px; }
+.wfine { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+.wrev .linkbtn.more { margin-top: 4px; }
+.wnext { margin-top: 18px; }
+.wird > .linkbtn.more { display: inline-flex; margin-top: 10px; }
+
+.kwrap { padding-top: 6px; }
+.kids-h { font-size: 30px; margin: 8px 0 0; }
+.ksub { margin: 4px 0 12px; font-size: 14px; color: var(--muted); }
+.kid { background: #fffaf3; border: 1px solid var(--line); border-radius: 22px; padding: 14px; margin: 0 0 16px; }
+.kid-h { display: grid; grid-template-columns: minmax(0, 1fr) minmax(96px, 42%); gap: 10px; align-items: center; }
+.kid-tx .h { font-size: 26px; margin: 0; line-height: 1.3; overflow-wrap: anywhere; }
+.kid-tx p { margin: 2px 0 0; font-size: 14px; color: var(--muted); line-height: 1.6; }
+.kid-tx p b { color: var(--ink); }
+.kid-tx .linkbtn { font-size: 13.5px; padding: 6px 0 0; }
+.kid-hand { border-radius: 16px; overflow: hidden; background: var(--paper); }
+.kid-hand .hand img { -webkit-mask-image: none; mask-image: none; }
+.kmix { height: 10px; margin: 12px 0 6px; }
+.kpct { display: flex; flex-wrap: wrap; gap: 2px 12px; margin: 0; font-size: 12.5px; color: var(--muted); }
+.kpct span { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.kpct i { width: 8px; height: 8px; border-radius: 50%; }
+.kpct b { color: var(--ink); font-weight: 600; }
+.ksec { font-family: var(--ar); font-size: 13.5px; font-weight: 600; color: var(--muted); margin: 18px 2px 8px; }
+.kitem { display: flex; gap: 12px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 10px 12px; margin: 0 0 8px; }
+.kitem img { width: 46px; height: 46px; border-radius: 12px; object-fit: cover; flex: none; background: #f3dcc4; }
+.kitem .tx { flex: 1; min-width: 0; }
+.kitem .tx b { display: block; font-weight: 600; font-size: 15px; line-height: 1.45; overflow-wrap: anywhere; }
+.kitem .tx span { display: block; font-size: 13px; color: var(--muted); }
+.kitem .ksaw { max-width: 46%; white-space: normal; line-height: 1.3; min-height: 44px; }
+.kseen { flex: none; font-size: 13px; font-weight: 600; color: #2f7d5f; background: rgba(63,138,104,.14); border-radius: 12px; padding: 8px 10px; }
+.kempty { margin: 0 2px 8px; font-size: 14px; color: var(--muted); }
+.ktalk { background: color-mix(in srgb, var(--c) 13%, #fffaf3); border: 1px solid color-mix(in srgb, var(--c) 35%, transparent); border-radius: 20px; padding: 14px 16px; }
+.ktalk .kt-h { font-size: 21px; line-height: 1.35; margin: 0 0 6px; }
+.ktalk p { margin: 0 0 10px; font-size: 15.5px; line-height: 1.75; }
+.ktalk .say { font-size: 16.5px; padding: 10px 12px; background: #fffaf3; border-radius: 14px; border-inline-start: 5px solid var(--c); }
+.ktalk .ask { margin: 0; }
+.knone .h { font-size: 22px; margin: 0 0 6px; }
+.knone p { margin: 0 0 12px; font-size: 15px; line-height: 1.7; }
+.kpact-h { margin-top: 22px; }
+.adhome .pact { margin-top: 0; }
+
+@media (min-width: 900px) {
+  .adseg { display: none; }
+  .adcols { max-width: 1240px; display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 34px; padding: 0 28px; align-items: start; }
+  .wird { padding: 30px 0 8px; max-width: 700px; margin: 0 auto; width: 100%; }
+  .wird .wtop + .h, .wird > .h { font-size: 50px; }
+  .kidsside { display: block; position: sticky; top: calc(var(--top) + 8px); max-height: calc(100vh - var(--top) - 16px); overflow: auto; padding: 24px 4px 24px; overscroll-behavior: contain; }
+  .kside-h { font-size: 24px; margin: 0 2px; }
+  .kidspage .kwrap { max-width: 700px; }
+}

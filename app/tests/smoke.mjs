@@ -653,6 +653,66 @@ async function ideaFlows(browser, base, content, AV) {
     ok(/assets\/vignettes\/book-human/.test(ad.src) && !ad.book && ad.body, `2: the adult edition's reading keeps its full text under the finger's picture (${ad.src})`);
     ok(!page.errs.length, "2: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
+  // direction 4 (owner's approval, 26 Nov 2026): the adult home is «ورد اليوم»; «مع أولادي» gathers the children's profiles on the
+  // device (a small hand, this week's reading, the tasks to witness, a talk for dinner) and holds the family pact
+  await step("adult reading and with my children", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1&ed=adult", 1000);
+    const { C: KC, A: KA } = loadContent(), az = KA.stages.zombie.readings, ap = KA.stages.pig.readings;
+    const wt = () => page.evaluate(() => { const h = document.querySelector("#view .wird .wtop + .h"); return h ? h.textContent : ""; });
+    const h = await page.evaluate(() => { const v = document.getElementById("view"), tabs = [...document.querySelectorAll("#tabs a")];
+      return { wird: !!v.querySelector(".wird"), chips: v.querySelectorAll(".wird .wfing button").length, opts: v.querySelectorAll(".wird .wq .opt").length, ta: !!v.querySelector(".wird .wrev textarea"),
+        hand: !!v.querySelector(".wird .handbox"), pact: !!v.querySelector(".wird .pact"), tabs: tabs.map(a => a.getAttribute("href")).join(" "), on: (document.querySelector("#tabs a.on") || {}).textContent || "",
+        side: getComputedStyle(v.querySelector(".kidsside")).display, seg: !!v.querySelector(".adseg a[href='#/kids']") }; });
+    ok(h.wird && h.chips === 5 && h.opts >= 2 && h.ta && !h.hand && !h.pact, "4: the adult home is today's reading: five finger chips, the text, one question and the evening question with a writing space");
+    ok(await wt() === az[0].title.ar, `4: today's reading is the first unread one on the current finger (${await wt()})`);
+    ok(h.tabs === "#/ #/me #/tasks #/tadwin" && /ورد اليوم/.test(h.on) && h.side === "none" && h.seg, `4: tabs today / my hand / tasks / journal; on a phone «مع أولادي» is the second view (${h.tabs})`);
+    await go(page, "#/me", 500); ok(await has(page, "#view .handbox") && (await page.locator("#view .handbox .chip").count()) === 5 && await has(page, "#view .pres") && !(await has(page, "#view .pact")), "4: the hand keeps its tab (#/me) with its percentages; the pact left it");
+    await go(page, "#/kids", 500); ok(await has(page, '#view .knone [data-act="profadd"]') && await has(page, "#view .pact"), "4: with no child's profile, «مع أولادي» invites to add one, and holds the family pact");
+    // the rule: a reading read today stays today's; otherwise the first unread on the finger
+    await setS(page, `s.read = { '${az[0].id}': Date.now() - 2 * 864e5 };`); await open(page, "", 800);
+    ok(await wt() === az[1].title.ar, "4: once read on another day, the next unread reading becomes today's");
+    await setS(page, `s.read['${az[1].id}'] = Date.now();`); await open(page, "", 800);
+    ok(await wt() === az[1].title.ar, "4: a reading read today stays today's reading");
+    await page.click("#view .wird .wq .opt >> nth=0"); await page.waitForTimeout(400);
+    const q1 = KA.stages.zombie.quiz.find(q => q.readingId === az[1].id);
+    ok((await getS(page)).answered[q1.id] !== undefined && await has(page, "#view .wq .fb") && await has(page, "#view .wq .opt[disabled]"), "4: the question is answered with the existing scoring, then shows its explanation");
+    await page.fill("#wirdTx", "سطر للاختبار في المساء"); await page.click('#view [data-act="wsave"]'); await page.waitForTimeout(400);
+    const nt = ((await getS(page)).notes || []).find(n => /^wd-\d{8}-zombie$/.test(n.id));
+    ok(nt && /سطر للاختبار في المساء/.test(nt.tx) && KC.muhasaba.some(m => m.stage === "zombie" && nt.tx.startsWith(m.q.ar)), "4: the evening answer is kept in «دفتري» with its question (the journal's notes, no new store)");
+    await go(page, "#/tadwin/nb", 500); ok(/سطر للاختبار في المساء/.test(await txt(page, "#view")), "4: it shows in the notebook");
+    await go(page, "#/", 500); await page.fill("#wirdTx", "مسودة لم تُحفظ"); await page.click('#view .wird [data-act="fs"][data-d="2"]'); await page.waitForTimeout(300);
+    ok(await page.inputValue("#wirdTx") === "مسودة لم تُحفظ", "4: an unsaved evening answer survives a re-render (text size)");
+    await page.click('#view .wird [data-act="fs"][data-d="-2"]'); await page.waitForTimeout(200);
+    await page.click('#view .wfing [data-s="pig"]'); await page.waitForTimeout(400);
+    ok(await wt() === ap[0].title.ar, "4: a finger chip shows that finger's reading");
+    // a sample child's profile on the same device
+    await page.evaluate(() => { const K = "akhlaq-app-v1", now = Date.now(), d = 864e5;
+      localStorage.setItem(K + ":p2", JSON.stringify({ v: 1, lang: "ar", fs: 19, mix: { zombie: 10, pig: 25, monkey: 30, human: 30, sabiq: 5 }, answered: { "pig-q1": true }, ansT: { "pig-q1": now - d },
+        read: { "pig-r1": now - d }, readSecs: {}, tasks: { "zombie-t1": "ok" }, taskT: { "zombie-t1": now - 2 * d }, tr: {}, trPts: {}, seen: {}, self: {}, hist: [], ev: [{ t: now - d, k: "read" }],
+        name: "آدم", gender: "m", age: "9-14", edition: "kids", intro: true, tour: true, notes: [], bless: [], chal: [], khabia: [], twV: 2 }));
+      localStorage.setItem(K + ":profiles", JSON.stringify({ active: "p1", list: ["p1", "p2"] })); });
+    await page.goto(`${base}?intro=0&n=${++nOpen}#/kids`); await page.waitForTimeout(900);
+    const k = await page.evaluate(() => { const c = document.querySelector("#view .kid"); return c ? { name: c.querySelector(".kid-tx .h").textContent, txt: c.innerText, hand: !!c.querySelector(".kid-hand .handbox"), saw: [...c.querySelectorAll('[data-act="kidsaw"]')].map(b => b.dataset.t), talk: (c.querySelector(".ktalk") || {}).innerText || "" } : null; });
+    const kp = KC.stages.pig;
+    ok(k && k.name === "آدم" && k.hand && k.txt.includes(kp.readings[0].title.ar) && /البنصر/.test(k.txt), "4: each child: a small hand, this week's finger and what was read this week");
+    ok(k && k.saw.includes("zombie-t1") && k.saw.length === 2, `4: tasks to witness: the one marked this week and the task now on the path (${k && k.saw.join(" ")})`);
+    ok(k && k.talk.includes(kp.parent.ar[2]) && kp.selfcheck.some(s => k.talk.includes(s.q.ar)), "4: the dinner talk comes from the finger's parent guidance and self-check");
+    const now = k.saw.find(x => x !== "zombie-t1");
+    await page.click(`#view [data-act="kidsaw"][data-t="${now}"]`); await page.waitForTimeout(500);
+    const after = await page.evaluate(() => ({ s: JSON.parse(localStorage.getItem("akhlaq-app-v1:p2")), f: JSON.parse(localStorage.getItem("tazkiya-family") || "{}") }));
+    ok(after.s.tasks[now] === "ok" && after.s.mix.human === 31 && (after.f.seen || []).some(m => m.to === "p2" && m.from === "p1" && m.tk === now) && await has(page, "#view .kseen"),
+      "4: «رأيته يفعلها» records the task on the child's profile with the confirmation logic, and the witness as a family message");
+    await page.click('#view .kid [data-act="prof"]'); await page.waitForTimeout(1200);
+    ok(/رأى فيك/.test(await txt(page, "#sheet")) && await has(page, "#view .nextstep") && !(await has(page, "#view .wird")), "4: on the child's own profile the witness arrives, and the children's home is unchanged");
+    for (const [w, lang] of [[1280, "ar"], [1280, "en"], [375, "ar"], [375, "en"], [320, "ar"], [320, "en"]]) { await page.setViewportSize({ width: w, height: 820 });
+      await page.evaluate(() => { const p = JSON.parse(localStorage.getItem("akhlaq-app-v1:profiles")); p.active = "p1"; localStorage.setItem("akhlaq-app-v1:profiles", JSON.stringify(p)); });
+      await setS(page, `s.lang = '${lang}';`); await open(page, "", 800);
+      const d = await page.evaluate(() => { const a = document.querySelector("#view .wird").getBoundingClientRect(), s = document.querySelector("#view .kidsside"), b = s.getBoundingClientRect(), t = document.getElementById("tabs").getBoundingClientRect();
+        return { side: getComputedStyle(s).display !== "none" && b.width > 300 && (b.right <= a.left + 2 || b.left >= a.right - 2), rtl: b.left < a.left, hidden: getComputedStyle(s).display === "none", tabsTop: t.top, over: document.documentElement.scrollWidth > innerWidth + 1 }; });
+      await go(page, "#/kids", 500); const ko = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1 || !document.querySelector("#view .kid .kitem"));
+      ok(!d.over && !ko && (w >= 900 ? d.side && d.rtl === (lang === "ar") && d.tabsTop < 10 : d.hidden && d.tabsTop > 600), `4: at ${w} (${lang}) ${w >= 900 ? "the reading in the middle and «مع أولادي» in a side column" : "one column, «مع أولادي» as its own view"}, no overflow`); }
+    ok(fs.readFileSync(path.join(ROOT, "parents", "index.html"), "utf8").split('href="../adult/#/kids"').length === 3, "4: the parents' page links to «مع أولادي» in both languages");
+    ok(!page.errs.length, "4: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+    await ctx.close(); });
   // 2. evening reckoning
   const at = async (page, h) => { if (page.clock && page.clock.setFixedTime) { const d = new Date(); d.setHours(h, 30, 0, 0); await page.clock.setFixedTime(d); return true; } return false; };
   await step("evening reckoning", async () => { const { ctx, page } = await fresh();
@@ -731,7 +791,9 @@ async function ideaFlows(browser, base, content, AV) {
     for (const [q, lab, ch] of [["&lang=ar", "التدوين", "تحدّياتي"], ["&lang=en", "Journal", "My challenges"], ["&ed=adult&lang=ar", "التدوين", "مجاهداتي"], ["&ed=adult&lang=en", "Journal", "My challenges"]]) {
       const { ctx, page } = await fresh(); await open(page, "&reset=1" + q, 900);
       const tabs = await page.evaluate(() => [...document.querySelectorAll("#tabs a")].map(a => a.getAttribute("href") + "|" + a.innerText.trim()));
-      ok(tabs.length === 3 && tabs[0].startsWith("#/|") && tabs[1].startsWith("#/tasks|") && tabs[2] === "#/tadwin|" + lab, `tw: the tabs are my hand, tasks, «${lab}» (${q}): ${tabs.join(", ")}`);
+      // direction 4: the adult edition opens on today's reading, and the hand has its own tab
+      const ad = /ed=adult/.test(q), exp = ad ? ["#/|", "#/me|", "#/tasks|"] : ["#/|", "#/tasks|"];
+      ok(tabs.length === exp.length + 1 && exp.every((x, i) => tabs[i].startsWith(x)) && tabs[exp.length] === "#/tadwin|" + lab, `tw: the tabs are ${ad ? "today, my hand" : "my hand"}, tasks, «${lab}» (${q}): ${tabs.join(", ")}`);
       ok(await has(page, '#tabs a[href="#/tadwin"] svg'), `tw: the journal tab has its pen (${q})`);
       await page.click('#tabs a[href="#/tadwin"]'); await page.waitForTimeout(400);
       const t = await txt(page, "#view");
@@ -1254,6 +1316,7 @@ async function ideaFlows(browser, base, content, AV) {
   await step("two doors", async () => {
     for (const [q, learnW, workW] of [["", "افهم وتعلّم", "إلى العمل"], ["&lang=en", "Understand and learn", "To work"], ["&ed=adult", "افهم وتعلّم", "إلى العمل"], ["&ed=adult&lang=en", "Understand and learn", "To work"]]) {
       const tag = q || "kids ar"; const { ctx, page } = await fresh(); await open(page, "&reset=1" + q, 800);
+      if (/ed=adult/.test(q)) await go(page, "#/me", 500); // direction 4: the adult edition's hand is on its own tab
       const doorsAt = sel => page.evaluate(sl => [...document.querySelectorAll(sl + " .door")].map(a => [a.classList.contains("learn") ? "L" : a.classList.contains("work") ? "W" : "?", a.getAttribute("href"), a.querySelector("b").innerText.trim(), getComputedStyle(a).backgroundColor, a.getAttribute("aria-current")]), sel);
       await page.click('#view [data-act="finger"][data-f="ring"]'); await page.waitForTimeout(300);
       const sh = await doorsAt("#sheet .doors");
