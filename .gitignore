@@ -11,6 +11,7 @@
 /publish/*
 !/publish/build_public.py
 !/publish/adult_page.py
+!/publish/indexnow.py
 !/server/
 
 # never published

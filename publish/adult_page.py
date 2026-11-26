@@ -3,7 +3,8 @@ edition's title and preview tags and <base href="/">, so every file is the same 
 redirect. app.js reads the edition from the /adult/ path. build_public.py runs this before copying; run it
 directly after editing index.html (the smoke test checks that the two pages load the same files).
 """
-import os, re
+import json, os, re
+SITE = "https://tazkiya.family"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APP = os.path.join(ROOT, "app")
 
@@ -36,6 +37,15 @@ def adult_html(index_html):
     h = h.replace('<meta charset="utf-8">\n', '<meta charset="utf-8">\n<base href="/">\n', 1)
     if '<link rel="canonical" href="https://tazkiya.family/">' not in h: raise SystemExit("adult_page: canonical link not found in index.html")
     h = h.replace('<link rel="canonical" href="https://tazkiya.family/">', '<link rel="canonical" href="https://tazkiya.family/adult/">', 1)
+    # structured data (26 Nov 2026): the home page describes the site, the foundation and the app; the adult page is one page of that site
+    ld = re.search(r'<script type="application/ld\+json">.*?</script>', h, re.S)
+    if not ld: raise SystemExit("adult_page: structured data not found in index.html")
+    t = re.search(r"<title>(.*?)</title>", ADULT_META).group(1)
+    d = re.search(r'<meta name="description" content="(.*?)">', ADULT_META).group(1)
+    page = {"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": SITE + "/adult/#page", "url": SITE + "/adult/", "name": t, "description": d,
+            "inLanguage": ["ar", "en"], "isPartOf": {"@id": SITE + "/#site"}, "publisher": {"@id": SITE + "/#org"}, "about": {"@id": SITE + "/#app"}}]}
+    js = json.dumps(page, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
+    h = h[:ld.start()] + f'<script type="application/ld+json">{js}</script>' + h[ld.end():]
     return h
 
 def write():

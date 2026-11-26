@@ -1567,7 +1567,7 @@ function staticChecks() {
   // security and compatibility review (22 Nov 2026)
   for (const h of ["! Access-Control-Allow-Origin", "private-terms.txt", "404.html", "parents/index.html", "training/index.html", "/training/*", "wrangler@4", "getexif", "esbuild@"]) if (!bp.includes(h)) errs.push(`build_public.py: missing ${h}`);
   for (const f of ["404.html", "parents/index.html", "training/index.html", "assets/qr-kids.svg", "assets/qr-adult.svg"]) if (!fs.existsSync(path.join(ROOT, f))) errs.push(`missing ${f}`);
-  for (const sp of ["parents/index.html", "training/index.html"]) if (fs.existsSync(path.join(ROOT, sp)) && [...rd(sp).matchAll(/<script[^>]*>/g)].some(m => !/src="\.\.\/boot\.js\?v=\d+" data-page="static"/.test(m[0]))) errs.push(`${sp}: only boot.js (static) expected`);
+  for (const sp of ["parents/index.html", "training/index.html"]) if (fs.existsSync(path.join(ROOT, sp)) && [...rd(sp).matchAll(/<script[^>]*>/g)].some(m => !/src="\.\.\/boot\.js\?v=\d+" data-page="static"/.test(m[0]) && m[0] !== '<script type="application/ld+json">')) errs.push(`${sp}: only boot.js (static) expected (structured data, which never runs, is the one other block allowed)`);
   if (!/<script src="boot\.js\?v=\d+"><\/script>/.test(html.split("</head>")[0])) errs.push("index.html: boot.js must load in <head>, without defer");
   for (const f of ["index.html", "adult/index.html", "parents/index.html", "training/index.html"]) if (fs.existsSync(path.join(ROOT, f)) && /tazkiya\.pages\.dev/.test(rd(f))) errs.push(`${f}: names the former address`);
   if (ad) { if (!/<base href="\/">/.test(ad)) errs.push("adult page: no <base href=\"/\">");

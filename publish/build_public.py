@@ -120,8 +120,20 @@ Disallow: /api/
 
 Sitemap: {SITE}/sitemap.xml
 """
+# lastmod (26 Nov 2026): the newest of the page and, for the app pages, the files that make up what a visitor reads
+import datetime
+def lastmod(files):
+    ts = max(os.path.getmtime(os.path.join(APP, f)) for f in files)
+    return datetime.datetime.fromtimestamp(ts, datetime.timezone.utc).strftime("%Y-%m-%d")
+APP_FILES = ["app.js", "content/content.js", "content/content-adult.js", "content/books.js"]
+PAGES = [("/", ["index.html"] + APP_FILES), ("/adult/", ["adult/index.html"] + APP_FILES), ("/training/", ["training/index.html"]),
+         ("/parents/", ["parents/index.html"]), ("/privacy/", ["privacy/index.html"])]
 SITEMAP = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
-    f"  <url><loc>{SITE}{p}</loc></url>\n" for p in ["/", "/adult/", "/training/", "/privacy/", "/parents/"]) + "</urlset>\n"
+    f"  <url><loc>{SITE}{p}</loc><lastmod>{lastmod(fs)}</lastmod></url>\n" for p, fs in PAGES) + "</urlset>\n"
+# IndexNow (26 Nov 2026): Bing, Yandex and the other members fetch this key file to confirm that a ping comes from the site's owner.
+# The key is public by design; publish/indexnow.py sends the sitemap's pages after a deploy.
+for f in os.listdir(APP):
+    if re.fullmatch(r"[0-9a-f]{32}\.txt", f): shutil.copy2(os.path.join(APP, f), os.path.join(OUT, f))
 open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8").write(SITEMAP)
 open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8").write(ROBOTS)
 

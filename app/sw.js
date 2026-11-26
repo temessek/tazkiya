@@ -4,7 +4,7 @@
  * to the saved copy of the same file. A new version installs quietly and waits: the app shows "a new version is
  * ready" and the user chooses when to switch (SKIP_WAITING), so a page never changes under a reader.
  * Release: bump CACHE, and keep the ?v= numbers below equal to those in index.html (the smoke test checks this). */
-const CACHE = "tazkiya-2026-11-26d";
+const CACHE = "tazkiya-2026-11-26e";
 const CORE = [
   "./", "index.html", "manifest.json", "boot.js?v=1", "styles.css?v=97", "app.js?v=110", "fx.js?v=2", "fallback.js?v=5", "content/content.js?v=37",
   "content/content-adult.js", "content/books.js",
