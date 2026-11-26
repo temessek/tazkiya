@@ -564,23 +564,57 @@ async function ideaFlows(browser, base, content, AV) {
   const has = async (page, sel) => (await page.locator(sel).count()) > 0;
   let nOpen = 0; // a fresh query each time, so goto always reloads (a hash-only change would keep the page's memory)
   const open = async (page, q, ms) => { await page.goto(`${base}?intro=0&n=${++nOpen}${q || ""}#/`); await page.waitForTimeout(ms || 500); };
+  // direction 1 (26 Nov 2026): what the children's home held besides the hand and the next step is on #/me
+  const openMe = async (page, q, ms) => { await page.goto(`${base}?intro=0&n=${++nOpen}${q || ""}#/me`); await page.waitForTimeout(ms || 500); };
 
   // idea 1 (today's step) was removed by the owner's decision, 22 Nov 2026: the home page opens with the hand
   await step("home: the hand first", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
     await setS(page, "s.step = { d, ed: 'kids', k: 'r', s: 'zombie', id: 'zombie-r1', tr: 0 }; s.read = { 'zombie-r1': Date.now() };"); await open(page, "", 1200);
-    const r = await page.evaluate(() => { const v = document.getElementById("view"), first = v.firstElementChild, hb = v.querySelector(".handbox"), hd = hb.getBoundingClientRect(); return { first: first && first.className, step: !!document.querySelector(".stepcard, .sc-go, #sheet .apply"), top: hd.top, h: hd.height }; });
-    ok(/hello/.test(r.first) && !r.step, "home: the greeting then the hand open the page; no step card and no 'go and live it' screen");
+    const r = await page.evaluate(() => { const v = document.getElementById("view"), hl = v.querySelector(".hello"), hb = v.querySelector(".handbox"), hd = hb.getBoundingClientRect(), all = [...v.querySelectorAll("*")]; return { first: hl && all.indexOf(hl) < all.indexOf(hb) && !hl.previousElementSibling, step: !!document.querySelector(".stepcard, .sc-go, #sheet .apply"), top: hd.top, h: hd.height }; });
+    ok(r.first && !r.step, "home: the greeting then the hand open the page; no step card and no 'go and live it' screen");
     ok(r.top < 240 && r.h > 250, `home: the hand is large in the first view at 375 (top ${Math.round(r.top)}, height ${Math.round(r.h)})`);
     ok(!("step" in (await getS(page))), "home: an old saved step is dropped by the sanitizer");
     ok(!page.errs.length, "home: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
+  // direction 1 (owner's approval, 26 Nov 2026): one clear next step on the home, a path on the finger page, the loop story > question > task
+  await step("one clear step", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1", 900);
+    const h = await page.evaluate(() => { const v = document.getElementById("view"), c = v.querySelector(".nextstep"), go = c && c.querySelector(".nx-go");
+      return { cards: v.querySelectorAll(".nextstep").length, go: go && go.getAttribute("href"), loop: c ? c.querySelectorAll(".nx-loop span").length : 0, more: [...v.querySelectorAll('a[href="#/me"]')].length,
+        gone: !v.querySelector(".pres, .pact, .stamps, .pf, .memix, .dash"), chips: v.querySelectorAll(".handbox .chip").length, fw: (v.querySelector(".fweek") || {}).textContent || "" }; });
+    ok(h.cards === 1 && /^#\/read\/zombie\//.test(h.go || "") && h.loop === 3, `1: one next-step card, a story on the little finger first, with the three-step strip (${h.go})`);
+    ok(h.more === 1 && h.gone, "1: one link to everything else; presence, pact, stamps, progress and the mix list left the home page");
+    ok(h.chips === 5 && /الخنصر/.test(h.fw), "1: the hand keeps its five percentages, and the line names this week's finger");
+    await go(page, "#/me"); ok(await has(page, "#view .pres") && await has(page, "#view .pact") && await has(page, "#view .stamps") && await has(page, "#view .pf") && await has(page, "#view .melegend") && await has(page, '#view a[href="#/record"]'), "1: #/me holds all of it");
+    await go(page, "#/stage/pig"); const p = await page.evaluate(() => { const v = document.getElementById("view"), ph = v.querySelector("#sec-path"), lr = v.querySelector("#sec-learn");
+      return { path: !!ph, before: ph && lr && (ph.compareDocumentPosition(lr) & 4) > 0, cur: v.querySelectorAll("#sec-path .pst.cur").length, deg: v.querySelectorAll("#sec-path .pdeg").length, n: v.querySelectorAll("#sec-path .pst").length, quiz: !!v.querySelector("#sec-quiz"), read: !!v.querySelector("#sec-read") }; });
+    ok(p.path && p.before && p.cur === 1 && p.deg === 3 && p.n >= 9 && p.quiz && p.read, `1: the finger page opens on a path of ${p.n} stops under 3 degrees, one current, with the full content after it`);
+    // the loop: the story's last page leads to its question, the question to its home task
+    const sid = await page.evaluate(() => document.querySelector("#sec-path .pst.cur").getAttribute("href"));
+    await go(page, sid); await page.evaluate(() => { const b = document.querySelector('[data-act="aloud"]'); if (b && !document.querySelector(".aloud-page")) b.click(); }); await page.waitForTimeout(250);
+    for (let i = 0; i < 20 && await has(page, '[data-act="aloudnext"]'); i++) { await page.click('[data-act="aloudnext"]'); await page.waitForTimeout(80); }
+    const ask = await page.evaluate(() => { const a = document.querySelector(".pg-ask, .read-end ~ a.btn"); return a && a.getAttribute("href"); });
+    ok(/^#\/quiz\/pig\//.test(ask || ""), `1: the story's end leads straight to its question (${ask})`);
+    await go(page, ask); for (let i = 0; i < 4 && await has(page, '[data-act="pick"]'); i++) { await page.click('[data-act="pick"] >> nth=0'); await page.waitForTimeout(150); await page.click('[data-act="qnext"]'); await page.waitForTimeout(200); }
+    ok(await has(page, '#view .taskcard [data-act="tdid"]'), "1: after the question comes the home task card");
+    await page.click('#view .taskcard [data-act="tdid"]'); await page.waitForTimeout(400);
+    const tid = Object.keys((await getS(page)).tasks || {});
+    ok(tid.length === 1 && await has(page, '#view a.btn[href="#/"]'), "1: the task is recorded with the existing task logic, then the next step is one touch away");
+    await go(page, "#/task/pig/" + encodeURIComponent(tid[0])); ok(await has(page, "#view .taskcard .status.ok"), "1: a task has its own page (#/task/...)");
+    await go(page, "#/task/nope/x"); ok(/missing|404|nf/i.test(await page.evaluate(() => document.body.dataset.route)), "1: an unknown stage in #/task is a missing page");
+    for (const [w, lang] of [[1280, "ar"], [1280, "en"], [320, "ar"]]) { await page.setViewportSize({ width: w, height: 820 }); await setS(page, `s.lang = '${lang}';`); await open(page, "", 700);
+      const d = await page.evaluate(() => { const t = document.getElementById("tabs").getBoundingClientRect(), hb = document.querySelector("#view .handbox").getBoundingClientRect(), c = document.querySelector("#view .nextstep").getBoundingClientRect();
+        return { tabsTop: t.top, tabsH: t.height, side: Math.abs(hb.top - c.top) < 260 && (c.right <= hb.left + 4 || c.left >= hb.right - 4), over: document.documentElement.scrollWidth > innerWidth + 1, path: !!document.querySelector("#view .h1-path .pst.cur") && getComputedStyle(document.querySelector("#view .h1-path")).display !== "none" }; });
+      if (w >= 900) ok(d.tabsTop < 10 && d.side && d.path && !d.over, `1: at ${w} (${lang}) two columns (hand beside the step and the path) and the tabs sit in the top bar (tabs top ${Math.round(d.tabsTop)})`);
+      else ok(!d.over && d.tabsTop > 700, `1: at ${w} (${lang}) one column, the tabs at the bottom, no overflow`); }
+    ok(!page.errs.length, "1: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+    await ctx.close(); });
   // 2. evening reckoning
   const at = async (page, h) => { if (page.clock && page.clock.setFixedTime) { const d = new Date(); d.setHours(h, 30, 0, 0); await page.clock.setFixedTime(d); return true; } return false; };
   await step("evening reckoning", async () => { const { ctx, page } = await fresh();
-    if (await at(page, 10)) { await open(page, "&reset=1"); ok(!(await has(page, ".evecard")), "2: no evening card in the morning"); }
-    if (await at(page, 18)) { await open(page, "&reset=1"); ok(await has(page, ".evecard"), "2: the evening card shows after five in the evening"); }
-    else { await open(page, "&reset=1"); notesOut.push("2: Playwright has no page.clock; the 17:00 window was not tested"); }
-    ok(await has(page, '.evelink[href="#/evening"]'), "2: a fixed link to the reckoning on the home page");
+    if (await at(page, 10)) { await openMe(page, "&reset=1"); ok(!(await has(page, ".evecard")) && await has(page, '.evelink[href="#/evening"]'), "2: in the morning, a fixed link to the reckoning on #/me and no evening card"); }
+    if (await at(page, 18)) { await openMe(page, "&reset=1"); ok(await has(page, '.evecard[href="#/evening"]') && (await page.locator('#view a[href="#/evening"]').count()) === 1, "2: after five in the evening the evening card shows, once (the duplicate link is gone)"); }
+    else { await openMe(page, "&reset=1"); notesOut.push("2: Playwright has no page.clock; the 17:00 window was not tested"); }
+    await go(page, "#/"); ok(!(await has(page, '#view a[href="#/evening"]')) && await has(page, '#view a.morelink[href="#/me"]'), "2: the home page holds one link to everything else, and no evening entry of its own");
     await go(page, "#/evening"); ok(/أين كنتَ اليوم أكثر الوقت/.test(await txt(page, "#view")), "2: step 1 asks where most of the day went");
     await page.click('#view [data-act="finger"][data-f="ring"]'); await page.waitForTimeout(250);
     ok(/سلوكيات الخنزير/.test(await txt(page, ".eve-pick")), "2: touching a finger shows its stage");
@@ -593,7 +627,7 @@ async function ideaFlows(browser, base, content, AV) {
     const e = await getS(page), dk = Object.keys(e.eve || {})[0], ev = dk && e.eve[dk];
     ok(ev && ev.f === "pig" && ev.g && ev.g.length <= 120 && !/[<>]/.test(ev.g), "2: the night is saved with its finger and a cleaned line of thanks");
     ok(!(await page.evaluate(() => !!window.__pwn || !!document.querySelector("#view img[src='x']"))), "2: the line of thanks never runs as markup");
-    await go(page, "#/"); ok(!(await has(page, ".evecard")), "2: the card disappears once done");
+    await go(page, "#/me"); ok(!(await has(page, ".evecard")) && await has(page, ".evelink"), "2: the card disappears once done (the fixed link stays)");
     ok((await page.evaluate(() => document.querySelector(".pres .m.ok") !== null)), "2: the night counts as presence for the day");
     await go(page, "#/record"); ok(/ليالي المحاسبة/.test(await txt(page, "#view")) && await has(page, ".eve-mix"), "2: the record shows the nights and the finger spread");
     await go(page, "#/evening");
@@ -1074,7 +1108,7 @@ async function ideaFlows(browser, base, content, AV) {
     await ctx.close();
   });
   await step("family pact", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
-    await page.evaluate(() => localStorage.removeItem("tazkiya-family")); await open(page);
+    await page.evaluate(() => localStorage.removeItem("tazkiya-family")); await openMe(page);
     ok(await has(page, '#view .pact [data-act="pactpick"]'), "4: the pact card invites a choice");
     await page.click('#view [data-act="pactpick"]'); await page.waitForTimeout(300);
     await page.click('#sheet [data-act="pactset"][data-v="monkey:1"]'); await page.waitForTimeout(350);
@@ -1103,7 +1137,7 @@ async function ideaFlows(browser, base, content, AV) {
     ok(/حمل الأكياس معي/.test(await txt(page, "#sheet")) && await has(page, "#tw-bless #tw-seen b"), "4: it stays in «ما رآه أهلي فيّ», a badge on the blessings that opens it");
     await open(page, "", 1200); ok(!(await has(page, "#sheet:not([hidden]) .saw-list")), "4: it is shown once");
     // end of the week: how was it, then a new pact; the old one is kept
-    await page.evaluate(() => { const f = JSON.parse(localStorage.getItem("tazkiya-family")); f.pact.to = "2020-01-03"; localStorage.setItem("tazkiya-family", JSON.stringify(f)); }); await open(page);
+    await page.evaluate(() => { const f = JSON.parse(localStorage.getItem("tazkiya-family")); f.pact.to = "2020-01-03"; localStorage.setItem("tazkiya-family", JSON.stringify(f)); }); await openMe(page);
     ok(/كيف كان أسبوعكم/.test(await txt(page, ".pact")), "4: on Friday or after, the card asks how the week was");
     await page.click('#view [data-act="pacthow"][data-h="good"]'); await page.waitForTimeout(350);
     ok(await has(page, '#sheet [data-act="pactset"]'), "4: then offers a new pact");
@@ -1295,18 +1329,18 @@ async function ideaFlows(browser, base, content, AV) {
     ok(!page.errs.length, "training: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
   await step("review: backups", async () => {
-    let { ctx, page } = await fresh(); await open(page, "&reset=1"); await setS(page, old); await open(page);
-    ok(await has(page, ".bkcard [data-act=\"bkexport\"]"), "review B1: after 14 days with progress and no backup, the home page offers one");
+    let { ctx, page } = await fresh(); await open(page, "&reset=1"); await setS(page, old); await openMe(page);
+    ok(await has(page, ".bkcard [data-act=\"bkexport\"]"), "review B1: after 14 days with progress and no backup, #/me offers one");
     await page.click('.bkcard [data-act="bklater"]'); await page.waitForTimeout(300); ok(!(await has(page, ".bkcard")), "review B1: «لاحقًا» hides it");
     await ctx.close();
     ({ ctx, page } = await freshUA(undefined, () => { window.__shared = []; Navigator.prototype.canShare = function (d) { return !!(d && d.files); }; Navigator.prototype.share = function (d) { window.__shared.push(d.files ? d.files.map(f => f.name).join() : "text"); return Promise.resolve(); }; }));
-    await open(page, "&reset=1"); await setS(page, old); await open(page);
+    await open(page, "&reset=1"); await setS(page, old); await openMe(page);
     await page.click('.bkcard [data-act="bkexport"]'); await page.waitForTimeout(500);
     const r = await page.evaluate(() => ({ sh: window.__shared, at: localStorage.getItem("tazkiya-backup-at") }));
     ok(r.sh.length === 1 && /^tazkiya-backup-\d{4}-\d\d-\d\d\.json$/.test(r.sh[0]) && +r.at > 0 && !(await has(page, ".bkcard")), "review B2: where files can be shared, the backup goes through the share sheet and is dated");
     await ctx.close();
     ({ ctx, page } = await freshUA(undefined, () => { Navigator.prototype.canShare = () => true; Navigator.prototype.share = () => Promise.reject(Object.assign(new Error("x"), { name: "AbortError" })); }));
-    await open(page, "&reset=1"); await setS(page, old); await open(page);
+    await open(page, "&reset=1"); await setS(page, old); await openMe(page);
     await page.click('.bkcard [data-act="bkexport"]'); await page.waitForTimeout(500);
     ok(!(await page.evaluate(() => localStorage.getItem("tazkiya-backup-at"))) && await has(page, ".bkcard"), "review B2: a closed share sheet records no backup");
     await ctx.close(); });
@@ -1325,7 +1359,7 @@ async function ideaFlows(browser, base, content, AV) {
     if (await has(page, ".film-skip")) { await page.click(".film-skip"); await page.waitForTimeout(600); } // the story of the hand first (22 Nov 2026), then the backup offer
     ok(await has(page, '#sheet .ios-move [data-act="bkimport"]') && await has(page, "#sheet #bkFile"), "review B4: the installed iPhone app's first screen offers to restore Safari's backup");
     await ctx.close();
-    ({ ctx, page } = await freshUA(IPHONE)); await open(page, "&reset=1"); await setS(page, "s.intro = true; s.read = { 'zombie-r1': Date.now() };"); await open(page);
+    ({ ctx, page } = await freshUA(IPHONE)); await open(page, "&reset=1"); await setS(page, "s.intro = true; s.read = { 'zombie-r1': Date.now() };"); await openMe(page);
     ok(await has(page, '.inst.itp [data-act="ioshow"]') && !(await has(page, ".bkcard")), "review B1: Safari on iPhone with progress: install so it is kept");
     await page.click("#setBtn"); await page.waitForTimeout(300);
     ok(await has(page, "#sheet .fxios"), "review C10: the settings say that iPhone's silent switch mutes the sounds");
