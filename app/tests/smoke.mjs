@@ -608,6 +608,51 @@ async function ideaFlows(browser, base, content, AV) {
       else ok(!d.over && d.tabsTop > 700, `1: at ${w} (${lang}) one column, the tabs at the bottom, no overflow`); }
     ok(!page.errs.length, "1: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
+  // direction 2 (owner's approval, 26 Nov 2026): the storybook. Each picture-book story (ages 4-8) opens as a book under its own
+  // picture; pages turn by swipe; its question is inside the book, then a stamp with the title and the date, then the home task
+  await step("storybook", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1", 700);
+    const { C: KC } = loadContent(), young = [];
+    Object.entries(KC.stages).forEach(([s, st]) => st.readings.forEach(r => { if (r.ages === "4-8") young.push([s, r.id]); }));
+    const files = fs.readdirSync(path.join(ROOT, "assets", "stories")).filter(f => f.endsWith(".webp"));
+    const big = files.filter(f => fs.statSync(path.join(ROOT, "assets", "stories", f)).size > 200 * 1024);
+    ok(young.length === 21 && files.length === young.length && young.every(([, id]) => files.includes(id + ".webp")) && !big.length, `2: each of the ${young.length} picture-book stories has its own picture, none over 200 KB (${files.length} files${big.length ? ", big: " + big.join(" ") : ""})`);
+    ok(!/assets\/stories\//.test(fs.readFileSync(path.join(ROOT, "sw.js"), "utf8")), "2: the story pictures are not in the service worker's install list (kept on first use)");
+    const miss = [];
+    for (const [s, id] of young) { await go(page, `#/read/${s}/${encodeURIComponent(id)}`, 250);
+      const g = await page.evaluate(() => { const i = document.querySelector("#view .sbook .bk-art img"); return i ? i.getAttribute("src") : ""; });
+      if (!g.startsWith(`assets/stories/${id}.webp`)) miss.push(id + "=" + g); }
+    ok(!miss.length, "2: every picture-book story opens as a book under its own picture" + (miss.length ? " (" + miss.slice(0, 3).join(", ") + ")" : ""));
+    await go(page, "#/read/pig/pig-r1", 900);
+    const im = await page.evaluate(() => { const i = document.querySelector("#view .bk-art img"); return i && i.complete && i.naturalWidth; });
+    ok(im >= 800, `2: the story's picture loads (${im} px wide)`);
+    const pg = () => page.evaluate(() => (document.querySelector("#view .bk-dots i.on") ? [...document.querySelectorAll("#view .bk-dots i")].indexOf(document.querySelector("#view .bk-dots i.on")) : -1));
+    const swipe = dx => page.evaluate(d => { const a = document.querySelector("#view .bk-art"), r = a.getBoundingClientRect(), y = r.top + 60, x = r.left + r.width / 2;
+      a.dispatchEvent(new PointerEvent("pointerdown", { bubbles: true, isPrimary: true, clientX: x - d / 2, clientY: y })); a.dispatchEvent(new PointerEvent("pointerup", { bubbles: true, isPrimary: true, clientX: x + d / 2, clientY: y })); }, dx);
+    await swipe(160); await page.waitForTimeout(200); const p1 = await pg(); await swipe(-160); await page.waitForTimeout(200); const p0 = await pg();
+    ok(p1 === 1 && p0 === 0, `2: a swipe turns the page (in Arabic toward the right goes forward: ${p1}, then back: ${p0})`);
+    for (let i = 0; i < 20 && !(await has(page, "#view .sbook.ask")); i++) { await page.click('#view [data-act="aloudnext"] >> nth=0'); await page.waitForTimeout(60); }
+    ok(await has(page, "#view .sbook.ask .bk-q") && (await page.locator("#view .sbook.ask .opt").count()) >= 2, "2: after the last page the story's question opens inside the book, under the picture");
+    let seal = false;
+    for (let k = 0; k < 12 && !seal; k++) {
+      if (await has(page, '#view [data-act="qagain"]')) { await page.click('#view [data-act="qagain"]'); await page.waitForTimeout(150); }
+      for (let i = 0; i < 4 && await has(page, '#view [data-act="pick"]:not([disabled])'); i++) { await page.click(`#view [data-act="pick"] >> nth=${k % 3}`); await page.waitForTimeout(120); await page.click('#view [data-act="qnext"]'); await page.waitForTimeout(150); }
+      seal = await has(page, "#view .bk-seal .stamp.on");
+    }
+    const se = await page.evaluate(() => { const s = document.querySelector("#view .bk-seal"); return s ? s.innerText : ""; });
+    ok(seal && se.includes(KC.stages.pig.readings.find(r => r.id === "pig-r1").title.ar) && /\d/.test(se), "2: a right answer brings a stamp with the story's title and the date (built on the existing stamps)");
+    ok(await has(page, '#view .sbook .taskcard [data-act="tdid"]'), "2: after the stamp, the home task of the loop");
+    await page.emulateMedia({ reducedMotion: "reduce" }); await go(page, "#/read/pig/pig-r1", 400);
+    ok(await page.evaluate(() => getComputedStyle(document.querySelector("#view .bk-art img")).animationName === "none"), "2: the picture stays still under prefers-reduced-motion");
+    await page.emulateMedia({ reducedMotion: null });
+    for (const [w, lang] of [[320, "ar"], [320, "en"], [375, "en"], [1280, "ar"], [1280, "en"]]) { await page.setViewportSize({ width: w, height: w > 900 ? 820 : 640 }); await setS(page, `s.lang = '${lang}';`); await page.goto(`${base}?intro=0&n=${++nOpen}#/read/human/human-r10`); await page.waitForTimeout(600);
+      const d = await page.evaluate(() => { const a = document.querySelector("#view .bk-art").getBoundingClientRect(), p = document.querySelector("#view .bk-page").getBoundingClientRect(), c = document.querySelector("#view .bk-ctrl").getBoundingClientRect(), t = document.getElementById("tabs").getBoundingClientRect();
+        return { side: Math.abs(a.top - p.top) < 4 && (a.right <= p.left + 2 || a.left >= p.right - 2), stack: a.bottom <= p.top + 2, ctrl: c.bottom <= (t.top > 200 ? t.top : innerHeight) + 1, over: document.documentElement.scrollWidth > innerWidth + 1, rtl: a.left > p.left }; });
+      ok(!d.over && d.ctrl && (w >= 900 ? d.side && d.rtl === (lang === "ar") : d.stack), `2: at ${w} (${lang}) ${w >= 900 ? "an open book, the picture on one page and the words on the other" : "the picture above the words"}, the page arrows in view, no overflow`); }
+    await page.setViewportSize({ width: 375, height: 812 }); await setS(page, "s.lang = 'ar';"); await page.goto(`${base}?intro=0&reset=1&ed=adult&n=${++nOpen}#/read/human/ah-r7`); await page.waitForTimeout(900);
+    const ad = await page.evaluate(() => { const i = document.querySelector("#view .rd-art img"); return { src: i ? i.getAttribute("src") : "", book: !!document.querySelector("#view .sbook"), body: !!document.querySelector("#view .article .body p") }; });
+    ok(/assets\/vignettes\/book-human/.test(ad.src) && !ad.book && ad.body, `2: the adult edition's reading keeps its full text under the finger's picture (${ad.src})`);
+    ok(!page.errs.length, "2: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+    await ctx.close(); });
   // 2. evening reckoning
   const at = async (page, h) => { if (page.clock && page.clock.setFixedTime) { const d = new Date(); d.setHours(h, 30, 0, 0); await page.clock.setFixedTime(d); return true; } return false; };
   await step("evening reckoning", async () => { const { ctx, page } = await fresh();

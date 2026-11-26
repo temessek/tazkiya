@@ -306,6 +306,9 @@
     pathDeg: ["الدرجة {d}", "Degree {d}"], pathAll: ["كل ما في هذه المرحلة", "Everything in this stage"],
     stDone: ["قطعتها", "done"], stNow: ["أنت هنا", "you are here"], stLater: ["لاحقًا", "later"],
     stTaskSub: ["مهمة في البيت", "Task at home"],
+    bkSealH: ["ختمٌ على {f}", "A stamp on your {f}"], bkAskT: ["سؤال من القصة", "A question from the story"],
+    bkListen: ["استمع إلى القصة", "Listen to the story"], bkListenQ: ["استمع إلى السؤال", "Listen to the question"], bkPause: ["أوقف", "Pause"],
+    bkRetry: ["ارجع إلى القصة، ثم جرّب مرة أخرى.", "Look back at the story, then try again."], bkFromStart: ["اقرأها من أولها", "Read it from the start"],
     toAsk: ["إلى السؤال", "To the question"], tkT: ["مهمتك في البيت", "Your task at home"],
     tkNote: ["افعلها في يومك، ثم ارجع إليها واضغط «فعلتها».", "Do it during your day, then come back and tap “I did it”."],
     tkLater: ["سأفعلها اليوم", "I'll do it today"], toNext: ["إلى خطوتك التالية", "To your next step"],
@@ -554,7 +557,7 @@
 
   /* ---------- helpers ---------- */
   const L = () => S.lang;
-  const UF = { "signLeadTeen": "انظري إلى إصبعك، واقرئي:", "agNote": "اختاري الفئة، فيتغير المحتوى لهذا الملف ويبقى سجلّه محفوظًا.", "chGate": "هذا الفصل يُفتح بعد أن تقرئي الفصل {n}. القصة تُقرأ من أولها بالترتيب.", "pgGate": "هذه الصفحة تُفتح بعد أن تقرئي الصفحة {n}. القصة تُقرأ من أولها بالترتيب.", "readWait": "تُسجَّل القراءة حين تصلين إلى آخرها وتقرئينها على مهل.", "recSub": "ما قرأتِه وما أجبتِ عنه وما أنجزتِه، بتاريخه، محفوظًا على هذا الجهاز.", "bkPersistNo": "محفوظة على هذا الجهاز، لكن المتصفح قد يحذفها إن امتلأت ذاكرته أو مُسحت بيانات المواقع. ثبّتي التطبيق، واحفظي نسخة احتياطية من حين لآخر.", "bkExport": "احفظي نسخة احتياطية", "bkImport": "استعيدي من نسخة", "bkYes": "نعم، استعيدي النسخة", "presOk": "✓ حضرتِ اليوم", "presNo": "لم تحضري بعد اليوم: علّمي تحدياتك، أو اقرئي قصة، أو أجيبي سؤالًا.", "presStart": "ابدئي تحديًا من مهام المراحل", "trWeekDone": "أتممتِ سبعة أيام، وفُتحت العادة الثابتة", "trActiveSub": "تحدي الأيام السبعة والعادات الثابتة. علّمي ما فعلتِه اليوم.", "trNone": "حين تنجزين «الخطوة الأولى» لسمة في مهام المراحل، يظهر تحديها هنا كل يوم.", "quizSub": "أسئلة من قصص هذه المرحلة وسماتها، تراجعين بها ما فهمتِ.", "signsSub": "علامات تظهر في اليوم. اضغطي «لاحظتها اليوم» على ما رأيتِه في نفسك.", "badgesSub": "يُطبع ختم كلما وصلتِ إلى شيء فعلتِه بنفسكِ، مثل أول مهمة، أو سبعة أيام على الطريق. وتحت كل ختم ما فعلتِه ومتى.", "helloSub": "تبدئين من الخنصر وتصعدين إلى الإبهام، وفي كل عُقلة سمة تتعرّفين عليها.", "tourEndSub": "ابدئي من الإصبع الذي تجدين نفسكِ عنده اليوم، واصعدي منه خطوة.", "abPlat1": "تزكية منصة عون شخصي في الأخلاق والقيم. تقرئين فيها قصة عن الصبر مثلًا، أو آية أو حديثًا فيه، ثم تجرّبينه في يومكِ بمهمة صغيرة، فيتحرك المزيج على يدكِ إصبعًا بعد إصبع.", "stageTasksSub": "مهام لكل إصبع، وكل مهمة تنجزينها ترفع المزيج.", "wkBook": "أنهت كتاب «{b}»", "storyQ": "إلى الخطوة والسؤال على يدكِ", "readFirst": "اقرئي", "tourTouch": "المسي {f}", "tourTry": "جرّبي: {f}", "tourLight": "وفوق الإبهام نور. المسيه", "tourSkip": "تخطَّي الجولة", "tourAgain": "أعيدي الجولة الأولى", "bookProgP": "قرأتِ {a} من {b} صفحات", "bookProg": "قرأتِ {a} من {b} فصول", "bookStart": "ابدئي القراءة", "bookCont": "تابعي القراءة", "bookAgain": "اقرئي من جديد", "climbDeg": "صعدتِ في {f}", "climbStep": "خطوة إلى أعلى، نحو {s}", "hint": "اضغطي على كل إصبع لتعرفي رمزيته وأين أنتِ منه", "yourShare": "نصيبكِ منها الآن", "startQuiz": "ابدئي الاختبار", "continue": "تابعي من هنا", "toQuiz": "اختبري فهمكِ", "sit": "ماذا تفعلين؟", "right": "أحسنتِ", "again": "أعيدي الاختبار", "already": "أجبتِ عنه من قبل، فلا يتغير المزيج.", "selfQ": "أي إصبع ظهر فيكِ أكثر اليوم؟", "selfSaved": "سُجّل تقييمكِ لليوم", "meSub": "سلوكياتكِ الآن. ترتقين بالفهم والعمل والتطبيق.", "toWork": "إلى العمل: أنجزي مهام هذه المرحلة", "learnStage": "افهمي وتعلّمي: كيف تزكّين نفسك في هذه المرحلة", "tQuiz": "اختبري فهمكِ", "pwaHow": "للتثبيت: افتحي قائمة المتصفح واختاري «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».", "confirmed": "أنجزتِها", "welcomeBack": "أهلًا بعودتكِ يا {n}", "scSub": "أجيبي بصدق، فهذا لكِ وحدكِ ولا يغيّر المزيج.", "pickFinger": "اختاري إصبعًا", "aloud": "اقرئيها بصوت عالٍ", "rightSub": "اضغطي على إصبع لتقرئي عن درجته.", "readVirtue": "اقرئي عنها", "sabiqShare": "نصيبكِ من السبق بالخيرات", "introT": "يدكِ سلّم", "intro3": "تصعدين بالقراءة والاختبار والمهام.", "ttsPlay": "استمعي", "instT": "ثبّتي تزكية على شاشتك", "ios1": "اضغطي زر المشاركة {i} في سفاري: أسفل الشاشة على آيفون، وأعلاها على آيباد.", "ios2": "مرّري القائمة واختاري «إضافة إلى الشاشة الرئيسية». إن لم تجديه فاضغطي «عرض المزيد».", "ios3": "اضغطي «إضافة»، ثم افتحي تزكية من أيقونتها.", "iosNote": "على آيفون للتطبيق المثبّت تخزين منفصل عن سفاري. إن كان لكِ تقدّم في سفاري فاحفظي نسخة احتياطية هنا، ثم استعيديها داخل التطبيق المثبّت.", "iosOther": "إن لم يظهر الخيار في متصفح آخر، فافتحي الرابط في سفاري.", "storeFull": "ذاكرة المتصفح ممتلئة، فلم يُحفظ آخر تغيير. احفظي نسخة احتياطية الآن، ثم أفرغي مساحة على الجهاز.", "linkFull": "على هذا الجهاز أربعة ملفات، وهي الحد. احذفي ملفًا من الإعدادات، ثم افتحي الرابط من جديد.", "helloA": "أهلًا بكِ", "welcomeBackA": "أهلًا بعودتكِ", "doorLearn": "افهمي وتعلّمي", "doorLearnSub": "كيف تزكّين نفسك في هذه المرحلة", "doorWorkSub": "أنجزي مهام هذه المرحلة", "startHere": "ابدئي هنا", "wReview": "راجعي نفسك اليوم", "tasksSub": "ابدئي بقائمة اليوم، ثم ادخلي مرحلة من بابيها.", "todayAll": "✓ أتممتِ قائمة اليوم. تابعي في المرحلة المقترحة لكِ.", "nxGoRead": "اقرئي القصة", "nxGoAsk": "أجيبي عن السؤال", "nxGoTask": "اعرفي مهمتكِ", "nxAllDone": "قطعتِ طرق يدكِ كلها", "pathH": "طريقكِ في {f}", "pathSub": "قصة، ثم سؤالها، ثم مهمة في البيت. ما قطعتِه عليه علامة، والمضيئة خطوتكِ الآن.", "stDone": "قطعتِها", "stNow": "أنتِ هنا", "tkT": "مهمتكِ في البيت", "tkNote": "افعليها في يومكِ، ثم ارجعي إليها واضغطي «فعلتها».", "nxT": "خطوتكِ التالية", "fWeek": "إصبعكِ هذا الأسبوع:", "toNext": "إلى خطوتكِ التالية" };
+  const UF = { "signLeadTeen": "انظري إلى إصبعك، واقرئي:", "agNote": "اختاري الفئة، فيتغير المحتوى لهذا الملف ويبقى سجلّه محفوظًا.", "chGate": "هذا الفصل يُفتح بعد أن تقرئي الفصل {n}. القصة تُقرأ من أولها بالترتيب.", "pgGate": "هذه الصفحة تُفتح بعد أن تقرئي الصفحة {n}. القصة تُقرأ من أولها بالترتيب.", "readWait": "تُسجَّل القراءة حين تصلين إلى آخرها وتقرئينها على مهل.", "recSub": "ما قرأتِه وما أجبتِ عنه وما أنجزتِه، بتاريخه، محفوظًا على هذا الجهاز.", "bkPersistNo": "محفوظة على هذا الجهاز، لكن المتصفح قد يحذفها إن امتلأت ذاكرته أو مُسحت بيانات المواقع. ثبّتي التطبيق، واحفظي نسخة احتياطية من حين لآخر.", "bkExport": "احفظي نسخة احتياطية", "bkImport": "استعيدي من نسخة", "bkYes": "نعم، استعيدي النسخة", "presOk": "✓ حضرتِ اليوم", "presNo": "لم تحضري بعد اليوم: علّمي تحدياتك، أو اقرئي قصة، أو أجيبي سؤالًا.", "presStart": "ابدئي تحديًا من مهام المراحل", "trWeekDone": "أتممتِ سبعة أيام، وفُتحت العادة الثابتة", "trActiveSub": "تحدي الأيام السبعة والعادات الثابتة. علّمي ما فعلتِه اليوم.", "trNone": "حين تنجزين «الخطوة الأولى» لسمة في مهام المراحل، يظهر تحديها هنا كل يوم.", "quizSub": "أسئلة من قصص هذه المرحلة وسماتها، تراجعين بها ما فهمتِ.", "signsSub": "علامات تظهر في اليوم. اضغطي «لاحظتها اليوم» على ما رأيتِه في نفسك.", "badgesSub": "يُطبع ختم كلما وصلتِ إلى شيء فعلتِه بنفسكِ، مثل أول مهمة، أو سبعة أيام على الطريق. وتحت كل ختم ما فعلتِه ومتى.", "helloSub": "تبدئين من الخنصر وتصعدين إلى الإبهام، وفي كل عُقلة سمة تتعرّفين عليها.", "tourEndSub": "ابدئي من الإصبع الذي تجدين نفسكِ عنده اليوم، واصعدي منه خطوة.", "abPlat1": "تزكية منصة عون شخصي في الأخلاق والقيم. تقرئين فيها قصة عن الصبر مثلًا، أو آية أو حديثًا فيه، ثم تجرّبينه في يومكِ بمهمة صغيرة، فيتحرك المزيج على يدكِ إصبعًا بعد إصبع.", "stageTasksSub": "مهام لكل إصبع، وكل مهمة تنجزينها ترفع المزيج.", "wkBook": "أنهت كتاب «{b}»", "storyQ": "إلى الخطوة والسؤال على يدكِ", "readFirst": "اقرئي", "tourTouch": "المسي {f}", "tourTry": "جرّبي: {f}", "tourLight": "وفوق الإبهام نور. المسيه", "tourSkip": "تخطَّي الجولة", "tourAgain": "أعيدي الجولة الأولى", "bookProgP": "قرأتِ {a} من {b} صفحات", "bookProg": "قرأتِ {a} من {b} فصول", "bookStart": "ابدئي القراءة", "bookCont": "تابعي القراءة", "bookAgain": "اقرئي من جديد", "climbDeg": "صعدتِ في {f}", "climbStep": "خطوة إلى أعلى، نحو {s}", "hint": "اضغطي على كل إصبع لتعرفي رمزيته وأين أنتِ منه", "yourShare": "نصيبكِ منها الآن", "startQuiz": "ابدئي الاختبار", "continue": "تابعي من هنا", "toQuiz": "اختبري فهمكِ", "sit": "ماذا تفعلين؟", "right": "أحسنتِ", "again": "أعيدي الاختبار", "already": "أجبتِ عنه من قبل، فلا يتغير المزيج.", "selfQ": "أي إصبع ظهر فيكِ أكثر اليوم؟", "selfSaved": "سُجّل تقييمكِ لليوم", "meSub": "سلوكياتكِ الآن. ترتقين بالفهم والعمل والتطبيق.", "toWork": "إلى العمل: أنجزي مهام هذه المرحلة", "learnStage": "افهمي وتعلّمي: كيف تزكّين نفسك في هذه المرحلة", "tQuiz": "اختبري فهمكِ", "pwaHow": "للتثبيت: افتحي قائمة المتصفح واختاري «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».", "confirmed": "أنجزتِها", "welcomeBack": "أهلًا بعودتكِ يا {n}", "scSub": "أجيبي بصدق، فهذا لكِ وحدكِ ولا يغيّر المزيج.", "pickFinger": "اختاري إصبعًا", "aloud": "اقرئيها بصوت عالٍ", "rightSub": "اضغطي على إصبع لتقرئي عن درجته.", "readVirtue": "اقرئي عنها", "sabiqShare": "نصيبكِ من السبق بالخيرات", "introT": "يدكِ سلّم", "intro3": "تصعدين بالقراءة والاختبار والمهام.", "ttsPlay": "استمعي", "instT": "ثبّتي تزكية على شاشتك", "ios1": "اضغطي زر المشاركة {i} في سفاري: أسفل الشاشة على آيفون، وأعلاها على آيباد.", "ios2": "مرّري القائمة واختاري «إضافة إلى الشاشة الرئيسية». إن لم تجديه فاضغطي «عرض المزيد».", "ios3": "اضغطي «إضافة»، ثم افتحي تزكية من أيقونتها.", "iosNote": "على آيفون للتطبيق المثبّت تخزين منفصل عن سفاري. إن كان لكِ تقدّم في سفاري فاحفظي نسخة احتياطية هنا، ثم استعيديها داخل التطبيق المثبّت.", "iosOther": "إن لم يظهر الخيار في متصفح آخر، فافتحي الرابط في سفاري.", "storeFull": "ذاكرة المتصفح ممتلئة، فلم يُحفظ آخر تغيير. احفظي نسخة احتياطية الآن، ثم أفرغي مساحة على الجهاز.", "linkFull": "على هذا الجهاز أربعة ملفات، وهي الحد. احذفي ملفًا من الإعدادات، ثم افتحي الرابط من جديد.", "helloA": "أهلًا بكِ", "welcomeBackA": "أهلًا بعودتكِ", "doorLearn": "افهمي وتعلّمي", "doorLearnSub": "كيف تزكّين نفسك في هذه المرحلة", "doorWorkSub": "أنجزي مهام هذه المرحلة", "startHere": "ابدئي هنا", "wReview": "راجعي نفسك اليوم", "tasksSub": "ابدئي بقائمة اليوم، ثم ادخلي مرحلة من بابيها.", "todayAll": "✓ أتممتِ قائمة اليوم. تابعي في المرحلة المقترحة لكِ.", "nxGoRead": "اقرئي القصة", "nxGoAsk": "أجيبي عن السؤال", "nxGoTask": "اعرفي مهمتكِ", "nxAllDone": "قطعتِ طرق يدكِ كلها", "pathH": "طريقكِ في {f}", "pathSub": "قصة، ثم سؤالها، ثم مهمة في البيت. ما قطعتِه عليه علامة، والمضيئة خطوتكِ الآن.", "stDone": "قطعتِها", "stNow": "أنتِ هنا", "tkT": "مهمتكِ في البيت", "tkNote": "افعليها في يومكِ، ثم ارجعي إليها واضغطي «فعلتها».", "nxT": "خطوتكِ التالية", "fWeek": "إصبعكِ هذا الأسبوع:", "toNext": "إلى خطوتكِ التالية", "bkListen": "استمعي إلى القصة", "bkListenQ": "استمعي إلى السؤال", "bkPause": "أوقفي", "bkRetry": "ارجعي إلى القصة، ثم جرّبي مرة أخرى.", "bkFromStart": "اقرئيها من أولها" };
   const GEN = () => (S.parent && route().name === "review" ? (S.parentG === "f" ? "f" : "") : S.gender);
   // adult edition: the same interface in an adult register (UA), with feminine Arabic where it differs (UAF)
   const UA = {
@@ -959,7 +962,7 @@
     d.innerHTML = `<div class="mini"><img src="${src}" alt=""><svg viewBox="0 0 1448 1086" aria-hidden="true">
       <circle class="bloom" cx="${g.chip[0]}" cy="${g.chip[1]}" r="120" fill="${G[b].color}"/>
       <circle class="bloom b2" cx="${g.chip[0]}" cy="${g.chip[1]}" r="120" fill="none" stroke="#24364b" stroke-width="10"/></svg></div>
-      <p>${esc(line)}${route().name === "quiz" || kidsBook ? "" : `<span>${esc(moveText(up))}</span>`}</p>`;
+      <p>${esc(line)}${route().name === "quiz" || route().name === "read" || kidsBook ? "" : `<span>${esc(moveText(up))}</span>`}</p>`;
     document.body.appendChild(d);
     let reduce = false; try { reduce = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
     const bye = () => { d.classList.add("out"); setTimeout(() => d.remove(), 450); document.removeEventListener("pointerdown", bye, true); };
@@ -2373,6 +2376,14 @@
     st.tasks.slice(rs.length).forEach(tk => out.push({ kind: "task", tk, deg: nd - 1, done: S.tasks[tk.id] === "ok" }));
     return out;
   }
+  // the home task that follows a story in the loop: its stop on the path, or, for a story outside the profile's age band,
+  // the same rule applied to the story's own band (the i-th task after the i-th story)
+  function loopTask(id, r) {
+    const st = C.stages[id]; if (!st || !r) return null;
+    const s = stations(id).find(x => x.kind === "task" && x.r && x.r.id === r.id); if (s) return s.tk;
+    const rs = st.readings.filter(x => x.ages === r.ages), i = rs.indexOf(r);
+    return i >= 0 && st.tasks[i] || null;
+  }
   const stHref = (id, s) => s.kind === "read" ? `#/read/${id}/${encodeURIComponent(s.r.id)}` : s.kind === "ask" ? `#/quiz/${id}/${encodeURIComponent(s.r.id)}` : `#/task/${id}/${encodeURIComponent(s.tk.id)}`;
   // the finger the child last worked on (a story read, a question answered, a task or a challenge day), while its path is open;
   // otherwise the first finger from the little finger up whose path is not yet walked
@@ -2395,7 +2406,7 @@
     const title = s.kind === "task" ? u("nxHomeTask") : t(r.title);
     const meta = s.kind === "read" ? u("lpRead") + (r.minutes ? ` · ${r.minutes} ${u("minutes")}` : "") : s.kind === "ask" ? u("nxAskOn") : t(s.tk);
     const lp = (i, k) => `<span class="${li > i || (i === 1 && !hasAsk && li > 0) ? "done" : li === i ? "on" : ""}">${PIC[["read", "ask", "task"][i]]}${esc(u(k))}</span>`;
-    const art = ART.book["book-" + id];
+    const art = storyArt(id, r);
     return `<article class="card nextstep" style="--c:${G[id].color}">${art ? `<img class="nx-art" src="${art}" alt="" loading="lazy" decoding="async">` : ""}
       <div class="nx-tx"><div class="nx-k">${esc(u("nxT"))}</div><h2 class="h">${esc(title)}</h2><p class="nx-m">${esc(meta)}</p></div>
       <div class="nx-loop" aria-hidden="true">${lp(0, "lpRead")}${lp(1, "lpAsk")}${lp(2, "lpTask")}</div>
@@ -2647,6 +2658,7 @@
   }
   function askQ(id, r) { const q = C.stages[id].quiz.find(x => x.readingId === r.id); return q ? q.q : null; }
   let aloudOn = false, aloudIx = 0, speaking = false, aloudAuto = null;
+  let bkPlay = false, bkSeq = 0, bkTimer = null; // the storybook's read-aloud (bookSpeak)
   const hasTTS = () => { try { return "speechSynthesis" in window && typeof SpeechSynthesisUtterance === "function"; } catch (e) { return false; } };
   function ttsVoice() {
     if (!hasTTS()) return null;
@@ -2657,7 +2669,7 @@
     if (!ttsVoice()) return "";
     return `<button data-act="tts" class="${speaking ? "on" : ""}" aria-pressed="${speaking}" aria-label="${esc(u(speaking ? "ttsStop" : "ttsPlay"))}" title="${esc(u(speaking ? "ttsStop" : "ttsPlay"))}">${speaking ? "■" : "🔊"}</button>`;
   }
-  function ttsStop() { try { if (hasTTS()) speechSynthesis.cancel(); } catch (e) {} speaking = false; }
+  function ttsStop() { bookStop(); try { if (hasTTS()) speechSynthesis.cancel(); } catch (e) {} speaking = false; }
   function ttsToggle() {
     if (speaking) { ttsStop(); render(true); return; }
     const v = ttsVoice(); if (!v) return;
@@ -2830,20 +2842,11 @@
     const q = r.quote, hasQ = C.stages[id].quiz.some(x => x.readingId === r.id);
     const young = r.ages === "4-8" || r.picture === true;
     if (young && aloudAuto !== r.id) { aloudAuto = r.id; aloudOn = true; aloudIx = 0; }
-    if (young && aloudOn && body.length) {
-      aloudIx = Math.max(0, Math.min(aloudIx, body.length - 1)); if (aloudIx === body.length - 1) rs.end = true;
-      return `<div class="wrap article aloud${aloudIx === body.length - 1 ? " last" : ""}" style="--fs:${Math.max(S.fs, 24)}px">
-        <div class="reader-bar"><a class="back" href="#/stage/${id}">${BK()} ${esc(nm(id))}</a><span class="fsz">${ttsBtn()}<button class="small-btn" data-act="aloud" style="width:auto;border-radius:99px;padding:6px 12px">${esc(u("aloudExit"))}</button></span></div>
-        <h1 class="h">${esc(t(r.title))}</h1>${r.origin ? `<p class="origin">${esc(t(r.origin))}</p>` : ""}
-        <div class="aloud-page"><p>${esc(body[aloudIx])}</p></div>
-        ${pager(body.length, hasQ && !ADU() ? `#/quiz/${id}/${encodeURIComponent(r.id)}` : null)}
-        ${aloudIx === body.length - 1 ? readStat(rs) : ""}
-        ${aloudIx === body.length - 1 && (r.ask || askQ(id, r)) ? `<div class="card ask"><b>${esc(u("askChild"))}</b><p>${esc(t(r.ask || askQ(id, r)))}</p></div>` : ""}
-        ${aloudIx === body.length - 1 && hasQ && ADU() ? `<a class="btn block" style="margin-top:18px" href="#/quiz/${id}/${encodeURIComponent(r.id)}">${esc(u("toQuiz"))}</a>` : ""}</div>`;
-    }
+    if (young && aloudOn && body.length) return vStoryBook(id, r, body, rs, hasQ);
     return `<div class="wrap article${r.summit === true ? " summit-read" : ""}" style="--fs:${S.fs}px">
       <div class="reader-bar"><a class="back" href="#/stage/${id}">${BK()} ${esc(nm(id))}</a>
         <div class="fsz" role="group" aria-label="${esc(u("textSize"))}">${ttsBtn()}<button data-act="fs" data-d="-2" aria-label="A−">A−</button><button data-act="fs" data-d="2" aria-label="A+">A+</button></div></div>
+      ${(() => { const src = storyArt(id, r); return src ? `<figure class="rd-art" aria-hidden="true"><img src="${src}" alt="" decoding="async"></figure>` : ""; })()}
       <h1 class="h">${esc(t(r.title))}</h1>${r.origin ? `<p class="origin">${esc(t(r.origin))}</p>` : ""}
       <div class="meta"><span>${r.minutes ? r.minutes + " " + esc(u("minutes")) : ""}</span>${ADU() ? "" : `<span>${esc(u("ages"))}: ${agesHtml(r.ages)}</span>`}${young ? `<button class="small-btn" data-act="aloud">${esc(u("aloud"))}</button>` : ""}</div>
       <div class="body">${body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
@@ -2855,11 +2858,136 @@
       ${(() => { const rs = C.stages[id].readings, k = rs.indexOf(r), n = rs[k + 1]; return n ? `<a class="card next" href="#/read/${id}/${encodeURIComponent(n.id)}"><span class="tx"><span class="m">${esc(u("nextReading"))}</span><b>${esc(t(n.title))}</b></span><span class="arrow">→</span></a>` : ""; })()}
     </div>`;
   }
+  /* ---------- the storybook (direction 2): a picture-book story as a book ----------
+     A sentence a page under a large picture that pans slowly; the word being spoken lights up; pages turn with a swipe,
+     the arrows or the keyboard. For the children's edition the story's questions follow inside the book (page n, the same
+     quiz state and scoring as #/quiz), then a stamp with the story's title and the date, then the home task of the loop. */
+  const PAN = [["30%", "40%"], ["70%", "55%"], ["50%", "30%"], ["40%", "70%"], ["60%", "45%"]];
+  let bkDir = 0;
+  const wordsHtml = s => String(s).split(/(\s+)/).map(w => /^\s*$/.test(w) ? w : `<span class="w">${esc(w)}</span>`).join("");
+  function quizState(id, rid) {
+    const key = id + "/" + (rid || "");
+    if (!QZ || QZ.key !== key) QZ = { key, list: teenQuiz(id, C.stages[id].quiz.filter(q => !rid || q.readingId === rid), rid).map(shuffleQ), i: 0, picked: null, right: 0, moves: null, again: false };
+    return QZ;
+  }
+  function bookEnd(id, r) {
+    const Q = QZ, lt = loopTask(id, r);
+    const okQ = C.stages[id].quiz.filter(q => q.readingId === r.id && S.answered[q.id] === true).map(q => (S.ansT || {})[q.id]).filter(Boolean);
+    const when = okQ.length ? Math.min(...okQ) : Date.now();
+    const won = Q.right > 0 || okQ.length > 0;
+    const f = fing(id), fl = L() === "en" ? f.toLowerCase() : f;
+    return `${won ? `<div class="bk-seal" role="status"><h2 class="h">${esc(fmt(u("bkSealH"), { f: fl }))}</h2>
+        <ul class="stamps bk-stamp">${stamp({ id: "story", g: "book", c: G[id].color, ok: true, n: [t(r.title), t(r.title)] }, 0, `<span class="bw">${esc(fmtShort(when))}</span>`)}</ul></div>`
+      : `<p class="bk-retry">${esc(u("bkRetry"))}</p><div class="row"><button class="btn" data-act="qagain">${esc(u("again"))}</button></div>`}
+      ${lt ? taskCard(id, lt) : ""}
+      ${lt && S.tasks[lt.id] === "ok" ? `<a class="btn block" style="margin-top:16px" href="#/">${esc(u("toNext"))}</a>` : ""}
+      <div class="row bk-again"><button class="btn ghost" data-act="bkstart">${esc(u("bkFromStart"))}</button></div>`;
+  }
+  function vStoryBook(id, r, body, rs, hasQ) {
+    const n = body.length, inBook = hasQ && !ADU(), maxIx = inBook ? n : n - 1;
+    aloudIx = Math.max(0, Math.min(aloudIx, maxIx)); if (aloudIx >= n - 1) rs.end = true;
+    const ask = aloudIx === n, last = aloudIx === n - 1, o = PAN[aloudIx % PAN.length], src = storyArt(id, r);
+    const voice = !!ttsVoice(), nxA = L() === "ar" ? "←" : "→", pvA = L() === "ar" ? "→" : "←";
+    const dots = `<div class="bk-dots" aria-hidden="true">${Array.from({ length: maxIx + 1 }, (_, j) => `<i class="${j === aloudIx ? "on" : j === n ? "q" : ""}"></i>`).join("")}</div>`;
+    let page;
+    if (!ask) {
+      page = `<div class="bk-ttl"><h1 class="h">${esc(t(r.title))}</h1>${voice ? `<span dir="ltr">${aloudIx + 1} / ${n}</span>` : ""}</div>
+        ${r.origin && !aloudIx ? `<p class="origin">${esc(t(r.origin))}</p>` : ""}
+        <div class="aloud-page bk-txt"><p class="bk-say">${wordsHtml(body[aloudIx])}</p></div>${dots}
+        ${last ? readStat(rs) : ""}
+        ${last && r.ask ? `<div class="card ask"><b>${esc(u("askChild"))}</b><p>${esc(t(r.ask))}</p></div>` : ""}
+        ${last && !inBook && !r.ask && askQ(id, r) ? `<div class="card ask"><b>${esc(u("askChild"))}</b><p>${esc(t(askQ(id, r)))}</p></div>` : ""}
+        ${last && hasQ && ADU() ? `<a class="btn block" style="margin-top:18px" href="#/quiz/${id}/${encodeURIComponent(r.id)}">${esc(u("toQuiz"))}</a>` : ""}`;
+    } else {
+      const Q = quizState(id, r.id);
+      if (Q.i >= Q.list.length) page = bookEnd(id, r);
+      else {
+        const q = Q.list[Q.i], ans = Q.picked != null, ok = ans && Q.picked === q.correct;
+        page = `<div class="bk-ttl"><span class="bk-k">${esc(u("bkAskT"))}</span><span dir="ltr">${Q.i + 1} / ${Q.list.length}</span></div>
+          <p class="qtext bk-q bk-say">${wordsHtml(t(q.q))}</p>
+          <div class="opts">${q.options.map((op, i) => { let c = ""; if (ans) c = i === q.correct ? "right" : i === Q.picked ? "wrong" : "dim";
+            return `<button class="opt ${c}" data-act="pick" data-i="${i}" ${ans ? "disabled" : ""}><span class="l">${(L() === "ar" ? "أبجده" : "ABCDE")[i]}</span><span class="bk-say">${wordsHtml(t(op))}</span></button>`; }).join("")}</div>
+          ${ans ? `<div class="fb ${ok ? "ok" : "no"}" role="status"><b>${esc(u(ok ? "right" : "wrong"))}</b><p>${esc(t(q.why))}</p></div>
+            <button class="btn block" style="margin-top:14px" data-act="qnext">${esc(u(Q.i + 1 < Q.list.length ? "next" : "finish"))}</button>` : ""}${dots}`;
+      }
+    }
+    const turn = bkDir ? ` turn-in" style="--dirx:${bkDir * (L() === "ar" ? -1 : 1)}` : ""; bkDir = 0;
+    const done = ask && QZ && QZ.i >= QZ.list.length;
+    const ctrl = done ? "" : `<div class="bk-ctrl"><button class="bk-round" data-act="aloudprev" ${aloudIx ? "" : "disabled"} aria-label="${esc(u("prev2"))}"><span aria-hidden="true">${pvA}</span></button>
+        ${voice ? `<button class="bk-listen${speaking ? " on" : ""}" data-act="bksay" aria-pressed="${speaking}">${bkListenFace(ask)}</button>` : `<span class="bk-pg" dir="ltr">${ask ? "" : aloudIx + 1 + " / " + n}</span>`}
+        ${ask ? `<span class="bk-round bk-sp" aria-hidden="true"></span>` : `<button class="bk-round${last && inBook ? " go" : ""}" data-act="aloudnext" ${last && !inBook ? "disabled" : ""} aria-label="${esc(u(last && inBook ? "toAsk" : "next2"))}"><span aria-hidden="true">${nxA}</span></button>`}</div>
+      ${last && inBook ? `<button class="btn block bk-toask" data-act="aloudnext">${esc(u("toAsk"))} ${nxA}</button>` : ""}`;
+    return `<div class="wrap article aloud sbook${last ? " last" : ""}${ask ? " ask" : ""}" style="--fs:${Math.max(S.fs, 24)}px;--c:${G[id].color}">
+      <div class="reader-bar"><a class="back" href="#/stage/${id}">${BK()} ${esc(nm(id))}</a><span class="fsz"><button class="small-btn" data-act="aloud" style="width:auto;border-radius:99px;padding:6px 12px">${esc(u("aloudExit"))}</button></span></div>
+      <div class="bk" id="bk">
+        <figure class="bk-art">${src ? `<img src="${src}" alt="" decoding="async" style="--ox:${o[0]};--oy:${o[1]}">` : ""}<figcaption class="bk-f"><i></i>${esc(fing(id))} · ${esc(nm(id))}</figcaption></figure>
+        <div class="bk-page${turn}">${page}</div>
+      </div>
+      ${ctrl}</div>`;
+  }
+  // the long label, and a short one for narrow screens (CSS shows one of them)
+  const bkListenFace = ask => speaking ? `<span aria-hidden="true">❚❚</span> ${esc(u("bkPause"))}`
+    : `<span aria-hidden="true">▶</span> <span class="lg">${esc(u(ask ? "bkListenQ" : "bkListen"))}</span><span class="sh">${esc(u("ttsPlay"))}</span>`;
+  function bookTurn(d) {
+    const r = route(); if (r.name !== "read" || !view.querySelector(".sbook")) return;
+    const st = C.stages[r.id], rd = findReading(r.id, r.rid); if (!rd) return;
+    const n = (t(rd.body) || []).length, maxIx = st.quiz.some(x => x.readingId === rd.id) && !ADU() ? n : n - 1;
+    const to = aloudIx + d; if (to < 0 || to > maxIx) return;
+    const keep = bkPlay && to < n; ttsStop(); aloudIx = to; bkDir = d; FX("tick"); render(true);
+    if (keep) bookSpeak(true);
+  }
+  /* read aloud inside the book: each spoken word lights up (the voice's word boundaries; where a voice sends none, a timed
+     estimate), and while "listen" is on the book turns its own pages to the end of the story */
+  function bookSpeak(play) {
+    const v = ttsVoice(); if (!v) return;
+    const els = [...view.querySelectorAll(".sbook .bk-say")]; if (!els.length) return;
+    try { speechSynthesis.cancel(); } catch (e) {}
+    clearInterval(bkTimer); const seq = ++bkSeq; speaking = true; bkPlay = !!play && !view.querySelector(".sbook.ask");
+    const face = () => { const b = view.querySelector(".bk-listen"); if (b) { b.classList.toggle("on", speaking); b.setAttribute("aria-pressed", String(speaking)); b.innerHTML = bkListenFace(!!view.querySelector(".sbook.ask")); } };
+    face(); let k = 0;
+    const finish = () => {
+      if (seq !== bkSeq) return; speaking = false; face();
+      const r = route(), rd = r.name === "read" && findReading(r.id, r.rid), n = rd ? (t(rd.body) || []).length : 0;
+      if (bkPlay && aloudIx < n - 1) setTimeout(() => { if (seq === bkSeq && bkPlay && route().name === "read") { aloudIx++; bkDir = 1; render(true); bookSpeak(true); } }, 650);
+      else bkPlay = false;
+    };
+    const one = () => {
+      if (seq !== bkSeq) return;
+      if (k >= els.length) { finish(); return; }
+      const el = els[k++], ws = [...el.querySelectorAll(".w")], text = el.textContent;
+      const at = []; let pos = 0; ws.forEach(w => { const i = text.indexOf(w.textContent, pos); at.push(i); pos = i + w.textContent.length; });
+      const mark = i => ws.forEach((w, j) => w.classList.toggle("hl", j === i));
+      let got = false, wi = 0;
+      try {
+        const ut = new SpeechSynthesisUtterance(text);
+        ut.voice = v; ut.lang = v.lang || (L() === "ar" ? "ar-SA" : "en-US"); ut.rate = L() === "ar" ? .85 : .9;
+        ut.onboundary = e => { if (seq !== bkSeq || (e.name && e.name !== "word")) return; got = true; clearInterval(bkTimer); let j = 0; while (j + 1 < at.length && at[j + 1] <= e.charIndex) j++; mark(j); };
+        ut.onend = () => { if (seq !== bkSeq) return; clearInterval(bkTimer); mark(-1); setTimeout(one, 250); };
+        ut.onerror = () => { if (seq !== bkSeq) return; clearInterval(bkTimer); mark(-1); bkPlay = false; finish(); };
+        speechSynthesis.speak(ut);
+      } catch (e) { bkPlay = false; finish(); return; }
+      clearInterval(bkTimer);
+      bkTimer = setInterval(() => { if (seq !== bkSeq || got) { clearInterval(bkTimer); return; } if (wi < ws.length) mark(wi++); }, L() === "ar" ? 520 : 430);
+    };
+    one();
+  }
+  function bookStop() { bkSeq++; bkPlay = false; clearInterval(bkTimer); }
   /* ---------- library: one bound book per finger, read chapter by chapter ---------- */
   const VG = "assets/vignettes/";
   const ART = { sym: {}, book: {} };
   ["zombie", "pig", "monkey", "human", "sabiq"].forEach(k => { ART.sym[k] = VG + "sym-" + k + ".webp?v=" + (k === "pig" ? 6 : 5); ART.book["book-" + k] = VG + "book-" + k + ".webp?v=5"; ART.book["book-" + k + "-2"] = VG + "book-" + k + "-2.webp?v=5"; });
   ["monkey", "human"].forEach(k => { ART.book["book-" + k + "-adult"] = VG + "book-" + k + "-adult.webp?v=1"; });
+  /* direction 2 (the storybook): each picture-book story (ages 4-8) has its own gouache picture in assets/stories/<readingId>.webp.
+     They are not in the service worker's install list; the worker keeps each one the first time it is shown. Other readings
+     show their finger's picture (the adult edition its own variant where there is one), alternating between the two of each finger. */
+  const STORY_ART = new Set(["zombie-r1", "zombie-r6", "zombie-r10", "zombie-r13", "pig-r1", "pig-r3", "pig-r6", "pig-r10", "pig-r13",
+    "monkey-r1", "monkey-r6", "monkey-r10", "monkey-r13", "human-r1", "human-r6", "human-r10", "human-r13", "sabiq-r1", "sabiq-r6", "sabiq-r10", "sabiq-r13"]);
+  function storyArt(id, r) {
+    if (r && STORY_ART.has(String(r.id))) return "assets/stories/" + r.id + ".webp?v=1";
+    if (ADU() && ART.book["book-" + id + "-adult"]) return ART.book["book-" + id + "-adult"];
+    const rs = C.stages[id] ? C.stages[id].readings : [], k = r ? rs.indexOf(r) : 0;
+    return (k % 2 && ART.book["book-" + id + "-2"]) || ART.book["book-" + id] || ART.sym[id] || "";
+  }
   const symImg = (id, cls) => ART.sym[id] ? `<img class="${cls}" src="${ART.sym[id]}" alt="" aria-hidden="true" decoding="async" loading="lazy">` : "";
   const bookOf = id => C.books.find(b => b.id === id);
   const chKey = (b, n) => b.id + "#" + n;
@@ -2992,16 +3120,15 @@
   }
   function vQuiz(id, rid) {
     const st = C.stages[id]; if (!st) return vMissing();
-    const key = id + "/" + (rid || "");
-    if (!QZ || QZ.key !== key) QZ = { key, list: teenQuiz(id, st.quiz.filter(q => !rid || q.readingId === rid), rid).map(shuffleQ), i: 0, picked: null, right: 0, moves: null, again: false };
+    quizState(id, rid);
     const list = QZ.list;
     if (!list.length) return `<div class="wrap"><a class="back" href="#/stage/${id}">${BK()} ${esc(nm(id))}</a><p>${esc(u("noQuiz"))}</p></div>`;
     if (QZ.i >= list.length) {
-      const lt = rid && !ADU() ? stations(id).find(x => x.kind === "task" && x.r && String(x.r.id) === rid) : null;
+      const lt = rid && !ADU() ? loopTask(id, findReading(id, rid)) : null;
       if (lt) return `<div class="wrap loopend"><a class="back" href="#/stage/${id}">${BK()} ${esc(nm(id))}</a>
         <p class="lp-res"><b>${esc(u("result"))}</b> <bdi dir="ltr">${QZ.right} / ${list.length}</bdi></p>
-        ${taskCard(id, lt.tk)}
-        ${S.tasks[lt.tk.id] === "ok" ? `<a class="btn block" style="margin-top:16px" href="#/">${esc(u("toNext"))}</a>` : ""}
+        ${taskCard(id, lt)}
+        ${S.tasks[lt.id] === "ok" ? `<a class="btn block" style="margin-top:16px" href="#/">${esc(u("toNext"))}</a>` : ""}
         <div class="row" style="margin-top:10px"><button class="btn ghost" data-act="qagain">${esc(u("again"))}</button></div></div>`;
       return `<div class="wrap"><a class="back" href="#/stage/${id}">${BK()} ${esc(nm(id))}</a>
         <h1 class="h" style="font-size:30px;margin:10px 0 4px">${esc(u("result"))}</h1>
@@ -3238,13 +3365,13 @@
       <div><b>${esc(RANKS[i][1][L() === "ar" ? 0 : 1])}</b>
       <span class="m">${esc(fmt(U.rankSub, { p: up }))}${nx ? " · " + esc(fmt(U.rankNext, { r: nx[1][L() === "ar" ? 0 : 1], p: nx[0] })) : ""}</span></div></div>`;
   }
-  function stamp(b, i) {
+  function stamp(b, i, what) {
     const rot = [-7, 4, -3, 6, -5, 3, -6, 5, -2][i % 9];
     return `<li class="stamp ${b.ok ? "on" : ""}" style="--c:${b.c};--r:${rot}deg">
       <svg viewBox="0 0 100 100" aria-hidden="true"><defs><filter id="ink${b.id}"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="1" seed="${i + 2}" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4"/></filter></defs>
         <g filter="url(#ink${b.id})"><circle class="wash" cx="50" cy="50" r="40"/><circle class="r1" cx="50" cy="50" r="44"/><circle class="r2" cx="50" cy="50" r="37"/>
         <g class="gl" transform="translate(26 26) scale(2)">${GLYPH[b.g]}</g></g></svg>
-      <span class="bn">${esc(b.n[L() === "ar" ? 0 : 1])}</span>${b.ok ? badgeWhat(b.id) : ""}</li>`;
+      <span class="bn">${esc(b.n[L() === "ar" ? 0 : 1])}</span>${b.ok ? (typeof what === "string" ? what : badgeWhat(b.id)) : ""}</li>`;
   }
   /* decision of 26 Nov 2026: an earned stamp carries what the child actually did; no count toward the next one is shown */
   function badgeWhat(id) {
@@ -3268,7 +3395,7 @@
     const bs = badges(), got = bs.filter(b => b.ok).length;
     return `<section class="sec"><h2 class="h">${esc(u("badgesT"))}</h2>
       <p class="sub" style="margin-top:0">${esc(u("badgesSub"))}</p>
-      <ul class="stamps">${bs.map(stamp).join("")}</ul></section>`;
+      <ul class="stamps">${bs.map((b, i) => stamp(b, i)).join("")}</ul></section>`;
   }
   const WEEK = 7 * 864e5;
   function weekOf(st) {
@@ -3718,8 +3845,10 @@
       case "print": window.print(); break;
       case "share": shareCard(el.dataset.s); break;
       case "aloud": aloudIx = 0; aloudOn = !aloudOn; render(); window.scrollTo(0, 0); break;
-      case "aloudnext": ttsStop(); aloudIx++; render(true); break;
-      case "aloudprev": ttsStop(); aloudIx--; render(true); break;
+      case "aloudnext": if (view.querySelector(".sbook")) { bookTurn(1); break; } ttsStop(); aloudIx++; render(true); break;
+      case "aloudprev": if (view.querySelector(".sbook")) { bookTurn(-1); break; } ttsStop(); aloudIx--; render(true); break;
+      case "bksay": if (speaking) { ttsStop(); render(true); } else bookSpeak(true); break;
+      case "bkstart": ttsStop(); QZ = null; aloudIx = 0; bkDir = -1; render(); window.scrollTo(0, 0); break;
       case "deggo": pendingDeg = { id: el.dataset.s, i: +el.dataset.i }; if (route().name === "home") { const pd = pendingDeg; pendingDeg = null; openDegOnHand(pd.id, pd.i); } else location.hash = "#/"; break;
       case "resetask": openSheet(`<h2 class="h">${esc(u("reset"))}</h2><p class="short">${esc(u("resetAsk"))}</p>
         <div class="row"><button class="btn ghost" data-act="close">${esc(u("resetNo"))}</button><button class="btn" data-act="resetyes">${esc(u("resetYes"))}</button></div>`, { kind: "reset" }); break;
@@ -3909,6 +4038,19 @@
     if ((e.key === "Enter" || e.key === " ") && e.target.matches && e.target.matches("[data-act][role=button]")) { e.preventDefault(); act(e.target); }
   });
   scrim.addEventListener("click", closeSheet);
+  // the storybook turns with the arrow keys and with a sideways swipe (in Arabic the next page lies to the left)
+  document.addEventListener("keydown", e => {
+    if (!sheet.hidden || !view.querySelector(".sbook") || (e.key !== "ArrowLeft" && e.key !== "ArrowRight") || e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.target && e.target.closest && e.target.closest("input, textarea, select")) return;
+    e.preventDefault(); bookTurn((e.key === "ArrowLeft") === (L() === "ar") ? 1 : -1);
+  });
+  let bkX = null;
+  document.addEventListener("pointerdown", e => { bkX = e.isPrimary && e.target.closest && e.target.closest(".sbook .bk") && !e.target.closest("button, a") ? [e.clientX, e.clientY] : null; }, true);
+  document.addEventListener("pointerup", e => {
+    if (!bkX) return; const dx = e.clientX - bkX[0], dy = e.clientY - bkX[1]; bkX = null;
+    if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.5) bookTurn((dx < 0) === (L() === "ar") ? -1 : 1);
+  }, true);
+  document.addEventListener("pointercancel", () => { bkX = null; }, true);
   // the free writing is kept as a draft while it is typed, so a redraw or a reload never loses it
   document.addEventListener("input", e => { const el = e.target; if (!el || el.id !== "twNote") return;
     if (TWE) { TWX = el.value; return; }
@@ -3967,7 +4109,7 @@
   window.addEventListener("hashchange", () => {
     if (!sheet.hidden) { sheetState = null; sheet.hidden = true; scrim.hidden = true; setInert(false); document.body.classList.remove("sheet-open", "intro-open"); }
     if (route().name !== "tadwin" && BURN) { clearTimeout(BURN_T); BURN = null; }
-    ttsStop(); homeSel = null; homeDeg = -1; signIx = 0; aloudOn = false; render(); window.scrollTo(0, 0); view.focus({ preventScroll: true });
+    ttsStop(); homeSel = null; homeDeg = -1; signIx = 0; aloudOn = false; aloudAuto = null; render(); window.scrollTo(0, 0); view.focus({ preventScroll: true });
     { const rs = route().sec, el = rs && document.getElementById(rs); if (el) el.scrollIntoView({ block: "start" }); if (el && rs === "tw-seen") seenSheet(); }
     if (pendingSummit) { pendingSummit = false; summitSheet(); }
     if (pendingDeg) { const pd = pendingDeg; pendingDeg = null; openDegOnHand(pd.id, pd.i); }
