@@ -32,7 +32,8 @@
     },
   };
   const EMAIL_RE = /^[^\s@<>()[\]\\,;:"]{1,64}@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)+$/;
-  const ICON = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-8l-4 3.5V16H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><path d="M8.5 9.5h7M8.5 12.5h4.5"/></svg>';
+  // a speech bubble with a question mark, in the tab icons' line style; in Arabic it is mirrored, so the mark reads «؟» (owner request, 27 Nov 2026)
+  const ICON = '<svg class="fb-i" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4.5h14A1.5 1.5 0 0 1 20.5 6v9a1.5 1.5 0 0 1-1.5 1.5h-8l-4 3.5v-3.5H5A1.5 1.5 0 0 1 3.5 15V6A1.5 1.5 0 0 1 5 4.5z"/><path d="M9.8 8.7a2.3 2.3 0 1 1 3.2 2.2c-.6.3-1 .8-1 1.4v.2"/><path d="M12 14.6h.01" stroke-width="2.2"/></svg>';
   const CSS = `
 .fb-tab, .tabs .fb-nav { display: none; }
 body[data-ed="adult"] .tabs .fb-nav { display: flex; }
@@ -51,8 +52,11 @@ body[data-ed="adult"] .tabs .fb-nav { display: flex; }
   padding: 16px 9px; border: 1.5px solid var(--line, rgba(36,54,75,.16)); border-right: 0; border-radius: 14px 0 0 14px; background: var(--card, #fdf3e8);
   color: var(--ink, #24364b); font-family: inherit; font-weight: 600; font-size: 14px; line-height: 1.2; cursor: pointer; box-shadow: 0 6px 22px rgba(36,54,75,.10); letter-spacing: .01em; }
 .fb-tab:hover, .fb-tab:focus-visible { background: var(--paper, #fbe9d6); }
-.fb-tab svg { transform: rotate(90deg); flex: none; }
-[dir="rtl"] .fb-tab svg { transform: rotate(90deg) scaleX(-1); }
+.fb-tab svg { flex: none; width: 22px; height: 22px; }
+[dir="rtl"] svg.fb-i { transform: scaleX(-1); }
+[dir="rtl"] [dir="ltr"] svg.fb-i { transform: none; }
+[data-fb-open] { gap: 8px; }
+[data-fb-open] svg.fb-i { flex: none; width: 20px; height: 20px; }
 body.sheet-open .fb-tab, body.intro-open .fb-tab { visibility: hidden; }
 .fb-dlg { border: 0; padding: 0; margin: auto auto 0; width: 100%; max-width: 560px; max-height: 92vh; background: var(--card, #fdf3e8); color: var(--ink, #24364b);
   border-radius: 22px 22px 0 0; box-shadow: 0 -10px 40px rgba(36,54,75,.18); font-family: inherit; font-size: 15px; line-height: 1.6; overflow: auto; }
@@ -190,7 +194,8 @@ body.sheet-open .fb-tab, body.intro-open .fb-tab { visibility: hidden; }
   function init() {
     addStyle();
     const tabs = document.getElementById("tabs"); if (tabs && document.querySelector(".top")) addEntries(tabs);
-    // the parents' page (and any static page): buttons that open the form in their own language
+    // the parents' page (and any static page): buttons that open the form in their own language, with the same icon
+    document.querySelectorAll("[data-fb-open]").forEach(b => { if (!b.querySelector("svg")) b.insertAdjacentHTML("afterbegin", ICON); });
     document.addEventListener("click", e => {
       const b = e.target.closest && e.target.closest("[data-fb-open]"); if (!b) return;
       e.preventDefault(); open({ lang: b.dataset.lang || appLang(), edition: b.dataset.ed || "kids", from: b });
