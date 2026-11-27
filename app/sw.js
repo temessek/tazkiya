@@ -8,9 +8,9 @@
  * iPhone the app failed to open whenever it fell back to its saved page (no network, or a slow one). Every saved page
  * is also served as a fresh copy without its redirect history (clean), which repairs copies saved by older versions.
  * Release: bump CACHE, and keep the ?v= numbers below equal to those in index.html (the smoke test checks this). */
-const CACHE = "tazkiya-2026-11-27c";
+const CACHE = "tazkiya-2026-11-27d";
 const CORE = [
-  "./", "manifest.json", "boot.js?v=1", "styles.css?v=101", "app.js?v=114", "fx.js?v=3", "fallback.js?v=5", "content/content.js?v=37",
+  "./", "manifest.json", "boot.js?v=1", "styles.css?v=102", "app.js?v=115", "fx.js?v=3", "fallback.js?v=5", "content/content.js?v=37",
   "content/content-adult.js", "content/books.js",
   "assets/hand.webp", "assets/right-hand-virtues.webp", "intro.js?v=1",
   "assets/intro/s1-fitra.webp", "assets/intro/s2-toddler.webp", "assets/intro/s3-child.webp", "assets/intro/s4-guide.webp",

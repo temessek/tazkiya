@@ -1678,3 +1678,41 @@ ol.path::before { content: ""; position: absolute; inset-block: 24px; inset-inli
   .kside-h { font-size: 24px; margin: 0 2px; }
   .kidspage .kwrap { max-width: 700px; }
 }
+
+/* ---------- redesign direction 3: the hand as a map (a trial behind a settings switch, off by default) ---------- */
+.hmap { position: relative; }
+.hm-stage { position: relative; width: 100%; aspect-ratio: 1010 / 880; max-height: calc(100vh - 150px); margin: 0 auto; }
+@media (min-width: 700px) { .hm-stage { max-width: 760px; } }
+@media (max-width: 899px) { .hmap.zoomed .hm-stage { aspect-ratio: 16 / 10; } }
+.hmsvg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; overflow: hidden; -webkit-tap-highlight-color: transparent; }
+.hmsvg image { user-select: none; -webkit-user-select: none; }
+.hmsvg .hit { fill: transparent; cursor: pointer; pointer-events: all; outline: none; }
+.hmsvg .hit:focus-visible { stroke: #24364b; stroke-width: 6; stroke-dasharray: 14 10; }
+.hmsvg .summit { fill: transparent; cursor: pointer; outline: none; }
+.hmf:not(.on) .hmj { pointer-events: none; }
+.hmf.off .hmj { opacity: .5; }
+.hmj { cursor: pointer; outline: none; }
+.hmj:focus-visible .jr { stroke: #a0482a; stroke-width: 6; }
+.hmj.sel .jr { stroke: #a0482a; stroke-width: 5; }
+.hml { cursor: pointer; }
+.hm-in .hml { animation: hmIn .35s ease-out .4s both; }
+.hml rect { fill: #24364b; }
+.hml.sel rect { fill: #a0482a; }
+.hml text { font-family: "IBM Plex Sans Arabic", system-ui, sans-serif; font-size: 27px; font-weight: 600; fill: #fff; pointer-events: none; }
+@keyframes hmIn { from { opacity: 0; } to { opacity: 1; } }
+.hm-top { display: flex; align-items: center; gap: 10px; padding: 6px 12px 2px; max-width: 760px; margin: 0 auto; }
+.hm-back { flex: none; min-height: 40px; font-size: 14px; font-weight: 600; }
+.hm-n { display: block; min-width: 0; font-size: 14px; line-height: 1.45; color: var(--muted); }
+.hm-n b { color: var(--ink); font-weight: 600; }
+.hm-n .dotc { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-inline-end: 6px; vertical-align: middle; }
+.hm-pct { text-align: center; font-size: 14px; color: var(--muted); margin: 4px 16px 0; }
+.hm-pct b { color: var(--ink); }
+.hm-state { display: flex; gap: 8px; align-items: center; font-size: 13.5px; color: var(--muted); margin: -2px 0 8px; }
+.hm-state i { flex: none; width: 15px; height: 15px; border-radius: 50%; border: 2.5px dashed rgba(36,54,75,.5); box-sizing: border-box; }
+.hm-state.lit i { border: 2.5px solid #24364b; background: radial-gradient(circle, var(--c) 0 45%, #fffaf3 50%); }
+.hm-desc { font-size: 16px; line-height: 1.7; margin: 0 0 6px; }
+.hm-story p { margin: 0 0 6px; font-size: 17px; line-height: 1.8; }
+.hm-story p:last-child { margin-bottom: 0; }
+.hm-tell { margin: 10px 0; }
+.hm-all { display: inline-block; margin-top: 2px; }
+@media (prefers-reduced-motion: reduce) { .hml { animation: none; } }

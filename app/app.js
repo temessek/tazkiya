@@ -1082,7 +1082,7 @@
   let lastFocus = null, lastFocusSel = null;
   function rememberFocus(el) { lastFocus = el; lastFocusSel = el.dataset && el.dataset.act ? `[data-act="${el.dataset.act}"]` + ["side", "f", "s", "i"].filter(k => el.dataset[k] != null).map(k => `[data-${k}="${el.dataset[k]}"]`).join("") : null; }
   const focusables = () => [...sheet.querySelectorAll('a[href], button:not([disabled]), input, [tabindex]:not([tabindex="-1"])')].filter(e => e.offsetParent !== null);
-  const HAND_SHEETS = ["stage", "virtue", "slot", "prophets", "summit", "tour"];
+  const HAND_SHEETS = ["stage", "virtue", "slot", "prophets", "summit", "tour", "joint"];
   function setInert(on) { ["view", "tabs"].forEach(id => { const e = document.getElementById(id); if (e) e.inert = !!on; }); }
   function closeSheet() {
     if (sheet.hidden) return;
@@ -1093,6 +1093,7 @@
     const was = sheetState; sheetState = null;
     if (was && was.kind === "intro" && !S.intro) { S.intro = true; save(); }
     if (was && ["stage", "virtue", "slot", "prophets"].includes(was.kind) && handRoute()) { homeSel = null; homeDeg = -1; render(true); }
+    if (was && was.kind === "joint") { HM.d = -1; HM.story = false; if (handRoute()) render(true); }
     if (back) { let lf = lf0 && document.contains(lf0) ? lf0 : (sel0 ? view.querySelector(sel0) : null); (lf || view).focus({ preventScroll: true }); }
   }
   function degList(id, sel) {
@@ -1173,6 +1174,7 @@
   }
   function openDegOnHand(id, i) {
     const f = fingerOf(id); if (!f) { stageSheet(id, i); return; }
+    if (hmOn() && G[id] && C.stages[id].degrees[i]) { HM.f = id; HM.d = i; HM.story = false; render(true); jointSheet(id, i); return; }
     homeSel = "L:" + f; homeDeg = i; render(true); sheetExpandNext = true; stageSheet(id, i);
   }
   function vDegStory(id, i) {
@@ -1241,6 +1243,8 @@
         ${X.hasAudio() ? `<div class="srow col"><span class="sl">${esc(u("fxAmb"))}</span>${seg("fxset", "v", [["off", "fxOff"], ["wind", "fxWind"], ["stream", "fxStream"], ["rain", "fxRain"]], fx.amb, "wide", ' data-k="amb"')}</div>
         <label class="srow"><span class="sl">${esc(u("fxVol"))}</span><input id="fxVol" type="range" min="0" max="100" step="5" value="${fx.vol}"></label>` : ""}
         ${IOS && X.hasAudio() ? `<p class="sg-note fxios">${esc(u("fxIos"))}</p>` : ""}</div>` : ""}
+      ${ADU() ? "" : `<h3 class="sg-h">${esc(u("hmSetH"))}</h3><div class="sgroup"><div class="srow"><span class="sl">${esc(u("hmSet"))}</span><button class="sw${hmPref() ? " on" : ""}" role="switch" aria-checked="${hmPref()}" aria-label="${esc(u("hmSet"))}" data-act="hmset"><i></i></button></div>
+        <p class="sg-note">${esc(u("hmSetSub"))}</p></div>`}
       <h3 class="sg-h">${esc(u("bkT"))}</h3>
       <div class="sgroup"><p class="sg-note">${esc(at ? fmt(U.bkLast, { d: fmtDate(at) }) : u("bkNever"))}${ACC.me ? "" : " " + esc(u(PERSIST || STANDALONE() ? "bkPersistOk" : "bkPersistNo"))}</p>
         <div class="bkrow"><button class="btn ghost sm" data-act="bkexport">${esc(u("bkExport"))}</button><button class="btn ghost sm" data-act="bkimport">${esc(u("bkImport"))}</button></div>
@@ -1446,6 +1450,143 @@
     if (MAPS[m].L) h += `<h2 class="h hand-h">${esc(u("leftT"))}</h2>${L("L")}`;
     if (MAPS[m].R) h += `<h2 class="h hand-h">${esc(u("rightT"))}</h2><p class="hint" style="margin-top:-4px">${esc(u("rightSub"))} · ${esc(u("sabiqShare"))}: <b dir="ltr">${S.mix.sabiq}%</b></p>${L("R")}`;
     return `<div class="hands ${m}">${h}</div>`;
+  }
+  /* ---------- the hand as a map (redesign direction 3, approved 26 Nov 2026 as a trial behind a switch that is off by default) ----------
+     Children's and teens' edition, one-hand map only. Each finger's joints sit at its degrees (G.degs). A joint is lit when every
+     stop that the finger's path (stations, direction 1) groups under that degree is done. A tap on a finger zooms the picture onto it
+     (the SVG viewBox), the percentage chips give way to the degree names on its joints, and a joint opens its panel: the degree's
+     name, description, what it looks like, its story and how to climb from it. The rule is in the project's decision notes. */
+  const HMKEY = "tazkiya-handmap";
+  const hmPref = () => { try { return localStorage.getItem(HMKEY) === "1"; } catch (e) { return false; } };
+  const hmOn = () => hmPref() && !ADU() && MODE() === "one";
+  const HM = { f: null, d: -1, story: false, from: null, anim: false };
+  const HM_HOME = [10, 100, 1010, 880];
+  // the percentage chips sit at the fingertips here, clear of the tip joints (the hand page's own chip points overlap them)
+  const HM_CHIP = { zombie: [204, 882], pig: [100, 746], monkey: [90, 602], human: [150, 440], sabiq: [546, 160] };
+  Object.assign(U, {
+    hmSet: ["اليد الخريطة (تجربة)", "Hand as a map (trial)"], hmSetH: ["شكل اليد", "The hand's look"],
+    hmSetSub: ["مفاصل تضيء بما قطعته من طريق كل إصبع، ولمسة على الإصبع تقرّبه.", "Joints light up as you walk each finger's path, and a tap on a finger brings it close."],
+    hmAria: ["اليد الخريطة: خمسة أصابع ومفاصلها", "The hand as a map: five fingers and their joints"],
+    hmHint: ["كل مفصل مضيء خطوة قطعتها. اضغط إصبعًا لتقترب منه.", "Every lit joint is a step you have taken. Tap a finger to come closer."],
+    hmHintZ: ["اضغط مفصلًا لتعرف درجته", "Tap a joint to open its step"],
+    hmWhole: ["اليد كلها", "Whole hand"], hmOf: ["المفصل {a} من {b}", "Joint {a} of {b}"], hmLitW: ["مضيء", "lit"],
+    hmLitS: ["مضيء: قطعتَ محطاته في طريق الإصبع.", "Lit: you have walked its stops on the finger's path."],
+    hmDimS: ["يضيء حين تقطع محطاته في طريق الإصبع.", "It lights up when you walk its stops on the finger's path."],
+    hmTell: ["اقرأ قصة هذا المفصل", "Read this joint's story"], hmStoryH: ["قصة هذا المفصل", "This joint's story"],
+    hmClimb: ["كيف أصعد منه", "How I climb past it"]
+  });
+  Object.assign(UF, { hmSetSub: "مفاصل تضيء بما قطعتِه من طريق كل إصبع، ولمسة على الإصبع تقرّبه.", hmHint: "كل مفصل مضيء خطوة قطعتِها. اضغطي إصبعًا لتقتربي منه.",
+    hmHintZ: "اضغطي مفصلًا لتعرفي درجته", hmLitS: "مضيء: قطعتِ محطاته في طريق الإصبع.", hmDimS: "يضيء حين تقطعين محطاته في طريق الإصبع.", hmTell: "اقرئي قصة هذا المفصل" });
+  function hmLit(id) {
+    const st = C.stages[id], sts = stations(id), all = sts.length > 0 && sts.every(s => s.done);
+    return st.degrees.map((_, i) => { const mine = sts.filter(s => s.deg === i); return mine.length ? mine.every(s => s.done) : all; });
+  }
+  function hmView(id, ar) {
+    const p = G[id].poly.split(" ").map(s => s.split(",").map(Number)), xs = p.map(a => a[0]), ys = p.map(a => a[1]);
+    const x = Math.min(...xs), y = Math.min(...ys), w = Math.max(...xs) - x, h = Math.max(...ys) - y;
+    let W = w * 1.08, H = h + 200; // room for the degree names above and below the joints
+    if (W / H < ar) W = H * ar; else H = W / ar;
+    return [x + w / 2 - W / 2, y + h / 2 - H / 2 - (id === "sabiq" ? 30 : 0), W, H].map(n => Math.round(n));
+  }
+  const hmAR = z => (z && innerWidth < 900 ? 16 / 10 : HM_HOME[2] / HM_HOME[3]);
+  function hmSvg(vb) {
+    const z = HM.f, uid = "hm" + Math.random().toString(36).slice(2, 7), ar = L() === "ar";
+    let s = `<svg class="hmsvg" viewBox="${vb.join(" ")}" preserveAspectRatio="xMidYMid meet" role="group" aria-label="${esc(u("hmAria"))}">
+      <defs><radialGradient id="${uid}g" cx="42%" cy="50%" r="60%"><stop offset="72%" stop-color="#fff"/><stop offset="100%" stop-color="#000"/></radialGradient>
+        <mask id="${uid}m"><rect width="1448" height="1086" fill="url(#${uid}g)"/></mask>
+        <radialGradient id="${uid}l"><stop offset="0" stop-color="#f6c65a" stop-opacity=".55"/><stop offset=".45" stop-color="#f6c65a" stop-opacity=".18"/><stop offset="1" stop-color="#f6c65a" stop-opacity="0"/></radialGradient>
+        <filter id="${uid}w" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+        ${z ? `<filter id="${uid}b" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="16"/></filter>
+        <mask id="${uid}v"><rect x="-200" y="-200" width="1848" height="1486" fill="#fff"/><polygon points="${G[z].poly}" fill="#000" filter="url(#${uid}b)"/></mask>` : ""}</defs>
+      <image href="assets/hand.webp" width="1448" height="1086" mask="url(#${uid}m)"/>
+      <circle class="glow" cx="470" cy="95" r="170" fill="url(#${uid}l)" pointer-events="none"/>`;
+    if (z) s += `<rect class="hm-veil" x="-200" y="-200" width="1848" height="1486" fill="#fbe9d6" opacity=".66" mask="url(#${uid}v)" pointer-events="none"/>`;
+    else s += `<circle class="summit" cx="470" cy="80" r="95" data-act="summit" role="button" tabindex="0" aria-label="${esc(u("summitT"))}"/>`;
+    ORDER.forEach(id => {
+      const g = G[id], on = z === id, lit = hmLit(id), dg = C.stages[id].degrees;
+      s += `<g class="hmf${on ? " on" : z ? " off" : ""}" data-s="${id}"><polygon class="hit" points="${g.poly}" data-act="hmf" data-s="${id}" role="button" tabindex="${on ? -1 : 0}" aria-label="${esc(t(FINGER[g.finger]) + ": " + nm(id) + " · " + S.mix[id] + "%")}"/>`;
+      g.degs.forEach((p, i) => {
+        if (!dg[i]) return;
+        const [x, y] = p, lt = lit[i];
+        s += `<g class="hmj${lt ? " lit" : ""}${on && HM.d === i ? " sel" : ""}" data-act="hmj" data-s="${id}" data-i="${i}"${on ? ` role="button" tabindex="0" aria-label="${esc(fmt(u("hmOf"), { a: i + 1, b: dg.length }) + ": " + t(dg[i].name) + (lt ? " · " + u("hmLitW") : ""))}"` : ' aria-hidden="true"'}>
+          ${on ? `<circle cx="${x}" cy="${y}" r="46" fill="transparent"/>` : ""}${lt
+            ? `<circle cx="${x}" cy="${y}" r="34" fill="#fff" opacity=".75" filter="url(#${uid}w)"/><circle class="jr" cx="${x}" cy="${y}" r="21" fill="#fffaf3" stroke="#24364b" stroke-width="3"/><circle cx="${x}" cy="${y}" r="12" fill="${g.color}" stroke="#24364b" stroke-width="2"/>`
+            : `<circle class="jr" cx="${x}" cy="${y}" r="14" fill="rgba(255,250,243,.45)" stroke="rgba(36,54,75,.55)" stroke-width="3.5" stroke-dasharray="6 5"/>`}</g>`;
+      });
+      if (!z) {
+        const [x, y] = HM_CHIP[id], label = S.mix[id] + "%", w = 30 + label.length * 21;
+        s += `<g class="chip" pointer-events="none"><rect x="${x - w / 2}" y="${y - 26}" width="${w}" height="52" rx="26"/><text x="${x}" y="${y + 12}" text-anchor="middle" direction="ltr">${label}</text></g>`;
+      }
+      s += `</g>`;
+    });
+    if (z) {
+      const g = G[z], dg = C.stages[z].degrees, vv = hmView(z, hmAR(true)), placed = []; // names stay inside the zoomed view
+      g.degs.forEach((p, i) => {
+        if (!dg[i]) return;
+        const name = t(dg[i].name).replace(/[«»"“”]/g, ""), w = Math.min(vv[2] - 24, Math.max(130, Math.round(name.length * (ar ? 16 : 16.5)) + 44));
+        const up = z === "sabiq" || i % 2 === 0, cx = Math.max(vv[0] + w / 2 + 12, Math.min(vv[0] + vv[2] - w / 2 - 12, p[0]));
+        let cy = up ? p[1] - 64 : p[1] + 64; // a name that would cover another one moves one row further out
+        while (placed.some(q => Math.abs(q.cy - cy) < 52 && cx - w / 2 < q.x2 + 8 && cx + w / 2 > q.x1 - 8)) cy += up ? -56 : 56;
+        placed.push({ cy, x1: cx - w / 2, x2: cx + w / 2 });
+        s += `<g class="hml${HM.d === i ? " sel" : ""}" data-act="hmj" data-s="${z}" data-i="${i}" aria-hidden="true"><rect x="${cx - w / 2}" y="${cy - 25}" width="${w}" height="50" rx="25"/>
+          <text x="${cx}" y="${cy + 10}" text-anchor="middle" direction="${ar ? "rtl" : "ltr"}">${esc(name)}</text></g>`;
+      });
+    }
+    return s + `</svg>`;
+  }
+  function hmBlock() {
+    if (revealPending) { revealPending = false; S.revealDay = today(); save(); }
+    if (HM.f && !G[HM.f]) HM.f = null;
+    const z = HM.f, vb = HM.from || (z ? hmView(z, hmAR(true)) : HM_HOME);
+    return `<div class="hmap${z ? " zoomed" : ""}${HM.anim && !RMO() ? " hm-in" : ""}"${z ? ` style="--c:${G[z].color}"` : ""}>
+      ${z ? `<div class="hm-top"><button class="pill hm-back" type="button" data-act="hmout">${BK()} ${esc(u("hmWhole"))}</button><span class="hm-n"><i class="dotc" style="background:${G[z].color}"></i><b>${esc(fing(z))}</b> · ${esc(nm(z))}</span></div>` : ""}
+      <div class="hm-stage">${hmSvg(vb)}</div>
+      <p class="hint hm-hint">${esc(u(z ? "hmHintZ" : "hmHint"))}</p>
+      ${z ? `<p class="hm-pct">${esc(u("yourShare"))}: <b dir="ltr">${S.mix[z]}%</b></p>` : ""}</div>`;
+  }
+  // after each render: fit the zoomed view to the stage's real shape, and animate from where the picture was (or jump there)
+  function hmAfter() {
+    const svg = view.querySelector(".hmsvg");
+    if (svg) {
+      const st = svg.parentNode, ar = st.clientWidth / Math.max(1, st.clientHeight), to = HM.f ? hmView(HM.f, ar || hmAR(true)) : HM_HOME;
+      if (HM.anim && HM.from && !RMO()) hmZoomTo(svg, to); else svg.setAttribute("viewBox", to.join(" "));
+    }
+    HM.from = null; HM.anim = false;
+  }
+  function hmZoomTo(svg, to, ms) {
+    const from = svg.getAttribute("viewBox").split(/\s+/).map(Number), t0 = performance.now(), dur = ms || 650, ease = x => 1 - Math.pow(1 - x, 3);
+    svg.classList.add("moving");
+    const step = now => {
+      if (!svg.isConnected) return;
+      const p = Math.min(1, (now - t0) / dur), e = ease(p);
+      svg.setAttribute("viewBox", from.map((f, i) => (f + (to[i] - f) * e).toFixed(1)).join(" "));
+      if (p < 1) requestAnimationFrame(step); else svg.classList.remove("moving");
+    };
+    requestAnimationFrame(step);
+  }
+  const hmNow = () => { const s = view.querySelector(".hmsvg"); return s ? s.getAttribute("viewBox").split(/\s+/).map(Number) : null; };
+  function hmGo(id) {
+    if (sheetState && sheetState.kind === "joint") closeSheet();
+    HM.from = hmNow(); HM.f = id; HM.d = -1; HM.story = false; HM.anim = true;
+    FX("step", Math.max(0, ORDER.indexOf(id))); render(true);
+  }
+  function hmOut() {
+    HM.from = hmNow(); HM.f = null; HM.d = -1; HM.story = false; HM.anim = true; FX("tick");
+    if (sheetState && sheetState.kind === "joint") closeSheet(); else render(true);
+    const f = view.querySelector(".hmsvg .hit"); if (f) f.focus({ preventScroll: true });
+  }
+  function jointSheet(id, i) {
+    const st = C.stages[id], d = st && st.degrees[i]; if (!d) return;
+    const lt = hmLit(id)[i], story = d.story ? t(d.story) : null, climb = d.step || (st.climb && st.climb[i]);
+    openSheet(`<div class="meta"><span>${esc(fing(id))}</span><span>·</span><span>${esc(fmt(u("hmOf"), { a: numL(i + 1), b: numL(st.degrees.length) }))}</span></div>
+      <h2 class="h" style="color:${darker(id)}">${esc(t(d.name))}</h2>
+      <p class="hm-state${lt ? " lit" : ""}" style="--c:${G[id].color}"><i aria-hidden="true"></i>${esc(u(lt ? "hmLitS" : "hmDimS"))}</p>
+      <p class="hm-desc">${esc(t(d.desc))}</p>
+      ${d.looks ? `<div class="dg"><h3>${esc(u("dgLooks"))}</h3><p>${esc(t(d.looks))}</p></div>` : ""}
+      ${story && story.length ? (HM.story ? `<div class="dg hm-story"><h3>${esc(u("hmStoryH"))}</h3>${story.map(p => `<p>${esc(p)}</p>`).join("")}</div>`
+        : `<button class="btn ghost block hm-tell" type="button" data-act="hmstory">${esc(u("hmTell"))}</button>`) : ""}
+      ${climb ? `<div class="dg step"><h3>${esc(u("hmClimb"))}</h3><p>${esc(t(climb))}</p></div>` : ""}
+      <a class="linkbtn hm-all" href="#/stage/${id}" data-act="go">${esc(u("pathAll"))}</a>`, { kind: "joint", s: id, i });
   }
   let TOUR = null; // {i, hit} while the first tour runs
   const TOUR_N = FINGERS.length + 2; // five fingers, the light, the closing line
@@ -2422,7 +2563,7 @@
   function vHomeKids() {
     const k = curFinger();
     return `<div class="home1"><div class="h1-hero"><section class="hello"><h1 class="h">${esc(u(WELCOME_BACK ? "welcomeBack" : "hello"))}</h1></section>
-        ${homeHands()}
+        ${hmOn() ? hmBlock() : homeHands()}
         ${k ? `<a class="fweek" href="#/stage/${k}"><i class="dotc" style="background:${G[k].color}"></i><span>${esc(u("fWeek"))} <b>${esc(fing(k))}</b> · ${esc(nm(k))}</span></a>` : ""}</div>
       <div class="h1-side">${nextCard(k)}
         <a class="morelink" href="#/me">${esc(u("moreLink"))}</a>
@@ -3948,6 +4089,7 @@
     }
     const y = window.scrollY;
     view.innerHTML = h;
+    hmAfter();
     if (!keepScroll) { view.classList.remove("fade"); void view.offsetWidth; view.classList.add("fade"); }
     if (keepScroll) window.scrollTo(0, y);
   }
@@ -3981,6 +4123,13 @@
         homeSel = side + ":" + f; homeDeg = +el.dataset.i; FX("step", Math.max(0, ORDER.indexOf(id))); if (handRoute()) render(true); stageSheet(id, homeDeg); break;
       }
       case "settings": settingsSheet(); break;
+      case "hmf": if (G[el.dataset.s] && HM.f !== el.dataset.s) hmGo(el.dataset.s); break;
+      case "hmj": { const id = el.dataset.s, i = +el.dataset.i; if (!G[id] || !C.stages[id].degrees[i]) break;
+        if (HM.f !== id) { hmGo(id); break; }
+        HM.d = i; HM.story = false; FX("tick"); render(true); jointSheet(id, i); break; }
+      case "hmout": hmOut(); break;
+      case "hmstory": if (sheetState && sheetState.kind === "joint") { HM.story = true; const y = sheet.scrollTop; jointSheet(sheetState.s, sheetState.i); sheet.scrollTop = y; } break;
+      case "hmset": { const on = !hmPref(); try { if (on) localStorage.setItem(HMKEY, "1"); else localStorage.removeItem(HMKEY); } catch (e) {} HM.f = null; HM.d = -1; FX("tick"); settingsAgain(); render(true); break; }
       case "mapsheet": mapSheet(); break;
       case "pwahow": pwaHowSheet(); break;
       case "signlater": try { localStorage.setItem("tazkiya-signin-later", String(Date.now())); } catch (e) {} FX("tick"); render(true); break;
@@ -4287,6 +4436,7 @@
     if (TWE) { TWX = el.value; return; }
     S.twDraft = el.value.slice(0, NOTE_LEN); if (!S.twDraft.trim()) delete S.twDraft; clearTimeout(DR_T); DR_T = setTimeout(save, 400); });
   document.addEventListener("error", e => { const t = e.target; if (t && t.tagName === "IMG" && t.classList.contains("gpic")) { GPIC_BAD = true; t.remove(); } }, true);
+  addEventListener("resize", () => { const svg = view.querySelector(".hmsvg"); if (svg && HM.f && !svg.classList.contains("moving")) { const st = svg.parentNode; svg.setAttribute("viewBox", hmView(HM.f, st.clientWidth / Math.max(1, st.clientHeight)).join(" ")); } });
   if (window.visualViewport) { const vv = window.visualViewport, kb = () => document.documentElement.style.setProperty("--kb", Math.max(0, Math.round(innerHeight - vv.height - vv.offsetTop)) + "px"); vv.addEventListener("resize", kb); vv.addEventListener("scroll", kb); }
   document.addEventListener("focusin", e => { if (e.target && e.target.matches && e.target.matches(".sheet input:not([type=range]):not([type=file])")) setTimeout(() => { try { e.target.scrollIntoView({ block: "center" }); } catch (x) {} }, 300); });
   let swY = null;
@@ -4357,6 +4507,7 @@
     if (MOVE_IN) { S.intro = true; save(); moveIn(MOVE_IN); }
     else if (window.TZ_MOVE) moveSheet();
     else if (params.get("restore") === "1") { S.intro = true; save(); settingsSheet(); }
+    else if (sel && isStage(sel) && handRoute() && hmOn() && params.get("deg") != null && C.stages[sel].degrees[+params.get("deg")]) openDegOnHand(sel, +params.get("deg"));
     else if (sel && isStage(sel) && handRoute() && fingerOf(sel)) { homeSel = "L:" + fingerOf(sel); homeDeg = params.get("deg") ? +params.get("deg") : -1; render(); stageSheet(sel, homeDeg); }
     else if (sel === "summit") summitSheet();
     else if (params.get("intro") === "0") { S.intro = true; if (params.get("tour") !== "1") S.tour = true; save(); }

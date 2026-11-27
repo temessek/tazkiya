@@ -766,6 +766,99 @@ async function ideaFlows(browser, base, content, AV) {
     ok(fs.readFileSync(path.join(ROOT, "parents", "index.html"), "utf8").split('href="../adult/#/kids"').length === 3, "4: the parents' page links to «مع أولادي» in both languages");
     ok(!page.errs.length, "4: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
+  // direction 3 (owner's approval, 26 Nov 2026, as a trial): the hand as a map, behind a settings switch that is off by default.
+  // Joints at each finger's degrees, lit from the real path; a tap zooms onto the finger; a joint opens its panel; back to the whole hand
+  await step("hand as a map", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1", 700);
+    const { C: KC } = loadContent(), nDeg = Object.values(KC.stages).reduce((a, st) => a + st.degrees.length, 0);
+    const plain = s => s.replace(/[«»"“”]/g, "");
+    const shot = async n => { if (SHOTS) await page.screenshot({ path: path.join(OUT, "shots", `handmap-${n}.jpg`), type: "jpeg", quality: 70 }); };
+    const off0 = await page.evaluate(() => ({ map: !!document.querySelector("#view .hmap"), hand: !!document.querySelector("#view .handbox"), chips: document.querySelectorAll("#view .handbox .chip").length, card: !!document.querySelector("#view .nextstep") }));
+    ok(!off0.map && off0.hand && off0.chips === 5 && off0.card, "3: off by default: the home keeps the usual hand, its five percentages and the next step");
+    await page.click("#setBtn, [data-act='settings'] >> nth=0"); await page.waitForTimeout(350);
+    const sw0 = await page.evaluate(() => { const b = document.querySelector('#sheet [data-act="hmset"]'); return b ? b.getAttribute("aria-checked") : null; });
+    ok(sw0 === "false", `3: the settings hold the switch «اليد الخريطة (تجربة)», off (${sw0})`);
+    await page.click('#sheet [data-act="hmset"]'); await page.waitForTimeout(250);
+    const sw1 = await page.evaluate(() => [document.querySelector('#sheet [data-act="hmset"]').getAttribute("aria-checked"), localStorage.getItem("tazkiya-handmap")]);
+    await page.click('#sheet [data-act="close"]'); await page.waitForTimeout(400);
+    const on0 = await page.evaluate(() => ({ map: !!document.querySelector("#view .hmap"), hand: !!document.querySelector("#view .handbox"), j: document.querySelectorAll("#view .hmj").length, lit: document.querySelectorAll("#view .hmj.lit").length,
+      dotted: [...document.querySelectorAll("#view .hmj:not(.lit) .jr")].every(c => c.getAttribute("stroke-dasharray")), chips: [...document.querySelectorAll("#view .hmsvg .chip text")].map(x => x.textContent), card: !!document.querySelector("#view .nextstep"), fw: !!document.querySelector("#view .fweek") }));
+    const mix = (await getS(page)).mix || {};
+    ok(sw1[0] === "true" && sw1[1] === "1" && on0.map && !on0.hand, "3: switched on, the home hand becomes the map");
+    ok(on0.j === nDeg && on0.lit === 0 && on0.dotted, `3: ${on0.j} joints, one for each degree (${nDeg}); with no progress all are dotted circles`);
+    ok(on0.chips.length === 5 && ["zombie", "pig", "monkey", "human", "sabiq"].every(k => on0.chips.includes(mix[k] + "%")), `3: the five percentages stay on the fingers (${on0.chips.join(" ")})`);
+    ok(on0.card && on0.fw, "3: the next-step card and this week's finger stay under the map (direction 1)");
+    await shot("ar-375-hand");
+    // the lit rule: a joint lights when every stop the finger's path puts under that degree is done
+    const st0 = KC.stages.zombie;
+    await setS(page, `s.read = {}; s.answered = {}; s.tasks = {}; ${JSON.stringify(st0.readings.map(r => r.id))}.forEach(id => s.read[id] = Date.now() - 9000);`); await open(page, "", 600);
+    ok(await page.evaluate(() => document.querySelectorAll("#view .hmj.lit").length) === 0, "3: stories read without their questions and tasks light no joint");
+    await setS(page, `${JSON.stringify(st0.quiz.map(q => q.id))}.forEach(id => s.answered[id] = true); ${JSON.stringify(st0.tasks.map(x => x.id))}.forEach(id => s.tasks[id] = "ok");`); await open(page, "", 600);
+    const lit1 = await page.evaluate(() => [...document.querySelectorAll("#view .hmj.lit")].map(e => e.dataset.s + e.dataset.i));
+    ok(lit1.length === st0.degrees.length && lit1.every(x => x.startsWith("zombie")), `3: the little finger's whole path walked lights its ${st0.degrees.length} joints and no other (${lit1.join(" ")})`);
+    const ring = await page.evaluate(() => { const g = document.querySelector('#view .hmj.lit[data-s="zombie"]'), c = g && g.querySelectorAll("circle"); return c ? [...c].flatMap(x => [x.getAttribute("stroke"), x.getAttribute("fill")]) : []; });
+    ok(ring.includes("#24364b") && ring.includes("#fffaf3") && ring.includes("#8f8f8a"), "3: a lit joint is a white ring with a dark stroke and a core in the finger's colour");
+    // zoom onto the ring finger
+    const vb = () => page.evaluate(() => document.querySelector("#view .hmsvg").getAttribute("viewBox").split(/\s+/).map(Number));
+    await page.evaluate(() => document.querySelector('#view .hmsvg .hit[data-s="pig"]').dispatchEvent(new MouseEvent("click", { bubbles: true })));
+    await page.waitForTimeout(120); const mid = await vb(); await page.waitForTimeout(900); const end = await vb();
+    const z = await page.evaluate(() => { const st = document.querySelector("#view .hm-stage").getBoundingClientRect();
+      return { zoomed: !!document.querySelector("#view .hmap.zoomed"), chips: document.querySelectorAll("#view .hmsvg .chip").length, labels: [...document.querySelectorAll("#view .hml text")].map(x => x.textContent), back: !!document.querySelector('#view [data-act="hmout"]'), ar: st.width / st.height, pct: (document.querySelector("#view .hm-pct") || {}).textContent || "" }; });
+    ok(z.zoomed && end[2] < 800 && mid[2] > end[2] + 20, `3: a tap on a finger animates the viewBox onto it (width ${Math.round(mid[2])} on the way, ${Math.round(end[2])} at the end)`);
+    ok(z.chips === 0 && z.back && z.labels.length === 3 && KC.stages.pig.degrees.every(d => z.labels.includes(plain(d.name.ar))), `3: zoomed, the chips hide, a back control shows, and the degree names sit on the joints (${z.labels.join(" / ")})`);
+    ok(Math.abs(z.ar - 1.6) < 0.08 && z.pct.includes(mix.pig + "%"), `3: on a phone the zoomed stage is about 16/10 (${z.ar.toFixed(2)}), and the finger's percentage stays in view`);
+    await shot("ar-375-finger");
+    // the joint panel
+    const d1 = KC.stages.pig.degrees[1];
+    await page.evaluate(() => document.querySelector('#view .hml[data-i="1"]').dispatchEvent(new MouseEvent("click", { bubbles: true }))); await page.waitForTimeout(400);
+    const p1 = await page.evaluate(() => ({ open: !document.getElementById("sheet").hidden, h: (document.querySelector("#sheet h2") || {}).textContent, tx: document.getElementById("sheet").innerText, story: !!document.querySelector('#sheet [data-act="hmstory"]'), sel: !!document.querySelector('#view .hmj.sel[data-i="1"]') }));
+    ok(p1.open && p1.h === d1.name.ar && p1.tx.includes(d1.desc.ar) && p1.tx.includes(d1.looks.ar) && p1.tx.includes(d1.step.ar) && p1.story && p1.sel, "3: a joint opens its panel: the degree's name, its description, what it looks like, how to climb from it, and its story");
+    await page.click('#sheet [data-act="hmstory"]'); await page.waitForTimeout(250);
+    const sp = await page.evaluate(() => [...document.querySelectorAll("#sheet .hm-story p")].map(p => p.textContent));
+    ok(sp.length === d1.story.ar.length && sp[0] === d1.story.ar[0], `3: the joint's story opens in the panel (${sp.length} lines)`);
+    await shot("ar-375-joint");
+    await page.click('#sheet [data-act="close"]'); await page.waitForTimeout(450);
+    ok(await page.evaluate(() => !!document.querySelector("#view .hmap.zoomed") && !document.querySelector("#view .hmj.sel")), "3: closing the panel keeps the finger in view");
+    await page.click('#view [data-act="hmout"]'); await page.waitForTimeout(900);
+    const back = await page.evaluate(() => ({ zoomed: !!document.querySelector("#view .hmap.zoomed"), vb: document.querySelector("#view .hmsvg").getAttribute("viewBox"), chips: document.querySelectorAll("#view .hmsvg .chip").length }));
+    ok(!back.zoomed && back.vb.split(/\s+/).map(Number).join(" ") === "10 100 1010 880" && back.chips === 5, `3: the back control returns to the whole hand with its percentages (${back.vb})`);
+    // reduced motion: straight to the zoomed view
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.evaluate(() => document.querySelector('#view .hmsvg .hit[data-s="monkey"]').dispatchEvent(new MouseEvent("click", { bubbles: true }))); await page.waitForTimeout(40);
+    const rm = await vb(); await page.waitForTimeout(700); const rm2 = await vb();
+    ok(rm[2] < 800 && rm.join() === rm2.join(), `3: with prefers-reduced-motion the zoomed view comes at once (${Math.round(rm[2])})`);
+    await page.emulateMedia({ reducedMotion: null });
+    // a link to a degree (?sel=<stage>&deg=<i>) opens its joint on the map
+    await page.goto(`${base}?intro=0&n=${++nOpen}&sel=human&deg=2#/`); await page.waitForTimeout(800);
+    ok(await page.evaluate(t => !!document.querySelector('#view .hmap.zoomed .hmj.sel[data-s="human"][data-i="2"]') && !document.getElementById("sheet").hidden && document.querySelector("#sheet h2").textContent === t, KC.stages.human.degrees[2].name.ar), "3: a link to a degree opens that joint on the map");
+    await page.evaluate(() => { const x = document.querySelector('#sheet [data-act="close"]'); if (x) x.click(); }); await page.waitForTimeout(400);
+    // sizes and languages: no horizontal overflow, the names inside the picture
+    for (const [w, lang] of [[320, "ar"], [320, "en"], [375, "en"], [1280, "ar"], [1280, "en"]]) {
+      await page.setViewportSize({ width: w, height: w > 900 ? 820 : 700 }); await setS(page, `s.lang = '${lang}';`); await open(page, "", 700);
+      const a = await page.evaluate(() => ({ over: document.documentElement.scrollWidth > innerWidth + 1, h: document.querySelector("#view .hm-stage").getBoundingClientRect().height, card: !!document.querySelector("#view .nextstep") }));
+      const bad = [];
+      for (const k of ["monkey", "human", "sabiq"]) {
+        await page.evaluate(k => document.querySelector(`#view .hmsvg .hit[data-s="${k}"]`).dispatchEvent(new MouseEvent("click", { bubbles: true })), k); await page.waitForTimeout(850);
+        const r = await page.evaluate(() => { const s = document.querySelector("#view .hmsvg").getBoundingClientRect(), L = [...document.querySelectorAll("#view .hml rect")].map(x => x.getBoundingClientRect());
+          const hit = L.some((x, i) => L.some((y, j) => j > i && x.left < y.right - 1 && y.left < x.right - 1 && x.top < y.bottom - 1 && y.top < x.bottom - 1));
+          return { inside: L.every(x => x.left >= s.left - 1 && x.right <= s.right + 1 && x.top >= s.top - 1 && x.bottom <= s.bottom + 1), hit, over: document.documentElement.scrollWidth > innerWidth + 1 }; });
+        if (!r.inside || r.hit || r.over) bad.push(k + (r.inside ? "" : " outside") + (r.hit ? " overlap" : "") + (r.over ? " overflow" : ""));
+        if (k === "human") await shot(`${lang}-${w}-finger`);
+      }
+      ok(!a.over && a.h > 200 && a.card && !bad.length, `3: at ${w} (${lang}) the map fits with no overflow, and the degree names stay inside the picture without covering each other${bad.length ? " (" + bad.join(", ") + ")" : ""}`);
+      await page.click('#view [data-act="hmout"]'); await page.waitForTimeout(700); if (w === 375 || w === 1280) await shot(`${lang}-${w}-hand`);
+    }
+    // the adult edition is untouched by the switch
+    await page.setViewportSize({ width: 375, height: 812 }); await setS(page, "s.lang = 'ar';");
+    await open(page, "&reset=1&ed=adult", 1000); await page.evaluate(() => localStorage.setItem("tazkiya-handmap", "1")); await open(page, "", 900); await go(page, "#/me", 600);
+    const ad = await page.evaluate(() => ({ map: !!document.querySelector(".hmap"), hand: !!document.querySelector("#view .handbox") }));
+    await page.click("#setBtn, [data-act='settings'] >> nth=0"); await page.waitForTimeout(350);
+    const adSw = await has(page, '#sheet [data-act="hmset"]');
+    ok(!ad.map && ad.hand && !adSw, `3: the adult edition keeps its hand and shows no map switch (map ${ad.map}, hand ${ad.hand}, switch ${adSw})`);
+    // switched off again, the usual hand returns
+    await page.evaluate(() => localStorage.removeItem("tazkiya-handmap")); await open(page, "&reset=1", 600);
+    ok(await page.evaluate(() => !document.querySelector("#view .hmap") && document.querySelectorAll("#view .handbox .chip").length === 5), "3: switched off, the usual hand returns");
+    ok(!page.errs.length, "3: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+    await ctx.close(); });
   // 2. evening reckoning
   const at = async (page, h) => { if (page.clock && page.clock.setFixedTime) { const d = new Date(); d.setHours(h, 30, 0, 0); await page.clock.setFixedTime(d); return true; } return false; };
   await step("evening reckoning", async () => { const { ctx, page } = await fresh();
