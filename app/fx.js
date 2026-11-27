@@ -120,7 +120,7 @@
   }
   // the background steps back while a voice reads aloud
   setInterval(() => {
-    let sp = false; try { sp = !!(window.speechSynthesis && speechSynthesis.speaking); } catch (e) {}
+    const sp = !!window.TZ_AUDIO_PLAYING; // set by the app while a recorded narration plays
     const want = sp ? .3 : 1; if (want !== duck) { duck = want; setAmbLevel(); }
   }, 700);
 

@@ -190,7 +190,7 @@
     profName: ["الاسم", "Name"], boy: ["ولد", "Boy"], girl: ["بنت", "Girl"], profNote: ["اختيار «بنت» يعرض صيغة المؤنث حيث توفّرها المادة.", "\u201cGirl\u201d uses feminine Arabic wording where the content has it."],
     save: ["حفظ", "Save"], famTalk: ["حديث العائلة بعد الكتاب", "Family talk after the book"], famAct: ["نشاط الأسبوع معًا", "This week's shared activity"],
     wkBook: ["أنهى كتاب «{b}»", "Finished “{b}”"], climbSmall: ["خطوة صغيرة إلى أعلى", "A small step up"],
-    ttsHint: ["للوالدين: لا يوجد صوت عربي على هذا الجهاز. ثبّتوا صوتًا عربيًا من إعدادات «تحويل النص إلى كلام» ليظهر زر 🔊.", "For parents: this device has no Arabic voice. Install one in the device's text-to-speech settings to show the 🔊 button."], storyQ: ["إلى الخطوة والسؤال على يدك", "To the step and the question, on your hand"], readFirst: ["اقرأ", "Read"],
+    storyQ: ["إلى الخطوة والسؤال على يدك", "To the step and the question, on your hand"], readFirst: ["اقرأ", "Read"],
     nextRead: ["القراءة التالية", "Next reading"], toMission: ["إلى مهام اليوم", "To today's tasks"], awaitT: ["بانتظار تأكيدك", "Waiting for your confirmation"],
     resetAsk: ["سيُمحى تقدّم هذا الملف كله، ويبدأ من المقدمة والجولة الأولى. يحسن حفظ نسخة احتياطية قبل ذلك.", "All progress of this profile will be cleared, and it starts again from the intro and the first tour. Saving a backup first is wise."],
     resetYes: ["نعم، من جديد", "Yes, start over"], resetNo: ["إلغاء", "Cancel"], loading: ["يُحمَّل…", "Loading…"],
@@ -1180,7 +1180,7 @@
     const body = t(d.story) || []; if (!body.length) return vMissing();
     aloudIx = Math.max(0, Math.min(aloudIx, body.length - 1)); const lastP = aloudIx === body.length - 1;
     return `<div class="wrap article aloud${lastP ? " last" : ""}" style="--fs:${Math.max(S.fs, 24)}px">
-      <div class="reader-bar"><a class="back" href="#/stage/${id}">${BK()} ${esc(nm(id))}</a><span class="fsz">${ttsBtn()}</span></div>
+      <div class="reader-bar"><a class="back" href="#/stage/${id}">${BK()} ${esc(nm(id))}</a><span class="fsz">${ttsBtn("deg-" + id + "-" + i, aloudIx + 1, 1)}</span></div>
       <p class="meta" style="margin:0"><span>${esc(fing(id))} · ${esc(u("degree"))} ${+i + 1}</span></p>
       <h1 class="h">${esc(t(d.name))}</h1>
       <div class="aloud-page"><p>${esc(body[aloudIx])}</p></div>
@@ -1449,16 +1449,11 @@
   }
   let TOUR = null; // {i, hit} while the first tour runs
   const TOUR_N = FINGERS.length + 2; // five fingers, the light, the closing line
-  let tourSaid = "";
-  function tourSay(text) {
-    const v = ttsVoice(); if (!v || !text || tourSaid === text) return; tourSaid = text;
-    try { speechSynthesis.cancel(); const ut = new SpeechSynthesisUtterance(text); ut.voice = v; ut.lang = v.lang; ut.rate = L() === "ar" ? .88 : .92; speechSynthesis.speak(ut); } catch (e) {}
-  }
-  function startTour() { TOUR = { i: 0, hit: false }; tourSaid = ""; if (route().name !== "home") location.hash = "#/"; else render(); window.scrollTo(0, 0); }
+  function startTour() { TOUR = { i: 0, hit: false }; if (route().name !== "home") location.hash = "#/"; else render(); window.scrollTo(0, 0); }
   function endTour() { TOUR = null; S.tour = true; save(); ttsStop(); render(); }
   function vTour() {
     const i = TOUR.i, hit = TOUR.hit, M = MAPS.one.L;
-    let say = "", big = "", sub = "", art = "", hand;
+    let big = "", sub = "", art = "", hand;
     if (i < FINGERS.length) {
       const f = FINGERS[i], tg = M[f], fn = t(FINGER[f]);
       hand = handX({ side: "L", map: M, light: true, chips: false, interactive: true, degs: false, focusF: hit ? null : f, selF: hit ? f : null, hintF: hit ? null : f });
@@ -1471,14 +1466,12 @@
       hand = handX({ side: "L", map: M, light: true, chips: false, interactive: false });
       big = u("tourEnd"); sub = u("tourEndSub");
     }
-    say = big + (sub ? ". " + sub : "");
-    setTimeout(() => tourSay(say), 250);
     const done = i >= FINGERS.length + 1, canNext = hit || done;
     return `<section class="tour ${hit ? "hit" : ""}" aria-live="polite">
       <div class="tour-dots" aria-hidden="true">${Array.from({ length: TOUR_N }, (_, k) => `<i class="${k < i ? "done" : k === i ? "on" : ""}"></i>`).join("")}</div>
       <div class="tour-hand">${hand}</div>
       <div class="tour-card">${art}<p class="tour-big">${esc(big)}</p>${sub ? `<p class="tour-sub">${esc(sub)}</p>` : ""}
-        <div class="tour-row">${ttsVoice() ? `<button class="small-btn" data-act="toursay" aria-label="${esc(u("ttsPlay"))}">🔊</button>` : ""}
+        <div class="tour-row">
           ${canNext ? `<button class="btn" data-act="${done ? "tourend" : "tournext"}">${esc(u(done ? "tourGo" : "tourNext"))}</button>` : ""}</div>
         ${done ? "" : `<button class="tour-skip" data-act="tourend">${esc(u("tourSkip"))}</button>`}</div></section>`;
   }
@@ -2901,31 +2894,42 @@
   function askQ(id, r) { const q = C.stages[id].quiz.find(x => x.readingId === r.id); return q ? q.q : null; }
   let aloudOn = false, aloudIx = 0, speaking = false, aloudAuto = null;
   let bkPlay = false, bkSeq = 0, bkTimer = null; // the storybook's read-aloud (bookSpeak)
-  const hasTTS = () => { try { return "speechSynthesis" in window && typeof SpeechSynthesisUtterance === "function"; } catch (e) { return false; } };
-  function ttsVoice() {
-    if (!hasTTS()) return null;
-    const want = L() === "ar" ? "ar" : "en", vs = speechSynthesis.getVoices() || [];
-    return vs.find(v => (v.lang || "").toLowerCase().startsWith(want)) || null;
+  /* Recorded narration (owner's feedback, 27 Nov 2026: the browser's synthetic voice is not acceptable; it is not used anywhere).
+     One set of recordings serves the storybook and the other readers: assets/audio/<lang>/<id>/<n>.mp3 for page or paragraph n
+     (from 1), and beside it <n>.json, the word timings [{"t": seconds from the start, "w": the word's index on the page}].
+     STORY_AUDIO lists "<lang>/<id>" for every narration that is ready; a listen button shows only for those. It is empty until
+     the narration is recorded, so no button shows. (The smoke test fills window.TZ_STORY_AUDIO before load to run a fake one.)
+     The .mp3 files stay out of the service worker's install list. */
+  const STORY_AUDIO = new Set([].concat(Array.isArray(window.TZ_STORY_AUDIO) ? window.TZ_STORY_AUDIO : []).filter(x => typeof x === "string" && /^(ar|en)\/[\w.:-]{1,90}$/.test(x)));
+  const audioOf = id => !!id && STORY_AUDIO.has(L() + "/" + id);
+  const audioSrc = (id, n) => "assets/audio/" + L() + "/" + encodeURIComponent(id) + "/" + n;
+  let NAR = null; // the recording now playing
+  const setPlaying = on => { speaking = on; try { window.TZ_AUDIO_PLAYING = on; } catch (e) {} }; // fx.js lowers the background sound by it
+  // plays page n of a narration; ws (the page's word spans) light up from its timings; done(true) when it ends
+  function narrate(id, n, ws, done) {
+    bookStop(); const seq = bkSeq, a = new Audio(audioSrc(id, n) + ".mp3"); NAR = a; let tm = [];
+    fetch(audioSrc(id, n) + ".json").then(r => (r.ok ? r.json() : [])).then(j => { if (seq === bkSeq && Array.isArray(j)) tm = j.filter(x => x && typeof x.t === "number" && Number.isInteger(x.w)).sort((p, q) => p.t - q.t); }).catch(() => {});
+    const mark = i => (ws || []).forEach((w, j) => w.classList.toggle("hl", j === i));
+    const end = ok => { if (seq !== bkSeq) return; mark(-1); NAR = null; setPlaying(false); if (done) done(ok); };
+    a.addEventListener("timeupdate", () => { if (seq !== bkSeq) return; let k = -1; for (const x of tm) { if (x.t <= a.currentTime) k = x.w; else break; } mark(k); });
+    a.addEventListener("ended", () => end(true));
+    a.addEventListener("error", () => end(false));
+    setPlaying(true);
+    try { const pr = a.play(); if (pr && pr.catch) pr.catch(() => end(false)); } catch (e) { end(false); }
   }
-  function ttsBtn() {
-    if (!ttsVoice()) return "";
-    return `<button data-act="tts" class="${speaking ? "on" : ""}" aria-pressed="${speaking}" aria-label="${esc(u(speaking ? "ttsStop" : "ttsPlay"))}" title="${esc(u(speaking ? "ttsStop" : "ttsPlay"))}">${speaking ? "■" : "🔊"}</button>`;
+  // the readers' listen button: paragraphs (or the page) from..from+n-1 of a narration, only where it is recorded
+  function ttsBtn(id, from, n) {
+    if (!audioOf(id)) return "";
+    return `<button data-act="tts" data-id="${esc(id)}" data-f="${from || 1}" data-n="${n || 1}" class="${speaking ? "on" : ""}" aria-pressed="${speaking}" aria-label="${esc(u(speaking ? "ttsStop" : "ttsPlay"))}" title="${esc(u(speaking ? "ttsStop" : "ttsPlay"))}">${speaking ? "■" : "🔊"}</button>`;
   }
-  function ttsStop() { bookStop(); try { if (hasTTS()) speechSynthesis.cancel(); } catch (e) {} speaking = false; }
-  function ttsToggle() {
+  function ttsStop() { bookStop(); setPlaying(false); }
+  function ttsToggle(el) {
     if (speaking) { ttsStop(); render(true); return; }
-    const v = ttsVoice(); if (!v) return;
-    const parts = [...view.querySelectorAll(".article h1, .article .body p, .aloud-page p, .article .ask p")].map(e => e.textContent.trim()).filter(Boolean);
-    if (!parts.length) return;
-    try {
-      speechSynthesis.cancel();
-      const ut = new SpeechSynthesisUtterance(parts.join(". "));
-      ut.voice = v; ut.lang = v.lang || (L() === "ar" ? "ar-SA" : "en-US"); ut.rate = L() === "ar" ? .9 : .95;
-      ut.onend = ut.onerror = () => { speaking = false; render(true); };
-      speaking = true; speechSynthesis.speak(ut); render(true);
-    } catch (e) { speaking = false; }
+    const id = el.dataset.id, from = Math.max(1, +el.dataset.f || 1), last = from + Math.max(1, +el.dataset.n || 1) - 1;
+    if (!audioOf(id)) return;
+    const go = k => narrate(id, k, null, ok => { if (ok && k < last) go(k + 1); else render(true); });
+    go(from); render(true);
   }
-  if (hasTTS()) { try { speechSynthesis.addEventListener("voiceschanged", () => { const n = route().name; if (["read", "virtue", "chapter", "deg"].includes(n)) render(true); }); } catch (e) {} }
   /* reading sessions: visible seconds are counted; a reading is recorded once its end has been reached
      and the time spent is at least words / 4 seconds (faster than 240 words a minute is skimming) */
   let RS = null;
@@ -3087,7 +3091,7 @@
     if (young && aloudOn && body.length) return vStoryBook(id, r, body, rs, hasQ);
     return `<div class="wrap article${r.summit === true ? " summit-read" : ""}" style="--fs:${S.fs}px">
       <div class="reader-bar"><a class="back" href="#/stage/${id}">${BK()} ${esc(nm(id))}</a>
-        <div class="fsz" role="group" aria-label="${esc(u("textSize"))}">${ttsBtn()}<button data-act="fs" data-d="-2" aria-label="A−">A−</button><button data-act="fs" data-d="2" aria-label="A+">A+</button></div></div>
+        <div class="fsz" role="group" aria-label="${esc(u("textSize"))}">${ttsBtn(r.id, 1, body.length)}<button data-act="fs" data-d="-2" aria-label="A−">A−</button><button data-act="fs" data-d="2" aria-label="A+">A+</button></div></div>
       ${(() => { const src = storyArt(id, r); return src ? `<figure class="rd-art" aria-hidden="true"><img src="${src}" alt="" decoding="async"></figure>` : ""; })()}
       <h1 class="h">${esc(t(r.title))}</h1>${r.origin ? `<p class="origin">${esc(t(r.origin))}</p>` : ""}
       <div class="meta"><span>${r.minutes ? r.minutes + " " + esc(u("minutes")) : ""}</span>${ADU() ? "" : `<span>${esc(u("ages"))}: ${agesHtml(r.ages)}</span>`}${young ? `<button class="small-btn" data-act="aloud">${esc(u("aloud"))}</button>` : ""}</div>
@@ -3129,7 +3133,7 @@
     const n = body.length, inBook = hasQ && !ADU(), maxIx = inBook ? n : n - 1;
     aloudIx = Math.max(0, Math.min(aloudIx, maxIx)); if (aloudIx >= n - 1) rs.end = true;
     const ask = aloudIx === n, last = aloudIx === n - 1, o = PAN[aloudIx % PAN.length], src = storyArt(id, r);
-    const voice = !!ttsVoice(), nxA = L() === "ar" ? "←" : "→", pvA = L() === "ar" ? "→" : "←";
+    const voice = !ask && audioOf(r.id), nxA = L() === "ar" ? "←" : "→", pvA = L() === "ar" ? "→" : "←";
     const dots = `<div class="bk-dots" aria-hidden="true">${Array.from({ length: maxIx + 1 }, (_, j) => `<i class="${j === aloudIx ? "on" : j === n ? "q" : ""}"></i>`).join("")}</div>`;
     let page;
     if (!ask) {
@@ -3178,42 +3182,20 @@
     const keep = bkPlay && to < n; ttsStop(); aloudIx = to; bkDir = d; FX("tick"); render(true);
     if (keep) bookSpeak(true);
   }
-  /* read aloud inside the book: each spoken word lights up (the voice's word boundaries; where a voice sends none, a timed
-     estimate), and while "listen" is on the book turns its own pages to the end of the story */
+  /* read aloud inside the book, from its recording: each word lights up from the page's timings, and while "listen" is on the
+     book turns its own pages to the end of the story */
   function bookSpeak(play) {
-    const v = ttsVoice(); if (!v) return;
-    const els = [...view.querySelectorAll(".sbook .bk-say")]; if (!els.length) return;
-    try { speechSynthesis.cancel(); } catch (e) {}
-    clearInterval(bkTimer); const seq = ++bkSeq; speaking = true; bkPlay = !!play && !view.querySelector(".sbook.ask");
-    const face = () => { const b = view.querySelector(".bk-listen"); if (b) { b.classList.toggle("on", speaking); b.setAttribute("aria-pressed", String(speaking)); b.innerHTML = bkListenFace(!!view.querySelector(".sbook.ask")); } };
-    face(); let k = 0;
-    const finish = () => {
-      if (seq !== bkSeq) return; speaking = false; face();
-      const r = route(), rd = r.name === "read" && findReading(r.id, r.rid), n = rd ? (t(rd.body) || []).length : 0;
-      if (bkPlay && aloudIx < n - 1) setTimeout(() => { if (seq === bkSeq && bkPlay && route().name === "read") { aloudIx++; bkDir = 1; render(true); bookSpeak(true); } }, 650);
+    const r = route(), rd = r.name === "read" && findReading(r.id, r.rid);
+    if (!rd || !audioOf(rd.id) || view.querySelector(".sbook.ask")) return;
+    const n = (t(rd.body) || []).length, face = () => { const b = view.querySelector(".bk-listen"); if (b) { b.classList.toggle("on", speaking); b.setAttribute("aria-pressed", String(speaking)); b.innerHTML = bkListenFace(false); } };
+    narrate(rd.id, aloudIx + 1, [...view.querySelectorAll(".sbook .bk-txt .w")], ok => {
+      face();
+      if (ok && bkPlay && aloudIx < n - 1) { const seq = bkSeq; setTimeout(() => { if (seq === bkSeq && bkPlay && route().name === "read") { aloudIx++; bkDir = 1; render(true); bookSpeak(true); } }, 650); }
       else bkPlay = false;
-    };
-    const one = () => {
-      if (seq !== bkSeq) return;
-      if (k >= els.length) { finish(); return; }
-      const el = els[k++], ws = [...el.querySelectorAll(".w")], text = el.textContent;
-      const at = []; let pos = 0; ws.forEach(w => { const i = text.indexOf(w.textContent, pos); at.push(i); pos = i + w.textContent.length; });
-      const mark = i => ws.forEach((w, j) => w.classList.toggle("hl", j === i));
-      let got = false, wi = 0;
-      try {
-        const ut = new SpeechSynthesisUtterance(text);
-        ut.voice = v; ut.lang = v.lang || (L() === "ar" ? "ar-SA" : "en-US"); ut.rate = L() === "ar" ? .85 : .9;
-        ut.onboundary = e => { if (seq !== bkSeq || (e.name && e.name !== "word")) return; got = true; clearInterval(bkTimer); let j = 0; while (j + 1 < at.length && at[j + 1] <= e.charIndex) j++; mark(j); };
-        ut.onend = () => { if (seq !== bkSeq) return; clearInterval(bkTimer); mark(-1); setTimeout(one, 250); };
-        ut.onerror = () => { if (seq !== bkSeq) return; clearInterval(bkTimer); mark(-1); bkPlay = false; finish(); };
-        speechSynthesis.speak(ut);
-      } catch (e) { bkPlay = false; finish(); return; }
-      clearInterval(bkTimer);
-      bkTimer = setInterval(() => { if (seq !== bkSeq || got) { clearInterval(bkTimer); return; } if (wi < ws.length) mark(wi++); }, L() === "ar" ? 520 : 430);
-    };
-    one();
+    });
+    bkPlay = !!play; face();
   }
-  function bookStop() { bkSeq++; bkPlay = false; clearInterval(bkTimer); }
+  function bookStop() { bkSeq++; bkPlay = false; clearInterval(bkTimer); if (NAR) { const a = NAR; NAR = null; try { a.pause(); a.removeAttribute("src"); a.load(); } catch (e) {} } }
   /* ---------- library: one bound book per finger, read chapter by chapter ---------- */
   const VG = "assets/vignettes/";
   const ART = { sym: {}, book: {} };
@@ -3329,7 +3311,7 @@
     const nextHref = k < b.chapters.length ? `#/book/${encodeURIComponent(b.id)}/${k + 1}` : `#/book/${encodeURIComponent(b.id)}`;
     if (b.picture) return `<div class="wrap article chapter picbook" style="--fs:${S.fs}px">
       <div class="reader-bar"><a class="back" href="#/book/${encodeURIComponent(b.id)}">${BK()} ${esc(t(b.title))}</a>
-        <div class="fsz" role="group" aria-label="${esc(u("textSize"))}">${ttsBtn()}<button data-act="fs" data-d="-2" aria-label="A−">A−</button><button data-act="fs" data-d="2" aria-label="A+">A+</button></div></div>
+        <div class="fsz" role="group" aria-label="${esc(u("textSize"))}">${ttsBtn("c-" + chKey(b, k), 1, body.length)}<button data-act="fs" data-d="-2" aria-label="A−">A−</button><button data-act="fs" data-d="2" aria-label="A+">A+</button></div></div>
       <div class="pb-page"><p class="pb-n">${esc(fmt(U.pgOf, { a: k, b: b.chapters.length }))}</p>
         ${symImg(b.stage, "pb-art")}
         <h1 class="h">${esc(t(c.title))}</h1>
@@ -3339,7 +3321,7 @@
       <a class="btn block" id="nextCh" style="margin-top:12px" href="${nextHref}" ${rs.done || k >= b.chapters.length ? "" : 'aria-disabled="true" tabindex="-1"'}>${esc(u(k < b.chapters.length ? "pgNext" : "chDone"))}</a></div>`;
     return `<div class="wrap article chapter" style="--fs:${S.fs}px">
       <div class="reader-bar"><a class="back" href="#/book/${encodeURIComponent(b.id)}">${BK()} ${esc(t(b.title))}</a>
-        <div class="fsz" role="group" aria-label="${esc(u("textSize"))}">${ttsBtn()}<button data-act="fs" data-d="-2" aria-label="A−">A−</button><button data-act="fs" data-d="2" aria-label="A+">A+</button></div></div>
+        <div class="fsz" role="group" aria-label="${esc(u("textSize"))}">${ttsBtn("c-" + chKey(b, k), 1, body.length)}<button data-act="fs" data-d="-2" aria-label="A−">A−</button><button data-act="fs" data-d="2" aria-label="A+">A+</button></div></div>
       <p class="meta" style="margin:0"><span>${esc(fmt(U.chOf, { a: k, b: b.chapters.length }))}</span></p>
       <h1 class="h">${esc(t(c.title))}</h1>
       <div class="body">${body.map(p => `<p>${esc(p)}</p>`).join("")}</div><div class="read-end"></div>${readStat(rs)}
@@ -3776,7 +3758,7 @@
     const rd = v.reading || {}, body = (rd.body && t(rd.body)) || [];
     return `<div class="wrap article" style="--fs:${S.fs}px">
       <div class="reader-bar"><a class="back" href="#/stage/sabiq">${BK()} ${esc(u("rightT"))}</a>
-        <div class="fsz" role="group" aria-label="${esc(u("textSize"))}">${ttsBtn()}<button data-act="fs" data-d="-2" aria-label="A−">A−</button><button data-act="fs" data-d="2" aria-label="A+">A+</button></div></div>
+        <div class="fsz" role="group" aria-label="${esc(u("textSize"))}">${ttsBtn("v-" + vid, 1, body.length)}<button data-act="fs" data-d="-2" aria-label="A−">A−</button><button data-act="fs" data-d="2" aria-label="A+">A+</button></div></div>
       
       <h1 class="h">${esc(t(v.name))}</h1>
       ${rd.title ? `<p class="meta" style="font-size:15px">${esc(t(rd.title))}</p>` : ""}
@@ -3966,7 +3948,6 @@
     }
     const y = window.scrollY;
     view.innerHTML = h;
-    if (S.parent && hasTTS() && !ttsVoice() && L() === "ar") { const rb = view.querySelector(".reader-bar"); if (rb) rb.insertAdjacentHTML("afterend", `<p class="tts-hint">${esc(u("ttsHint"))}</p>`); }
     if (!keepScroll) { view.classList.remove("fade"); void view.offsetWidth; view.classList.add("fade"); }
     if (keepScroll) window.scrollTo(0, y);
   }
@@ -3993,7 +3974,6 @@
       }
       case "tournext": if (TOUR) { FX("tick"); TOUR.i++; TOUR.hit = TOUR.i > FINGERS.length; render(true); } break;
       case "tourend": endTour(); break;
-      case "toursay": tourSaid = ""; { const b = view.querySelector(".tour-big"), sb = view.querySelector(".tour-sub"); tourSay((b ? b.textContent : "") + (sb ? ". " + sb.textContent : "")); } break;
       case "tourstart": closeSheet(); startTour(); break;
       case "filmplay": closeSheet(); playFilm(false); break;
       case "deg": {
@@ -4004,7 +3984,7 @@
       case "mapsheet": mapSheet(); break;
       case "pwahow": pwaHowSheet(); break;
       case "signlater": try { localStorage.setItem("tazkiya-signin-later", String(Date.now())); } catch (e) {} FX("tick"); render(true); break;
-      case "tts": ttsToggle(); break;
+      case "tts": ttsToggle(el); break;
       case "seted": {
         const e = el.dataset.e === "adult" ? "adult" : "kids", was = S.edition === "adult" ? "adult" : "kids";
         S.edition = e; save(); if (e === was) { settingsSheet(); break; }

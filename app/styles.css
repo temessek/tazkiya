@@ -1560,7 +1560,7 @@ ol.path::before { content: ""; position: absolute; inset-block: 24px; inset-inli
 .sbook .aloud-page.bk-txt { min-height: 18vh; padding: 8px 0; }
 .sbook.last .aloud-page.bk-txt { min-height: 12vh; }
 .sbook .bk-say .w, .sbook .bk-q .w { border-radius: 8px; padding: 0 2px; margin: 0 -2px; transition: background-color .15s, color .15s; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-.sbook .w.hl { background: var(--c); color: #fff; }
+.sbook .w.hl { background: color-mix(in srgb, var(--c) 28%, #fffaf3); color: var(--ink); box-shadow: inset 0 -3px 0 var(--c); }
 .bk-dots { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px; padding: 6px 0 2px; }
 .bk-dots i { width: 7px; height: 7px; border-radius: 50%; background: rgba(36,54,75,.18); }
 .bk-dots i.q { background: none; box-shadow: inset 0 0 0 1.5px var(--c); }
