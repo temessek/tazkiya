@@ -1465,20 +1465,21 @@
     if (MAPS[m].R) h += `<h2 class="h hand-h">${esc(u("rightT"))}</h2><p class="hint" style="margin-top:-4px">${esc(u("rightSub"))} · ${esc(u("sabiqShare"))}: <b dir="ltr">${S.mix.sabiq}%</b></p>${L("R")}`;
     return `<div class="hands ${m}">${h}</div>`;
   }
-  /* ---------- the hand as a map (redesign direction 3, approved 26 Nov 2026 as a trial behind a switch that is off by default) ----------
+  /* ---------- the hand as a map (redesign direction 3, approved 26 Nov 2026 as a trial; the default since 27 Nov 2026, with a settings switch to turn it off) ----------
      Children's and teens' edition, one-hand map only. Each finger's joints sit at its degrees (G.degs). A joint is lit when every
      stop that the finger's path (stations, direction 1) groups under that degree is done. A tap on a finger zooms the picture onto it
      (the SVG viewBox), the percentage chips give way to the degree names on its joints, and a joint opens its panel: the degree's
      name, description, what it looks like, its story and how to climb from it. The rule is in the project's decision notes. */
   const HMKEY = "tazkiya-handmap";
-  const hmPref = () => { try { return localStorage.getItem(HMKEY) === "1"; } catch (e) { return false; } };
+  // on unless the person turned it off (owner decision 27 Nov 2026: the map is the default); an explicit stored "0" keeps it off
+  const hmPref = () => { try { return localStorage.getItem(HMKEY) !== "0"; } catch (e) { return true; } };
   const hmOn = () => hmPref() && !ADU() && MODE() === "one";
   const HM = { f: null, d: -1, story: false, from: null, anim: false };
   const HM_HOME = [10, 100, 1010, 880];
   // the percentage chips sit at the fingertips here, clear of the tip joints (the hand page's own chip points overlap them)
   const HM_CHIP = { zombie: [204, 882], pig: [100, 746], monkey: [90, 602], human: [150, 440], sabiq: [546, 160] };
   Object.assign(U, {
-    hmSet: ["اليد الخريطة (تجربة)", "Hand as a map (trial)"], hmSetH: ["شكل اليد", "The hand's look"],
+    hmSet: ["اليد الخريطة", "Hand as a map"], hmSetH: ["شكل اليد", "The hand's look"],
     hmSetSub: ["مفاصل تضيء بما قطعته من طريق كل إصبع، ولمسة على الإصبع تقرّبه.", "Joints light up as you walk each finger's path, and a tap on a finger brings it close."],
     hmAria: ["اليد الخريطة: خمسة أصابع ومفاصلها", "The hand as a map: five fingers and their joints"],
     hmHint: ["كل مفصل مضيء خطوة قطعتها. اضغط إصبعًا لتقترب منه.", "Every lit joint is a step you have taken. Tap a finger to come closer."],
@@ -4223,7 +4224,7 @@
         HM.d = i; HM.story = false; FX("tick"); render(true); jointSheet(id, i); break; }
       case "hmout": hmOut(); break;
       case "hmstory": if (sheetState && sheetState.kind === "joint") { HM.story = true; const y = sheet.scrollTop; jointSheet(sheetState.s, sheetState.i); sheet.scrollTop = y; } break;
-      case "hmset": { const on = !hmPref(); try { if (on) localStorage.setItem(HMKEY, "1"); else localStorage.removeItem(HMKEY); } catch (e) {} HM.f = null; HM.d = -1; FX("tick"); settingsAgain(); render(true); break; }
+      case "hmset": { const on = !hmPref(); try { localStorage.setItem(HMKEY, on ? "1" : "0"); } catch (e) {} HM.f = null; HM.d = -1; FX("tick"); settingsAgain(); render(true); break; }
       case "mapsheet": mapSheet(); break;
       case "pwahow": pwaHowSheet(); break;
       case "signlater": try { localStorage.setItem("tazkiya-signin-later", String(Date.now())); } catch (e) {} FX("tick"); render(true); break;

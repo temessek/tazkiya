@@ -570,7 +570,11 @@ async function ideaFlows(browser, base, content, AV) {
   const fails = [], names = [], notesOut = []; let total = 0;
   const ok = (cond, label) => { total++; if (!cond) fails.push(label); };
   const step = async (label, fn) => { names.push(label); try { await fn(); } catch (e) { total++; fails.push(label + ": " + e.message.split("\n")[0]); } };
-  const fresh = async () => { const ctx = await browser.newContext({ viewport: { width: 375, height: 812 } }); const page = await ctx.newPage(); const errs = []; page.on("pageerror", e => errs.push(e.message)); page.errs = errs; return { ctx, page }; };
+  // the hand map is the default since 27 Nov 2026; these flows exercise the usual hand, which stays one switch away, so they start with the map off.
+  // The "hand as a map" step opens with fresh(true) and checks the default itself.
+  const fresh = async (map) => { const ctx = await browser.newContext({ viewport: { width: 375, height: 812 } });
+    if (!map) await ctx.addInitScript(() => { try { if (localStorage.getItem("tazkiya-handmap") === null) localStorage.setItem("tazkiya-handmap", "0"); } catch (e) {} });
+    const page = await ctx.newPage(); const errs = []; page.on("pageerror", e => errs.push(e.message)); page.errs = errs; return { ctx, page }; };
   const K = "akhlaq-app-v1";
   const getS = page => page.evaluate(k => JSON.parse(localStorage.getItem(k) || "{}"), K);
   const setS = (page, f) => page.evaluate(([k, src]) => { const s = JSON.parse(localStorage.getItem(k) || "{}"); const fn = new Function("s", "d", src); const d = new Date(); fn(s, d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0")); localStorage.setItem(k, JSON.stringify(s)); }, [K, f]);
@@ -787,24 +791,30 @@ async function ideaFlows(browser, base, content, AV) {
     ok(fs.readFileSync(path.join(ROOT, "parents", "index.html"), "utf8").split('href="../adult/#/kids"').length === 3, "4: the parents' page links to «مع أولادي» in both languages");
     ok(!page.errs.length, "4: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
-  // direction 3 (owner's approval, 26 Nov 2026, as a trial): the hand as a map, behind a settings switch that is off by default.
+  // direction 3 (owner's approval, 26 Nov 2026; the default since 27 Nov 2026): the hand as a map, with a settings switch to turn it off.
   // Joints at each finger's degrees, lit from the real path; a tap zooms onto the finger; a joint opens its panel; back to the whole hand
-  await step("hand as a map", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1", 700);
+  await step("hand as a map", async () => { const { ctx, page } = await fresh(true); await open(page, "&reset=1", 700);
     const { C: KC } = loadContent(), nDeg = Object.values(KC.stages).reduce((a, st) => a + st.degrees.length, 0);
     const plain = s => s.replace(/[«»"“”]/g, "");
     const shot = async n => { if (SHOTS) await page.screenshot({ path: path.join(OUT, "shots", `handmap-${n}.jpg`), type: "jpeg", quality: 70 }); };
-    const off0 = await page.evaluate(() => ({ map: !!document.querySelector("#view .hmap"), hand: !!document.querySelector("#view .handbox"), chips: document.querySelectorAll("#view .handbox .chip").length, card: !!document.querySelector("#view .nextstep") }));
-    ok(!off0.map && off0.hand && off0.chips === 5 && off0.card, "3: off by default: the home keeps the usual hand, its five percentages and the next step");
+    const off0 = await page.evaluate(() => ({ map: !!document.querySelector("#view .hmap"), hand: !!document.querySelector("#view .handbox"), card: !!document.querySelector("#view .nextstep") }));
+    ok(off0.map && !off0.hand && off0.card, "3: on by default (owner decision 27 Nov 2026): the home hand is the map, with the next step under it");
     await page.click("#setBtn, [data-act='settings'] >> nth=0"); await page.waitForTimeout(350);
-    const sw0 = await page.evaluate(() => { const b = document.querySelector('#sheet [data-act="hmset"]'); return b ? b.getAttribute("aria-checked") : null; });
-    ok(sw0 === "false", `3: the settings hold the switch «اليد الخريطة (تجربة)», off (${sw0})`);
+    const sw0 = await page.evaluate(() => { const b = document.querySelector('#sheet [data-act="hmset"]'), r = b && b.closest(".srow"); return b ? [b.getAttribute("aria-checked"), r.textContent.trim()] : null; });
+    ok(sw0 && sw0[0] === "true" && sw0[1] === "اليد الخريطة", `3: the settings hold the switch «اليد الخريطة», on (${sw0})`);
+    await page.click('#sheet [data-act="hmset"]'); await page.waitForTimeout(250);
+    const swOff = await page.evaluate(() => [document.querySelector('#sheet [data-act="hmset"]').getAttribute("aria-checked"), localStorage.getItem("tazkiya-handmap")]);
+    await page.click('#sheet [data-act="close"]'); await page.waitForTimeout(400); await open(page, "", 600);
+    const offH = await page.evaluate(() => ({ map: !!document.querySelector("#view .hmap"), chips: document.querySelectorAll("#view .handbox .chip").length, card: !!document.querySelector("#view .nextstep") }));
+    ok(swOff[0] === "false" && swOff[1] === "0" && !offH.map && offH.chips === 5 && offH.card, "3: switched off, the choice is kept after a reload, and the usual hand returns with its five percentages and the next step");
+    await page.click("#setBtn, [data-act='settings'] >> nth=0"); await page.waitForTimeout(350);
     await page.click('#sheet [data-act="hmset"]'); await page.waitForTimeout(250);
     const sw1 = await page.evaluate(() => [document.querySelector('#sheet [data-act="hmset"]').getAttribute("aria-checked"), localStorage.getItem("tazkiya-handmap")]);
     await page.click('#sheet [data-act="close"]'); await page.waitForTimeout(400);
     const on0 = await page.evaluate(() => ({ map: !!document.querySelector("#view .hmap"), hand: !!document.querySelector("#view .handbox"), j: document.querySelectorAll("#view .hmj").length, lit: document.querySelectorAll("#view .hmj.lit").length,
       dotted: [...document.querySelectorAll("#view .hmj:not(.lit) .jr")].every(c => c.getAttribute("stroke-dasharray")), chips: [...document.querySelectorAll("#view .hmsvg .chip text")].map(x => x.textContent), card: !!document.querySelector("#view .nextstep"), fw: !!document.querySelector("#view .fweek") }));
     const mix = (await getS(page)).mix || {};
-    ok(sw1[0] === "true" && sw1[1] === "1" && on0.map && !on0.hand, "3: switched on, the home hand becomes the map");
+    ok(sw1[0] === "true" && sw1[1] === "1" && on0.map && !on0.hand, "3: switched on again, the home hand is the map");
     ok(on0.j === nDeg && on0.lit === 0 && on0.dotted, `3: ${on0.j} joints, one for each degree (${nDeg}); with no progress all are dotted circles`);
     ok(on0.chips.length === 5 && ["zombie", "pig", "monkey", "human", "sabiq"].every(k => on0.chips.includes(mix[k] + "%")), `3: the five percentages stay on the fingers (${on0.chips.join(" ")})`);
     ok(on0.card && on0.fw, "3: the next-step card and this week's finger stay under the map (direction 1)");
@@ -876,8 +886,8 @@ async function ideaFlows(browser, base, content, AV) {
     const adSw = await has(page, '#sheet [data-act="hmset"]');
     ok(!ad.map && ad.hand && !adSw, `3: the adult edition keeps its hand and shows no map switch (map ${ad.map}, hand ${ad.hand}, switch ${adSw})`);
     // switched off again, the usual hand returns
-    await page.evaluate(() => localStorage.removeItem("tazkiya-handmap")); await open(page, "&reset=1", 600);
-    ok(await page.evaluate(() => !document.querySelector("#view .hmap") && document.querySelectorAll("#view .handbox .chip").length === 5), "3: switched off, the usual hand returns");
+    await open(page, "&reset=1&ed=kids", 900); await page.evaluate(() => localStorage.setItem("tazkiya-handmap", "0")); await open(page, "", 600);
+    ok(await page.evaluate(() => !document.querySelector("#view .hmap") && document.querySelectorAll("#view .handbox .chip").length === 5), "3: a stored «off» is respected: the usual hand returns");
     ok(!page.errs.length, "3: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
   // 2. evening reckoning
@@ -1693,7 +1703,11 @@ async function ideaFlows(browser, base, content, AV) {
       await ctx.close();
     }
     ({ ctx, page } = await freshUA(undefined, null, { width: 844, height: 390 })); await open(page, "&reset=1", 800);
-    const h = await page.evaluate(() => { const e = document.querySelector("#view .hand"), r = e.getBoundingClientRect(), t = document.getElementById("tabs").getBoundingClientRect(), g = document.querySelector(".hello").getBoundingClientRect(); return { top: r.top, bot: r.bottom, tabs: t.top, w: document.documentElement.scrollWidth, iw: innerWidth, hw: r.width, gOver: g.right > r.left + 2 && g.left < r.right - 2 && g.bottom > r.top + 2, step: !!document.querySelector(".stepcard") }; });
+    // the hand map is the default home hand since 27 Nov 2026: its stage is measured, and the greeting must not cover a joint or a percentage
+    const h = await page.evaluate(() => { const e = document.querySelector("#view .hand") || document.querySelector("#view .hm-stage"), r = e.getBoundingClientRect(), t = document.getElementById("tabs").getBoundingClientRect(), g = document.querySelector(".hello").getBoundingClientRect();
+      const cross = (x, y) => x.right > y.left + 2 && x.left < y.right - 2 && x.bottom > y.top + 2 && x.top < y.bottom - 2;
+      const marks = [...document.querySelectorAll("#view .hmj, #view .hmsvg .chip")].map(m => m.getBoundingClientRect());
+      return { top: r.top, bot: r.bottom, tabs: t.top, w: document.documentElement.scrollWidth, iw: innerWidth, hw: r.width, gOver: marks.length ? marks.some(m => cross(g, m)) : g.right > r.left + 2 && g.left < r.right - 2 && g.bottom > r.top + 2, step: !!document.querySelector(".stepcard") }; });
     ok(h.top > 0 && h.bot <= h.tabs + 1 && h.w <= h.iw && h.hw > 300 && !h.gOver && !h.step, `review C11: a phone held sideways shows the whole hand in the first view, the greeting beside it (${Math.round(h.top)}-${Math.round(h.bot)}, tabs ${Math.round(h.tabs)}, width ${Math.round(h.hw)})`);
     await ctx.close(); });
 
@@ -1760,7 +1774,7 @@ async function ideaFlows(browser, base, content, AV) {
     await page.goto("https://tazkiya.family/?intro=0&n=t#/tasks/constructor"); await page.waitForTimeout(700);
     ok(await page.evaluate(() => document.body.dataset.route) === "tasks" && !page.errs.length, "routes: #/tasks/constructor opens the tasks tab");
     await page.goto("https://tazkiya.family/?intro=0&sel=constructor#/"); await page.waitForTimeout(700);
-    ok(await has(page, "#view .hand") && !page.errs.length, "routes: ?sel=constructor opens the home page (" + page.errs.slice(0, 1).join("") + ")");
+    ok(await has(page, "#view .hand, #view .hmap") && !page.errs.length, "routes: ?sel=constructor opens the home page (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
   await step("move: a bad fragment", async () => {
     const b64 = x => Buffer.from(x).toString("base64").replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
