@@ -174,6 +174,7 @@ export async function accountDelete(req, env, url, s) {
   await env.DB.batch([
     env.DB.prepare("DELETE FROM entries WHERE account_id = ?").bind(aid),
     env.DB.prepare("DELETE FROM profiles WHERE account_id = ?").bind(aid),
+    env.DB.prepare("DELETE FROM feedback WHERE account_id = ?").bind(aid),   // feedback sent with "you may contact me"
     env.DB.prepare("DELETE FROM sessions WHERE account_id = ?").bind(aid),
     env.DB.prepare("DELETE FROM login_tokens WHERE email = ?").bind(s.account.email),
     env.DB.prepare("DELETE FROM rate WHERE k = ? OR k = ?").bind("sync:" + aid, "ai:acct:" + aid),

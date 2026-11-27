@@ -34,6 +34,7 @@ main { max-width: 680px; margin: 0 auto; }
 .lang a, .open a { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 16px; border-radius: 99px; border: 1.5px solid var(--line); background: var(--card); color: var(--ink); text-decoration: none; font-weight: 600; }
 .open { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 8px; }
 .open a.main { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+button.fbopen { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 18px; border-radius: 99px; border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper); font: inherit; font-weight: 600; cursor: pointer; margin: 6px 0 4px; }
 header { display: flex; align-items: center; gap: 14px; margin: 8px 0 10px; }
 header img { border-radius: 14px; flex: none; }
 h1 { font-size: 28px; line-height: 1.3; margin: 0; }
@@ -61,6 +62,12 @@ section a { color: var(--ink); font-weight: 600; text-underline-offset: 3px; }
 <p>تطبيقها بالعربية والإنجليزية يرسم الأخلاق على أصابع اليد، من الغفلة إلى السبق بالخيرات، بطبعتين: للصغار وللكبار.</p>
 <p>كل يوم خطوة واحدة: يتعرّف الطفل على سلوك، ويقرأ عنه قصة أو آية أو حديثًا، ثم يجرّبه في مهمة صغيرة في البيت أو المدرسة.</p>
 <p>المحتوى من القرآن والسنة وكتب الأدب والتزكية، ولكل آية وحديث مصدره داخل التطبيق.</p>
+</section>
+
+<section id="feedback">
+<h2>اقتراح أو تحسين</h2>
+<p>ما الذي نحسّنه في تزكية؟ اكتبوا اقتراحكم، ونحن نقرأ كل اقتراح. لا يُطلب من الأطفال نص في طبعتهم، فالاقتراحات تصلنا منكم من هنا.</p>
+<p><button class="fbopen" type="button" data-fb-open data-lang="ar" data-ed="kids">اكتبوا اقتراحكم</button></p>
 </section>
 
 <section>
@@ -114,6 +121,12 @@ section a { color: var(--ink); font-weight: 600; text-underline-offset: 3px; }
 <p>The content comes from the Qur'an, the Sunnah and the classic books of manners and self-purification, and every verse and hadith shows its source in the app.</p>
 </section>
 
+<section id="feedback-en">
+<h2>Suggest an improvement</h2>
+<p>What should we improve in Tazkiya? Write your suggestion; we read every one. The children's edition asks children for no text, so suggestions reach us from you, here.</p>
+<p><button class="fbopen" type="button" data-fb-open data-lang="en" data-ed="kids">Write a suggestion</button></p>
+</section>
+
 <section>
 <h2>Privacy</h2>
 <ul>
@@ -154,5 +167,6 @@ section a { color: var(--ink); font-weight: 600; text-underline-offset: 3px; }
 <div class="open"><a class="main" href="../">Open Tazkiya</a><a href="../adult/">Tazkiya for adults</a><a href="#ar" lang="ar" hreflang="ar">العربية</a></div>
 </div>
 </main>
+<script src="../feedback.js?v=1" defer></script>
 </body>
 </html>

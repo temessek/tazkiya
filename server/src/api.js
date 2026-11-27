@@ -2,6 +2,7 @@ import { HttpError, json, errorResponse, checkCsrf, hostAllowed } from "./http.j
 import { emailStart, emailVerifyPage, emailVerify, googleStart, googleCallback, logout, requireSession, authInfo } from "./auth.js";
 import { me, profilePut, profileDelete, sync, entryDelete, burn, accountDelete } from "./sync.js";
 import { extract, attestAdult, aiInfo } from "./extract.js";
+import { feedbackPost, feedbackAdmin } from "./feedback.js";
 
 const health = (req, env, url) => json({ ok: true, env: env.APP_ENV || "unknown", sign_in: authInfo(env), ...aiInfo(env, url) });
 
@@ -23,6 +24,8 @@ const ROUTES = [
   ["DELETE", /^\/api\/account$/, accountDelete, { auth: true }],
   ["POST", /^\/api\/account\/adult$/, attestAdult, { auth: true }],
   ["POST", /^\/api\/extract$/, extract, { auth: true }],
+  ["POST", /^\/api\/feedback$/, feedbackPost],
+  ["GET", /^\/api\/feedback\/admin$/, feedbackAdmin],   // bearer FEEDBACK_ADMIN_TOKEN, checked inside
 ];
 
 export async function handle(req, env) {

@@ -4137,6 +4137,7 @@
     if (["library", "book", "chapter", "stage", "me", "record"].includes(r.name) || (r.name === "home" && Object.keys(S.bookRead || {}).length)) ensureBooks();
     document.documentElement.lang = L(); document.documentElement.dir = L() === "ar" ? "rtl" : "ltr";
     document.title = r.name === "home" ? u("brand") + ": " + u("docTag") : u("brand"); document.body.dataset.route = r.name;
+    document.body.dataset.ed = ADU() ? "adult" : "kids"; // feedback.js shows its entry in the adult edition only
     document.documentElement.style.setProperty("--k", String(Math.max(.8, Math.min(1.7, S.fs / 19))));
     document.getElementById("brand").textContent = u("brand");
     { const sf = document.querySelector("#sitefoot a"); if (sf) { sf.textContent = u("privacyL"); sf.setAttribute("href", "/privacy/" + (L() === "en" ? "#en" : "")); } }
