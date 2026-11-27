@@ -1,9 +1,9 @@
 import { HttpError, json, errorResponse, checkCsrf, hostAllowed } from "./http.js";
 import { emailStart, emailVerifyPage, emailVerify, googleStart, googleCallback, logout, requireSession, authInfo } from "./auth.js";
 import { me, profilePut, profileDelete, sync, entryDelete, burn, accountDelete } from "./sync.js";
-import { extract, attestAdult } from "./extract.js";
+import { extract, attestAdult, aiInfo } from "./extract.js";
 
-const health = (req, env) => json({ ok: true, env: env.APP_ENV || "unknown", sign_in: authInfo(env), ai: !!env.AI });
+const health = (req, env, url) => json({ ok: true, env: env.APP_ENV || "unknown", sign_in: authInfo(env), ...aiInfo(env, url) });
 
 // [method, path, handler, options]. auth: a session is required. csrf: false only where the route checks its own origin.
 const ROUTES = [

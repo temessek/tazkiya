@@ -2,7 +2,7 @@
 # Pages Functions in ./functions (the /api/* routes). Run wrangler from THIS folder, so it finds ./functions:
 #   preview:    npm run deploy:preview      (wrangler pinned in package.json)
 #   production: npm run deploy:production
-# Secrets (never in this file): GOOGLE_CLIENT_SECRET (production and preview), TEST_KEY (preview only). See docs/SERVER.md.
+# Secrets (never in this file): GOOGLE_CLIENT_SECRET and OPENAI_API_KEY (production and preview), TEST_KEY (preview only). See docs/SERVER.md.
 name = "tazkiya"
 pages_build_output_dir = "../public-dist"
 compatibility_date = "2026-11-01"
@@ -12,6 +12,8 @@ compatibility_date = "2026-11-01"
 APP_ENV = "production"
 MAIL_MODE = "off"            # becomes "worker" once Email Sending is on for tazkiya.family (needs Workers Paid)
 GOOGLE_CLIENT_ID = "892867885846-t2eu4h031m896bplp9ir6mfie07q1lr0.apps.googleusercontent.com"   # public; the secret is GOOGLE_CLIENT_SECRET
+AI_PROVIDER = "openai"       # the journal analysis (adults only): OpenAI once the OPENAI_API_KEY secret is set, off until then
+AI_MODEL = "gpt-6.2-sol"
 
 [[d1_databases]]
 binding = "DB"
@@ -35,6 +37,8 @@ LIMIT_MAIL_IP = "200"        # the test suite runs from one address against the 
 LIMIT_MAIL_TO = "20"
 LIMIT_VERIFY_IP = "200"
 GOOGLE_CLIENT_ID = "892867885846-t2eu4h031m896bplp9ir6mfie07q1lr0.apps.googleusercontent.com"   # public; the secret is GOOGLE_CLIENT_SECRET
+AI_PROVIDER = "openai"       # the journal analysis (adults only): OpenAI once the OPENAI_API_KEY secret is set, off until then
+AI_MODEL = "gpt-6.2-sol"
 
 [[env.preview.d1_databases]]
 binding = "DB"

@@ -181,7 +181,7 @@ test("sync: push every kind, pull on another device, last write wins", async () 
     { pid: "p1", kind: "note", id: "n1", t: T, u: T, data: { tx: "اليوم ساعدتني أمي في الواجب.\nثم لعبنا.", d: "2026-11-23" } },
     { pid: "p1", kind: "blessing", id: "b1", t: T, u: T, data: { tx: "أمي التي ساعدتني", src: "ai", n: "n1" } },
     { pid: "p1", kind: "challenge", id: "c1", t: T, u: T, data: { tx: "أن أهدأ حين أغضب", f: "monkey" } },
-    { pid: "p1", kind: "khabia", id: "k1", t: T, u: T, data: { tx: "سرّ" } },
+    { pid: "p1", kind: "khabia", id: "k1", t: T, u: T, data: { tx: "سرّ", n: "n1" } },
     { pid: "p1", kind: "seen", id: "s1", t: T, u: T, data: { from: "p2", v: "human:1", tx: "رأيتك تساعد" } },
   ];
   const r = await a("POST", "/api/sync", { since: "0", profiles: [{ pid: "p1", name: "Me", edition: "adult" }, { pid: "p2", name: "Kid", edition: "kids" }], changes });
@@ -398,14 +398,16 @@ test("AI extract: adults only, the holder's own profile, validation, the care li
   // the adult's own journal
   r = await c("POST", "/api/extract", ok);
   assert.equal(r.status, 200, JSON.stringify(r.body));
-  assert.ok(Array.isArray(r.body.blessings) && r.body.blessings.length >= 1 && r.body.blessings.length <= 3);
-  assert.ok(Array.isArray(r.body.challenges) && r.body.challenges.length <= 3);
-  assert.equal(r.body.care, undefined);
+  assert.ok(Array.isArray(r.body.good) && r.body.good.length >= 1 && r.body.good.length <= 6);
+  assert.ok(Array.isArray(r.body.challenges) && r.body.challenges.length <= 6);
+  assert.ok(Array.isArray(r.body.hidden) && r.body.hidden.length <= 6);
+  assert.deepEqual(r.body.blessings, r.body.good, "blessings repeats good for app versions before 27 Nov 2026");
+  assert.equal(r.body.care, undefined); assert.equal(r.body.text, undefined, "no page text for a written entry");
   if (REMOTE) {
     // the real model on the preview: Arabic in, Arabic out, and the care line for a frightening entry
     const ar = await c("POST", "/api/extract", { pid: "p1", text: "اليوم ساعدت أمي في ترتيب المطبخ وفرحت كثيرًا. لكني تأخرت في صلاة العصر لأني انشغلت بالهاتف.", lang: "ar", gender: "m" });
     assert.equal(ar.status, 200, JSON.stringify(ar.body));
-    assert.ok(ar.body.blessings.length >= 1 && ar.body.blessings.every(x => /[؀-ۿ]/.test(x)), JSON.stringify(ar.body));
+    assert.ok(ar.body.good.length >= 1 && ar.body.good.every(x => /[؀-ۿ]/.test(x)), JSON.stringify(ar.body));
     const k = await c("POST", "/api/extract", { pid: "p1", source: "session", text: "جلستُ مع ابني بعد المدرسة، فأخبرني أن ولدًا في الصف يضربه كل يوم ويأخذ مصروفه.", lang: "ar", gender: "f" });
     assert.equal(k.status, 200, JSON.stringify(k.body)); assert.match(k.body.care || "", /طفلك في خطر/);
   } else {
@@ -414,6 +416,39 @@ test("AI extract: adults only, the holder's own profile, validation, the care li
     let lim; for (let i = 0; i < 3 && (!lim || lim.status !== 429); i++) lim = await c("POST", "/api/extract", { ...ok, text: "one more entry for the limit" });
     assert.equal(lim.status, 429, "the per-account daily limit (3 in tests) is reached");
   }
+});
+
+// a JPEG and a PNG that are only their first bytes and padding: enough for the format check, never sent anywhere (stub)
+const fakeImg = (mime, head) => `data:${mime};base64,` + Buffer.concat([Buffer.from(head), Buffer.alloc(400, 7)]).toString("base64");
+const JPG = fakeImg("image/jpeg", [0xff, 0xd8, 0xff, 0xe0]), PNG = fakeImg("image/png", [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+
+test("AI extract, a photographed page: the same adult-only rules, format and size checked, the page's text comes back", { skip: REMOTE }, async () => {
+  const h = await client()("GET", "/api/health");
+  assert.equal(h.body.ai, true); assert.equal(h.body.ai_image, true, "the local stub reads photos");
+  const c = client(); await signIn(c, mail("img"));
+  await c("POST", "/api/sync", { since: "0", profiles: [{ pid: "p1", name: "Parent", edition: "adult" }, { pid: "p2", name: "Child", edition: "kids" }] });
+  const ok = { pid: "p1", image: JPG, lang: "ar", edition: "adult" };
+  let r = await c("POST", "/api/extract", ok);
+  assert.equal(r.status, 403); assert.equal(r.body.error, "adult_attestation_required");
+  await c("POST", "/api/account/adult", { confirm: true });
+  r = await c("POST", "/api/extract", { ...ok, pid: "p2" }); assert.equal(r.body.error, "own_profile_only");
+  r = await c("POST", "/api/extract", { ...ok, edition: "kids" }); assert.equal(r.body.error, "not_for_children");
+  // the boundary: one of text or image, a real JPEG or PNG, a journal page only, a size cap
+  assert.equal((await c("POST", "/api/extract", { ...ok, text: "and some text too" })).body.error, "text_or_image");
+  for (const bad of [JPG.replace("image/jpeg", "image/gif"), JPG.replace("image/jpeg", "image/png"), PNG.replace("image/png", "image/jpeg"),
+    "data:image/jpeg;base64,/9j/4AAQ", JPG + "<script>", "https://example.com/page.jpg", JPG.replace("base64,", "base64, "), 12, ["x"], { src: JPG }])
+    assert.equal((await c("POST", "/api/extract", { ...ok, image: bad })).body.error, "bad_image", String(bad).slice(0, 40));
+  assert.equal((await c("POST", "/api/extract", { ...ok, source: "session" })).body.error, "bad_source");
+  const big = fakeImg("image/jpeg", [0xff, 0xd8, 0xff, 0xe0]).slice(0, 23) + "A".repeat(2000100);
+  assert.ok([400, 413].includes((await c("POST", "/api/extract", { ...ok, image: big })).status), "an image past the cap is refused");
+  // a JPEG and a PNG page
+  r = await c("POST", "/api/extract", ok);
+  assert.equal(r.status, 200, JSON.stringify(r.body));
+  assert.match(r.body.text, /stub page text/); assert.equal(r.body.date, ""); assert.ok(r.body.good.length >= 1);
+  r = await c("POST", "/api/extract", { ...ok, image: PNG }); assert.equal(r.status, 200);
+  // a hidden deed comes back in its own list (stub keyword)
+  r = await c("POST", "/api/extract", { pid: "p1", text: "stub-hidden: I paid for a stranger's bread without telling anyone.", lang: "en" });
+  assert.deepEqual(r.body.hidden, ["stub hidden deed"]);
 });
 
 test("Google sign-in: inactive without its secret, otherwise a PKCE redirect bound to this browser", async () => {

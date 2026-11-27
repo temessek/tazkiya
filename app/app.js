@@ -385,7 +385,7 @@
        notes  [{id, t, u?, d, tx (8000 at most, line breaks kept)}]           the free writing, «دفتري»
        bless  [{id, t, u?, tx, f?, src?: hand | ai | deed | eve | over, n?}]  «نِعَم الله عليّ» (n: the entry or challenge it came from)
        chal   [{id, t, u?, tx, f?, src?: hand | ai, n?, done?, dt?}]         «تحدّياتي» / «مجاهداتي»
-       khabia [{id, t, u?, tx?}]                                             the hidden deed, shown among the blessings */
+       khabia [{id, t, u?, tx?, n?}]                                         the hidden deed, shown among the blessings */
     const uniqIds = l => { const seen = new Set(); return l.filter(e => { while (seen.has(e.id)) e.id = (e.id + "x").slice(-24); seen.add(e.id); return true; }); };
     const base = (x, tx) => { const t0 = ts(x.t); if (!t0) return null; const e = { id: typeof x.id === "string" && TWID_RE.test(x.id) ? x.id : t0.toString(36), t: t0 };
       const u0 = ts(x.u); if (u0 && u0 > t0) e.u = u0; if (tx) e.tx = tx; return e; };
@@ -395,7 +395,7 @@
     const notes = listOf(o.notes, x => { const tx = noteTx(x.tx), e = tx ? base(x, tx) : null; if (!e) return null; e.d = typeof x.d === "string" && DAY_RE.test(x.d) ? x.d : ymd(new Date(e.t)); return e; }, NOTE_MAX);
     const bless = listOf(o.bless, x => lineOf(x, ["hand", "ai", "deed", "eve", "over"]), TW_MAX);
     const chal = listOf(o.chal, x => { const e = lineOf(x, ["hand", "ai"]); if (e && x.done === true) { e.done = true; const d = ts(x.dt); if (d) e.dt = d; } return e; }, TW_MAX);
-    const khabia = listOf(o.khabia, x => base(x, txt(x.tx, TW_LEN)), TW_MAX);
+    const khabia = listOf(o.khabia, x => { const e = base(x, txt(x.tx, TW_LEN)); if (e && typeof x.n === "string" && TWID_RE.test(x.n)) e.n = x.n; return e; }, TW_MAX);
     if (o.twV !== 2) { // once: the first journal (commit da2b119, two scrolls) moves to version 2
       const ent = (x, bad) => { if (!isObj(x)) return null; const t0 = ts(x.t), tx = txt(x.tx, TW_LEN), k = bad ? "" : oneOf(x.k, ["kh", "ni"], "");
         if (!t0 || (!tx && k !== "kh")) return null;
@@ -418,6 +418,7 @@
     s.notes = uniqIds(notes); s.bless = uniqIds(bless.slice(-TW_MAX)); s.chal = uniqIds(chal.slice(-TW_MAX)); s.khabia = uniqIds(khabia.slice(-TW_MAX)); s.twV = 2;
     { const dr = noteTx(o.twDraft); if (dr) s.twDraft = dr; }
     if (typeof o.twIntro === "boolean") s.twIntro = o.twIntro;
+    { const a = ts(o.aiOn); if (a) s.aiOn = a; } // the adult's consent to the journal analysis, with its time
     if (num(o.burnY, 1300, 1800) !== undefined) s.burnY = Math.round(num(o.burnY, 1300, 1800));
     Object.keys(s).forEach(k => { if (s[k] === undefined || s[k] === null) delete s[k]; });
     return s;
@@ -474,7 +475,7 @@
   function switchProfile(id, after) {
     if (!P.list.includes(id) || id === P.active) return;
     save(); const par = S.parent, lang = S.lang; P.active = id; saveProfiles();
-    S = loadOf(id); S.parent = par; S.lang = lang; RS = null; WDRAFT = null; QZ = null; homeSel = null; homeDeg = -1; TWD = null; TWE = null; TWX = null; TW_LAST = ""; EXQ = null; clearTimeout(BURN_T); BURN = null; save();
+    S = loadOf(id); S.parent = par; S.lang = lang; RS = null; WDRAFT = null; QZ = null; homeSel = null; homeDeg = -1; TWD = null; TWE = null; TWX = null; TW_LAST = ""; AIQ = null; clearTimeout(BURN_T); BURN = null; save();
     applyEdition(() => { render(true); if (after) after(); else if (sheetState && sheetState.kind === "settings") settingsSheet(); setTimeout(sawCheck, 450); });
   }
   let S = load();
@@ -668,15 +669,27 @@
     twNb: ["دفتري", "My notebook"], twNbNone: ["ما تكتبه يُحفظ هنا بتاريخه.", "What you write is kept here with its date."],
     twNbAll: ["دفتري كله ({c})", "My whole notebook ({c})"], twNbSub: ["آخر ما كُتب فيه، بتاريخه.", "The latest pages, with their dates."], twNbN: ["عدد الصفحات: {c}", "Pages: {c}"],
     twOpen: ["افتح", "Open"], twEdited: ["عُدّلت", "edited"], twMoreN: ["اعرض الكل ({c})", "Show all ({c})"],
-    twExt: ["استخرج النعم والتحديات", "Find the blessings and challenges"], twExtShort: ["استخرج", "Find"],
-    twExtSub: ["يقرأ المساعد ما كتبت، ويقترح عليك سطورًا تختار منها ما تشاء.", "The helper reads what you wrote and suggests a few lines for you to choose from."],
-    twExtT: ["ما في كتابتك", "What is in your writing"], twExtWait: ["يقرأ ما كتبت…", "Reading what you wrote…"],
-    twExtHow: ["عدّل كل سطر كما تحب، أو احذفه، ثم احفظ ما بقي.", "Edit each line as you like, or drop it, then save what is left."],
-    twExtDrop: ["احذف", "Drop"], twExtBack: ["أعده", "Bring back"], twExtKeep: ["احفظ ما اخترت", "Save what I chose"],
     twExtErr: ["لم يصل الجواب هذه المرة. حاول بعد قليل.", "No answer came this time. Try again in a little while."],
-    twExtSign: ["الاستخراج يعمل بعد الدخول إلى حسابك.", "Finding lines works once you are signed in to your account."],
-    twExtSaved: ["حُفظت السطور التي اخترتها", "The lines you chose are saved"], twOk: ["حسنًا", "OK"],
-    twExtNone: ["لم يجد المساعد سطورًا هذه المرة. أضف ما تراه بيدك.", "The helper found no lines this time. Add what you see by hand."],
+    twExtSign: ["التحليل يعمل بعد الدخول إلى حسابك.", "The analysis works once you are signed in to your account."], twOk: ["حسنًا", "OK"],
+    twExtNone: ["لم يجد التحليل سطورًا في هذه الصفحة. أضف ما تراه بيدك.", "The analysis found no lines in this page. Add what you see by hand."],
+    // the journal analysis, adults only (27 Nov 2026)
+    aiT: ["تحليل التدوين للكبار وحدهم", "Journal analysis, for adults only"],
+    aiB: ["إن شئت، يقرأ نموذج ذكاء اصطناعي من OpenAI كل صفحة تحفظها هنا أو تصوّرها من دفترك الورقي، ثم يضع في قوائمك حسناتك وإنجازاتك، ومجاهداتك، وخبيئتك، بكلمات قريبة من كلماتك وبتاريخ يومها. وهو لصاحب الحساب فوق ثماني عشرة سنة وحده.", "If you wish, an AI model from OpenAI reads each page you save here or photograph from your paper notebook, then puts your good deeds and achievements, your challenges and your hidden deeds into your lists, in words close to your own and dated to their day. It is for the account holder over eighteen only."],
+    aiGo: ["فعّل التحليل", "Turn on the analysis"], aiOptT: ["قبل تفعيل التحليل", "Before you turn it on"],
+    aiOpt1: ["للكبار وحدهم: لصاحب الحساب في ملفه، وقد تجاوز ثماني عشرة سنة. لا يعمل في طبعة الصغار ولا في ملفات الأبناء.", "For adults only: the account holder, over eighteen, in their own profile. It never runs in the children's edition or in a child's profile."],
+    aiOpt2: ["حين تحفظ صفحة أو تصوّرها، يُرسل نصها أو صورتها إلى OpenAI لتحليلها، وتعود السطور إلى تدوينك.", "When you save or photograph a page, its text or photo is sent to OpenAI to be analysed, and the lines come back to your journal."],
+    aiOpt3: ["تطلب تزكية من OpenAI ألّا تحفظ الطلب، ولا تدرّب OpenAI نماذجها على ما يصلها بهذه الطريقة. وتبقي سجلات مراقبة سوء الاستعمال ثلاثين يومًا على الأكثر، ثم تمحوها.", "Tazkiya asks OpenAI not to store the request, and OpenAI does not train its models on what reaches it this way. It keeps abuse-monitoring logs for 30 days at most, then erases them."],
+    aiOpt4: ["يمكنك إيقافه متى شئت من صفحة التدوين.", "You can turn it off at any time on the journal page."],
+    aiYes: ["أقرّ بأنني فوق ثماني عشرة سنة، وأوافق", "I confirm I am over eighteen, and I agree"],
+    aiOnL: ["التحليل مفعّل، للكبار وحدهم: تُستخرج قوائمك من كل صفحة تحفظها.", "Analysis is on, for adults only: your lists are drawn from each page you save."],
+    aiOff: ["أوقفه", "Turn off"], aiOffDone: ["أُوقف التحليل، فلا يُرسل شيء بعد الآن.", "The analysis is off. Nothing is sent from now on."],
+    aiOnDone: ["فُعّل التحليل. احفظ صفحة، فتظهر سطورها في قوائمك.", "The analysis is on. Save a page and its lines appear in your lists."],
+    aiWait: ["يقرأ ما كتبت ويرتّب قوائمك…", "Reading what you wrote and filling your lists…"],
+    aiDone: ["أُضيفت سطور هذه الصفحة إلى قوائمك بتاريخها. عدّل أي سطر أو احذفه كما تحب.", "This page's lines are in your lists, with its date. Edit or remove any of them as you like."],
+    aiRedo: ["حلّل", "Analyse"], aiPhoto: ["صوّر صفحة من دفترك", "Photograph a notebook page"], aiPhotoWait: ["يقرأ الصفحة المصوّرة…", "Reading the photographed page…"],
+    aiPhotoDone: ["حُفظت الصفحة في دفتري بتاريخها، وأُضيفت سطورها إلى قوائمك.", "The page is saved in My notebook with its date, and its lines are in your lists."],
+    aiPhotoNone: ["لم تُقرأ في هذه الصورة كتابة. جرّب صورة أوضح في ضوء جيد.", "No writing could be read in this photo. Try a clearer one in good light."],
+    aiPhotoBad: ["تعذّر فتح هذه الصورة. جرّب صورة أخرى.", "This photo could not be opened. Try another one."],
     // the family account (Google sign-in, sync) and the adult statement before the first extraction
     accT: ["حساب الأسرة", "Family account"],
     accSub: ["اختياري، ويُنشئه الوالد أو الكبير لنفسه. يحفظ تدوين كل ملف وتقدّمه على الإنترنت، فيبقى إن ضاع الجهاز، ويصل إليه أهل البيت من أجهزتهم.", "Optional, set up by a parent or by an adult for themself. It keeps each profile's journal and progress online, safe if the device is lost, and the family can reach it from their own devices."],
@@ -689,9 +702,7 @@
     accIn: ["تم الدخول. تُحفظ ملفات هذا الجهاز الآن على الإنترنت.", "Signed in. This device's profiles are now kept online."],
     accOutDone: ["تم الخروج من الحساب، وبقي كل شيء على هذا الجهاز.", "Signed out. Everything stays on this device."],
     accErr: ["لم يكتمل الدخول هذه المرة. تمكن المحاولة بعد قليل.", "Sign-in did not finish this time. You can try again shortly."],
-    adT: ["الاستخراج للكبار", "Finding lines is for adults"],
-    adB: ["يقرأ المساعد ما يكتبه الكبير وحده، في ملفه هو: تدوينه، أو ما يكتبه عن وقته مع ولده.", "The helper reads only what an adult writes, in their own profile: their journal, or their notes about time spent with their child."],
-    adYes: ["أقرّ بأنني فوق ثماني عشرة سنة", "I confirm I am over eighteen"], adFail: ["لم يُحفظ الإقرار هذه المرة. تمكن المحاولة بعد قليل.", "The statement was not saved this time. You can try again shortly."],
+    adFail: ["لم يُحفظ الإقرار هذه المرة. تمكن المحاولة بعد قليل.", "The statement was not saved this time. You can try again shortly."],
     twBlT: ["نِعَم الله عليّ", "God's blessings on me"],
     twBlSub: ["كل خير في يومك نعمة من الله: ما وجدته في كتابتك، والخير الذي وفّقك إليه، وما رآه أهلك فيك.", "Every good thing in your day is a blessing from Allah: what you found in your writing, the good He helped you do, and what your family saw in you."],
     twAddBl: ["أضف نعمة", "Add a blessing"], twAddDeed: ["اكتب حسنة", "Write a good deed"], twKhBtn: ["خبيئة", "Hidden deed"],
@@ -737,10 +748,14 @@
     twWhy6: "وكل ما تكتبينه هنا لكِ وحدكِ.",
     twWritePh: "اكتبي ما في قلبكِ اليوم", twWriteSave: "احفظي في دفتري", twEditT: "ما كتبتِه يوم {d}", twEditSave: "احفظي التعديل",
     twNoteSaved: "حُفظت في دفتركِ", twNbNone: "ما تكتبينه يُحفظ هنا بتاريخه.", twOpen: "افتحي", twMoreN: "اعرضي الكل ({c})",
-    twExt: "استخرجي النعم والتحديات", twExtShort: "استخرجي", twExtSub: "يقرأ المساعد ما كتبتِ، ويقترح عليكِ سطورًا تختارين منها ما تشائين.",
-    twExtT: "ما في كتابتكِ", twExtWait: "يقرأ ما كتبتِ…", twExtHow: "عدّلي كل سطر كما تحبين، أو احذفيه، ثم احفظي ما بقي.",
-    twExtDrop: "احذفي", twExtBack: "أعيديه", twExtKeep: "احفظي ما اخترتِ", twExtErr: "لم يصل الجواب هذه المرة. حاولي بعد قليل.",
-    twExtSign: "الاستخراج يعمل بعد الدخول إلى حسابكِ.", twExtSaved: "حُفظت السطور التي اخترتِها", twExtNone: "لم يجد المساعد سطورًا هذه المرة. أضيفي ما ترينه بيدكِ.",
+    twExtErr: "لم يصل الجواب هذه المرة. حاولي بعد قليل.", twExtSign: "التحليل يعمل بعد الدخول إلى حسابكِ.", twExtNone: "لم يجد التحليل سطورًا في هذه الصفحة. أضيفي ما ترينه بيدكِ.",
+    aiB: "إن شئتِ، يقرأ نموذج ذكاء اصطناعي من OpenAI كل صفحة تحفظينها هنا أو تصوّرينها من دفتركِ الورقي، ثم يضع في قوائمكِ حسناتكِ وإنجازاتكِ، ومجاهداتكِ، وخبيئتكِ، بكلمات قريبة من كلماتكِ وبتاريخ يومها. وهو لصاحبة الحساب فوق ثماني عشرة سنة وحدها.",
+    aiGo: "فعّلي التحليل", aiOpt1: "للكبار وحدهم: لصاحبة الحساب في ملفها، وقد تجاوزت ثماني عشرة سنة. لا يعمل في طبعة الصغار ولا في ملفات الأبناء.",
+    aiOpt2: "حين تحفظين صفحة أو تصوّرينها، يُرسل نصها أو صورتها إلى OpenAI لتحليلها، وتعود السطور إلى تدوينكِ.", aiOpt4: "يمكنكِ إيقافه متى شئتِ من صفحة التدوين.",
+    aiOnL: "التحليل مفعّل، للكبار وحدهم: تُستخرج قوائمكِ من كل صفحة تحفظينها.", aiOff: "أوقفيه", aiOnDone: "فُعّل التحليل. احفظي صفحة، فتظهر سطورها في قوائمكِ.",
+    aiWait: "يقرأ ما كتبتِ ويرتّب قوائمكِ…", aiDone: "أُضيفت سطور هذه الصفحة إلى قوائمكِ بتاريخها. عدّلي أي سطر أو احذفيه كما تحبين.",
+    aiRedo: "حلّلي", aiPhoto: "صوّري صفحة من دفتركِ", aiPhotoDone: "حُفظت الصفحة في دفتري بتاريخها، وأُضيفت سطورها إلى قوائمكِ.",
+    aiPhotoNone: "لم تُقرأ في هذه الصورة كتابة. جرّبي صورة أوضح في ضوء جيد.", aiPhotoBad: "تعذّر فتح هذه الصورة. جرّبي صورة أخرى.",
     twBlSub: "كل خير في يومكِ نعمة من الله: ما وجدتِه في كتابتكِ، والخير الذي وفّقكِ إليه، وما رآه أهلكِ فيكِ.",
     twAddBl: "أضيفي نعمة", twAddDeed: "اكتبي حسنة", twBlNone: "أول نعمة تكتبينها تظهر هنا.", twNewBl: "نعمة من نعم الله عليكِ", twNewDeed: "حسنة وفّقكِ الله إليها",
     twChSub: "ما صعب عليكِ تكتبينه هنا، وتعملين عليه خطوة خطوة. اربطيه بإصبع، فيقترح عليكِ التطبيق مهمة.",
@@ -759,7 +774,6 @@
     twWhy4: ["والمحاسبة تبدأ من الورقة. اكتب يومك كما جرى، دون أن تجمّله: الكلمة التي ندمت عليها في الاجتماع، والمكالمة التي أجّلتها، ولحظة شكرت فيها. حين تراه مكتوبًا تعرف أين تقف منه.", "Self-reckoning starts on the page. Write your day as it went, without dressing it up: the word you regretted in the meeting, the call you keep putting off, a moment you felt grateful. Once it is written down, you can see where you stand."],
     twWhy5: ["وبعد أيام تقرأ ما كتبت، فتجد نعمًا من الله فاتك أن تشكره عليها، ومواضع تجاهد فيها نفسك. المجاهدات تُكتب في صفحتها، وهذه الصفحة تحترق في ختام السنة الهجرية فتبدأ السنة التالية خالية منها. أما الدفتر والنعم فتبقى لك.", "A few days on, you read it back and find blessings from Allah you never got round to thanking Him for, and places where you are struggling with yourself. Those go on the challenges page, and that page is burnt at the close of the Hijri year, so the next year starts without it. The notebook and the blessings stay yours."],
     twWhy6: ["وكل ذلك لك وحدك.", "All of it is yours alone."],
-    twExt: ["استخرج النعم والمجاهدات", "Find the blessings and challenges"],
     twPhBl: ["مثل: عافية في البدن، وأهل يحبونني", "e.g. Good health, and a family that loves me"], twPhDeed: ["مثل: صبرتُ على زميل أخطأ في حقي", "e.g. I was patient with a colleague who wronged me"],
     twChT: ["مجاهداتي", "My challenges"],
     twChSub: ["ما تجاهد فيه نفسك تكتبه هنا، وتعمل عليه بالمحاسبة والعمل. اربطه بإصبع، فيقترح عليك التطبيق مهمة من مهامه.", "What you strive against in yourself goes here, to work on through reckoning and practice. Link it to a finger and the app suggests one of its tasks."],
@@ -776,7 +790,7 @@
     twWhy1: "ما الذي كان يشغل قلبكِ يوم الثلاثاء الماضي؟ أكثرنا لا يذكر. لو كتبتِه تلك الليلة لوجدتِه الآن بتفاصيله.",
     twWhy4: "والمحاسبة تبدأ من الورقة. اكتبي يومكِ كما جرى، دون أن تجمّليه: الكلمة التي ندمتِ عليها في الاجتماع، والمكالمة التي أجّلتِها، ولحظة شكرتِ فيها. حين ترينه مكتوبًا تعرفين أين تقفين منه.",
     twWhy5: "وبعد أيام تقرئين ما كتبتِ، فتجدين نعمًا من الله فاتكِ أن تشكريه عليها، ومواضع تجاهدين فيها نفسكِ. المجاهدات تُكتب في صفحتها، وهذه الصفحة تحترق في ختام السنة الهجرية فتبدأ السنة التالية خالية منها. أما الدفتر والنعم فتبقى لكِ.",
-    twWhy6: "وكل ذلك لكِ وحدكِ.", twExt: "استخرجي النعم والمجاهدات",
+    twWhy6: "وكل ذلك لكِ وحدكِ.",
     twChSub: "ما تجاهدين فيه نفسكِ تكتبينه هنا، وتعملين عليه بالمحاسبة والعمل. اربطيه بإصبع، فيقترح عليكِ التطبيق مهمة من مهامه.",
     twAddCh: "أضيفي مجاهدة", twChNone: "ما تجاهدين فيه نفسكِ تكتبينه هنا، وتعملين عليه يومًا بعد يوم.", twNewCh: "مجاهدة تعملين عليها",
     twFingerCh: "اربطيها بإصبع، فنقترح عليكِ مهمة (إن شئتِ)", yeBurn: "احرقي صفحة المجاهدات",
@@ -1757,8 +1771,8 @@
       <button class="btn block" data-act="${n ? "burnask" : "burnreview"}">${esc(u(n ? "yeBurn" : "yeReview"))}</button></section>`;
   }
 
-  /* «استخرج النعم والتحديات»: the client of POST /api/extract (outputs/server/src/extract.js). No AI for children (owner decision,
-     23 Nov 2026): the button exists only on the account holder's own profile (p1) in the adult edition, for a signed-in adult who
+  /* The journal analysis: the client of POST /api/extract (outputs/server/src/extract.js). No AI for children (owner decision,
+     23 Nov 2026): it exists only on the account holder's own profile (p1) in the adult edition, for a signed-in adult who
      has attested being 18 or older. It shows only when GET /api/health answers {ok: true, ai: true} and GET /api/me answers 200 with
      account.adult_at set (POST /api/account/adult), each within 2.5 s, checked at most once a minute. On the static site both answer
      with a page, so it stays hidden. Kids' profiles and family members' profiles never check. */
@@ -1772,45 +1786,115 @@
   const extMine = () => ADU() && P.active === "p1"; // the server's OWNER_PID
   function extCheck() { if (extMine() && !ACC.busy && (!ACC.asked || Date.now() - ACC.chk > 60000)) accCheck(false, true); }
   const extOn = () => extMine() && ACC.ai && !!ACC.me; // signed in; the 18+ statement is asked on the first use
-  let EXQ = null; // {n: the entry's id, ph: "wait" | "list" | "err" | "sign", bl: [{tx, on}], ch: [{tx, on}], care}
-  function extStart(id) {
-    const n = twList("notes").find(e => e.id === id); if (!n || !extOn()) return;
-    if (!ACC.me.adult_at) { adultSheet(id); return; }
-    EXQ = { n: id, ph: "wait", bl: [], ch: [], care: "" }; extSheet();
+  /* The journal analysis (the owner's request, 27 Nov 2026): with the adult's one-time consent (S.aiOn, the time it was given),
+     each page they save, or photograph from a paper notebook, goes to POST /api/extract, which asks OpenAI on the server. The
+     answer becomes dated lines in the existing lists, each one editable and removable like a line written by hand:
+       good       -> bless  {src: "ai", n: the page's id}   «نعم الله عليّ» (good deeds, achievements, blessings)
+       challenges -> chal   {src: "ai", n}                  «تحدياتي» / «مجاهداتي»
+       hidden     -> khabia {n}                             the hidden deed, never scored or counted
+     Each line takes the page's time, so it sits on the page's day. Saving a page again replaces its earlier lines from the
+     analysis, unless the writer has edited one, or marked a challenge overcome. Adults only, as above; the children's edition
+     never draws any of this, and never calls the server. */
+  const aiLive = () => extOn() && !!ACC.me.adult_at && !!S.aiOn;
+  let AIQ = null; // {tok, n: the page's id ("" for a photo still being read), ph: "wait" | "pwait" | "done" | "pdone" | "none" | "pnone" | "bad" | "err" | "sign", care}
+  const AI_ST = { wait: "aiWait", pwait: "aiPhotoWait", done: "aiDone", pdone: "aiPhotoDone", none: "twExtNone", pnone: "aiPhotoNone", bad: "aiPhotoBad", err: "twExtErr", sign: "twExtSign" };
+  function aiStatus() {
+    const q = AIQ, busy = q && (q.ph === "wait" || q.ph === "pwait");
+    return `<div id="ai-st" class="ai-st" role="status" aria-live="polite">${q ? `<p class="${busy ? "ex-wait" : q.ph === "done" || q.ph === "pdone" ? "tw-ok" : ""}">${busy ? `<span class="ex-dot" aria-hidden="true"></span> ` : q.ph === "done" || q.ph === "pdone" ? `<span aria-hidden="true">✓</span> ` : ""}${esc(u(AI_ST[q.ph] || "twExtErr"))}</p>${q.care ? `<p class="ex-care" role="note">${esc(q.care)}</p>` : ""}` : ""}</div>`;
+  }
+  // the 18+ line on the journal page: a calm card before the consent, a short line with «أوقفه» after it
+  function aiBar() {
+    if (!extMine() || !ACC.ai) return "";
+    if (aiLive()) return `<div class="ai-bar on"><p><span class="ai-18" aria-hidden="true">18+</span> ${esc(u("aiOnL"))} <button class="linkbtn" data-act="aioff" type="button">${esc(u("aiOff"))}</button></p>
+      ${ACC.aiImg ? `<label class="btn ghost block ai-photo">${CAM_I}<span>${esc(u("aiPhoto"))}</span><input type="file" accept="image/*" data-ai-photo hidden></label>` : ""}</div>`;
+    return `<div class="ai-bar"><p class="ai-t"><span class="ai-18" aria-hidden="true">18+</span> ${esc(u("aiT"))}</p><p class="sub">${esc(u("aiB"))}</p>
+      <button class="btn ghost block" data-act="aiopt" type="button">${esc(u("aiGo"))}</button></div>`;
+  }
+  const CAM_I = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-2.5h6L17 8h3v11H4z"/><circle cx="12" cy="13.2" r="3.6"/></svg>';
+  // the status and the lists change in place: the page is not redrawn under a writer who is typing
+  function aiPaint() {
+    [["ai-st", aiStatus], ["tw-bless", twBless], ["tw-chal", twChal]].forEach(([id, f]) => { const el = document.getElementById(id); if (el) el.outerHTML = f(); });
+  }
+  function aiPost(body, ms, tok, id, ok) {
+    const pid = body.pid;
+    apiJson("/api/extract", { method: "POST", headers: API_H, body: JSON.stringify(body) }, ms).then(r => {
+      if (P.active !== pid) return; // another profile is open now: nothing of this answer reaches it
+      const mine = AIQ && AIQ.tok === tok;
+      if (r.status === 200 && isObj(r.body)) { ok(r.body, mine); return; }
+      if (r.status === 403 && isObj(r.body) && r.body.error === "adult_attestation_required") { ACC.me.adult_at = 0; if (mine) AIQ = null; aiPaint(); aiOptSheet(id); return; }
+      if (r.status === 401) { ACC.me = null; SYNC = null; }
+      if (mine) { AIQ.ph = r.status === 401 ? "sign" : "err"; aiPaint(); }
+    }).catch(() => { if (AIQ && AIQ.tok === tok && P.active === pid) { AIQ.ph = "err"; aiPaint(); } });
+  }
+  // one page: its earlier lines from the analysis go, the new ones come with the page's time
+  function aiApply(n, b) {
+    const ls = v => [...new Set((Array.isArray(v) ? v : []).filter(x => typeof x === "string").map(twClean).filter(Boolean))].slice(0, 6);
+    const good = ls(Array.isArray(b.good) ? b.good : b.blessings), ch = ls(b.challenges), kh = ls(b.hidden);
+    const fresh = e => e.n === n.id && !e.u;
+    S.bless = twList("bless").filter(e => !(fresh(e) && e.src === "ai"));
+    S.chal = twList("chal").filter(e => !(fresh(e) && e.src === "ai" && !e.done));
+    S.khabia = twList("khabia").filter(e => !fresh(e));
+    const now = Date.now(); let c = 0;
+    const add = (key, tx, extra) => { S[key] = twList(key).concat([Object.assign({ id: twId(now + c), t: n.t + c, tx, n: n.id }, extra)]).slice(-TW_MAX); c++; };
+    good.forEach(tx => add("bless", tx, { src: "ai" })); ch.forEach(tx => add("chal", tx, { src: "ai" })); kh.forEach(tx => add("khabia", tx, {}));
+    save();
+    return c;
+  }
+  function aiRun(id) {
+    const n = twList("notes").find(e => e.id === id); if (!n || !extOn() || n.tx.length < 10) return;
+    if (!ACC.me.adult_at || !S.aiOn) { aiOptSheet(id); return; }
+    const tok = Date.now() + Math.random(); AIQ = { tok, n: id, ph: "wait", care: "" }; aiPaint();
     const body = { pid: P.active, text: n.tx, edition: "adult", lang: L() }; if (S.gender) body.gender = S.gender; // only the adult's own writing
-    const done = () => { if (sheetState && sheetState.kind === "ext") extSheet(); };
-    apiJson("/api/extract", { method: "POST", headers: { "content-type": "application/json", accept: "application/json", "x-tazkiya": "1" }, body: JSON.stringify(body) }, 30000).then(r => {
-      if (!EXQ || EXQ.n !== id) return;
-      if (r.status === 200 && isObj(r.body)) {
-        const ls = v => (Array.isArray(v) ? v : []).filter(x => typeof x === "string").map(twClean).filter(Boolean).slice(0, 3).map(tx => ({ tx, on: true }));
-        EXQ.bl = ls(r.body.blessings); EXQ.ch = ls(r.body.challenges); EXQ.care = txt(r.body.care, 300);
-        EXQ.ph = EXQ.bl.length || EXQ.ch.length || EXQ.care ? "list" : "none"; // empty lists: nothing found, add by hand
-      } else if (r.status === 403 && isObj(r.body) && r.body.error === "adult_attestation_required") { ACC.me.adult_at = 0; EXQ = null; sheetState = null; closeSheet(); adultSheet(id); return; }
-      else { if (r.status === 401) { ACC.me = null; SYNC = null; } EXQ.ph = r.status === 401 ? "sign" : "err"; }
-      done();
-    }).catch(() => { if (EXQ && EXQ.n === id) { EXQ.ph = "err"; done(); } });
+    aiPost(body, 90000, tok, id, (b, mine) => {
+      const cur = twList("notes").find(e => e.id === id); if (!cur) return; // the page was deleted meanwhile
+      const c = aiApply(cur, b), care = txt(b.care, 300);
+      if (mine) { AIQ.ph = c ? "done" : "none"; AIQ.care = care; aiPaint(); if (!document.getElementById("ai-st")) toast(u(c ? "aiDone" : "twExtNone"), 4500); }
+      else aiPaint();
+    });
   }
-  function extSync() { if (EXQ && EXQ.ph === "list") ["bl", "ch"].forEach(k => EXQ[k].forEach((x, i) => { const el = document.getElementById("ex-" + k + i); if (el && x.on) x.tx = twClean(el.value); })); }
-  function extSheet() {
-    if (!EXQ) return; const b = EXQ;
-    let h = `<h2 class="h">${esc(u("twExtT"))}</h2>`;
-    if (b.ph === "wait") h += `<p class="short ex-wait" role="status"><span class="ex-dot" aria-hidden="true"></span> ${esc(u("twExtWait"))}</p>`;
-    else if (b.ph !== "list") h += `<p class="short" role="status">${esc(u(b.ph === "sign" ? "twExtSign" : b.ph === "none" ? "twExtNone" : "twExtErr"))}</p><button class="btn block ghost" data-act="close">${esc(u("twOk"))}</button>`;
-    else {
-      const grp = (k, title) => b[k].length ? `<h3 class="ex-h ${k}">${esc(u(title))}</h3><ul class="ex-list">${b[k].map((x, i) => `<li class="${x.on ? "" : "off"}">
-        <input id="ex-${k}${i}" class="eve-in" type="text" maxlength="${TW_LEN}" dir="auto" autocomplete="off" value="${esc(x.tx)}" aria-label="${esc(u(title))} ${i + 1}"${x.on ? "" : " disabled"}>
-        <button class="tog" data-act="exon" data-k="${k}" data-i="${i}">${esc(u(x.on ? "twExtDrop" : "twExtBack"))}</button></li>`).join("")}</ul>` : "";
-      h += (b.care ? `<p class="ex-care" role="note">${esc(b.care)}</p>` : "") + (b.bl.length || b.ch.length ? `<p class="short">${esc(u("twExtHow"))}</p>` : "") + grp("bl", "twBlT") + grp("ch", "twChT")
-        + (b.bl.length || b.ch.length ? `<button class="btn block" data-act="exsave">${esc(u("twExtKeep"))}</button>` : `<button class="btn block ghost" data-act="close">${esc(u("twOk"))}</button>`);
-    }
-    openSheet(h, { kind: "ext", expanded: true });
+  // a photographed page: made smaller on the device (1600 px at most, JPEG), read on the server, kept as a page of the notebook
+  function aiShrink(file) {
+    return new Promise((res, rej) => {
+      const url = URL.createObjectURL(file), img = new Image();
+      const end = (f, v) => { URL.revokeObjectURL(url); f(v); };
+      img.onload = () => {
+        try {
+          const w = img.naturalWidth, h = img.naturalHeight; if (!w || !h) throw new Error("empty");
+          const enc = (max, q) => { const k = Math.min(1, max / Math.max(w, h)), cv = document.createElement("canvas"); cv.width = Math.max(1, Math.round(w * k)); cv.height = Math.max(1, Math.round(h * k));
+            const x = cv.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, cv.width, cv.height); x.drawImage(img, 0, 0, cv.width, cv.height); return cv.toDataURL("image/jpeg", q); };
+          let d = enc(1600, 0.85); if (d.length > 1900000) d = enc(1400, 0.72); if (d.length > 1900000) d = enc(1100, 0.6);
+          if (!/^data:image\/jpeg;base64,/.test(d) || d.length > 1900000) throw new Error("size");
+          end(res, d);
+        } catch (e) { end(rej, e); }
+      };
+      img.onerror = () => end(rej, new Error("decode"));
+      img.src = url;
+    });
   }
-  function extSave() {
-    if (!EXQ || EXQ.ph !== "list") return; extSync();
-    const now = Date.now(), n = EXQ.n; let c = 0;
-    [["bl", "bless"], ["ch", "chal"]].forEach(([k, key]) => EXQ[k].filter(x => x.on && x.tx).forEach(x => { S[key] = twList(key).concat([{ id: twId(now + c), t: now, tx: x.tx, src: "ai", n }]).slice(-TW_MAX); c++; }));
-    EXQ = null; save(); FX(c ? "ok" : "tick"); sheetState = null; closeSheet(); render(true); if (c) toast(u("twExtSaved"));
+  const dayNoon = d => { const [y, m, dd] = d.split("-").map(Number); return new Date(y, m - 1, dd, 12).getTime(); };
+  function aiPhoto(input) {
+    const f = input.files && input.files[0]; input.value = "";
+    if (!f || !aiLive() || !ACC.aiImg) return;
+    const tok = Date.now() + Math.random(), pid = P.active; AIQ = { tok, n: "", ph: "pwait", care: "" }; aiPaint();
+    const bad = () => { if (AIQ && AIQ.tok === tok) { AIQ.ph = "bad"; aiPaint(); } };
+    if (f.type && !/^image\//.test(f.type)) { bad(); return; }
+    aiShrink(f).then(image => {
+      if (P.active !== pid || !aiLive()) return;
+      const body = { pid, image, edition: "adult", lang: L() }; if (S.gender) body.gender = S.gender;
+      aiPost(body, 130000, tok, "", (b, mine) => {
+        const tx = noteTx(b.text);
+        if (!tx) { if (mine) { AIQ.ph = "pnone"; aiPaint(); } return; }
+        const now = Date.now(), d = typeof b.date === "string" && DAY_RE.test(b.date) && b.date <= today() && dayNoon(b.date) >= MIN_T ? b.date : "";
+        const n = { id: twId(now), t: d && d !== today() ? dayNoon(d) : now, d: d || today(), tx };
+        S.notes = twList("notes").concat([n]).slice(-NOTE_MAX); TW_LAST = n.id;
+        aiApply(n, b); FX("ok");
+        if (mine) { AIQ.n = n.id; AIQ.ph = "pdone"; AIQ.care = txt(b.care, 300); }
+        const nb = document.getElementById("tw-nb"); if (nb) nb.outerHTML = twNotebook();
+        aiPaint();
+      });
+    }, bad);
   }
+  document.addEventListener("change", e => { const el = e.target; if (el && el.matches && el.matches("input[data-ai-photo]")) aiPhoto(el); });
 
 
   /* ---------- the family account and sync (owner decision, 23 Nov 2026: accounts launch; sign-in with Google only).
@@ -1823,7 +1907,7 @@
      the first-open screens) stay per device. ---------- */
   var SYNC = null, SYNC_T = 0, SYNC_QUIET = false; // var: save() can run before this block
   const SKEY = "tazkiya-sync", SYNC_MAX = 250000, MIN_T = Date.UTC(2020, 0, 1), PROF_MAX = 4;
-  const ACC = { srv: false, google: false, ai: false, me: null, asked: false, chk: 0, busy: false, run: false, again: false, err: false, last: 0 };
+  const ACC = { srv: false, google: false, ai: false, aiImg: false, me: null, asked: false, chk: 0, busy: false, run: false, again: false, err: false, last: 0 };
   const JK = { notes: "note", bless: "blessing", chal: "challenge", khabia: "khabia" }, KJ = { note: "notes", blessing: "bless", challenge: "chal", khabia: "khabia" };
   const ST_SKIP = new Set(["notes", "bless", "chal", "khabia", "twV", "twDraft", "parent", "fs", "lang", "intro", "tour", "map"]); // twDraft: a page not yet saved stays here
   const API_H = { "content-type": "application/json", accept: "application/json", "x-tazkiya": "1" };
@@ -2014,10 +2098,10 @@
   function accCheck(signedIn, ask) {
     if (ACC.busy || !/^https?:$/.test(location.protocol) || typeof fetch !== "function") return;
     ACC.busy = true; ACC.chk = Date.now();
-    const stored = syncLoad(), was = canon([ACC.srv, ACC.google, ACC.ai, ACC.me]);
+    const stored = syncLoad(), was = canon([ACC.srv, ACC.google, ACC.ai, ACC.aiImg, ACC.me]);
     apiJson("/api/health").then(h => {
       const ok = h.status === 200 && isObj(h.body) && h.body.ok === true;
-      ACC.srv = ok; ACC.google = ok && isObj(h.body.sign_in) && h.body.sign_in.google === true; ACC.ai = ok && h.body.ai === true;
+      ACC.srv = ok; ACC.google = ok && isObj(h.body.sign_in) && h.body.sign_in.google === true; ACC.ai = ok && h.body.ai === true; ACC.aiImg = ACC.ai && h.body.ai_image === true;
       if (ok && (signedIn || stored || ask)) { ACC.asked = true; return apiJson("/api/me"); }
       return null; // never signed in on this device: no account request
     }).then(m => {
@@ -2030,7 +2114,7 @@
         if (signedIn) toast(u("accIn"), 4000);
         syncSoon(0);
       } else if (m.status === 401) { ACC.me = null; SYNC = null; }
-    }).catch(() => {}).then(() => { ACC.busy = false; if (was !== canon([ACC.srv, ACC.google, ACC.ai, ACC.me])) accRefresh(); });
+    }).catch(() => {}).then(() => { ACC.busy = false; if (was !== canon([ACC.srv, ACC.google, ACC.ai, ACC.aiImg, ACC.me])) accRefresh(); });
   }
   function accInit() {
     const h = location.hash, inNow = /^#\/signed-in/.test(h), err = /^#\/signin/.test(h);
@@ -2056,42 +2140,45 @@
       ACC.me = null; syncForget(); sheetState = null; closeSheet(); toast(u("accDeleted"), 5000); render(true);
     });
   }
-  // before the first extraction: the account holder states they are over eighteen (stored with its time on the server)
-  function adultSheet(id) {
-    openSheet(`<h2 class="h">${esc(u("adT"))}</h2><p class="short">${esc(u("adB"))}</p>
-      <button class="btn block" data-act="adultyes" data-id="${esc(id)}">${esc(u("adYes"))}</button>
+  // before the first analysis, once: the account holder states they are over eighteen (kept with its time on the server)
+  // and agrees that their pages go to OpenAI to be read (kept on this profile as S.aiOn)
+  function aiOptSheet(id) {
+    openSheet(`<h2 class="h">${esc(u("aiOptT"))}</h2><ul class="ai-opt">${["aiOpt1", "aiOpt2", "aiOpt3", "aiOpt4"].map(k => `<li>${esc(u(k))}</li>`).join("")}</ul>
+      <button class="btn block" data-act="adultyes" data-id="${esc(id || "")}">${esc(u("aiYes"))}</button>
       <p style="margin:10px 0 0"><a class="linkbtn" href="privacy/" target="_blank" rel="noopener">${esc(u("accPriv"))}</a></p>`, { kind: "adult" });
   }
   function adultYes(id) {
+    const go = () => { S.aiOn = Date.now(); save(); sheetState = null; closeSheet(); FX("ok"); render(true); toast(u("aiOnDone"), 4000); if (id) aiRun(id); };
+    if (ACC.me.adult_at) { go(); return; }
     apiJson("/api/account/adult", { method: "POST", headers: API_H, body: JSON.stringify({ confirm: true }) }, 10000).catch(() => null).then(r => {
-      if (r && r.status === 200 && isObj(r.body) && r.body.adult_at) { ACC.me.adult_at = num(r.body.adult_at, 0, 4102444800000) || Date.now(); sheetState = null; closeSheet(); extStart(id); }
+      if (r && r.status === 200 && isObj(r.body) && r.body.adult_at) { ACC.me.adult_at = num(r.body.adult_at, 0, 4102444800000) || Date.now(); go(); }
       else if (r && r.status === 401) { ACC.me = null; SYNC = null; sheetState = null; closeSheet(); extSignSheet(); }
       else toast(u("adFail"), 4000);
     });
   }
   function extSignSheet() {
-    openSheet(`<h2 class="h">${esc(u("twExtT"))}</h2><p class="short">${esc(u("twExtSign"))}</p>
+    openSheet(`<h2 class="h">${esc(u("aiT"))}</h2><p class="short">${esc(u("twExtSign"))}</p>
       ${ACC.google ? `<a class="btn block" href="api/auth/google/start">${esc(u("accGoogle"))}</a>` : ""}
       <p style="margin:10px 0 0"><a class="linkbtn" href="privacy/" target="_blank" rel="noopener">${esc(u("accPriv"))}</a></p>`, { kind: "extsign" });
   }
 
   // the free writing: a new page, or an entry of the notebook reopened (TWE: its id; TWX: its text being edited)
   let TWE = null, TWX = null, TW_LAST = "", NB_N = 30, BL_ALL = false, CH_ALL = false, DR_T = 0;
-  const twAfter = n => `<div class="tw-after" role="status"><p class="tw-ok"><span aria-hidden="true">✓</span> ${esc(u("twNoteSaved"))}</p>${extOn() && n.tx.length >= 10 ? `<button class="btn block ext-btn" data-act="exgo" data-id="${esc(n.id)}"><span aria-hidden="true">✦</span> ${esc(u("twExt"))}</button><p class="sub ext-sub">${esc(u("twExtSub"))}</p>` : ""}</div>`;
+  const twAfter = () => `<div class="tw-after" role="status"><p class="tw-ok"><span aria-hidden="true">✓</span> ${esc(u("twNoteSaved"))}</p></div>`;
   function twWrite() {
     const ed = TWE ? twList("notes").find(e => e.id === TWE) : null; if (!ed) { TWE = null; TWX = null; }
     const val = ed ? (TWX != null ? TWX : ed.tx) : (S.twDraft || ""), last = !ed && TW_LAST ? twList("notes").find(e => e.id === TW_LAST) : null;
     return `<section class="tw-write${ed ? " editing" : ""}" id="tw-write"><h2 class="h tw-wh" id="twWriteH">${PEN}<span>${esc(ed ? fmt(u("twEditT"), { d: fmtDate(ed.t) }) : u("twWriteT"))}</span></h2>
       <textarea id="twNote" class="tw-note" rows="9" maxlength="${NOTE_LEN}" dir="auto" autocomplete="off" spellcheck="true" placeholder="${esc(u("twWritePh"))}" aria-labelledby="twWriteH">${esc(val)}</textarea>
       <div class="tw-wacts"><button class="btn" data-act="nbsave">${esc(u(ed ? "twEditSave" : "twWriteSave"))}</button>${ed ? `<button class="btn ghost" data-act="nbcancel">${esc(u("twEditCancel"))}</button>` : ""}</div>
-      ${last ? twAfter(last) : ""}</section>`;
+      ${last ? twAfter(last) : ""}${extMine() ? aiStatus() + aiBar() : ""}</section>`;
   }
   const more = (n, shown, k) => n > shown ? `<button class="linkbtn tw-more" data-act="twall" data-k="${k}">${esc(fmt(u("twMoreN"), { c: n }))}</button>` : "";
   /* «دفتري» (fixed 24 Nov 2026): it was a closed fold that every redraw and reload closed again, so what was written seemed gone
      until the fold was opened. Now the latest three pages stay in view under the writing box, with their dates, and
      «دفتري كله» opens the whole notebook at #/tadwin/nb, month by month. */
   const nbItem = (e, full) => `<li class="tw-e nb-e${TWE === e.id ? " on" : ""}"><div class="tw-e-top"><span class="tw-d">${esc(fmtDate(e.t))}</span>${e.u ? `<span>· ${esc(u("twEdited"))}</span>` : ""}</div>
-        <p class="nb-tx${full ? " full" : ""}" dir="auto">${esc(e.tx)}</p><div class="nb-acts"><button class="linkbtn" data-act="nbopen" data-id="${esc(e.id)}">${esc(u("twOpen"))}</button>${extOn() && e.tx.length >= 10 ? `<button class="linkbtn" data-act="exgo" data-id="${esc(e.id)}">${esc(u("twExtShort"))}</button>` : ""}<button class="linkbtn tw-del" data-act="twdel" data-k="notes" data-id="${esc(e.id)}">${esc(u("twDel"))}</button></div></li>`;
+        <p class="nb-tx${full ? " full" : ""}" dir="auto">${esc(e.tx)}</p><div class="nb-acts"><button class="linkbtn" data-act="nbopen" data-id="${esc(e.id)}">${esc(u("twOpen"))}</button>${extOn() && e.tx.length >= 10 ? `<button class="linkbtn" data-act="exgo" data-id="${esc(e.id)}">${esc(u("aiRedo"))}</button>` : ""}<button class="linkbtn tw-del" data-act="twdel" data-k="notes" data-id="${esc(e.id)}">${esc(u("twDel"))}</button></div></li>`;
   function twNotebook() {
     const all = twList("notes").slice().sort((a, b) => b.t - a.t), list = all.slice(0, 3);
     return `<section class="tw-nb" id="tw-nb"><div class="nb-head"><h2 class="h">${esc(u("twNb"))}</h2>${all.length ? `<b class="nb-c" dir="ltr">${all.length}</b>` : ""}</div>
@@ -2115,11 +2202,14 @@
     if (!tx) { if (el) el.focus(); return; }
     const now = Date.now();
     if (TWE) {
-      const e = twList("notes").find(x => x.id === TWE); if (e && e.tx !== tx) { e.tx = tx; e.u = now; }
-      TWE = null; TWX = null; save(); FX("ok"); render(true); toast(u("twNoteEdited")); return;
+      const e = twList("notes").find(x => x.id === TWE), changed = !!e && e.tx !== tx; if (changed) { e.tx = tx; e.u = now; }
+      TWE = null; TWX = null; if (changed && aiLive()) TW_LAST = e.id; save(); FX("ok"); render(true); toast(u("twNoteEdited"));
+      if (changed && aiLive()) aiRun(e.id);
+      return;
     }
     const e = { id: twId(now), t: now, d: today(), tx }; S.notes = twList("notes").concat([e]).slice(-NOTE_MAX); delete S.twDraft; TW_LAST = e.id;
-    save(); FX("ok"); render(true); toast(u("twNoteSaved"));
+    AIQ = null; save(); FX("ok"); render(true); toast(u("twNoteSaved"));
+    if (aiLive() && tx.length >= 10) aiRun(e.id);
     { const a = view.querySelector(".tw-after"); if (a) a.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
   }
 
@@ -4315,10 +4405,9 @@
       case "nbopen": { const e = twList("notes").find(x => x.id === el.dataset.id); if (!e) break;
         TWE = e.id; TWX = null; TW_LAST = ""; FX("tick"); if (route().sc === "nb") { location.hash = "#/tadwin"; render(); } else render(true);
         { const w = document.getElementById("tw-write"), ta = document.getElementById("twNote"); if (w) w.scrollIntoView({ block: "start", behavior: "smooth" }); if (ta) ta.focus({ preventScroll: true }); } break; }
-      case "exgo": FX("tick"); extStart(el.dataset.id); break;
-      case "exon": { if (!EXQ || EXQ.ph !== "list") break; extSync(); const x = (EXQ[el.dataset.k] || [])[+el.dataset.i]; if (!x) break;
-        x.on = !x.on; FX("tick"); const y = sheet.scrollTop; extSheet(); sheet.scrollTop = y; break; }
-      case "exsave": extSave(); break;
+      case "exgo": FX("tick"); aiRun(el.dataset.id); break;
+      case "aiopt": FX("tick"); if (ACC.me) aiOptSheet(""); else extSignSheet(); break;
+      case "aioff": delete S.aiOn; AIQ = null; save(); FX("tick"); render(true); toast(u("aiOffDone"), 4000); break;
       case "burnask": FX("tick"); burnAskSheet(); break;
       case "burnyes": burnStart(true); break;
       case "burnreview": burnStart(false); break;
@@ -4479,7 +4568,6 @@
     else if (sheetState && sheetState.kind === "tw") twSheet();
     else if (sheetState && sheetState.kind === "twdel") twDelSheet(sheetState.k, sheetState.id);
     else if (sheetState && sheetState.kind === "burnask") burnAskSheet();
-    else if (sheetState && sheetState.kind === "ext") extSheet();
     else if (sheetState && sheetState.kind === "move") moveSheet(sheetState.big);
     else if (sheetState && sheetState.kind === "pact") pactSheet();
     else if (sheetState && sheetState.kind === "saw") sawSheet();

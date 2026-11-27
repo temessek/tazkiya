@@ -76,8 +76,8 @@ export const KINDS = {
   // «تحدّياتي / مجاهداتي»: may be tied to a finger, marked overcome
   challenge: { cap: 3000, keys: ["tx", "f", "src", "n", "done", "dt"], fn: (d, now) => clean({ tx: text(d.tx, 200, 1, "tx"), f: optStage(d.f),
     src: d.src === undefined ? undefined : (["hand", "ai"].includes(d.src) ? d.src : (() => { throw bad("bad_src"); })()), n: optId(d.n), done: optBool(d.done, "done"), dt: optTs(d.dt, now, "dt") }) },
-  // the hidden deed: a line for the writer alone (old ones may have no text)
-  khabia: { cap: 3000, keys: ["tx"], fn: (d) => clean({ tx: d.tx === undefined ? undefined : text(d.tx, 200, 0, "tx") }) },
+  // the hidden deed: a line for the writer alone (old ones may have no text); n: the entry it was drawn from
+  khabia: { cap: 3000, keys: ["tx", "n"], fn: (d) => clean({ tx: d.tx === undefined ? undefined : text(d.tx, 200, 0, "tx"), n: optId(d.n) }) },
   // "I saw good in you": a family member's note received by this profile
   seen: { cap: 1000, keys: ["from", "v", "tx", "got"], fn: (d, now) => {
     const o = clean({ from: pid(d.from), v: d.v === undefined ? undefined : (typeof d.v === "string" && VKEY_RE.test(d.v) ? d.v : (() => { throw bad("bad_v"); })()),

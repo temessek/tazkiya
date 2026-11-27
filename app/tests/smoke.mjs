@@ -1093,39 +1093,72 @@ async function ideaFlows(browser, base, content, AV) {
       await ctx.close(); }
     // with a server (mocked to the contract of outputs/server/src/extract.js)
     const freshNoSw = async (vp) => { const ctx = await browser.newContext({ viewport: vp || { width: 375, height: 812 }, serviceWorkers: "block" }); const page = await ctx.newPage(); const errs = []; page.on("pageerror", e => errs.push(e.message)); page.errs = errs; return { ctx, page }; };
-    const mock = async (ctx, reqs, ans, adult18) => {
-      await ctx.route("**/api/health", r => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ ok: true, env: "test", ai: true }) }));
+    const mock = async (ctx, reqs, ans, adult18, img) => {
+      await ctx.route("**/api/health", r => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ ok: true, env: "test", ai: true, ai_image: img !== false }) }));
       await ctx.route("**/api/me", r => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ account: { email: "x@example.com", adult_at: adult18 === false ? null : 1763900000000 }, profiles: [] }) }));
+      await ctx.route("**/api/sync", r => r.fulfill({ status: 200, contentType: "application/json", body: '{"cursor":"1.1","more":false,"profiles":[],"changes":[],"rejected":[]}' }));
       await ctx.route("**/api/extract", r => { reqs.push({ m: r.request().method(), h: r.request().headers(), b: r.request().postData() }); return r.fulfill(ans()); }); };
-    { const { ctx, page } = await freshNoSw(), reqs = [];
-      await mock(ctx, reqs, () => ({ status: 200, contentType: "application/json", body: JSON.stringify({ blessings: ["أمي التي ساعدتني في واجبي", "<b>صديق</b> وقف بجانبي", 5], challenges: ["أن أهدأ حين يغضبني أخي"], care: "ما كتبته مهم." }) }));
+    // the 18+ card, the one-time consent, then each saved page is analysed into dated lines of the three lists
+    { const { ctx, page } = await freshNoSw(), reqs = [], adultReqs = [];
+      await mock(ctx, reqs, () => ({ status: 200, contentType: "application/json", body: JSON.stringify({ good: ["أمي التي ساعدتني في واجبي", "<b>صديق</b> وقف بجانبي", 5], challenges: ["أن أهدأ حين يغضبني أخي"], hidden: ["تصدقت على جاري دون أن يعلم أحد"], care: "ما كتبته مهم." }) }));
+      await ctx.route("**/api/account/adult", r => { adultReqs.push(1); return r.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true,"adult_at":1763900000000}' }); });
       await open(page, "&reset=1&ed=adult", 900); await setS(page, "s.twIntro = true; s.gender = 'm';"); await open(page, "", 900); await go(page, "#/tadwin", 900);
-      await page.fill("#twNote", "ساعدتني أمي في الواجب، وغضبت من أخي"); await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(500);
-      ok(await has(page, '.tw-after [data-act="exgo"]'), "ext: with the server, the button shows after saving");
-      await page.click('.tw-after [data-act="exgo"]'); await page.waitForTimeout(700);
+      const card = await txt(page, "#tw-write .ai-bar");
+      ok(/18\+/.test(card) && /ثماني عشرة/.test(card) && /OpenAI/.test(card) && /للكبار وحدهم/.test(card) && await has(page, '#tw-write [data-act="aiopt"]'), "ai: the journal page says plainly the analysis is for adults over 18, with OpenAI named");
+      await page.fill("#twNote", "ساعدتني أمي في الواجب، وغضبت من أخي"); await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(600);
+      ok(!reqs.length && !((await getS(page)).bless || []).length, "ai: before the consent, saving a page sends nothing");
+      await page.click('#tw-write [data-act="aiopt"]'); await page.waitForTimeout(400);
+      const sh = await txt(page, "#sheet");
+      ok(/ثماني عشرة/.test(sh) && /OpenAI/.test(sh) && /تدرّب/.test(sh) && /30|ثلاثين/.test(sh) && /طبعة الصغار/.test(sh) && await has(page, '#sheet a[href="privacy/"]'), "ai: the consent explains adults only, what goes to OpenAI, no training, the 30-day logs, and links the privacy page");
+      await page.click('#sheet [data-act="adultyes"]'); await page.waitForTimeout(500);
+      ok(!adultReqs.length && (await getS(page)).aiOn > 0 && await has(page, '#tw-write .ai-bar.on [data-act="aioff"]'), "ai: with the 18+ statement already given, the consent is kept on the profile and the line «أوقفه» shows");
+      ok(await has(page, "#tw-write label.ai-photo input[data-ai-photo]"), "ai: the photograph-a-page button shows once the analysis is on");
+      await page.fill("#twNote", "ساعدتني أمي في الواجب، وغضبت من أخي، وتصدقت سرًّا"); await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(900);
       const rq = reqs[0] || { h: {} }, body = JSON.parse(rq.b || "{}");
-      ok(rq.m === "POST" && rq.h["x-tazkiya"] === "1" && /application\/json/.test(rq.h["content-type"] || ""), "ext: POST /api/extract as JSON with the x-tazkiya header");
-      ok(Object.keys(body).sort().join() === "edition,gender,lang,pid,text" && body.pid === "p1" && body.edition === "adult" && body.lang === "ar" && body.gender === "m" && /ساعدتني أمي/.test(body.text), `ext: it sends one entry with edition, language and gender: ${JSON.stringify(body)}`);
-      ok((await page.locator("#sheet .ex-list li").count()) === 3 && /ما كتبته مهم/.test(await txt(page, "#sheet .ex-care")) && !/[<>]/.test(await page.inputValue("#ex-bl1")), "ext: the suggestions and the care line are shown, cleaned");
-      ok(!((await getS(page)).bless || []).length && !((await getS(page)).chal || []).length, "ext: nothing is saved before the writer chooses");
-      await page.fill("#ex-bl0", "أمي التي ساعدتني"); await page.click('#sheet [data-act="exon"][data-k="bl"][data-i="1"]'); await page.waitForTimeout(250);
-      ok((await page.inputValue("#ex-bl0")) === "أمي التي ساعدتني" && await has(page, "#sheet .ex-list li.off"), "ext: a line can be edited, another dropped");
-      await page.click('#sheet [data-act="exsave"]'); await page.waitForTimeout(400);
-      const s = await getS(page), nid = s.notes[0].id;
-      ok(s.bless.length === 1 && s.bless[0].tx === "أمي التي ساعدتني" && s.bless[0].src === "ai" && s.bless[0].n === nid, "ext: the chosen blessing is saved as edited, linked to its entry");
-      ok(s.chal.length === 1 && s.chal[0].tx === "أن أهدأ حين يغضبني أخي" && s.chal[0].src === "ai", "ext: the chosen challenge is saved");
-      ok(/من كتابتي/.test(await txt(page, "#tw-bless")), "ext: shown «من كتابتي»");
-      ok(!page.errs.length, "ext: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+      ok(reqs.length === 1 && rq.m === "POST" && rq.h["x-tazkiya"] === "1" && /application\/json/.test(rq.h["content-type"] || ""), "ai: saving a page POSTs /api/extract as JSON with the x-tazkiya header");
+      ok(Object.keys(body).sort().join() === "edition,gender,lang,pid,text" && body.pid === "p1" && body.edition === "adult" && body.lang === "ar" && body.gender === "m" && /تصدقت سرًّا/.test(body.text), `ai: it sends that page with edition, language and gender: ${JSON.stringify(body)}`);
+      let s = await getS(page); const note = s.notes.find(e => /سرًّا/.test(e.tx));
+      ok(s.bless.length === 2 && s.bless.every(e => e.src === "ai" && e.n === note.id && Math.abs(e.t - note.t) < 50) && !/[<>]/.test(JSON.stringify(s.bless)), "ai: good deeds and blessings are saved as dated lines of the page, cleaned");
+      ok(s.chal.length === 1 && s.chal[0].tx === "أن أهدأ حين يغضبني أخي" && s.chal[0].src === "ai" && s.chal[0].n === note.id, "ai: the challenge is saved");
+      ok(s.khabia.length === 1 && s.khabia[0].tx === "تصدقت على جاري دون أن يعلم أحد" && s.khabia[0].n === note.id && !s.khabia[0].src, "ai: the hidden deed goes among the hidden deeds");
+      ok(/أُضيفت سطور هذه الصفحة/.test(await txt(page, "#ai-st")) && /ما كتبته مهم/.test(await txt(page, "#ai-st .ex-care")), "ai: the status line says the lines were added, with the care line");
+      ok(/من كتابتي/.test(await txt(page, "#tw-bless")) && /دون أن يعلم أحد/.test(await txt(page, "#tw-bless")) && /أن أهدأ/.test(await txt(page, "#tw-chal")), "ai: the lines show at once in the lists");
+      ok(await has(page, `#tw-bless [data-act="twedit"][data-id="${s.bless[0].id}"]`) && await has(page, `#tw-bless [data-act="twdel"][data-id="${s.bless[0].id}"]`), "ai: each line can be edited or deleted");
+      // saving the page again: its untouched lines are replaced, a line the writer edited stays
+      await setS(page, "s.bless[0].u = s.bless[0].t + 5000; s.bless[0].tx = 'أمي، عدّلتها بيدي';"); await open(page, "", 900); await go(page, "#/tadwin", 900);
+      await page.click(`#tw-nb [data-act="nbopen"][data-id="${note.id}"]`); await page.waitForTimeout(400);
+      await page.fill("#twNote", note.tx + " ثم نمت مبكرًا"); await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(900);
+      s = await getS(page);
+      ok(reqs.length === 2 && s.bless.length === 3 && s.bless.some(e => e.tx === "أمي، عدّلتها بيدي") && s.chal.length === 1 && s.khabia.length === 1, `ai: a page saved again replaces its earlier lines and keeps the edited one (${s.bless.length}, ${s.chal.length}, ${s.khabia.length})`);
+      await page.click('#tw-write [data-act="aioff"]'); await page.waitForTimeout(400);
+      await page.fill("#twNote", "صفحة بعد إيقاف التحليل في هذا اليوم"); await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(600);
+      ok(!(await getS(page)).aiOn && reqs.length === 2 && await has(page, '#tw-write [data-act="aiopt"]'), "ai: turned off, nothing more is sent");
+      ok(!page.errs.length, "ai: no script errors (" + page.errs.slice(0, 1).join("") + ")");
+      await ctx.close(); }
+    // a photographed page: made smaller on the device, read on the server, kept in the notebook with its date
+    { const { ctx, page } = await freshNoSw(), reqs = [];
+      await mock(ctx, reqs, () => ({ status: 200, contentType: "application/json", body: JSON.stringify({ text: "ساعدت جارتي في حمل أكياسها\nوتأخرت عن صلاة العصر", date: "2026-11-20", good: ["ساعدت جارتي في حمل أكياسها"], challenges: ["أن أصلي العصر في وقتها"], hidden: [], blessings: ["ساعدت جارتي في حمل أكياسها"] }) }));
+      await open(page, "&reset=1&ed=adult&lang=en", 900); await setS(page, "s.twIntro = true; s.aiOn = Date.now();"); await open(page, "", 900); await go(page, "#/tadwin", 900);
+      ok(/18\+/.test(await txt(page, "#tw-write .ai-bar")) && /adults only/.test(await txt(page, "#tw-write .ai-bar")), "ai photo: in English the line says adults only");
+      const png = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=", "base64");
+      await page.setInputFiles("#tw-write input[data-ai-photo]", { name: "page.png", mimeType: "image/png", buffer: png }); await page.waitForTimeout(1500);
+      const body = JSON.parse((reqs[0] || {}).b || "{}");
+      ok(reqs.length === 1 && /^data:image\/jpeg;base64,[A-Za-z0-9+/]+=*$/.test(body.image || "") && body.text === undefined && body.pid === "p1" && body.edition === "adult", `ai photo: the page goes as a JPEG data URL, no text (${Object.keys(body).join()})`);
+      const s = await getS(page), n = s.notes.find(e => /جارتي/.test(e.tx));
+      ok(n && n.d === "2026-11-20" && new Date(n.t).getDate() === 20 && n.tx.includes("\n"), "ai photo: the page's text is saved in the notebook on the date written on it");
+      ok(s.bless.length === 1 && s.bless[0].n === n.id && s.chal.length === 1 && s.chal[0].t - n.t < 50, "ai photo: its lines are saved on that date");
+      ok(/saved in My notebook/.test(await txt(page, "#ai-st")) && /ساعدت جارتي/.test(await txt(page, "#tw-nb")), "ai photo: the status says so, and the page shows in the notebook");
+      ok(!page.errs.length, "ai photo: no script errors (" + page.errs.slice(0, 1).join("") + ")");
       await ctx.close(); }
     // no AI for children (owner decision, 23 Nov 2026): never in the kids' edition, not even as a setting
     { const { ctx, page } = await freshNoSw(), reqs = [];
-      await mock(ctx, reqs, () => ({ status: 200, contentType: "application/json", body: '{"blessings":["x"],"challenges":[]}' }));
+      await mock(ctx, reqs, () => ({ status: 200, contentType: "application/json", body: '{"good":["x"],"challenges":[],"hidden":[]}' }));
       for (const q of ["&lang=ar", "&lang=en"]) {
-        await open(page, "&reset=1" + q, 900); await setS(page, "s.twIntro = true; s.age = '9-14'; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'كان يومًا طيبًا في المدرسة' }];"); await open(page, "", 900); await go(page, "#/tadwin", 1200);
+        await open(page, "&reset=1" + q, 900); await setS(page, "s.twIntro = true; s.age = '9-14'; s.aiOn = Date.now(); s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'كان يومًا طيبًا في المدرسة' }];"); await open(page, "", 900); await go(page, "#/tadwin", 1200);
         await page.fill("#twNote", "كتبت صفحة جديدة طويلة اليوم"); await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(400);
-          ok(!(await has(page, '[data-act="exgo"]')) && !(await has(page, ".ext-btn")), `ext: kids (${q}): no extract button anywhere, with a working server`);
+        ok(!(await has(page, '[data-act="exgo"]')) && !(await has(page, ".ai-bar, #ai-st, input[data-ai-photo], [data-act='aiopt']")) && !/OpenAI|18\+/.test(await txt(page, "#view")), `ext: kids (${q}): no analysis, no 18+ card, no photo button, with a working server`);
         await page.click("#setBtn"); await page.waitForTimeout(500);
-        ok(!/(المساعد|الذكاء|journal helper|\bAI\b)/.test(await txt(page, "#sheet")), `ext: kids (${q}): no setting for it`);
+        ok(!/(المساعد|الذكاء|OpenAI|journal helper|\bAI\b)/.test(await txt(page, "#sheet")), `ext: kids (${q}): no setting for it`);
         await page.keyboard.press("Escape"); await page.waitForTimeout(200);
         ok(((await getS(page)).bless || []).length === 0 && ((await getS(page)).chal || []).length === 0 && await has(page, '#tw-bless [data-act="twadd"]') && await has(page, '#tw-chal [data-act="twadd"]'), `ext: kids (${q}): writing and adding by hand stay`);
       }
@@ -1134,43 +1167,44 @@ async function ideaFlows(browser, base, content, AV) {
       ok(!reqs.length && !calls, `ext: kids: the app never calls the server's AI or asks for it (${reqs.length}, ${calls})`);
       ok(!page.errs.length, "ext: kids: no script errors (" + page.errs.slice(0, 1).join("") + ")");
       await ctx.close(); }
-    // an adult account without the 18+ statement: the first use asks for it, and nothing is read before it is given
+    // an adult account without the 18+ statement: the first use asks for it with the consent, and nothing is read before it
     { const { ctx, page } = await freshNoSw(), reqs = [], adultReqs = [];
       await mock(ctx, reqs, () => ({ status: 200, contentType: "application/json", body: '{"blessings":["صحة أمي"],"challenges":[]}' }), false);
       await ctx.route("**/api/account/adult", r => { adultReqs.push({ h: r.request().headers(), b: r.request().postData() }); return r.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true,"adult_at":1763900000000}' }); });
-      await ctx.route("**/api/sync", r => r.fulfill({ status: 200, contentType: "application/json", body: '{"cursor":"1.1","more":false,"profiles":[],"changes":[],"rejected":[]}' }));
       await open(page, "&reset=1&ed=adult", 900); await setS(page, "s.twIntro = true; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'كان يومًا طويلًا في العمل' }];"); await open(page, "", 900); await go(page, "#/tadwin", 1200);
-      ok(await has(page, '#tw-nb [data-act="exgo"]'), "ext: a signed-in adult sees the button before the 18+ statement");
+      ok(await has(page, '#tw-nb [data-act="exgo"]'), "ext: a signed-in adult sees «حلّل» before the 18+ statement");
       await page.click('#tw-nb [data-act="exgo"]'); await page.waitForTimeout(400);
-      ok(/ثماني عشرة/.test(await txt(page, "#sheet")) && !reqs.length, "ext: the first use asks for the 18+ statement and sends nothing yet");
-      await page.click('#sheet [data-act="adultyes"]'); await page.waitForTimeout(800);
+      ok(/ثماني عشرة/.test(await txt(page, "#sheet")) && /OpenAI/.test(await txt(page, "#sheet")) && !reqs.length, "ext: the first use asks for the 18+ statement and the consent, and sends nothing yet");
+      await page.click('#sheet [data-act="adultyes"]'); await page.waitForTimeout(900);
       const ab = JSON.parse((adultReqs[0] || {}).b || "{}");
       ok(adultReqs.length === 1 && ab.confirm === true && Object.keys(ab).length === 1 && (adultReqs[0].h || {})["x-tazkiya"] === "1", "ext: the statement is POSTed as {confirm: true} with the x-tazkiya header");
-      ok(reqs.length === 1 && (await page.locator("#sheet .ex-list li").count()) === 1, "ext: after the statement the extraction runs");
+      const s = await getS(page);
+      ok(reqs.length === 1 && s.bless.length === 1 && s.bless[0].tx === "صحة أمي" && s.bless[0].n === "n1", "ext: after it the page is analysed (an older answer shape still read)");
       ok(!page.errs.length, "ext: no script errors (" + page.errs.slice(0, 1).join("") + ")");
       await ctx.close(); }
     { const { ctx, page } = await freshNoSw(), reqs = [];
       await mock(ctx, reqs, () => ({ status: 401, contentType: "application/json", body: '{"error":"no_session"}' }));
-      await open(page, "&reset=1&ed=adult&lang=en", 900); await setS(page, "s.twIntro = true; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'A long day at work, and a kind word.' }];"); await open(page, "", 900); await go(page, "#/tadwin", 1200);
+      await open(page, "&reset=1&ed=adult&lang=en", 900); await setS(page, "s.twIntro = true; s.aiOn = Date.now(); s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'A long day at work, and a kind word.' }];"); await open(page, "", 900); await go(page, "#/tadwin", 1200);
       await page.click('#tw-nb [data-act="exgo"]'); await page.waitForTimeout(600);
-      ok(/signed in/.test(await txt(page, "#sheet")), "ext: a signed-out answer asks to sign in");
+      ok(/signed in/.test(await txt(page, "#ai-st")), "ext: a signed-out answer asks to sign in");
       ok(!page.errs.length, "ext: no script errors (" + page.errs.slice(0, 1).join("") + ")");
       await ctx.close(); }
     // another adult profile on the device (a family member, not the account holder): hidden
     { const { ctx, page } = await freshNoSw(), reqs = [];
-      await mock(ctx, reqs, () => ({ status: 200, contentType: "application/json", body: '{"blessings":["x"],"challenges":[]}' }));
+      await mock(ctx, reqs, () => ({ status: 200, contentType: "application/json", body: '{"good":["x"],"challenges":[],"hidden":[]}' }));
       await open(page, "&reset=1&ed=adult", 900);
       await page.evaluate(() => { localStorage.setItem("akhlaq-app-v1:profiles", JSON.stringify({ active: "p2", list: ["p1", "p2"] }));
-        localStorage.setItem("akhlaq-app-v1:p2", JSON.stringify({ v: 1, lang: "ar", fs: 19, mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, edition: "adult", intro: true, tour: true, twIntro: true, notes: [{ id: "n1", t: Date.now(), tx: "كتابة فرد آخر من الأسرة" }] })); });
+        localStorage.setItem("akhlaq-app-v1:p2", JSON.stringify({ v: 1, lang: "ar", fs: 19, mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, edition: "adult", intro: true, tour: true, twIntro: true, aiOn: Date.now(), notes: [{ id: "n1", t: Date.now(), tx: "كتابة فرد آخر من الأسرة" }] })); });
       await open(page, "", 900); await go(page, "#/tadwin", 1200);
-      ok(!(await has(page, '[data-act="exgo"]')) && !reqs.length, "ext: an adult profile other than the account holder's sees no button");
+      await page.fill("#twNote", "صفحة جديدة لفرد آخر من الأسرة"); await page.click('#view [data-act="nbsave"]'); await page.waitForTimeout(500);
+      ok(!(await has(page, '[data-act="exgo"], .ai-bar, #ai-st')) && !reqs.length, "ext: an adult profile other than the account holder's sees nothing of the analysis and sends nothing");
       await ctx.close(); }
     // nothing found: say so, and invite adding by hand
     { const { ctx, page } = await freshNoSw(), reqs = [];
-      await mock(ctx, reqs, () => ({ status: 200, contentType: "application/json", body: '{"blessings":[],"challenges":[]}' }));
-      await open(page, "&reset=1&ed=adult", 900); await setS(page, "s.twIntro = true; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'كان يومًا طويلًا في العمل' }];"); await open(page, "", 900); await go(page, "#/tadwin", 1200);
+      await mock(ctx, reqs, () => ({ status: 200, contentType: "application/json", body: '{"good":[],"challenges":[],"hidden":[]}' }));
+      await open(page, "&reset=1&ed=adult", 900); await setS(page, "s.twIntro = true; s.aiOn = Date.now(); s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'كان يومًا طويلًا في العمل' }];"); await open(page, "", 900); await go(page, "#/tadwin", 1200);
       await page.click('#tw-nb [data-act="exgo"]'); await page.waitForTimeout(600);
-      ok(/لم يجد المساعد سطورًا/.test(await txt(page, "#sheet")) && /بيدك/.test(await txt(page, "#sheet")), "ext: empty lists say nothing was found and invite adding by hand");
+      ok(/لم يجد التحليل سطورًا/.test(await txt(page, "#ai-st")) && /بيدك/.test(await txt(page, "#ai-st")), "ext: empty lists say nothing was found and invite adding by hand");
       await ctx.close(); }
   });
   await step("tadwin: backup", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1");
@@ -1265,14 +1299,17 @@ async function ideaFlows(browser, base, content, AV) {
       ok(!errs.length, `tw: 320 ${q} no script errors ` + errs.slice(0, 1).join(""));
       await ctx.close();
     }
-    // the extract sheet at 320 px (mocked server)
+    // the journal analysis at 320 px (mocked server): the 18+ card, then the status line with the care line, and long lines in the lists
     const ctx = await browser.newContext({ viewport: { width: 320, height: 640 }, serviceWorkers: "block" }), page = await ctx.newPage();
-    await ctx.route("**/api/health", r => r.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true,"ai":true}' }));
+    await ctx.route("**/api/health", r => r.fulfill({ status: 200, contentType: "application/json", body: '{"ok":true,"ai":true,"ai_image":true}' }));
     await ctx.route("**/api/me", r => r.fulfill({ status: 200, contentType: "application/json", body: '{"account":{"adult_at":1763900000000}}' }));
-    await ctx.route("**/api/extract", r => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ blessings: ["ك".repeat(140), "صديق"], challenges: ["Supercalifragilistic".repeat(7)], care: "What you wrote matters. It may help to talk it through today with someone you trust." }) }));
+    await ctx.route("**/api/sync", r => r.fulfill({ status: 200, contentType: "application/json", body: '{"cursor":"1.1","more":false,"profiles":[],"changes":[],"rejected":[]}' }));
+    await ctx.route("**/api/extract", r => r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ good: ["ك".repeat(140), "صديق"], challenges: ["Supercalifragilistic".repeat(7)], hidden: ["A kindness no one saw"], care: "What you wrote matters. It may help to talk it through today with someone you trust." }) }));
     await open(page, "&reset=1&ed=adult&lang=en", 900); await setS(page, "s.twIntro = true; s.notes = [{ id: 'n1', t: Date.now(), d, tx: 'A long day with my family and friends.' }];"); await open(page, "", 900); await go(page, "#/tadwin", 900);
+    let x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText && await has(page, "#tw-write .ai-bar"), `tw: 320 the 18+ card: ${JSON.stringify(x)}`);
+    await setS(page, "s.aiOn = Date.now();"); await open(page, "", 900); await go(page, "#/tadwin", 900);
     await page.click('#tw-nb [data-act="exgo"]'); await page.waitForTimeout(700);
-    const x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText && (await page.locator("#sheet .ex-list li").count()) === 3, `tw: 320 the extract sheet: ${JSON.stringify(x)}`);
+    x = await page.evaluate(PAGE_CHECK); ok(!x.overflow && !x.clipped.length && !x.badText && ((await getS(page)).bless || []).length === 2 && await has(page, "#ai-st .ex-care") && await has(page, "#tw-write label.ai-photo"), `tw: 320 the analysis status, the photo button and the long lines: ${JSON.stringify(x)}`);
     await ctx.close();
   });
   // 4. the family pact and "I saw good"

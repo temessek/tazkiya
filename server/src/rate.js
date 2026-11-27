@@ -34,6 +34,9 @@ export function limits(env) {
     aiAccount: n("LIMIT_AI_ACCOUNT", 30),   // AI extractions per account per day
     aiIp: n("LIMIT_AI_IP", 60),             // AI extractions per address per day
     aiAll: n("LIMIT_AI_ALL", 1000),         // AI extractions for the whole site per day (about 7,300 of the 10,000 free neurons)
+    // with OpenAI (paid per token, about $40 a month): a lower ceiling for the site, and photographed pages counted apart
+    aiAllOpenai: n("LIMIT_AI_ALL_OPENAI", 60),   // analyses for the whole site per day (at most about $1.5 a day)
+    aiImage: n("LIMIT_AI_IMAGE_ACCOUNT", 8),     // photographed pages per account per day
     syncAccount: n("LIMIT_SYNC_ACCOUNT", 600), // sync calls per account per hour
     accountBytes: n("LIMIT_ACCOUNT_BYTES", 20 * 1024 * 1024), // stored journal data per account (a heavy year is about 2 MB)
     accountRows: n("LIMIT_ACCOUNT_ROWS", 60000),             // stored rows per account, deletion markers included
