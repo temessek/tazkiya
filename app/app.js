@@ -3128,10 +3128,12 @@
   /* Recorded narration (owner's feedback, 27 Nov 2026: the browser's synthetic voice is not acceptable; it is not used anywhere).
      One set of recordings serves the storybook and the other readers: assets/audio/<lang>/<id>/<n>.mp3 for page or paragraph n
      (from 1), and beside it <n>.json, the word timings [{"t": seconds from the start, "w": the word's index on the page}].
-     STORY_AUDIO lists "<lang>/<id>" for every narration that is ready; a listen button shows only for those. It is empty until
-     the narration is recorded, so no button shows. (The smoke test fills window.TZ_STORY_AUDIO before load to run a fake one.)
+     STORY_AUDIO lists "<lang>/<id>" for every narration that is ready; a listen button shows only for those. NARRATED holds the
+     recorded ones (27 Nov 2026: the 21 storybook stories, every page in both languages, Gemini TTS, voices Vindemiatrix for
+     Arabic and Achernar for English). A test may set window.TZ_STORY_AUDIO before load to replace the list.
      The .mp3 files stay out of the service worker's install list. */
-  const STORY_AUDIO = new Set([].concat(Array.isArray(window.TZ_STORY_AUDIO) ? window.TZ_STORY_AUDIO : []).filter(x => typeof x === "string" && /^(ar|en)\/[\w.:-]{1,90}$/.test(x)));
+  const NARRATED = ["zombie-r1", "zombie-r6", "zombie-r10", "zombie-r13", "pig-r1", "pig-r3", "pig-r6", "pig-r10", "pig-r13", "monkey-r1", "monkey-r6", "monkey-r10", "monkey-r13", "human-r1", "human-r6", "human-r10", "human-r13", "sabiq-r1", "sabiq-r6", "sabiq-r10", "sabiq-r13"].flatMap(id => ["ar/" + id, "en/" + id]);
+  const STORY_AUDIO = new Set((Array.isArray(window.TZ_STORY_AUDIO) ? window.TZ_STORY_AUDIO : NARRATED).filter(x => typeof x === "string" && /^(ar|en)\/[\w.:-]{1,90}$/.test(x)));
   const audioOf = id => !!id && STORY_AUDIO.has(L() + "/" + id);
   const audioSrc = (id, n) => "assets/audio/" + L() + "/" + encodeURIComponent(id) + "/" + n;
   let NAR = null; // the recording now playing

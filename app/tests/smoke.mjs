@@ -288,7 +288,8 @@ async function main() {
   try { browser = await chromium.launch(); } catch (e) { browser = await chromium.launch({ executablePath: chromePath() }); }
   // owner's feedback (27 Nov 2026): no synthetic browser voice anywhere. Every context gets a stand-in speech engine that offers
   // Arabic and English voices (so any leftover button would show) and records every use; the route checks fail on any record
-  { const nc = browser.newContext.bind(browser); browser.newContext = async o => { const c = await nc(o); await c.addInitScript(SPEECH_SPY); return c; }; }
+  { const nc = browser.newContext.bind(browser); browser.newContext = async o => { const c = await nc(o); await c.addInitScript(SPEECH_SPY);
+    await c.addInitScript(() => { window.TZ_STORY_AUDIO = []; }); return c; }; } // recordings off, except where a step turns them on
   if (ARGS.has("--webkit-only")) { // the iPhone (WebKit) opens alone (development aid)
     await browser.close(); srv.close();
     const r = await webkitFlows();
@@ -667,7 +668,7 @@ async function ideaFlows(browser, base, content, AV) {
     ok(/assets\/vignettes\/book-human/.test(ad.src) && !ad.book && ad.body, `2: the adult edition's reading keeps its full text under the finger's picture (${ad.src})`);
     ok(!page.errs.length, "2: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
-  // owner's feedback (27 Nov 2026): recorded narration only. With STORY_AUDIO empty there is no listen button anywhere (checked on
+  // owner's feedback (27 Nov 2026): recorded narration only. With STORY_AUDIO emptied there is no listen button anywhere (checked on
   // every route above); here a fake recording (a short WAV served at the .mp3 path, with its timings) runs through the book
   await step("recorded narration", async () => {
     const ctx = await browser.newContext({ viewport: { width: 375, height: 812 } });
@@ -704,8 +705,28 @@ async function ideaFlows(browser, base, content, AV) {
     ok(!calls.length && !(await has(page, '[data-act="toursay"]')), "voice: the tour and the book never touch the browser's speech engine (" + calls.slice(0, 3).join(",") + ")");
     ok(!/speechSynthesis|SpeechSynthesisUtterance/.test(["app.js", "fx.js", "intro.js", "boot.js", "index.html"].map(f => fs.readFileSync(path.join(ROOT, f), "utf8")).join("\n")), "voice: no served file mentions the browser's speech engine");
     ok(!/assets\/audio\//.test(fs.readFileSync(path.join(ROOT, "sw.js"), "utf8")), "voice: recordings stay out of the service worker's install list");
+    // the real recordings: every page of every narrated story has its .mp3 and timings that fit its words
+    { const { C: KC } = loadContent(), src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+      const ids = JSON.parse((src.match(/const NARRATED = (\[[^\]]*\])/) || [0, "[]"])[1]), bad = [];
+      const find = id => { for (const st of Object.values(KC.stages)) { const r = st.readings.find(x => x.id === id); if (r) return r; } return null; };
+      for (const id of ids) for (const lang of ["ar", "en"]) { const r = find(id), pages = r ? r.body[lang] : [];
+        if (!pages.length) bad.push(id + ": no reading");
+        pages.forEach((p, i) => { const b = path.join(ROOT, "assets", "audio", lang, id, String(i + 1)), nw = p.split(/\s+/).filter(Boolean).length;
+          if (!fs.existsSync(b + ".mp3") || fs.statSync(b + ".mp3").size < 2000) { bad.push(`${lang}/${id}/${i + 1}.mp3`); return; }
+          let tm = null; try { tm = JSON.parse(fs.readFileSync(b + ".json", "utf8")); } catch (e) {}
+          if (!Array.isArray(tm) || !tm.length || tm.some((x, k) => typeof x.t !== "number" || !Number.isInteger(x.w) || x.w < 0 || x.w >= nw || (k && (x.t < tm[k - 1].t || x.w <= tm[k - 1].w)))) bad.push(`${lang}/${id}/${i + 1}.json`); }); }
+      ok(ids.length === 21 && !bad.length, `voice: the 21 storybook stories are recorded page by page in both languages, with timings for their words (${ids.length}; ${bad.slice(0, 3).join(" ")})`); }
     ok(!errs.length, "voice: no script errors (" + errs.slice(0, 1).join("") + ")");
-    await ctx.close(); });
+    await ctx.close();
+    // and one real recording plays in the book, in each language, lighting its words
+    for (const lang of ["ar", "en"]) { const c2 = await browser.newContext({ viewport: { width: 375, height: 812 } });
+      await c2.addInitScript(() => { delete window.TZ_STORY_AUDIO; });
+      const p2 = await c2.newPage(); const e2 = []; p2.on("pageerror", e => e2.push(e.message));
+      await p2.goto(`${base}?intro=0&reset=1&lang=${lang}#/read/pig/pig-r1`); await p2.waitForTimeout(900);
+      const btn = await has(p2, "#view .sbook .bk-listen"); if (btn) await p2.click("#view .bk-listen");
+      let hl = -1; for (let i = 0; i < 40 && hl < 1; i++) { await p2.waitForTimeout(150); hl = await p2.evaluate(() => [...document.querySelectorAll("#view .sbook .bk-txt .w")].findIndex(w => w.classList.contains("hl"))); }
+      ok(btn && hl >= 1 && !e2.length, `voice: the real recording plays in the book (${lang}) and its words light up in turn (word ${hl}) ${e2.slice(0, 1).join("")}`);
+      await c2.close(); } });
   // direction 4 (owner's approval, 26 Nov 2026): the adult home is «ورد اليوم»; «مع أولادي» gathers the children's profiles on the
   // device (a small hand, this week's reading, the tasks to witness, a talk for dinner) and holds the family pact
   await step("adult reading and with my children", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1&ed=adult", 1000);

@@ -2819,7 +2819,7 @@ window.AKHLAQ_CONTENT.virtues = [
         'قالت أمه: «يا آدم، ارفع عينيك وانظر!».',
         'رفع آدم عينيه، فرأى الطائر، ورأى جدته، ورأى السماء الزرقاء.',
         'قال آدم: «سبحان الله! كل هذا كان هنا».',
-        'ولوّح لجدته وهو يضحك.'
+        'ولوّح لجدته وهو يضحك. كانت تقف في تلك النافذة كل صباح، تنتظر أن يراها.'
       ],
       en: [
         'Adam was walking to the park with his eyes on the ground.',
@@ -2828,7 +2828,7 @@ window.AKHLAQ_CONTENT.virtues = [
         'His mother said: "Adam, lift your eyes and look!"',
         'Adam looked up. He saw the bird, he saw his grandmother, he saw the blue sky.',
         'Adam said: "Subhanallah! All of this was here."',
-        'And he waved to his grandmother, laughing.'
+        'And he waved to his grandmother, laughing. She had stood at that window every morning, waiting for him to see her.'
       ]
     },
     ask: { ar: 'ما الشيء الجميل الذي رأيته اليوم ولم تكن تنتبه له؟', en: 'What lovely thing did you see today that you had not noticed before?' },
@@ -2856,8 +2856,8 @@ window.AKHLAQ_CONTENT.virtues = [
         'جلست بجانبها صديقتها ريم، وليس معها شيء.',
         'قالت ليلى في نفسها: «أحب التفاح كثيرًا».',
         'ثم نظرت إلى وجه ريم، فرأتها جائعة.',
-        'أعطت ليلى ريمَ تفاحة وقالت: «تفضلي».',
-        'أكلت الصديقتان معًا وضحكتا.',
+        'أعطت ليلى ريمَ تفاحة، أجمل التفاحتين، وقالت: «تفضلي».',
+        'أكلت الصديقتان معًا وضحكتا. وكانت ريم تأكل ببطء، كأنها لا تريد للتفاحة أن تنتهي.',
         'قالت ليلى: «طعم التفاحة مع صديقتي أحلى».'
       ],
       en: [
@@ -2865,8 +2865,8 @@ window.AKHLAQ_CONTENT.virtues = [
         'Her friend Reem sat beside her with nothing at all.',
         'Layla thought: "I love apples so much."',
         'Then she looked at Reem\'s face and saw she was hungry.',
-        'Layla gave Reem an apple and said: "Here you are."',
-        'The two friends ate together and laughed.',
+        'Layla gave Reem an apple, the nicer of the two, and said: "Here you are."',
+        'The two friends ate together and laughed. Reem ate slowly, as if she did not want her apple to end.',
         'Layla said: "An apple tastes sweeter with my friend."'
       ]
     },
@@ -2897,7 +2897,7 @@ window.AKHLAQ_CONTENT.virtues = [
         'لكنه وضع يده على صدره، وتنفّس ببطء: واحد، اثنان، ثلاثة، أربعة.',
         'صغر البالون قليلًا.',
         'قال عمر بصوت صغير هادئ: «أعطيني قلمي من فضلك».',
-        'أعطته أخته القلم، وقالت: «آسفة».'
+        'أعطته أخته القلم، وقالت: «آسفة». ونظر عمر إلى يده على صدره، وابتسم. لقد أمسك غضبه بيده الصغيرة.'
       ],
       en: [
         'Omar\'s sister took his blue pencil.',
@@ -2906,7 +2906,7 @@ window.AKHLAQ_CONTENT.virtues = [
         'But he put his hand on his chest and breathed slowly: one, two, three, four.',
         'The balloon got a little smaller.',
         'Omar said in a small, calm voice: "Please give me my pencil."',
-        'His sister gave it back and said: "Sorry."'
+        'His sister gave it back and said: "Sorry." Omar looked at the hand on his chest and smiled. He had held his anger with his own small hand.'
       ]
     },
     ask: { ar: 'ماذا تفعل حين تشعر أن بالون الغضب يكبر في صدرك؟', en: 'What do you do when you feel the anger balloon growing in your chest?' },
@@ -2975,7 +2975,7 @@ window.AKHLAQ_CONTENT.virtues = [
         'وضعت كل حذاء بجانب أخيه، صفًّا جميلًا.',
         'حين عاد أبوها، وجد حذاءه مرتبًا ينتظره.',
         'ابتسم ولم يعرف من فعلها.',
-        'ابتسمت نور أيضًا، فالله يعرف.'
+        'ابتسمت نور أيضًا، فالله يعرف. وفي الغد رتّبتها مرة أخرى، ولم تخبر أحدًا.'
       ],
       en: [
         'Noor saw the family\'s shoes scattered by the door.',
@@ -2984,7 +2984,7 @@ window.AKHLAQ_CONTENT.virtues = [
         'She placed each shoe beside its pair, in a neat row.',
         'When her father came home, he found his shoes waiting, tidy.',
         'He smiled and did not know who had done it.',
-        'Noor smiled too, because Allah knows.'
+        'Noor smiled too, because Allah knows. The next day she tidied them again, and told no one.'
       ]
     },
     ask: { ar: 'ما الخير الصغير الذي تستطيع أن تفعله غدًا دون أن يطلبه أحد؟', en: 'What small good thing could you do tomorrow without anyone asking?' },
@@ -4145,14 +4145,14 @@ window.AKHLAQ_CONTENT.choices = [
       'جاء أخوه الصغير يحمل كرته الحمراء: «تلعب معي؟». قال سامي: «بعد قليل»، ولم يرفع عينيه.',
       'ثم قفزت القطة، وجلست على الشاشة كلها! ضحك سامي، ورفع رأسه أخيرًا.',
       'نظر من النافذة، فإذا الشمس في وسط السماء. قال: «أين ذهب الصباح؟».',
-      'وسأل نفسه: «ماذا فعلتُ اليوم؟». ففكّر، ولم يجد شيئًا يحكيه.',
+      'وسأل نفسه: «ماذا فعلتُ اليوم؟». ففكّر، ولم يجد شيئًا يحكيه. ثم تذكّر أخاه الصغير واقفًا بالكرة ينتظره، ثم راجعًا وحده.',
       'فوضع الجهاز على الرف، وقال: «بسم الله»، وركض إلى أخيه: «أين الكرة الحمراء؟».'],
     en: ['Sami woke up on a holiday and grabbed the tablet before he had washed his face.',
       'His mother called: "Sami, breakfast!" He said, "Coming," and did not move.',
       'His little brother came carrying his red ball: "Will you play with me?" Sami said, "In a minute," and did not look up.',
       'Then the cat jumped up and sat on the whole screen! Sami laughed, and at last he lifted his head.',
       'He looked out of the window. The sun was high in the sky. "Where did the morning go?" he said.',
-      'He asked himself, "What did I do today?" He thought, and found nothing to tell.',
+      'He asked himself, "What did I do today?" He thought, and found nothing to tell. Then he remembered his little brother standing there with the ball, waiting, and going off alone.',
       'So he put the tablet on the shelf, said "Bismillah", and ran to his brother: "Where\'s the red ball?"']
   };
   delete r1.body.ar_f;
@@ -4342,22 +4342,26 @@ window.AKHLAQ_CONTENT.choices = [
       '«أنا جائعة! أريد الطعام الآن!»',
       'فُتح الباب، ودخل جدها من السوق، وفي كل يد ثلاثة أكياس.',
       'وقف عند الباب يلتقط أنفاسه، ويمسح جبينه.',
-      'نظرت سلمى إلى يديه، فإذا هما حمراوان من ثقل الأكياس.',
+      'نظرت سلمى إلى يديه، فإذا هما حمراوان من ثقل الأكياس، وفي وجهه تعب لم تنتبه له من قبل.',
       'قالت: «يا جدي، هل اشتريت السوق كله؟». ضحك جدها: «نصفه فقط».',
       'قفزت سلمى عن الكرسي، وأخذت كيسين من يده.',
       '«اجلس هنا يا جدي، على الكرسي الكبير، وأنا أرتب الأغراض».',
       'جلس جدها وقال: «بارك الله فيكِ يا سلمى».',
-      'ونسيت سلمى جوعها، حتى وضعت آخر تفاحة في مكانها.'],
+      'ونسيت سلمى جوعها، حتى وضعت آخر تفاحة في مكانها.',
+      'وفي قاع الكيس الأخير وجدت البسكويت الذي تحبه. كان جدها قد تذكّرها، وهو يحمل كل تلك الأكياس.',
+      'فركضت إليه، وقبّلت رأسه، وقالت: «شكرًا يا جدي». فلمعت عيناه، وضمّها كأن تعب السوق كله قد ذهب.'],
     en: ['Salma came home from school, dropped her bag and jumped into the big comfy chair.',
       '"I\'m hungry! I want food now!"',
       'The door opened and her grandfather came in from the market, three bags in each hand.',
       'He stood by the door, catching his breath and wiping his forehead.',
-      'Salma looked at his hands. They were red from the heavy bags.',
+      'Salma looked at his hands. They were red from the heavy bags, and his face was tired in a way she had never noticed before.',
       '"Grandpa, did you buy the whole market?" Her grandfather laughed: "Only half of it."',
       'Salma jumped off the chair and took two bags from his hand.',
       '"Sit here, Grandpa, in the big chair, and I\'ll put the shopping away."',
       'Her grandfather sat down and said: "May Allah bless you, Salma."',
-      'And Salma forgot all about being hungry until the last apple was in its place.']
+      'And Salma forgot all about being hungry until the last apple was in its place.',
+      'At the bottom of the last bag she found the biscuits she loved. Grandpa had remembered her, even while he carried all those bags.',
+      'She ran to him, kissed his head and said: "Thank you, Grandpa." His eyes shone, and he hugged her as if all the tiredness of the market had gone.']
   };
   delete r1.body.ar_f;
   var q1 = Q('pig-q1');
@@ -4389,14 +4393,14 @@ window.AKHLAQ_CONTENT.choices = [
       'ويد عمر الصغيرة تتنقل في الصحن: من هنا، ومن هناك، ومن الطرف البعيد.',
       'لم يغضب النبي صلى الله عليه وآله وسلم، ولم يُبعد الصحن.',
       'قال له بلطف: «يا غلام، سمِّ الله، وكُل بيمينك، وكُل مما يليك».',
-      'اسم الله أولًا، واليد اليمنى، والجهة القريبة منك. وما بقي في الصحن يبقى لغيرك.',
+      'اسم الله أولًا، واليد اليمنى، والجهة القريبة منك. وما بقي في الصحن يبقى لغيرك، ومن يأكل معك يفرح حين يجد جهته كما هي.',
       'وحين كبر عمر كان يحكي القصة ويقول: «فما زالت تلك طِعمتي بعد»، أي: بقيتُ آكل هكذا من يومها.'],
     en: ['Umar ibn Abi Salama, may Allah be pleased with him, was a young boy who lived in the house of the Prophet, peace and blessings be upon him and his family.',
       'One day he sat eating with him from one big dish.',
       'Umar\'s little hand went all over the dish: from here, from there, and from the far side.',
       'The Prophet, peace and blessings be upon him and his family, did not get angry, and he did not move the dish away.',
       'He told him gently: "Young boy, say Allah\'s name, eat with your right hand, and eat from what is in front of you."',
-      'Allah\'s name first, the right hand, and the side near you. What is left in the dish stays for everyone else.',
+      'Allah\'s name first, the right hand, and the side near you. What is left in the dish stays for everyone else, and whoever eats with you is glad to find their side just as it was.',
       'When Umar grew up he would tell this story and say, meaning: "That stayed my way of eating ever after."']
   };
   delete r3.body.ar_f;
@@ -4653,7 +4657,7 @@ window.AKHLAQ_CONTENT.choices = [
       'فتجمّد في مكانه، وقدمه في الهواء، كأنه تمثال في حديقة.',
       'ضحكت هالة: «يونس صار تمثالًا!».',
       'أنزل يونس قدمه، وأمسك الكرة، وسأل: «لماذا يا أبي؟». فأشار أبوه إلى البرج، وكانت الكرة قريبة منه جدًّا.',
-      'قالت هالة: «تضع أنت المكعب الأخير؟».',
+      'ونظر يونس إلى أخته. بنت البرج كل هذا الوقت، وركلة واحدة كانت ستهدمه. قالت هالة: «تضع أنت المكعب الأخير؟».',
       'فوضعه يونس في القمة بهدوء. وبقي البرج واقفًا، والكرة نائمة في حضنه.'],
     en: ['Thud! Thud! Yunus was kicking a ball in the living room.',
       'By the door his sister Hala was building a tall tower, block on block, holding her breath.',
@@ -4663,7 +4667,7 @@ window.AKHLAQ_CONTENT.choices = [
       'So he froze where he was, one foot in the air, like a statue in a park.',
       'Hala laughed: "Yunus has turned into a statue!"',
       'Yunus put his foot down, picked up the ball, and asked: "Why, Dad?" His father pointed at the tower. The ball had been very close to it.',
-      'Hala said: "Do you want to put the last block on?"',
+      'Yunus looked at his sister. She had been building that tower all this time, and one kick would have knocked it down. Hala said: "Do you want to put the last block on?"',
       'Yunus placed it on top, gently. The tower stayed standing, and the ball sat quietly in his lap.']
   };
   delete r1.body.ar_f;
@@ -4978,7 +4982,7 @@ window.AKHLAQ_CONTENT.choices = [
     ar: ['في الحديقة أرجوحة حمراء واحدة، وزيد فوقها يطير.',
       'جاء ولد صغير اسمه عادل، ووقف بجانبها يمسك يد أمه.',
       'قال زيد في نفسه: «وصلتُ أولًا. الأرجوحة لي».',
-      'وعادل ينتظر ولا يقول شيئًا، وعيناه تصعدان وتنزلان مع الأرجوحة.',
+      'وعادل ينتظر ولا يقول شيئًا، وعيناه تصعدان وتنزلان مع الأرجوحة. وتذكّر زيد كيف كان ينتظر هو هكذا، حين كان صغيرًا مثله.',
       'فقال زيد: «عشر مرات، ثم دورك. اتفقنا؟». فهزّ عادل رأسه.',
       'عدّ زيد ببطء شديد: «واحد... اثناااان...». فضحك عادل، فضحك زيد، وأكمل العدّ بسرعته العادية.',
       'وعند العاشرة نزل زيد وقال: «تفضل يا عادل».',
@@ -4987,7 +4991,7 @@ window.AKHLAQ_CONTENT.choices = [
     en: ['In the park there is one red swing, and Zayd is flying on it.',
       'A little boy called Adil came and stood beside it, holding his mother\'s hand.',
       'Zayd told himself: "I got here first. The swing is mine."',
-      'Adil waited and said nothing, his eyes going up and down with the swing.',
+      'Adil waited and said nothing, his eyes going up and down with the swing. Zayd remembered waiting just like that, when he was little too.',
       'So Zayd said: "Ten more times, then it\'s your turn. Deal?" Adil nodded.',
       'Zayd counted very, very slowly: "One... twooooo..." Adil laughed, Zayd laughed, and he counted the rest at normal speed.',
       'At ten Zayd got off and said: "Your turn, Adil."',
@@ -5110,7 +5114,7 @@ window.AKHLAQ_CONTENT.choices = [
       'قال سامر: «آي!»، وجلس على العشب يمسك قدمه.',
       'توقف يوسف. أما الكرة فتدحرجت وحدها حتى وقفت عند القطة.',
       'جلس يوسف بجانب سامر وقال: «آسف يا سامر، لم أقصد. هل تؤلمك؟».',
-      'نفخ سامر على أصابع قدمه، وقال: «صارت أحسن».',
+      'نفخ سامر على أصابع قدمه، وقال: «صارت أحسن». كانت كلمة «آسف» قد أراحته أكثر من النفخ.',
       'ثم قفز واقفًا وقال: «أنا أركل الآن!».',
       'فركلا الكرة معًا، وقفزت القطة من مكانها.'],
     en: ['Yusuf and Samer were playing football in the garden.',
@@ -5118,7 +5122,7 @@ window.AKHLAQ_CONTENT.choices = [
       'Samer said: "Ouch!" and sat on the grass holding his foot.',
       'Yusuf stopped. The ball rolled on by itself until it stopped by the cat.',
       'Yusuf sat down next to Samer and said: "Sorry, Samer, I didn\'t mean it. Does it hurt?"',
-      'Samer blew on his toes and said: "It\'s better now."',
+      'Samer blew on his toes and said: "It\'s better now." The word "sorry" had helped more than the blowing.',
       'Then he jumped up and said: "My kick now!"',
       'So they kicked the ball together, and the cat jumped out of the way.']
   };
@@ -5256,6 +5260,7 @@ window.AKHLAQ_CONTENT.choices = [
       'يوم الجمعة استيقظت مريم قبل الجميع. لبست حذاءها بهدوء، وأخذت المكنسة الصغيرة.',
       'خشش، خشش. جمعت الأوراق كومة كبيرة. ثم ملأت الإبريق، وسقت الزهور واحدة واحدة.',
       'وفتحت الخالة سعاد نافذتها، فرأت الحديقة نظيفة والزهور واقفة. فرفعت يديها وقالت: «اللهم أكرم من فعل هذا». ولم تعرف من هو.',
+      'وكانت مريم خلف نافذتها تسمع الدعاء، وقلبها يطير من الفرح، ولم تقل لأحد شيئًا.',
       'وفي الجمعة التالية فتح أخوها الصغير عمر عينيه وقال: «إلى أين؟». قالت مريم هامسة: «تعال، واحمل الإبريق».',
       'فحمل عمر الإبريق بيديه الاثنتين، وانحنى على أول زهرة، وقال لها: «اشربي».'],
     en: ['Auntie Suad is Maryam\'s neighbour, and she has been ill in bed for days.',
@@ -5263,6 +5268,7 @@ window.AKHLAQ_CONTENT.choices = [
       'On Friday Maryam woke before everyone. She slipped on her shoes quietly and took the little broom.',
       'Swish, swish. She swept the leaves into a big pile. Then she filled the watering can and watered the flowers one by one.',
       'Auntie Suad opened her window and saw the garden clean and the flowers standing up. She raised her hands and said: "O Allah, honour whoever did this." She never knew who it was.',
+      'Behind her own window Maryam heard the prayer, her heart flying with joy, and she told no one.',
       'The next Friday her little brother Omar opened his eyes and said: "Where are you going?" Maryam whispered: "Come on, and carry the watering can."',
       'So Omar carried the watering can with both hands, bent over the first flower, and told it: "Drink up."']
   };
@@ -5501,8 +5507,8 @@ window.AKHLAQ_CONTENT.choices = [
         "وفي المساء رأى الأب رامي جالسًا على الأرض، يجمع قطعًا صغيرة من الخشب.",
         "قال: «ماذا تصنع يا رامي؟».",
         "قال رامي: «أصنع صحنًا من خشب. لك ولأمي، حين تكبران».",
-        "نظر الأب إلى الأم طويلًا. ثم قاما معًا، وأمسكا يد الجد، وأجلساه في مكانه على المائدة.",
-        "وفي الغداء التالي سال الحساء على المفرش، فمسحته الأم بهدوء، وناولت الجد الخبز."],
+        "نظر الأب إلى الأم طويلًا، ورأى نفسه شيخًا يأكل وحده عند الباب. ثم قاما معًا، وأمسكا يد الجد، وأجلساه في مكانه على المائدة.",
+        "وفي الغداء التالي سال الحساء على المفرش، فمسحته الأم بهدوء، وناولت الجد الخبز. وابتسم الجد، وهو بين أهله من جديد."],
       en: ["Rami's grandfather ate with them at the table every day.",
         "Then Grandfather grew old. His hands began to shake, and soup dribbled from his spoon onto the tablecloth.",
         "One day his bowl fell to the floor and broke.",
@@ -5511,8 +5517,8 @@ window.AKHLAQ_CONTENT.choices = [
         "That evening Rami's father saw him sitting on the floor, gathering little pieces of wood.",
         "“What are you making, Rami?” he asked.",
         "“A wooden bowl,” said Rami. “For you and Mum, when you get old.”",
-        "His father looked at his mother for a long time. Then they both got up, took Grandfather's hand, and sat him back in his place at the table.",
-        "At the next lunch the soup dribbled onto the cloth again. Rami's mother wiped it up quietly and passed Grandfather the bread."]
+        "His father looked at his mother for a long time, and saw himself as an old man eating alone by the door. Then they both got up, took Grandfather's hand, and sat him back in his place at the table.",
+        "At the next lunch the soup dribbled onto the cloth again. Rami's mother wiped it up quietly and passed Grandfather the bread. And Grandfather smiled, back among his family."]
     },
     ask: { ar: "من في بيتنا يحتاج أن نقترب منه أكثر؟", en: "Who in our home needs us to come closer?" },
     source: { ar: "حكاية ألمانية في مجموعة الأخوين غريم (1812)، أعدنا حكايتها بكلماتنا، والاسم من عندنا.", en: "A German tale from the Brothers Grimm collection (1812), retold in our own words; the boy's name is ours." } });
@@ -5607,7 +5613,7 @@ window.AKHLAQ_CONTENT.choices = [
         "قال: «أنا صغير، فآخذ الصغيرة. والكبيرة لإخوتي الكبار».",
         "قال الأب: «وأخوك الأصغر منك؟».",
         "قال كونغ رونغ: «أنا أكبر منه، فأعطيه كبيرة».",
-        "ضحك الأب، وضمّه إلى صدره.",
+        "ضحك الأب، وضمّه إلى صدره، وقال: «فكّرتَ في إخوتك قبل نفسك».",
         "وجلس الإخوة كلهم يأكلون. وكانت كمثرى كونغ رونغ الصغيرة حلوة جدًّا."],
       en: ["Long ago in China there was a little boy called Kong Rong. He was four years old.",
         "His father brought a basket of yellow pears and put it on the table.",
@@ -5618,7 +5624,7 @@ window.AKHLAQ_CONTENT.choices = [
         "“I'm small, so I take a small one. The big ones are for my big brothers.”",
         "“And your little brother?”",
         "“I'm bigger than him,” said Kong Rong, “so I give him a big one.”",
-        "His father laughed and hugged him close.",
+        "His father laughed, hugged him close and said: “You thought of your brothers before yourself.”",
         "Then all the brothers sat down to eat. And Kong Rong's little pear was very sweet."]
     },
     ask: { ar: "حين تأتي الحلوى إلى البيت، لمن نقدّم أولًا؟", en: "When sweets come into the house, who do we offer them to first?" },
@@ -5716,7 +5722,7 @@ window.AKHLAQ_CONTENT.choices = [
         "خرجت الشمس من وراء الغيمة، وابتسمت، وأرسلت دفئها بهدوء.",
         "مسح الرجل جبينه. فكّ زرًّا، ثم زرًّا آخر...",
         "ثم خلع المعطف، وجلس في الظل، وقال: «آه، ما أجمل هذا اليوم!».",
-        "وفي المساء هبّت نسمة صغيرة لطيفة، تحرّك أوراق الشجر بهدوء. قالت الشمس: «هذه أنتِ؟». قالت الريح: «نعم. أتعلّم»."],
+        "وفي المساء هبّت نسمة صغيرة لطيفة، تحرّك أوراق الشجر بهدوء. قالت الشمس: «هذه أنتِ؟». قالت الريح: «نعم. أتعلّم أن أكون لطيفة»."],
       en: ["The Wind said to the Sun, “I'm stronger than you!”",
         "The Sun said, “See that man in his coat? Which of us can make him take it off?”",
         "The Wind blew: whoooosh! The man's hat flew away.",
@@ -5726,7 +5732,7 @@ window.AKHLAQ_CONTENT.choices = [
         "The Sun came out from behind a cloud, smiled, and sent down its warmth, gently.",
         "The man wiped his forehead. He undid one button, then another...",
         "Then he took off his coat, sat in the shade, and said, “Ah, what a lovely day!”",
-        "That evening a small, soft breeze came, rustling the leaves gently. “Is that you?” asked the Sun. “Yes,” said the Wind. “I'm learning.”"]
+        "That evening a small, soft breeze came, rustling the leaves gently. “Is that you?” asked the Sun. “Yes,” said the Wind. “I'm learning to be gentle.”"]
     },
     ask: { ar: "متى رأيتَ الكلام الهادئ يفعل ما لا يفعله الصراخ؟", ar_f: "متى رأيتِ الكلام الهادئ يفعل ما لا يفعله الصراخ؟", en: "When have you seen quiet words do what shouting can't?" },
     source: { ar: "حكاية «ريح الشمال والشمس» من حكايات إيسوب اليونانية، وحكاها لافونتين شعرًا، أعدنا حكايتها بكلماتنا.", en: "“The North Wind and the Sun” from Aesop's Greek fables, also told in verse by La Fontaine; retold in our own words." } });
@@ -5820,7 +5826,7 @@ window.AKHLAQ_CONTENT.choices = [
         "وبعد أيام وقع الأسد في شبكة الصيادين. شدّ، وزأر، وشدّ، ولم يخرج.",
         "سمع الفأر الزئير من بعيد، فقال: «هذا صاحبي!»، وركض.",
         "قرض الحبل الأول بأسنانه الصغيرة: كرك، كرك. ثم الثاني. ثم الثالث.",
-        "وخرج الأسد من الشبكة.",
+        "وخرج الأسد من الشبكة، ونظر طويلًا إلى الفأر الصغير الذي ضحك منه بالأمس.",
         "قال الفأر: «قلتُ لك: سأساعدك». ومشيا معًا تحت الشجرة، الكبير والصغير."],
       en: ["The Lion was asleep under the tree.",
         "A little Mouse came running, and ran right over the Lion's nose!",
@@ -5830,7 +5836,7 @@ window.AKHLAQ_CONTENT.choices = [
         "A few days later the Lion was caught in the hunters' net. He pulled, and roared, and pulled, and could not get out.",
         "The Mouse heard the roar from far away. “That's my friend!” he said, and ran.",
         "He gnawed the first rope with his little teeth: crunch, crunch. Then the second. Then the third.",
-        "And the Lion stepped out of the net.",
+        "And the Lion stepped out of the net, and looked for a long time at the little Mouse he had laughed at.",
         "“I told you,” said the Mouse. “I said I'd help you.” And they walked together under the tree, the big one and the small one."]
     },
     ask: { ar: "ما الوعد الذي وعدته، وتستطيع أن تفي به اليوم؟", ar_f: "ما الوعد الذي وعدتِه، وتستطيعين أن تفي به اليوم؟", en: "What promise have you made that you can keep today?" },
@@ -5925,7 +5931,7 @@ window.AKHLAQ_CONTENT.choices = [
         "فقطفت الحمامة ورقة بمنقارها، ورمتها في الماء قرب النملة.",
         "صعدت النملة على الورقة، وسبحت الورقة إلى الشاطئ. نجت!",
         "وبعد أيام جاء صياد، ورفع شبكته نحو الحمامة.",
-        "رأته النملة. فركضت، وعضّت قدمه بكل قوتها!",
+        "رأته النملة، وتذكّرت الورقة التي أنقذتها. فركضت، وعضّت قدمه بكل قوتها!",
         "صاح الصياد: «آي!»، وقفز، وسقطت الشبكة.",
         "وطارت الحمامة إلى السماء الزرقاء.",
         "ومن يومها، كلما شربت النملة من النهر، نظرت إلى الغصن، فوجدت صديقتها هناك."],
@@ -5935,7 +5941,7 @@ window.AKHLAQ_CONTENT.choices = [
         "So the Dove picked a leaf with her beak and dropped it into the water near the Ant.",
         "The Ant climbed onto the leaf, and the leaf floated to the bank. She was safe!",
         "A few days later a hunter came and lifted his net towards the Dove.",
-        "The Ant saw him. She ran and bit his foot as hard as she could!",
+        "The Ant saw him, and remembered the leaf that had saved her. She ran and bit his foot as hard as she could!",
         "“Ow!” cried the hunter, and jumped, and the net fell.",
         "And the Dove flew up into the blue sky.",
         "After that, every time the Ant drank from the river, she looked up at the branch, and there was her friend."]
@@ -6055,7 +6061,7 @@ window.AKHLAQ_CONTENT.choices = [
         "قال جحا: «سمعت، سمعت»، وأكمل: زِرّ، زِرّ... كراااك!",
         "وقع الغصن، ووقع جحا معه على العشب: بوم!",
         "جلس جحا يفرك ظهره، ونظر إلى الرجل بعينين واسعتين: «كيف عرفتَ أني سأقع؟».",
-        "قال الرجل: «نظرتُ فقط».",
+        "قال الرجل: «نظرتُ فقط». فسكت جحا. ناداه الرجل مرتين ليحميه، وهو لم يرفع عينيه إليه.",
         "وفي الغد صعد جحا الشجرة مرة أخرى. وهذه المرة جلس قرب الجذع، ونظر أين يجلس، ثم بدأ ينشر."],
       en: ["Juha climbed a big tree with a saw.",
         "He sat on a long branch and began to saw the very same branch: zzzt, zzzt, zzzt.",
@@ -6065,7 +6071,7 @@ window.AKHLAQ_CONTENT.choices = [
         "“I heard, I heard,” said Juha, and carried on: zzzt, zzzt... CRAAACK!",
         "Down came the branch, and down came Juha with it onto the grass: BUMP!",
         "Juha sat rubbing his back and looked at the man with wide eyes. “How did you know I would fall?”",
-        "“I just looked,” said the man.",
+        "“I just looked,” said the man. Juha went quiet. The man had called him twice to keep him safe, and he had not even looked up.",
         "The next day Juha climbed the tree again. This time he sat near the trunk, looked at where he was sitting, and then began to saw."]
     },
     ask: { ar: "متى قال لك أحد «انتبه»، فكان معه حق؟", ar_f: "متى قال لكِ أحد «انتبهي»، فكان معه حق؟", en: "When did someone tell you “careful”, and they were right?" },
@@ -6155,23 +6161,23 @@ window.AKHLAQ_CONTENT.choices = [
         "مرّت بفرن فيه خبز. صاح الخبز: «أخرجيني! أخرجيني! احترقتُ!». فأخرجته رغيفًا رغيفًا.",
         "ومرّت بشجرة تفاح. صاحت الشجرة: «هزّيني! هزّيني! نضج تفاحي!». فهزّتها، وجمعت التفاح كومة.",
         "ووصلت إلى بيت الأم هولّه، العجوز الطيبة. قالت: «ساعديني في البيت، وانفضي لي الفُرُش جيدًا، فإذا طار ريشها نزل الثلج على الدنيا».",
-        "فنفضت أمينة الفُرُش كل يوم حتى طار الريش كالثلج.",
+        "فنفضت أمينة الفُرُش كل يوم حتى طار الريش كالثلج، وهي تغني، فرحةً بأنها تعين العجوز.",
         "ولما رجعت إلى بيتها، نزل عليها مطر من ذهب!",
         "رأت أختها سارة الذهب، فقالت: «أريد مثله». ونزلت البئر.",
         "صاح الخبز، فقالت: «أتّسخ؟ لا». وصاحت الشجرة، فقالت: «يقع التفاح على رأسي؟ لا». وعند الأم هولّه نامت حتى الظهر، ولم تنفض الفُرُش.",
         "ولما رجعت، نزل عليها قار أسود لزج.",
-        "فركت سارة القار أيامًا. ثم قامت ذات صباح، وأخذت المغزل، وجلست بجانب أختها تغزل."],
+        "فركت سارة القار أيامًا. ثم قامت ذات صباح، وأخذت المغزل، وجلست بجانب أختها، وقالت: «علّميني يا أمينة كيف تساعدين وأنتِ فرحة»."],
       en: ["Amina sat spinning wool by the well every day. One day her spindle fell into the well, and she went down after it.",
         "She found herself in a lovely green meadow.",
         "She passed an oven full of bread. The bread cried, “Take me out! Take me out! I'm burning!” So she took the loaves out, one by one.",
         "She passed an apple tree. The tree cried, “Shake me! Shake me! My apples are ripe!” So she shook it and gathered the apples in a heap.",
         "She came to the house of Mother Holle, a kind old woman. “Help me in the house,” she said, “and shake my featherbeds well. When the feathers fly, it snows on the world.”",
-        "So Amina shook the featherbeds every day until the feathers flew like snow.",
+        "So Amina shook the featherbeds every day until the feathers flew like snow, singing as she worked, glad to be helping the old woman.",
         "When she went home, a shower of gold fell on her!",
         "Her sister Sara saw the gold and said, “I want some too.” And down the well she went.",
         "The bread cried out, and she said, “And get dirty? No.” The tree cried out, and she said, “And have apples fall on my head? No.” At Mother Holle's she slept till noon and never shook the featherbeds.",
         "When she went home, sticky black tar poured down on her.",
-        "Sara scrubbed at the tar for days. Then one morning she got up, took a spindle, and sat down beside her sister to spin."]
+        "Sara scrubbed at the tar for days. Then one morning she got up, took a spindle, sat down beside her sister and said: “Teach me, Amina, how to help the way you do, gladly.”"]
     },
     ask: { ar: "ما العمل الصغير الذي يناديك في البيت مثل الخبز في الفرن؟", ar_f: "ما العمل الصغير الذي يناديكِ في البيت مثل الخبز في الفرن؟", en: "What small job at home calls to you, like the bread in the oven?" },
     source: { ar: "حكاية «الأم هولّه» في مجموعة الأخوين غريم (1812)، أعدنا حكايتها بكلماتنا، والاسمان من عندنا، وجعلنا لها خاتمة غير خاتمتها.", en: "“Mother Holle” from the Brothers Grimm collection (1812), retold in our own words; the girls' names and the ending are ours." } });
@@ -6266,7 +6272,7 @@ window.AKHLAQ_CONTENT.choices = [
         "قالت: «انتهينا يا قِدر!». والقِدر تطبخ وتطبخ.",
         "سالت العصيدة على الطاولة، ثم على الأرض، ثم من الباب إلى الشارع، ثم إلى البيت المجاور!",
         "ورجعت البنت، فرأت الشارع كله عصيدة. فصاحت: «قفي يا قِدر!».",
-        "ووقفت القِدر.",
+        "ووقفت القِدر. وقالت البنت لأمها وهي تضحك: «الكلمة سهلة يا أمي: حين نشبع، نقول: قفي».",
         "ومن يومها، من أراد أن يمرّ في ذلك الشارع، أكل طريقه بالملعقة!"],
       en: ["A little girl had a wonderful pot.",
         "When she said, “Cook, little pot!”, it cooked sweet, hot porridge.",
@@ -6277,7 +6283,7 @@ window.AKHLAQ_CONTENT.choices = [
         "“We're done, pot!” she said. And the pot cooked and cooked.",
         "The porridge ran over the table, then over the floor, then out of the door into the street, and into the house next door!",
         "The girl came home and saw the whole street full of porridge. She cried, “Stop, little pot!”",
-        "And the pot stopped.",
+        "And the pot stopped. The girl laughed and told her mother: “It's an easy word, Mum. When we're full, we say stop.”",
         "After that, anyone who wanted to get down that street had to eat their way through with a spoon!"]
     },
     ask: { ar: "ما «الكلمة السحرية» التي تجعلك تتوقف حين يُطلب منك؟", ar_f: "ما «الكلمة السحرية» التي تجعلكِ تتوقفين حين يُطلب منكِ؟", en: "What is your “magic word” for stopping when you're asked to?" },
@@ -6375,7 +6381,7 @@ window.AKHLAQ_CONTENT.choices = [
         "نظرت أمها إليها، ووضعت يدها على يد ليان، كأنها تقول: «رأيتك».",
         "وبعد قليل قالت في الهاتف: «لحظة من فضلك»، ونظرت إلى ليان: «نعم يا حبيبتي؟».",
         "رفعت ليان الرسم: «طائر أزرق!».",
-        "قالت أمها: «ما أجمله! وما أجمل اليد التي على كتفي!»."],
+        "قالت أمها: «ما أجمله! وما أجمل اليد التي على كتفي! انتظرتِ حتى أنهيتُ كلامي»."],
       en: ["Layan drew a big blue bird and ran to show her mother.",
         "Her mother was on the phone.",
         "Layan wanted to shout, “Mummy! Mummy! Look!”",
@@ -6385,7 +6391,7 @@ window.AKHLAQ_CONTENT.choices = [
         "Her mother looked at her and put her hand over Layan's, as if to say, “I see you.”",
         "A moment later she said into the phone, “Just a moment, please,” and looked at Layan. “Yes, darling?”",
         "Layan held up the drawing. “A blue bird!”",
-        "“How lovely!” said her mother. “And how lovely the hand on my shoulder is!”"]
+        "“How lovely!” said her mother. “And how lovely the hand on my shoulder is! You waited for me to finish.”"]
     },
     ask: { ar: "لنتدرّب الآن: أنا أتكلم، وأنت تضع يدك على كتفي وتنتظر.", ar_f: "لنتدرّب الآن: أنا أتكلم، وأنتِ تضعين يدك على كتفي وتنتظرين.", en: "Let's practise now: I'll talk, and you put your hand on my shoulder and wait." },
     source: { ar: "قصة مؤلفة أبطالها خياليون، على طريقة دروس «الأدب واللطف» (Grace and Courtesy) في مدارس مونتيسوري، حيث يمثّل المعلم الموقف ثم يتدرّب عليه الأطفال.", en: "An original story with fictional characters, after the Grace and Courtesy lessons of Montessori schools, where the teacher acts out a situation and the children practise it." } });
@@ -6478,7 +6484,8 @@ window.AKHLAQ_CONTENT.choices = [
         "شدّ الأوسط، ووضعها على ركبته. لم تنكسر.",
         "حاول الصغير، فضحك الجميع، لأنه لم يستطع حتى أن يحملها!",
         "قال الأب: «العصا وحدها تنكسر. والعصيّ معًا لا تنكسر».",
-        "نظر الإخوة بعضهم إلى بعض. ثم حمل الكبير والأوسط والصغير الحزمة معًا، ووضعوها حطبًا بجانب المدفأة."],
+        "نظر الإخوة بعضهم إلى بعض. ثم قال الصغير: «إذا تشاجرنا، صار كل واحد منا عصا وحده».",
+      "ثم حمل الكبير والأوسط والصغير الحزمة معًا، ووضعوها حطبًا بجانب المدفأة."],
       en: ["A man had many children, and they quarrelled every day.",
         "“That's my toy!” “No, it's mine!” “You started it!” “No, you did!”",
         "The father called his children and gave each of them a thin stick. “Break it.”",
@@ -6488,7 +6495,8 @@ window.AKHLAQ_CONTENT.choices = [
         "The middle one pulled and put it over his knee. It didn't break.",
         "The youngest tried, and everyone laughed, because he couldn't even lift it!",
         "The father said, “One stick on its own breaks. Sticks together don't.”",
-        "The brothers looked at each other. Then the eldest, the middle one and the youngest carried the bundle together and stacked it as firewood by the stove."]
+        "The brothers looked at each other. Then the youngest said: “When we fight, each of us is one stick on his own.”",
+      "Then the eldest, the middle one and the youngest carried the bundle together and stacked it as firewood by the stove."]
     },
     ask: { ar: "ما الشيء الذي نستطيع أن نفعله معًا في البيت ولا يستطيعه واحد وحده؟", en: "What can we do together at home that one of us couldn't do alone?" },
     source: { ar: "من حكايات إيسوب اليونانية («الأب وأبناؤه»)، أعدنا حكايتها بكلماتنا.", en: "From Aesop's Greek fables (“The Father and his Sons”), retold in our own words." } });

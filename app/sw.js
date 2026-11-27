@@ -8,9 +8,9 @@
  * iPhone the app failed to open whenever it fell back to its saved page (no network, or a slow one). Every saved page
  * is also served as a fresh copy without its redirect history (clean), which repairs copies saved by older versions.
  * Release: bump CACHE, and keep the ?v= numbers below equal to those in index.html (the smoke test checks this). */
-const CACHE = "tazkiya-2026-11-27g";
+const CACHE = "tazkiya-2026-11-27h";
 const CORE = [
-  "./", "manifest.json", "boot.js?v=1", "styles.css?v=103", "app.js?v=118", "fx.js?v=3", "fallback.js?v=5", "content/content.js?v=38",
+  "./", "manifest.json", "boot.js?v=1", "styles.css?v=103", "app.js?v=119", "fx.js?v=3", "fallback.js?v=5", "content/content.js?v=39",
   "content/content-adult.js", "content/books.js", "feedback.js?v=1",
   "assets/hand.webp", "assets/right-hand-virtues.webp", "intro.js?v=1",
   "assets/intro/s1-fitra.webp", "assets/intro/s2-toddler.webp", "assets/intro/s3-child.webp", "assets/intro/s4-guide.webp",
@@ -50,6 +50,7 @@ self.addEventListener("fetch", e => {
   const req = e.request, url = new URL(req.url);
   if (req.method !== "GET" || url.origin !== self.location.origin) return;
   if (url.pathname.startsWith(new URL(self.registration.scope).pathname + "api/")) return; // the server's answers are never cached
+  if (/\.mp3$/.test(url.pathname)) return; // recorded narration: straight from the network, which answers the player's range requests
   if (req.mode === "navigate") {
     // the adult page is the app with the adult edition's preview tags; offline, open the app in that edition
     if (/\/adult\/(index\.html)?$/.test(url.pathname)) {
