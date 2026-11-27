@@ -719,7 +719,7 @@ async function ideaFlows(browser, base, content, AV) {
           if (!fs.existsSync(b + ".mp3") || fs.statSync(b + ".mp3").size < 2000) { bad.push(`${lang}/${id}/${i + 1}.mp3`); return; }
           let tm = null; try { tm = JSON.parse(fs.readFileSync(b + ".json", "utf8")); } catch (e) {}
           if (!Array.isArray(tm) || !tm.length || tm.some((x, k) => typeof x.t !== "number" || !Number.isInteger(x.w) || x.w < 0 || x.w >= nw || (k && (x.t < tm[k - 1].t || x.w <= tm[k - 1].w)))) bad.push(`${lang}/${id}/${i + 1}.json`); }); }
-      ok(ids.length === 21 && !bad.length, `voice: the 21 storybook stories are recorded page by page in both languages, with timings for their words (${ids.length}; ${bad.slice(0, 3).join(" ")})`); }
+      ok(ids.length === 48 && !bad.length, `voice: the 21 storybook stories and 27 readings are recorded page by page in both languages, with timings for their words (${ids.length}; ${bad.slice(0, 3).join(" ")})`); }
     ok(!errs.length, "voice: no script errors (" + errs.slice(0, 1).join("") + ")");
     await ctx.close();
     // and one real recording plays in the book, in each language, lighting its words
