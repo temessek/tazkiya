@@ -731,37 +731,49 @@ async function ideaFlows(browser, base, content, AV) {
       let hl = -1; for (let i = 0; i < 40 && hl < 1; i++) { await p2.waitForTimeout(150); hl = await p2.evaluate(() => [...document.querySelectorAll("#view .sbook .bk-txt .w")].findIndex(w => w.classList.contains("hl"))); }
       ok(btn && hl >= 1 && !e2.length, `voice: the real recording plays in the book (${lang}) and its words light up in turn (word ${hl}) ${e2.slice(0, 1).join("")}`);
       await c2.close(); } });
-  // direction 4 (owner's approval, 26 Nov 2026): the adult home is «ورد اليوم»; «مع أولادي» gathers the children's profiles on the
-  // device (a small hand, this week's reading, the tasks to witness, a talk for dinner) and holds the family pact
-  await step("adult reading and with my children", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1&ed=adult", 1000);
+  // direction 4 (owner's approval, 26 Nov 2026), merged into the tasks tab by the owner's decision of 27 Nov 2026: the adult home
+  // is «المهام», whose «مهام اليوم» runs today's reading (opened on #/today with its question), the stage's task, one's own
+  // items, the running challenges and the evening question. «مع أولادي» is the second half of «يدي» and holds the family pact
+  await step("adult tasks home and with my children", async () => { const { ctx, page } = await fresh(); await open(page, "&reset=1&ed=adult", 1000);
     const { C: KC, A: KA } = loadContent(), az = KA.stages.zombie.readings, ap = KA.stages.pig.readings;
     const wt = () => page.evaluate(() => { const h = document.querySelector("#view .wird .wtop + .h"); return h ? h.textContent : ""; });
-    const h = await page.evaluate(() => { const v = document.getElementById("view"), tabs = [...document.querySelectorAll("#tabs a")];
-      return { wird: !!v.querySelector(".wird"), chips: v.querySelectorAll(".wird .wfing button").length, opts: v.querySelectorAll(".wird .wq .opt").length, ta: !!v.querySelector(".wird .wrev textarea"),
-        hand: !!v.querySelector(".wird .handbox"), pact: !!v.querySelector(".wird .pact"), tabs: tabs.map(a => a.getAttribute("href")).join(" "), on: (document.querySelector("#tabs a.on") || {}).textContent || "",
-        side: getComputedStyle(v.querySelector(".kidsside")).display, seg: !!v.querySelector(".adseg a[href='#/kids']") }; });
-    ok(h.wird && h.chips === 5 && h.opts >= 2 && h.ta && !h.hand && !h.pact, "4: the adult home is today's reading: five finger chips, the text, one question and the evening question with a writing space");
+    const rowT = () => page.evaluate(() => { const r = document.querySelector("#view .my li.wread"); return r ? { on: r.classList.contains("on"), t: r.innerText, href: r.querySelector("a").getAttribute("href") } : null; });
+    const cnt = () => page.evaluate(() => (document.querySelector("#view .my .dash-h .m") || {}).textContent || "");
+    const h = await page.evaluate(() => { const v = document.getElementById("view"), tabs = [...document.querySelectorAll("#tabs a")], my = v.querySelector(".my");
+      const at = sel => { const e = my && my.querySelector(sel); return e ? [...my.querySelectorAll("*")].indexOf(e) : -1; };
+      return { my: !!my, head: ((my && my.querySelector(".dash-h .h")) || {}).textContent || "", order: [at("li.wread"), at("li.mis"), at(".myadd"), at(".tr-h:not(.weve-h)"), at(".weve-h"), at(".wrev textarea")],
+        wird: !!v.querySelector(".wird"), hand: !!v.querySelector(".handbox"), stages: !!v.querySelector(".stcards"), mis: ((my && my.querySelector("li.mis .ttag")) || {}).textContent || "",
+        tabs: tabs.map(a => a.getAttribute("href")).join(" "), on: (document.querySelector("#tabs a.on") || {}).textContent || "", word: /ورد|قائمة اليوم|مهمة اليوم/.test(document.body.innerText) }; });
+    ok(h.my && /مهام اليوم/.test(h.head) && !h.wird && !h.hand && h.stages && h.order.every((x, i, a) => x > -1 && (i === 0 || x > a[i - 1])),
+      `4: the adult home is the tasks page; «مهام اليوم» runs reading, stage task, own items, challenges, evening question, then the stages (${h.order.join(",")})`);
+    ok(/مهمة مرحلتك/.test(h.mis) && !h.word, "4: the stage task is «مهمة مرحلتك», and no «ورد» or old «اليوم» label shows");
+    ok(h.tabs === "#/ #/me #/tadwin" && /المهام/.test(h.on), `4: tabs tasks / my hand / journal, tasks first and current (${h.tabs})`);
+    let rt = await rowT(); ok(rt && rt.href === "#/today" && rt.t.includes(az[0].title.ar) && /قراءة اليوم/.test(rt.t) && !rt.on && /^0\/3$/.test(await cnt()), `4: today's reading opens the list, not done yet, one counter for all (${await cnt()})`);
+    await page.click("#view .my li.wread a"); await page.waitForTimeout(600);
+    const r1 = await page.evaluate(() => { const v = document.getElementById("view"); return { chips: v.querySelectorAll(".wird .wfing button").length, opts: v.querySelectorAll(".wird .wq .opt").length, ta: !!v.querySelector(".wird textarea"), back: (v.querySelector(".wird > .back") || {}).getAttribute?.("href"), on: (document.querySelector("#tabs a.on") || {}).getAttribute?.("href") }; });
+    ok(await page.evaluate(() => location.hash) === "#/today" && r1.chips === 5 && r1.opts >= 2 && !r1.ta && r1.back === "#/" && r1.on === "#/", "4: the row opens the reading in its column, with five finger chips and its question; back to the tasks");
     ok(await wt() === az[0].title.ar, `4: today's reading is the first unread one on the current finger (${await wt()})`);
-    ok(h.tabs === "#/ #/me #/tasks #/tadwin" && /ورد اليوم/.test(h.on) && h.side === "none" && h.seg, `4: tabs today / my hand / tasks / journal; on a phone «مع أولادي» is the second view (${h.tabs})`);
-    await go(page, "#/me", 500); ok(await has(page, "#view .handbox") && (await page.locator("#view .handbox .chip").count()) === 5 && await has(page, "#view .pres") && !(await has(page, "#view .pact")), "4: the hand keeps its tab (#/me) with its percentages; the pact left it");
-    await go(page, "#/kids", 500); ok(await has(page, '#view .knone [data-act="profadd"]') && await has(page, "#view .pact"), "4: with no child's profile, «مع أولادي» invites to add one, and holds the family pact");
+    await go(page, "#/me", 500); ok(await has(page, "#view .handbox") && (await page.locator("#view .handbox .chip").count()) === 5 && await has(page, "#view .pres") && !(await has(page, "#view .pact")) && await has(page, '#view .adseg a.on[href="#/me"]') && await has(page, '#view .adseg a[href="#/kids"]'), "4: the hand keeps its tab (#/me) with its percentages, and the switch to «مع أولادي» at the top");
+    await go(page, "#/kids", 500); ok(await has(page, '#view .knone [data-act="profadd"]') && await has(page, "#view .pact") && await has(page, '#tabs a.on[href="#/me"]'), "4: with no child's profile, «مع أولادي» invites to add one, and holds the family pact (under «يدي»)");
     // the rule: a reading read today stays today's; otherwise the first unread on the finger
-    await setS(page, `s.read = { '${az[0].id}': Date.now() - 2 * 864e5 };`); await open(page, "", 800);
+    await setS(page, `s.read = { '${az[0].id}': Date.now() - 2 * 864e5 };`); await open(page, "", 800); await go(page, "#/today", 500);
     ok(await wt() === az[1].title.ar, "4: once read on another day, the next unread reading becomes today's");
     await setS(page, `s.read['${az[1].id}'] = Date.now();`); await open(page, "", 800);
-    ok(await wt() === az[1].title.ar, "4: a reading read today stays today's reading");
+    rt = await rowT(); ok(rt && rt.on && rt.t.includes(az[1].title.ar) && /^1\/3$/.test(await cnt()), `4: a reading read today stays today's and counts as done (${await cnt()})`);
+    await go(page, "#/wird", 500); ok(await wt() === az[1].title.ar, "4: an old #/wird link lands on today's reading");
     await page.click("#view .wird .wq .opt >> nth=0"); await page.waitForTimeout(400);
     const q1 = KA.stages.zombie.quiz.find(q => q.readingId === az[1].id);
     ok((await getS(page)).answered[q1.id] !== undefined && await has(page, "#view .wq .fb") && await has(page, "#view .wq .opt[disabled]"), "4: the question is answered with the existing scoring, then shows its explanation");
+    await go(page, "#/", 500);
+    await page.fill("#wirdTx", "مسودة لم تُحفظ"); await page.fill("#myNew", "مهمة للاختبار"); await page.click('#view [data-act="myadd"]'); await page.waitForTimeout(400);
+    ok(await page.inputValue("#wirdTx") === "مسودة لم تُحفظ" && /^1\/4$/.test(await cnt()), `4: an unsaved evening answer survives a re-render, and one's own item joins the count (${await cnt()})`);
     await page.fill("#wirdTx", "سطر للاختبار في المساء"); await page.click('#view [data-act="wsave"]'); await page.waitForTimeout(400);
     const nt = ((await getS(page)).notes || []).find(n => /^wd-\d{8}-zombie$/.test(n.id));
-    ok(nt && /سطر للاختبار في المساء/.test(nt.tx) && KC.muhasaba.some(m => m.stage === "zombie" && nt.tx.startsWith(m.q.ar)), "4: the evening answer is kept in «دفتري» with its question (the journal's notes, no new store)");
+    ok(nt && /سطر للاختبار في المساء/.test(nt.tx) && KC.muhasaba.some(m => m.stage === "zombie" && nt.tx.startsWith(m.q.ar)) && /^2\/4$/.test(await cnt()), `4: the evening answer is kept in «دفتري» with its question, and counts (${await cnt()})`);
     await go(page, "#/tadwin/nb", 500); ok(/سطر للاختبار في المساء/.test(await txt(page, "#view")), "4: it shows in the notebook");
-    await go(page, "#/", 500); await page.fill("#wirdTx", "مسودة لم تُحفظ"); await page.click('#view .wird [data-act="fs"][data-d="2"]'); await page.waitForTimeout(300);
-    ok(await page.inputValue("#wirdTx") === "مسودة لم تُحفظ", "4: an unsaved evening answer survives a re-render (text size)");
-    await page.click('#view .wird [data-act="fs"][data-d="-2"]'); await page.waitForTimeout(200);
-    await page.click('#view .wfing [data-s="pig"]'); await page.waitForTimeout(400);
+    await go(page, "#/today", 500); await page.click('#view .wfing [data-s="pig"]'); await page.waitForTimeout(400);
     ok(await wt() === ap[0].title.ar, "4: a finger chip shows that finger's reading");
+    await go(page, "#/", 500); rt = await rowT(); ok(rt && rt.t.includes(ap[0].title.ar), "4: and the list follows the chosen finger");
     // a sample child's profile on the same device
     await page.evaluate(() => { const K = "akhlaq-app-v1", now = Date.now(), d = 864e5;
       localStorage.setItem(K + ":p2", JSON.stringify({ v: 1, lang: "ar", fs: 19, mix: { zombie: 10, pig: 25, monkey: 30, human: 30, sabiq: 5 }, answered: { "pig-q1": true }, ansT: { "pig-q1": now - d },
@@ -781,13 +793,17 @@ async function ideaFlows(browser, base, content, AV) {
       "4: «رأيته يفعلها» records the task on the child's profile with the confirmation logic, and the witness as a family message");
     await page.click('#view .kid [data-act="prof"]'); await page.waitForTimeout(1200);
     ok(/رأى فيك/.test(await txt(page, "#sheet")) && await has(page, "#view .nextstep") && !(await has(page, "#view .wird")), "4: on the child's own profile the witness arrives, and the children's home is unchanged");
+    // the children's edition keeps its order, with the new names
+    await page.keyboard.press("Escape"); await go(page, "#/tasks", 500);
+    const kt = await page.evaluate(() => ({ head: ((document.querySelector("#view .my .dash-h .h")) || {}).textContent || "", tag: [...document.querySelectorAll("#view .my li.mis .ttag")].map(x => x.textContent).join(""), read: !!document.querySelector("#view .my li.wread"), eve: !!document.querySelector("#view .my .wrev"), old: /قائمة اليوم|مهمة اليوم|ورد/.test(document.body.innerText) }));
+    ok(/مهام اليوم/.test(kt.head) && /مهمة مرحلتك/.test(kt.tag) && !kt.read && !kt.eve && !kt.old, "4: the children's «مهام اليوم» keeps its order and takes the new names");
     for (const [w, lang] of [[1280, "ar"], [1280, "en"], [375, "ar"], [375, "en"], [320, "ar"], [320, "en"]]) { await page.setViewportSize({ width: w, height: 820 });
       await page.evaluate(() => { const p = JSON.parse(localStorage.getItem("akhlaq-app-v1:profiles")); p.active = "p1"; localStorage.setItem("akhlaq-app-v1:profiles", JSON.stringify(p)); });
       await setS(page, `s.lang = '${lang}';`); await open(page, "", 800);
-      const d = await page.evaluate(() => { const a = document.querySelector("#view .wird").getBoundingClientRect(), s = document.querySelector("#view .kidsside"), b = s.getBoundingClientRect(), t = document.getElementById("tabs").getBoundingClientRect();
-        return { side: getComputedStyle(s).display !== "none" && b.width > 300 && (b.right <= a.left + 2 || b.left >= a.right - 2), rtl: b.left < a.left, hidden: getComputedStyle(s).display === "none", tabsTop: t.top, over: document.documentElement.scrollWidth > innerWidth + 1 }; });
-      await go(page, "#/kids", 500); const ko = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1 || !document.querySelector("#view .kid .kitem"));
-      ok(!d.over && !ko && (w >= 900 ? d.side && d.rtl === (lang === "ar") && d.tabsTop < 10 : d.hidden && d.tabsTop > 600), `4: at ${w} (${lang}) ${w >= 900 ? "the reading in the middle and «مع أولادي» in a side column" : "one column, «مع أولادي» as its own view"}, no overflow`); }
+      const d = await page.evaluate(() => ({ my: !!document.querySelector("#view .my li.wread"), tabsTop: document.getElementById("tabs").getBoundingClientRect().top, over: document.documentElement.scrollWidth > innerWidth + 1, old: /ورد|Today's list|Today's mission/.test(document.body.innerText) }));
+      await go(page, "#/today", 500); const ro = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1 || !document.querySelector("#view .wird .body p"));
+      await go(page, "#/kids", 500); const ko = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1 || !document.querySelector("#view .kid .kitem") || !document.querySelector("#view .adseg"));
+      ok(d.my && !d.over && !d.old && !ro && !ko && (w >= 900 ? d.tabsTop < 10 : d.tabsTop > 600), `4: at ${w} (${lang}) the tasks home, the reading and «مع أولادي» fit, no overflow`); }
     ok(fs.readFileSync(path.join(ROOT, "parents", "index.html"), "utf8").split('href="../adult/#/kids"').length === 3, "4: the parents' page links to «مع أولادي» in both languages");
     ok(!page.errs.length, "4: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
@@ -968,9 +984,9 @@ async function ideaFlows(browser, base, content, AV) {
     for (const [q, lab, ch] of [["&lang=ar", "التدوين", "تحدّياتي"], ["&lang=en", "Journal", "My challenges"], ["&ed=adult&lang=ar", "التدوين", "مجاهداتي"], ["&ed=adult&lang=en", "Journal", "My challenges"]]) {
       const { ctx, page } = await fresh(); await open(page, "&reset=1" + q, 900);
       const tabs = await page.evaluate(() => [...document.querySelectorAll("#tabs a")].map(a => a.getAttribute("href") + "|" + a.innerText.trim()));
-      // direction 4: the adult edition opens on today's reading, and the hand has its own tab
-      const ad = /ed=adult/.test(q), exp = ad ? ["#/|", "#/me|", "#/tasks|"] : ["#/|", "#/tasks|"];
-      ok(tabs.length === exp.length + 1 && exp.every((x, i) => tabs[i].startsWith(x)) && tabs[exp.length] === "#/tadwin|" + lab, `tw: the tabs are ${ad ? "today, my hand" : "my hand"}, tasks, «${lab}» (${q}): ${tabs.join(", ")}`);
+      // the adult edition opens on its tasks (#/), and the hand has its own tab (owner's decision, 27 Nov 2026)
+      const ad = /ed=adult/.test(q), exp = ad ? ["#/|", "#/me|"] : ["#/|", "#/tasks|"];
+      ok(tabs.length === exp.length + 1 && exp.every((x, i) => tabs[i].startsWith(x)) && tabs[exp.length] === "#/tadwin|" + lab, `tw: the tabs are ${ad ? "tasks, my hand" : "my hand, tasks"}, «${lab}» (${q}): ${tabs.join(", ")}`);
       ok(await has(page, '#tabs a[href="#/tadwin"] svg'), `tw: the journal tab has its pen (${q})`);
       await page.click('#tabs a[href="#/tadwin"]'); await page.waitForTimeout(400);
       const t = await txt(page, "#view");
@@ -1441,7 +1457,7 @@ async function ideaFlows(browser, base, content, AV) {
     // a second, adult profile on the device sees the same pact in the adult wording
     await page.evaluate(() => { const p = JSON.parse(localStorage.getItem("akhlaq-app-v1:profiles") || '{"active":"p1","list":["p1"]}'); p.list = ["p1", "p2"]; p.active = "p2"; localStorage.setItem("akhlaq-app-v1:profiles", JSON.stringify(p));
       localStorage.setItem("akhlaq-app-v1:p2", JSON.stringify({ v: 1, lang: "ar", fs: 19, mix: { zombie: 5, pig: 20, monkey: 30, human: 35, sabiq: 10 }, edition: "adult", intro: true, tour: true })); });
-    await open(page, "", 1100);
+    await open(page, "", 1100); await go(page, "#/kids", 600); // the adult edition keeps the pact in «مع أولادي»
     ok((await txt(page, ".pact")).includes(at.step.ar) && (await txt(page, ".pact")).includes(at.turnName.ar), "4: an adult profile sees the adult task for the same trait");
     // "I saw good" (in Tadwin since 23 Nov 2026): from the adult profile to the child's
     await go(page, "#/seen"); await page.keyboard.press("Escape"); await page.waitForTimeout(300); await page.click('#view [data-act="sawopen"]'); await page.waitForTimeout(300);
@@ -1548,7 +1564,7 @@ async function ideaFlows(browser, base, content, AV) {
       await page.click('#view .stage-title .door.work'); await page.waitForTimeout(450);
       const wk = await doorsAt("#view .stage-title .doors");
       const tabOn = await page.evaluate(() => { const a = document.querySelector("#tabs a.on"); return a ? a.getAttribute("href") : ""; });
-      ok(await page.evaluate(() => location.hash) === "#/stage/pig/work" && wk[1][4] === "page" && wk[0][4] === null && wk[0][1] === "#/stage/pig" && tabOn === "#/tasks", `doors (${tag}): the work door marks itself, offers the learn door, and lights the Tasks tab (${tabOn})`);
+      ok(await page.evaluate(() => location.hash) === "#/stage/pig/work" && wk[1][4] === "page" && wk[0][4] === null && wk[0][1] === "#/stage/pig" && tabOn === (/ed=adult/.test(q) ? "#/" : "#/tasks"), `doors (${tag}): the work door marks itself, offers the learn door, and lights the Tasks tab (${tabOn})`);
       ok(!(await has(page, "#view .learnbox")) && (await page.locator("#view .mylist li.next").count()) === 1 && (await page.locator("#view .h.wn").count()) >= 2, `doors (${tag}): the work door has numbered sections and one «start here» task, with no second learn box`);
       ok(!page.errs.length, `doors (${tag}): no script errors (${page.errs.slice(0, 1).join("")})`);
       await ctx.close();

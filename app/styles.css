@@ -706,7 +706,7 @@ details.family .fam-act { margin: 6px 0 2px; line-height: 1.7; }
 .mylink .m { font-size: 13px; }
 .tog .dotc { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-inline-end: 5px; vertical-align: middle; }
 .mysug { display: flex; flex-wrap: wrap; gap: 6px; }
-.mysug .tog { white-space: normal; text-align: start; }
+.mysug .tog { white-space: normal; text-align: start; flex: 0 1 auto; max-width: 100%; }
 .stagetasks { border: 1px solid var(--line); border-radius: 16px; padding: 10px 14px; background: var(--card); }
 .stagetasks summary { cursor: pointer; display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; min-height: 32px; }
 .stagetasks summary .m { font-size: 13px; }
@@ -773,6 +773,7 @@ details.family .fam-act { margin: 6px 0 2px; line-height: 1.7; }
 
 /* the two doors of every stage (23 Nov 2026): the same component in the finger sheet, the Tasks list and atop both stage pages */
 .doors { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0 4px; }
+@media (max-width: 300px) { .doors { grid-template-columns: 1fr; } } /* the stage cards on the tasks page fit a 280 px screen */
 .doors.end { grid-template-columns: 1fr; margin-top: 22px; }
 .door { display: grid; grid-template-columns: auto 1fr; column-gap: 8px; row-gap: 2px; align-items: center; align-content: start; padding: 11px 12px 12px; border-radius: 16px; border: 2px solid transparent; color: #fff; text-decoration: none; min-height: 72px; box-shadow: 0 2px 0 rgba(36,54,75,.12); transition: transform .12s; }
 .door:active { transform: translateY(1px); }
@@ -796,7 +797,7 @@ details.family .fam-act { margin: 6px 0 2px; line-height: 1.7; }
 .mylist li.next + li { border-top-color: transparent; }
 .mylist li.next .ttag { color: #2b5c43; }
 .alldone { margin: 12px 0 0; padding: 10px 12px; border-radius: 12px; background: color-mix(in srgb, transparent 88%, #3f7a5c); color: #2b5c43; font-weight: 600; font-size: 15px; }
-.stcards { display: grid; gap: 12px; margin-top: 10px; }
+.stcards { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 10px; }
 .stcard { background: var(--card); border: 1px solid var(--line); border-inline-start: 6px solid var(--c); border-radius: 16px; padding: 12px 12px 10px; }
 .stcard.sug { box-shadow: 0 0 0 2px color-mix(in srgb, transparent 45%, #e6af3f); }
 .stc-h { display: flex; align-items: center; gap: 10px; }
@@ -1610,8 +1611,9 @@ ol.path::before { content: ""; position: absolute; inset-block: 24px; inset-inli
   .rd-art { height: 260px; }
 }
 
-/* direction 4: the adult edition. Home is «ورد اليوم» (a reading in a comfortable column, one question, the evening question);
-   «مع أولادي» is a second view on phones and a side column from 900 px */
+/* direction 4: the adult edition. Since 27 Nov 2026 its home is the tasks page; today's reading opens from «مهام اليوم» (#/today)
+   in a comfortable column with one question, and the evening question closes the list. «مع أولادي» is the second half of the
+   switch at the top of «يدي» */
 .adseg { display: flex; gap: 4px; margin: 12px 14px 0; padding: 4px; border-radius: 16px; background: rgba(36,54,75,.07); }
 .adseg a { flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; min-height: 44px; border-radius: 12px; text-decoration: none; color: var(--muted); font-size: 15px; text-align: center; line-height: 1.3; padding: 4px 6px; }
 .adseg a.on { background: #fffaf3; color: var(--ink); font-weight: 600; box-shadow: 0 2px 8px -4px rgba(36,54,75,.4); }
@@ -1637,6 +1639,11 @@ ol.path::before { content: ""; position: absolute; inset-block: 24px; inset-inli
 .wrev .linkbtn.more { margin-top: 4px; }
 .wnext { margin-top: 18px; }
 .wird > .linkbtn.more { display: inline-flex; margin-top: 10px; }
+.wird > .back { display: inline-flex; margin: 0 0 12px; }
+.mylist li.wread .mychk { text-decoration: none; }
+.mylist li.wread .grow { font-weight: 600; }
+.weve-h { margin-top: 18px; }
+.wrev.inlist { margin-top: 8px; }
 
 .kwrap { padding-top: 6px; }
 .kids-h { font-size: 30px; margin: 8px 0 0; }
@@ -1674,8 +1681,8 @@ ol.path::before { content: ""; position: absolute; inset-block: 24px; inset-inli
 .adhome .pact { margin-top: 0; }
 
 @media (min-width: 900px) {
-  .adseg { display: none; }
-  .adcols { max-width: 1240px; display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 34px; padding: 0 28px; align-items: start; }
+  .adseg { max-width: 700px; margin: 18px auto 0; }
+  .adcols { max-width: 1240px; padding: 0 28px; }
   .wird { padding: 30px 0 8px; max-width: 700px; margin: 0 auto; width: 100%; }
   .wird .wtop + .h, .wird > .h { font-size: 50px; }
   .kidsside { display: block; position: sticky; top: calc(var(--top) + 8px); max-height: calc(100vh - var(--top) - 16px); overflow: auto; padding: 24px 4px 24px; overscroll-behavior: contain; }

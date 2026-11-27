@@ -146,9 +146,9 @@
     myAdd: ["أضف", "Add"], mySug: ["اقتراحات", "Suggestions"], myLink: ["صِلها بإصبع:", "Link to a finger:"], myDel: ["احذف", "Remove"], myNone: ["بلا", "None"],
     myToday: ["تمّ {a} من {b} اليوم", "{a} of {b} done today"], stageTasksT: ["مهام المراحل", "Stage tasks"], stageTasksSub: ["مهام لكل إصبع، وكل مهمة تنجزها ترفع المزيج.", "Tasks for each finger; each one you finish lifts the mix."],
     dashToday: ["يومي", "My day"], dashWeek: ["آخر سبعة أيام", "The last seven days"], dashStreak: ["أيام متتالية: {n}", "Days in a row: {n}"], dashStreakS: ["أيام متتالية", "days in a row"],
-    dashMission: ["مهمة اليوم", "Today's mission"], dashReads: ["قراءات اليوم", "Readings today"], dashAns: ["إجابات اليوم", "Answers today"], dashGo: ["إلى المهام", "To tasks"],
+    dashMission: ["مهمة مرحلتك", "Your stage's task"], dashReads: ["قراءات اليوم", "Readings today"], dashAns: ["إجابات اليوم", "Answers today"], dashGo: ["إلى المهام", "To tasks"],
     statMy: ["مهمة يومية تمّت", "daily tasks done"], statDays: ["يوم نشاط", "active days"],
-    meT: ["يدي", "My hand"], meSub: ["سلوكياتك الآن. ترتقي بالفهم والعمل والتطبيق.", "Your behaviours right now. You rise through understanding, work and practice."], toWork: ["إلى العمل: أنجز مهام هذه المرحلة", "To work: do this stage's tasks"], learnStage: ["افهم وتعلّم: كيف تزكّي نفسك في هذه المرحلة", "Understand and learn: purifying yourself at this stage"], tLearn: ["تعلّم", "Learn"], readStage: ["اقرأ عن المرحلة", "Read about this stage"], tToday: ["اليوم", "Today"], tTodayT: ["قائمة اليوم", "Today's list"], tMission: ["مهمة اليوم", "Today's mission"], tStages: ["مهام المراحل", "Tasks by stage"], tMore: ["اقتراحات وربط بإصبع", "Suggestions and linking to a finger"], tSteps: ["مهام لكل سمة", "Tasks for each trait"], readOk: ["✓ سُجّلت قراءتك", "✓ Your reading is recorded"], readWait: ["تُسجَّل القراءة حين تصل إلى آخرها وتقرؤها على مهل.", "The reading is recorded once you reach the end, reading at a steady pace."], readSaved: ["سُجّلت القراءة", "Reading recorded"], recT: ["سجلّ التقدم", "Progress record"], recSub: ["ما قرأته وما أجبت عنه وما أنجزته، بتاريخه، محفوظًا على هذا الجهاز.", "What you read, answered and did, with dates, saved on this device."], recSubShort: ["ما قُرئ وما أُجيب وما أُنجز، بتاريخه", "What was read, answered and done, with dates"], recDays: ["أيام الحضور", "Days present"], recStreak: ["أيام متتالية الآن", "Days in a row now"], recSince: ["البداية", "Started"], recReads: ["قصص قُرئت", "Stories read"], recChaps: ["فصول كتب قُرئت", "Book chapters read"], recAns: ["أسئلة أُجيب عنها", "Questions answered"], recRight: ["صحيحة من أول مرة", "Right first time"], recTasks: ["مهام منجزة", "Tasks done"], recNotRead: ["لم تُقرأ بعد", "Not read yet"], recMin: ["{n} د", "{n} min"], recSec: ["أقل من دقيقة", "under a minute"], recQuiz: ["الاختبار: أُجيب عن {a} من {b}، منها {c} صحيحة من أول مرة.", "Quiz: {a} of {b} answered, {c} right first time."], recLast14: ["آخر أسبوعين", "Last two weeks"], recOpen: ["سجلّ التقدم المفصّل", "Detailed progress record"], recNone: ["لا شيء بعد", "Nothing yet"], bkT: ["حفظ البيانات", "Keeping your data"], bkPersistOk: ["محفوظة على هذا الجهاز، والمتصفح لن يحذفها من تلقاء نفسه.", "Saved on this device; the browser will not clear it on its own."], bkPersistNo: ["محفوظة على هذا الجهاز، لكن المتصفح قد يحذفها إن امتلأت ذاكرته أو مُسحت بيانات المواقع. ثبّت التطبيق، واحفظ نسخة احتياطية من حين لآخر.", "Saved on this device, but the browser may clear it if storage fills up or site data is cleared. Install the app and save a backup now and then."], bkExport: ["احفظ نسخة احتياطية", "Save a backup"], bkImport: ["استعد من نسخة", "Restore a backup"], bkLast: ["آخر نسخة احتياطية: {d}", "Last backup: {d}"], bkNever: ["لم تُحفظ نسخة احتياطية بعد.", "No backup saved yet."], bkAsk: ["ستحلّ النسخة المختارة محل كل البيانات الحالية على هذا الجهاز. أنكمل؟", "The chosen backup will replace all current data on this device. Continue?"], bkYes: ["نعم، استعد النسخة", "Yes, restore it"], bkBad: ["هذا الملف ليس نسخة احتياطية من تزكية", "This file is not a Tazkiya backup"], bkSaved: ["حُفظ ملف النسخة الاحتياطية", "Backup file saved"], presT: ["حضورك اليوم", "Your presence today"], presOk: ["✓ حضرت اليوم", "✓ You showed up today"], presNo: ["لم تحضر بعد اليوم: علّم تحدياتك، أو اقرأ قصة، أو أجب سؤالًا.", "Not yet today: mark your challenges, read a story, or answer a question."], presStart: ["ابدأ تحديًا من مهام المراحل", "Start a challenge from the stage tasks"], trToday: ["أنجزتها اليوم", "Done today"], trDoneToday: ["✓ اليوم", "✓ Today"], trOf: ["{n} من 7 أيام", "{n} of 7 days"], trDayN: ["اليوم {n} من 7. أحسنت", "Day {n} of 7. Well done"], trWeekDone: ["أتممت سبعة أيام، وفُتحت العادة الثابتة", "Seven days done: the lasting habit is open"], trHabitMeta: ["متتالية: {s} · كل الأيام: {a}", "In a row: {s} · All days: {a}"], trHabitDay: ["فعلتها اليوم. متتالية: {s}", "Done today. In a row: {s}"], trActive: ["تحدياتي الجارية", "My running challenges"], trActiveSub: ["تحدي الأيام السبعة والعادات الثابتة. علّم ما فعلته اليوم.", "Seven-day challenges and lasting habits. Mark what you did today."], trNone: ["حين تنجز «الخطوة الأولى» لسمة في مهام المراحل، يظهر تحديها هنا كل يوم.", "When you finish a trait's first step in the stage tasks, its challenge shows up here every day."], stepLearn: ["افهم السمات", "Understand the traits"], stepRead: ["اقرأ القصص", "Read the stories"], stepQuiz: ["اختبر فهمك", "Check your understanding"], stepWork: ["إلى العمل", "To work"], secLearn: ["افهم: سمات هذه المرحلة", "Understand: this stage's traits"], secRead: ["اقرأ: قصص هذه المرحلة", "Read: this stage's stories"], readSub: ["كتب بفصول تُقرأ على أيام، وقصص قصيرة تُقرأ في دقائق. في آخر كل قصة أسئلة عنها.", "Chapter books to read over several days, and short stories that take a few minutes. Each story ends with questions about it."], booksH: ["كتب بفصول", "Chapter books"], storiesH: ["قصص قصيرة", "Short stories"], allBooks: ["كل كتب المكتبة ({n})", "The whole library ({n})"], quizSub: ["أسئلة من قصص هذه المرحلة وسماتها، تراجع بها ما فهمت.", "Questions from this stage's stories and traits, to review what you understood."], nTraits: ["{n} سمات", "{n} traits"], nTraits2: ["سمتان", "2 traits"], oneBook: ["كتاب واحد", "1 book"], nBooks: ["{n} كتب", "{n} books"], toTrait: ["إلى مهام هذه السمة", "To this trait's tasks"], obsT: ["علامات لاحظتها اليوم", "Signs I noticed today"], tiersSub: ["لكل سمة ثلاث درجات: خطوة أولى، ثم سبعة أيام، ثم عادة ثابتة. تُفتح كل درجة بعد إنجاز التي قبلها.", "Each trait has three levels: a first step, then seven days, then a lasting habit. Each level opens once the one before it is done."], tierStep: ["خطوة أولى", "First step"], tierWeek: ["سبعة أيام", "Seven days"], tierHabit: ["عادة ثابتة", "Lasting habit"], signsOfNm: ["سمات {s}", "Signs of {s}"], tQuiz: ["اختبر فهمك", "Check your understanding"], tStageTasks: ["مهام عامة", "General tasks"], tDone: ["{a} من {b}", "{a} of {b}"], pwaInstall: ["ثبّت التطبيق على جهازك", "Install the app on this device"], pwaHow: ["للتثبيت: افتح قائمة المتصفح واختر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».", "To install: open the browser menu and choose \"Install app\" or \"Add to Home Screen\"."], pwaT: ["التطبيق على جهازك", "The app on your device"],
+    meT: ["يدي", "My hand"], meSub: ["سلوكياتك الآن. ترتقي بالفهم والعمل والتطبيق.", "Your behaviours right now. You rise through understanding, work and practice."], toWork: ["إلى العمل: أنجز مهام هذه المرحلة", "To work: do this stage's tasks"], learnStage: ["افهم وتعلّم: كيف تزكّي نفسك في هذه المرحلة", "Understand and learn: purifying yourself at this stage"], tLearn: ["تعلّم", "Learn"], readStage: ["اقرأ عن المرحلة", "Read about this stage"], tToday: ["اليوم", "Today"], tTodayT: ["مهام اليوم", "Today's tasks"], tMission: ["مهمة مرحلتك", "Your stage's task"], tStages: ["مهام المراحل", "Tasks by stage"], tMore: ["اقتراحات وربط بإصبع", "Suggestions and linking to a finger"], tSteps: ["مهام لكل سمة", "Tasks for each trait"], readOk: ["✓ سُجّلت قراءتك", "✓ Your reading is recorded"], readWait: ["تُسجَّل القراءة حين تصل إلى آخرها وتقرؤها على مهل.", "The reading is recorded once you reach the end, reading at a steady pace."], readSaved: ["سُجّلت القراءة", "Reading recorded"], recT: ["سجلّ التقدم", "Progress record"], recSub: ["ما قرأته وما أجبت عنه وما أنجزته، بتاريخه، محفوظًا على هذا الجهاز.", "What you read, answered and did, with dates, saved on this device."], recSubShort: ["ما قُرئ وما أُجيب وما أُنجز، بتاريخه", "What was read, answered and done, with dates"], recDays: ["أيام الحضور", "Days present"], recStreak: ["أيام متتالية الآن", "Days in a row now"], recSince: ["البداية", "Started"], recReads: ["قصص قُرئت", "Stories read"], recChaps: ["فصول كتب قُرئت", "Book chapters read"], recAns: ["أسئلة أُجيب عنها", "Questions answered"], recRight: ["صحيحة من أول مرة", "Right first time"], recTasks: ["مهام منجزة", "Tasks done"], recNotRead: ["لم تُقرأ بعد", "Not read yet"], recMin: ["{n} د", "{n} min"], recSec: ["أقل من دقيقة", "under a minute"], recQuiz: ["الاختبار: أُجيب عن {a} من {b}، منها {c} صحيحة من أول مرة.", "Quiz: {a} of {b} answered, {c} right first time."], recLast14: ["آخر أسبوعين", "Last two weeks"], recOpen: ["سجلّ التقدم المفصّل", "Detailed progress record"], recNone: ["لا شيء بعد", "Nothing yet"], bkT: ["حفظ البيانات", "Keeping your data"], bkPersistOk: ["محفوظة على هذا الجهاز، والمتصفح لن يحذفها من تلقاء نفسه.", "Saved on this device; the browser will not clear it on its own."], bkPersistNo: ["محفوظة على هذا الجهاز، لكن المتصفح قد يحذفها إن امتلأت ذاكرته أو مُسحت بيانات المواقع. ثبّت التطبيق، واحفظ نسخة احتياطية من حين لآخر.", "Saved on this device, but the browser may clear it if storage fills up or site data is cleared. Install the app and save a backup now and then."], bkExport: ["احفظ نسخة احتياطية", "Save a backup"], bkImport: ["استعد من نسخة", "Restore a backup"], bkLast: ["آخر نسخة احتياطية: {d}", "Last backup: {d}"], bkNever: ["لم تُحفظ نسخة احتياطية بعد.", "No backup saved yet."], bkAsk: ["ستحلّ النسخة المختارة محل كل البيانات الحالية على هذا الجهاز. أنكمل؟", "The chosen backup will replace all current data on this device. Continue?"], bkYes: ["نعم، استعد النسخة", "Yes, restore it"], bkBad: ["هذا الملف ليس نسخة احتياطية من تزكية", "This file is not a Tazkiya backup"], bkSaved: ["حُفظ ملف النسخة الاحتياطية", "Backup file saved"], presT: ["حضورك اليوم", "Your presence today"], presOk: ["✓ حضرت اليوم", "✓ You showed up today"], presNo: ["لم تحضر بعد اليوم: علّم تحدياتك، أو اقرأ قصة، أو أجب سؤالًا.", "Not yet today: mark your challenges, read a story, or answer a question."], presStart: ["ابدأ تحديًا من مهام المراحل", "Start a challenge from the stage tasks"], trToday: ["أنجزتها اليوم", "Done today"], trDoneToday: ["✓ اليوم", "✓ Today"], trOf: ["{n} من 7 أيام", "{n} of 7 days"], trDayN: ["اليوم {n} من 7. أحسنت", "Day {n} of 7. Well done"], trWeekDone: ["أتممت سبعة أيام، وفُتحت العادة الثابتة", "Seven days done: the lasting habit is open"], trHabitMeta: ["متتالية: {s} · كل الأيام: {a}", "In a row: {s} · All days: {a}"], trHabitDay: ["فعلتها اليوم. متتالية: {s}", "Done today. In a row: {s}"], trActive: ["تحدياتي الجارية", "My running challenges"], trActiveSub: ["تحدي الأيام السبعة والعادات الثابتة. علّم ما فعلته اليوم.", "Seven-day challenges and lasting habits. Mark what you did today."], trNone: ["حين تنجز «الخطوة الأولى» لسمة في مهام المراحل، يظهر تحديها هنا كل يوم.", "When you finish a trait's first step in the stage tasks, its challenge shows up here every day."], stepLearn: ["افهم السمات", "Understand the traits"], stepRead: ["اقرأ القصص", "Read the stories"], stepQuiz: ["اختبر فهمك", "Check your understanding"], stepWork: ["إلى العمل", "To work"], secLearn: ["افهم: سمات هذه المرحلة", "Understand: this stage's traits"], secRead: ["اقرأ: قصص هذه المرحلة", "Read: this stage's stories"], readSub: ["كتب بفصول تُقرأ على أيام، وقصص قصيرة تُقرأ في دقائق. في آخر كل قصة أسئلة عنها.", "Chapter books to read over several days, and short stories that take a few minutes. Each story ends with questions about it."], booksH: ["كتب بفصول", "Chapter books"], storiesH: ["قصص قصيرة", "Short stories"], allBooks: ["كل كتب المكتبة ({n})", "The whole library ({n})"], quizSub: ["أسئلة من قصص هذه المرحلة وسماتها، تراجع بها ما فهمت.", "Questions from this stage's stories and traits, to review what you understood."], nTraits: ["{n} سمات", "{n} traits"], nTraits2: ["سمتان", "2 traits"], oneBook: ["كتاب واحد", "1 book"], nBooks: ["{n} كتب", "{n} books"], toTrait: ["إلى مهام هذه السمة", "To this trait's tasks"], obsT: ["علامات لاحظتها اليوم", "Signs I noticed today"], tiersSub: ["لكل سمة ثلاث درجات: خطوة أولى، ثم سبعة أيام، ثم عادة ثابتة. تُفتح كل درجة بعد إنجاز التي قبلها.", "Each trait has three levels: a first step, then seven days, then a lasting habit. Each level opens once the one before it is done."], tierStep: ["خطوة أولى", "First step"], tierWeek: ["سبعة أيام", "Seven days"], tierHabit: ["عادة ثابتة", "Lasting habit"], signsOfNm: ["سمات {s}", "Signs of {s}"], tQuiz: ["اختبر فهمك", "Check your understanding"], tStageTasks: ["مهام عامة", "General tasks"], tDone: ["{a} من {b}", "{a} of {b}"], pwaInstall: ["ثبّت التطبيق على جهازك", "Install the app on this device"], pwaHow: ["للتثبيت: افتح قائمة المتصفح واختر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».", "To install: open the browser menu and choose \"Install app\" or \"Add to Home Screen\"."], pwaT: ["التطبيق على جهازك", "The app on your device"],
     statRead: ["قراءة", "readings"], statRight: ["إجابة صحيحة", "right answers"], statTasks: ["مهمة مؤكدة", "tasks confirmed"],
     hist: ["آخر التغييرات", "Recent changes"], histEmpty: ["لا تغييرات بعد.", "No changes yet."],
     rulesT: ["كيف يتغير المزيج", "How the mix changes"],
@@ -168,7 +168,7 @@
     forParents: ["للوالدين", "For parents"],
     card: ["بطاقة الإشارة", "Sign card"], cardOf: ["سمات {f}", "{F} signs"], print: ["اطبع", "Print"], share: ["شارك", "Share"], copied: ["نُسخ نص البطاقة", "Card text copied"],
     cardFoot: ["تزكية · tazkiya.family", "Tazkiya · tazkiya.family"],
-    today: ["مهمة اليوم", "Today's mission"],
+    today: ["مهمة مرحلتك", "Your stage's task"],
     aloud: ["اقرأها بصوت عالٍ", "Read aloud"], aloudExit: ["عرض النص كاملًا", "Show full text"],
     rightHandWord: ["اليد اليمنى", "the right hand"],
     settings: ["الإعدادات", "Settings"], mapT: ["توزيع المراتب", "Stage mapping"],
@@ -292,7 +292,7 @@
     doorLearn: ["افهم وتعلّم", "Understand and learn"], doorLearnSub: ["كيف تزكّي نفسك في هذه المرحلة", "Purifying yourself at this stage"],
     doorWork: ["إلى العمل", "To work"], doorWorkSub: ["أنجز مهام هذه المرحلة", "Do this stage's tasks"], navDoors: ["بابا المرحلة: افهم وتعلّم، وإلى العمل", "The stage's two doors: learn, and work"],
     startHere: ["ابدأ هنا", "Start here"], wReview: ["راجع نفسك اليوم", "Look at yourself today"],
-    tasksSub: ["ابدأ بقائمة اليوم، ثم ادخل مرحلة من بابيها.", "Start with today's list, then enter a stage through one of its two doors."],
+    tasksSub: ["ابدأ بمهام اليوم، ثم ادخل مرحلة من بابيها.", "Start with today's tasks, then enter a stage through one of its two doors."],
     tStagesT: ["مراحلك", "Your stages"], tStagesSub: ["لكل مرحلة بابان: افهم وتعلّم، ثم إلى العمل.", "Each stage has two doors: understand and learn, then to work."],
     // one clear step (redesign direction 1, 26 Nov 2026): the home's next step, the finger's path and the page of everything else
     nxT: ["خطوتك التالية", "Your next step"], fWeek: ["إصبعك هذا الأسبوع:", "This week's finger:"],
@@ -312,7 +312,7 @@
     toAsk: ["إلى السؤال", "To the question"], tkT: ["مهمتك في البيت", "Your task at home"],
     tkNote: ["افعلها في يومك، ثم ارجع إليها واضغط «فعلتها».", "Do it during your day, then come back and tap “I did it”."],
     tkLater: ["سأفعلها اليوم", "I'll do it today"], toNext: ["إلى خطوتك التالية", "To your next step"],
-    tSuggest: ["مقترحة لك الآن", "Suggested for you now"], todayAll: ["✓ أتممت قائمة اليوم. تابع في المرحلة المقترحة لك.", "✓ Today's list is done. Carry on in the stage suggested for you."],
+    tSuggest: ["مقترحة لك الآن", "Suggested for you now"], todayAll: ["✓ أتممت مهام اليوم. تابع في المرحلة المقترحة لك.", "✓ Today's tasks are done. Carry on in the stage suggested for you."],
     docTag: ["عون شخصي في الأخلاق والقيم والتربية", "personal help in character, values and upbringing"], privacyL: ["الخصوصية", "Privacy"], trainingL: ["التدريب", "Training"], trainingK: ["تدريب للكبار", "Training for adults"], parentsL: ["صفحة الوالدين", "For parents"],
     // the platform as it presents itself (23 Nov 2026): personal help in character and values, through learning, practice and training
     platLine: ["منصة تزكية: عون شخصي في الأخلاق والقيم، للتربية والتعليم والتدريب والتطوير.", "The Tazkiya platform: personal help in character and values, for upbringing, learning, training and growth."],
@@ -558,7 +558,7 @@
 
   /* ---------- helpers ---------- */
   const L = () => S.lang;
-  const UF = { "signLeadTeen": "انظري إلى إصبعك، واقرئي:", "agNote": "اختاري الفئة، فيتغير المحتوى لهذا الملف ويبقى سجلّه محفوظًا.", "chGate": "هذا الفصل يُفتح بعد أن تقرئي الفصل {n}. القصة تُقرأ من أولها بالترتيب.", "pgGate": "هذه الصفحة تُفتح بعد أن تقرئي الصفحة {n}. القصة تُقرأ من أولها بالترتيب.", "readWait": "تُسجَّل القراءة حين تصلين إلى آخرها وتقرئينها على مهل.", "recSub": "ما قرأتِه وما أجبتِ عنه وما أنجزتِه، بتاريخه، محفوظًا على هذا الجهاز.", "bkPersistNo": "محفوظة على هذا الجهاز، لكن المتصفح قد يحذفها إن امتلأت ذاكرته أو مُسحت بيانات المواقع. ثبّتي التطبيق، واحفظي نسخة احتياطية من حين لآخر.", "bkExport": "احفظي نسخة احتياطية", "bkImport": "استعيدي من نسخة", "bkYes": "نعم، استعيدي النسخة", "presOk": "✓ حضرتِ اليوم", "presNo": "لم تحضري بعد اليوم: علّمي تحدياتك، أو اقرئي قصة، أو أجيبي سؤالًا.", "presStart": "ابدئي تحديًا من مهام المراحل", "trWeekDone": "أتممتِ سبعة أيام، وفُتحت العادة الثابتة", "trActiveSub": "تحدي الأيام السبعة والعادات الثابتة. علّمي ما فعلتِه اليوم.", "trNone": "حين تنجزين «الخطوة الأولى» لسمة في مهام المراحل، يظهر تحديها هنا كل يوم.", "quizSub": "أسئلة من قصص هذه المرحلة وسماتها، تراجعين بها ما فهمتِ.", "signsSub": "علامات تظهر في اليوم. اضغطي «لاحظتها اليوم» على ما رأيتِه في نفسك.", "badgesSub": "يُطبع ختم كلما وصلتِ إلى شيء فعلتِه بنفسكِ، مثل أول مهمة، أو سبعة أيام على الطريق. وتحت كل ختم ما فعلتِه ومتى.", "helloSub": "تبدئين من الخنصر وتصعدين إلى الإبهام، وفي كل عُقلة سمة تتعرّفين عليها.", "tourEndSub": "ابدئي من الإصبع الذي تجدين نفسكِ عنده اليوم، واصعدي منه خطوة.", "abPlat1": "تزكية منصة عون شخصي في الأخلاق والقيم. تقرئين فيها قصة عن الصبر مثلًا، أو آية أو حديثًا فيه، ثم تجرّبينه في يومكِ بمهمة صغيرة، فيتحرك المزيج على يدكِ إصبعًا بعد إصبع.", "stageTasksSub": "مهام لكل إصبع، وكل مهمة تنجزينها ترفع المزيج.", "wkBook": "أنهت كتاب «{b}»", "storyQ": "إلى الخطوة والسؤال على يدكِ", "readFirst": "اقرئي", "tourTouch": "المسي {f}", "tourTry": "جرّبي: {f}", "tourLight": "وفوق الإبهام نور. المسيه", "tourSkip": "تخطَّي الجولة", "tourAgain": "أعيدي الجولة الأولى", "bookProgP": "قرأتِ {a} من {b} صفحات", "bookProg": "قرأتِ {a} من {b} فصول", "bookStart": "ابدئي القراءة", "bookCont": "تابعي القراءة", "bookAgain": "اقرئي من جديد", "climbDeg": "صعدتِ في {f}", "climbStep": "خطوة إلى أعلى، نحو {s}", "hint": "اضغطي على كل إصبع لتعرفي رمزيته وأين أنتِ منه", "yourShare": "نصيبكِ منها الآن", "startQuiz": "ابدئي الاختبار", "continue": "تابعي من هنا", "toQuiz": "اختبري فهمكِ", "sit": "ماذا تفعلين؟", "right": "أحسنتِ", "again": "أعيدي الاختبار", "already": "أجبتِ عنه من قبل، فلا يتغير المزيج.", "selfQ": "أي إصبع ظهر فيكِ أكثر اليوم؟", "selfSaved": "سُجّل تقييمكِ لليوم", "meSub": "سلوكياتكِ الآن. ترتقين بالفهم والعمل والتطبيق.", "toWork": "إلى العمل: أنجزي مهام هذه المرحلة", "learnStage": "افهمي وتعلّمي: كيف تزكّين نفسك في هذه المرحلة", "tQuiz": "اختبري فهمكِ", "pwaHow": "للتثبيت: افتحي قائمة المتصفح واختاري «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».", "confirmed": "أنجزتِها", "welcomeBack": "أهلًا بعودتكِ يا {n}", "scSub": "أجيبي بصدق، فهذا لكِ وحدكِ ولا يغيّر المزيج.", "pickFinger": "اختاري إصبعًا", "aloud": "اقرئيها بصوت عالٍ", "rightSub": "اضغطي على إصبع لتقرئي عن درجته.", "readVirtue": "اقرئي عنها", "sabiqShare": "نصيبكِ من السبق بالخيرات", "introT": "يدكِ سلّم", "intro3": "تصعدين بالقراءة والاختبار والمهام.", "ttsPlay": "استمعي", "instT": "ثبّتي تزكية على شاشتك", "ios1": "اضغطي زر المشاركة {i} في سفاري: أسفل الشاشة على آيفون، وأعلاها على آيباد.", "ios2": "مرّري القائمة واختاري «إضافة إلى الشاشة الرئيسية». إن لم تجديه فاضغطي «عرض المزيد».", "ios3": "اضغطي «إضافة»، ثم افتحي تزكية من أيقونتها.", "iosNote": "على آيفون للتطبيق المثبّت تخزين منفصل عن سفاري. إن كان لكِ تقدّم في سفاري فاحفظي نسخة احتياطية هنا، ثم استعيديها داخل التطبيق المثبّت.", "iosOther": "إن لم يظهر الخيار في متصفح آخر، فافتحي الرابط في سفاري.", "storeFull": "ذاكرة المتصفح ممتلئة، فلم يُحفظ آخر تغيير. احفظي نسخة احتياطية الآن، ثم أفرغي مساحة على الجهاز.", "linkFull": "على هذا الجهاز أربعة ملفات، وهي الحد. احذفي ملفًا من الإعدادات، ثم افتحي الرابط من جديد.", "helloA": "أهلًا بكِ", "welcomeBackA": "أهلًا بعودتكِ", "doorLearn": "افهمي وتعلّمي", "doorLearnSub": "كيف تزكّين نفسك في هذه المرحلة", "doorWorkSub": "أنجزي مهام هذه المرحلة", "startHere": "ابدئي هنا", "wReview": "راجعي نفسك اليوم", "tasksSub": "ابدئي بقائمة اليوم، ثم ادخلي مرحلة من بابيها.", "todayAll": "✓ أتممتِ قائمة اليوم. تابعي في المرحلة المقترحة لكِ.", "nxGoRead": "اقرئي القصة", "nxGoAsk": "أجيبي عن السؤال", "nxGoTask": "اعرفي مهمتكِ", "nxAllDone": "قطعتِ طرق يدكِ كلها", "pathH": "طريقكِ في {f}", "pathSub": "قصة، ثم سؤالها، ثم مهمة في البيت. ما قطعتِه عليه علامة، والمضيئة خطوتكِ الآن.", "stDone": "قطعتِها", "stNow": "أنتِ هنا", "tkT": "مهمتكِ في البيت", "tkNote": "افعليها في يومكِ، ثم ارجعي إليها واضغطي «فعلتها».", "nxT": "خطوتكِ التالية", "fWeek": "إصبعكِ هذا الأسبوع:", "toNext": "إلى خطوتكِ التالية", "bkListen": "استمعي إلى القصة", "bkListenQ": "استمعي إلى السؤال", "bkPause": "أوقفي", "bkRetry": "ارجعي إلى القصة، ثم جرّبي مرة أخرى.", "bkFromStart": "اقرئيها من أولها" };
+  const UF = { "signLeadTeen": "انظري إلى إصبعك، واقرئي:", "agNote": "اختاري الفئة، فيتغير المحتوى لهذا الملف ويبقى سجلّه محفوظًا.", "chGate": "هذا الفصل يُفتح بعد أن تقرئي الفصل {n}. القصة تُقرأ من أولها بالترتيب.", "pgGate": "هذه الصفحة تُفتح بعد أن تقرئي الصفحة {n}. القصة تُقرأ من أولها بالترتيب.", "readWait": "تُسجَّل القراءة حين تصلين إلى آخرها وتقرئينها على مهل.", "recSub": "ما قرأتِه وما أجبتِ عنه وما أنجزتِه، بتاريخه، محفوظًا على هذا الجهاز.", "bkPersistNo": "محفوظة على هذا الجهاز، لكن المتصفح قد يحذفها إن امتلأت ذاكرته أو مُسحت بيانات المواقع. ثبّتي التطبيق، واحفظي نسخة احتياطية من حين لآخر.", "bkExport": "احفظي نسخة احتياطية", "bkImport": "استعيدي من نسخة", "bkYes": "نعم، استعيدي النسخة", "presOk": "✓ حضرتِ اليوم", "presNo": "لم تحضري بعد اليوم: علّمي تحدياتك، أو اقرئي قصة، أو أجيبي سؤالًا.", "presStart": "ابدئي تحديًا من مهام المراحل", "trWeekDone": "أتممتِ سبعة أيام، وفُتحت العادة الثابتة", "trActiveSub": "تحدي الأيام السبعة والعادات الثابتة. علّمي ما فعلتِه اليوم.", "trNone": "حين تنجزين «الخطوة الأولى» لسمة في مهام المراحل، يظهر تحديها هنا كل يوم.", "quizSub": "أسئلة من قصص هذه المرحلة وسماتها، تراجعين بها ما فهمتِ.", "signsSub": "علامات تظهر في اليوم. اضغطي «لاحظتها اليوم» على ما رأيتِه في نفسك.", "badgesSub": "يُطبع ختم كلما وصلتِ إلى شيء فعلتِه بنفسكِ، مثل أول مهمة، أو سبعة أيام على الطريق. وتحت كل ختم ما فعلتِه ومتى.", "helloSub": "تبدئين من الخنصر وتصعدين إلى الإبهام، وفي كل عُقلة سمة تتعرّفين عليها.", "tourEndSub": "ابدئي من الإصبع الذي تجدين نفسكِ عنده اليوم، واصعدي منه خطوة.", "abPlat1": "تزكية منصة عون شخصي في الأخلاق والقيم. تقرئين فيها قصة عن الصبر مثلًا، أو آية أو حديثًا فيه، ثم تجرّبينه في يومكِ بمهمة صغيرة، فيتحرك المزيج على يدكِ إصبعًا بعد إصبع.", "stageTasksSub": "مهام لكل إصبع، وكل مهمة تنجزينها ترفع المزيج.", "wkBook": "أنهت كتاب «{b}»", "storyQ": "إلى الخطوة والسؤال على يدكِ", "readFirst": "اقرئي", "tourTouch": "المسي {f}", "tourTry": "جرّبي: {f}", "tourLight": "وفوق الإبهام نور. المسيه", "tourSkip": "تخطَّي الجولة", "tourAgain": "أعيدي الجولة الأولى", "bookProgP": "قرأتِ {a} من {b} صفحات", "bookProg": "قرأتِ {a} من {b} فصول", "bookStart": "ابدئي القراءة", "bookCont": "تابعي القراءة", "bookAgain": "اقرئي من جديد", "climbDeg": "صعدتِ في {f}", "climbStep": "خطوة إلى أعلى، نحو {s}", "hint": "اضغطي على كل إصبع لتعرفي رمزيته وأين أنتِ منه", "yourShare": "نصيبكِ منها الآن", "startQuiz": "ابدئي الاختبار", "continue": "تابعي من هنا", "toQuiz": "اختبري فهمكِ", "sit": "ماذا تفعلين؟", "right": "أحسنتِ", "again": "أعيدي الاختبار", "already": "أجبتِ عنه من قبل، فلا يتغير المزيج.", "selfQ": "أي إصبع ظهر فيكِ أكثر اليوم؟", "selfSaved": "سُجّل تقييمكِ لليوم", "meSub": "سلوكياتكِ الآن. ترتقين بالفهم والعمل والتطبيق.", "toWork": "إلى العمل: أنجزي مهام هذه المرحلة", "learnStage": "افهمي وتعلّمي: كيف تزكّين نفسك في هذه المرحلة", "tQuiz": "اختبري فهمكِ", "pwaHow": "للتثبيت: افتحي قائمة المتصفح واختاري «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».", "confirmed": "أنجزتِها", "welcomeBack": "أهلًا بعودتكِ يا {n}", "scSub": "أجيبي بصدق، فهذا لكِ وحدكِ ولا يغيّر المزيج.", "pickFinger": "اختاري إصبعًا", "aloud": "اقرئيها بصوت عالٍ", "rightSub": "اضغطي على إصبع لتقرئي عن درجته.", "readVirtue": "اقرئي عنها", "sabiqShare": "نصيبكِ من السبق بالخيرات", "introT": "يدكِ سلّم", "intro3": "تصعدين بالقراءة والاختبار والمهام.", "ttsPlay": "استمعي", "instT": "ثبّتي تزكية على شاشتك", "ios1": "اضغطي زر المشاركة {i} في سفاري: أسفل الشاشة على آيفون، وأعلاها على آيباد.", "ios2": "مرّري القائمة واختاري «إضافة إلى الشاشة الرئيسية». إن لم تجديه فاضغطي «عرض المزيد».", "ios3": "اضغطي «إضافة»، ثم افتحي تزكية من أيقونتها.", "iosNote": "على آيفون للتطبيق المثبّت تخزين منفصل عن سفاري. إن كان لكِ تقدّم في سفاري فاحفظي نسخة احتياطية هنا، ثم استعيديها داخل التطبيق المثبّت.", "iosOther": "إن لم يظهر الخيار في متصفح آخر، فافتحي الرابط في سفاري.", "storeFull": "ذاكرة المتصفح ممتلئة، فلم يُحفظ آخر تغيير. احفظي نسخة احتياطية الآن، ثم أفرغي مساحة على الجهاز.", "linkFull": "على هذا الجهاز أربعة ملفات، وهي الحد. احذفي ملفًا من الإعدادات، ثم افتحي الرابط من جديد.", "helloA": "أهلًا بكِ", "welcomeBackA": "أهلًا بعودتكِ", "doorLearn": "افهمي وتعلّمي", "doorLearnSub": "كيف تزكّين نفسك في هذه المرحلة", "doorWorkSub": "أنجزي مهام هذه المرحلة", "startHere": "ابدئي هنا", "wReview": "راجعي نفسك اليوم", "tasksSub": "ابدئي بمهام اليوم، ثم ادخلي مرحلة من بابيها.", "todayAll": "✓ أتممتِ مهام اليوم. تابعي في المرحلة المقترحة لكِ.", "nxGoRead": "اقرئي القصة", "nxGoAsk": "أجيبي عن السؤال", "nxGoTask": "اعرفي مهمتكِ", "nxAllDone": "قطعتِ طرق يدكِ كلها", "pathH": "طريقكِ في {f}", "pathSub": "قصة، ثم سؤالها، ثم مهمة في البيت. ما قطعتِه عليه علامة، والمضيئة خطوتكِ الآن.", "stDone": "قطعتِها", "stNow": "أنتِ هنا", "tkT": "مهمتكِ في البيت", "tkNote": "افعليها في يومكِ، ثم ارجعي إليها واضغطي «فعلتها».", "nxT": "خطوتكِ التالية", "fWeek": "إصبعكِ هذا الأسبوع:", "toNext": "إلى خطوتكِ التالية", "bkListen": "استمعي إلى القصة", "bkListenQ": "استمعي إلى السؤال", "bkPause": "أوقفي", "bkRetry": "ارجعي إلى القصة، ثم جرّبي مرة أخرى.", "bkFromStart": "اقرئيها من أولها" };
   const GEN = () => (S.parent && route().name === "review" ? (S.parentG === "f" ? "f" : "") : S.gender);
   // adult edition: the same interface in an adult register (UA), with feminine Arabic where it differs (UAF)
   const UA = {
@@ -2710,13 +2710,13 @@
   function vHome() {
     if (TOUR) return vTour();
     if (!ADU()) return vHomeKids();
-    return vWird();
+    return vTasks();
   }
   // the adult edition's hand page (#/me): everything the adult home held before direction 4, except the family pact,
   // which moved to «مع أولادي»
   function vHandA() {
     const anon = ADU() && !(S.name || "").trim();
-    return `<section class="hello"><h1 class="h">${esc(u(anon ? (WELCOME_BACK ? "welcomeBackA" : "helloA") : (WELCOME_BACK ? "welcomeBack" : "hello")))}</h1><p>${esc(u("helloSub"))}</p></section>
+    return `${adSeg("me")}<section class="hello"><h1 class="h">${esc(u(anon ? (WELCOME_BACK ? "welcomeBackA" : "helloA") : (WELCOME_BACK ? "welcomeBack" : "hello")))}</h1><p>${esc(u("helloSub"))}</p></section>
       ${homeHands()}
       <p class="principle">${esc(u("principle"))}</p>
       <div class="wrap">
@@ -2744,14 +2744,15 @@
       </div>`;
   }
   /* ---------- the adult edition and the parents' companion (redesign direction 4, approved 26 Nov 2026) ----------
-     Home (#/): «ورد اليوم», one reading in a comfortable column, its comprehension question, and the finger's evening question
-     with a writing space kept in «دفتري» (the journal's notes). The hand moved to its own tab (#/me).
-     «مع أولادي» (#/kids, and a side column on wide screens): for each children's profile on this device, a small hand, what was
-     read this week, the tasks a parent can witness, and a talk for dinner from the finger's parent guidance and self-check.
-     The rules chosen here are listed in the project's decision notes. */
+     Since 27 Nov 2026 (owner's decision) the adult home (#/) is the tasks page: «مهام اليوم» opens with today's reading, whose
+     row opens it (#/today) in a comfortable column with its comprehension question, and ends with the finger's evening question
+     and a writing space kept in «دفتري» (the journal's notes). The hand has its own tab (#/me).
+     «مع أولادي» (#/kids, the second half of the switch at the top of «يدي»): for each children's profile on this device, a small
+     hand, what was read this week, the tasks a parent can witness, and a talk for dinner from the finger's parent guidance and
+     self-check. The rules chosen here are listed in the project's decision notes. */
   Object.assign(UA, {
-    wirdTab: ["ورد اليوم", "Today"], wirdK: ["ورد اليوم", "Today's reading"], wirdFing: ["أصابع اليد", "The fingers"],
-    segMe: ["قراءتي اليوم", "My reading today"], segKids: ["مع أولادي", "With my children"],
+    wirdK: ["قراءة اليوم", "Today's reading"], wirdFing: ["أصابع اليد", "The fingers"], wirdRevH: ["محاسبة المساء", "Tonight's review"],
+    segNav: ["يدي ومع أولادي", "My hand and my children"], segMe: ["يدي", "My hand"], segKids: ["مع أولادي", "With my children"],
     wirdAll: ["قرأت كل ما في هذا الإصبع.", "You have read everything on this finger."], wirdTo: ["إلى {f}", "On to the {f}"],
     wirdQ: ["هل وصلتك الفكرة؟", "Did it land?"], wirdRev: ["لمحاسبة المساء", "For tonight's review"],
     wirdPh: ["اكتب لنفسك", "Write to yourself"], wirdSave: ["احفظها في دفتري", "Save to my notebook"],
@@ -2789,7 +2790,7 @@
     kNoneSub: "أضيفي ملفًا لكل واحد من أبنائكِ، فتجدين هنا يده، وما قرأه في أسبوعه، والمهام التي تشهدين عليها، وحديثًا لمائدة العشاء.",
     kAdd: "أضيفي ملف ابن أو ابنة", kSawOkM: "سُجّلت شهادتكِ، ويراها حين يفتح ملفه", kSawOkF: "سُجّلت شهادتكِ، وتراها حين تفتح ملفها"
   });
-  const HANDH = () => (ADU() ? "#/me" : "#/"); // where the hand lives: the adult home is the reading
+  const HANDH = () => (ADU() ? "#/me" : "#/"); // where the hand lives: the adult home is the tasks page
   const handRoute = () => route().name === (ADU() ? "me" : "home");
   const isToday = v => typeof v === "number" && ymd(new Date(v)) === today();
   const dayN = () => Math.floor(Date.parse(today()) / 864e5);
@@ -2831,17 +2832,18 @@
         return `<button class="opt ${c}" data-act="wq" data-s="${f}" data-q="${esc(q.id)}" data-i="${i}" ${ans ? "disabled" : ""}><span class="l">${(L() === "ar" ? "أبجده" : "ABCDE")[k]}</span><span>${esc(t(q.options[i]))}</span></button>`; }).join("")}</div>
       ${ans ? `<div class="fb ${S.answered[q.id] ? "ok" : "no"}" role="status"><b>${esc(u(S.answered[q.id] ? "right" : "wrong"))}</b>${q.why ? `<p>${esc(t(q.why))}</p>` : ""}</div>` : ""}</section>`;
   }
-  function wirdRevBox(f) {
+  const wirdEveDone = () => { const p = "wd-" + today().replace(/-/g, "") + "-"; return twList("notes").some(e => e && typeof e.id === "string" && e.id.startsWith(p)); };
+  function wirdRevBox(f, inList) {
     const m = wirdRevQ(f); if (!m) return "";
     const q = t(m.q), id = wirdNoteId(f), note = twList("notes").find(e => e.id === id), cut = note ? note.tx.indexOf("\n\n") : -1;
     const dr = !!(WDRAFT && WDRAFT.id === id), pre = dr ? WDRAFT.v : note ? (cut > 0 ? note.tx.slice(cut + 2) : note.tx) : "";
-    return `<section class="wbox wrev"><h2 class="h">${esc(u("wirdRev"))}</h2><p class="qtext">${esc(q)}</p>
+    return `<section class="wbox wrev${inList ? " inlist" : ""}">${inList ? "" : `<h2 class="h">${esc(u("wirdRev"))}</h2>`}<p class="qtext">${esc(q)}</p>
       <textarea id="wirdTx" class="wtx"${dr ? ' data-draft="1"' : ""} rows="4" maxlength="4000" dir="auto" placeholder="${esc(u("wirdPh"))}" aria-label="${esc(q)}">${esc(pre)}</textarea>
       <button class="btn block" data-act="wsave" data-s="${f}" data-d="${today()}">${esc(u(note ? "wirdEdit" : "wirdSave"))}</button>
       <p class="wfine">${note ? `✓ ${esc(u("wirdSaved"))} · <a href="#/tadwin/nb">${esc(u("wirdNb"))}</a>` : esc(u("wirdNote"))}</p>
       <a class="linkbtn more" href="#/evening">${esc(u("wirdEve"))} ${BK() === "→" ? "←" : "→"}</a></section>`;
   }
-  let WIRD_RID = null; // the reading shown on the home page, so the reading timer credits it like the reader does
+  let WIRD_RID = null; // the reading shown on #/today, so the reading timer credits it like the reader does
   function vWird() {
     const f = wirdFinger(), st = C.stages[f], r = wirdOf(f);
     WIRD_RID = r ? r.id : null;
@@ -2865,23 +2867,15 @@
           <figcaption class="ref">${q.ref ? `<bdi>${esc(refFmt(q.ref))}</bdi>` : ""}<a class="src-mini" href="#/sources">${esc(u("srcLink"))}</a></figcaption></figure>` : ""}
         ${r.source ? `<p class="source">${esc(t(r.source))}</p>` : ""}
         <div class="read-end"></div>${readStat(rs)}
-        ${wq ? wirdQBox(f, wq) : ""}${wirdRevBox(f)}
+        ${wq ? wirdQBox(f, wq) : ""}
         ${nr ? `<a class="card next wnext" href="#/read/${f}/${encodeURIComponent(nr.id)}"><span class="tx"><span class="m">${esc(u("wirdNext"))}</span><b>${esc(t(nr.title))}</b></span><span class="arrow">→</span></a>` : ""}
         <a class="linkbtn more" href="#/stage/${f}">${esc(u("wirdStage"))} ${BK() === "→" ? "←" : "→"}</a>`;
     }
-    if (!r) main += wirdRevBox(f);
-    return `<div class="adhome">${adSeg("me")}
-      <div class="adcols"><article class="wird article" style="--fs:${S.fs}px;--c:${G[f].color}">${chips}${main}</article>
-        <aside class="kidsside" aria-label="${esc(u("kidsT"))}"><h2 class="h kside-h">${esc(u("kidsT"))}</h2>${kidsBody()}</aside></div>
-      <div class="wrap">
-        ${!ACC.me && !SYNC && ACC.google && !signLater() ? accCard("home") : ""}
-        ${USING_FALLBACK ? `<p class="center meta" style="margin-top:14px"><span class="ph">${esc(u("fallbackNote"))}</span></p>` : ""}
-        ${homeFoot()}
-        ${P.list.length > 1 ? `<p class="center profline">${esc(profPhrase(P.active, S))} · <button class="linkbtn" type="button" data-act="settings">${esc(u("famOpen"))}</button></p>` : ""}
-      </div></div>`;
+    return `<div class="adhome wirdpage"><div class="adcols"><article class="wird article" style="--fs:${S.fs}px;--c:${G[f].color}">
+        <a class="back" href="#/">${BK()} ${esc(u("tasksTab"))}</a>${chips}${main}</article></div></div>`;
   }
-  // on phones the reading and the children are two views of the home, switched at the top (on wide screens both show)
-  const adSeg = on => `<nav class="adseg" aria-label="${esc(u("wirdTab"))}"><a href="#/" class="${on === "me" ? "on" : ""}"${on === "me" ? ' aria-current="page"' : ""}>${esc(u("segMe"))}</a><a href="#/kids" class="${on === "kids" ? "on" : ""}"${on === "kids" ? ' aria-current="page"' : ""}>${esc(u("segKids"))}</a></nav>`;
+  // «يدي» and «مع أولادي» are two views of the hand tab, switched at the top
+  const adSeg = on => `<nav class="adseg" aria-label="${esc(u("segNav"))}"><a href="#/me" class="${on === "me" ? "on" : ""}"${on === "me" ? ' aria-current="page"' : ""}>${esc(u("segMe"))}</a><a href="#/kids" class="${on === "kids" ? "on" : ""}"${on === "kids" ? ' aria-current="page"' : ""}>${esc(u("segKids"))}</a></nav>`;
   function vKids() {
     return `<div class="adhome kidspage">${adSeg("kids")}<div class="wrap kwrap"><h1 class="h kids-h">${esc(u("kidsT"))}</h1>${kidsBody()}</div></div>`;
   }
@@ -3171,7 +3165,7 @@
   const minRead = w => Math.max(6, Math.round(w / 4));
   function readSess(key, body) { if (!RS || RS.key !== key) RS = { key, words: wordsOf(body), secs: 0, end: false, done: false }; return RS; }
   const readStat = rs => `<p class="readstat ${rs.done ? "ok" : ""}" id="readStat">${esc(u(rs.done ? "readOk" : "readWait"))}</p>`;
-  function readKey() { const r = route(); if (r.name === "home" && ADU() && !TOUR && WIRD_RID) return "r:" + WIRD_RID; return r.name === "read" ? "r:" + r.rid : r.name === "chapter" ? (() => { const b = bookOf(r.id); return b ? "c:" + chKey(b, Math.max(1, Math.min(+r.n || 1, b.chapters.length))) : null; })() : null; }
+  function readKey() { const r = route(); if (r.name === "today" && ADU() && !TOUR && WIRD_RID) return "r:" + WIRD_RID; return r.name === "read" ? "r:" + r.rid : r.name === "chapter" ? (() => { const b = bookOf(r.id); return b ? "c:" + chKey(b, Math.max(1, Math.min(+r.n || 1, b.chapters.length))) : null; })() : null; }
   function creditRead() {
     RS.done = true; const k = RS.key.slice(0, 1), id = RS.key.slice(2); S.readSecs = S.readSecs || {};
     if (k === "r") { if (!S.read[id]) { S.read[id] = Date.now(); S.readSecs[id] = RS.secs; ev({ k: "read" }); } }
@@ -3625,7 +3619,7 @@
     { s: "zombie", ar: "أضع الهاتف بعيدًا عن السرير قبل النوم", en: "Put the phone away from the bed before sleep" }, { s: "sabiq", ar: "أصلي الصلاة في أول وقتها", en: "Pray at the start of its time" },
     { s: "zombie", ar: "أذكر الله في الطريق إلى العمل", en: "Remember Allah on the way to work" }, { s: "human", ar: "أتصل بوالديّ أو بأحد أرحامي", en: "Call my parents or a relative" },
     { s: "monkey", ar: "أنهي مهمة واحدة قبل أن أبدأ غيرها", en: "Finish one task before starting another" }, { s: "pig", ar: "أتصدق بشيء ولو قليل", en: "Give something in charity, however little" },
-    { s: "human", ar: "أؤدي عملي اليوم بإتقان", en: "Do today's work with care" }, { s: "human", ar: "أقرأ قراءة اليوم", en: "Do today's reading" }
+    { s: "human", ar: "أؤدي عملي اليوم بإتقان", en: "Do today's work with care" }
   ];
   const SUGS = () => (ADU() ? MYSUG_A : MYSUG);
   let myStage = "";
@@ -3647,19 +3641,28 @@
     const sugs = SUGS().filter(x => !used.has(t(x))).slice(0, 6);
     const rows = [], here = u("startHere"); let nextSet = false;
     const nx = pending => { if (!pending || nextSet) return false; nextSet = true; return true; }; // the first thing not done yet is marked «ابدأ هنا»
+    // adult edition (owner's decision, 27 Nov 2026): today's reading, the stage's task, one's own items (with the field to add
+    // them), the running challenges, and the evening question last. Today's reading counts once the reading is recorded
+    const wf = ADU() ? wirdFinger() : null, wr = wf ? wirdOf(wf) : null, wrOk = !!(wr && isToday(S.read[wr.id]));
+    if (wr) { const n1 = nx(!wrOk);
+      rows.push(`<li class="${wrOk ? "on" : ""} wread${n1 ? " next" : ""}"><a class="mychk" href="#/today"><span class="box">${wrOk ? "✓" : ""}</span><span class="grow"><span class="ttag">${esc((n1 ? here + " · " : "") + u("wirdK") + " · " + fing(wf))}</span>${esc(t(wr.title))}</span><span class="bullet" style="background:${G[wf].color};margin:0" title="${esc(sNm(wf))}"></span></a></li>`); }
+    else if (wf) rows.push(`<li class="wread"><a class="mychk" href="#/today"><span class="box"></span><span class="grow"><span class="ttag">${esc(u("wirdK"))}</span>${esc(u("wirdAll"))}</span></a></li>`);
     if (m && C.stages[m.stage]) { const nm1 = nx(!S.tasks[m.id]); rows.push(chkRow({ act: "dailydid", data: `data-s="${m.stage}" data-t="${esc(m.id)}"`, on: S.tasks[m.id] === "ok", lock: S.tasks[m.id] === "ok", tx: t(m), tag: (nm1 ? here + " · " : "") + u("tMission"), s: m.stage, cls: "mis" + (nm1 ? " next" : "") })); }
     l.forEach(x => { const n1 = nx(!dn[x.id]); rows.push(chkRow({ act: "mytog", data: `data-i="${esc(x.id)}"`, on: dn[x.id], tx: x.tx, s: x.s || "", del: x.id, tag: n1 ? here : "", cls: n1 ? "next" : "" })); });
-    const act = activeTiers(), c = myCounts(today()), mOk = m && S.tasks[m.id] === "ok" ? 1 : 0, tot = c.b + (m ? 1 : 0) + act.length, done = c.a + mOk + act.filter(a => trHas(a.x.id)).length;
+    const eve = wf && wirdRevQ(wf) ? 1 : 0, eOk = eve && wirdEveDone() ? 1 : 0;
+    const act = activeTiers(), c = myCounts(today()), mOk = m && S.tasks[m.id] === "ok" ? 1 : 0;
+    const tot = c.b + (m ? 1 : 0) + act.length + (wr ? 1 : 0) + eve, done = c.a + mOk + act.filter(a => trHas(a.x.id)).length + (wrOk ? 1 : 0) + eOk;
     const actNext = nextSet ? null : (act.find(a => !trHas(a.x.id)) || null);
+    const allDone = tot && done >= tot ? `<p class="alldone">${esc(u("todayAll"))}</p>` : "";
     return `<section class="sec card my"><div class="dash-h">${wnH(1, "tTodayT")}<b class="m" dir="ltr">${done}/${tot}</b></div>
       <ul class="mylist">${rows.join("")}</ul>
-      ${activeBlock(act, actNext)}
-      ${tot && done >= tot ? `<p class="alldone">${esc(u("todayAll"))}</p>` : ""}
+      ${ADU() ? "" : activeBlock(act, actNext) + allDone}
       <div class="myadd"><input id="myNew" type="text" maxlength="60" autocomplete="off" placeholder="${esc(u("myPh"))}"><button class="small-btn dark" data-act="myadd">${esc(u("myAdd"))}</button></div>
       <details class="myopts"><summary>${esc(u("tMore"))}</summary>
         <div class="fpick mylink"><span class="m">${esc(u("myLink"))}</span><button class="tog ${!myStage ? "on" : ""}" data-act="mystage" data-s="" aria-pressed="${!myStage}">${esc(u("myNone"))}</button>${ORDER.map(k => `<button class="tog ${myStage === k ? "on" : ""}" data-act="mystage" data-s="${k}" aria-pressed="${myStage === k}"><i class="dotc" style="background:${G[k].color}"></i>${esc(sNm(k))}</button>`).join("")}</div>
         ${sugs.length ? `<div class="mysug">${sugs.map(x => `<button class="tog" data-act="mysug" data-i="${SUGS().indexOf(x)}">+ ${esc(t(x))}</button>`).join("")}</div>` : ""}
-      </details></section>`;
+      </details>
+      ${ADU() ? activeBlock(act, actNext) + (eve ? `<h3 class="h tr-h weve-h">${eOk ? "✓ " : ""}${esc(u("wirdRevH"))}</h3>${wirdRevBox(wf, true)}` : "") + allDone : ""}</section>`;
   }
   const tiersOf = (id, d) => { const b = (C.stages[id].adult ? "a-" : "") + id + "-d" + (C.stages[id].degrees.indexOf(d) + 1); return [["s", d.step, "tierStep"], ["w", d.week, "tierWeek"], ["h", d.habit, "tierHabit"]].filter(x => x[1]).map(x => ({ id: b + x[0], tx: x[1], k: x[2] })); };
   const trDays = id => (S.tr && S.tr[id]) || [];
@@ -3738,7 +3741,11 @@
   }
   function vTasks() {
     return `<div class="wrap"><h1 class="h" style="font-size:30px;margin:6px 0 2px">${esc(u("tasksTab"))}</h1><p class="sub" style="margin-top:0">${esc(u("tasksSub"))}</p>
-      ${todayList()}${stageList()}</div>`;
+      ${todayList()}${stageList()}
+      ${ADU() ? `${!ACC.me && !SYNC && ACC.google && !signLater() ? accCard("home") : ""}
+        ${USING_FALLBACK ? `<p class="center meta" style="margin-top:14px"><span class="ph">${esc(u("fallbackNote"))}</span></p>` : ""}
+        ${homeFoot()}
+        ${P.list.length > 1 ? `<p class="center profline">${esc(profPhrase(P.active, S))} · <button class="linkbtn" type="button" data-act="settings">${esc(u("famOpen"))}</button></p>` : ""}` : ""}</div>`;
   }
   function awaitBlock() {
     if (!S.parent) return "";
@@ -4092,6 +4099,7 @@
     if (p[0] === "about") return { name: "about" };
     if (p[0] === "deg") return { name: "deg", id: p[1], i: p[2] };
     if (p[0] === "kids") return { name: "kids" }; // the adult edition's «مع أولادي» (direction 4)
+    if (p[0] === "today" || p[0] === "wird") return { name: "today" }; // the adult edition's reading of the day, from «مهام اليوم»
     if (p[0] === "me") return { name: "me" }; // the children's home before direction 1, on a page of its own
     if (p[0] === "signed-in" || p[0] === "signin") return { name: "home" }; // back from Google sign-in (accInit)
     return { name: "missing" };
@@ -4150,15 +4158,16 @@
     const shb = document.getElementById("shareBtn"); if (shb) { shb.setAttribute("aria-label", u("shareT")); shb.title = u("shareT"); }
     document.getElementById("langBtn").setAttribute("lang", L() === "ar" ? "en" : "ar");
     { const ab = document.getElementById("ageBtn"); if (ab) { const w = u(GRPK[GRP(S)]); ab.innerHTML = `<span>${esc(w)}</span><svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`; ab.setAttribute("aria-label", u("agT") + ": " + w); ab.title = u("agT"); } }
-    const tab = r.name === "tasks" || (r.name === "stage" && r.door === "work") ? "tasks" : r.name === "tadwin" ? "tadwin" : ADU() && (r.name === "home" || r.name === "kids") ? "wird" : "hand";
+    const tab = r.name === "tasks" || (r.name === "stage" && r.door === "work") || (ADU() && (r.name === "home" || r.name === "today")) ? "tasks" : r.name === "tadwin" ? "tadwin" : "hand";
     document.getElementById("tabs").setAttribute("aria-label", u("navMain"));
-    document.getElementById("tabs").innerHTML = (ADU() ? [["wird", "#/", "wirdTab"], ["hand", "#/me", "meTab"]] : [["hand", "#/", "meTab"]]).concat([["tasks", "#/tasks", "tasksTab"], ["tadwin", "#/tadwin", "twTab"]])
+    document.getElementById("tabs").innerHTML = (ADU() ? [["tasks", "#/", "tasksTab"], ["hand", "#/me", "meTab"]] : [["hand", "#/", "meTab"], ["tasks", "#/tasks", "tasksTab"]]).concat([["tadwin", "#/tadwin", "twTab"]])
       .map(([k, h, l]) => `<a href="${h}" class="${tab === k ? "on" : ""}" ${tab === k ? 'aria-current="page"' : ""}>${ICON[k]}<span>${esc(u(l))}</span></a>`).join("");
     let h;
     switch (r.name) {
       case "home": h = vHome(); break;
       case "me": h = TOUR ? vHome() : ADU() ? vHandA() : vMe(); break;
       case "kids": h = ADU() && !TOUR ? vKids() : vHome(); break;
+      case "today": h = ADU() && !TOUR ? vWird() : vHome(); break;
       case "task": h = vTask(r.id, r.tid); break;
       case "stage": h = r.door === "work" ? vWork(r.id) : vStage(r.id); break;
       case "read": h = vReader(r.id, r.rid); break;
