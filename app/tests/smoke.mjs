@@ -604,11 +604,11 @@ async function ideaFlows(browser, base, content, AV) {
     ok(h.more === 1 && h.gone, "1: one link to everything else; presence, pact, stamps, progress and the mix list left the home page");
     ok(h.chips === 5 && /الخنصر/.test(h.fw), "1: the hand keeps its five percentages, and the line names this week's finger");
     await go(page, "#/me"); ok(await has(page, "#view .pres") && await has(page, "#view .pact") && await has(page, "#view .stamps") && await has(page, "#view .pf") && await has(page, "#view .melegend") && await has(page, '#view a[href="#/record"]'), "1: #/me holds all of it");
-    await go(page, "#/stage/pig"); const p = await page.evaluate(() => { const v = document.getElementById("view"), ph = v.querySelector("#sec-path"), lr = v.querySelector("#sec-learn");
-      return { path: !!ph, before: ph && lr && (ph.compareDocumentPosition(lr) & 4) > 0, cur: v.querySelectorAll("#sec-path .pst.cur").length, deg: v.querySelectorAll("#sec-path .pdeg").length, n: v.querySelectorAll("#sec-path .pst").length, quiz: !!v.querySelector("#sec-quiz"), read: !!v.querySelector("#sec-read") }; });
-    ok(p.path && p.before && p.cur === 1 && p.deg === 3 && p.n >= 9 && p.quiz && p.read, `1: the finger page opens on a path of ${p.n} stops under 3 degrees, one current, with the full content after it`);
+    await go(page, "#/"); ok(!(await has(page, "#view .fpath")), "1: no path of stops under the hand: the hand is the way in (owner's decision, 27 Nov 2026)");
+    await go(page, "#/stage/pig"); const p = await page.evaluate(() => { const v = document.getElementById("view"); return { path: !!v.querySelector("#sec-path"), quiz: !!v.querySelector("#sec-quiz"), read: !!v.querySelector("#sec-read") }; });
+    ok(!p.path && p.quiz && p.read, "1: the finger page has no path of stops, and keeps its full content");
     // the loop: the story's last page leads to its question, the question to its home task
-    const sid = await page.evaluate(() => document.querySelector("#sec-path .pst.cur").getAttribute("href"));
+    const sid = await page.evaluate(() => document.querySelector('#view a[href^="#/read/pig/"]').getAttribute("href"));
     await go(page, sid); await page.evaluate(() => { const b = document.querySelector('[data-act="aloud"]'); if (b && !document.querySelector(".aloud-page")) b.click(); }); await page.waitForTimeout(250);
     for (let i = 0; i < 20 && await has(page, '[data-act="aloudnext"]'); i++) { await page.click('[data-act="aloudnext"]'); await page.waitForTimeout(80); }
     const ask = await page.evaluate(() => { const a = document.querySelector(".pg-ask, .read-end ~ a.btn"); return a && a.getAttribute("href"); });
@@ -623,7 +623,7 @@ async function ideaFlows(browser, base, content, AV) {
     for (const [w, lang] of [[1280, "ar"], [1280, "en"], [320, "ar"]]) { await page.setViewportSize({ width: w, height: 820 }); await setS(page, `s.lang = '${lang}';`); await open(page, "", 700);
       const d = await page.evaluate(() => { const t = document.getElementById("tabs").getBoundingClientRect(), hb = document.querySelector("#view .handbox").getBoundingClientRect(), c = document.querySelector("#view .nextstep").getBoundingClientRect();
         return { tabsTop: t.top, tabsH: t.height, side: Math.abs(hb.top - c.top) < 260 && (c.right <= hb.left + 4 || c.left >= hb.right - 4), over: document.documentElement.scrollWidth > innerWidth + 1, path: !!document.querySelector("#view .h1-path .pst.cur") && getComputedStyle(document.querySelector("#view .h1-path")).display !== "none" }; });
-      if (w >= 900) ok(d.tabsTop < 10 && d.side && d.path && !d.over, `1: at ${w} (${lang}) two columns (hand beside the step and the path) and the tabs sit in the top bar (tabs top ${Math.round(d.tabsTop)})`);
+      if (w >= 900) ok(d.tabsTop < 10 && d.side && !d.path && !d.over, `1: at ${w} (${lang}) two columns (hand beside the step, no path of stops) and the tabs sit in the top bar (tabs top ${Math.round(d.tabsTop)})`);
       else ok(!d.over && d.tabsTop > 700, `1: at ${w} (${lang}) one column, the tabs at the bottom, no overflow`); }
     ok(!page.errs.length, "1: no script errors (" + page.errs.slice(0, 1).join("") + ")");
     await ctx.close(); });
@@ -747,7 +747,7 @@ async function ideaFlows(browser, base, content, AV) {
     ok(h.my && /مهام اليوم/.test(h.head) && !h.wird && !h.hand && h.stages && h.order.every((x, i, a) => x > -1 && (i === 0 || x > a[i - 1])),
       `4: the adult home is the tasks page; «مهام اليوم» runs reading, stage task, own items, challenges, evening question, then the stages (${h.order.join(",")})`);
     ok(/مهمة مرحلتك/.test(h.mis) && !h.word, "4: the stage task is «مهمة مرحلتك», and no «ورد» or old «اليوم» label shows");
-    ok(h.tabs === "#/ #/me #/tadwin" && /المهام/.test(h.on), `4: tabs tasks / my hand / journal, tasks first and current (${h.tabs})`);
+    ok(h.tabs === "#/me #/ #/tadwin" && /المهام/.test(h.on), `4: tabs my hand / tasks / journal, the hand first, tasks current here (${h.tabs})`);
     let rt = await rowT(); ok(rt && rt.href === "#/today" && rt.t.includes(az[0].title.ar) && /قراءة اليوم/.test(rt.t) && !rt.on && /^0\/3$/.test(await cnt()), `4: today's reading opens the list, not done yet, one counter for all (${await cnt()})`);
     await page.click("#view .my li.wread a"); await page.waitForTimeout(600);
     const r1 = await page.evaluate(() => { const v = document.getElementById("view"); return { chips: v.querySelectorAll(".wird .wfing button").length, opts: v.querySelectorAll(".wird .wq .opt").length, ta: !!v.querySelector(".wird textarea"), back: (v.querySelector(".wird > .back") || {}).getAttribute?.("href"), on: (document.querySelector("#tabs a.on") || {}).getAttribute?.("href") }; });
@@ -759,6 +759,7 @@ async function ideaFlows(browser, base, content, AV) {
     await setS(page, `s.read = { '${az[0].id}': Date.now() - 2 * 864e5 };`); await open(page, "", 800); await go(page, "#/today", 500);
     ok(await wt() === az[1].title.ar, "4: once read on another day, the next unread reading becomes today's");
     await setS(page, `s.read['${az[1].id}'] = Date.now();`); await open(page, "", 800);
+    ok(await page.evaluate(() => location.hash) === "#/me", "4: a plain open of the adult edition lands on the hand (owner's decision, 27 Nov 2026)"); await go(page, "#/", 500);
     rt = await rowT(); ok(rt && rt.on && rt.t.includes(az[1].title.ar) && /^1\/3$/.test(await cnt()), `4: a reading read today stays today's and counts as done (${await cnt()})`);
     await go(page, "#/wird", 500); ok(await wt() === az[1].title.ar, "4: an old #/wird link lands on today's reading");
     await page.click("#view .wird .wq .opt >> nth=0"); await page.waitForTimeout(400);
@@ -799,7 +800,7 @@ async function ideaFlows(browser, base, content, AV) {
     ok(/مهام اليوم/.test(kt.head) && /مهمة مرحلتك/.test(kt.tag) && !kt.read && !kt.eve && !kt.old, "4: the children's «مهام اليوم» keeps its order and takes the new names");
     for (const [w, lang] of [[1280, "ar"], [1280, "en"], [375, "ar"], [375, "en"], [320, "ar"], [320, "en"]]) { await page.setViewportSize({ width: w, height: 820 });
       await page.evaluate(() => { const p = JSON.parse(localStorage.getItem("akhlaq-app-v1:profiles")); p.active = "p1"; localStorage.setItem("akhlaq-app-v1:profiles", JSON.stringify(p)); });
-      await setS(page, `s.lang = '${lang}';`); await open(page, "", 800);
+      await setS(page, `s.lang = '${lang}';`); await open(page, "", 800); await go(page, "#/", 500);
       const d = await page.evaluate(() => ({ my: !!document.querySelector("#view .my li.wread"), tabsTop: document.getElementById("tabs").getBoundingClientRect().top, over: document.documentElement.scrollWidth > innerWidth + 1, old: /ورد|Today's list|Today's mission/.test(document.body.innerText) }));
       await go(page, "#/today", 500); const ro = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1 || !document.querySelector("#view .wird .body p"));
       await go(page, "#/kids", 500); const ko = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1 || !document.querySelector("#view .kid .kitem") || !document.querySelector("#view .adseg"));
@@ -984,9 +985,9 @@ async function ideaFlows(browser, base, content, AV) {
     for (const [q, lab, ch] of [["&lang=ar", "التدوين", "تحدّياتي"], ["&lang=en", "Journal", "My challenges"], ["&ed=adult&lang=ar", "التدوين", "مجاهداتي"], ["&ed=adult&lang=en", "Journal", "My challenges"]]) {
       const { ctx, page } = await fresh(); await open(page, "&reset=1" + q, 900);
       const tabs = await page.evaluate(() => [...document.querySelectorAll("#tabs a")].map(a => a.getAttribute("href") + "|" + a.innerText.trim()));
-      // the adult edition opens on its tasks (#/), and the hand has its own tab (owner's decision, 27 Nov 2026)
-      const ad = /ed=adult/.test(q), exp = ad ? ["#/|", "#/me|"] : ["#/|", "#/tasks|"];
-      ok(tabs.length === exp.length + 1 && exp.every((x, i) => tabs[i].startsWith(x)) && tabs[exp.length] === "#/tadwin|" + lab, `tw: the tabs are ${ad ? "tasks, my hand" : "my hand, tasks"}, «${lab}» (${q}): ${tabs.join(", ")}`);
+      // both editions put the hand first; the adult hand is on #/me, its tasks on #/ (owner's decision, 27 Nov 2026)
+      const ad = /ed=adult/.test(q), exp = ad ? ["#/me|", "#/|"] : ["#/|", "#/tasks|"];
+      ok(tabs.length === exp.length + 1 && exp.every((x, i) => tabs[i].startsWith(x)) && tabs[exp.length] === "#/tadwin|" + lab, `tw: the tabs are ${ad ? "my hand (#/me), tasks" : "my hand, tasks"}, «${lab}» (${q}): ${tabs.join(", ")}`);
       ok(await has(page, '#tabs a[href="#/tadwin"] svg'), `tw: the journal tab has its pen (${q})`);
       await page.click('#tabs a[href="#/tadwin"]'); await page.waitForTimeout(400);
       const t = await txt(page, "#view");

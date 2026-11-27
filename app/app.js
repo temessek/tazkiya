@@ -2638,19 +2638,6 @@
       <div class="nx-loop" aria-hidden="true">${lp(0, "lpRead")}${lp(1, "lpAsk")}${lp(2, "lpTask")}</div>
       <a class="btn block nx-go" href="${stHref(id, s)}">${esc(u(s.kind === "read" ? "nxGoRead" : s.kind === "ask" ? "nxGoAsk" : "nxGoTask"))}</a></article>`;
   }
-  // the path of stops on a finger: done ones ticked, the current one glowing, the rest faint (all of them open)
-  function pathBlock(id) {
-    const st = C.stages[id], sts = stations(id), cur = sts.findIndex(x => !x.done);
-    return `<section class="sec fpath" id="sec-path" style="--c:${G[id].color}"><h2 class="h">${esc(fmt(u("pathH"), { f: fing(id) }))}</h2><p class="sub">${esc(u("pathSub"))}</p>
-      <ol class="path">${sts.map((s, i) => {
-        const d = st.degrees[s.deg], head = (!i || sts[i - 1].deg !== s.deg) && d ? `<li class="pdeg"><span>${esc(fmt(u("pathDeg"), { d: numL(s.deg + 1) }))}</span><b>${esc(t(d.name))}</b></li>` : "";
-        const cls = s.done ? "done" : i === cur ? "cur" : "later";
-        const title = s.kind === "task" ? t(s.tk) : s.kind === "ask" ? t(s.qs[0].q) : t(s.r.title);
-        const sub = s.kind === "read" ? u("lpRead") + (s.r.minutes ? ` · ${s.r.minutes} ${u("minutes")}` : "") : s.kind === "ask" ? qN(s.qs.length) : u("stTaskSub");
-        return head + `<li><a class="pst ${cls}" href="${stHref(id, s)}"${i === cur ? ' aria-current="step"' : ""}><span class="pic">${s.done ? PIC.done : PIC[s.kind]}</span>
-          <span class="ptx"><b>${esc(title)}</b><span>${esc(sub)}<span class="vh"> · ${esc(u(cls === "done" ? "stDone" : cls === "cur" ? "stNow" : "stLater"))}</span></span></span></a></li>`;
-      }).join("")}</ol></section>`;
-  }
   function vHomeKids() {
     const k = curFinger();
     return `<div class="home1"><div class="h1-hero"><section class="hello"><h1 class="h">${esc(u(WELCOME_BACK ? "welcomeBack" : "hello"))}</h1></section>
@@ -2658,7 +2645,7 @@
         ${k ? `<a class="fweek" href="#/stage/${k}"><i class="dotc" style="background:${G[k].color}"></i><span>${esc(u("fWeek"))} <b>${esc(fing(k))}</b> · ${esc(nm(k))}</span></a>` : ""}</div>
       <div class="h1-side">${nextCard(k)}
         <a class="morelink" href="#/me">${esc(u("moreLink"))}</a>
-        ${k ? `<div class="h1-path">${pathBlock(k)}<a class="linkbtn more" href="#/stage/${k}">${esc(u("pathAll"))} ${BK() === "→" ? "←" : "→"}</a></div>` : ""}</div></div>
+        </div></div>
       <div class="wrap">
         ${USING_FALLBACK ? `<p class="center meta" style="margin-top:14px"><span class="ph">${esc(u("fallbackNote"))}</span></p>` : ""}
         ${homeFoot()}
@@ -2985,7 +2972,7 @@
       <div class="stage-title">${stageHead(id)}${doors(id, "learn")}
         ${kp ? "" : stepStrip(id)}</div></div>
       <div class="wrap">
-      ${kp ? `${pathBlock(id)}<h2 class="h path-all">${esc(u("pathAll"))}</h2>${stepStrip(id)}` : ""}
+      ${kp ? stepStrip(id) : ""}
       <section class="sec" id="sec-learn"><h2 class="h">${esc(u("secLearn"))}</h2><p class="sub">${esc(u("degNote"))}</p>${degList(id, -1)}
         ${st.climb.length ? `<h3 class="h tr-h">${esc(u("climb"))}</h3><ul class="list">${st.climb.map(c => `<li><span class="bullet" style="background:var(--viridian)"></span><span class="grow">${esc(t(c))}</span></li>`).join("")}</ul>` : ""}</section>`;
     if (S.parent && st.parent) h += `<section class="sec">${parentBlock(id, true)}</section>`;
@@ -4162,7 +4149,7 @@
     { const ab = document.getElementById("ageBtn"); if (ab) { const w = u(GRPK[GRP(S)]); ab.innerHTML = `<span>${esc(w)}</span><svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`; ab.setAttribute("aria-label", u("agT") + ": " + w); ab.title = u("agT"); } }
     const tab = r.name === "tasks" || (r.name === "stage" && r.door === "work") || (ADU() && (r.name === "home" || r.name === "today")) ? "tasks" : r.name === "tadwin" ? "tadwin" : "hand";
     document.getElementById("tabs").setAttribute("aria-label", u("navMain"));
-    document.getElementById("tabs").innerHTML = (ADU() ? [["tasks", "#/", "tasksTab"], ["hand", "#/me", "meTab"]] : [["hand", "#/", "meTab"], ["tasks", "#/tasks", "tasksTab"]]).concat([["tadwin", "#/tadwin", "twTab"]])
+    document.getElementById("tabs").innerHTML = (ADU() ? [["hand", "#/me", "meTab"], ["tasks", "#/", "tasksTab"]] : [["hand", "#/", "meTab"], ["tasks", "#/tasks", "tasksTab"]]).concat([["tadwin", "#/tadwin", "twTab"]])
       .map(([k, h, l]) => `<a href="${h}" class="${tab === k ? "on" : ""}" ${tab === k ? 'aria-current="page"' : ""}>${ICON[k]}<span>${esc(u(l))}</span></a>`).join("");
     let h;
     switch (r.name) {
@@ -4605,6 +4592,8 @@
   if (params.get("tour") === "1") { S.intro = true; TOUR = { i: 0, hit: false }; }
   applyEdition(boot);
   function boot() {
+    // both editions open on the hand (owner's decision, 27 Nov 2026): the adult hand lives on #/me, so a plain open goes there
+    if (ADU() && S.intro && !TOUR && !MOVE_IN && !window.TZ_MOVE && (location.hash === "" || location.hash === "#/")) { try { history.replaceState(null, "", location.pathname + location.search + "#/me"); } catch (e) {} }
     render(); accInit();
     const sel = params.get("sel");
     if (sel && isStage(sel) && ADU() && route().name === "home") { try { history.replaceState(null, "", location.pathname + location.search + "#/me"); } catch (e) {} render(); } // direction 4: the adult hand is on #/me
