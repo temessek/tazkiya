@@ -3436,7 +3436,8 @@
      They are not in the service worker's install list; the worker keeps each one the first time it is shown. Other readings
      show their finger's picture (the adult edition its own variant where there is one), alternating between the two of each finger. */
   const STORY_ART = new Set(["zombie-r1", "zombie-r6", "zombie-r10", "zombie-r13", "pig-r1", "pig-r3", "pig-r6", "pig-r10", "pig-r13",
-    "monkey-r1", "monkey-r6", "monkey-r10", "monkey-r13", "human-r1", "human-r6", "human-r10", "human-r13", "sabiq-r1", "sabiq-r6", "sabiq-r10", "sabiq-r13"]);
+    "monkey-r1", "monkey-r6", "monkey-r10", "monkey-r13", "human-r1", "human-r6", "human-r10", "human-r13", "sabiq-r1", "sabiq-r6", "sabiq-r10", "sabiq-r13",
+    "zombie-r16", "human-r16", "sabiq-r16"]);
   function storyArt(id, r) {
     if (r && STORY_ART.has(String(r.id))) return "assets/stories/" + r.id + ".webp?v=1";
     if (ADU() && ART.book["book-" + id + "-adult"]) return ART.book["book-" + id + "-adult"];

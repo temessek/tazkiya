@@ -5440,7 +5440,7 @@ window.AKHLAQ_CONTENT.choices = [
         'وفي اللقطة الرابعة كان العم صابر ما زال واقفًا، يمد يده إلى سلة لا تصل، وعيناه في الأرض.',
         'نشرت سلمى الصورة في المساء. وصلت إلى مئتين واثني عشر إعجابًا، وكتبت معلمة العلوم تحتها: «قدوة!». وصارت سلمى تفتح الهاتف كل ربع ساعة لترى الرقم. وكان في صدرها شيء دافئ، وشيء آخر ثقيل لا تعرف اسمه.',
         'وفي الليل كبّرت الصورة لترى ابتسامتها، فرأت عيني العم صابر. كانتا في الأرض.',
-        'السبت التالي مرضت رنا، وأُلغي توزيع النادي. فاشترت سلمى من مصروفها كيس خبز وعلبة تمر، وأخذت معها أخاها الصغير معاذ يحمل علبة التمر، وصعدا إلى العم صابر بلا ناد ولا كاميرا. المصعد معطّل، والطابق الرابع بعيد.',
+        'السبت التالي مرضت رنا، وأُلغي توزيع النادي. فاشترت سلمى من مصروفها كيس خبز وعلبة تمر، وأخذت معها أخاها الصغير معاذًا يحمل علبة التمر، وصعدا إلى العم صابر بلا ناد ولا كاميرا. المصعد معطّل، والطابق الرابع بعيد.',
         'في الطابق الثالث وقفت تلتقط أنفاسها، ووجدت يدها تُخرج الهاتف من جيبها وحدها: صورة سريعة مع الكيس، للحساب فقط. ثم أعادته إلى جيبها، وأكملت الصعود.',
         'فتح العم صابر الباب، ونظر هذه المرة في وجهها. قال: «أنتِ بنت الصورة؟ تفضلا، الشاي جاهز». وعلى الشرفة حدّثهما عن نباتات زوجته رحمها الله، ثلاثة أصص لم يسقها أحد منذ أتعبه ظهره. فملأت سلمى الإبريق وسقتها.',
         'وفي النزول تذكرت حديثًا للنبي صلى الله عليه وآله وسلم قرأته عليهم المعلمة، عن سبعة يظلهم الله في ظله، منهم: «ورجل تصدق بصدقة فأخفاها حتى لا تعلم شماله ما تنفق يمينه». فضحكت وحدها على الدرج: في السبت الماضي عرف الحي كله ما أنفقت يمينها، وعرفه معه مئتان واثنا عشر إعجابًا.',
@@ -5545,9 +5545,9 @@ window.AKHLAQ_CONTENT.choices = [
     body: {
       ar: ["في حكاية هندية قديمة، رواها جلال الدين الرومي في «المثنوي»، جاء قوم بفيل إلى مدينة لم يرَ أهلها فيلًا قط، وأدخلوه بيتًا مظلمًا. فدخل الناس يتلمّسونه بأيديهم.",
         "وقعت يد أحدهم على خرطومه، فخرج يقول: الفيل أنبوب. ولمس الثاني أذنه، فقال: بل مروحة. ولمس الثالث رجله، فقال: عمود. واختلفوا، وكل واحد منهم صادق في ما لمسه، ومخطئ في الفيل.",
-        "وفي مساء الأربعاء امتلأت مجموعة الصف بمقطع من اثنتي عشرة ثانية: كريم يدفع أنس في الممر، فيسقط أنس على الأرض.",
+        "وفي مساء الأربعاء امتلأت مجموعة الصف بمقطع من اثنتي عشرة ثانية: كريم يدفع أنسًا في الممر، فيسقط أنس على الأرض.",
         "في نصف ساعة صار في المجموعة ستون رسالة. «متنمّر». «دائمًا يفعلها». «يجب أن يُفصل». وأرسل أحدهم صورة كريم مع وجه ضاحك.",
-        "كانت نور في ذلك الممر. رأت أنس يتعثر بحقيبة على الأرض، ورأت كريم يمسك ذراعه ليمنعه من السقوط على الدرج، فاختلّ توازنهما معًا. والمقطع بدأ في الثانية التي ظهرت فيها يد كريم.",
+        "كانت نور في ذلك الممر. رأت أنسًا يتعثر بحقيبة على الأرض، ورأت كريمًا يمسك ذراعه ليمنعه من السقوط على الدرج، فاختلّ توازنهما معًا. والمقطع بدأ في الثانية التي ظهرت فيها يد كريم.",
         "كتبت: «كنتُ هناك، الأمر غير ما ترون». ثم مسحتها. قالت في نفسها: سيقولون إني أدافع عنه، ولا أحتاج هذا الصداع.",
         "ثم كتب أحدهم: «أنس المسكين». وتحتها، بين عشرات الرسائل، رسالة من أنس نفسه لم يردّ عليها أحد: «لم يدفعني».",
         "كتبت نور ما رأته سطرًا سطرًا، بلا حكم على أحد. وبعد دقيقة جاءها: «أنتِ معه طبعًا». ثم سكتت المجموعة.",
@@ -6316,7 +6316,7 @@ window.AKHLAQ_CONTENT.choices = [
         "ثم ذهب الرجل يحفر في الوادي، فوجد فأسه هناك، حيث نسيها.",
         "وفي الغد رأى ابن جاره. لم يجد في مشيته، ولا في وجهه، ولا في كلامه، شيئًا من اللص.",
         "اختفت سمّاعتا يزن في رحلة المدرسة. آخر مرة رآهما كانتا على المقعد بجانب ماجد.",
-        "في طريق العودة صار يراقب ماجد. ماجد ينظر من النافذة كثيرًا: يتهرب. ماجد يضحك مع سامر: يضحكان عليه. ماجد يضع يده في جيب سترته: هناك هما.",
+        "في طريق العودة صار يراقب ماجدًا. ماجد ينظر من النافذة كثيرًا: يتهرب. ماجد يضحك مع سامر: يضحكان عليه. ماجد يضع يده في جيب سترته: هناك هما.",
         "فتح يزن الهاتف، وكتب لماجد رسالة طويلة، كل جملة فيها أحدّ من التي قبلها. وإصبعه على زر الإرسال، سمع في رأسه صوت أمه حين يغضب: «يا يزن، لماذا أنت غاضب هكذا؟». وكانت تكلّمه دائمًا باسمه، كأنها تكلّم شخصًا آخر.",
         "فقال لنفسه بالطريقة نفسها: يا يزن، ماذا رأيت بعينك؟ وماذا ظننت؟ ولم يجد شيئًا رآه بعينه.",
         "ترك الرسالة في المسودات. وفي البيت، وهو يعلّق السترة، سقط شيء ثقيل من البطانة: السمّاعتان، نزلتا من ثقب صغير في الجيب.",
@@ -6617,3 +6617,419 @@ window.AKHLAQ_CONTENT.choices = [
       end: { ar: "العرض الذي ينتهي بعد ساعة يعود غدًا بلون آخر. والخطة التي تكتبها اليوم تبقى.", en: "The offer that ends in an hour comes back tomorrow in another colour. The plan you write today stays." } }
   );
 })();
+
+/* ───────────── قصص العلاقات السليمة في البيت، 27 نوفمبر 2026 ─────────────
+ * الطلب: قصص تُظهر العلاقات السليمة (الأخ وأخته، والولد وأمه، والوالدان أحدهما مع الآخر، والمراهق مع والديه)،
+ * كل موضوع في مستواه، مع سطر يُظهر المعنى. الخطة: docs/FAMILY-STORIES-PLAN.md. الأبطال خياليون.
+ * Healthy family relationships, one story per theme at its age, each with a line that states its meaning. Fictional characters.
+ */
+(function () {
+  var S = window.AKHLAQ_CONTENT.stages;
+  var STORY = { ar: "قصة مؤلفة، أبطالها خياليون.", en: "An original story with fictional characters." };
+  function R(k, o) { S[k].readings.push(Object.assign({ quote: null }, o)); }
+  function Q(k, list) { list.forEach(function (q) { S[k].quiz.push(Object.assign({ type: "comprehension" }, q)); }); }
+  function O(a) { return a.map(function (x) { return { ar: x[0], en: x[1] }; }); }
+  function src(ar, en) { return { ar: STORY.ar + " " + ar, en: STORY.en + " " + en }; }
+
+  /* ── 4-8: الأخت مع أخيها، والشعور ببعضنا ── */
+  R("zombie", { id: "zombie-r16", minutes: 2, ages: "4-8",
+    title: { ar: "سكت عمر", en: "Omar went quiet" },
+    origin: { ar: "على معنى حديث «مثل المؤمنين في توادّهم»", en: "On the hadith of the believers as one body" },
+    body: {
+      ar: ["رجع عمر من المباراة، ودخل غرفته، وأغلق الباب.",
+        "كانت أخته ليلى تلوّن على الأرض. قالت: «عمر لم يقل: مرحبًا».",
+        "كان عمر كل يوم يرمي حذاءه ويصيح: «سجّلتُ هدفًا!». واليوم لم يصِح.",
+        "تركت ليلى ألوانها، وطرقت الباب بهدوء: «أدخل؟».",
+        "كان عمر جالسًا على سريره، وقميصه ما زال مبلّلًا. قال: «خسرنا».",
+        "لم تقل ليلى شيئًا. جلست بجانبه، وأعطته أجمل رسمة عندها: شمس كبيرة، وولد يركض.",
+        "نظر عمر إلى الرسمة، وضحك قليلًا: «هذا أنا؟». قالت ليلى: «هذا أنت حين تفوز في المرة القادمة».",
+        "عرفت ليلى أن أخاها حزين من سكوته، قبل أن يقول كلمة. وحين جلست بجانبه صار حزنه أخفّ، لأن عمر لم يعد وحده فيه."],
+      en: ["Omar came home from the match, went into his room and shut the door.",
+        "His sister Layla was colouring on the floor. “Omar didn't say hello,” she said.",
+        "Every other day Omar kicked off his shoes and shouted, “I scored a goal!” Today he didn't shout.",
+        "Layla put down her crayons and knocked softly. “Can I come in?”",
+        "Omar was sitting on his bed, his shirt still wet. “We lost,” he said.",
+        "Layla didn't say anything. She sat down next to him and gave him her best drawing: a big sun, and a boy running.",
+        "Omar looked at the drawing and laughed a little. “Is that me?” “That's you when you win next time,” said Layla.",
+        "Layla knew her brother was sad from his silence, before he said a word. And when she sat beside him his sadness grew lighter, because Omar was not alone in it any more."]
+    },
+    ask: { ar: "من في بيتنا سكت اليوم على غير عادته؟ كيف نعرف أن أحدًا حزين؟", en: "Who at home was quieter than usual today? How can we tell that someone is sad?" },
+    quote: {
+      ar: "«مَثَلُ الْمُؤْمِنِينَ فِي تَوَادِّهِمْ وَتَرَاحُمِهِمْ وَتَعَاطُفِهِمْ مَثَلُ الْجَسَدِ، إِذَا اشْتَكَى مِنْهُ عُضْوٌ تَدَاعَى لَهُ سَائِرُ الْجَسَدِ بِالسَّهَرِ وَالْحُمَّى»",
+      en: "Meaning: The believers in their love, mercy and kindness to one another are like one body: when one part of it hurts, the whole body stays awake with it and feels its fever.",
+      ref: "صحيح مسلم 2586 (ترقيم sunnah.com: الكتاب 45، الحديث 84)، ونحوه في البخاري 6011، عن النعمان بن بشير", checked: "hadith-api (fawazahmed0)", verify: true
+    },
+    source: src("ومعناها من حديث في صحيح مسلم (2586) وصحيح البخاري (6011).", "Its meaning comes from a hadith in Sahih Muslim (2586) and Sahih al-Bukhari (6011).") });
+  Q("zombie", [
+    { id: "zombie-q28", readingId: "zombie-r16", correct: 1,
+      q: { ar: "كيف عرفت ليلى أن أخاها حزين؟", en: "How did Layla know her brother was sad?" },
+      options: O([["قال لها: «أنا حزين»", "He told her, “I'm sad”"], ["سكت، ولم يصِح كعادته كل يوم", "He went quiet and didn't shout the way he did every day"], ["رأت أمها تبكي عند الباب", "She saw her mother crying by the door"]]),
+      why: { ar: "انتبهت ليلى إلى شيء صغير تغيّر: عمر لم يصِح كعادته.", en: "Layla noticed one small thing that had changed: Omar didn't shout as he always did." } },
+    { id: "zombie-q29", readingId: "zombie-r16", correct: 2,
+      q: { ar: "ماذا فعلت ليلى حين دخلت غرفة أخيها؟", en: "What did Layla do when she went into her brother's room?" },
+      options: O([["سألته أسئلة كثيرة عن المباراة", "Asked him lots of questions about the match"], ["نادت أمها لتكلّمه", "Called her mother to talk to him"], ["جلست بجانبه وأعطته رسمتها", "Sat beside him and gave him her drawing"]]),
+      why: { ar: "لم تحتج ليلى إلى كلام كثير. جلست بجانبه، فلم يعد وحده في حزنه.", en: "Layla didn't need many words. She sat beside him, so he was not alone in his sadness." } }
+  ]);
+
+  /* ── 4-8: الأخ مع أخته، والرجل في البيت ── */
+  R("human", { id: "human-r16", minutes: 2, ages: "4-8",
+    title: { ar: "من يرفع الصحون؟", en: "Who clears the plates?" },
+    origin: { ar: "من حديث السيدة عائشة رضي الله عنها في صحيح البخاري", en: "From a hadith of Lady Aisha in Sahih al-Bukhari" },
+    body: {
+      ar: ["انتهى الغداء. قالت الأم: «هيا يا يوسف، ويا هدى، نرفع الصحون».",
+        "قامت هدى، وحملت صحنها. وبقي يوسف جالسًا، وقال: «هذا شغل البنات».",
+        "سكتت هدى، ونظرت إلى أبيها.",
+        "قام الأب، وحمل الصحون الكبيرة، ومشى إلى المطبخ وهو يدندن.",
+        "قال يوسف: «أبي! أنت ترفع الصحون؟».",
+        "قال الأب: «نعم. وكان النبي صلى الله عليه وآله وسلم يساعد أهله في البيت، فإذا جاء وقت الصلاة خرج إلى الصلاة».",
+        "فهم يوسف أن البيت بيت الجميع، وأن أخته ليست هنا لتخدمه. والرجل القوي يقوم ويساعد، كما قام أبوه.",
+        "قام يوسف، وحمل صحنه وصحن هدى، وقال: «وأنا أمسح الطاولة!»."],
+      en: ["Lunch was over. “Come on, Yusuf, come on, Huda,” said their mother. “Let's clear the plates.”",
+        "Huda got up and picked up her plate. Yusuf stayed in his seat and said, “That's a girls' job.”",
+        "Huda said nothing, and looked at her father.",
+        "Their father got up, picked up the big dishes, and walked to the kitchen humming.",
+        "“Dad!” said Yusuf. “You're clearing the plates?”",
+        "“Yes,” said his father. “The Prophet, peace and blessings be upon him and his family, used to help his family at home, and when it was time to pray he went out to pray.”",
+        "Yusuf understood that the house belongs to everyone, and that his sister is not there to serve him. A strong man gets up and helps, the way his father did.",
+        "Yusuf got up, picked up his own plate and Huda's too, and said, “And I'll wipe the table!”"]
+    },
+    ask: { ar: "ما العمل الذي نتقاسمه في بيتنا؟ وأيّ عمل تختاره أنت؟", en: "Which jobs do we share at home? Which one will you choose?" },
+    quote: {
+      ar: "«كَانَ يَكُونُ فِي مِهْنَةِ أَهْلِهِ، تَعْنِي خِدْمَةَ أَهْلِهِ، فَإِذَا حَضَرَتِ الصَّلَاةُ خَرَجَ إِلَى الصَّلَاةِ»",
+      en: "Meaning: He used to be busy serving his family, and when the time for prayer came, he went out to pray.",
+      ref: "صحيح البخاري 676، عن عائشة رضي الله عنها", checked: "hadith-api (fawazahmed0)", verify: true
+    },
+    source: src("ومعناها من حديث في صحيح البخاري (676).", "Its meaning comes from a hadith in Sahih al-Bukhari (676).") });
+  Q("human", [
+    { id: "human-q27", readingId: "human-r16", correct: 1,
+      q: { ar: "ماذا قال يوسف حين طلبت أمه أن يرفعوا الصحون؟", en: "What did Yusuf say when his mother asked them to clear the plates?" },
+      options: O([["«أنا متعب، بعد قليل»", "“I'm tired, in a minute”"], ["«هذا شغل البنات»", "“That's a girls' job”"], ["«بعد الحلوى»", "“After pudding”"]]),
+      why: { ar: "ظنّ يوسف أن رفع الصحون عمل أخته وحدها، حتى رأى أباه يقوم.", en: "Yusuf thought clearing the plates was his sister's job alone, until he saw his father get up." } },
+    { id: "human-q28", readingId: "human-r16", correct: 0,
+      q: { ar: "ماذا فعل يوسف في آخر القصة؟", en: "What did Yusuf do at the end of the story?" },
+      options: O([["حمل صحنه وصحن أخته، ومسح الطاولة", "Carried his plate and his sister's, and wiped the table"], ["ذهب إلى غرفته يلعب", "Went to his room to play"], ["طلب من هدى أن تمسح الطاولة", "Asked Huda to wipe the table"]]),
+      why: { ar: "فهم أن البيت بيت الجميع، فقام يساعد كما قام أبوه.", en: "He understood the house belongs to everyone, so he got up to help as his father had." } }
+  ]);
+
+  /* ── 4-8: الأب والأم كما يراهما الطفل ── */
+  R("sabiq", { id: "sabiq-r16", minutes: 2, ages: "4-8",
+    title: { ar: "الحساء والشاي", en: "Soup and tea" },
+    origin: { ar: "على معنى آية من سورة الروم", en: "On a verse of Surat ar-Rum" },
+    body: {
+      ar: ["في الصباح عطست ماما، ثم عطست مرة أخرى. كانت مريضة.",
+        "قال بابا: «نامي واستريحي. اليوم أنا الطبّاخ».",
+        "لبس بابا مئزر ماما الأحمر، وقطّع الجزر، وطبخ حساءً ساخنًا. وكان يحيى يناوله الملعقة.",
+        "حمل بابا الحساء إلى ماما، وقال: «بالشفاء». ابتسمت ماما وقالت: «جزاك الله خيرًا».",
+        "وبعد أيام رجع بابا من العمل متعبًا، ويده على ظهره.",
+        "كانت ماما قد شُفيت. وضعت له الشاي على الطاولة، ووسادة خلف ظهره، وقالت: «استرح، العشاء جاهز».",
+        "رأى يحيى أن أباه وأمه يحسّ كل واحد منهما بتعب الآخر، ويسرع إليه قبل أن يطلب. هذه هي المودة والرحمة التي جعلها الله بين الزوجين.",
+        "ففكّر يحيى قليلًا، ثم رسم قلبًا كبيرًا فيه اسمان، وعلّقه على باب الثلاجة: «بابا وماما»."],
+      en: ["In the morning Mama sneezed, and then she sneezed again. She was ill.",
+        "“Sleep and rest,” said Baba. “Today I'm the cook.”",
+        "Baba put on Mama's red apron, chopped the carrots and made a hot soup. Yahya handed him the spoon.",
+        "Baba carried the soup to Mama and said, “Get well soon.” Mama smiled. “May Allah reward you,” she said.",
+        "A few days later Baba came home from work tired, with his hand on his back.",
+        "Mama was better by then. She put a cup of tea on the table for him and a cushion behind his back, and said, “Rest. Dinner's ready.”",
+        "Yahya saw that his father and mother each feel how tired the other is, and hurry to help before being asked. This is the love and mercy that Allah has placed between husband and wife.",
+        "Yahya thought for a moment. Then he drew a big heart with two names in it, and stuck it on the fridge door: “Baba and Mama.”"]
+    },
+    ask: { ar: "ماذا رأيت أحدًا في بيتنا يفعله اليوم ليريح غيره؟", en: "What did you see someone at home do today to give someone else a rest?" },
+    quote: {
+      ar: "﴿وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً﴾",
+      en: "Meaning: Among His signs is that He created for you spouses from among yourselves so that you may find rest in them, and He placed love and mercy between you.",
+      ref: "الروم 30:21", checked: "tanzil quran-simple, with diacritics (api.alquran.cloud)", verify: true
+    },
+    source: src("ومعناها من سورة الروم (30:21).", "Its meaning comes from Surat ar-Rum (30:21).") });
+  Q("sabiq", [
+    { id: "sabiq-q29", readingId: "sabiq-r16", correct: 2,
+      q: { ar: "ماذا فعل بابا حين مرضت ماما؟", en: "What did Baba do when Mama was ill?" },
+      options: O([["ذهب بها إلى الطبيب ثم إلى العمل", "Took her to the doctor and then went to work"], ["طلب من يحيى أن يطبخ", "Asked Yahya to cook"], ["لبس المريلة وطبخ لها حساءً ساخنًا", "Put on the apron and made her a hot soup"]]),
+      why: { ar: "أحسّ بابا بتعب ماما، فقام عنها بعملها حتى تستريح.", en: "Baba felt how tired Mama was, so he did her work for her until she could rest." } },
+    { id: "sabiq-q30", readingId: "sabiq-r16", correct: 0,
+      q: { ar: "ماذا علّق يحيى على باب الثلاجة؟", en: "What did Yahya stick on the fridge door?" },
+      options: O([["قلبًا كبيرًا فيه اسما بابا وماما", "A big heart with Baba's and Mama's names in it"], ["طريقة طبخ الحساء", "The recipe for the soup"], ["رسمة لجزرة حمراء", "A drawing of a red carrot"]]),
+      why: { ar: "رأى يحيى المودة والرحمة بين أبيه وأمه، ففرح بها ورسمها.", en: "Yahya saw the love and mercy between his father and mother, and was so glad of it that he drew it." } }
+  ]);
+
+  /* ── 9-14: الولد وأمه، ونظرته إلى عملها ── */
+  R("zombie", { id: "zombie-r17", minutes: 3, ages: "9-14",
+    title: { ar: "ماذا تفعل أمي طوال اليوم؟", en: "What does my mum do all day?" },
+    origin: { ar: "على معنى حديث «أمك، ثم أمك، ثم أمك»", en: "On the hadith “Your mother, then your mother, then your mother”" },
+    body: {
+      ar: ["في الفسحة قال كريم وهو يأكل شطيرته: «أمي لا تعمل. تجلس في البيت فقط». فضحك بعض الأولاد.",
+        "لم يضحك حمزة، ولم يجد ما يقوله. أمه أيضًا في البيت، ولم يكن يعرف بماذا يجيب.",
+        "في المساء أخرج ورقة، وكتب في أعلاها: «ماذا تفعل أمي طوال اليوم؟». وقرر أن يكتب كل ما يراها تفعله يوم السبت، من غير أن يخبرها.",
+        "الخامسة والنصف: أيقظت الجميع لصلاة الفجر. السابعة: الفطور، وضفيرة أخته الصغيرة، والجورب الذي ضاع. التاسعة: الغسيل، ومكالمة لجدته تسأل فيها عن دوائها. الحادية عشرة: جدول الضرب مع أخيه، للمرة الثالثة، وبالهدوء نفسه.",
+        "الثانية: الغداء. الثالثة: الصحون. الرابعة: الطبيب مع أخته. السادسة: «يا حمزة، هل أنهيت واجبك؟». الثامنة: جلست أخيرًا، فنادتها أخته: «ماما، أنا عطشى».",
+        "في التاسعة لم يبقَ في الورقة مكان، فقلبها حمزة وكتب على ظهرها.",
+        "وفهم لماذا لا يرى أحد عمل أمه: لأنها تتمّه كله، فلا يبقى شيء ناقص يلفت النظر. وفهم أنها تفعل هذا حبًّا لهم، وأن من حقها أن يُرى عملها ويُشكر. وتذكّر أن رجلًا سأل النبي صلى الله عليه وآله وسلم: من أحق الناس بحسن صحابتي؟ فقال: «أمك» ثلاث مرات، ثم «أبوك».",
+        "صباح الأحد وضع حمزة الورقة تحت كوب شاي أمه، ورتّب سريره وسرير أخيه. وفي الفسحة، حين عاد كريم إلى كلامه، قال له حمزة: «جرّب أن تكتب يوم أمك مرة واحدة»."],
+      en: ["At break, Karim said with his mouth full of sandwich, “My mum doesn't work. She just stays at home.” A few of the boys laughed.",
+        "Hamza didn't laugh, and he couldn't think of anything to say. His mum stayed at home too, and he didn't know what to answer.",
+        "That evening he took out a sheet of paper and wrote at the top: “What does my mum do all day?” He decided to write down everything he saw her do on Saturday, without telling her.",
+        "5:30: woke everyone for the dawn prayer. 7:00: breakfast, his little sister's plait, the sock that went missing. 9:00: the washing, and a call to Grandma to ask about her medicine. 11:00: times tables with his brother, for the third time, just as calmly.",
+        "2:00: lunch. 3:00: the dishes. 4:00: the doctor with his sister. 6:00: “Hamza, have you finished your homework?” 8:00: she finally sat down, and his sister called, “Mama, I'm thirsty.”",
+        "By nine there was no room left on the paper, so Hamza turned it over and kept writing on the back.",
+        "And he understood why nobody sees his mother's work: she finishes all of it, so nothing is left undone to catch the eye. He understood that she does it out of love for them, and that she has a right to have her work seen and thanked. He remembered that a man once asked the Prophet, peace and blessings be upon him and his family, who most deserved his good company, and he said, “Your mother,” three times, and then, “Your father.”",
+        "On Sunday morning Hamza put the paper under his mother's cup of tea, and made his bed and his brother's. At break, when Karim said it again, Hamza told him, “Try writing down your mum's day, just once.”"]
+    },
+    ask: { ar: "ما الشيء الذي يفعله أحد في بيتنا كل يوم، ولا ينتبه له أحد؟", en: "What does someone at home do every day that nobody notices?" },
+    quote: {
+      ar: "«يَا رَسُولَ اللَّهِ، مَنْ أَحَقُّ بِحُسْنِ صَحَابَتِي؟ قَالَ: أُمُّكَ. قَالَ: ثُمَّ مَنْ؟ قَالَ: أُمُّكَ. قَالَ: ثُمَّ مَنْ؟ قَالَ: أُمُّكَ. قَالَ: ثُمَّ مَنْ؟ قَالَ: ثُمَّ أَبُوكَ»",
+      en: "Meaning: “Messenger of Allah, who most deserves my good company?” He said: “Your mother.” “Then who?” “Your mother.” “Then who?” “Your mother.” “Then who?” “Then your father.”",
+      ref: "صحيح البخاري 5971، وصحيح مسلم 2548 (ترقيم sunnah.com: الكتاب 45، الحديث 1)، عن أبي هريرة رضي الله عنه", checked: "hadith-api (fawazahmed0)", verify: true
+    },
+    source: src("ومعناها من حديث في صحيح البخاري (5971) وصحيح مسلم (2548).", "Its meaning comes from a hadith in Sahih al-Bukhari (5971) and Sahih Muslim (2548).") });
+  Q("zombie", [
+    { id: "zombie-q30", readingId: "zombie-r17", correct: 0,
+      q: { ar: "لماذا لم يجد حمزة ما يقوله لكريم في الفسحة؟", en: "Why couldn't Hamza think of anything to say to Karim at break?" },
+      options: O([["لأنه لم يكن يعرف ما تفعله أمه طوال اليوم", "Because he didn't know what his mother did all day"], ["لأنه كان يوافق كريمًا في كلامه", "Because he agreed with Karim"], ["لأن المعلم دخل في تلك اللحظة", "Because the teacher walked in at that moment"]]),
+      why: { ar: "كان عمل أمه أمامه كل يوم، ولم يكن يراه، حتى كتبه.", en: "His mother's work was in front of him every day, and he didn't see it until he wrote it down." } },
+    { id: "zombie-q31", readingId: "zombie-r17", correct: 2,
+      q: { ar: "ماذا فهم حمزة حين امتلأت الورقة؟", en: "What did Hamza understand when the paper was full?" },
+      options: O([["أن أمه تحتاج إلى خادمة تساعدها", "That his mother needed a maid to help her"], ["أن يوم السبت أصعب الأيام", "That Saturday is the hardest day"], ["أن عمل أمه لا يُرى لأنها تتمّه كله، وأن من حقها أن يُشكر", "That his mother's work goes unseen because she finishes all of it, and that she has a right to be thanked"]]),
+      why: { ar: "العمل الذي يُتمّ بحب لا يترك شيئًا ناقصًا يلفت النظر، فيحتاج إلى عين تراه ولسان يشكره.", en: "Work finished with love leaves nothing undone to catch the eye, so it needs eyes that see it and words that thank it." } }
+  ]);
+
+  /* ── 9-14: الأخ مع أخته ── */
+  R("pig", { id: "pig-r16", minutes: 3, ages: "9-14",
+    title: { ar: "الغرفة الكبيرة", en: "The big room" },
+    origin: { ar: "على معنى حديث «حتى يحب لأخيه ما يحب لنفسه»", en: "On the hadith “until he loves for his brother what he loves for himself”" },
+    body: {
+      ar: ["انتقلت العائلة إلى شقة جديدة فيها غرفتان للأولاد: كبيرة لها شرفة، وصغيرة نافذتها على الدرج.",
+        "دخل زياد الغرفة الكبيرة أولًا، ورمى حقيبته على السرير، وقال: «هذه لي. أنا الولد، وأنا الأكبر».",
+        "ووقفت أخته سارة عند الباب، وفي يدها صندوق صغير فيه أصص نبتاتها. كانت تريد الشرفة لها، ولم تقل شيئًا.",
+        "قال الأب: «نقرر بعد العشاء». وعلى العشاء سأل: «من يحتاج الغرفة الكبيرة أكثر، ولماذا؟».",
+        "قال زياد: «لأني الولد». قال الأب: «وما علاقة هذا بالغرفة؟». فلم يجد زياد جوابًا ثانيًا.",
+        "وقالت سارة: «نبتاتي تحتاج إلى الشمس. ومكتبي كبير، لا يدخل الغرفة الصغيرة».",
+        "نام زياد تلك الليلة في الغرفة الكبيرة وهو غاضب. وفي الصباح رأى سارة عند نافذة الدرج الضيقة، تصفّ أصصها على العتبة واحدًا بجانب الآخر، تبحث لها عن شمس.",
+        "وتذكّر حديثًا حفظه في المدرسة: «لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه». وفهم أن كونه الولد لا يعطيه في البيت نصيبًا أكبر من أخته، وأن الأخ الكبير يحمل عن أخته. وأحبّ لها ما كان يحبه لنفسه: غرفة فيها شمس.",
+        "حمل زياد حقيبته إلى الغرفة الصغيرة، ثم رجع وحمل مع سارة مكتبها الكبير. وفي العصر كانت الأصص على الشرفة، وزياد يسقيها معها."],
+      en: ["The family moved to a new flat with two rooms for the children: a big one with a balcony, and a small one whose window looked onto the stairwell.",
+        "Ziyad went into the big room first, threw his bag on the bed and said, “This one's mine. I'm the boy, and I'm the eldest.”",
+        "His sister Sara stood at the door holding a small box of her potted plants. She wanted the balcony for them, but she said nothing.",
+        "“We'll decide after dinner,” said their father. Over dinner he asked, “Who needs the big room more, and why?”",
+        "“Because I'm the boy,” said Ziyad. “And what does that have to do with the room?” asked his father. Ziyad couldn't find a second reason.",
+        "Sara said, “My plants need sun. And my desk is big; it won't fit in the small room.”",
+        "Ziyad slept in the big room that night, still angry. In the morning he saw Sara at the narrow stairwell window, lining her pots up on the sill one beside the other, looking for some sun for them.",
+        "He remembered a hadith he had learnt at school: “None of you truly believes until he loves for his brother what he loves for himself.” And he understood that being the boy gives him no bigger share at home than his sister, and that an older brother carries things for his sister. He wanted for her what he had wanted for himself: a room with sun in it.",
+        "Ziyad carried his bag to the small room, then came back and carried Sara's big desk with her. By the afternoon the pots were on the balcony, and Ziyad was watering them with her."]
+    },
+    ask: { ar: "هل أخذتَ شيئًا مرة لأنك الأكبر فقط؟ من كان يحتاجه أكثر منك؟", ar_f: "هل أخذتِ شيئًا مرة لأنك الكبرى فقط؟ من كان يحتاجه أكثر منك؟", en: "Have you ever taken something just because you were the eldest? Who needed it more than you?" },
+    quote: {
+      ar: "«لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ»",
+      en: "Meaning: None of you truly believes until he loves for his brother what he loves for himself.",
+      ref: "صحيح البخاري 13، وصحيح مسلم 45 (ترقيم sunnah.com: الكتاب 1، الحديث 77)، عن أنس بن مالك", checked: "hadith-api (fawazahmed0)", verify: true
+    },
+    source: src("ومعناها من حديث في صحيح البخاري (13) وصحيح مسلم (45).", "Its meaning comes from a hadith in Sahih al-Bukhari (13) and Sahih Muslim (45).") });
+  Q("pig", [
+    { id: "pig-q28", readingId: "pig-r16", correct: 1,
+      q: { ar: "ما السبب الذي قاله زياد حين سأل الأب: من يحتاج الغرفة الكبيرة أكثر؟", en: "What reason did Ziyad give when their father asked who needed the big room more?" },
+      options: O([["أن عنده كتبًا كثيرة", "That he had lots of books"], ["أنه الولد", "That he was the boy"], ["أنه يحب الشرفة", "That he loved the balcony"]]),
+      why: { ar: "لم يكن عند زياد سبب من حاجته، فلما سأله أبوه عن علاقة ذلك بالغرفة لم يجد جوابًا.", en: "Ziyad had no reason from his own need, so when his father asked what that had to do with the room, he had no answer." } },
+    { id: "pig-q29", readingId: "pig-r16", correct: 0,
+      q: { ar: "ماذا رأى زياد في الصباح فغيّر رأيه؟", en: "What did Ziyad see in the morning that changed his mind?" },
+      options: O([["سارة تصفّ أصصها عند نافذة الدرج الضيقة تبحث لها عن شمس", "Sara lining up her pots at the narrow stairwell window, looking for sun"], ["أباه يحمل حقيبته إلى الغرفة الصغيرة", "His father carrying his bag to the small room"], ["أن الغرفة الكبيرة باردة في الليل", "That the big room was cold at night"]]),
+      why: { ar: "حين رأى حاجة أخته بعينه، أحب لها ما كان يحبه لنفسه.", en: "When he saw his sister's need with his own eyes, he wanted for her what he had wanted for himself." } }
+  ]);
+
+  /* ── 9-14: الأخت مع أخيها ── */
+  R("human", { id: "human-r17", minutes: 3, ages: "9-14",
+    title: { ar: "التقليد", en: "The impression" },
+    origin: { ar: "على معنى آية من سورة الحجرات", en: "On a verse of Surat al-Hujurat" },
+    body: {
+      ar: ["كان آدم، أخو سارة الصغير، يتلعثم في الحروف حين يستعجل: «س... س... سارة، أين قلمي؟».",
+        "وفي يوم زارت سارةَ صاحباتُها. ودخل آدم يسأل عن قلمه الأزرق، فتلعثم كعادته، ثم خرج.",
+        "فقلّدته سارة: «أ... أ... أين ق... ق... قلمي؟». وضحكت البنات كثيرًا، فقلّدته مرة ثانية، بصوت أعلى.",
+        "ولم يكن آدم قد ابتعد. كان واقفًا في الممر، والقلم في يده، ووجهه أحمر.",
+        "رأته سارة من فتحة الباب، فسكتت. وسكتت البنات معها.",
+        "وفي الليل لم يأتِ آدم ليقول لها: تصبحين على خير، كما يفعل كل ليلة.",
+        "فهمت سارة أن ضحك صاحباتها أخذته من أخيها، وأن آدم صار يخاف أن يتكلم أمامها. وتذكّرت أن الله نهى أن يسخر أحد من أحد، لأن من نسخر منه قد يكون خيرًا منا. والأخت مكانها أن تكون الأمان لأخيها حين يتعثر.",
+        "في اليوم التالي جاءت صاحباتها، فنادت سارة آدم، وقالت أمامهن: «قلّدتك أمس، وكان هذا قبيحًا مني. سامحني». ثم طلبت منه أن يحكي لهن عن حصانه الذي رسمه، فحكى بمهل، ولم يستعجل، ولم يضحك أحد."],
+      en: ["Adam, Sara's little brother, stumbled over his letters when he was in a hurry: “S... S... Sara, where's my pen?”",
+        "One day Sara's friends came round. Adam came in asking about his blue pen, stumbled as usual, and went out again.",
+        "So Sara did an impression of him: “W... w... where's my p... p... pen?” The girls laughed and laughed, so she did it again, louder.",
+        "But Adam hadn't gone far. He was standing in the corridor with the pen in his hand, his face red.",
+        "Sara saw him through the gap in the door and fell silent. The girls fell silent with her.",
+        "That night Adam didn't come to say goodnight to her, the way he did every night.",
+        "Sara understood that her friends' laughter had been taken from her brother, and that Adam was now afraid to speak in front of her. She remembered that Allah has forbidden anyone to mock anyone else, because the one we mock may be better than us. A sister's place is to be the safe place for her brother when he stumbles.",
+        "The next day her friends came again. Sara called Adam and said in front of them all: “I made fun of you yesterday, and it was an ugly thing to do. Please forgive me.” Then she asked him to tell them about the horse he had drawn, and he told them slowly, without hurrying, and nobody laughed."]
+    },
+    ask: { ar: "هل ضحكنا مرة على أحد في بيتنا؟ كيف نصلح ذلك؟", en: "Have we ever laughed at someone at home? How do we put it right?" },
+    quote: {
+      ar: "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا لَا يَسْخَرْ قَوْمٌ مِنْ قَوْمٍ عَسَىٰ أَنْ يَكُونُوا خَيْرًا مِنْهُمْ وَلَا نِسَاءٌ مِنْ نِسَاءٍ عَسَىٰ أَنْ يَكُنَّ خَيْرًا مِنْهُنَّ﴾",
+      en: "Meaning: O you who believe, let no people mock another people, for they may be better than them; nor let women mock other women, for they may be better than them.",
+      ref: "الحجرات 49:11", checked: "tanzil quran-simple, with diacritics (api.alquran.cloud)", verify: true
+    },
+    source: src("ومعناها من سورة الحجرات (49:11).", "Its meaning comes from Surat al-Hujurat (49:11).") });
+  Q("human", [
+    { id: "human-q29", readingId: "human-r17", correct: 2,
+      q: { ar: "أين كان آدم حين قلّدته سارة؟", en: "Where was Adam when Sara did her impression of him?" },
+      options: O([["في غرفته يرسم حصانه", "In his room, drawing his horse"], ["عند جدته في البيت المجاور", "At his grandmother's next door"], ["في الممر قريبًا، يسمع كل شيء", "Nearby in the corridor, hearing everything"]]),
+      why: { ar: "ظنت سارة أنه ابتعد، وكان يسمع، فصار يخاف أن يتكلم أمامها.", en: "Sara thought he had gone, but he could hear, and now he was afraid to speak in front of her." } },
+    { id: "human-q30", readingId: "human-r17", correct: 1,
+      q: { ar: "كيف أصلحت سارة خطأها؟", en: "How did Sara put her mistake right?" },
+      options: O([["أعطت آدم قلمًا أزرق جديدًا", "She gave Adam a new blue pen"], ["اعتذرت له أمام صاحباتها أنفسهن", "She apologised to him in front of the same friends"], ["طلبت من أمها أن تكلّمه", "She asked her mother to talk to him"]]),
+      why: { ar: "السخرية كانت أمام صاحباتها، فجعلت الاعتذار أمامهن، ثم أعطته مكانًا يتكلم فيه بأمان.", en: "The mocking happened in front of her friends, so she apologised in front of them, then gave him a safe place to speak." } }
+  ]);
+
+  /* ── 15+: نظرة البنت إلى الرجل، وأمها مع أبيها ── */
+  R("pig", { id: "pig-r17", minutes: 4, ages: "15+",
+    title: { ar: "حين خسر أبي عمله", en: "When Dad lost his job" },
+    origin: { ar: "على معنى حديث «ليس الغنى عن كثرة العرض»", en: "On the hadith “Wealth is not having many possessions”" },
+    body: {
+      ar: ["أُغلقت الشركة التي يعمل فيها أبو هالة في آخر الشهر. عرفت هالة قبل أن يقول أحد شيئًا: من صوت الباب حين دخل، ومن أنه لم يخلع حذاءه عند الباب كعادته.",
+        "وفي الأسبوع نفسه خُطبت ابنة خالتها. وفي مجموعة البنات كان السؤال الأول: «ما سيارته؟»، والثاني: «كم راتبه؟». وأرسلت إحداهن صورة الخاتم، فامتلأت المجموعة بالقلوب.",
+        "وفي المساء كانت هالة ترى أباها جالسًا على طرف الكنبة، يكتب سيرته الذاتية على الهاتف، ويمسحها، ويعيد كتابتها. وسألت نفسها سؤالًا خافت منه: هل صار أبي الآن أقل؟",
+        "لكن أمها لم تتغير. كانت تصبّ له الشاي في كوبه نفسه، وتسأله رأيه في مدرسة أخيها كما كانت تسأله، وتقول لجدتها على الهاتف: «أبو هالة يبحث، والله لا يضيّعه».",
+        "وفي ليلة سمعتها تقول له في المطبخ، بصوت منخفض: «تزوجتك وأنت تقبض نصف هذا الراتب، أتذكر؟ وكنا سعداء. ابحث بهدوء، ونحن معك». ورأت هالة أباها يضحك لأول مرة منذ أسبوعين.",
+        "فهمت هالة أن أمها لا تزن أباها بما في جيبه. ترى فيه رجلًا أمينًا، يتعب لهم، ويصلّي، ويضحك مع أولاده، ويُستشار في أمرهم، وهذا كله بقي حين ذهب الراتب. والمرأة التي تنظر إلى الرجل هذه النظرة تحبه هو، وتبقى معه في الضيق. وتذكّرت أسئلة المجموعة عن السيارة والراتب، ولم يسأل أحد: كيف يعامل أمه؟ هل يصدق إذا وعد؟",
+        "كتبت هالة في المجموعة: «الله يتمّم لها على خير. وكيف أخلاقه؟». ولم يجبها أحد. وبعد ساعة كتبت لها ابنة خالتها نفسها، في رسالة خاصة: «سؤالك أجمل سؤال جاءني اليوم»."],
+      en: ["The company Hala's father worked for closed at the end of the month. Hala knew before anyone said anything: from the sound of the door when he came in, and from the way he didn't take his shoes off at the door as he always did.",
+        "That same week her cousin got engaged. In the girls' group chat the first question was “What car does he drive?” and the second was “What's his salary?” Someone posted a photo of the ring, and the chat filled up with hearts.",
+        "In the evenings Hala watched her father sitting on the edge of the sofa, typing his CV on his phone, deleting it, and typing it again. And she asked herself a question that frightened her: is my father worth less now?",
+        "But her mother hadn't changed. She poured his tea into the same cup, asked his opinion about her brother's school as she always had, and told Grandma on the phone, “He's looking. Allah won't let him down.”",
+        "One night Hala heard her say to him in the kitchen, quietly: “I married you when you earned half that salary, remember? And we were happy. Look calmly. We're with you.” And Hala saw her father laugh for the first time in two weeks.",
+        "Hala understood that her mother doesn't weigh her father by what is in his pocket. She sees an honest man who works hard for them, who prays, who laughs with his children and is consulted about them, and all of that stayed when the salary went. A woman who looks at a man this way loves him for himself, and stays with him through hard times. And Hala thought of the questions in the chat about the car and the salary, and how nobody had asked: how does he treat his mother? Does he keep his word?",
+        "Hala wrote in the group: “May Allah bless it for her. And what's his character like?” Nobody replied. An hour later her cousin herself sent her a private message: “Your question was the nicest one I got today.”"]
+    },
+    ask: { ar: "حين تحترم شخصًا، بماذا تقيسه؟ وبماذا تحب أن يقيسك الناس؟", ar_f: "حين تحترمين شخصًا، بماذا تقيسينه؟ وبماذا تحبين أن يقيسك الناس؟", en: "When you respect someone, what do you measure them by? And what would you like people to measure you by?" },
+    quote: {
+      ar: "«لَيْسَ الْغِنَى عَنْ كَثْرَةِ الْعَرَضِ، وَلَكِنَّ الْغِنَى غِنَى النَّفْسِ»",
+      en: "Meaning: Wealth is not having many possessions; true wealth is the wealth of the soul.",
+      ref: "صحيح البخاري 6446، وصحيح مسلم 1051، عن أبي هريرة رضي الله عنه", checked: "hadith-api (fawazahmed0)", verify: true
+    },
+    source: src("ومعناها من حديث في صحيح البخاري (6446) وصحيح مسلم (1051).", "Its meaning comes from a hadith in Sahih al-Bukhari (6446) and Sahih Muslim (1051).") });
+  Q("pig", [
+    { id: "pig-q30", readingId: "pig-r17", correct: 2,
+      q: { ar: "ما الذي بقي كما هو في معاملة الأم لزوجها بعد أن خسر عمله؟", en: "What stayed the same in the way the mother treated her husband after he lost his job?" },
+      options: O([["أعطته كل ما ادّخرته من مال", "She gave him all the money she had saved"], ["طلبت منه ألا يخبر أحدًا", "She asked him not to tell anyone"], ["كانت تسأله رأيه في أمر الأولاد كما كانت تسأله", "She asked his opinion about the children as she always had"]]),
+      why: { ar: "لم يتغير مكانه عندها، لأنها كانت ترى الرجل نفسه بأخلاقه وعمله.", en: "His place with her didn't change, because she saw the man himself, his character and his work." } },
+    { id: "pig-q31", readingId: "pig-r17", correct: 0,
+      q: { ar: "ماذا سألت هالة في مجموعة البنات؟", en: "What did Hala ask in the girls' group chat?" },
+      options: O([["كيف أخلاق الخاطب", "What the groom's character is like"], ["كم ثمن الخاتم", "How much the ring cost"], ["أين سيسكنان بعد الزواج", "Where they would live after the wedding"]]),
+      why: { ar: "تعلّمت من أمها السؤال الذي يقيس الرجل بما يبقى منه: أخلاقه.", en: "She had learnt from her mother the question that measures a man by what lasts: his character." } }
+  ]);
+
+  /* ── 15+: نظرة الشاب إلى أخته وإلى المرأة ── */
+  R("human", { id: "human-r18", minutes: 4, ages: "15+",
+    title: { ar: "اعملي لي شايًا", en: "Make me a tea" },
+    origin: { ar: "على معنى حديث «استوصوا بالنساء خيرًا»", en: "On the hadith “Treat women well”" },
+    body: {
+      ar: ["رجع أنس من التدريب، ورمى نفسه على الكنبة، وقال من غير أن يلتفت: «مريم، اعملي لي شايًا».",
+        "كانت أخته مريم على طاولة الطعام بين كتب الكيمياء، وامتحانها غدًا في الثامنة صباحًا. قالت: «اعمله لنفسك، أنا أذاكر».",
+        "قال: «أنا راجع من التدريب، وأنتِ قاعدة. ثم إن هذا شغلك أصلًا».",
+        "لم تردّ مريم، لكن قلمها توقف. وجدّهما في الكرسي القريب طوى جريدته ببطء.",
+        "قام الجد، ودخل المطبخ، ورجع بثلاثة أكواب: واحد لمريم، وواحد لأنس، وواحد له. وجلس بجانب أنس وقال: «أتعرف أن جدتك، رحمها الله، كانت تحفظ من القرآن أكثر مني؟ كنت أعمل لها الشاي حين تراجع حفظها، وكان هذا من أحب أوقاتي».",
+        "ثم قال: «أوصى النبي صلى الله عليه وآله وسلم بالنساء خيرًا. وأختك وأمك أهلك، ولهما في البيت ما لك. وامتحان مريم غدًا عندها مثل مباراتك عندك».",
+        "سكت أنس. وفهم أن كلمة «هذا شغلك» جعلت أخته في عينه أقل منه، كأن وقتها أرخص من وقته وتعبها أخف من تعبه. وأخته مثله في الكرامة، والرجل الذي يجعل المرأة خادمة له يسيء إليها، ويسيء إلى نفسه أيضًا.",
+        "في التاسعة ليلًا دخل أنس المطبخ، وعمل كوبين، ووضع واحدًا بجانب كتاب الكيمياء، ولم يقل شيئًا. وفي الظهر وجد ورقة على باب غرفته بخط مريم: «حللتُ الأسئلة كلها. شكرًا على الشاي»."],
+      en: ["Anas got back from training, threw himself onto the sofa and said, without turning round, “Maryam, make me a tea.”",
+        "His sister Maryam was at the dining table among her chemistry books, with an exam at eight the next morning. “Make it yourself,” she said. “I'm revising.”",
+        "“I've just got back from training, and you're just sitting there,” he said. “Anyway, that's your job.”",
+        "Maryam didn't answer, but her pen stopped. Their grandfather, in the chair nearby, slowly folded his newspaper.",
+        "He got up, went into the kitchen, and came back with three cups: one for Maryam, one for Anas, one for himself. He sat down next to Anas and said, “Did you know your grandmother, may Allah have mercy on her, knew more Quran by heart than I did? I used to make her tea while she revised it, and those were some of my favourite times.”",
+        "Then he said, “The Prophet, peace and blessings be upon him and his family, told us to treat women well. Your sister and your mother are your family, and this house is as much theirs as yours. Maryam's exam tomorrow matters to her as much as your match matters to you.”",
+        "Anas said nothing. He understood that the words “that's your job” had made his sister smaller than him in his own eyes, as if her time were cheaper than his and her tiredness lighter than his. His sister is his equal in dignity, and a man who turns a woman into his servant wrongs her, and wrongs himself too.",
+        "At nine that night Anas went into the kitchen, made two cups, put one next to the chemistry book, and said nothing. At midday he found a note on his door in Maryam's handwriting: “I answered every question. Thanks for the tea.”"]
+    },
+    ask: { ar: "ما الكلمة التي قلتها مرة لأختك أو أخيك وجعلته أقل منك؟", ar_f: "ما الكلمة التي قلتِها مرة لأختك أو أخيك وجعلته أقل منك؟", en: "What have you once said to your sister or brother that made them smaller than you?" },
+    quote: {
+      ar: "«وَاسْتَوْصُوا بِالنِّسَاءِ خَيْرًا»",
+      en: "Meaning: And treat women well; take my counsel to be good to them.",
+      ref: "صحيح البخاري 5186، وصحيح مسلم 1468 (ترقيم sunnah.com: الكتاب 17، الحديث 80)، عن أبي هريرة رضي الله عنه", checked: "hadith-api (fawazahmed0)", verify: true
+    },
+    source: src("ومعناها من حديث في صحيح البخاري (5186) وصحيح مسلم (1468).", "Its meaning comes from a hadith in Sahih al-Bukhari (5186) and Sahih Muslim (1468).") });
+  Q("human", [
+    { id: "human-q31", readingId: "human-r18", correct: 0,
+      q: { ar: "ماذا كانت مريم تفعل حين طلب أنس الشاي؟", en: "What was Maryam doing when Anas asked for tea?" },
+      options: O([["تذاكر الكيمياء لامتحان صباح الغد", "Revising chemistry for an exam the next morning"], ["تشاهد مقطعًا على الهاتف", "Watching a clip on her phone"], ["تطبخ العشاء مع أمها", "Cooking dinner with her mother"]]),
+      why: { ar: "كان وقتها مشغولًا بما يهمها، كما كان وقته مشغولًا بتدريبه.", en: "Her time was taken up with something that mattered to her, just as his was with training." } },
+    { id: "human-q32", readingId: "human-r18", correct: 1,
+      q: { ar: "ماذا فعل الجد بعد كلام أنس؟", en: "What did the grandfather do after Anas spoke?" },
+      options: O([["وبّخ أنس أمام أخته", "Told Anas off in front of his sister"], ["عمل الشاي للثلاثة، وحكى عن جدتهم", "Made tea for all three of them and told them about their grandmother"], ["طلب من مريم أن تعمل الشاي ثم تذاكر", "Told Maryam to make the tea and then revise"]]),
+      why: { ar: "أراه الجد بفعله قبل كلامه أن الرجل يقوم ويخدم أهله.", en: "The grandfather showed him by doing it, before saying anything, that a man gets up and serves his family." } }
+  ]);
+
+  /* ── 15+: المراهق مع والديه ── */
+  R("monkey", { id: "monkey-r16", minutes: 4, ages: "15+",
+    title: { ar: "أفّ", en: "Ugh" },
+    origin: { ar: "على معنى آية من سورة الإسراء", en: "On a verse of Surat al-Isra" },
+    body: {
+      ar: ["«رانيا، كيف أرسل رسالة صوتية؟ أنسى دائمًا». كانت هذه المرة الرابعة هذا الأسبوع، ورانيا في منتصف مقطع، وسمّاعة في أذن واحدة.",
+        "قالت: «أفّ يا ماما! اضغطي على الميكروفون وامسكيه. قلتها لك ألف مرة». وأخذت الهاتف من يد أمها، وأرسلت الرسالة بنفسها، وأعادته إليها.",
+        "قالت أمها: «شكرًا يا حبيبتي»، ورجعت إلى المطبخ. ولم تسألها عن شيء بعد ذلك.",
+        "في الليلة نفسها كانت رانيا تبحث في هاتف أمها عن صورة قديمة لعيد ميلادها. فوجدت مقطعًا: طفلة في الرابعة تحاول أن تربط حذاءها، والرباط يفلت من أصابعها، وصوت أمها من خلف الكاميرا: «مرة ثانية يا روني. أنتِ تقدرين».",
+        "والطفلة تحاول، مرة بعد مرة، والصوت لا يتغير. عدّت رانيا: تسع مرات. وفي التاسعة ربطت الطفلة الحذاء، وصفّق الصوت.",
+        "وفهمت رانيا لماذا ذكر القرآن كلمة صغيرة مثل «أف» بين حقوق الوالدين. حرفان فقط، لكنهما يقولان لمن علّمك كل شيء: أنت ثقيل عليّ. وأمها لم تقلها لها مرة واحدة في تسع محاولات. والأم التي تسأل للمرة الرابعة تحتاج من ابنتها الصبر نفسه الذي أعطتها إياه، وهي لا تطلبه.",
+        "في الصباح جلست رانيا بجانب أمها، وفتحت الهاتف، وقالت: «تعالي نتعلمها معًا، وأنتِ التي تضغطين، أنا لن ألمس شيئًا». أخطأت الأم مرتين. وفي الثالثة وصلت رانيا، وهي في الغرفة المجاورة، رسالة صوتية: «نجحت!»."],
+      en: ["“Rania, how do I send a voice message? I always forget.” It was the fourth time that week, and Rania was in the middle of a video with one earbud in.",
+        "“Ugh, Mum! Press the microphone and hold it. I've told you a thousand times.” She took the phone out of her mother's hand, sent the message herself, and handed it back.",
+        "“Thank you, love,” said her mother, and went back to the kitchen. She didn't ask her anything else after that.",
+        "That same night Rania was scrolling through her mother's phone for an old birthday photo when she found a video: a four-year-old trying to tie her shoe, the lace slipping through her fingers, and her mother's voice behind the camera: “Again, Rani. You can do it.”",
+        "The little girl kept trying, again and again, and the voice never changed. Rania counted: nine times. On the ninth the girl tied the shoe, and the voice clapped.",
+        "And Rania understood why the Quran mentions a word as small as “uff”, a sigh of impatience, among the rights of parents. It is only a sound, but it tells the person who taught you everything: you are a burden to me. Her mother had not said it to her once in nine tries. A mother asking for the fourth time needs the same patience from her daughter that she once gave her, and she does not ask for it.",
+        "In the morning Rania sat down next to her mother, opened the phone and said, “Let's learn it together, and you do the pressing. I won't touch anything.” Her mother got it wrong twice. On the third try Rania, in the next room, received a voice message: “I did it!”"]
+    },
+    ask: { ar: "ما السؤال الذي يكرره أبوك أو أمك؟ وكيف تجيب عنه في المرة الرابعة؟", ar_f: "ما السؤال الذي يكرره أبوكِ أو أمكِ؟ وكيف تجيبين عنه في المرة الرابعة؟", en: "What question does your father or mother keep asking? How do you answer it the fourth time?" },
+    quote: {
+      ar: "﴿فَلَا تَقُلْ لَهُمَا أُفٍّ وَلَا تَنْهَرْهُمَا وَقُلْ لَهُمَا قَوْلًا كَرِيمًا﴾",
+      en: "Meaning: Do not say to them even “uff”, do not scold them, and speak to them with noble words.",
+      ref: "الإسراء 17:23", checked: "tanzil quran-simple, with diacritics (api.alquran.cloud)", verify: true
+    },
+    source: src("ومعناها من سورة الإسراء (17:23-24).", "Its meaning comes from Surat al-Isra (17:23-24).") });
+  Q("monkey", [
+    { id: "monkey-q28", readingId: "monkey-r16", correct: 1,
+      q: { ar: "كم مرة حاولت الطفلة في المقطع أن تربط حذاءها؟", en: "How many times did the little girl in the video try to tie her shoe?" },
+      options: O([["ثلاث مرات", "Three times"], ["تسع مرات", "Nine times"], ["مرة واحدة", "Once"]]),
+      why: { ar: "تسع محاولات، والصوت من خلف الكاميرا لم يتغير ولم يتعب.", en: "Nine tries, and the voice behind the camera never changed and never grew tired." } },
+    { id: "monkey-q29", readingId: "monkey-r16", correct: 2,
+      q: { ar: "ماذا فعلت رانيا في الصباح؟", en: "What did Rania do in the morning?" },
+      options: O([["صارت ترسل عن أمها الرسائل كلها", "Started sending all her mother's messages for her"], ["كتبت لها الخطوات على ورقة وتركتها", "Wrote the steps on a piece of paper and left it for her"], ["جلست معها وتركتها تجرّب بنفسها حتى نجحت", "Sat with her and let her try by herself until she managed it"]]),
+      why: { ar: "أعطت أمها الصبر الذي أخذته منها وهي صغيرة: مرة ثانية، وثالثة، حتى تنجح.", en: "She gave her mother the patience she had received from her as a child: again, and again, until she managed." } }
+  ]);
+
+  /* ── مهام البيت للعلاقات ── */
+  S.zombie.tasks.push({ id: "zombie-t6", ar: "سؤال أحد أفراد البيت حين يبدو صامتًا أو متعبًا: «ما بك؟»، والجلوس معه دقيقة.", en: "Asked someone at home who seemed quiet or tired, “Are you alright?”, and sat with them for a minute." });
+  S.human.tasks.push({ id: "human-t6", ar: "عمل من أعمال البيت بعد الأكل مع الجميع (رفع الصحون أو مسح الطاولة)، دون أن يُطلب.", en: "Did a household job after a meal along with everyone (clearing plates or wiping the table), without being asked." });
+  S.pig.tasks.push({ id: "pig-t7", ar: "ترك شيء للأخ أو الأخت (المقعد، أو القطعة الكبرى، أو الدور) لأنه يحتاجه أكثر.", en: "Let a brother or sister have something (the seat, the bigger piece, the turn) because they needed it more." });
+  S.monkey.tasks.push({ id: "monkey-t7", ar: "الإجابة عن سؤال يكرره أحد الوالدين بهدوء، كأنها المرة الأولى.", en: "Answered a question a parent keeps asking, calmly, as if it were the first time." });
+  S.sabiq.tasks.push({ id: "sabiq-t7", ar: "عمل شيء يريح أحد الوالدين قبل أن يطلبه: كوب ماء، أو ترتيب، أو كلمة شكر.", en: "Did something to give a parent a rest before they asked: a glass of water, some tidying, a word of thanks." });
+})();
+
+/* ───────────── إظهار المعنى، 27 نوفمبر 2026 (قراءات الأطفال والمراهقين) ─────────────
+ * الطلب: «لا نعتمد على ذكاء القارئ فقط». سطر يُظهر وجه الخصلة ومعناها، يُضاف إلى الفقرة التي يفهم فيها البطل.
+ * The owner's request: stories should not rely on the reader's intelligence alone. Each entry appends one line to a paragraph:
+ * [reading id, paragraph index, ar, ar_f (null = same as ar), en].
+ */
+(function () {
+  var S = window.AKHLAQ_CONTENT.stages, all = {};
+  Object.keys(S).forEach(function (k) { S[k].readings.forEach(function (r) { all[r.id] = r; }); });
+  [
+    ["zombie-r9", 5, "كان هادي وحده تلك الليلة، يكتب وينتظر، وكان زياد على بُعد رسالة واحدة منه، وقلبه مشغول بالضحك فلم يرَ صديقه.", null, "Hadi had been alone that night, typing and waiting, and Ziyad had been one message away from him, his heart too busy laughing to see his friend."],
+    ["zombie-r11", 5, "وفهم حينها أن قدميه نعمة تحمله كل يوم، وأنه لم يشكر الله عليها مرة واحدة، وأن الحذاء الممزق شيء صغير بجانبها.", null, "Then he understood that his feet were a blessing that carried him every day, that he had never once thanked Allah for them, and that the torn shoe was a small thing beside them."],
+    ["zombie-r12", 6, "فهمت نور أن الستين رسالة كلها لمست اثنتي عشرة ثانية من الفيل، وأنها هي رأت الممر كله. وما رأته صار أمانة عندها، وكريم يُظلم الآن أمام الجميع.", null, "Nour saw that all sixty messages had touched twelve seconds of the elephant, and that she had seen the whole corridor. What she had seen was now a trust in her hands, and Karim was being wronged in front of everyone."],
+    ["zombie-r14", 8, "أراد هذه المرة أن يكون عقله حاضرًا مع المسألة، يفهم لماذا تُحلّ هكذا، حتى يجد طريقه إليها من أي جهة جاءت.", null, "This time he wanted his mind awake with the problem, understanding why it worked that way, so he could find his way to it from whichever side it came."],
+    ["zombie-r15", 5, "لم يكن الطفل يفكر في منصب، ولا في رأي الناس فيه، فرأى ما أمامه وقاله.", null, "The child wasn't thinking about any post, or about what people would think of him, so he saw what was in front of him and said it."],
+    ["pig-r9", 5, "ثم تذكرت هلا منحنية على الحاسوب، تكتب للمجموعة كلها وهي جائعة، وتقول «لا بأس» كي لا تُحرج أحدًا. وعرفت رنا أن حق صديقتها في يدها هي الآن، والله يراه ولو لم ينتبه أحد.", null, "Then she pictured Hala bent over the laptop, writing for all of them while she was hungry, saying \"it's fine\" so no one would feel awkward. Rana knew her friend's due was in her own hands now, and Allah saw it even if nobody else had noticed."],
+    ["pig-r11", 5, "والجرّة التي ملأها ليحرم الناس من الحكمة صارت هي نفسها ما يدفعه عن الشجرة.", null, "The very pot he had filled to keep wisdom from people was the thing that kept pushing him off the tree."],
+    ["pig-r14", 6, "عرف يمان أن الدرجة الكاملة الأولى كانت أرنبه، جاءت مرة ولن تتكرر، وأن الفهم ينمو عند من يتعب عليه يومًا بعد يوم، كما يتعب هذا العامل على أشجاره.", null, "Yaman saw that his first full marks had been his hare: it came once and wasn't coming back. Understanding grows for the one who works at it day after day, the way this man worked at his trees."],
+    ["pig-r15", 5, "كانت تملك أكثر مما حلمت به يومًا، ولم تفرح بشيء منه، لأن عينها كانت دائمًا على الشيء التالي.", null, "She owned more than she had ever dreamed of, and took joy in none of it, because her eyes were always on the next thing."],
+    ["monkey-r9", 4, "وعرف أن سليمًا أرسل ذلك الوجه الضاحك وحده بعد أن كتب شيئًا ومسحه مرتين، وأن ملصقًا آخر سيزيد جرحًا يحاول صاحبه أن يخفيه.", null, "He knew Salim had sent that laughing face on its own after typing something and deleting it twice, and that one more sticker would deepen a hurt Salim was trying to hide."],
+    ["monkey-r11", 8, "كانت تعرف الآن أن صياحهم لا يضرها وهي في الهواء، وأن صديقتيها اللتين انتظرتاها يومين تستحقان أن تصل معهما.", null, "She knew now that their shouting could not hurt her up in the air, and that the two friends who had waited two days for her deserved to have her arrive with them."],
+    ["monkey-r15", 8, "وتذكّر كل ما رآه في الطريق، فلم يجد فيه إلا زميلًا عائدًا من رحلة، وظنًّا كاد يجعله يجرح بريئًا.", null, "He went back over everything he had seen on the way, and found only a classmate coming home from a trip, and a suspicion that had nearly made him hurt someone innocent."],
+    ["human-r9", 4, "ورأى فيها أن إلياس يحسب حسابه قبل حساب المباراة نفسها، وأن الكلمة التي قالها وعينه على الهاتف صارت عند أخيه وعدًا ينتظره.", null, "He saw in it that Ilyas was counting on him even more than on the match, and that the word he had said with his eyes on his phone had become, for his brother, a promise he was waiting for."],
+    ["human-r12", 7, "ورأت أن المجموعة كلها التفّت حول هاتف، كما التفّ أهل الوليمة حول الفروة، وهالة على الدرج تنتظر ما انتظرته هي يومها.", null, "And she saw that the whole group had gathered round a phone, the way the wedding guests had gathered round the fur coat, while Hala sat on the steps waiting for what Layan herself had once waited for."],
+    ["human-r14", 7, "وتخيّل عمر في غرفته تلك الليلة، يقرأ الرسائل واحدة بعد واحدة ولا يجد ما يكتبه، وفهم أن وجهيه الضاحكين وصلا إليه كحجرين صغيرين.", null, "He pictured Omar in his room that night, reading the messages one after another and finding nothing to write, and understood that his own two laughing faces had reached Omar like two small stones."],
+    ["sabiq-r9", 4, "وفهمت أن العم صابرًا وقف أمام الكاميرا أربع مرات ينتظر طعامه، يستحي أن يرفع رأسه، وأن اللحظة التي فرحت بها كانت عليه ثقيلة.", null, "She understood that Uncle Saber had stood through four takes waiting for his food, too ashamed to lift his head, and that the moment she had been so pleased with had weighed heavily on him."],
+    ["sabiq-r12", 9, "فهم تادا أن جدّه أحرق تعب سنة كاملة في دقائق، لأن أهل القرية كانوا أغلى عنده من كل ما يملك.", null, "Tada understood that his grandfather had burned a whole year's work in minutes because the people of the village were dearer to him than everything he owned."],
+    ["sabiq-r14", 8, "جاءت يوم الشبكة وهي تعرف أنها لا تقدر أن تنقذ أحدًا، وحين وقعت هي في الحبل رجع الثلاثة كلهم من أجلها.", null, "She had come on the day of the net knowing she could save no one, and when she was the one caught, all three of them came back for her."],
+    ["sabiq-r15", 7, "كان يعرف أن صديقه ينتظره في السجن وحياته معلّقة بوعده، فلم يجعل العاصفة ولا التعب عذرًا.", null, "He knew his friend was waiting for him in prison with his life hanging on his word, and he would not let the storm or his exhaustion become an excuse."]
+  ].forEach(function (x) {
+    var b = all[x[0]] && all[x[0]].body, i = x[1]; if (!b) return;
+    b.ar[i] += " " + x[2]; b.en[i] += " " + x[4];
+    if (b.ar_f) b.ar_f[i] += " " + (x[3] || x[2]);
+  });
+})();
+
+window.AKHLAQ_CONTENT.version = "0.31.0-draft-2026-11-27"; // family stories and explicit-meaning lines

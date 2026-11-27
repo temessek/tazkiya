@@ -4001,3 +4001,295 @@ window.AKHLAQ_CONTENT_ADULT.choices = [
       why: { ar: "يدعو إلى الخير بدل أن يلصق بالطفل الخطأ.", en: "It invites the good instead of pinning the mistake on the child." } }
   ]);
 })();
+
+/* ───────────── العلاقات السليمة في البيت للكبار، 27 نوفمبر 2026 ─────────────
+ * الطلب: الزوج والزوجة، والمال في يد الرجل، ونظرة المرأة إلى الرجل، والأبناء الكبار مع والديهم،
+ * والوالدان مع أبنائهم الكبار. الخطة: docs/FAMILY-STORIES-PLAN.md. الأسماء خيالية.
+ * ap-r11 (المال في يد الرجل) في قائمة المراجعة الشرعية المعلقة.
+ * Healthy relationships at home, adult edition. ap-r11 awaits the pending sharia review.
+ */
+(function () {
+  var S = window.AKHLAQ_CONTENT_ADULT.stages;
+  // body: common paragraphs, then the closing question in the masculine and feminine address
+  function R(k, o) {
+    var b = o.body; o.body = { ar: b.ar.concat(b.askAr), ar_f: b.ar.concat(b.askArF), en: b.en.concat(b.askEn) };
+    S[k].readings.push(Object.assign({ ages: "18+" }, o));
+  }
+  function Q(k, list) { list.forEach(function (q) { S[k].quiz.push(Object.assign({ type: "comprehension" }, q)); }); }
+  function O(a) { return a.map(function (x) { return { ar: x[0], en: x[1] }; }); }
+  var NAMES = { ar: "الأسماء والمشاهد من عندنا.", en: "The names and scenes are ours." };
+
+  /* ── الخنصر: الوالدان مع ابنهما الكبير ── */
+  R("zombie", { id: "az-r11", minutes: 5,
+    title: { ar: "ابني ليس في العاشرة", en: "My son is not ten any more" },
+    origin: { ar: "من قصة إبراهيم وإسماعيل عليهما السلام في سورة الصافات", en: "From the story of Ibrahim and Ismail, peace be upon them, in Surat as-Saffat" },
+    body: {
+      ar: ["تتصل أم سامر بابنها كل صباح في السابعة والنصف. بدأت هذه المكالمة حين سافر للدراسة في سنته الأولى، لتطمئن أنه استيقظ. وسامر اليوم في الرابعة والثلاثين، وله ولدان، ويستيقظ قبلها.",
+        "والمكالمة لم تعد سؤالًا عن نومه. صارت تعليمات: «لا تترك الولد يسهر». «زوجتك تكثر الملح». «لماذا لم تشترِ الشقة التي قلت لك عنها؟». ويسمعها سامر وهو يقود، ويقول «حاضر» ثلاث مرات، ثم يصل إلى عمله متعبًا قبل أن يبدأ يومه.",
+        "لم تقصد أمه أذى. قلبها بقي واقفًا عند سنة مضت، والعادة إذا لم تُفحص بقيت تعمل وحدها بعد أن يزول سببها. وهذه غفلة من نوع رقيق: أن تحب ولدك، ولا ترى أنه كبر.",
+        "وفي القرآن مشهد أب يكلّم ابنه حين بلغ معه السعي، في أعظم أمر يمكن أن يقال لابن: ﴿يَا بُنَيَّ إِنِّي أَرَىٰ فِي الْمَنَامِ أَنِّي أَذْبَحُكَ فَانْظُرْ مَاذَا تَرَىٰ﴾ (الصافات 37:102). أمر من الله، ومع ذلك سأل إبراهيم عليه السلام ابنه عن رأيه، وانتظر جوابه.",
+        "الابن الكبير يبقى ابنًا، وحقه على والديه يتغير شكله. كان حقه وهو صغير أن يُحمل ويُوجَّه، وصار حقه وهو كبير أن يُستشار، ويُترك له قراره في بيته، ويُدعى له. وكثير من الأبناء الذين يقللون اتصالهم بوالديهم يحبونهم كما كانوا؛ يتعبون من دور الطفل الذي يُعادون إليه في كل مكالمة.",
+        "وفي يوم سألت أم سامر كنّتها عن طبخة تعلمتها من أمها، وطلبت أن تكتب لها طريقتها. وقالت لسامر في المكالمة: «أنت أدرى ببيتك، وأنا أدعو لكم». ولم يتغير شيء آخر. لكن سامر صار هو الذي يتصل بها في المساء، ويحكي لها ما لم يكن يحكيه."],
+      askAr: ["سؤال للمحاسبة: ما النصيحة التي تكررها لابنك أو ابنتك الكبيرة؟ وهل سألته مرة: ما رأيك أنت؟ وما الذي تحتاج أن تكفّ عن قوله لتسمع ما لا يقوله؟"],
+      askArF: ["سؤال للمحاسبة: ما النصيحة التي تكررينها لابنك أو ابنتك الكبيرة؟ وهل سألتِه مرة: ما رأيك أنت؟ وما الذي تحتاجين أن تكفّي عن قوله لتسمعي ما لا يقوله؟"],
+      en: ["Samer's mother calls him every morning at half past seven. The call began when he went away to university in his first year, so she could be sure he was up. Samer is now thirty-four, with two children, and he wakes before she does.",
+        "The call is no longer about his sleep. It has become instructions: “Don't let the boy stay up late.” “Your wife puts too much salt in.” “Why didn't you buy the flat I told you about?” Samer listens while driving, says “All right” three times, and arrives at work tired before his day has begun.",
+        "His mother means no harm. Her heart stayed standing at a year that has passed, and a habit nobody examines keeps running on its own after its reason is gone. It is a tender kind of heedlessness: to love your child and not see that he has grown up.",
+        "The Quran shows a father speaking to his son once he was old enough to work beside him, about the gravest thing a son could be told: “My son, I have seen in a dream that I am sacrificing you, so consider what you think” (as-Saffat 37:102). It was a command from Allah, and still Ibrahim, peace be upon him, asked his son for his view and waited for his answer.",
+        "A grown child is still your child, and what he is owed by his parents changes its shape. When small, he was owed carrying and guidance; grown, he is owed being consulted, being left his own decisions in his own home, and being prayed for. Many children who call their parents less love them just as much; they are tired of the child's role they are put back into on every call.",
+        "One day Samer's mother asked her daughter-in-law about a dish she had learnt from her own mother, and asked her to write down how she made it. And on the phone she told Samer, “You know your own home best. I pray for you all.” Nothing else changed. But Samer became the one who called her in the evenings, and told her things he had never told her before."],
+      askEn: ["A question for your evening review: what advice do you keep repeating to your grown son or daughter? Have you ever asked them, “What do you think?” And what would you need to stop saying in order to hear what they leave unsaid?"]
+    },
+    quote: {
+      ar: "﴿يَا بُنَيَّ إِنِّي أَرَىٰ فِي الْمَنَامِ أَنِّي أَذْبَحُكَ فَانْظُرْ مَاذَا تَرَىٰ﴾",
+      en: "Meaning: My son, I have seen in a dream that I am sacrificing you, so consider what you think.",
+      ref: "الصافات 37:102", checked: "tanzil quran-simple, with diacritics (api.alquran.cloud)", verify: true
+    },
+    source: { ar: "مقالة مع آية من سورة الصافات (37:102). " + NAMES.ar, en: "An article with a verse of as-Saffat (37:102). " + NAMES.en } });
+  Q("zombie", [
+    { id: "az-q19", readingId: "az-r11", correct: 1,
+      q: { ar: "ماذا فعل إبراهيم عليه السلام مع ابنه في الآية، كما تقف عنده القراءة؟", en: "What did Ibrahim, peace be upon him, do with his son in the verse, as the reading points out?" },
+      options: O([["أخبره بالأمر بعد أن نفّذه", "Told him about the command after carrying it out"], ["سأله عن رأيه وانتظر جوابه", "Asked him for his view and waited for his answer"], ["أخفى عنه الأمر رحمة به", "Kept the command from him out of mercy"]]),
+      why: { ar: "حتى في أمر من الله، كلّم ابنه الشاب كلام من يحترم رأيه: «فانظر ماذا ترى».", en: "Even with a command from Allah, he spoke to his young son as someone whose view he respected: “consider what you think”." } },
+    { id: "az-q20", readingId: "az-r11", type: "situation", correct: 0,
+      q: { ar: "ابنتك المتزوجة اختارت لأولادها مدرسة لا تعجبك. ما الأقرب لما في القراءة؟", en: "Your married daughter has chosen a school for her children that you don't like. What is closest to the reading?" },
+      options: O([["أقول رأيي مرة واحدة بلطف، ثم أترك لها القرار وأدعو لها", "Say what I think once, kindly, then leave the decision to her and pray for her"], ["أكرر رأيي في كل مكالمة حتى تقتنع", "Repeat my view on every call until she is convinced"], ["أسكت وأحمل في نفسي عليها", "Say nothing and hold it against her inside"]]),
+      why: { ar: "حق الولد الكبير أن يُستشار ويُترك له قرار بيته. يُقال الرأي مرة، ثم يُترك القرار لصاحبه مع الدعاء.", en: "A grown child is owed being consulted and being left the decisions of their own home. The advice is given once, then the decision is left to them, with prayers." } }
+  ]);
+
+  /* ── البنصر: الرجل والمال، ونظرته إلى زوجته ── */
+  R("pig", { id: "ap-r11", minutes: 5,
+    title: { ar: "المال الذي في يده", en: "The money in his hand" },
+    origin: { ar: "من حديث سعد بن أبي وقاص رضي الله عنه في الصحيحين", en: "From a hadith of Sa'd ibn Abi Waqqas in both Sahih collections" },
+    body: {
+      ar: ["حين وُلد ولدهما الثاني تركت هدى عملها في المختبر، باتفاق بينها وبين خالد. صار راتب خالد مال البيت كله، وصارت بطاقته هي البطاقة.",
+        "ولم يحدث شيء كبير. لكن أشياء صغيرة صارت تتكرر: «كم دفعتِ في هذه؟». «من قال إننا نحتاجها؟». وفي خلاف على سفر الإجازة قال خالد جملة ندم عليها قبل أن يكملها: «أنا الذي أدفع، فأنا الذي أقرر».",
+        "سكتت هدى، ثم قالت بهدوء: «وأنا التي تركت عملي لنربي أولادنا. هل بقي لي رأي؟».",
+        "المال في البيت يغري صاحبه بأن يرى نفسه مالكًا لمن ينفق عليهم. والسنة تقلب هذه النظرة، فتجعل النفقة على الزوجة عبادة يُؤجر عليها صاحبها. قال النبي صلى الله عليه وآله وسلم لسعد: «إِنَّكَ لَنْ تُنْفِقَ نَفَقَةً تَبْتَغِي بِهَا وَجْهَ اللَّهِ إِلَّا أُجِرْتَ عَلَيْهَا، حَتَّى مَا تَجْعَلُ فِي فَمِ امْرَأَتِكَ» (البخاري 56، ومسلم 1628). اللقمة التي يضعها في فم زوجته يُكتب له أجرها.",
+        "وقال صلى الله عليه وآله وسلم: «وَالرَّجُلُ رَاعٍ عَلَى أَهْلِ بَيْتِهِ وَهُوَ مَسْئُولٌ عَنْهُمْ، وَالْمَرْأَةُ رَاعِيَةٌ عَلَى بَيْتِ بَعْلِهَا وَوَلَدِهِ وَهِيَ مَسْئُولَةٌ عَنْهُمْ» (مسلم 1829، وأصله في البخاري 893). كلاهما راعٍ، وكلاهما مسؤول أمام الله.",
+        "الرجل الذي في يده المال يحمل أمانة. وزوجته شريكته في البيت وتساويه في الكرامة، ولها رأي في ما يخصها ويخص أولادها، أنفقت أم لم تنفق. والعمل الذي تعمله في البيت عمل حقيقي، وإن لم يأتِ معه راتب.",
+        "اعتذر خالد في الليلة نفسها، اعتذارًا بلا «لكن». ثم فعل ما هو أصعب من الاعتذار: فتح لهدى حسابًا باسمها يحوّل إليه كل شهر مبلغًا ثابتًا لا تُسأل عنه. وصار قرار الإجازة يُكتب على ورقة واحدة، فيها رأيان."],
+      askAr: ["سؤال للمحاسبة: هل قلتَ يومًا، بلسانك أو بنبرتك، «أنا الذي أدفع»؟ وهل في بيتك من يستأذن في حاجته استئذان من لا حق له؟"],
+      askArF: ["سؤال للمحاسبة: هل قلتِ يومًا، بلسانك أو بنبرتك، «أنا التي أدفع»؟ وهل في بيتك من يستأذن في حاجته استئذان من لا حق له؟"],
+      en: ["When their second child was born, Huda left her job at the laboratory, by agreement between her and Khalid. Khalid's salary became all the household's money, and his card became the card.",
+        "Nothing big happened. But small things began to repeat: “How much did you pay for this?” “Who said we need it?” And in a disagreement over the holiday, Khalid said a sentence he regretted before he had finished it: “I'm the one who pays, so I'm the one who decides.”",
+        "Huda was quiet. Then she said calmly, “And I'm the one who left her job so we could bring up our children. Do I still get a say?”",
+        "Money at home tempts the one who holds it to see himself as the owner of those he spends on. The Sunnah turns that view over, and makes spending on one's wife an act of worship that is rewarded. The Prophet, peace and blessings be upon him and his family, told Sa'd: “You will not spend anything seeking the face of Allah without being rewarded for it, even the morsel you put in your wife's mouth” (al-Bukhari 56, Muslim 1628). The mouthful he puts in his wife's mouth is written down as his reward.",
+        "And he said, peace and blessings be upon him and his family: “A man is a shepherd over the people of his house and is answerable for them, and a woman is a shepherd over her husband's house and children and is answerable for them” (Muslim 1829, its source in al-Bukhari 893). Both are shepherds, and both are answerable before Allah.",
+        "The man with the money in his hand is holding a trust. His wife is his partner in the home and his equal in dignity, and she has a say in what concerns her and her children, whether or not she earns. The work she does at home is real work, even when no salary comes with it.",
+        "Khalid apologised that same night, an apology without a “but”. Then he did something harder than apologising: he opened an account in Huda's name and transferred a fixed sum into it every month, with no questions asked. And the holiday decision was written on a single sheet of paper, with two opinions on it."],
+      askEn: ["A question for your evening review: have you ever said, in words or in tone, “I'm the one who pays”? Is there anyone in your home who asks for what they need the way someone asks who has no right to it?"]
+    },
+    quote: {
+      ar: "«إِنَّكَ لَنْ تُنْفِقَ نَفَقَةً تَبْتَغِي بِهَا وَجْهَ اللَّهِ إِلَّا أُجِرْتَ عَلَيْهَا، حَتَّى مَا تَجْعَلُ فِي فَمِ امْرَأَتِكَ»",
+      en: "Meaning: You will not spend anything seeking the face of Allah without being rewarded for it, even the morsel you put in your wife's mouth.",
+      ref: "صحيح البخاري 56، وصحيح مسلم 1628", checked: "hadith-api (fawazahmed0)", verify: true
+    },
+    source: { ar: "مقالة مع حديثين في الصحيحين (البخاري 56 و893، ومسلم 1628 و1829). " + NAMES.ar, en: "An article with two hadiths from both Sahih collections (al-Bukhari 56 and 893, Muslim 1628 and 1829). " + NAMES.en } });
+
+  /* ── البنصر: نظرة المرأة إلى زوجها ── */
+  R("pig", { id: "ap-r12", minutes: 5,
+    title: { ar: "قائمة الطلبات", en: "The list of requests" },
+    origin: { ar: "من حديث بدء الوحي في صحيح البخاري", en: "From the hadith of the beginning of revelation in Sahih al-Bukhari" },
+    body: {
+      ar: ["كانت رنا تبحث في محادثتها مع زوجها عن رقم السبّاك. فصعدت في الرسائل أسبوعًا، ثم شهرًا، وتوقفت.",
+        "«حوّل لي فاتورة الكهرباء». «المدرسة تريد القسط». «نحتاج غسالة جديدة، هذه صورتها». «لا تنسَ الحليب». «عيد ميلاد ابن أختي، حوّل لي». وبينها ردوده: «تم». «تم». «حاضر». «تم».",
+        "لم تجد فيها سؤالًا واحدًا عن يومه، ولا كلمة شكر بعد «تم». وآخر مرة سألته فيها عن نفسه كانت قبل شهرين، حين مرض.",
+        "لو سألها أحد لأنكرت بشدة أنها ترى زوجها صندوق مال. لكن المحادثة كانت تقول ذلك. ومن يُكلَّم بالطلبات وحدها يبدأ يشعر أنه مطلوب لما يدفع، فيتعب، ويقل كلامه، ويظنه أهل البيت باردًا أو بخيلًا. والرجل يحتاج أن يُرى بنفسه وتعبه وقلبه، كما تحتاج المرأة.",
+        "وفي السيرة صورة أخرى. رجع النبي صلى الله عليه وآله وسلم من غار حراء يرتجف من أول الوحي، وكانت السيدة خديجة عليها السلام ذات مال وتجارة. فلم تحدّثه عن مال، وحدّثته عن نفسه: «كَلَّا وَاللَّهِ مَا يُخْزِيكَ اللَّهُ أَبَدًا، إِنَّكَ لَتَصِلُ الرَّحِمَ، وَتَحْمِلُ الْكَلَّ، وَتَكْسِبُ الْمَعْدُومَ، وَتَقْرِي الضَّيْفَ، وَتُعِينُ عَلَى نَوَائِبِ الْحَقِّ» (البخاري 3). رأت فيه رجلًا بأخلاقه وعمله للناس.",
+        "وبقي ذلك في قلبه سنين بعد وفاتها. كان إذا ذبح الشاة أرسل منها إلى صديقاتها، ولما ذكرتها السيدة عائشة رضي الله عنها يومًا بما أغضبه قال: «إِنِّي قَدْ رُزِقْتُ حُبَّهَا» (مسلم 2435).",
+        "فتحت رنا المحادثة، وكتبت تحت آخر «تم»: «جزاك الله خيرًا، أتعبناك هذا الشهر. كيف كان يومك اليوم؟». ومرّت دقائق، ثم جاء الرد: صورة كوب قهوة على مكتب مزدحم، و«يوم طويل. أحكي لك في البيت». وحكى لها في المساء نصف ساعة: عن مديره، وعن صديق قديم اتصل به، وعن خوف لم يقله لأحد."],
+      askAr: ["سؤال للمحاسبة: لو قرأ أحد رسائلك إلى من تعيش معه، ماذا يظن أنه عندك؟ وما الذي تعرفه عن يومه غير ما يفعله لك؟"],
+      askArF: ["سؤال للمحاسبة: لو قرأ أحد رسائلكِ إلى من تعيشين معه، ماذا يظن أنه عندكِ؟ وما الذي تعرفينه عن يومه غير ما يفعله لكِ؟"],
+      en: ["Rana was scrolling through her chat with her husband for the plumber's number. She scrolled back a week, then a month, and stopped.",
+        "“Send me the money for the electricity bill.” “The school wants the fees.” “We need a new washing machine, here's a photo.” “Don't forget the milk.” “It's my nephew's birthday, send me some money.” And in between, his replies: “Done.” “Done.” “OK.” “Done.”",
+        "She couldn't find a single question about his day, or one word of thanks after a “Done”. The last time she had asked him about himself was two months ago, when he was ill.",
+        "If anyone had asked her, she would have denied hotly that she saw her husband as a cash box. But the chat said so. Someone who is spoken to only in requests begins to feel wanted for what he pays, so he grows tired, talks less, and the family think him cold or mean. A man needs to be seen for himself, his effort and his heart, just as a woman does.",
+        "The life of the Prophet gives another picture. He came back from the cave of Hira trembling from the first revelation, and Lady Khadija, peace be upon her, was a woman of wealth and trade. She didn't speak to him about money; she spoke to him about himself: “Never, by Allah, Allah will never disgrace you. You keep ties with your kin, you carry the burden of the weak, you earn for those who have nothing, you honour your guests, and you help people through true hardship” (al-Bukhari 3). She saw a man by his character and his work for others.",
+        "And that stayed in his heart for years after she died. When he slaughtered a sheep he would send some to her friends, and when Lady Aisha once spoke of her in a way that angered him, he said: “I was given her love” (Muslim 2435).",
+        "Rana opened the chat and wrote under the last “Done”: “May Allah reward you, we've worn you out this month. How was your day today?” A few minutes passed, then the reply came: a photo of a coffee cup on a cluttered desk, and “Long day. I'll tell you at home.” That evening he talked to her for half an hour: about his manager, about an old friend who had called, and about a worry he had told no one."],
+      askEn: ["A question for your evening review: if someone read your messages to the person you live with, what would they think he or she is to you? What do you know about their day, apart from what they do for you?"]
+    },
+    quote: {
+      ar: "«كَلَّا وَاللَّهِ مَا يُخْزِيكَ اللَّهُ أَبَدًا، إِنَّكَ لَتَصِلُ الرَّحِمَ، وَتَحْمِلُ الْكَلَّ، وَتَكْسِبُ الْمَعْدُومَ، وَتَقْرِي الضَّيْفَ، وَتُعِينُ عَلَى نَوَائِبِ الْحَقِّ»",
+      en: "Meaning: Never, by Allah, Allah will never disgrace you. You keep ties with your kin, carry the burden of the weak, earn for those who have nothing, honour your guests and help people through true hardship.",
+      ref: "صحيح البخاري 3، عن عائشة رضي الله عنها؛ وصحيح مسلم 2435 (ترقيم sunnah.com: الكتاب 44، الحديث 108)", checked: "hadith-api (fawazahmed0)", verify: true
+    },
+    source: { ar: "مقالة مع حديث بدء الوحي في صحيح البخاري (3)، وحديث في صحيح مسلم (2435). " + NAMES.ar, en: "An article with the hadith of the beginning of revelation in Sahih al-Bukhari (3) and a hadith in Sahih Muslim (2435). " + NAMES.en } });
+  Q("pig", [
+    { id: "ap-q19", readingId: "ap-r11", correct: 2,
+      q: { ar: "ماذا تجعل السنة للنفقة على الزوجة، كما في القراءة؟", en: "What does the Sunnah make of spending on one's wife, according to the reading?" },
+      options: O([["حقًّا يملك به المنفق قرار البيت كله", "A right that gives the one who pays the whole say at home"], ["فضلًا يُذكَّر به عند الخلاف", "A favour to be brought up in disagreements"], ["عبادة يؤجر عليها صاحبها، حتى اللقمة في فم امرأته", "An act of worship that is rewarded, even the morsel in his wife's mouth"]]),
+      why: { ar: "النفقة أمانة وعبادة، والزوجة شريكة تساويه في الكرامة ولها رأي.", en: "Spending is a trust and an act of worship, and the wife is a partner, equal in dignity, with a say of her own." } },
+    { id: "ap-q20", readingId: "ap-r12", correct: 0,
+      q: { ar: "بماذا حدّثت السيدة خديجة عليها السلام النبي صلى الله عليه وآله وسلم حين رجع من الغار؟", en: "What did Lady Khadija, peace be upon her, speak to the Prophet about when he came back from the cave?" },
+      options: O([["عن أخلاقه وعمله للناس", "His character and his work for others"], ["عن مالها وتجارتها", "Her wealth and her trade"], ["عن حاجة البيت إلى المال", "What the household needed money for"]]),
+      why: { ar: "رأته بأخلاقه، فطمأنته بها. وهذا ما رجعت إليه رنا حين سألت زوجها عن يومه.", en: "She saw him by his character, and reassured him with it. That is what Rana came back to when she asked her husband about his day." } }
+  ]);
+
+  /* ── الوسطى: الزوجان عند الغضب ── */
+  R("monkey", { id: "am-r11", minutes: 5,
+    title: { ar: "لا وربّ إبراهيم", en: "No, by the Lord of Ibrahim" },
+    origin: { ar: "من حديث السيدة عائشة رضي الله عنها في الصحيحين", en: "From a hadith of Lady Aisha in both Sahih collections" },
+    body: {
+      ar: ["في البيوت غضب لا يُقال. يأتي في كلمة أقصر من عادتها، وفي «لا شيء» جوابًا عن «ما بك؟»، وفي باب يُغلق بصوت أعلى قليلًا. ومن لا ينتبه إليه يجده بعد أيام في خلاف كبير لا يعرف من أين جاء.",
+        "وفي الصحيحين حديث رقيق. قال النبي صلى الله عليه وآله وسلم للسيدة عائشة رضي الله عنها: «إِنِّي لَأَعْلَمُ إِذَا كُنْتِ عَنِّي رَاضِيَةً، وَإِذَا كُنْتِ عَلَيَّ غَضْبَى». قالت: ومن أين تعرف ذلك؟ قال: «أَمَّا إِذَا كُنْتِ عَنِّي رَاضِيَةً فَإِنَّكِ تَقُولِينَ: لَا وَرَبِّ مُحَمَّدٍ، وَإِذَا كُنْتِ غَضْبَى قُلْتِ: لَا وَرَبِّ إِبْرَاهِيمَ». قالت: «أَجَلْ وَاللَّهِ يَا رَسُولَ اللَّهِ، مَا أَهْجُرُ إِلَّا اسْمَكَ» (البخاري 5228، ومسلم 2439).",
+        "انتبه صلى الله عليه وآله وسلم إلى كلمة واحدة تتغير في قَسَمها، وهذا الانتباه نفسه حب: أن تعرف من تعيش معه حتى تفهم غضبه من حرف. ثم ذكره لها بلطف وابتسامة، فلم يعاقب غضبها ولم يغضب منه. وأجابته بما يطمئنه: غضبها يقف عند الاسم، والقلب باقٍ له.",
+        "وكان عمر يسمع زوجته تقول «براحتك» فيمضي فيما يريد، ثم ينفجر الخلاف بعد يومين. وفي مرة سمعها تقولها عن زيارة أهله يوم الجمعة، فأغلق هاتفه، وجلس قبالتها، وقال: «“براحتك” هذه أعرفها. ما الذي يتعبك في الجمعة؟».",
+        "ضحكت رغمًا عنها، ثم قالت ما كانت تحمله منذ شهر: أنها تطبخ كل جمعة لعشرة أشخاص وحدها، وتجلس آخر الجميع. لم يحلّا كل شيء تلك الليلة. لكنهما تكلما عن الشيء الحقيقي، قبل أن يصير صراخًا عن شيء آخر.",
+        "وللزوجة مثل ذلك: أن تعرف «براحتك» عند زوجها، وصمته، وطريقته في إغلاق الباب. والغضب الذي تنتبه إليه في أوله تكفيه في الغالب كلمة وجلسة."],
+      askAr: ["سؤال للمحاسبة: ما الكلمة التي يقولها من تعيش معه حين يغضب ولا يريد أن يقول؟ وماذا تفعل حين تسمعها؟"],
+      askArF: ["سؤال للمحاسبة: ما الكلمة التي يقولها من تعيشين معه حين يغضب ولا يريد أن يقول؟ وماذا تفعلين حين تسمعينها؟"],
+      en: ["Homes have an anger that goes unsaid. It comes in a word shorter than usual, in “nothing” as the answer to “what's wrong?”, in a door shut a little louder. Whoever doesn't notice it finds it days later in a big quarrel and can't tell where it came from.",
+        "Both Sahih collections hold a tender hadith. The Prophet, peace and blessings be upon him and his family, said to Lady Aisha: “I know when you are pleased with me and when you are angry with me.” She asked, “How do you know?” He said: “When you are pleased with me you say, ‘No, by the Lord of Muhammad,’ and when you are angry you say, ‘No, by the Lord of Ibrahim.’” She said: “Yes, by Allah, Messenger of Allah, I only leave out your name” (al-Bukhari 5228, Muslim 2439).",
+        "He noticed a single word changing in her oath, and that noticing is itself love: to know the one you live with so well that you understand their anger from a word. Then he mentioned it to her gently, with a smile; he did not punish her anger or grow angry at it. And she answered him with what would reassure him: her anger stops at the name, and her heart stays with him.",
+        "Omar used to hear his wife say “Suit yourself” and carry on with what he wanted, and two days later the quarrel would blow up. Once he heard her say it about visiting his family on Friday. He put his phone away, sat down facing her and said, “I know that ‘suit yourself’. What is it about Fridays that wears you out?”",
+        "She laughed in spite of herself, and then said what she had been carrying for a month: every Friday she cooked for ten people on her own, and sat down last of all. They didn't solve everything that night. But they talked about the real thing before it turned into shouting about something else.",
+        "And the same goes for a wife: to know her husband's “suit yourself”, his silences, the way he shuts the door. Anger you catch at its start usually needs only a word and a sit-down."],
+      askEn: ["A question for your evening review: what does the person you live with say when they are angry and don't want to say so? And what do you do when you hear it?"]
+    },
+    quote: {
+      ar: "«إِنِّي لَأَعْلَمُ إِذَا كُنْتِ عَنِّي رَاضِيَةً، وَإِذَا كُنْتِ عَلَيَّ غَضْبَى»",
+      en: "Meaning: I know when you are pleased with me, and when you are angry with me.",
+      ref: "صحيح البخاري 5228، وصحيح مسلم 2439 (ترقيم sunnah.com: الكتاب 44، الحديث 115)، عن عائشة رضي الله عنها", checked: "hadith-api (fawazahmed0)", verify: true
+    },
+    source: { ar: "مقالة مع حديث في الصحيحين (البخاري 5228، ومسلم 2439). " + NAMES.ar, en: "An article with a hadith from both Sahih collections (al-Bukhari 5228, Muslim 2439). " + NAMES.en } });
+  Q("monkey", [
+    { id: "am-q19", readingId: "am-r11", correct: 1,
+      q: { ar: "كيف عرف النبي صلى الله عليه وآله وسلم أن السيدة عائشة غاضبة؟", en: "How did the Prophet, peace and blessings be upon him and his family, know Lady Aisha was angry?" },
+      options: O([["من سكوتها عن الكلام يومًا كاملًا", "From her not speaking for a whole day"], ["من كلمة في قَسَمها: «وربّ إبراهيم» مكان «وربّ محمد»", "From a word in her oath: “by the Lord of Ibrahim” instead of “by the Lord of Muhammad”"], ["من أنها أخبرته بذلك صراحة", "From her telling him so directly"]]),
+      why: { ar: "عرفها حتى فهم غضبها من اسم واحد، ثم ذكره لها بلطف.", en: "He knew her so well that he understood her anger from a single name, then mentioned it to her gently." } },
+    { id: "am-q20", readingId: "am-r11", type: "situation", correct: 0,
+      q: { ar: "تقول زوجتك «براحتك» بنبرة باردة عن أمر يخصكما. ما الأقرب لما في القراءة؟", ar_f: "يقول زوجك «براحتك» بنبرة باردة عن أمر يخصكما. ما الأقرب لما في القراءة؟", en: "Your spouse says “suit yourself” in a cold tone about something that concerns you both. What is closest to the reading?" },
+      options: O([["أترك ما في يدي، وأجلس قبالتها، وأسأل بهدوء عما يتعبها", "Put down what I'm doing, sit facing them, and calmly ask what is wearing them out"], ["آخذ كلمتها على ظاهرها وأمضي فيما أريد", "Take the words at face value and carry on with what I want"], ["أرد بالبرود نفسه حتى تتكلم هي أولًا", "Answer just as coldly until they speak first"]]),
+      why: { ar: "الغضب المفهوم مبكرًا تطفئه كلمة، قبل أن يصير خلافًا عن شيء آخر.", en: "Anger understood early is put out with a word, before it becomes a quarrel about something else." } }
+  ]);
+
+  /* ── السبابة: الأب والأم أحدهما مع الآخر ── */
+  R("human", { id: "ah-r12", minutes: 4,
+    title: { ar: "عن تراضٍ منهما وتشاور", en: "By mutual consent and consultation" },
+    origin: { ar: "من آية الرضاع في سورة البقرة", en: "From the verse on nursing in Surat al-Baqara" },
+    body: {
+      ar: ["في آية الرضاع من سورة البقرة تفصيلة يمر عليها القارئ سريعًا. الأم ترضع ولدها، والأب ينفق، فإذا أرادا أن يفطماه قبل تمام الحولين: ﴿فَإِنْ أَرَادَا فِصَالًا عَنْ تَرَاضٍ مِنْهُمَا وَتَشَاوُرٍ فَلَا جُنَاحَ عَلَيْهِمَا﴾ (البقرة 2:233).",
+        "قرار صغير في يوم طفل رضيع، ولم يجعله القرآن لواحد منهما. جعله لهما معًا: رضا الاثنين، وتشاور بينهما. والولد أمانة عند الاثنين: ينفق الأب وترضع الأم، والقرار يُتخذ بينهما.",
+        "سمعت جنى، وهي في العاشرة، أباها وأمها يختلفان على مدرستها الجديدة. قال الأب على العشاء: «الأولى أقرب». قالت الأم: «والثانية أقوى في اللغة». وارتفع الصوتان قليلًا، وجنى تنظر في صحنها.",
+        "ثم توقف الأب وقال: «نكمل الحديث بعد العشاء، أنا وأمك». وجلسا في الغرفة ساعة. كتبت الأم ما تخاف منه، وكتب الأب ما يخاف منه، واتصلا بالمدرستين في الصباح.",
+        "وحين أخبراها قالاه معًا، بجملة واحدة: «اخترنا لك الثانية، وأبوك سيوصلك كل صباح». ولم تعرف جنى أبدًا أيهما كان رأيه ماذا.",
+        "وتعلّمت جنى تلك الليلة شيئًا لم يقله لها أحد: أن أباها وأمها يحترم كل منهما رأي الآخر، ويختلفان دون أن يصغّر واحد الآخر أمامها. والولد الذي يرى أبويه يتشاوران يتعلم كيف يختلف مع زوجه غدًا، وكيف يبقى الاحترام في وسط الخلاف."],
+      askAr: ["سؤال للمحاسبة: آخر خلاف بينك وبين زوجتك أمام الأولاد، هل رأى الأولاد فيه احترامًا؟ وهل تُتخذ قرارات أولادكما عن تراضٍ وتشاور، أم بالصوت الأعلى؟"],
+      askArF: ["سؤال للمحاسبة: آخر خلاف بينك وبين زوجك أمام الأولاد، هل رأى الأولاد فيه احترامًا؟ وهل تُتخذ قرارات أولادكما عن تراضٍ وتشاور، أم بالصوت الأعلى؟"],
+      en: ["The verse on nursing in Surat al-Baqara holds a detail readers pass over quickly. The mother nurses the child, the father provides, and if they want to wean him before the two full years: “If they both decide on weaning by mutual consent and consultation, there is no blame on them” (al-Baqara 2:233).",
+        "A small decision in a baby's day, and the Quran gave it to neither of them alone. It gave it to both: the consent of the two, and consultation between them. The child is a trust held by both: the father provides, the mother nurses, and the decision is made between them.",
+        "Jana, who was ten, heard her father and mother disagree about her new school. Her father said over dinner, “The first one is closer.” Her mother said, “And the second is stronger in languages.” Their voices rose a little, and Jana looked down at her plate.",
+        "Then her father stopped and said, “We'll finish this after dinner, your mother and I.” They sat in their room for an hour. Her mother wrote down what she was worried about, her father wrote down what he was worried about, and in the morning they called both schools.",
+        "When they told her, they said it together, in one sentence: “We've chosen the second one for you, and Dad will drive you every morning.” Jana never found out which of them had thought what.",
+        "That night Jana learnt something nobody told her in words: that her father and mother each respect the other's opinion, and disagree without either making the other small in front of her. A child who sees their parents consult each other learns how to disagree with their own spouse one day, and how respect can stay in the middle of a disagreement."],
+      askEn: ["A question for your evening review: the last time you and your spouse disagreed in front of the children, did they see respect in it? Are your children's decisions made by mutual consent and consultation, or by the louder voice?"]
+    },
+    quote: {
+      ar: "﴿فَإِنْ أَرَادَا فِصَالًا عَنْ تَرَاضٍ مِنْهُمَا وَتَشَاوُرٍ فَلَا جُنَاحَ عَلَيْهِمَا﴾",
+      en: "Meaning: If they both decide on weaning by mutual consent and consultation, there is no blame on them.",
+      ref: "البقرة 2:233", checked: "tanzil quran-simple, with diacritics (api.alquran.cloud)", verify: true
+    },
+    source: { ar: "مقالة مع آية من سورة البقرة (2:233). " + NAMES.ar, en: "An article with a verse of al-Baqara (2:233). " + NAMES.en } });
+  Q("human", [
+    { id: "ah-q20", readingId: "ah-r12", correct: 0,
+      q: { ar: "ماذا فعل والدا جنى حين ارتفع صوتاهما على العشاء؟", en: "What did Jana's parents do when their voices rose over dinner?" },
+      options: O([["أجّلا الحديث، وتشاورا وحدهما، ثم أخبراها بقرار واحد", "Put the talk off, consulted alone, then told her one decision"], ["تركا لها أن تختار المدرسة بنفسها", "Let her choose the school herself"], ["أخذ الأب القرار لأنه هو الذي سيوصلها", "The father decided, because he would be the one driving her"]]),
+      why: { ar: "قرار الولد يُتخذ عن تراضٍ وتشاور، والولد يرى الاحترام في طريقة الخلاف نفسها.", en: "A child's decisions are made by consent and consultation, and the child sees respect in the very way they disagree." } }
+  ]);
+
+  /* ── الإبهام: الابن الكبير مع أبيه المسن ── */
+  R("sabiq", { id: "as-r11", minutes: 5,
+    title: { ar: "حين يكرر أبي السؤال", en: "When my father asks again" },
+    origin: { ar: "من سورة الإسراء، وحديث في صحيح مسلم", en: "From Surat al-Isra, and a hadith in Sahih Muslim" },
+    body: {
+      ar: ["صار أبو ماجد يسأل في الساعة الواحدة السؤال نفسه ثلاث مرات: «أخذتُ دواء الظهر؟». وصار يضع نظارته في الثلاجة، ويغضب حين يقال له ذلك.",
+        "وماجد في الأربعين، مدير في شركة، يتخذ كل يوم عشرين قرارًا. فصار، من غير أن ينتبه، يدير أباه كما يدير العمل: جدول، وتنبيهات، وقرارات تُتخذ عنه. «لا تقُد بعد اليوم». «الدواء في العلبة، لا تلمسه». «سأبيع السيارة».",
+        "ورأى في يوم عيني أبيه حين أخذ منه مفتاح السيارة. لم يقل الأب شيئًا، لكنه لم يخرج من غرفته حتى العشاء.",
+        "وفي القرآن: ﴿إِمَّا يَبْلُغَنَّ عِنْدَكَ الْكِبَرَ أَحَدُهُمَا أَوْ كِلَاهُمَا فَلَا تَقُلْ لَهُمَا أُفٍّ وَلَا تَنْهَرْهُمَا وَقُلْ لَهُمَا قَوْلًا كَرِيمًا﴾ (الإسراء 17:23). والكلمة الدقيقة فيها «عندك»: يكبر الأب في بيت ابنه وتحت رعايته، فيصير الابن هو القوي. والآية التالية تطلب من القوي أن يخفض جناحه: ﴿وَاخْفِضْ لَهُمَا جَنَاحَ الذُّلِّ مِنَ الرَّحْمَةِ﴾ (الإسراء 17:24).",
+        "فهم ماجد أن البر بالوالد المسن يحفظ له مقامه وهو يحميه: يُستشار فيما يقدر عليه، ويُترك له ما يقدر أن يفعله ولو أبطأ، ويُخبر بالقرار قبل أن يُنفَّذ، بكلام كريم يحفظ له وجهه.",
+        "وفي صحيح مسلم: «رَغِمَ أَنْفُ، ثُمَّ رَغِمَ أَنْفُ، ثُمَّ رَغِمَ أَنْفُ». قيل: من يا رسول الله؟ قال: «مَنْ أَدْرَكَ أَبَوَيْهِ عِنْدَ الْكِبَرِ، أَحَدَهُمَا أَوْ كِلَيْهِمَا، فَلَمْ يَدْخُلِ الْجَنَّةَ» (مسلم 2551). الوالد المسن في بيتك باب إلى الجنة، مفتوح ما دام حيًّا، يسبق إليه من يسبق.",
+        "رجع ماجد إلى أبيه بالمفتاح، وقال: «يا أبي، الطبيب قال إن عينك لا تقوى على الليل. ما رأيك: تقود في النهار إلى المسجد والسوق، وأنا أوصلك في الليل؟». نظر الأب إلى المفتاح طويلًا، ثم قال: «في النهار فقط». وأضاف: «واكتب لي ورقة الدواء بخط كبير، وضعها على الثلاجة. ما زلت أقرأ»."],
+      askAr: ["سؤال للمحاسبة: ما القرار الذي اتخذته عن أبيك أو أمك دون أن تسأله؟ وما الذي ما زال يقدر عليه، وأخذته منه لأنك أسرع؟"],
+      askArF: ["سؤال للمحاسبة: ما القرار الذي اتخذتِه عن أبيك أو أمك دون أن تسأليه؟ وما الذي ما زال يقدر عليه، وأخذتِه منه لأنك أسرع؟"],
+      en: ["Majid's father began asking the same question three times in an hour: “Did I take my midday medicine?” He started putting his glasses in the fridge, and getting angry when told so.",
+        "Majid is forty, a manager in a company, making twenty decisions a day. Without noticing, he began to manage his father the way he managed work: a schedule, reminders, and decisions taken on his behalf. “No more driving from today.” “The medicine is in the box, don't touch it.” “I'm selling the car.”",
+        "Then one day he saw his father's eyes as he took the car key from him. His father said nothing, but he didn't come out of his room until dinner.",
+        "The Quran says: “If one or both of them reach old age with you, do not say to them even ‘uff’, do not scold them, and speak to them with noble words” (al-Isra 17:23). The precise word is “with you”: the father grows old in his son's house and in his care, so the son becomes the strong one. And the next verse asks the strong one to lower his wing: “And lower to them the wing of humility, out of mercy” (al-Isra 17:24).",
+        "Majid understood that honouring an ageing parent keeps their standing while protecting them: they are consulted on what they can still manage, left what they can still do even if slowly, and told of a decision before it is carried out, in noble words that save their face.",
+        "In Sahih Muslim: “May his nose be in the dust, then may his nose be in the dust, then may his nose be in the dust.” It was asked, “Who, Messenger of Allah?” He said: “Whoever lives to see his parents in old age, one or both of them, and does not enter Paradise” (Muslim 2551). An ageing parent in your home is a door to Paradise, open as long as they live, for whoever hurries to it.",
+        "Majid went back to his father with the key and said, “Father, the doctor says your eyes can't cope at night. What do you think: you drive in the daytime to the mosque and the market, and I drive you at night?” His father looked at the key for a long time, then said, “Daytime only.” And he added, “And write my medicine list in big letters and put it on the fridge. I can still read.”"],
+      askEn: ["A question for your evening review: what decision have you made for your father or mother without asking them? And what can they still do that you took from them because you are quicker?"]
+    },
+    quote: {
+      ar: "«رَغِمَ أَنْفُ، ثُمَّ رَغِمَ أَنْفُ، ثُمَّ رَغِمَ أَنْفُ». قِيلَ: مَنْ يَا رَسُولَ اللَّهِ؟ قَالَ: «مَنْ أَدْرَكَ أَبَوَيْهِ عِنْدَ الْكِبَرِ، أَحَدَهُمَا أَوْ كِلَيْهِمَا، فَلَمْ يَدْخُلِ الْجَنَّةَ»",
+      en: "Meaning: May his nose be in the dust, three times. Who, Messenger of Allah? Whoever lives to see his parents in old age, one or both of them, and does not enter Paradise.",
+      ref: "الإسراء 17:23-24؛ وصحيح مسلم 2551 (ترقيم sunnah.com: الكتاب 45، الحديث 10)، عن أبي هريرة رضي الله عنه", checked: "hadith-api (fawazahmed0); tanzil quran-simple, with diacritics (api.alquran.cloud)", verify: true
+    },
+    source: { ar: "مقالة مع آيتين من سورة الإسراء (17:23-24)، وحديث في صحيح مسلم (2551). " + NAMES.ar, en: "An article with two verses of al-Isra (17:23-24) and a hadith in Sahih Muslim (2551). " + NAMES.en } });
+  Q("sabiq", [
+    { id: "as-q19", readingId: "as-r11", correct: 2,
+      q: { ar: "ما الكلمة الدقيقة التي وقفت عندها القراءة في آية الإسراء؟", en: "Which precise word in the verse of al-Isra does the reading stop at?" },
+      options: O([["«أفّ»", "“uff”"], ["«كريمًا»", "“noble”"], ["«عندك»", "“with you”"]]),
+      why: { ar: "«عندك»: يكبر الوالد في رعاية ولده، فيصير الولد القوي، وتطلب منه الآية أن يخفض جناحه.", en: "“With you”: the parent grows old in the child's care, so the child becomes the strong one, and the verse asks them to lower their wing." } },
+    { id: "as-q20", readingId: "as-r11", type: "situation", correct: 0,
+      q: { ar: "أمك المسنة تصرّ أن تطبخ، وتتعب من الوقوف. ما الأقرب لما في القراءة؟", en: "Your elderly mother insists on cooking, and standing tires her. What is closest to the reading?" },
+      options: O([["أطبخ معها، وأترك لها ما تقدر عليه، وأحمل عنها الوقوف الطويل", "Cook with her, leave her what she can manage, and take the long standing off her"], ["أمنعها من المطبخ كله لراحتها", "Keep her out of the kitchen entirely, for her own rest"], ["أتركها وحدها ما دامت تصرّ", "Leave her to it, since she insists"]]),
+      why: { ar: "البر يحميها ويحفظ لها مقامها معًا: يبقى لها ما تقدر عليه، ويُحمل عنها ما يتعبها.", en: "Honouring her protects her and keeps her standing at once: she keeps what she can do, and what tires her is carried for her." } }
+  ]);
+
+  /* ── مهام البيت للعلاقات ── */
+  S.zombie.tasks.push({ id: "az-t7", ar: "سؤال ابن أو ابنة كبيرة عن رأيه في أمر يخصه قبل إبداء رأيي، ثم الدعاء له.", en: "Asked a grown son or daughter for their view on something of theirs before giving mine, then prayed for them." });
+  S.pig.tasks.push({ id: "ap-t7", ar: "كلمة شكر محددة لمن ينفق في البيت أو يعمل فيه، بلا طلب معها.", en: "A specific word of thanks to whoever provides for the home or works in it, with no request attached." });
+  S.monkey.tasks.push({ id: "am-t7", ar: "معرفة الكلمة التي يغضب بها من أعيش معه («براحتك»، أو الصمت)، والسؤال عنها بهدوء حين تأتي.", en: "Learnt the word the person I live with uses when angry (“suit yourself”, or silence), and asked about it calmly when it came." });
+  S.human.tasks.push({ id: "ah-t7", ar: "تأجيل خلاف على الأولاد إلى ما بعد انصرافهم، ثم إخبارهم بالقرار بصوت واحد.", en: "Put off a disagreement about the children until they had gone, then told them the decision with one voice." });
+  S.sabiq.tasks.push({ id: "as-t8", ar: "ترك عمل يقدر عليه أحد الوالدين المسنّين له، ومساعدته فيه بدل أخذه منه.", en: "Left an ageing parent a task they can still do, and helped with it instead of taking it from them." });
+})();
+
+/* ───────────── إظهار المعنى، 27 نوفمبر 2026 (قراءات الكبار) ─────────────
+ * الطلب: «لا نعتمد على ذكاء القارئ فقط». سطر يُظهر وجه الخصلة ومعناها، يُضاف إلى الفقرة التي يفهم فيها البطل.
+ * The owner's request: stories should not rely on the reader's intelligence alone. Each entry appends one line to a paragraph:
+ * [reading id, paragraph index, ar, ar_f (null = same as ar), en].
+ */
+(function () {
+  var S = window.AKHLAQ_CONTENT_ADULT.stages, all = {};
+  Object.keys(S).forEach(function (k) { S[k].readings.forEach(function (r) { all[r.id] = r; }); });
+  [
+    ["az-r1", 4, "وأدرك كريم أن الساعات التي استردّها من الهاتف عادت إلى من كان ينتظره: إلى ربه في صلاة الفجر، وإلى ابنته التي كانت تريد أباها قبل أن تريد أي كتاب.", null, "Karim saw then that the hours he had taken back from the phone had gone to those who were waiting for him: to his Lord at Fajr, and to a daughter who had wanted her father long before she wanted any book."],
+    ["az-r2", 4, "وصارت ساعات يومها تُحسب لها، فقد دخلته بنية، وحضرت فيه.", null, "And the hours of her day now counted for her, because she had entered it with an intention and been present in it."],
+    ["az-r4", 3, "وشعرت ريم أن ما تكتبه الآن صار منها، تحمله في يومها ولا تحتاج أن تفتح الدفتر لتجده، ورجت أن يكون هذا أول الاتباع الذي جعل الله الهداية لأهله.", null, "Reem felt that what she wrote now had become part of her; she carried it through her day and had no need to open the notebook to find it, and she hoped this was the beginning of the following to which Allah had promised guidance."],
+    ["az-r6", 3, "ورأى في عينيها وهي تحكي أن إصغاءه هو الذي يقول لها إنها تهمّه، وأنه كاد يضيّع ذلك في «همم» على عشاء عابر.", null, "As she talked he saw in her eyes that his listening was what told her she mattered to him, and how near he had come to losing that in a few «mm»s over an ordinary dinner."],
+    ["az-r9", 2, "كانت الشمس والنسيم نعمًا تُعطاها كل يوم، وفاتها أن تراها لأن عينها كانت دائمًا على ما بعدها.", null, "The sunshine and the breezes had been gifts given to it every day, and it had missed them because its eyes were always on what came next."],
+    ["ap-r1", 5, "وكان المكان الفارغ في صدرها قد صغر منذ صارت تعطي ما لا تحتاج إليه، وتسمع في الليالي الثقيلة صوتًا يحبها، فذاقت شيئًا من غنى النفس الذي في الحديث.", null, "The empty space in her chest had grown smaller since she began giving away what she did not need and hearing, on the heavy nights, a voice that loved her; she had tasted a little of the richness of the soul the hadith speaks of."],
+    ["ap-r3", 3, "ورأت في وجه سامي وهو يسمعها أن الذي جرحه أن تتخطّاه زميلته بعد ليلتين من التعب، وأن اعتذارها ردّ إليه ثقته بها، وهي عنده أغلى من شكر المدير.", null, "In Sami's face as he listened she saw that what had hurt him was being passed over by a colleague after two nights of work, and that her apology had given him back his trust in her, which meant more to him than the manager's thanks."],
+    ["ap-r5", 5, "وبدت له السيارة في تلك الليلة كما كانت يوم اشتراها، فقد عاد يرى ما فيها من نعمة: أولادًا بخير يغنّون، وطريقًا يعود به إلى بيته.", null, "That night the car seemed to him as it had on the day he bought it; he could see again the blessing inside it: his children, well and singing, and a road that took him home."],
+    ["ap-r9", 1, "وكانت وصيته محبةً بعيدة النظر: أراد أن يتركهم وفي أيديهم رزق يتجدد كل عام، وكرامةُ من يأكل من تعب يديه.", null, "His last words had been a far-sighted love: he wanted to leave them with a living in their hands that renewed itself every year, and the dignity of eating from the work of their own hands."],
+    ["am-r1", 5, "ورأى في فرح الصغير وهو يبسط ورقته أن ما جاء يطلبه أول مرة نظرةُ أبيه كلها.", null, "In the boy's delight as he smoothed out his paper, Ayman saw that what he had come for the first time was his father's whole gaze."],
+    ["am-r2", 5, "وفهم زياد أنها كانت تحتاج أن تشعر بأن همّها وصل إليه كما هو، وأن الإصغاء نفسه كان العون الذي جاءت تطلبه.", null, "Ziyad understood that she had needed to feel her worry reach him whole, and that the listening itself was the help she had come for."],
+    ["am-r3", 5, "وتذكّر الطفل الخائف في المقعد الخلفي، وعرف أن الهدوء الذي أمسكه الآن حفظ طفلًا آخر من مثل ذلك الخوف، وحفظ له قلبه من يوم آخر يقضيه خافقًا.", null, "He thought of the frightened child in that back seat, and knew that the calm he had held onto had spared some other child the same fear, and spared his own heart another day of pounding."],
+    ["am-r4", 5, "وعرفت سلمى من يده الصغيرة أنه كان ينتظر هذه الكلمة منذ الصباح، وأن الاعتذار أعاد إلى البيت الرفق الذي نزعته الصرخة.", null, "From his small hand Salma knew he had been waiting for those words since the morning, and that the apology had brought back into the house the gentleness the shout had taken from it."],
+    ["am-r5", 2, "ورأى وائل في احمرار وجه أبيه ما لم يره في المقطع: أن الرجل هناك أبٌ لأحد، وأن ضحكته أمس كانت على وجه مثل هذا الوجه.", null, "In his father's reddened face Wael saw what the clip had not shown him: that the man in it was someone's father, and that yesterday he had laughed at a face like this one."],
+    ["am-r6", 5, "ووجد في ذلك اليوم، وقد مرّ بلا صورة واحدة، راحةً لم تعطه إياها الصور كلها: يومًا يعيشه مع أولاده، ويعرف كل ما وراءه.", null, "In that day, which passed without a single photo, he found a rest all the pictures had never given him: a day lived with his children, with nothing behind it that he did not know."],
+    ["am-r9", 1, "وفي كل مرة منها يتعلم الصغير ما لم يقصد أبواه أن يعلّماه: أن بطأه يُغضب من يحبهم، فيستعجل، أو يكفّ عن المحاولة.", null, "Each time, the child learns something his parents never meant to teach him: that his slowness angers the people he loves, so he hurries, or stops trying."],
+    ["ah-r1", 5, "ونام وقد سلم منه الأب الآخر، وكان آخر ما كتبته يده في تلك الليلة كلمة طيبة.", null, "He went to sleep with the other father safe from him, and the last thing his hand had written that night was a kind word."],
+    ["ah-r3", 5, "وكان قد سمع في صوت أمه على الهاتف كم كانت تنتظره، فعرف أن حقها عليه كان دَينًا يكبر كل أسبوع وهو لا يراه.", null, "He had heard in his mother's voice on the phone how long she had been waiting, and knew that her right over him had been a debt growing each week without his seeing it."],
+    ["ah-r4", 5, "وعرف حسام من ذلك المكان الصغير على السرير أن ابنه كان ينتظر أن يرى أبوه ما وقع عليه من ظلم ويسمّيه، وأن الاعتذار ردّ إلى الولد كرامته في عين نفسه وأمام أبيه.", null, "From that small space on the bed Hussam knew his son had been waiting for his father to see the wrong done to him and name it, and that the apology had given the boy back his dignity, in his own eyes and before his father."],
+    ["ah-r5", 5, "وكان هذا ما يحتاجه سامي منذ ليلة الهاتف: أن يعرف أن أباه يرى تعبه، وأن له في قلبه مكانًا كمكان أخيه.", null, "This was what Sami had needed since the night of the phone: to know that his father saw how hard he worked, and that he held a place in his father's heart as large as his brother's."],
+    ["ah-r7", 4, "كان العامل ينتظر الصراخ، ورأى صاحب الورشة الخوف في عينيه، فعرف أن ما سيقوله الآن سيبقى مع هذا الشاب في كل لوح يقطعه بعد اليوم.", null, "The worker was braced for shouting. The owner saw the fear in his eyes, and knew that whatever he said now would stay with the young man in every board he cut from that day on."],
+    ["as-r1", 4, "لم يكن أحد سيرى تلك القطرة غير الله، وكان ذلك عند كريم سببًا كافيًا ليعمل لهذه المرأة كما يعمل لأمه.", null, "No one but Allah would ever have seen that drip, and for Karim that was reason enough to work for this woman as he would for his own mother."],
+    ["as-r2", 5, "وكان قد عرف اسم الرجل قبل دقائق، وأحسّ وهو يطفئ الأنوار أنه صار شريكًا في خدمة بيت من بيوت الله، دخله سنين ولم يرَ من يقوم عليه.", null, "He had learned the man's name only minutes before, and as he switched off the lights he felt he had become a partner in serving one of Allah's houses, a house he had entered for years without seeing who looked after it."],
+    ["as-r3", 5, "وعرف فؤاد وهو في الصف الأخير أن الخير الذي بدأه صار يمشي على أقدام غيره، وأن له نصيبًا من أجر كل ما يشرحه الشاب.", null, "Sitting in the back row, Fuad knew that the good he had begun now walked on other feet, and that he had a share in the reward of everything the young man taught."],
+    ["as-r5", 5, "كانت أقصر صلاة ليل صلّتها منذ بدأت، وأحسّت أنها أقربها إلى ربها، لأنها بقيت لها في ليلة كان كل شيء فيها يدعوها إلى تركها.", null, "It was the shortest night prayer she had prayed since she began, and she felt it was the one that brought her nearest to her Lord, because it had stayed with her on a night when everything called her to let it go."],
+    ["as-r6", 5, "وفكّر مراد في شاب يأتي إلى الفجر بعد ليلة كاملة في خدمة المرضى، وعرف أن الله وحده يعلم أيّهما أسبق.", null, "Murad thought of a young man who came to Fajr after a whole night of caring for the sick, and saw that only Allah knew which of the two was further ahead."],
+    ["as-r7", 4, "كانت قد قامت من وردها وقلبها أوسع، فسمعت في الكلمة العابرة حاجة لم تطلبها صاحبتها، وأرادت أن تقضيها وتحفظ لها وجهها.", null, "She had risen from her reading with a wider heart, so she heard in that passing remark a need its owner had not asked her to meet, and she wanted to meet it while keeping her colleague's dignity whole."],
+    ["as-r8", 5, "وحين قالها ذهبت الوخزة من صدره، ووجد مكانها فرحًا بأن في الحي من يسبقه إلى الخير ويأخذه معه.", null, "As he said it the sting left his chest, and in its place he found gladness that there was someone in his street who got to good before him and would take him along."],
+    ["as-r9", 5, "وعرفت يومها أن العقدة أدّت عملها: صار الخير يخرج منها وحده، كما يصدر الخُلق عن صاحبه حين يستقر فيه.", null, "That day she knew the knot had done its work: good now came from her by itself, the way a trait of character flows from someone once it has settled in them."]
+  ].forEach(function (x) {
+    var b = all[x[0]] && all[x[0]].body, i = x[1]; if (!b) return;
+    b.ar[i] += " " + x[2]; b.en[i] += " " + x[4];
+    if (b.ar_f) b.ar_f[i] += " " + (x[3] || x[2]);
+  });
+})();
+
+window.AKHLAQ_CONTENT_ADULT.version = "0.6.0-adult-draft-2026-11-27"; // family readings and explicit-meaning lines

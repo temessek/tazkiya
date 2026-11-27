@@ -629,7 +629,7 @@ async function ideaFlows(browser, base, content, AV) {
     Object.entries(KC.stages).forEach(([s, st]) => st.readings.forEach(r => { if (r.ages === "4-8") young.push([s, r.id]); }));
     const files = fs.readdirSync(path.join(ROOT, "assets", "stories")).filter(f => f.endsWith(".webp"));
     const big = files.filter(f => fs.statSync(path.join(ROOT, "assets", "stories", f)).size > 200 * 1024);
-    ok(young.length === 21 && files.length === young.length && young.every(([, id]) => files.includes(id + ".webp")) && !big.length, `2: each of the ${young.length} picture-book stories has its own picture, none over 200 KB (${files.length} files${big.length ? ", big: " + big.join(" ") : ""})`);
+    ok(young.length === 24 && files.length === young.length && young.every(([, id]) => files.includes(id + ".webp")) && !big.length, `2: each of the ${young.length} picture-book stories has its own picture, none over 200 KB (${files.length} files${big.length ? ", big: " + big.join(" ") : ""})`);
     ok(!/assets\/stories\//.test(fs.readFileSync(path.join(ROOT, "sw.js"), "utf8")), "2: the story pictures are not in the service worker's install list (kept on first use)");
     const miss = [];
     for (const [s, id] of young) { await go(page, `#/read/${s}/${encodeURIComponent(id)}`, 250);
