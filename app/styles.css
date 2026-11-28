@@ -1727,3 +1727,7 @@ ol.path::before { content: ""; position: absolute; inset-block: 24px; inset-inli
 .hm-tell { margin: 10px 0; }
 .hm-all { display: inline-block; margin-top: 2px; }
 @media (prefers-reduced-motion: reduce) { .hml { animation: none; } }
+/* the narration stopped at a Quranic verse (28 Nov 2026): the verse marked for the reader to read, and the button that goes on */
+.body mark.vstop { background: color-mix(in srgb, var(--gold) 26%, transparent); color: inherit; border-radius: 4px; padding: 1px 2px;
+  box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--gold) 75%, transparent); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.body .vgo { margin: -6px 0 14px; }

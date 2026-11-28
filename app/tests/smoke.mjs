@@ -725,14 +725,24 @@ async function ideaFlows(browser, base, content, AV) {
       const ad = list("NARRATED_ADULT"), af = list("NARRATED_F"), badA = [];
       const findA = id => { for (const st of Object.values(KA.stages)) { const r = st.readings.find(x => x.id === id); if (r) return r; } return null; };
       const fem = r => !!(r && r.body.ar_f && r.body.ar.some((p, i) => p !== r.body.ar_f[i]));
-      const files = (key, pages) => pages.forEach((p, i) => { const b = path.join(ROOT, "assets", "audio", ...key.split("/"), String(i + 1)), nw = p.split(/\s+/).filter(Boolean).length;
-        if (!fs.existsSync(b + ".mp3") || fs.statSync(b + ".mp3").size < 2000) { badA.push(`${key}/${i + 1}.mp3`); return; }
+      // a clip and its timings: words of the page, in order, none of them inside [lo, hi] (a verse span), or none outside it
+      const clipOk = (b, nw, from, to) => { if (!fs.existsSync(b + ".mp3") || fs.statSync(b + ".mp3").size < 2000) return false;
         let tm = null; try { tm = JSON.parse(fs.readFileSync(b + ".json", "utf8")); } catch (e) {}
-        if (!Array.isArray(tm) || !tm.length || tm.some((x, k) => typeof x.t !== "number" || !Number.isInteger(x.w) || x.w < 0 || x.w >= nw || (k && (x.t < tm[k - 1].t || x.w <= tm[k - 1].w)))) badA.push(`${key}/${i + 1}.json`); });
+        return Array.isArray(tm) && tm.length && !tm.some((x, k) => typeof x.t !== "number" || !Number.isInteger(x.w) || x.w < from || x.w > to || x.w >= nw || (k && (x.t < tm[k - 1].t || x.w <= tm[k - 1].w))); };
+      // a paragraph with a Quranic verse (the Arabic has ﴿﴾) is read up to the verse and after it: <n>.json lists its parts, the
+      // clips <n>.k say the prose between the verses, and no clip's words fall inside a verse (owner decision, 28 Nov 2026)
+      const files = (key, pages, arPages) => pages.forEach((p, i) => { const b = path.join(ROOT, "assets", "audio", ...key.split("/"), String(i + 1)), nw = p.split(/\s+/).filter(Boolean).length;
+        if (!/﴿/.test(arPages[i] || "")) { if (!clipOk(b, nw, 0, nw - 1)) badA.push(`${key}/${i + 1}`); return; }
+        let m = null; try { m = JSON.parse(fs.readFileSync(b + ".json", "utf8")); } catch (e) {}
+        const ps = m && Array.isArray(m.parts) ? m.parts : [], vs = ps.filter(x => Array.isArray(x.verse)), says = ps.filter(x => typeof x.say === "string");
+        if (!vs.length || !says.length || fs.existsSync(b + ".mp3")) { badA.push(`${key}/${i + 1}: no verse parts`); return; }
+        let at = 0; for (const x of ps) { if (x.verse) { if (x.verse[0] < at || x.verse[1] < x.verse[0]) badA.push(`${key}/${i + 1}: verse order`); at = x.verse[1] + 1; continue; }
+          const nx = ps[ps.indexOf(x) + 1], to = nx && nx.verse ? nx.verse[0] - 1 : nw - 1;
+          if (!/^\d+\.\d+$/.test(x.say) || !clipOk(path.join(path.dirname(b), x.say), nw, at, to)) badA.push(`${key}/${x.say}`); } });
       for (const id of ad || []) { const r = findA(id); if (!r) { badA.push(id + ": no adult reading"); continue; }
-        files("ar/" + id, r.body.ar); files("en/" + id, r.body.en);
+        files("ar/" + id, r.body.ar, r.body.ar); files("en/" + id, r.body.en, r.body.ar);
         if (fem(r) !== (af || []).includes(id)) badA.push(id + (fem(r) ? ": a woman's wording without its recording" : ": listed in NARRATED_F without a woman's wording"));
-        if (fem(r)) files("ar/" + id + ".f", r.body.ar_f); }
+        if (fem(r)) files("ar/" + id + ".f", r.body.ar_f, r.body.ar_f); }
       ok(Array.isArray(ad) && Array.isArray(af) && af.every(id => ad.includes(id)) && !badA.length, `voice: every recorded adult reading has its paragraphs and timings in both languages, and in the woman's wording where it differs (${(ad || []).length}, ${(af || []).length} .f; ${badA.slice(0, 3).join(" ")})`); }
     ok(!errs.length, "voice: no script errors (" + errs.slice(0, 1).join("") + ")");
     await ctx.close();
@@ -759,7 +769,23 @@ async function ideaFlows(browser, base, content, AV) {
       ok(await look(everyEn, man, `&lang=en#/read/${stOf(fr.id)}/${fr.id}`), "voice: the adult reader shows the listen button for a recorded reading");
       ok(await look(everyEn, man, "&lang=en#/today"), "voice: today's reading (#/today) shows the listen button for a recorded reading");
       ok(!(await look(["ar/" + fr.id], woman, `&lang=ar#/read/${stOf(fr.id)}/${fr.id}`)) && await look(["ar/" + fr.id + ".f"], woman, `&lang=ar#/read/${stOf(fr.id)}/${fr.id}`),
-        "voice: a woman reading the Arabic gets the button only where her own wording is recorded (" + fr.id + ".f)"); } });
+        "voice: a woman reading the Arabic gets the button only where her own wording is recorded (" + fr.id + ".f)");
+      // a recorded reading with a verse: the narration stops at the verse, which is marked on the page, and «تابع الاستماع»
+      // goes on with what follows it (played fast here)
+      const srcA = fs.readFileSync(path.join(ROOT, "app.js"), "utf8"), adl = JSON.parse((srcA.match(/const NARRATED_ADULT = (\[[^\]]*\])/) || [0, "[]"])[1]);
+      const vr = all.find(r => adl.includes(r.id) && r.body.ar.some(p => /﴿/.test(p)));
+      if (vr) for (const lang of ["ar", "en"]) { const c = await browser.newContext({ viewport: { width: 375, height: 812 } });
+        await c.addInitScript(([s]) => { delete window.TZ_STORY_AUDIO; const A = window.Audio;
+          window.Audio = function (u) { const a = new A(u); a.playbackRate = 16; a.addEventListener("loadedmetadata", () => { a.playbackRate = 16; }); return a; };
+          try { if (!sessionStorage.getItem("tzSeed")) { localStorage.setItem("akhlaq-app-v1", JSON.stringify(s)); sessionStorage.setItem("tzSeed", "1"); } } catch (e) {} }, [{ ...man, lang }]);
+        const p = await c.newPage(), e = [], got = []; p.on("pageerror", x => e.push(x.message)); p.on("request", q => { if (q.url().includes("/audio/")) got.push(q.url()); });
+        await p.goto(`${base}?intro=0&lang=${lang}#/read/${stOf(vr.id)}/${vr.id}`); await p.waitForTimeout(900);
+        await p.click('#view [data-act="tts"]');
+        const mk = await p.waitForSelector("#view mark.vstop", { timeout: 60000 }).then(() => p.locator("#view mark.vstop").first().innerText(), () => "");
+        const n0 = got.length; if (await has(p, '#view [data-act="ttsgo"]')) await p.click('#view [data-act="ttsgo"]'); await p.waitForTimeout(800);
+        const on = got.slice(n0).some(x => /\.mp3$/.test(x)), gone = !(await has(p, "#view mark.vstop"));
+        ok((lang === "ar" ? /^﴿/.test(mk) : /\d+:\d+\)/.test(mk)) && on && gone && !e.length, `voice: the narration of ${vr.id} (${lang}) stops at its verse, marked on the page, and goes on after it (${mk.slice(0, 30)}; ${on}, ${gone}) ${e.slice(0, 1).join("")}`);
+        await c.close(); } } });
   // direction 4 (owner's approval, 26 Nov 2026), merged into the tasks tab by the owner's decision of 27 Nov 2026: the adult home
   // is «المهام», whose «مهام اليوم» runs today's reading (opened on #/today with its question), the stage's task, one's own
   // items, the running challenges and the evening question. «مع أولادي» is the second half of «يدي» and holds the family pact

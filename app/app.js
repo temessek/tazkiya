@@ -184,7 +184,7 @@
     readVirtue: ["اقرأ عنها", "Read about it"], practice: ["تمرين", "Practice"],
     sabiqShare: ["نصيبك من السبق بالخيرات", "Your share of racing to good"],
     faqT: ["أسئلة الوالدين", "Parents' questions"],
-    ttsPlay: ["استمع", "Listen"], ttsStop: ["أوقف القراءة", "Stop reading"], askChild: ["اسأل طفلك:", "Ask your child:"],
+    ttsPlay: ["استمع", "Listen"], ttsStop: ["أوقف القراءة", "Stop reading"], ttsGo: ["تابع الاستماع", "Continue listening"], ttsVerse: ["اقرأ الآية بنفسك، ثم تابع الاستماع", "Read the verse yourself, then continue listening"], askChild: ["اسأل طفلك:", "Ask your child:"],
     faqLink: ["أسئلة الوالدين", "Parents' questions"],
     profT: ["الملف", "Profile"], profPh: ["يُحفظ على هذا الجهاز فقط", "Kept on this device only"],
     profName: ["الاسم", "Name"], boy: ["ولد", "Boy"], girl: ["بنت", "Girl"], profNote: ["اختيار «بنت» يعرض صيغة المؤنث حيث توفّرها المادة.", "\u201cGirl\u201d uses feminine Arabic wording where the content has it."],
@@ -558,7 +558,7 @@
 
   /* ---------- helpers ---------- */
   const L = () => S.lang;
-  const UF = { "signLeadTeen": "انظري إلى إصبعك، واقرئي:", "agNote": "اختاري الفئة، فيتغير المحتوى لهذا الملف ويبقى سجلّه محفوظًا.", "chGate": "هذا الفصل يُفتح بعد أن تقرئي الفصل {n}. القصة تُقرأ من أولها بالترتيب.", "pgGate": "هذه الصفحة تُفتح بعد أن تقرئي الصفحة {n}. القصة تُقرأ من أولها بالترتيب.", "readWait": "تُسجَّل القراءة حين تصلين إلى آخرها وتقرئينها على مهل.", "recSub": "ما قرأتِه وما أجبتِ عنه وما أنجزتِه، بتاريخه، محفوظًا على هذا الجهاز.", "bkPersistNo": "محفوظة على هذا الجهاز، لكن المتصفح قد يحذفها إن امتلأت ذاكرته أو مُسحت بيانات المواقع. ثبّتي التطبيق، واحفظي نسخة احتياطية من حين لآخر.", "bkExport": "احفظي نسخة احتياطية", "bkImport": "استعيدي من نسخة", "bkYes": "نعم، استعيدي النسخة", "presOk": "✓ حضرتِ اليوم", "presNo": "لم تحضري بعد اليوم: علّمي تحدياتك، أو اقرئي قصة، أو أجيبي سؤالًا.", "presStart": "ابدئي تحديًا من مهام المراحل", "trWeekDone": "أتممتِ سبعة أيام، وفُتحت العادة الثابتة", "trActiveSub": "تحدي الأيام السبعة والعادات الثابتة. علّمي ما فعلتِه اليوم.", "trNone": "حين تنجزين «الخطوة الأولى» لسمة في مهام المراحل، يظهر تحديها هنا كل يوم.", "quizSub": "أسئلة من قصص هذه المرحلة وسماتها، تراجعين بها ما فهمتِ.", "signsSub": "علامات تظهر في اليوم. اضغطي «لاحظتها اليوم» على ما رأيتِه في نفسك.", "badgesSub": "يُطبع ختم كلما وصلتِ إلى شيء فعلتِه بنفسكِ، مثل أول مهمة، أو سبعة أيام على الطريق. وتحت كل ختم ما فعلتِه ومتى.", "helloSub": "تبدئين من الخنصر وتصعدين إلى الإبهام، وفي كل عُقلة سمة تتعرّفين عليها.", "tourEndSub": "ابدئي من الإصبع الذي تجدين نفسكِ عنده اليوم، واصعدي منه خطوة.", "abPlat1": "تزكية منصة عون شخصي في الأخلاق والقيم. تقرئين فيها قصة عن الصبر مثلًا، أو آية أو حديثًا فيه، ثم تجرّبينه في يومكِ بمهمة صغيرة، فيتحرك المزيج على يدكِ إصبعًا بعد إصبع.", "stageTasksSub": "مهام لكل إصبع، وكل مهمة تنجزينها ترفع المزيج.", "wkBook": "أنهت كتاب «{b}»", "storyQ": "إلى الخطوة والسؤال على يدكِ", "readFirst": "اقرئي", "tourTouch": "المسي {f}", "tourTry": "جرّبي: {f}", "tourLight": "وفوق الإبهام نور. المسيه", "tourSkip": "تخطَّي الجولة", "tourAgain": "أعيدي الجولة الأولى", "bookProgP": "قرأتِ {a} من {b} صفحات", "bookProg": "قرأتِ {a} من {b} فصول", "bookStart": "ابدئي القراءة", "bookCont": "تابعي القراءة", "bookAgain": "اقرئي من جديد", "climbDeg": "صعدتِ في {f}", "climbStep": "خطوة إلى أعلى، نحو {s}", "hint": "اضغطي على كل إصبع لتعرفي رمزيته وأين أنتِ منه", "yourShare": "نصيبكِ منها الآن", "startQuiz": "ابدئي الاختبار", "continue": "تابعي من هنا", "toQuiz": "اختبري فهمكِ", "sit": "ماذا تفعلين؟", "right": "أحسنتِ", "again": "أعيدي الاختبار", "already": "أجبتِ عنه من قبل، فلا يتغير المزيج.", "selfQ": "أي إصبع ظهر فيكِ أكثر اليوم؟", "selfSaved": "سُجّل تقييمكِ لليوم", "meSub": "سلوكياتكِ الآن. ترتقين بالفهم والعمل والتطبيق.", "toWork": "إلى العمل: أنجزي مهام هذه المرحلة", "learnStage": "افهمي وتعلّمي: كيف تزكّين نفسك في هذه المرحلة", "tQuiz": "اختبري فهمكِ", "pwaHow": "للتثبيت: افتحي قائمة المتصفح واختاري «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».", "confirmed": "أنجزتِها", "welcomeBack": "أهلًا بعودتكِ يا {n}", "scSub": "أجيبي بصدق، فهذا لكِ وحدكِ ولا يغيّر المزيج.", "pickFinger": "اختاري إصبعًا", "aloud": "اقرئيها بصوت عالٍ", "rightSub": "اضغطي على إصبع لتقرئي عن درجته.", "readVirtue": "اقرئي عنها", "sabiqShare": "نصيبكِ من السبق بالخيرات", "introT": "يدكِ سلّم", "intro3": "تصعدين بالقراءة والاختبار والمهام.", "ttsPlay": "استمعي", "instT": "ثبّتي تزكية على شاشتك", "ios1": "اضغطي زر المشاركة {i} في سفاري: أسفل الشاشة على آيفون، وأعلاها على آيباد.", "ios2": "مرّري القائمة واختاري «إضافة إلى الشاشة الرئيسية». إن لم تجديه فاضغطي «عرض المزيد».", "ios3": "اضغطي «إضافة»، ثم افتحي تزكية من أيقونتها.", "iosNote": "على آيفون للتطبيق المثبّت تخزين منفصل عن سفاري. إن كان لكِ تقدّم في سفاري فاحفظي نسخة احتياطية هنا، ثم استعيديها داخل التطبيق المثبّت.", "iosOther": "إن لم يظهر الخيار في متصفح آخر، فافتحي الرابط في سفاري.", "storeFull": "ذاكرة المتصفح ممتلئة، فلم يُحفظ آخر تغيير. احفظي نسخة احتياطية الآن، ثم أفرغي مساحة على الجهاز.", "linkFull": "على هذا الجهاز أربعة ملفات، وهي الحد. احذفي ملفًا من الإعدادات، ثم افتحي الرابط من جديد.", "helloA": "أهلًا بكِ", "welcomeBackA": "أهلًا بعودتكِ", "doorLearn": "افهمي وتعلّمي", "doorLearnSub": "كيف تزكّين نفسك في هذه المرحلة", "doorWorkSub": "أنجزي مهام هذه المرحلة", "startHere": "ابدئي هنا", "wReview": "راجعي نفسك اليوم", "tasksSub": "ابدئي بمهام اليوم، ثم ادخلي مرحلة من بابيها.", "todayAll": "✓ أتممتِ مهام اليوم. تابعي في المرحلة المقترحة لكِ.", "nxGoRead": "اقرئي القصة", "nxGoAsk": "أجيبي عن السؤال", "nxGoTask": "اعرفي مهمتكِ", "nxAllDone": "قطعتِ طرق يدكِ كلها", "pathH": "طريقكِ في {f}", "pathSub": "قصة، ثم سؤالها، ثم مهمة في البيت. ما قطعتِه عليه علامة، والمضيئة خطوتكِ الآن.", "stDone": "قطعتِها", "stNow": "أنتِ هنا", "tkT": "مهمتكِ في البيت", "tkNote": "افعليها في يومكِ، ثم ارجعي إليها واضغطي «فعلتها».", "nxT": "خطوتكِ التالية", "fWeek": "إصبعكِ هذا الأسبوع:", "toNext": "إلى خطوتكِ التالية", "bkListen": "استمعي إلى القصة", "bkListenQ": "استمعي إلى السؤال", "bkPause": "أوقفي", "bkRetry": "ارجعي إلى القصة، ثم جرّبي مرة أخرى.", "bkFromStart": "اقرئيها من أولها" };
+  const UF = { "signLeadTeen": "انظري إلى إصبعك، واقرئي:", "agNote": "اختاري الفئة، فيتغير المحتوى لهذا الملف ويبقى سجلّه محفوظًا.", "chGate": "هذا الفصل يُفتح بعد أن تقرئي الفصل {n}. القصة تُقرأ من أولها بالترتيب.", "pgGate": "هذه الصفحة تُفتح بعد أن تقرئي الصفحة {n}. القصة تُقرأ من أولها بالترتيب.", "readWait": "تُسجَّل القراءة حين تصلين إلى آخرها وتقرئينها على مهل.", "recSub": "ما قرأتِه وما أجبتِ عنه وما أنجزتِه، بتاريخه، محفوظًا على هذا الجهاز.", "bkPersistNo": "محفوظة على هذا الجهاز، لكن المتصفح قد يحذفها إن امتلأت ذاكرته أو مُسحت بيانات المواقع. ثبّتي التطبيق، واحفظي نسخة احتياطية من حين لآخر.", "bkExport": "احفظي نسخة احتياطية", "bkImport": "استعيدي من نسخة", "bkYes": "نعم، استعيدي النسخة", "presOk": "✓ حضرتِ اليوم", "presNo": "لم تحضري بعد اليوم: علّمي تحدياتك، أو اقرئي قصة، أو أجيبي سؤالًا.", "presStart": "ابدئي تحديًا من مهام المراحل", "trWeekDone": "أتممتِ سبعة أيام، وفُتحت العادة الثابتة", "trActiveSub": "تحدي الأيام السبعة والعادات الثابتة. علّمي ما فعلتِه اليوم.", "trNone": "حين تنجزين «الخطوة الأولى» لسمة في مهام المراحل، يظهر تحديها هنا كل يوم.", "quizSub": "أسئلة من قصص هذه المرحلة وسماتها، تراجعين بها ما فهمتِ.", "signsSub": "علامات تظهر في اليوم. اضغطي «لاحظتها اليوم» على ما رأيتِه في نفسك.", "badgesSub": "يُطبع ختم كلما وصلتِ إلى شيء فعلتِه بنفسكِ، مثل أول مهمة، أو سبعة أيام على الطريق. وتحت كل ختم ما فعلتِه ومتى.", "helloSub": "تبدئين من الخنصر وتصعدين إلى الإبهام، وفي كل عُقلة سمة تتعرّفين عليها.", "tourEndSub": "ابدئي من الإصبع الذي تجدين نفسكِ عنده اليوم، واصعدي منه خطوة.", "abPlat1": "تزكية منصة عون شخصي في الأخلاق والقيم. تقرئين فيها قصة عن الصبر مثلًا، أو آية أو حديثًا فيه، ثم تجرّبينه في يومكِ بمهمة صغيرة، فيتحرك المزيج على يدكِ إصبعًا بعد إصبع.", "stageTasksSub": "مهام لكل إصبع، وكل مهمة تنجزينها ترفع المزيج.", "wkBook": "أنهت كتاب «{b}»", "storyQ": "إلى الخطوة والسؤال على يدكِ", "readFirst": "اقرئي", "tourTouch": "المسي {f}", "tourTry": "جرّبي: {f}", "tourLight": "وفوق الإبهام نور. المسيه", "tourSkip": "تخطَّي الجولة", "tourAgain": "أعيدي الجولة الأولى", "bookProgP": "قرأتِ {a} من {b} صفحات", "bookProg": "قرأتِ {a} من {b} فصول", "bookStart": "ابدئي القراءة", "bookCont": "تابعي القراءة", "bookAgain": "اقرئي من جديد", "climbDeg": "صعدتِ في {f}", "climbStep": "خطوة إلى أعلى، نحو {s}", "hint": "اضغطي على كل إصبع لتعرفي رمزيته وأين أنتِ منه", "yourShare": "نصيبكِ منها الآن", "startQuiz": "ابدئي الاختبار", "continue": "تابعي من هنا", "toQuiz": "اختبري فهمكِ", "sit": "ماذا تفعلين؟", "right": "أحسنتِ", "again": "أعيدي الاختبار", "already": "أجبتِ عنه من قبل، فلا يتغير المزيج.", "selfQ": "أي إصبع ظهر فيكِ أكثر اليوم؟", "selfSaved": "سُجّل تقييمكِ لليوم", "meSub": "سلوكياتكِ الآن. ترتقين بالفهم والعمل والتطبيق.", "toWork": "إلى العمل: أنجزي مهام هذه المرحلة", "learnStage": "افهمي وتعلّمي: كيف تزكّين نفسك في هذه المرحلة", "tQuiz": "اختبري فهمكِ", "pwaHow": "للتثبيت: افتحي قائمة المتصفح واختاري «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».", "confirmed": "أنجزتِها", "welcomeBack": "أهلًا بعودتكِ يا {n}", "scSub": "أجيبي بصدق، فهذا لكِ وحدكِ ولا يغيّر المزيج.", "pickFinger": "اختاري إصبعًا", "aloud": "اقرئيها بصوت عالٍ", "rightSub": "اضغطي على إصبع لتقرئي عن درجته.", "readVirtue": "اقرئي عنها", "sabiqShare": "نصيبكِ من السبق بالخيرات", "introT": "يدكِ سلّم", "intro3": "تصعدين بالقراءة والاختبار والمهام.", "ttsPlay": "استمعي", "ttsGo": "تابعي الاستماع", "ttsVerse": "اقرئي الآية بنفسكِ، ثم تابعي الاستماع", "instT": "ثبّتي تزكية على شاشتك", "ios1": "اضغطي زر المشاركة {i} في سفاري: أسفل الشاشة على آيفون، وأعلاها على آيباد.", "ios2": "مرّري القائمة واختاري «إضافة إلى الشاشة الرئيسية». إن لم تجديه فاضغطي «عرض المزيد».", "ios3": "اضغطي «إضافة»، ثم افتحي تزكية من أيقونتها.", "iosNote": "على آيفون للتطبيق المثبّت تخزين منفصل عن سفاري. إن كان لكِ تقدّم في سفاري فاحفظي نسخة احتياطية هنا، ثم استعيديها داخل التطبيق المثبّت.", "iosOther": "إن لم يظهر الخيار في متصفح آخر، فافتحي الرابط في سفاري.", "storeFull": "ذاكرة المتصفح ممتلئة، فلم يُحفظ آخر تغيير. احفظي نسخة احتياطية الآن، ثم أفرغي مساحة على الجهاز.", "linkFull": "على هذا الجهاز أربعة ملفات، وهي الحد. احذفي ملفًا من الإعدادات، ثم افتحي الرابط من جديد.", "helloA": "أهلًا بكِ", "welcomeBackA": "أهلًا بعودتكِ", "doorLearn": "افهمي وتعلّمي", "doorLearnSub": "كيف تزكّين نفسك في هذه المرحلة", "doorWorkSub": "أنجزي مهام هذه المرحلة", "startHere": "ابدئي هنا", "wReview": "راجعي نفسك اليوم", "tasksSub": "ابدئي بمهام اليوم، ثم ادخلي مرحلة من بابيها.", "todayAll": "✓ أتممتِ مهام اليوم. تابعي في المرحلة المقترحة لكِ.", "nxGoRead": "اقرئي القصة", "nxGoAsk": "أجيبي عن السؤال", "nxGoTask": "اعرفي مهمتكِ", "nxAllDone": "قطعتِ طرق يدكِ كلها", "pathH": "طريقكِ في {f}", "pathSub": "قصة، ثم سؤالها، ثم مهمة في البيت. ما قطعتِه عليه علامة، والمضيئة خطوتكِ الآن.", "stDone": "قطعتِها", "stNow": "أنتِ هنا", "tkT": "مهمتكِ في البيت", "tkNote": "افعليها في يومكِ، ثم ارجعي إليها واضغطي «فعلتها».", "nxT": "خطوتكِ التالية", "fWeek": "إصبعكِ هذا الأسبوع:", "toNext": "إلى خطوتكِ التالية", "bkListen": "استمعي إلى القصة", "bkListenQ": "استمعي إلى السؤال", "bkPause": "أوقفي", "bkRetry": "ارجعي إلى القصة، ثم جرّبي مرة أخرى.", "bkFromStart": "اقرئيها من أولها" };
   const GEN = () => (S.parent && route().name === "review" ? (S.parentG === "f" ? "f" : "") : S.gender);
   // adult edition: the same interface in an adult register (UA), with feminine Arabic where it differs (UAF)
   const UA = {
@@ -2849,7 +2849,7 @@
           <div class="fsz" role="group" aria-label="${esc(u("textSize"))}">${ttsBtn(r.id, 1, body.length)}<button data-act="fs" data-d="-2" aria-label="A−">A−</button><button data-act="fs" data-d="2" aria-label="A+">A+</button></div></div>
         <h1 class="h">${esc(t(r.title))}</h1>
         <p class="wmeta">${r.minutes ? `${esc(String(r.minutes))} ${esc(u("minutes"))}` : ""}</p>
-        <div class="body">${body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
+        <div class="body">${bodyHtml(r.id, body)}</div>
         ${q ? `<figure class="quote" style="margin-inline:0">${q.ar ? `<p class="qar" lang="ar">${esc(q.ar)}</p>` : ""}${L() === "en" && q.en ? `<p class="qen" lang="en">${esc(q.en)}</p>` : ""}
           <figcaption class="ref">${q.ref ? `<bdi>${esc(refFmt(q.ref))}</bdi>` : ""}<a class="src-mini" href="#/sources">${esc(u("srcLink"))}</a></figcaption></figure>` : ""}
         ${r.source ? `<p class="source">${esc(t(r.source))}</p>` : ""}
@@ -3131,10 +3131,48 @@
   const audioSrc = (id, n) => { const k = audioKey(id), i = k.indexOf("/"); return "assets/audio/" + k.slice(0, i) + "/" + encodeURIComponent(k.slice(i + 1)) + "/" + n; };
   let NAR = null; // the recording now playing
   const setPlaying = on => { speaking = on; try { window.TZ_AUDIO_PLAYING = on; } catch (e) {} }; // fx.js lowers the background sound by it
+  /* A Quranic verse is never read by the machine voice. In the adult edition the narrator reads up to a verse and stops there
+     (owner decision, 28 Nov 2026: «يقرأ الراوي ويتوقف عند الآية»): such a paragraph's <n>.json is {"parts": [{"say": "<n>.1"},
+     {"verse": [first word, last word]}, {"say": "<n>.2"}, ...]}, each "say" a clip <n>.k.mp3 with its own timings. At a verse the
+     paragraph shows it marked, with a button that goes on to the next clip (VSTOP). */
+  let VSTOP = null;
+  const verseAt = (id, n) => ADU() && Object.values(C.stages).some(st => (st.readings || []).some(r => r.id === id && r.body && Array.isArray(r.body.ar) && /﴿/.test(r.body.ar[n - 1] || "")));
+  // a reading's paragraphs, the one stopped at a verse with the verse marked and the button to go on
+  function bodyHtml(id, body) {
+    return body.map((p, i) => {
+      if (!VSTOP || VSTOP.id !== id || VSTOP.n !== i + 1) return `<p>${esc(p)}</p>`;
+      let w = -1, open = false;
+      const h = p.split(/(\s+)/).map(x => { if (!x || /^\s+$/.test(x)) return x; w++; let o = "";
+        if (w === VSTOP.a) { o += '<mark class="vstop">'; open = true; } o += esc(x); if (w === VSTOP.b && open) { o += "</mark>"; open = false; } return o; }).join("") + (open ? "</mark>" : "");
+      return `<p>${h}</p><div class="vgo"><button class="btn ghost" data-act="ttsgo" title="${esc(u("ttsVerse"))}">▶ ${esc(u("ttsGo"))}</button></div>`;
+    }).join("");
+  }
   // plays page n of a narration; ws (the page's word spans) light up from its timings; done(true) when it ends
   function narrate(id, n, ws, done) {
-    bookStop(); const seq = bkSeq, a = new Audio(audioSrc(id, n) + ".mp3"); NAR = a; let tm = [];
-    fetch(audioSrc(id, n) + ".json").then(r => (r.ok ? r.json() : [])).then(j => { if (seq === bkSeq && Array.isArray(j)) tm = j.filter(x => x && typeof x.t === "number" && Number.isInteger(x.w)).sort((p, q) => p.t - q.t); }).catch(() => {});
+    bookStop(); const seq = bkSeq;
+    if (!verseAt(id, n)) return clip(id, n, String(n), ws, done, seq);
+    setPlaying(true);
+    const fail = () => { if (seq !== bkSeq) return; setPlaying(false); if (done) done(false); };
+    fetch(audioSrc(id, n) + ".json").then(r => (r.ok ? r.json() : null)).then(j => {
+      if (seq !== bkSeq) return;
+      const ps = j && Array.isArray(j.parts) ? j.parts.filter(p => p && ((typeof p.say === "string" && /^\d+\.\d+$/.test(p.say)) || (Array.isArray(p.verse) && p.verse.every(Number.isInteger)))) : [];
+      if (!ps.length) return fail();
+      const step = k => {
+        if (seq !== bkSeq) return;
+        if (k >= ps.length) { if (done) done(true); return; }
+        const p = ps[k];
+        if (p.say) return clip(id, n, p.say, ws, ok => (ok ? step(k + 1) : done && done(false)), seq);
+        VSTOP = { id, n, a: p.verse[0], b: p.verse[1], go: () => { VSTOP = null; step(k + 1); } };
+        setPlaying(true); render(true); // still "playing": the listen button stays the stop button
+        const m = view.querySelector("mark.vstop"); if (m && m.scrollIntoView) m.scrollIntoView({ block: "center", behavior: "smooth" });
+      };
+      step(0);
+    }).catch(fail);
+  }
+  // one recording: file <name> of the narration (the whole page n, or a clip of it before or after a verse)
+  function clip(id, n, name, ws, done, seq) {
+    const a = new Audio(audioSrc(id, name) + ".mp3"); NAR = a; let tm = [];
+    fetch(audioSrc(id, name) + ".json").then(r => (r.ok ? r.json() : [])).then(j => { if (seq === bkSeq && Array.isArray(j)) tm = j.filter(x => x && typeof x.t === "number" && Number.isInteger(x.w)).sort((p, q) => p.t - q.t); }).catch(() => {});
     const mark = i => (ws || []).forEach((w, j) => w.classList.toggle("hl", j === i));
     const end = ok => { if (seq !== bkSeq) return; mark(-1); NAR = null; setPlaying(false); if (done) done(ok); };
     a.addEventListener("timeupdate", () => { if (seq !== bkSeq) return; let k = -1; for (const x of tm) { if (x.t <= a.currentTime) k = x.w; else break; } mark(k); });
@@ -3149,6 +3187,7 @@
     return `<button data-act="tts" data-id="${esc(id)}" data-f="${from || 1}" data-n="${n || 1}" class="${speaking ? "on" : ""}" aria-pressed="${speaking}" aria-label="${esc(u(speaking ? "ttsStop" : "ttsPlay"))}" title="${esc(u(speaking ? "ttsStop" : "ttsPlay"))}">${speaking ? "■" : "🔊"}</button>`;
   }
   function ttsStop() { bookStop(); setPlaying(false); }
+  function ttsGo() { const v = VSTOP; if (!v || !speaking) { VSTOP = null; render(true); return; } v.go(); render(true); }
   function ttsToggle(el) {
     if (speaking) { ttsStop(); render(true); return; }
     const id = el.dataset.id, from = Math.max(1, +el.dataset.f || 1), last = from + Math.max(1, +el.dataset.n || 1) - 1;
@@ -3321,7 +3360,7 @@
       ${(() => { const src = storyArt(id, r); return src ? `<figure class="rd-art" aria-hidden="true"><img src="${src}" alt="" decoding="async"></figure>` : ""; })()}
       <h1 class="h">${esc(t(r.title))}</h1>${r.origin ? `<p class="origin">${esc(t(r.origin))}</p>` : ""}
       <div class="meta"><span>${r.minutes ? r.minutes + " " + esc(u("minutes")) : ""}</span>${ADU() ? "" : `<span>${esc(u("ages"))}: ${agesHtml(r.ages)}</span>`}${young ? `<button class="small-btn" data-act="aloud">${esc(u("aloud"))}</button>` : ""}</div>
-      <div class="body">${body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
+      <div class="body">${bodyHtml(r.id, body)}</div>
       ${q ? `<figure class="quote" style="margin-inline:0">${q.ar ? `<p class="qar" lang="ar">${esc(q.ar)}</p>` : ""}${L() === "en" && q.en ? `<p class="qen" lang="en">${esc(q.en)}</p>` : ""}
         <figcaption class="ref">${q.ref ? `<bdi>${esc(refFmt(q.ref))}</bdi>` : ""}<a class="src-mini" href="#/sources">${esc(u("srcLink"))}</a></figcaption></figure>` : ""}
       ${r.source ? `<p class="source">${esc(t(r.source))}</p>` : ""}
@@ -3421,7 +3460,7 @@
     });
     bkPlay = !!play; face();
   }
-  function bookStop() { bkSeq++; bkPlay = false; clearInterval(bkTimer); if (NAR) { const a = NAR; NAR = null; try { a.pause(); a.removeAttribute("src"); a.load(); } catch (e) {} } }
+  function bookStop() { bkSeq++; bkPlay = false; VSTOP = null; clearInterval(bkTimer); if (NAR) { const a = NAR; NAR = null; try { a.pause(); a.removeAttribute("src"); a.load(); } catch (e) {} } }
   /* ---------- library: one bound book per finger, read chapter by chapter ---------- */
   const VG = "assets/vignettes/";
   const ART = { sym: {}, book: {} };
@@ -4236,6 +4275,7 @@
       case "pwahow": pwaHowSheet(); break;
       case "signlater": try { localStorage.setItem("tazkiya-signin-later", String(Date.now())); } catch (e) {} FX("tick"); render(true); break;
       case "tts": ttsToggle(el); break;
+      case "ttsgo": ttsGo(); break;
       case "seted": {
         const e = el.dataset.e === "adult" ? "adult" : "kids", was = S.edition === "adult" ? "adult" : "kids";
         S.edition = e; save(); if (e === was) { settingsSheet(); break; }
