@@ -3116,7 +3116,8 @@
      A test may set window.TZ_STORY_AUDIO before load to replace the list.
      The .mp3 files stay out of the service worker's install list. */
   const NARRATED = ["zombie-r1", "zombie-r6", "zombie-r10", "zombie-r13", "pig-r1", "pig-r3", "pig-r6", "pig-r10", "pig-r13", "monkey-r1", "monkey-r6", "monkey-r10", "monkey-r13", "human-r1", "human-r6", "human-r10", "human-r13", "sabiq-r1", "sabiq-r6", "sabiq-r10", "sabiq-r13",
-    "zombie-r8", "zombie-r9", "zombie-r11", "zombie-r12", "zombie-r14", "zombie-r15", "zombie-r16", "zombie-r17", "pig-r8", "pig-r9", "pig-r11", "pig-r12", "pig-r14", "pig-r15", "pig-r16", "pig-r17", "monkey-r7", "monkey-r9", "monkey-r11", "monkey-r12", "monkey-r14", "monkey-r15", "monkey-r16", "human-r8", "human-r9", "human-r11", "human-r12"].flatMap(id => ["ar/" + id, "en/" + id]);
+    "zombie-r8", "zombie-r9", "zombie-r11", "zombie-r12", "zombie-r14", "zombie-r15", "zombie-r16", "zombie-r17", "pig-r8", "pig-r9", "pig-r11", "pig-r12", "pig-r14", "pig-r15", "pig-r16", "pig-r17", "monkey-r7", "monkey-r9", "monkey-r11", "monkey-r12", "monkey-r14", "monkey-r15", "monkey-r16", "human-r8", "human-r9", "human-r11", "human-r12",
+    "human-r14", "human-r15", "human-r16", "human-r17", "human-r18", "sabiq-r9", "sabiq-r11", "sabiq-r12", "sabiq-r14", "sabiq-r15", "sabiq-r16"].flatMap(id => ["ar/" + id, "en/" + id]);
   // the adult edition's readings (28 Nov 2026, a mature narrator), recorded in both languages; NARRATED_F those of them whose
   // Arabic has a woman's wording, recorded again in it as ar/<id>.f
   const NARRATED_ADULT = [];
