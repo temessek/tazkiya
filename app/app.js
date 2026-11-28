@@ -2846,7 +2846,7 @@
       const wq = st.quiz.find(x => x.readingId === r.id), rsl = st.readings, k = rsl.indexOf(r);
       const nr = rsl.slice(k + 1).concat(rsl.slice(0, k)).find(x => !S.read[x.id]);
       main = `<div class="wtop"><p class="wk">${esc(u("wirdK"))} · ${esc(fing(f))} · ${esc(nm(f))}</p>
-          <div class="fsz" role="group" aria-label="${esc(u("textSize"))}"><button data-act="fs" data-d="-2" aria-label="A−">A−</button><button data-act="fs" data-d="2" aria-label="A+">A+</button></div></div>
+          <div class="fsz" role="group" aria-label="${esc(u("textSize"))}">${ttsBtn(r.id, 1, body.length)}<button data-act="fs" data-d="-2" aria-label="A−">A−</button><button data-act="fs" data-d="2" aria-label="A+">A+</button></div></div>
         <h1 class="h">${esc(t(r.title))}</h1>
         <p class="wmeta">${r.minutes ? `${esc(String(r.minutes))} ${esc(u("minutes"))}` : ""}</p>
         <div class="body">${body.map(p => `<p>${esc(p)}</p>`).join("")}</div>
@@ -3117,9 +3117,18 @@
      The .mp3 files stay out of the service worker's install list. */
   const NARRATED = ["zombie-r1", "zombie-r6", "zombie-r10", "zombie-r13", "pig-r1", "pig-r3", "pig-r6", "pig-r10", "pig-r13", "monkey-r1", "monkey-r6", "monkey-r10", "monkey-r13", "human-r1", "human-r6", "human-r10", "human-r13", "sabiq-r1", "sabiq-r6", "sabiq-r10", "sabiq-r13",
     "zombie-r8", "zombie-r9", "zombie-r11", "zombie-r12", "zombie-r14", "zombie-r15", "zombie-r16", "zombie-r17", "pig-r8", "pig-r9", "pig-r11", "pig-r12", "pig-r14", "pig-r15", "pig-r16", "pig-r17", "monkey-r7", "monkey-r9", "monkey-r11", "monkey-r12", "monkey-r14", "monkey-r15", "monkey-r16", "human-r8", "human-r9", "human-r11", "human-r12"].flatMap(id => ["ar/" + id, "en/" + id]);
-  const STORY_AUDIO = new Set((Array.isArray(window.TZ_STORY_AUDIO) ? window.TZ_STORY_AUDIO : NARRATED).filter(x => typeof x === "string" && /^(ar|en)\/[\w.:-]{1,90}$/.test(x)));
-  const audioOf = id => !!id && STORY_AUDIO.has(L() + "/" + id);
-  const audioSrc = (id, n) => "assets/audio/" + L() + "/" + encodeURIComponent(id) + "/" + n;
+  // the adult edition's readings (28 Nov 2026, a mature narrator), recorded in both languages; NARRATED_F those of them whose
+  // Arabic has a woman's wording, recorded again in it as ar/<id>.f
+  const NARRATED_ADULT = [];
+  const NARRATED_F = [];
+  const RECORDED = NARRATED.concat(NARRATED_ADULT.flatMap(id => ["ar/" + id, "en/" + id]), NARRATED_F.map(id => "ar/" + id + ".f"));
+  const STORY_AUDIO = new Set((Array.isArray(window.TZ_STORY_AUDIO) ? window.TZ_STORY_AUDIO : RECORDED).filter(x => typeof x === "string" && /^(ar|en)\/[\w.:-]{1,90}$/.test(x)));
+  // a reading whose Arabic has its own wording for a woman (body.ar_f) has a second recording, "ar/<id>.f", for her;
+  // without it she gets no button, since the timings are for the other wording's words
+  const femDiff = id => Object.values(C.stages).some(st => (st.readings || []).some(r => r.id === id && r.body && Array.isArray(r.body.ar_f) && Array.isArray(r.body.ar) && r.body.ar_f.some((p, i) => p !== r.body.ar[i])));
+  const audioKey = id => L() + "/" + id + (L() === "ar" && GEN() === "f" && femDiff(id) ? ".f" : "");
+  const audioOf = id => !!id && STORY_AUDIO.has(audioKey(id));
+  const audioSrc = (id, n) => { const k = audioKey(id), i = k.indexOf("/"); return "assets/audio/" + k.slice(0, i) + "/" + encodeURIComponent(k.slice(i + 1)) + "/" + n; };
   let NAR = null; // the recording now playing
   const setPlaying = on => { speaking = on; try { window.TZ_AUDIO_PLAYING = on; } catch (e) {} }; // fx.js lowers the background sound by it
   // plays page n of a narration; ws (the page's word spans) light up from its timings; done(true) when it ends

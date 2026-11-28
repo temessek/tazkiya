@@ -719,7 +719,21 @@ async function ideaFlows(browser, base, content, AV) {
           if (!fs.existsSync(b + ".mp3") || fs.statSync(b + ".mp3").size < 2000) { bad.push(`${lang}/${id}/${i + 1}.mp3`); return; }
           let tm = null; try { tm = JSON.parse(fs.readFileSync(b + ".json", "utf8")); } catch (e) {}
           if (!Array.isArray(tm) || !tm.length || tm.some((x, k) => typeof x.t !== "number" || !Number.isInteger(x.w) || x.w < 0 || x.w >= nw || (k && (x.t < tm[k - 1].t || x.w <= tm[k - 1].w)))) bad.push(`${lang}/${id}/${i + 1}.json`); }); }
-      ok(ids.length === 48 && !bad.length, `voice: the 21 storybook stories and 27 readings are recorded page by page in both languages, with timings for their words (${ids.length}; ${bad.slice(0, 3).join(" ")})`); }
+      ok(ids.length === 48 && !bad.length, `voice: the 21 storybook stories and 27 readings are recorded page by page in both languages, with timings for their words (${ids.length}; ${bad.slice(0, 3).join(" ")})`);
+      // the adult edition (28 Nov 2026): each listed reading in both languages, and in a woman's Arabic wording as ar/<id>.f
+      const { A: KA } = loadContent(), list = name => JSON.parse((src.match(new RegExp("const " + name + " = (\\[[^\\]]*\\])")) || [0, "null"])[1]);
+      const ad = list("NARRATED_ADULT"), af = list("NARRATED_F"), badA = [];
+      const findA = id => { for (const st of Object.values(KA.stages)) { const r = st.readings.find(x => x.id === id); if (r) return r; } return null; };
+      const fem = r => !!(r && r.body.ar_f && r.body.ar.some((p, i) => p !== r.body.ar_f[i]));
+      const files = (key, pages) => pages.forEach((p, i) => { const b = path.join(ROOT, "assets", "audio", ...key.split("/"), String(i + 1)), nw = p.split(/\s+/).filter(Boolean).length;
+        if (!fs.existsSync(b + ".mp3") || fs.statSync(b + ".mp3").size < 2000) { badA.push(`${key}/${i + 1}.mp3`); return; }
+        let tm = null; try { tm = JSON.parse(fs.readFileSync(b + ".json", "utf8")); } catch (e) {}
+        if (!Array.isArray(tm) || !tm.length || tm.some((x, k) => typeof x.t !== "number" || !Number.isInteger(x.w) || x.w < 0 || x.w >= nw || (k && (x.t < tm[k - 1].t || x.w <= tm[k - 1].w)))) badA.push(`${key}/${i + 1}.json`); });
+      for (const id of ad || []) { const r = findA(id); if (!r) { badA.push(id + ": no adult reading"); continue; }
+        files("ar/" + id, r.body.ar); files("en/" + id, r.body.en);
+        if (fem(r) !== (af || []).includes(id)) badA.push(id + (fem(r) ? ": a woman's wording without its recording" : ": listed in NARRATED_F without a woman's wording"));
+        if (fem(r)) files("ar/" + id + ".f", r.body.ar_f); }
+      ok(Array.isArray(ad) && Array.isArray(af) && af.every(id => ad.includes(id)) && !badA.length, `voice: every recorded adult reading has its paragraphs and timings in both languages, and in the woman's wording where it differs (${(ad || []).length}, ${(af || []).length} .f; ${badA.slice(0, 3).join(" ")})`); }
     ok(!errs.length, "voice: no script errors (" + errs.slice(0, 1).join("") + ")");
     await ctx.close();
     // and one real recording plays in the book, in each language, lighting its words
@@ -730,7 +744,22 @@ async function ideaFlows(browser, base, content, AV) {
       const btn = await has(p2, "#view .sbook .bk-listen"); if (btn) await p2.click("#view .bk-listen");
       let hl = -1; for (let i = 0; i < 40 && hl < 1; i++) { await p2.waitForTimeout(150); hl = await p2.evaluate(() => [...document.querySelectorAll("#view .sbook .bk-txt .w")].findIndex(w => w.classList.contains("hl"))); }
       ok(btn && hl >= 1 && !e2.length, `voice: the real recording plays in the book (${lang}) and its words light up in turn (word ${hl}) ${e2.slice(0, 1).join("")}`);
-      await c2.close(); } });
+      await c2.close(); }
+    // the adult edition: the reader and today's reading (#/today) show the listen button for a recorded reading, and a woman
+    // reading the Arabic gets it only where her own wording is recorded (ar/<id>.f)
+    { const { A: KA } = loadContent(), stOf = id => Object.keys(KA.stages).find(k => KA.stages[k].readings.some(r => r.id === id));
+      const all = Object.values(KA.stages).flatMap(st => st.readings), fr = all.find(r => r.body.ar_f && r.body.ar.some((p, i) => p !== r.body.ar_f[i]));
+      const look = async (list, st, hash) => { const c = await browser.newContext({ viewport: { width: 375, height: 812 } });
+        await c.addInitScript(([l, s]) => { window.TZ_STORY_AUDIO = l; try { if (!sessionStorage.getItem("tzSeed")) { localStorage.setItem("akhlaq-app-v1", JSON.stringify(s)); sessionStorage.setItem("tzSeed", "1"); } } catch (e) {} }, [list, st]);
+        const p = await c.newPage(); await p.goto(`${base}?intro=0${hash}`); await p.waitForTimeout(1000);
+        const b = await has(p, '#view [data-act="tts"]'); await c.close(); return b; };
+      const mix = { zombie: 20, pig: 20, monkey: 20, human: 20, sabiq: 20 };
+      const man = { v: 1, mix, edition: "adult", lang: "en", gender: "m" }, woman = { v: 1, mix, edition: "adult", lang: "ar", gender: "f" };
+      const everyEn = all.map(r => "en/" + r.id);
+      ok(await look(everyEn, man, `&lang=en#/read/${stOf(fr.id)}/${fr.id}`), "voice: the adult reader shows the listen button for a recorded reading");
+      ok(await look(everyEn, man, "&lang=en#/today"), "voice: today's reading (#/today) shows the listen button for a recorded reading");
+      ok(!(await look(["ar/" + fr.id], woman, `&lang=ar#/read/${stOf(fr.id)}/${fr.id}`)) && await look(["ar/" + fr.id + ".f"], woman, `&lang=ar#/read/${stOf(fr.id)}/${fr.id}`),
+        "voice: a woman reading the Arabic gets the button only where her own wording is recorded (" + fr.id + ".f)"); } });
   // direction 4 (owner's approval, 26 Nov 2026), merged into the tasks tab by the owner's decision of 27 Nov 2026: the adult home
   // is «المهام», whose «مهام اليوم» runs today's reading (opened on #/today with its question), the stage's task, one's own
   // items, the running challenges and the evening question. «مع أولادي» is the second half of «يدي» and holds the family pact
